@@ -70,6 +70,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'cpap': 'medical',
     'social-media': 'medical',
     'lung-disease': 'medical',
+    'silicosis': 'medical',
 
     // Finance & Tax
     'mortgage': 'finance',
@@ -247,6 +248,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'bmi': 'BMI',
     'calorie': 'Calorie',
     'lung-disease': 'Lung Disease',
+    'silicosis': 'Silicosis',
 };
 
 /**
