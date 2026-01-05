@@ -72,7 +72,7 @@ export const SEVERANCE_CONSTANTS_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "severance-calculator",
+        id: "severance/calculator",
         name: "Severance Pay Calculator",
         shortName: "Calculator",
         description: "Calculate your severance package",

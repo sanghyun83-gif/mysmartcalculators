@@ -47,8 +47,8 @@ export const BENZENE_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "benzene-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate benzene exposure settlement", icon: Calculator, keywords: ["benzene settlement calculator"], featured: true },
-    { id: "benzene-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding benzene claims", icon: FileText, keywords: ["benzene lawsuit guide"], featured: true },
+    { id: "benzene/calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate benzene exposure settlement", icon: Calculator, keywords: ["benzene settlement calculator"], featured: true },
+    { id: "benzene/guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding benzene claims", icon: FileText, keywords: ["benzene lawsuit guide"], featured: true },
 ] as const;
 
 export interface BenzeneResult { disease: string; exposureSource: string; duration: string; baseDamages: number; sourceBonus: number; durationBonus: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

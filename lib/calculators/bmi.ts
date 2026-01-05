@@ -53,7 +53,7 @@ export const BMI_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "bmi-calculator",
+        id: "bmi/calculator",
         name: "BMI Calculator",
         shortName: "Calculator",
         description: "Calculate your Body Mass Index",

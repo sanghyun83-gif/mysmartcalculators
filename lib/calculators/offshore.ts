@@ -49,8 +49,8 @@ export const MARITIME_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "offshore-calculator", name: "Offshore Settlement Calculator", shortName: "Calculator", description: "Calculate maritime injury settlement", longDescription: "Free maritime calculator with Jones Act and LHWCA factors.", icon: Calculator, category: "legal", keywords: ["offshore calculator", "jones act settlement"], featured: true },
-    { id: "offshore-guide", name: "Maritime Injury Guide", shortName: "Guide", description: "Understanding maritime law", longDescription: "Learn about Jones Act, LHWCA, and seaman rights.", icon: FileText, category: "legal", keywords: ["maritime injury guide", "jones act claims"], featured: true },
+    { id: "offshore/calculator", name: "Offshore Settlement Calculator", shortName: "Calculator", description: "Calculate maritime injury settlement", longDescription: "Free maritime calculator with Jones Act and LHWCA factors.", icon: Calculator, category: "legal", keywords: ["offshore calculator", "jones act settlement"], featured: true },
+    { id: "offshore/guide", name: "Maritime Injury Guide", shortName: "Guide", description: "Understanding maritime law", longDescription: "Learn about Jones Act, LHWCA, and seaman rights.", icon: FileText, category: "legal", keywords: ["maritime injury guide", "jones act claims"], featured: true },
 ] as const;
 
 export interface OffshoreResult { injuryType: string; workerType: string; baseDamages: number; workerBonus: number; medicalCosts: number; lostWages: number; totalLow: number; totalMid: number; totalHigh: number; }

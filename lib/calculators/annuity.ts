@@ -67,7 +67,7 @@ export const ANNUITY_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "annuity-calculator",
+        id: "annuity/calculator",
         name: "Annuity Calculator",
         shortName: "Calculator",
         description: "Estimate annuity payouts and growth",

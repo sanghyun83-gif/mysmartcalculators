@@ -41,8 +41,8 @@ export const REFINERY_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "refinery-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate refinery injury settlement", icon: Calculator, keywords: ["refinery injury calculator"], featured: true },
-    { id: "refinery-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding refinery claims", icon: FileText, keywords: ["refinery lawsuit guide"], featured: true },
+    { id: "refinery/calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate refinery injury settlement", icon: Calculator, keywords: ["refinery injury calculator"], featured: true },
+    { id: "refinery/guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding refinery claims", icon: FileText, keywords: ["refinery lawsuit guide"], featured: true },
 ] as const;
 
 export interface RefineryResult { accidentType: string; baseDamages: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

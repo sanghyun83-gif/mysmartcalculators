@@ -59,7 +59,7 @@ export const REFINANCE_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "refinance-calculator",
+        id: "refinance/calculator",
         name: "Refinance Calculator",
         shortName: "Calculator",
         description: "Calculate refinance savings",
@@ -70,7 +70,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "refinance-guide",
+        id: "refinance/guide",
         name: "Refinance Guide",
         shortName: "Guide",
         description: "When to refinance your mortgage",

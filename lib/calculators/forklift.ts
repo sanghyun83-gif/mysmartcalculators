@@ -41,8 +41,8 @@ export const FORKLIFT_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "forklift-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate forklift accident settlement", icon: Calculator, keywords: ["forklift injury calculator"], featured: true },
-    { id: "forklift-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding forklift injury claims", icon: FileText, keywords: ["forklift accident guide"], featured: true },
+    { id: "forklift/calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate forklift accident settlement", icon: Calculator, keywords: ["forklift injury calculator"], featured: true },
+    { id: "forklift/guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding forklift injury claims", icon: FileText, keywords: ["forklift accident guide"], featured: true },
 ] as const;
 
 export interface ForkliftResult { accidentType: string; oshaViolation: string; baseDamages: number; oshaBonus: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

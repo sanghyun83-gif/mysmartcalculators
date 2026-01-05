@@ -128,7 +128,7 @@ export const STATE_ALIMONY = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "alimony-calculator",
+        id: "alimony/calculator",
         name: "Alimony Calculator",
         shortName: "Calculator",
         description: "Calculate your monthly alimony payment or entitlement",

@@ -59,7 +59,7 @@ export const DTI_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "dti-calculator",
+        id: "dti/calculator",
         name: "DTI Calculator",
         shortName: "Calculator",
         description: "Calculate your debt-to-income ratio",
@@ -70,7 +70,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "dti-guide",
+        id: "dti/guide",
         name: "DTI Guide",
         shortName: "Guide",
         description: "Understanding DTI ratios",

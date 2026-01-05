@@ -78,7 +78,7 @@ export const RMD_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "rmd-calculator",
+        id: "rmd/calculator",
         name: "RMD Calculator",
         shortName: "Calculator",
         description: "Calculate your Required Minimum Distribution",

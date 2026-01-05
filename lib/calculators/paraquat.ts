@@ -44,8 +44,8 @@ export const PARAQUAT_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "paraquat-calculator", name: "Paraquat Settlement Calculator", shortName: "Calculator", description: "Calculate Paraquat lawsuit settlement", longDescription: "Free Paraquat calculator with Parkinson's stages and exposure types.", icon: Calculator, category: "legal", keywords: ["paraquat calculator", "paraquat lawsuit settlement"], featured: true },
-    { id: "paraquat-guide", name: "Paraquat Lawsuit Guide", shortName: "Guide", description: "Understanding herbicide lawsuits", longDescription: "Learn about Paraquat exposure, Parkinson's link, and claim eligibility.", icon: FileText, category: "legal", keywords: ["paraquat lawsuit guide", "parkinson's paraquat"], featured: true },
+    { id: "paraquat/calculator", name: "Paraquat Settlement Calculator", shortName: "Calculator", description: "Calculate Paraquat lawsuit settlement", longDescription: "Free Paraquat calculator with Parkinson's stages and exposure types.", icon: Calculator, category: "legal", keywords: ["paraquat calculator", "paraquat lawsuit settlement"], featured: true },
+    { id: "paraquat/guide", name: "Paraquat Lawsuit Guide", shortName: "Guide", description: "Understanding herbicide lawsuits", longDescription: "Learn about Paraquat exposure, Parkinson's link, and claim eligibility.", icon: FileText, category: "legal", keywords: ["paraquat lawsuit guide", "parkinson's paraquat"], featured: true },
 ] as const;
 
 export interface ParaquatResult { diseaseStage: string; exposureType: string; baseDamages: number; exposureBonus: number; medicalCosts: number; lostWages: number; totalLow: number; totalMid: number; totalHigh: number; }

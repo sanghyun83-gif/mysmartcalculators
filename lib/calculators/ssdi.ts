@@ -83,7 +83,7 @@ export const BACK_PAY_TYPES = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "ssdi-calculator",
+        id: "ssdi/calculator",
         name: "SSDI Back Pay Calculator",
         shortName: "Calculator",
         description: "Calculate your SSDI back pay amount",

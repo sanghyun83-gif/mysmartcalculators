@@ -50,7 +50,7 @@ export const TIP_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "tip-calculator",
+        id: "tip/calculator",
         name: "Tip Calculator",
         shortName: "Calculator",
         description: "Calculate tip and split bill",

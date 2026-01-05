@@ -49,8 +49,8 @@ export const FELA_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "fela-calculator", name: "FELA Settlement Calculator", shortName: "Calculator", description: "Calculate railroad injury settlement", longDescription: "Free FELA calculator for railroad workers with injury and job factors.", icon: Calculator, category: "legal", keywords: ["fela calculator", "railroad injury settlement"], featured: true },
-    { id: "fela-guide", name: "FELA Claim Guide", shortName: "Guide", description: "Understanding FELA claims", longDescription: "Learn about railroad worker rights, FELA law, and claims.", icon: FileText, category: "legal", keywords: ["fela lawsuit guide", "railroad worker claims"], featured: true },
+    { id: "fela/calculator", name: "FELA Settlement Calculator", shortName: "Calculator", description: "Calculate railroad injury settlement", longDescription: "Free FELA calculator for railroad workers with injury and job factors.", icon: Calculator, category: "legal", keywords: ["fela calculator", "railroad injury settlement"], featured: true },
+    { id: "fela/guide", name: "FELA Claim Guide", shortName: "Guide", description: "Understanding FELA claims", longDescription: "Learn about railroad worker rights, FELA law, and claims.", icon: FileText, category: "legal", keywords: ["fela lawsuit guide", "railroad worker claims"], featured: true },
 ] as const;
 
 export interface FelaResult { injuryType: string; jobType: string; company: string; baseDamages: number; jobBonus: number; medicalCosts: number; lostWages: number; totalLow: number; totalMid: number; totalHigh: number; }

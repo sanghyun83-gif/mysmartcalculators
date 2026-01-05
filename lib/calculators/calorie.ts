@@ -63,7 +63,7 @@ export const CALORIE_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "calorie-calculator",
+        id: "calorie/calculator",
         name: "Calorie Calculator",
         shortName: "Calculator",
         description: "Calculate daily calorie needs",

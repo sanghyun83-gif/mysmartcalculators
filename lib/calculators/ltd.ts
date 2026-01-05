@@ -64,7 +64,7 @@ export const LTD_CONSTANTS_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "ltd-calculator",
+        id: "ltd/calculator",
         name: "LTD Benefits Calculator",
         shortName: "Calculator",
         description: "Calculate your LTD insurance payout",

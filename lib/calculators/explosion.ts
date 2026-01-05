@@ -49,8 +49,8 @@ export const EXPLOSION_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "explosion-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate explosion injury settlement", icon: Calculator, keywords: ["explosion settlement calculator"], featured: true },
-    { id: "explosion-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding explosion claims", icon: FileText, keywords: ["explosion lawsuit guide"], featured: true },
+    { id: "explosion/calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate explosion injury settlement", icon: Calculator, keywords: ["explosion settlement calculator"], featured: true },
+    { id: "explosion/guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding explosion claims", icon: FileText, keywords: ["explosion lawsuit guide"], featured: true },
 ] as const;
 
 export interface ExplosionResult { explosionType: string; severity: string; baseDamages: number; severityBonus: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

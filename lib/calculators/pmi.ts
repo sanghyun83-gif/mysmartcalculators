@@ -51,7 +51,7 @@ export const PMI_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "pmi-calculator",
+        id: "pmi/calculator",
         name: "PMI Calculator",
         shortName: "Calculator",
         description: "Calculate monthly PMI cost",
@@ -62,7 +62,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "pmi-guide",
+        id: "pmi/guide",
         name: "PMI Guide",
         shortName: "Guide",
         description: "Understanding PMI & removal",

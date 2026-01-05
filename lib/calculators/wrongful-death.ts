@@ -120,7 +120,7 @@ export const DEATH_CASE_TYPES = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "wrongful-death-settlement",
+        id: "wrongful-death/settlement",
         name: "Death Settlement Calculator",
         shortName: "Settlement",
         description: "Calculate wrongful death settlement value",

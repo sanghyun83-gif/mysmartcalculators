@@ -66,8 +66,8 @@ export const CRANE_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "crane-calculator", name: "Crane Settlement Calculator", shortName: "Calculator", description: "Calculate crane accident settlement", icon: Calculator, keywords: ["crane injury calculator"], featured: true },
-    { id: "crane-guide", name: "Crane Lawsuit Guide", shortName: "Guide", description: "Understanding crane accident claims", icon: FileText, keywords: ["crane lawsuit guide"], featured: true },
+    { id: "crane/calculator", name: "Crane Settlement Calculator", shortName: "Calculator", description: "Calculate crane accident settlement", icon: Calculator, keywords: ["crane injury calculator"], featured: true },
+    { id: "crane/guide", name: "Crane Lawsuit Guide", shortName: "Guide", description: "Understanding crane accident claims", icon: FileText, keywords: ["crane lawsuit guide"], featured: true },
 ] as const;
 
 export interface CraneResult { accidentType: string; oshaViolation: string; severity: string; baseDamages: number; oshaBonus: number; severityBonus: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

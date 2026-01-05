@@ -41,8 +41,8 @@ export const PIPELINE_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "pipeline-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate pipeline injury settlement", icon: Calculator, keywords: ["pipeline injury calculator"], featured: true },
-    { id: "pipeline-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding pipeline claims", icon: FileText, keywords: ["pipeline lawsuit guide"], featured: true },
+    { id: "pipeline/calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate pipeline injury settlement", icon: Calculator, keywords: ["pipeline injury calculator"], featured: true },
+    { id: "pipeline/guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding pipeline claims", icon: FileText, keywords: ["pipeline lawsuit guide"], featured: true },
 ] as const;
 
 export interface PipelineResult { accidentType: string; baseDamages: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

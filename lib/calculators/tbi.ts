@@ -111,7 +111,7 @@ export const TBI_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "tbi-calculator",
+        id: "tbi/calculator",
         name: "TBI Settlement Calculator",
         shortName: "Calculator",
         description: "Calculate traumatic brain injury settlement",
@@ -122,7 +122,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "tbi-guide",
+        id: "tbi/guide",
         name: "TBI Guide",
         shortName: "Guide",
         description: "Understanding traumatic brain injuries",

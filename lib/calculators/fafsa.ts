@@ -76,7 +76,7 @@ export const FAFSA_CONSTANTS_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "fafsa-calculator",
+        id: "fafsa/calculator",
         name: "FAFSA/SAI Calculator",
         shortName: "Calculator",
         description: "Estimate your SAI and aid eligibility",

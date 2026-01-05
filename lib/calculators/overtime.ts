@@ -71,7 +71,7 @@ export const EXEMPTION_CATEGORIES = [
 // ============================================
 export const CALCULATORS = [
     {
-        id: "overtime-calculator",
+        id: "overtime/calculator",
         name: "Overtime Pay Calculator",
         shortName: "Calculator",
         description: "Calculate your overtime earnings",

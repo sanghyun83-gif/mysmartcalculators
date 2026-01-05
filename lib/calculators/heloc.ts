@@ -58,7 +58,7 @@ export const HELOC_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "heloc-calculator",
+        id: "heloc/calculator",
         name: "HELOC Calculator",
         shortName: "Calculator",
         description: "Calculate HELOC credit limit",
@@ -69,7 +69,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "heloc-guide",
+        id: "heloc/guide",
         name: "HELOC Guide",
         shortName: "Guide",
         description: "Understanding HELOCs",

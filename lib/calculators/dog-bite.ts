@@ -124,7 +124,7 @@ export const BITE_SEVERITY = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "dog-bite-settlement",
+        id: "dog-bite/settlement",
         name: "Dog Bite Settlement Calculator",
         shortName: "Settlement",
         description: "Calculate your dog bite injury settlement value",

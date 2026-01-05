@@ -45,8 +45,8 @@ export const ELECTROCUTION_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "electrocution-calculator", name: "Electrocution Settlement Calculator", shortName: "Calculator", description: "Calculate electrocution injury settlement", longDescription: "Free electrocution calculator with voltage levels and injury types.", icon: Calculator, category: "legal", keywords: ["electrocution calculator", "electric shock settlement"], featured: true },
-    { id: "electrocution-guide", name: "Electrical Injury Guide", shortName: "Guide", description: "Understanding electrocution claims", longDescription: "Learn about voltage levels, liability types, and OSHA regulations.", icon: FileText, category: "legal", keywords: ["electrocution guide", "electrical injury liability"], featured: true },
+    { id: "electrocution/calculator", name: "Electrocution Settlement Calculator", shortName: "Calculator", description: "Calculate electrocution injury settlement", longDescription: "Free electrocution calculator with voltage levels and injury types.", icon: Calculator, category: "legal", keywords: ["electrocution calculator", "electric shock settlement"], featured: true },
+    { id: "electrocution/guide", name: "Electrical Injury Guide", shortName: "Guide", description: "Understanding electrocution claims", longDescription: "Learn about voltage levels, liability types, and OSHA regulations.", icon: FileText, category: "legal", keywords: ["electrocution guide", "electrical injury liability"], featured: true },
 ] as const;
 
 export interface ElectrocutionResult { voltageLevel: string; injuryType: string; baseDamages: number; voltageMultiplier: number; medicalCosts: number; painSuffering: number; totalLow: number; totalMid: number; totalHigh: number; }

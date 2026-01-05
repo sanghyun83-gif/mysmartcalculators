@@ -47,8 +47,8 @@ export const OIL_RIG_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "oil-rig-calculator", name: "Oil Rig Settlement Calculator", shortName: "Calculator", description: "Calculate oil rig injury settlement", longDescription: "Free oil rig calculator with Jones Act and OCSLA factors.", icon: Calculator, category: "legal", keywords: ["oil rig calculator", "offshore injury settlement"], featured: true },
-    { id: "oil-rig-guide", name: "Oil Rig Injury Guide", shortName: "Guide", description: "Understanding offshore lawsuits", longDescription: "Learn about Jones Act, OCSLA, and offshore injury claims.", icon: FileText, category: "legal", keywords: ["oil rig lawsuit guide", "jones act claims"], featured: true },
+    { id: "oil-rig/calculator", name: "Oil Rig Settlement Calculator", shortName: "Calculator", description: "Calculate oil rig injury settlement", longDescription: "Free oil rig calculator with Jones Act and OCSLA factors.", icon: Calculator, category: "legal", keywords: ["oil rig calculator", "offshore injury settlement"], featured: true },
+    { id: "oil-rig/guide", name: "Oil Rig Injury Guide", shortName: "Guide", description: "Understanding offshore lawsuits", longDescription: "Learn about Jones Act, OCSLA, and offshore injury claims.", icon: FileText, category: "legal", keywords: ["oil rig lawsuit guide", "jones act claims"], featured: true },
 ] as const;
 
 export interface OilRigResult { injuryType: string; liabilityType: string; baseDamages: number; liabilityBonus: number; medicalCosts: number; lostWages: number; totalLow: number; totalMid: number; totalHigh: number; }

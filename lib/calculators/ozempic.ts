@@ -45,8 +45,8 @@ export const OZEMPIC_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "ozempic-calculator", name: "Ozempic Settlement Calculator", shortName: "Calculator", description: "Calculate Ozempic lawsuit settlement", longDescription: "Free Ozempic calculator with side effect types and severity factors.", icon: Calculator, category: "legal", keywords: ["ozempic calculator", "ozempic lawsuit settlement"], featured: true },
-    { id: "ozempic-guide", name: "Ozempic Lawsuit Guide", shortName: "Guide", description: "Understanding GLP-1 drug lawsuits", longDescription: "Learn about Ozempic side effects, MDL status, and claim eligibility.", icon: FileText, category: "legal", keywords: ["ozempic lawsuit guide", "semaglutide lawsuit"], featured: true },
+    { id: "ozempic/calculator", name: "Ozempic Settlement Calculator", shortName: "Calculator", description: "Calculate Ozempic lawsuit settlement", longDescription: "Free Ozempic calculator with side effect types and severity factors.", icon: Calculator, category: "legal", keywords: ["ozempic calculator", "ozempic lawsuit settlement"], featured: true },
+    { id: "ozempic/guide", name: "Ozempic Lawsuit Guide", shortName: "Guide", description: "Understanding GLP-1 drug lawsuits", longDescription: "Learn about Ozempic side effects, MDL status, and claim eligibility.", icon: FileText, category: "legal", keywords: ["ozempic lawsuit guide", "semaglutide lawsuit"], featured: true },
 ] as const;
 
 export interface OzempicResult { sideEffect: string; baseDamages: number; medicalCosts: number; lostWages: number; painSuffering: number; totalLow: number; totalMid: number; totalHigh: number; }

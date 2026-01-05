@@ -41,8 +41,8 @@ export const SCAFFOLDING_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "scaffolding-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate scaffolding injury settlement", icon: Calculator, keywords: ["scaffolding injury calculator"], featured: true },
-    { id: "scaffolding-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding scaffolding claims", icon: FileText, keywords: ["scaffolding lawsuit guide"], featured: true },
+    { id: "scaffolding/calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate scaffolding injury settlement", icon: Calculator, keywords: ["scaffolding injury calculator"], featured: true },
+    { id: "scaffolding/guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding scaffolding claims", icon: FileText, keywords: ["scaffolding lawsuit guide"], featured: true },
 ] as const;
 
 export interface ScaffoldingResult { accidentType: string; baseDamages: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

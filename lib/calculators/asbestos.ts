@@ -55,8 +55,8 @@ export const ASBESTOS_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "asbestos-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate asbestos exposure settlement", icon: Calculator, keywords: ["asbestos settlement calculator"], featured: true },
-    { id: "asbestos-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding asbestos claims", icon: FileText, keywords: ["asbestos lawsuit guide"], featured: true },
+    { id: "asbestos/calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate asbestos exposure settlement", icon: Calculator, keywords: ["asbestos settlement calculator"], featured: true },
+    { id: "asbestos/guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding asbestos claims", icon: FileText, keywords: ["asbestos lawsuit guide"], featured: true },
     { id: "asbestos/diseases", name: "Disease Types", shortName: "Diseases", description: "Mesothelioma, lung cancer, asbestosis", icon: AlertTriangle, keywords: ["mesothelioma types"], featured: true },
     { id: "asbestos/exposure-sites", name: "Exposure Sites", shortName: "Exposure", description: "Shipyards, construction, mining", icon: Shield, keywords: ["asbestos exposure sites"], featured: true },
 ] as const;

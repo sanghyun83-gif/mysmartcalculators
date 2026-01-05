@@ -115,7 +115,7 @@ export const WHIPLASH_GRADES = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "whiplash-settlement",
+        id: "whiplash/settlement",
         name: "Whiplash Settlement Calculator",
         shortName: "Settlement",
         description: "Calculate your neck injury settlement value",

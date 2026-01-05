@@ -66,7 +66,7 @@ export const PENSION_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "pension-calculator",
+        id: "pension/calculator",
         name: "Pension Calculator",
         shortName: "Calculator",
         description: "Estimate your pension benefits",

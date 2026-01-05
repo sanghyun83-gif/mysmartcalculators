@@ -133,7 +133,7 @@ export const STATE_SR22 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "sr22-calculator",
+        id: "sr22/calculator",
         name: "SR-22 Insurance Calculator",
         shortName: "Calculator",
         description: "Calculate your SR-22 insurance cost",

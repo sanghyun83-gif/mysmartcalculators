@@ -41,8 +41,8 @@ export const WELDING_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "welding-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate welding injury settlement", icon: Calculator, keywords: ["welding injury calculator"], featured: true },
-    { id: "welding-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding welding claims", icon: FileText, keywords: ["welding lawsuit guide"], featured: true },
+    { id: "welding/calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate welding injury settlement", icon: Calculator, keywords: ["welding injury calculator"], featured: true },
+    { id: "welding/guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding welding claims", icon: FileText, keywords: ["welding lawsuit guide"], featured: true },
 ] as const;
 
 export interface WeldingResult { injuryType: string; baseDamages: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

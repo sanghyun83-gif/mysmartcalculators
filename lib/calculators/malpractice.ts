@@ -120,7 +120,7 @@ export const MALPRACTICE_TYPES = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "malpractice-settlement",
+        id: "malpractice/settlement",
         name: "Malpractice Calculator",
         shortName: "Malpractice",
         description: "Calculate your medical malpractice settlement value",
@@ -131,7 +131,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "malpractice-types",
+        id: "malpractice/types",
         name: "Malpractice Types Guide",
         shortName: "Types Guide",
         description: "Average settlements by malpractice type",

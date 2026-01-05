@@ -103,7 +103,7 @@ export const SCI_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "spinal-cord-calculator",
+        id: "spinal-cord/calculator",
         name: "SCI Settlement Calculator",
         shortName: "Calculator",
         description: "Calculate spinal cord injury settlement",

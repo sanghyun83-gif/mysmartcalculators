@@ -54,7 +54,7 @@ export const DOWN_PAYMENT_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "down-payment-calculator",
+        id: "down-payment/calculator",
         name: "Down Payment Calculator",
         shortName: "Calculator",
         description: "Calculate down payment and PMI",

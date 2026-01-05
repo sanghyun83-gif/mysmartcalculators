@@ -66,7 +66,7 @@ export const PLAN_529_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "529-calculator",
+        id: "529/calculator",
         name: "529 Calculator",
         shortName: "Calculator",
         description: "Calculate 529 plan growth for college",

@@ -123,7 +123,7 @@ export const BIRTH_INJURIES = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "birth-injury-settlement",
+        id: "birth-injury/settlement",
         name: "Birth Injury Settlement Calculator",
         shortName: "Settlement",
         description: "Calculate your birth injury malpractice settlement",

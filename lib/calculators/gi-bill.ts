@@ -70,7 +70,7 @@ export const GI_BILL_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "gi-bill-calculator",
+        id: "gi-bill/calculator",
         name: "GI Bill Calculator",
         shortName: "Calculator",
         description: "Estimate your VA education benefits",

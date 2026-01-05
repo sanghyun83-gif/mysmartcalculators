@@ -47,8 +47,8 @@ export const AVIATION_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "aviation-calculator", name: "Aviation Settlement Calculator", shortName: "Calculator", description: "Calculate plane crash settlement", longDescription: "Free aviation accident calculator with FAA/NTSB factors.", icon: Calculator, category: "legal", keywords: ["aviation calculator", "plane crash settlement"], featured: true },
-    { id: "aviation-guide", name: "Aviation Accident Guide", shortName: "Guide", description: "Understanding aviation claims", longDescription: "Learn about plane crash lawsuits, Montreal Convention, and claims.", icon: FileText, category: "legal", keywords: ["aviation lawsuit guide", "plane crash claims"], featured: true },
+    { id: "aviation/calculator", name: "Aviation Settlement Calculator", shortName: "Calculator", description: "Calculate plane crash settlement", longDescription: "Free aviation accident calculator with FAA/NTSB factors.", icon: Calculator, category: "legal", keywords: ["aviation calculator", "plane crash settlement"], featured: true },
+    { id: "aviation/guide", name: "Aviation Accident Guide", shortName: "Guide", description: "Understanding aviation claims", longDescription: "Learn about plane crash lawsuits, Montreal Convention, and claims.", icon: FileText, category: "legal", keywords: ["aviation lawsuit guide", "plane crash claims"], featured: true },
 ] as const;
 
 export interface AviationResult { accidentType: string; causeType: string; severity: string; baseDamages: number; causeBonus: number; severityFactor: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

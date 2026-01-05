@@ -104,7 +104,7 @@ export const BURN_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "burn-injury-calculator",
+        id: "burn-injury/calculator",
         name: "Burn Settlement Calculator",
         shortName: "Calculator",
         description: "Calculate burn injury settlement",

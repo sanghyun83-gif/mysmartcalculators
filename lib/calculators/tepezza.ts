@@ -44,8 +44,8 @@ export const TEPEZZA_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "tepezza-calculator", name: "Tepezza Settlement Calculator", shortName: "Calculator", description: "Calculate Tepezza hearing loss settlement", longDescription: "Free Tepezza lawsuit calculator with infusion and injury factors.", icon: Calculator, category: "legal", keywords: ["tepezza calculator", "hearing loss settlement"], featured: true },
-    { id: "tepezza-guide", name: "Tepezza Lawsuit Guide", shortName: "Guide", description: "Understanding Tepezza claims", longDescription: "Learn about Tepezza hearing damage, FDA warnings, and lawsuits.", icon: FileText, category: "legal", keywords: ["tepezza lawsuit guide", "teprotumumab claims"], featured: true },
+    { id: "tepezza/calculator", name: "Tepezza Settlement Calculator", shortName: "Calculator", description: "Calculate Tepezza hearing loss settlement", longDescription: "Free Tepezza lawsuit calculator with infusion and injury factors.", icon: Calculator, category: "legal", keywords: ["tepezza calculator", "hearing loss settlement"], featured: true },
+    { id: "tepezza/guide", name: "Tepezza Lawsuit Guide", shortName: "Guide", description: "Understanding Tepezza claims", longDescription: "Learn about Tepezza hearing damage, FDA warnings, and lawsuits.", icon: FileText, category: "legal", keywords: ["tepezza lawsuit guide", "teprotumumab claims"], featured: true },
 ] as const;
 
 export interface TepezzaResult { injuryType: string; infusionFactor: string; baseDamages: number; infusionBonus: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

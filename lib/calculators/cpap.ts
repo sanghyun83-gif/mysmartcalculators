@@ -47,8 +47,8 @@ export const CPAP_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "cpap-calculator", name: "CPAP Settlement Calculator", shortName: "Calculator", description: "Calculate CPAP recall settlement", longDescription: "Free Philips CPAP recall calculator with injury and usage factors.", icon: Calculator, category: "legal", keywords: ["cpap calculator", "philips recall settlement"], featured: true },
-    { id: "cpap-guide", name: "CPAP Recall Guide", shortName: "Guide", description: "Understanding CPAP lawsuits", longDescription: "Learn about Philips recall, foam degradation, and claims.", icon: FileText, category: "legal", keywords: ["cpap lawsuit guide", "philips recall claims"], featured: true },
+    { id: "cpap/calculator", name: "CPAP Settlement Calculator", shortName: "Calculator", description: "Calculate CPAP recall settlement", longDescription: "Free Philips CPAP recall calculator with injury and usage factors.", icon: Calculator, category: "legal", keywords: ["cpap calculator", "philips recall settlement"], featured: true },
+    { id: "cpap/guide", name: "CPAP Recall Guide", shortName: "Guide", description: "Understanding CPAP lawsuits", longDescription: "Learn about Philips recall, foam degradation, and claims.", icon: FileText, category: "legal", keywords: ["cpap lawsuit guide", "philips recall claims"], featured: true },
 ] as const;
 
 export interface CpapResult { injuryType: string; deviceType: string; usageFactor: string; baseDamages: number; usageBonus: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

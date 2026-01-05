@@ -57,7 +57,7 @@ export const CLOSING_COST_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "closing-cost-calculator",
+        id: "closing-cost/calculator",
         name: "Closing Cost Calculator",
         shortName: "Calculator",
         description: "Calculate buyer & seller closing costs",
@@ -68,7 +68,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "closing-cost-guide",
+        id: "closing-cost/guide",
         name: "Closing Cost Guide",
         shortName: "Guide",
         description: "Understanding closing costs",

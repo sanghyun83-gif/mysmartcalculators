@@ -46,8 +46,8 @@ export const HAIR_RELAXER_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "hair-relaxer-calculator", name: "Hair Relaxer Settlement Calculator", shortName: "Calculator", description: "Calculate hair relaxer lawsuit settlement", longDescription: "Free hair relaxer calculator with cancer types and usage frequency.", icon: Calculator, category: "legal", keywords: ["hair relaxer calculator", "chemical straightener lawsuit"], featured: true },
-    { id: "hair-relaxer-guide", name: "Hair Relaxer Lawsuit Guide", shortName: "Guide", description: "Understanding chemical hair lawsuits", longDescription: "Learn about hair relaxer cancer link, brands involved, and claim eligibility.", icon: FileText, category: "legal", keywords: ["hair relaxer lawsuit guide", "uterine cancer lawsuit"], featured: true },
+    { id: "hair-relaxer/calculator", name: "Hair Relaxer Settlement Calculator", shortName: "Calculator", description: "Calculate hair relaxer lawsuit settlement", longDescription: "Free hair relaxer calculator with cancer types and usage frequency.", icon: Calculator, category: "legal", keywords: ["hair relaxer calculator", "chemical straightener lawsuit"], featured: true },
+    { id: "hair-relaxer/guide", name: "Hair Relaxer Lawsuit Guide", shortName: "Guide", description: "Understanding chemical hair lawsuits", longDescription: "Learn about hair relaxer cancer link, brands involved, and claim eligibility.", icon: FileText, category: "legal", keywords: ["hair relaxer lawsuit guide", "uterine cancer lawsuit"], featured: true },
 ] as const;
 
 export interface HairRelaxerResult { cancerType: string; usageFrequency: string; baseDamages: number; usageBonus: number; medicalCosts: number; painSuffering: number; totalLow: number; totalMid: number; totalHigh: number; }

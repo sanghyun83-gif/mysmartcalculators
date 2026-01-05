@@ -66,8 +66,8 @@ export const PARAGARD_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "paragard-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate Paragard settlement", longDescription: "Free Paragard IUD fracture calculator.", icon: Calculator, category: "legal", keywords: ["paragard calculator"], featured: true },
-    { id: "paragard-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding Paragard claims", longDescription: "Learn about Paragard lawsuits and MDL.", icon: FileText, category: "legal", keywords: ["paragard guide"], featured: true },
+    { id: "paragard/calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate Paragard settlement", longDescription: "Free Paragard IUD fracture calculator.", icon: Calculator, category: "legal", keywords: ["paragard calculator"], featured: true },
+    { id: "paragard/guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding Paragard claims", longDescription: "Learn about Paragard lawsuits and MDL.", icon: FileText, category: "legal", keywords: ["paragard guide"], featured: true },
     { id: "paragard/trial-status", name: "2026 Trial Status", shortName: "Trial", description: "January 2026 Bellwether Trial", longDescription: "Track the first Paragard bellwether trial.", icon: Scale, category: "legal", keywords: ["paragard trial 2026"], featured: true },
     { id: "paragard/eligibility", name: "Eligibility Check", shortName: "Qualify", description: "Do you qualify for a lawsuit?", longDescription: "Check if you qualify for Paragard lawsuit.", icon: CheckCircle, category: "legal", keywords: ["paragard lawsuit eligibility"], featured: true },
 ] as const;

@@ -86,7 +86,7 @@ export const STATES = [
 // ============================================
 export const CALCULATORS = [
     {
-        id: "unemployment-calculator",
+        id: "unemployment/calculator",
         name: "UI Benefits Calculator",
         shortName: "Calculator",
         description: "Calculate your weekly unemployment benefits",
