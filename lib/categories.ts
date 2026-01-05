@@ -71,6 +71,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'social-media': 'medical',
     'lung-disease': 'medical',
     'silicosis': 'medical',
+    'black-lung': 'medical',
 
     // Finance & Tax
     'mortgage': 'finance',
@@ -249,6 +250,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'calorie': 'Calorie',
     'lung-disease': 'Lung Disease',
     'silicosis': 'Silicosis',
+    'black-lung': 'Black Lung',
 };
 
 /**
