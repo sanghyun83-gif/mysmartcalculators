@@ -37,6 +37,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'chemical-burn': 'legal',
     'benzene': 'legal',
     'electrocution': 'legal',
+    'toxic-tort': 'legal',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -251,6 +252,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'lung-disease': 'Lung Disease',
     'silicosis': 'Silicosis',
     'black-lung': 'Black Lung',
+    'toxic-tort': 'Toxic Tort',
 };
 
 /**
