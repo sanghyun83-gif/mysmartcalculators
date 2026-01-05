@@ -49,8 +49,8 @@ export const GLP1_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "glp1-calculator", name: "GLP-1 Settlement Calculator", shortName: "Calculator", description: "Calculate NAION vision loss settlement", longDescription: "Free GLP-1 lawsuit calculator with medication and vision factors.", icon: Calculator, category: "legal", keywords: ["ozempic calculator", "wegovy vision loss"], featured: true },
-    { id: "glp1-guide", name: "GLP-1 Lawsuit Guide", shortName: "Guide", description: "Understanding NAION claims", longDescription: "Learn about GLP-1 vision damage, JAMA study, and lawsuits.", icon: FileText, category: "legal", keywords: ["ozempic lawsuit guide", "naion claims"], featured: true },
+    { id: "glp1-vision/glp1-calculator", name: "GLP-1 Settlement Calculator", shortName: "Calculator", description: "Calculate NAION vision loss settlement", longDescription: "Free GLP-1 lawsuit calculator with medication and vision factors.", icon: Calculator, category: "legal", keywords: ["ozempic calculator", "wegovy vision loss"], featured: true },
+    { id: "glp1-vision/glp1-guide", name: "GLP-1 Lawsuit Guide", shortName: "Guide", description: "Understanding NAION claims", longDescription: "Learn about GLP-1 vision damage, JAMA study, and lawsuits.", icon: FileText, category: "legal", keywords: ["ozempic lawsuit guide", "naion claims"], featured: true },
 ] as const;
 
 export interface GLP1Result { visionType: string; medication: string; usageDuration: string; baseDamages: number; medicationBonus: number; usageBonus: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

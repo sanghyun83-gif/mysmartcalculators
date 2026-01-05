@@ -177,7 +177,7 @@ export const FALL_LOCATIONS = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "slip-fall-settlement",
+        id: "slip-and-fall/slip-fall-settlement",
         name: "Slip and Fall Settlement Calculator",
         shortName: "Settlement",
         description: "Calculate your premises liability settlement value",
@@ -188,7 +188,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "injury-types",
+        id: "slip-and-fall/injury-types",
         name: "Fall Injury Value Guide",
         shortName: "Injury Guide",
         description: "Average settlements by slip and fall injury type",
@@ -199,7 +199,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "insurance-claim",
+        id: "slip-and-fall/insurance-claim",
         name: "Insurance Claim Calculator",
         shortName: "Insurance Claim",
         description: "Estimate your premises liability insurance payout",

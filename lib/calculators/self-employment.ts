@@ -59,7 +59,7 @@ export const SE_TAX_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "se-tax-calculator",
+        id: "self-employment/se-tax-calculator",
         name: "SE Tax Calculator",
         shortName: "Calculator",
         description: "Calculate self-employment tax",
@@ -70,7 +70,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "deductions-guide",
+        id: "self-employment/deductions-guide",
         name: "Deductions Guide",
         shortName: "Guide",
         description: "SE tax deductions and write-offs",

@@ -43,7 +43,7 @@ export default function HomePage() {
           </p>
 
           <Link
-            href="/calculator"
+            href="/auto-insurance/calculator"
             className="inline-flex items-center gap-2 bg-white hover:bg-slate-100 text-blue-700 px-6 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg"
           >
             <Car className="w-5 h-5" />
@@ -179,7 +179,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center mt-6">
-            <Link href="/by-state" className="text-blue-600 font-semibold hover:underline">
+            <Link href="/auto-insurance/by-state" className="text-blue-600 font-semibold hover:underline">
               See All 50 States →
             </Link>
           </div>
@@ -196,7 +196,7 @@ export default function HomePage() {
             Get your personalized estimate in under 2 minutes.
           </p>
           <Link
-            href="/calculator"
+            href="/auto-insurance/calculator"
             className="inline-flex items-center gap-2 bg-white hover:bg-slate-100 text-blue-700 px-6 py-4 rounded-xl font-bold transition-colors"
           >
             <Car className="w-5 h-5" />

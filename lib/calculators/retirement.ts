@@ -77,7 +77,7 @@ export const RETIREMENT_CONSTANTS = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "calculator",
+        id: "retirement/calculator",
         name: "Retirement Savings Calculator",
         shortName: "Retirement",
         description: "How much will I have when I retire?",
@@ -88,7 +88,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "401k",
+        id: "retirement/401k",
         name: "401(k) Calculator",
         shortName: "401(k)",
         description: "Maximize your 401(k) growth with employer match",
@@ -99,7 +99,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "social-security",
+        id: "retirement/social-security",
         name: "Social Security Estimator",
         shortName: "Social Security",
         description: "Estimate your Social Security benefits",
@@ -110,7 +110,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "savings-goal",
+        id: "retirement/savings-goal",
         name: "Savings Goal Calculator",
         shortName: "Savings Goal",
         description: "How much should I save each month?",

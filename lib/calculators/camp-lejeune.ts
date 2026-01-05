@@ -58,8 +58,8 @@ export const LEJEUNE_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "lejeune-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate Camp Lejeune settlement", longDescription: "Free Camp Lejeune water contamination calculator.", icon: Calculator, category: "legal", keywords: ["camp lejeune calculator", "water contamination settlement"], featured: true },
-    { id: "lejeune-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding Camp Lejeune claims", longDescription: "Learn about PACT Act, eligibility, and claims.", icon: FileText, category: "legal", keywords: ["camp lejeune lawsuit guide", "pact act claims"], featured: true },
+    { id: "camp-lejeune/lejeune-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate Camp Lejeune settlement", longDescription: "Free Camp Lejeune water contamination calculator.", icon: Calculator, category: "legal", keywords: ["camp lejeune calculator", "water contamination settlement"], featured: true },
+    { id: "camp-lejeune/lejeune-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding Camp Lejeune claims", longDescription: "Learn about PACT Act, eligibility, and claims.", icon: FileText, category: "legal", keywords: ["camp lejeune lawsuit guide", "pact act claims"], featured: true },
 ] as const;
 
 export interface LejeuneResult { condition: string; exposurePeriod: string; claimantType: string; baseDamages: number; exposureBonus: number; claimantBonus: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

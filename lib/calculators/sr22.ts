@@ -144,7 +144,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "state-requirements",
+        id: "sr22/state-requirements",
         name: "SR-22 Requirements by State",
         shortName: "State Requirements",
         description: "View SR-22 requirements and costs by state",

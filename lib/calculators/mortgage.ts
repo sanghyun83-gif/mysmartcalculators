@@ -57,7 +57,7 @@ export const MORTGAGE_CONSTANTS = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "calculator",
+        id: "mortgage/calculator",
         name: "Mortgage Calculator",
         shortName: "Mortgage",
         description: "Calculate your monthly mortgage payment",
@@ -68,7 +68,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "affordability",
+        id: "mortgage/affordability",
         name: "Home Affordability",
         shortName: "Affordability",
         description: "How much home can you afford?",
@@ -79,7 +79,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "amortization",
+        id: "mortgage/amortization",
         name: "Amortization Schedule",
         shortName: "Amortization",
         description: "See your payment schedule year by year",
@@ -90,7 +90,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "refinance",
+        id: "mortgage/refinance",
         name: "Refinance Calculator",
         shortName: "Refinance",
         description: "Should you refinance your mortgage?",
@@ -101,7 +101,7 @@ export const CALCULATORS = [
         featured: false,
     },
     {
-        id: "extra-payments",
+        id: "mortgage/extra-payments",
         name: "Extra Payment Calculator",
         shortName: "Extra Payments",
         description: "How much can you save with extra payments?",
@@ -112,7 +112,7 @@ export const CALCULATORS = [
         featured: false,
     },
     {
-        id: "rent-vs-buy",
+        id: "mortgage/rent-vs-buy",
         name: "Rent vs Buy",
         shortName: "Rent vs Buy",
         description: "Should you rent or buy a home?",

@@ -130,7 +130,7 @@ export const MOTORCYCLE_INJURIES = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "motorcycle-settlement",
+        id: "motorcycle-accident/motorcycle-settlement",
         name: "Motorcycle Settlement Calculator",
         shortName: "Settlement",
         description: "Calculate your motorcycle crash settlement value",
@@ -141,7 +141,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "injury-types",
+        id: "motorcycle-accident/injury-types",
         name: "Motorcycle Injury Value Guide",
         shortName: "Injury Guide",
         description: "Average settlements by motorcycle injury type",
@@ -152,7 +152,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "bike-damage",
+        id: "motorcycle-accident/bike-damage",
         name: "Motorcycle Damage Calculator",
         shortName: "Bike Damage",
         description: "Calculate your motorcycle property damage claim",
@@ -163,7 +163,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "insurance-claim",
+        id: "motorcycle-accident/insurance-claim",
         name: "Insurance Claim Calculator",
         shortName: "Insurance Claim",
         description: "See how much insurance will pay",

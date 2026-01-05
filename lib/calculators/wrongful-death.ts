@@ -131,7 +131,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "death-case-types",
+        id: "wrongful-death/death-case-types",
         name: "Case Types Guide",
         shortName: "Case Types",
         description: "Average settlements by cause of death",

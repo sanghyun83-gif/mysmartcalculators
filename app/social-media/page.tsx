@@ -20,7 +20,7 @@ export default function HomePage() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Social Media Addiction<span className="text-amber-400"> Calculator</span></h1>
           <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">Calculate your social media addiction lawsuit settlement. Meta, TikTok, Snapchat, and YouTube youth mental health claims. {SOCIAL_2026.statistics.mdlNumber} consolidated in {SOCIAL_2026.statistics.mdlCourt}.</p>
-          <Link href="/social-calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105">Calculate Settlement<ArrowRight className="w-5 h-5" /></Link>
+          <Link href="/social-media/social-calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105">Calculate Settlement<ArrowRight className="w-5 h-5" /></Link>
           <div className="mt-8 bg-amber-900/30 border border-amber-700/50 rounded-lg p-4 max-w-xl mx-auto">
             <div className="flex items-center gap-2 text-amber-300 text-sm"><AlertTriangle className="w-4 h-4" /><span>{(SOCIAL_2026.statistics.affectedYouth / 1000000).toFixed(0)}M+ youth affected by social media addiction</span></div>
           </div>
@@ -71,7 +71,7 @@ export default function HomePage() {
       <section className="max-w-4xl mx-auto px-4 py-16 text-center">
         <h2 className="text-2xl font-bold text-white mb-4">Calculate Your Settlement</h2>
         <p className="text-slate-400 mb-8">If your child suffered mental health issues from social media addiction, you may be entitled to significant compensation from Meta, TikTok, Snap, or other platforms.</p>
-        <Link href="/social-calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold">Calculate Now<ArrowRight className="w-5 h-5" /></Link>
+        <Link href="/social-media/social-calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold">Calculate Now<ArrowRight className="w-5 h-5" /></Link>
       </section>
 
       <footer className="bg-slate-800 border-t border-slate-700">

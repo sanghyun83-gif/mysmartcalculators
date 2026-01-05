@@ -244,7 +244,7 @@ export function calculateDUICost(
 // ============================================
 export const CALCULATORS = [
     {
-        id: "dui-cost",
+        id: "DUI/dui-cost",
         name: "DUI Cost Calculator",
         shortName: "DUI Cost",
         description: "Calculate the total cost of a DUI in your state",
@@ -255,7 +255,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "dui-insurance",
+        id: "DUI/dui-insurance",
         name: "DUI Insurance Calculator",
         shortName: "Insurance",
         description: "See how a DUI affects your car insurance rates",
@@ -266,7 +266,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "dui-comparison",
+        id: "DUI/dui-comparison",
         name: "DUI Laws by State",
         shortName: "Compare States",
         description: "Compare DUI fines, penalties & insurance by state",

@@ -88,7 +88,7 @@ export const RENTERS_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "renters-calculator",
+        id: "renters-insurance/renters-calculator",
         name: "Renters Insurance Calculator",
         shortName: "Calculator",
         description: "Calculate your coverage needs and premium",
@@ -99,7 +99,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "coverage-guide",
+        id: "renters-insurance/coverage-guide",
         name: "Coverage Guide",
         shortName: "Guide",
         description: "Learn what renters insurance covers",

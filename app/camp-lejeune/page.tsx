@@ -20,7 +20,7 @@ export default function HomePage() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Camp Lejeune Water<span className="text-amber-400"> Calculator</span></h1>
           <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">Calculate your Camp Lejeune toxic water contamination settlement. Veterans, families, and civilian employees exposed from {LEJEUNE_2026.statistics.contaminationPeriod}. Free {SITE.year} calculator under the PACT Act.</p>
-          <Link href="/lejeune-calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105">Calculate Settlement<ArrowRight className="w-5 h-5" /></Link>
+          <Link href="/camp-lejeune/lejeune-calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105">Calculate Settlement<ArrowRight className="w-5 h-5" /></Link>
           <div className="mt-8 bg-amber-900/30 border border-amber-700/50 rounded-lg p-4 max-w-xl mx-auto">
             <div className="flex items-center gap-2 text-amber-300 text-sm"><AlertTriangle className="w-4 h-4" /><span>{(LEJEUNE_2026.statistics.exposedPeople / 1000000).toFixed(0)}M+ people exposed to contaminated water</span></div>
           </div>
@@ -64,7 +64,7 @@ export default function HomePage() {
       <section className="max-w-4xl mx-auto px-4 py-16 text-center">
         <h2 className="text-2xl font-bold text-white mb-4">Calculate Your Settlement</h2>
         <p className="text-slate-400 mb-8">If you or a family member lived or worked at Camp Lejeune from 1953-1987, you may be entitled to significant compensation under the PACT Act.</p>
-        <Link href="/lejeune-calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold">Calculate Now<ArrowRight className="w-5 h-5" /></Link>
+        <Link href="/camp-lejeune/lejeune-calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold">Calculate Now<ArrowRight className="w-5 h-5" /></Link>
       </section>
 
       <footer className="bg-slate-800 border-t border-slate-700">

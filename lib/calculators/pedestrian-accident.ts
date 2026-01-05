@@ -39,8 +39,8 @@ export const PEDESTRIAN_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "pedestrian-calculator", name: "Pedestrian Settlement Calculator", shortName: "Calculator", description: "Calculate pedestrian accident settlement", longDescription: "Free pedestrian injury calculator with fault scenarios.", icon: Calculator, category: "legal", keywords: ["pedestrian accident calculator", "crosswalk injury settlement"], featured: true },
-    { id: "pedestrian-guide", name: "Pedestrian Safety Guide", shortName: "Guide", description: "Understanding pedestrian accidents", longDescription: "Learn about pedestrian rights, crosswalk laws, and claims.", icon: FileText, category: "legal", keywords: ["pedestrian safety guide", "crosswalk laws"], featured: true },
+    { id: "pedestrian-accident/pedestrian-calculator", name: "Pedestrian Settlement Calculator", shortName: "Calculator", description: "Calculate pedestrian accident settlement", longDescription: "Free pedestrian injury calculator with fault scenarios.", icon: Calculator, category: "legal", keywords: ["pedestrian accident calculator", "crosswalk injury settlement"], featured: true },
+    { id: "pedestrian-accident/pedestrian-guide", name: "Pedestrian Safety Guide", shortName: "Guide", description: "Understanding pedestrian accidents", longDescription: "Learn about pedestrian rights, crosswalk laws, and claims.", icon: FileText, category: "legal", keywords: ["pedestrian safety guide", "crosswalk laws"], featured: true },
 ] as const;
 
 export interface PedestrianResult { injuryType: string; faultScenario: string; baseTreatmentCost: number; futureMedical: number; lostWages: number; painSuffering: number; totalLow: number; totalMid: number; totalHigh: number; }

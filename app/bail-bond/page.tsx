@@ -41,7 +41,7 @@ export default function Home() {
           </p>
 
           <Link
-            href="/bail-calculator"
+            href="/bail-bond/bail-calculator"
             className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105"
           >
             Calculate Bail Cost
@@ -152,7 +152,7 @@ export default function Home() {
 
           <div className="text-center mt-8">
             <Link
-              href="/bail-calculator"
+              href="/bail-bond/bail-calculator"
               className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300"
             >
               Calculate Your Bail Premium <ArrowRight className="w-4 h-4" />
@@ -209,7 +209,7 @@ export default function Home() {
           Calculate your bail premium and total out-of-pocket cost in seconds.
         </p>
         <Link
-          href="/bail-calculator"
+          href="/bail-bond/bail-calculator"
           className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
         >
           Start Free Calculator

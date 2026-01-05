@@ -130,7 +130,7 @@ export const INJURY_TYPES = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "injury-settlement",
+        id: "mesothelioma/injury-settlement",
         name: "Settlement Calculator",
         shortName: "Settlement",
         description: "Calculate your total mesothelioma compensation",
@@ -141,7 +141,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "injury-types",
+        id: "mesothelioma/injury-types",
         name: "Compensation Guide",
         shortName: "Comp Guide",
         description: "Compensation by mesothelioma type",

@@ -40,7 +40,7 @@ export default function Home() {
           </p>
 
           <Link
-            href="/garnishment-calculator"
+            href="/wage-garnishment/garnishment-calculator"
             className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105"
           >
             Calculate Your Limit
@@ -203,7 +203,7 @@ export default function Home() {
           Calculate how much of your paycheck is protected under federal law.
         </p>
         <Link
-          href="/garnishment-calculator"
+          href="/wage-garnishment/garnishment-calculator"
           className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
         >
           Start Free Calculator

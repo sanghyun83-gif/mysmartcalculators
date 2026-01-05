@@ -144,7 +144,7 @@ export default function Home() {
 
           <div className="text-center mt-8">
             <Link
-              href="/injury-types"
+              href="/birth-injury/injury-types"
               className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300"
             >
               View All Birth Injury Types <ArrowRight className="w-4 h-4" />

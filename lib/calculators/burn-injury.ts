@@ -115,7 +115,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "burn-guide",
+        id: "burn-injury/burn-guide",
         name: "Burn Injury Guide",
         shortName: "Guide",
         description: "Understanding burn injuries",

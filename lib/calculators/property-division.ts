@@ -120,7 +120,7 @@ export const COMMUNITY_PROPERTY_STATES = [
 // ============================================
 export const CALCULATORS = [
     {
-        id: "division-calculator",
+        id: "property-division/division-calculator",
         name: "Property Division Calculator",
         shortName: "Calculator",
         description: "Calculate your asset split",
@@ -131,7 +131,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "state-guide",
+        id: "property-division/state-guide",
         name: "State Division Laws",
         shortName: "State Laws",
         description: "Community property vs equitable distribution",

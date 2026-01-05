@@ -49,7 +49,7 @@ export default function Home() {
           </p>
 
           <Link
-            href="/injury-settlement"
+            href="/mesothelioma/injury-settlement"
             className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105"
           >
             Calculate Your Settlement
@@ -206,7 +206,7 @@ export default function Home() {
           Calculate compensation from all 4 sources in under 2 minutes. No email required.
         </p>
         <Link
-          href="/injury-settlement"
+          href="/mesothelioma/injury-settlement"
           className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
         >
           Start Free Calculator

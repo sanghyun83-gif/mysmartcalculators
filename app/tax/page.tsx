@@ -42,7 +42,7 @@ export default function HomePage() {
           </p>
 
           <Link
-            href="/calculator"
+            href="/tax/calculator"
             className="inline-flex items-center gap-2 bg-white hover:bg-slate-100 text-emerald-700 px-6 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg"
           >
             <DollarSign className="w-5 h-5" />
@@ -160,7 +160,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center mt-6">
-            <Link href="/brackets" className="text-emerald-600 font-semibold hover:underline">
+            <Link href="/tax/brackets" className="text-emerald-600 font-semibold hover:underline">
               View All Filing Statuses →
             </Link>
           </div>
@@ -177,7 +177,7 @@ export default function HomePage() {
             Know your tax liability before you file. Get your estimate in 2 minutes.
           </p>
           <Link
-            href="/calculator"
+            href="/tax/calculator"
             className="inline-flex items-center gap-2 bg-white hover:bg-slate-100 text-emerald-700 px-6 py-4 rounded-xl font-bold transition-colors"
           >
             <DollarSign className="w-5 h-5" />

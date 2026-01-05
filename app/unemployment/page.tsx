@@ -173,7 +173,7 @@ export default function HomePage() {
         </div>
 
         <div className="mt-6 text-center">
-          <Link href="/eligibility-guide" className="text-emerald-400 hover:text-emerald-300 text-sm">
+          <Link href="/unemployment/eligibility-guide" className="text-emerald-400 hover:text-emerald-300 text-sm">
             Learn more about eligibility →
           </Link>
         </div>

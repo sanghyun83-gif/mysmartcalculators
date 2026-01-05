@@ -38,7 +38,7 @@ export default function HomePage() {
           </p>
 
           <Link
-            href="/health-calculator"
+            href="/health-insurance/health-calculator"
             className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105"
           >
             Calculate Your Premium
@@ -182,7 +182,7 @@ export default function HomePage() {
           Check if you qualify for ACA subsidies.
         </p>
         <Link
-          href="/health-calculator"
+          href="/health-insurance/health-calculator"
           className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
         >
           Start Free Calculator

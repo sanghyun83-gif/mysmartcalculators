@@ -75,7 +75,7 @@ export const UMBRELLA_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "umbrella-calculator",
+        id: "umbrella-insurance/umbrella-calculator",
         name: "Umbrella Insurance Calculator",
         shortName: "Calculator",
         description: "Calculate umbrella coverage needs and cost",
@@ -86,7 +86,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "coverage-guide",
+        id: "umbrella-insurance/coverage-guide",
         name: "Coverage Guide",
         shortName: "Guide",
         description: "Learn about umbrella insurance coverage",

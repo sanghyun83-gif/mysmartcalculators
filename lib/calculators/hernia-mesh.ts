@@ -44,8 +44,8 @@ export const HERNIA_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "hernia-calculator", name: "Hernia Mesh Settlement Calculator", shortName: "Calculator", description: "Calculate hernia mesh lawsuit settlement", longDescription: "Free hernia mesh calculator with complication types and surgery factors.", icon: Calculator, category: "legal", keywords: ["hernia mesh calculator", "mesh lawsuit settlement"], featured: true },
-    { id: "hernia-guide", name: "Hernia Mesh Lawsuit Guide", shortName: "Guide", description: "Understanding mesh lawsuits", longDescription: "Learn about mesh complications, recalls, and claim eligibility.", icon: FileText, category: "legal", keywords: ["hernia mesh lawsuit guide", "mesh recall"], featured: true },
+    { id: "hernia-mesh/hernia-calculator", name: "Hernia Mesh Settlement Calculator", shortName: "Calculator", description: "Calculate hernia mesh lawsuit settlement", longDescription: "Free hernia mesh calculator with complication types and surgery factors.", icon: Calculator, category: "legal", keywords: ["hernia mesh calculator", "mesh lawsuit settlement"], featured: true },
+    { id: "hernia-mesh/hernia-guide", name: "Hernia Mesh Lawsuit Guide", shortName: "Guide", description: "Understanding mesh lawsuits", longDescription: "Learn about mesh complications, recalls, and claim eligibility.", icon: FileText, category: "legal", keywords: ["hernia mesh lawsuit guide", "mesh recall"], featured: true },
 ] as const;
 
 export interface HerniaResult { complication: string; surgeryFactor: string; baseDamages: number; surgeryBonus: number; medicalCosts: number; painSuffering: number; totalLow: number; totalMid: number; totalHigh: number; }

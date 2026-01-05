@@ -38,7 +38,7 @@ export default function HomePage() {
           </p>
 
           <Link
-            href="/pet-calculator"
+            href="/pet-insurance/pet-calculator"
             className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105"
           >
             Calculate Your Premium
@@ -175,7 +175,7 @@ export default function HomePage() {
           See how much pet insurance could cost for your furry friend.
         </p>
         <Link
-          href="/pet-calculator"
+          href="/pet-insurance/pet-calculator"
           className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
         >
           Start Free Calculator

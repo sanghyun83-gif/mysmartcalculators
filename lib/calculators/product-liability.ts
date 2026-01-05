@@ -52,10 +52,10 @@ export const PRODUCT_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "product-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate defective product settlement", icon: Calculator, keywords: ["product liability calculator"], featured: true },
-    { id: "product-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding product liability claims", icon: FileText, keywords: ["product liability guide"], featured: true },
-    { id: "defect-types", name: "Defect Types", shortName: "Defects", description: "Manufacturing, design, warning defects", icon: AlertTriangle, keywords: ["product defect types"], featured: true },
-    { id: "recalls", name: "Product Recalls", shortName: "Recalls", description: "Recent recalls and settlements", icon: Shield, keywords: ["product recalls"], featured: true },
+    { id: "product-liability/product-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate defective product settlement", icon: Calculator, keywords: ["product liability calculator"], featured: true },
+    { id: "product-liability/product-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding product liability claims", icon: FileText, keywords: ["product liability guide"], featured: true },
+    { id: "product-liability/defect-types", name: "Defect Types", shortName: "Defects", description: "Manufacturing, design, warning defects", icon: AlertTriangle, keywords: ["product defect types"], featured: true },
+    { id: "product-liability/recalls", name: "Product Recalls", shortName: "Recalls", description: "Recent recalls and settlements", icon: Shield, keywords: ["product recalls"], featured: true },
 ] as const;
 
 export interface ProductResult { defectType: string; productCategory: string; severity: string; baseDamages: number; categoryBonus: number; severityBonus: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

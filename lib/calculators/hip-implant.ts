@@ -48,8 +48,8 @@ export const HIP_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "hip-calculator", name: "Hip Implant Settlement Calculator", shortName: "Calculator", description: "Calculate hip replacement settlement", longDescription: "Free hip implant calculator with brand and revision factors.", icon: Calculator, category: "legal", keywords: ["hip implant calculator", "hip replacement settlement"], featured: true },
-    { id: "hip-guide", name: "Hip Implant Lawsuit Guide", shortName: "Guide", description: "Understanding hip implant claims", longDescription: "Learn about hip implant recalls, metallosis, and lawsuits.", icon: FileText, category: "legal", keywords: ["hip implant lawsuit guide", "hip recall claims"], featured: true },
+    { id: "hip-implant/hip-calculator", name: "Hip Implant Settlement Calculator", shortName: "Calculator", description: "Calculate hip replacement settlement", longDescription: "Free hip implant calculator with brand and revision factors.", icon: Calculator, category: "legal", keywords: ["hip implant calculator", "hip replacement settlement"], featured: true },
+    { id: "hip-implant/hip-guide", name: "Hip Implant Lawsuit Guide", shortName: "Guide", description: "Understanding hip implant claims", longDescription: "Learn about hip implant recalls, metallosis, and lawsuits.", icon: FileText, category: "legal", keywords: ["hip implant lawsuit guide", "hip recall claims"], featured: true },
 ] as const;
 
 export interface HipResult { complicationType: string; implantBrand: string; revisionFactor: string; baseDamages: number; revisionBonus: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

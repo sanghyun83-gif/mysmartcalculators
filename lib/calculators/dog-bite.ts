@@ -135,7 +135,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "bite-severity",
+        id: "dog-bite/bite-severity",
         name: "Bite Severity Guide",
         shortName: "Severity Guide",
         description: "Settlement values by bite severity level (1-6)",

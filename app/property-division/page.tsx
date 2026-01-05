@@ -40,7 +40,7 @@ export default function HomePage() {
           </p>
 
           <Link
-            href="/division-calculator"
+            href="/property-division/division-calculator"
             className="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105"
           >
             Calculate Your Split
@@ -214,7 +214,7 @@ export default function HomePage() {
           Enter your assets and get an estimate of the division.
         </p>
         <Link
-          href="/division-calculator"
+          href="/property-division/division-calculator"
           className="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
         >
           Start Free Calculator

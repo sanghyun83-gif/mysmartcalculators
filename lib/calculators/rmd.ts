@@ -89,7 +89,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "rules-guide",
+        id: "rmd/rules-guide",
         name: "RMD Rules Guide",
         shortName: "Guide",
         description: "Understanding RMD requirements",

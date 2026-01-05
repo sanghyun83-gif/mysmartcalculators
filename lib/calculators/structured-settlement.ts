@@ -91,7 +91,7 @@ export const DISCOUNT_BY_TERM = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "settlement-calculator",
+        id: "structured-settlement/settlement-calculator",
         name: "Structured Settlement Calculator",
         shortName: "Calculator",
         description: "Calculate your settlement's cash value",
@@ -102,7 +102,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "selling-guide",
+        id: "structured-settlement/selling-guide",
         name: "Selling Guide",
         shortName: "Guide",
         description: "Learn how to sell your structured settlement",

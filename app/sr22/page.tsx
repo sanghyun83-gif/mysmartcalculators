@@ -147,7 +147,7 @@ export default function Home() {
 
           <div className="text-center mt-8">
             <Link
-              href="/state-requirements"
+              href="/sr22/state-requirements"
               className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300"
             >
               View All State Requirements <ArrowRight className="w-4 h-4" />

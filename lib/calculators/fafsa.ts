@@ -87,7 +87,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "efc-guide",
+        id: "fafsa/efc-guide",
         name: "SAI/EFC Guide",
         shortName: "Guide",
         description: "Understanding the Student Aid Index",

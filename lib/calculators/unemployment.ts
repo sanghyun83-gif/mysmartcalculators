@@ -97,7 +97,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "eligibility-guide",
+        id: "unemployment/eligibility-guide",
         name: "Eligibility Guide",
         shortName: "Guide",
         description: "Learn UI eligibility requirements",

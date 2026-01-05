@@ -128,7 +128,7 @@ export const STATE_FAULT_LAWS: Record<string, {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "settlement-calculator",
+        id: "car-accident/settlement-calculator",
         name: "Settlement Calculator",
         shortName: "Settlement",
         description: "Calculate your total accident settlement",
@@ -139,7 +139,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "pain-suffering",
+        id: "car-accident/pain-suffering",
         name: "Pain & Suffering Calculator",
         shortName: "Pain & Suffering",
         description: "Calculate pain and suffering damages",
@@ -150,7 +150,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "state-laws",
+        id: "car-accident/state-laws",
         name: "State Fault Laws",
         shortName: "State Laws",
         description: "Compare fault laws by state",

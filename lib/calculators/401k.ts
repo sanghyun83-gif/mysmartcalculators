@@ -100,7 +100,7 @@ export const RETIREMENT_CONSTANTS = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "calculator",
+        id: "401k/calculator",
         name: "401k Calculator",
         shortName: "Calculator",
         description: "Calculate your retirement savings",
@@ -111,7 +111,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "limits",
+        id: "401k/limits",
         name: "Contribution Limits",
         shortName: "Limits",
         description: "2025 401k contribution limits",
@@ -122,7 +122,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "employer-match",
+        id: "401k/employer-match",
         name: "Employer Match",
         shortName: "Match",
         description: "Calculate your employer matching",
@@ -133,7 +133,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "roth-vs-traditional",
+        id: "401k/roth-vs-traditional",
         name: "Roth vs Traditional",
         shortName: "Roth vs Trad",
         description: "Compare Roth and Traditional 401k",
@@ -144,7 +144,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "catch-up",
+        id: "401k/catch-up",
         name: "Catch-Up Calculator",
         shortName: "Catch-Up",
         description: "50+ catch-up contributions",
@@ -155,7 +155,7 @@ export const CALCULATORS = [
         featured: false,
     },
     {
-        id: "withdrawal",
+        id: "401k/withdrawal",
         name: "Withdrawal Calculator",
         shortName: "Withdrawal",
         description: "Calculate 401k withdrawals",

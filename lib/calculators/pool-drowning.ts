@@ -44,8 +44,8 @@ export const DROWNING_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "drowning-calculator", name: "Drowning Settlement Calculator", shortName: "Calculator", description: "Calculate pool drowning settlement", longDescription: "Free pool accident calculator with premises liability factors.", icon: Calculator, category: "legal", keywords: ["pool drowning calculator", "drowning settlement"], featured: true },
-    { id: "drowning-guide", name: "Pool Safety Guide", shortName: "Guide", description: "Understanding pool liability", longDescription: "Learn about pool safety laws, premises liability, and negligent supervision.", icon: FileText, category: "legal", keywords: ["pool safety guide", "drowning liability"], featured: true },
+    { id: "pool-drowning/drowning-calculator", name: "Drowning Settlement Calculator", shortName: "Calculator", description: "Calculate pool drowning settlement", longDescription: "Free pool accident calculator with premises liability factors.", icon: Calculator, category: "legal", keywords: ["pool drowning calculator", "drowning settlement"], featured: true },
+    { id: "pool-drowning/drowning-guide", name: "Pool Safety Guide", shortName: "Guide", description: "Understanding pool liability", longDescription: "Learn about pool safety laws, premises liability, and negligent supervision.", icon: FileText, category: "legal", keywords: ["pool safety guide", "drowning liability"], featured: true },
 ] as const;
 
 export interface DrowningResult { liabilityType: string; outcomeType: string; baseDamages: number; negligenceBonus: number; medicalCosts: number; painSuffering: number; totalLow: number; totalMid: number; totalHigh: number; }

@@ -41,7 +41,7 @@ export default function Home() {
           </p>
 
           <Link
-            href="/ssdi-calculator"
+            href="/disability/ssdi-calculator"
             className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:bg-blue-50 hover:scale-105 shadow-lg"
           >
             <Calculator className="w-5 h-5" />
@@ -214,14 +214,14 @@ export default function Home() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="/ssdi-calculator"
+            href="/disability/ssdi-calculator"
             className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
           >
             Calculate SSDI
             <ArrowRight className="w-5 h-5" />
           </Link>
           <Link
-            href="/ssi-calculator"
+            href="/disability/ssi-calculator"
             className="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
           >
             Calculate SSI

@@ -46,8 +46,8 @@ export const DEPO_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "depo-calculator", name: "Depo-Provera Settlement Calculator", shortName: "Calculator", description: "Calculate brain tumor settlement", longDescription: "Free Depo-Provera meningioma calculator with usage and surgery factors.", icon: Calculator, category: "legal", keywords: ["depo provera calculator", "meningioma settlement"], featured: true },
-    { id: "depo-guide", name: "Depo-Provera Lawsuit Guide", shortName: "Guide", description: "Understanding Depo-Provera claims", longDescription: "Learn about Depo-Provera brain tumors, FDA warnings, and lawsuits.", icon: FileText, category: "legal", keywords: ["depo provera lawsuit guide", "meningioma claims"], featured: true },
+    { id: "depo-provera/depo-calculator", name: "Depo-Provera Settlement Calculator", shortName: "Calculator", description: "Calculate brain tumor settlement", longDescription: "Free Depo-Provera meningioma calculator with usage and surgery factors.", icon: Calculator, category: "legal", keywords: ["depo provera calculator", "meningioma settlement"], featured: true },
+    { id: "depo-provera/depo-guide", name: "Depo-Provera Lawsuit Guide", shortName: "Guide", description: "Understanding Depo-Provera claims", longDescription: "Learn about Depo-Provera brain tumors, FDA warnings, and lawsuits.", icon: FileText, category: "legal", keywords: ["depo provera lawsuit guide", "meningioma claims"], featured: true },
 ] as const;
 
 export interface DepoResult { tumorType: string; usageDuration: string; surgeryFactor: string; baseDamages: number; usageBonus: number; surgeryBonus: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

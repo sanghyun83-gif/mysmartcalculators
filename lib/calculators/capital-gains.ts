@@ -86,7 +86,7 @@ export const CAPITAL_GAINS_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "gains-calculator",
+        id: "capital-gains/gains-calculator",
         name: "Capital Gains Calculator",
         shortName: "Calculator",
         description: "Calculate federal capital gains tax",
@@ -97,7 +97,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "tax-rates-guide",
+        id: "capital-gains/tax-rates-guide",
         name: "Tax Rates Guide",
         shortName: "Guide",
         description: "Understanding capital gains tax rates",

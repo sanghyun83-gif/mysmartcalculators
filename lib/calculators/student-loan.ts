@@ -138,7 +138,7 @@ export const STUDENT_LOAN_CONSTANTS = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "calculator",
+        id: "student-loan/calculator",
         name: "Loan Calculator",
         shortName: "Calculator",
         description: "Calculate monthly payments",
@@ -147,7 +147,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "payoff",
+        id: "student-loan/payoff",
         name: "Payoff Calculator",
         shortName: "Payoff",
         description: "Pay off loans faster",
@@ -156,7 +156,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "refinance",
+        id: "student-loan/refinance",
         name: "Refinance Calculator",
         shortName: "Refinance",
         description: "Compare refinance savings",
@@ -165,7 +165,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "idr",
+        id: "student-loan/idr",
         name: "IDR Calculator",
         shortName: "IDR",
         description: "Income-driven repayment",
@@ -174,7 +174,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "pslf",
+        id: "student-loan/pslf",
         name: "PSLF Calculator",
         shortName: "PSLF",
         description: "Public service forgiveness",
@@ -183,7 +183,7 @@ export const CALCULATORS = [
         featured: false,
     },
     {
-        id: "forgiveness",
+        id: "student-loan/forgiveness",
         name: "Forgiveness Timeline",
         shortName: "Forgiveness",
         description: "When will loans be forgiven?",

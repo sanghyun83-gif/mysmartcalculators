@@ -75,7 +75,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "benefits-guide",
+        id: "ltd/benefits-guide",
         name: "LTD Benefits Guide",
         shortName: "Guide",
         description: "Understanding LTD insurance",

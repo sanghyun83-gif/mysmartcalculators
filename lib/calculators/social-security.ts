@@ -74,7 +74,7 @@ export const SS_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "ss-calculator",
+        id: "social-security/ss-calculator",
         name: "SS Benefits Calculator",
         shortName: "Calculator",
         description: "Estimate your retirement benefits",
@@ -85,7 +85,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "benefits-guide",
+        id: "social-security/benefits-guide",
         name: "Benefits Guide",
         shortName: "Guide",
         description: "When to claim Social Security",

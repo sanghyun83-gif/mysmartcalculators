@@ -81,7 +81,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "benefits-guide",
+        id: "gi-bill/benefits-guide",
         name: "GI Bill Guide",
         shortName: "Guide",
         description: "Understanding your education benefits",

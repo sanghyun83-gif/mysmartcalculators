@@ -41,7 +41,7 @@ export default function Home() {
           </p>
 
           <Link
-            href="/settlement-calculator"
+            href="/car-accident/settlement-calculator"
             className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg"
           >
             <Scale className="w-5 h-5" />
@@ -217,7 +217,7 @@ export default function Home() {
             Get your free estimate in under 2 minutes. No email required.
           </p>
           <Link
-            href="/settlement-calculator"
+            href="/car-accident/settlement-calculator"
             className="inline-flex items-center gap-2 bg-white hover:bg-slate-100 text-red-600 px-8 py-4 rounded-xl font-bold transition-colors"
           >
             <Scale className="w-5 h-5" />

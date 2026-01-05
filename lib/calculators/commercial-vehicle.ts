@@ -47,8 +47,8 @@ export const COMMERCIAL_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "vehicle-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate commercial vehicle settlement", icon: Calculator, keywords: ["commercial vehicle calculator"], featured: true },
-    { id: "vehicle-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding commercial vehicle claims", icon: FileText, keywords: ["commercial truck lawsuit"], featured: true },
+    { id: "commercial-vehicle/vehicle-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate commercial vehicle settlement", icon: Calculator, keywords: ["commercial vehicle calculator"], featured: true },
+    { id: "commercial-vehicle/vehicle-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding commercial vehicle claims", icon: FileText, keywords: ["commercial truck lawsuit"], featured: true },
 ] as const;
 
 export interface VehicleResult { vehicleType: string; injuryType: string; liabilityFactor: string; baseDamages: number; injuryBonus: number; liabilityBonus: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

@@ -67,12 +67,12 @@ export const SOCIAL_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "social-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate social media settlement", icon: Calculator, keywords: ["social media calculator"], featured: true },
-    { id: "social-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding social media claims", icon: FileText, keywords: ["social media lawsuit guide"], featured: true },
-    { id: "platforms", name: "Platform Lawsuits", shortName: "Platforms", description: "Meta, TikTok, Snap lawsuits", icon: Smartphone, keywords: ["meta lawsuit", "tiktok lawsuit"], featured: true },
-    { id: "symptoms", name: "Symptoms & Settlements", shortName: "Symptoms", description: "Mental health conditions", icon: Brain, keywords: ["social media depression"], featured: true },
-    { id: "age-groups", name: "Age Group Impact", shortName: "Ages", description: "Youth vulnerability factors", icon: Users, keywords: ["teen social media"], featured: false },
-    { id: "state-lawsuits", name: "State Lawsuits", shortName: "States", description: "State AG lawsuits map", icon: MapPin, keywords: ["social media state lawsuit"], featured: false },
+    { id: "social-media/social-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate social media settlement", icon: Calculator, keywords: ["social media calculator"], featured: true },
+    { id: "social-media/social-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding social media claims", icon: FileText, keywords: ["social media lawsuit guide"], featured: true },
+    { id: "social-media/platforms", name: "Platform Lawsuits", shortName: "Platforms", description: "Meta, TikTok, Snap lawsuits", icon: Smartphone, keywords: ["meta lawsuit", "tiktok lawsuit"], featured: true },
+    { id: "social-media/symptoms", name: "Symptoms & Settlements", shortName: "Symptoms", description: "Mental health conditions", icon: Brain, keywords: ["social media depression"], featured: true },
+    { id: "social-media/age-groups", name: "Age Group Impact", shortName: "Ages", description: "Youth vulnerability factors", icon: Users, keywords: ["teen social media"], featured: false },
+    { id: "social-media/state-lawsuits", name: "State Lawsuits", shortName: "States", description: "State AG lawsuits map", icon: MapPin, keywords: ["social media state lawsuit"], featured: false },
 ] as const;
 
 export interface SocialResult { platform: string; symptom: string; ageGroup: string; usageDuration: string; baseDamages: number; platformBonus: number; ageBonus: number; usageBonus: number; totalLow: number; totalMid: number; totalHigh: number; }

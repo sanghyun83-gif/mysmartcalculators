@@ -180,7 +180,7 @@ export default function HomePage() {
         </div>
 
         <div className="text-center">
-          <Link href="/flsa-guide" className="text-emerald-400 hover:text-emerald-300 text-sm">
+          <Link href="/overtime/flsa-guide" className="text-emerald-400 hover:text-emerald-300 text-sm">
             Learn more about FLSA exemptions →
           </Link>
         </div>

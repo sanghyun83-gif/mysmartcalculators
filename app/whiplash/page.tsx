@@ -144,7 +144,7 @@ export default function Home() {
 
           <div className="text-center mt-8">
             <Link
-              href="/injury-grades"
+              href="/whiplash/injury-grades"
               className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300"
             >
               View Detailed Grade Information <ArrowRight className="w-4 h-4" />

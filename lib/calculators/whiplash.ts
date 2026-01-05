@@ -126,7 +126,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "injury-grades",
+        id: "whiplash/injury-grades",
         name: "Whiplash Grades Guide",
         shortName: "Injury Grades",
         description: "View settlements by whiplash grade (1-4)",

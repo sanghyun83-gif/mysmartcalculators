@@ -83,7 +83,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "negotiation-guide",
+        id: "severance/negotiation-guide",
         name: "Negotiation Guide",
         shortName: "Negotiate",
         description: "Tips to maximize your severance",

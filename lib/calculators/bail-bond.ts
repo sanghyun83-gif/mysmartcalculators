@@ -140,7 +140,7 @@ export const STATE_BAIL = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "bail-calculator",
+        id: "bail-bond/bail-calculator",
         name: "Bail Bond Calculator",
         shortName: "Calculator",
         description: "Calculate your bail bond cost and premium",
@@ -151,7 +151,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "state-bail",
+        id: "bail-bond/state-bail",
         name: "Bail by State",
         shortName: "State Bail",
         description: "View bail amounts and laws by state",

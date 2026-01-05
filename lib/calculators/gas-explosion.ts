@@ -41,8 +41,8 @@ export const GAS_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "gas-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate gas explosion settlement", icon: Calculator, keywords: ["gas explosion calculator"], featured: true },
-    { id: "gas-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding gas explosion claims", icon: FileText, keywords: ["gas explosion guide"], featured: true },
+    { id: "gas-explosion/gas-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate gas explosion settlement", icon: Calculator, keywords: ["gas explosion calculator"], featured: true },
+    { id: "gas-explosion/gas-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding gas explosion claims", icon: FileText, keywords: ["gas explosion guide"], featured: true },
 ] as const;
 
 export interface GasResult { explosionType: string; baseDamages: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

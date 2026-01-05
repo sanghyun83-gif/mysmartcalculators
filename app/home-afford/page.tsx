@@ -41,7 +41,7 @@ export default function HomePage() {
           </p>
 
           <Link
-            href="/calculator"
+            href="/home-afford/calculator"
             className="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-green-900 px-6 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg"
           >
             <Home className="w-5 h-5" />
@@ -165,7 +165,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center mt-6">
-            <Link href="/calculator" className="text-green-600 font-semibold hover:underline">
+            <Link href="/home-afford/calculator" className="text-green-600 font-semibold hover:underline">
               Calculate Your Affordability →
             </Link>
           </div>
@@ -182,7 +182,7 @@ export default function HomePage() {
             Calculate affordability, compare down payments, and understand your DTI ratio.
           </p>
           <Link
-            href="/calculator"
+            href="/home-afford/calculator"
             className="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-green-900 px-6 py-4 rounded-xl font-bold transition-colors"
           >
             <DollarSign className="w-5 h-5" />

@@ -77,7 +77,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "payout-guide",
+        id: "pension/payout-guide",
         name: "Payout Options Guide",
         shortName: "Guide",
         description: "Annuity vs lump sum comparison",

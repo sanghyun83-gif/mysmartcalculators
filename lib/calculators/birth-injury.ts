@@ -134,7 +134,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "injury-types",
+        id: "birth-injury/injury-types",
         name: "Birth Injury Types Guide",
         shortName: "Injury Types",
         description: "View settlements by birth injury type",

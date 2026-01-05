@@ -65,7 +65,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "savings-guide",
+        id: "down-payment/savings-guide",
         name: "Savings Guide",
         shortName: "Guide",
         description: "Tips to save for a down payment",

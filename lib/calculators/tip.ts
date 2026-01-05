@@ -61,7 +61,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "tipping-guide",
+        id: "tip/tipping-guide",
         name: "Tipping Guide",
         shortName: "Guide",
         description: "Tipping etiquette by service",

@@ -44,8 +44,8 @@ export const TALCUM_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "talcum-calculator", name: "Talcum Powder Settlement Calculator", shortName: "Calculator", description: "Calculate talcum powder lawsuit settlement", longDescription: "Free talcum calculator with cancer types and usage history.", icon: Calculator, category: "legal", keywords: ["talcum powder calculator", "baby powder lawsuit"], featured: true },
-    { id: "talcum-guide", name: "Talcum Powder Lawsuit Guide", shortName: "Guide", description: "Understanding J&J lawsuits", longDescription: "Learn about talcum powder cancer link, J&J liability, and claim eligibility.", icon: FileText, category: "legal", keywords: ["talcum powder lawsuit guide", "johnson johnson lawsuit"], featured: true },
+    { id: "talcum-powder/talcum-calculator", name: "Talcum Powder Settlement Calculator", shortName: "Calculator", description: "Calculate talcum powder lawsuit settlement", longDescription: "Free talcum calculator with cancer types and usage history.", icon: Calculator, category: "legal", keywords: ["talcum powder calculator", "baby powder lawsuit"], featured: true },
+    { id: "talcum-powder/talcum-guide", name: "Talcum Powder Lawsuit Guide", shortName: "Guide", description: "Understanding J&J lawsuits", longDescription: "Learn about talcum powder cancer link, J&J liability, and claim eligibility.", icon: FileText, category: "legal", keywords: ["talcum powder lawsuit guide", "johnson johnson lawsuit"], featured: true },
 ] as const;
 
 export interface TalcumResult { cancerType: string; usageType: string; baseDamages: number; usageBonus: number; medicalCosts: number; painSuffering: number; totalLow: number; totalMid: number; totalHigh: number; }

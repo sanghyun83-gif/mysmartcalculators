@@ -41,8 +41,8 @@ export const FACTORY_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "factory-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate factory injury settlement", icon: Calculator, keywords: ["factory injury calculator"], featured: true },
-    { id: "factory-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding factory injury claims", icon: FileText, keywords: ["factory injury guide"], featured: true },
+    { id: "factory-injury/factory-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate factory injury settlement", icon: Calculator, keywords: ["factory injury calculator"], featured: true },
+    { id: "factory-injury/factory-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding factory injury claims", icon: FileText, keywords: ["factory injury guide"], featured: true },
 ] as const;
 
 export interface FactoryResult { injuryType: string; oshaViolation: string; baseDamages: number; oshaBonus: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

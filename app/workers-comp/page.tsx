@@ -46,7 +46,7 @@ export default function Home() {
           </p>
 
           <Link
-            href="/calculator"
+            href="/workers-comp/calculator"
             className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-900 px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg"
           >
             <HardHat className="w-5 h-5" />
@@ -162,7 +162,7 @@ export default function Home() {
 
           <div className="text-center mt-6">
             <Link
-              href="/state-rates"
+              href="/workers-comp/state-rates"
               className="text-amber-600 hover:text-amber-700 font-medium text-sm"
             >
               View all 50 states →
@@ -218,7 +218,7 @@ export default function Home() {
             Get your estimated weekly benefit and potential settlement value in under 2 minutes.
           </p>
           <Link
-            href="/calculator"
+            href="/workers-comp/calculator"
             className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-900 px-8 py-4 rounded-xl font-bold transition-colors"
           >
             <HardHat className="w-5 h-5" />

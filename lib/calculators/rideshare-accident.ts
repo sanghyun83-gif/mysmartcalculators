@@ -39,8 +39,8 @@ export const RIDESHARE_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "rideshare-calculator", name: "Rideshare Settlement Calculator", shortName: "Calculator", description: "Calculate Uber/Lyft accident settlement", longDescription: "Free rideshare injury calculator with insurance tier coverage.", icon: Calculator, category: "legal", keywords: ["uber accident calculator", "lyft accident settlement"], featured: true },
-    { id: "rideshare-guide", name: "Rideshare Insurance Guide", shortName: "Guide", description: "Understanding rideshare insurance", longDescription: "Learn about Uber/Lyft insurance tiers and coverage periods.", icon: FileText, category: "legal", keywords: ["uber insurance guide", "lyft coverage tiers"], featured: true },
+    { id: "rideshare-accident/rideshare-calculator", name: "Rideshare Settlement Calculator", shortName: "Calculator", description: "Calculate Uber/Lyft accident settlement", longDescription: "Free rideshare injury calculator with insurance tier coverage.", icon: Calculator, category: "legal", keywords: ["uber accident calculator", "lyft accident settlement"], featured: true },
+    { id: "rideshare-accident/rideshare-guide", name: "Rideshare Insurance Guide", shortName: "Guide", description: "Understanding rideshare insurance", longDescription: "Learn about Uber/Lyft insurance tiers and coverage periods.", icon: FileText, category: "legal", keywords: ["uber insurance guide", "lyft coverage tiers"], featured: true },
 ] as const;
 
 export interface RideshareResult { insuranceTier: string; injuryType: string; maxCoverage: number; medicalCosts: number; lostWages: number; painSuffering: number; totalLow: number; totalMid: number; totalHigh: number; }

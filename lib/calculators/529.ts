@@ -77,7 +77,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "state-benefits",
+        id: "529/state-benefits",
         name: "State Tax Benefits",
         shortName: "Benefits",
         description: "State tax deductions for 529 plans",

@@ -41,7 +41,7 @@ export default function Home() {
           </p>
 
           <Link
-            href="/alimony-calculator"
+            href="/divorce/alimony-calculator"
             className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105"
           >
             Calculate Alimony
@@ -184,7 +184,7 @@ export default function Home() {
           Calculate alimony and property division in under 2 minutes. No email required.
         </p>
         <Link
-          href="/alimony-calculator"
+          href="/divorce/alimony-calculator"
           className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
         >
           Start Calculator

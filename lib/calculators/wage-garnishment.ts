@@ -99,7 +99,7 @@ export const GARNISHMENT_TYPES = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "garnishment-calculator",
+        id: "wage-garnishment/garnishment-calculator",
         name: "Wage Garnishment Calculator",
         shortName: "Calculator",
         description: "Calculate your garnishment limit",
@@ -110,7 +110,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "limits-guide",
+        id: "wage-garnishment/limits-guide",
         name: "Garnishment Limits Guide",
         shortName: "Limits",
         description: "Federal and state garnishment limits",

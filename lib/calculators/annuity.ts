@@ -78,7 +78,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "payout-guide",
+        id: "annuity/payout-guide",
         name: "Payout Options Guide",
         shortName: "Guide",
         description: "Understanding annuity payout options",

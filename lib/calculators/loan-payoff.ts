@@ -55,7 +55,7 @@ export const LOAN_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "loan-calculator",
+        id: "loan-payoff/loan-calculator",
         name: "Loan Payoff Calculator",
         shortName: "Calculator",
         description: "Calculate payoff timeline",
@@ -66,7 +66,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "payoff-guide",
+        id: "loan-payoff/payoff-guide",
         name: "Payoff Strategies",
         shortName: "Guide",
         description: "Debt payoff strategies",

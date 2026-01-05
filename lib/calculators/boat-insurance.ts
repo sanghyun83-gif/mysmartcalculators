@@ -81,7 +81,7 @@ export const BOAT_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "boat-calculator",
+        id: "boat-insurance/boat-calculator",
         name: "Boat Insurance Calculator",
         shortName: "Calculator",
         description: "Calculate boat insurance premium",
@@ -92,7 +92,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "coverage-guide",
+        id: "boat-insurance/coverage-guide",
         name: "Coverage Guide",
         shortName: "Guide",
         description: "Learn about boat insurance coverage",

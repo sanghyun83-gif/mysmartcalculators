@@ -126,7 +126,7 @@ export const COMMUNITY_PROPERTY_STATES = ['AZ', 'CA', 'ID', 'LA', 'NV', 'NM', 'T
 // ============================================
 export const CALCULATORS = [
     {
-        id: "alimony-calculator",
+        id: "divorce/alimony-calculator",
         name: "Alimony Calculator",
         shortName: "Alimony",
         description: "Calculate spousal support payments",
@@ -137,7 +137,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "property-division",
+        id: "divorce/property-division",
         name: "Property Division Calculator",
         shortName: "Property",
         description: "Calculate marital property division",
@@ -148,7 +148,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "state-laws",
+        id: "divorce/state-laws",
         name: "Divorce Laws by State",
         shortName: "State Laws",
         description: "Compare divorce laws across states",

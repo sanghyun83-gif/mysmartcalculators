@@ -38,7 +38,7 @@ export default function HomePage() {
           </p>
 
           <Link
-            href="/loan-calculator"
+            href="/loan-payoff/loan-calculator"
             className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105"
           >
             Calculate Payoff
@@ -154,7 +154,7 @@ export default function HomePage() {
           See how extra payments can save you years and thousands in interest.
         </p>
         <Link
-          href="/loan-calculator"
+          href="/loan-payoff/loan-calculator"
           className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
         >
           Calculate Now

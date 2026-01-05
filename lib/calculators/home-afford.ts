@@ -108,7 +108,7 @@ export const HOUSING_CONSTANTS = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "calculator",
+        id: "home-afford/calculator",
         name: "Affordability Calculator",
         shortName: "Affordability",
         description: "How much house can you afford?",
@@ -119,7 +119,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "down-payment",
+        id: "home-afford/down-payment",
         name: "Down Payment Calculator",
         shortName: "Down Payment",
         description: "Calculate your down payment",
@@ -130,7 +130,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "dti",
+        id: "home-afford/dti",
         name: "DTI Calculator",
         shortName: "DTI",
         description: "Debt-to-income ratio",
@@ -141,7 +141,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "monthly-payment",
+        id: "home-afford/monthly-payment",
         name: "Monthly Payment",
         shortName: "Payment",
         description: "Full monthly payment breakdown",
@@ -152,7 +152,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "closing-costs",
+        id: "home-afford/closing-costs",
         name: "Closing Costs",
         shortName: "Closing",
         description: "Estimate closing costs",
@@ -163,7 +163,7 @@ export const CALCULATORS = [
         featured: false,
     },
     {
-        id: "rent-vs-buy",
+        id: "home-afford/rent-vs-buy",
         name: "Rent vs Buy",
         shortName: "Rent vs Buy",
         description: "Should you rent or buy?",

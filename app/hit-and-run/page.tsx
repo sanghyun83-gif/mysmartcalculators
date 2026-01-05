@@ -20,7 +20,7 @@ export default function HomePage() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Hit and Run<span className="text-amber-400"> Calculator</span></h1>
           <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">Calculate your hit and run settlement. Includes UM/UIM coverage and state victim compensation funds. Free {SITE.year} calculator.</p>
-          <Link href="/hitrun-calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105">Calculate Settlement<ArrowRight className="w-5 h-5" /></Link>
+          <Link href="/hit-and-run/hitrun-calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105">Calculate Settlement<ArrowRight className="w-5 h-5" /></Link>
           <div className="mt-8 bg-red-900/30 border border-red-700/50 rounded-lg p-4 max-w-xl mx-auto">
             <div className="flex items-center gap-2 text-red-300 text-sm"><AlertTriangle className="w-4 h-4" /><span>{HITRUN_2026.statistics.unsolvedPercent}% of hit and runs go unsolved</span></div>
           </div>
@@ -64,7 +64,7 @@ export default function HomePage() {
       <section className="max-w-4xl mx-auto px-4 py-16 text-center">
         <h2 className="text-2xl font-bold text-white mb-4">Calculate Your Settlement</h2>
         <p className="text-slate-400 mb-8">Even if the driver fled, you may still recover compensation.</p>
-        <Link href="/hitrun-calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold">Calculate Now<ArrowRight className="w-5 h-5" /></Link>
+        <Link href="/hit-and-run/hitrun-calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold">Calculate Now<ArrowRight className="w-5 h-5" /></Link>
       </section>
 
       <footer className="bg-slate-800 border-t border-slate-700">

@@ -38,7 +38,7 @@ export default function HomePage() {
           </p>
 
           <Link
-            href="/va-calculator"
+            href="/va-disability/va-calculator"
             className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105"
           >
             Calculate Your Benefits
@@ -176,7 +176,7 @@ export default function HomePage() {
           Free, instant calculation based on {SITE.year} VA rates.
         </p>
         <Link
-          href="/va-calculator"
+          href="/va-disability/va-calculator"
           className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
         >
           Start Free Calculator

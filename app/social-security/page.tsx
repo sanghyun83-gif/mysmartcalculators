@@ -38,7 +38,7 @@ export default function HomePage() {
           </p>
 
           <Link
-            href="/ss-calculator"
+            href="/social-security/ss-calculator"
             className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105"
           >
             Calculate Your Benefits
@@ -186,7 +186,7 @@ export default function HomePage() {
           Free, instant calculation based on {SITE.year} rates.
         </p>
         <Link
-          href="/ss-calculator"
+          href="/social-security/ss-calculator"
           className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
         >
           Start Free Calculator

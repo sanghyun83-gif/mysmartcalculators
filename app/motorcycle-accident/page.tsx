@@ -41,7 +41,7 @@ export default function Home() {
           </p>
 
           <Link
-            href="/motorcycle-settlement"
+            href="/motorcycle-accident/motorcycle-settlement"
             className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105"
           >
             Calculate Your Settlement
@@ -211,7 +211,7 @@ export default function Home() {
 
         <div className="text-center mt-8">
           <Link
-            href="/injury-types"
+            href="/motorcycle-accident/injury-types"
             className="inline-flex items-center gap-2 text-orange-400 hover:text-orange-300"
           >
             View All Injury Types <ArrowRight className="w-4 h-4" />
@@ -228,7 +228,7 @@ export default function Home() {
           Get a free estimate in under 2 minutes. No email required.
         </p>
         <Link
-          href="/motorcycle-settlement"
+          href="/motorcycle-accident/motorcycle-settlement"
           className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
         >
           Start Free Calculator

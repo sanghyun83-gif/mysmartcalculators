@@ -62,7 +62,7 @@ export const ROTH_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "roth-calculator",
+        id: "roth-ira/roth-calculator",
         name: "Roth IRA Calculator",
         shortName: "Calculator",
         description: "Calculate your Roth IRA growth",
@@ -73,7 +73,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "income-limits",
+        id: "roth-ira/income-limits",
         name: "Income Limits Guide",
         shortName: "Limits",
         description: "Roth IRA eligibility by income",

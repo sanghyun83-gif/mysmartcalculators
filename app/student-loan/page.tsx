@@ -41,7 +41,7 @@ export default function HomePage() {
           </p>
 
           <Link
-            href="/calculator"
+            href="/student-loan/calculator"
             className="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-blue-900 px-6 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg"
           >
             <Calculator className="w-5 h-5" />
@@ -168,7 +168,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center mt-6">
-            <Link href="/calculator" className="text-blue-600 font-semibold hover:underline">
+            <Link href="/student-loan/calculator" className="text-blue-600 font-semibold hover:underline">
               Calculate Your Payments →
             </Link>
           </div>
@@ -185,7 +185,7 @@ export default function HomePage() {
             Explore repayment options, refinancing, and loan forgiveness programs.
           </p>
           <Link
-            href="/calculator"
+            href="/student-loan/calculator"
             className="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-blue-900 px-6 py-4 rounded-xl font-bold transition-colors"
           >
             <GraduationCap className="w-5 h-5" />

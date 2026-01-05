@@ -32,7 +32,7 @@ export default function HomePage() {
           {/* CTA Button */}
           <div>
             <Link
-              href="/dui-cost"
+              href="/DUI/dui-cost"
               className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg shadow-red-900/50"
             >
               <Scale className="w-5 h-5" />

@@ -40,8 +40,8 @@ export const HITRUN_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "hitrun-calculator", name: "Hit & Run Settlement Calculator", shortName: "Calculator", description: "Calculate hit and run settlement", longDescription: "Free hit and run calculator with UM coverage and victim funds.", icon: Calculator, category: "legal", keywords: ["hit and run calculator", "hit and run settlement"], featured: true },
-    { id: "hitrun-guide", name: "Hit & Run Guide", shortName: "Guide", description: "Understanding hit and run claims", longDescription: "Learn about UM coverage, victim compensation, and legal options.", icon: FileText, category: "legal", keywords: ["hit and run guide", "uninsured motorist"], featured: true },
+    { id: "hit-and-run/hitrun-calculator", name: "Hit & Run Settlement Calculator", shortName: "Calculator", description: "Calculate hit and run settlement", longDescription: "Free hit and run calculator with UM coverage and victim funds.", icon: Calculator, category: "legal", keywords: ["hit and run calculator", "hit and run settlement"], featured: true },
+    { id: "hit-and-run/hitrun-guide", name: "Hit & Run Guide", shortName: "Guide", description: "Understanding hit and run claims", longDescription: "Learn about UM coverage, victim compensation, and legal options.", icon: FileText, category: "legal", keywords: ["hit and run guide", "uninsured motorist"], featured: true },
 ] as const;
 
 export interface HitRunResult { compensationSource: string; injuryType: string; maxAvailable: number; medicalCosts: number; lostWages: number; painSuffering: number; totalLow: number; totalMid: number; totalHigh: number; }

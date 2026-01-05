@@ -146,7 +146,7 @@ export default function Home() {
 
           <div className="text-center mt-8">
             <Link
-              href="/state-laws"
+              href="/alimony/state-laws"
               className="inline-flex items-center gap-2 text-rose-400 hover:text-rose-300"
             >
               View All State Laws <ArrowRight className="w-4 h-4" />

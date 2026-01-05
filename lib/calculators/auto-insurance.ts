@@ -91,7 +91,7 @@ export const AUTO_INSURANCE_CONSTANTS = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "calculator",
+        id: "auto-insurance/calculator",
         name: "Premium Calculator",
         shortName: "Premium",
         description: "Estimate your auto insurance premium",
@@ -102,7 +102,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "by-state",
+        id: "auto-insurance/by-state",
         name: "Rates by State",
         shortName: "By State",
         description: "Compare insurance costs across all 50 states",
@@ -113,7 +113,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "by-age",
+        id: "auto-insurance/by-age",
         name: "Rates by Age",
         shortName: "By Age",
         description: "How age affects your insurance rates",
@@ -124,7 +124,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "coverage-types",
+        id: "auto-insurance/coverage-types",
         name: "Coverage Guide",
         shortName: "Coverage",
         description: "Liability vs Collision vs Comprehensive",

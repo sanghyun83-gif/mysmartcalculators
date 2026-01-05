@@ -81,7 +81,7 @@ export const CRYPTO_TAX_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "crypto-calculator",
+        id: "crypto-tax/crypto-calculator",
         name: "Crypto Tax Calculator",
         shortName: "Calculator",
         description: "Calculate cryptocurrency capital gains",
@@ -92,7 +92,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "tax-guide",
+        id: "crypto-tax/tax-guide",
         name: "Crypto Tax Guide",
         shortName: "Guide",
         description: "Understanding crypto taxation rules",

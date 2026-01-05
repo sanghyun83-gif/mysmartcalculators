@@ -20,7 +20,7 @@ export default function HomePage() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Factory Injury<span className="text-amber-400"> Settlement Calculator</span></h1>
           <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">Calculate your machine injury, amputation, or manufacturing accident settlement. Free {SITE.year} calculator with OSHA violation multipliers.</p>
-          <Link href="/factory-calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105">Calculate Settlement<ArrowRight className="w-5 h-5" /></Link>
+          <Link href="/factory-injury/factory-calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105">Calculate Settlement<ArrowRight className="w-5 h-5" /></Link>
         </div>
       </section>
 
@@ -61,7 +61,7 @@ export default function HomePage() {
       <section className="max-w-4xl mx-auto px-4 py-16 text-center">
         <h2 className="text-2xl font-bold text-white mb-4">Calculate Your Settlement</h2>
         <p className="text-slate-400 mb-8">If you were injured in a factory due to unsafe machinery, OSHA violations, or negligent training, you may be entitled to significant compensation beyond workers' comp.</p>
-        <Link href="/factory-calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold">Calculate Now<ArrowRight className="w-5 h-5" /></Link>
+        <Link href="/factory-injury/factory-calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold">Calculate Now<ArrowRight className="w-5 h-5" /></Link>
       </section>
 
       <footer className="bg-slate-800 border-t border-slate-700">

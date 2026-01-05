@@ -49,10 +49,10 @@ export const MINING_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "mining-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate mining injury settlement", icon: Calculator, keywords: ["mining injury calculator"], featured: true },
-    { id: "mining-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding mining injury claims", icon: FileText, keywords: ["mining lawsuit guide"], featured: true },
-    { id: "injury-types", name: "Injury Types", shortName: "Injuries", description: "Cave-ins, explosions, black lung", icon: AlertTriangle, keywords: ["mining injury types"], featured: true },
-    { id: "mine-safety", name: "Mine Safety", shortName: "Safety", description: "MSHA violations and settlements", icon: Shield, keywords: ["mine safety violations"], featured: true },
+    { id: "mining-injury/mining-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate mining injury settlement", icon: Calculator, keywords: ["mining injury calculator"], featured: true },
+    { id: "mining-injury/mining-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding mining injury claims", icon: FileText, keywords: ["mining lawsuit guide"], featured: true },
+    { id: "mining-injury/injury-types", name: "Injury Types", shortName: "Injuries", description: "Cave-ins, explosions, black lung", icon: AlertTriangle, keywords: ["mining injury types"], featured: true },
+    { id: "mining-injury/mine-safety", name: "Mine Safety", shortName: "Safety", description: "MSHA violations and settlements", icon: Shield, keywords: ["mine safety violations"], featured: true },
 ] as const;
 
 export interface MiningResult { injuryType: string; mshaViolation: string; baseDamages: number; mshaBonus: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

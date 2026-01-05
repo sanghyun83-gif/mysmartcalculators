@@ -45,8 +45,8 @@ export const DUI_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "dui-calculator", name: "DUI Settlement Calculator", shortName: "Calculator", description: "Calculate drunk driving settlement", longDescription: "Free DUI accident calculator with punitive damages and BAC multipliers.", icon: Calculator, category: "legal", keywords: ["drunk driving calculator", "dui accident settlement"], featured: true },
-    { id: "dui-guide", name: "DUI Accident Guide", shortName: "Guide", description: "Understanding DUI claims", longDescription: "Learn about BAC levels, punitive damages, and dram shop liability.", icon: FileText, category: "legal", keywords: ["dui accident guide", "drunk driving lawsuit"], featured: true },
+    { id: "drunk-driving/dui-calculator", name: "DUI Settlement Calculator", shortName: "Calculator", description: "Calculate drunk driving settlement", longDescription: "Free DUI accident calculator with punitive damages and BAC multipliers.", icon: Calculator, category: "legal", keywords: ["drunk driving calculator", "dui accident settlement"], featured: true },
+    { id: "drunk-driving/dui-guide", name: "DUI Accident Guide", shortName: "Guide", description: "Understanding DUI claims", longDescription: "Learn about BAC levels, punitive damages, and dram shop liability.", icon: FileText, category: "legal", keywords: ["dui accident guide", "drunk driving lawsuit"], featured: true },
 ] as const;
 
 export interface DUIResult { bacLevel: string; injuryType: string; compensatory: number; punitiveDamages: number; medicalCosts: number; lostWages: number; painSuffering: number; totalLow: number; totalMid: number; totalHigh: number; }

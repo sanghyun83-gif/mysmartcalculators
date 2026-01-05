@@ -74,7 +74,7 @@ export const ESTATE_TAX_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "estate-calculator",
+        id: "estate-tax/estate-calculator",
         name: "Estate Tax Calculator",
         shortName: "Calculator",
         description: "Calculate federal estate tax",
@@ -85,7 +85,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "exemption-guide",
+        id: "estate-tax/exemption-guide",
         name: "Exemption Guide",
         shortName: "Guide",
         description: "Understanding estate tax exemptions",

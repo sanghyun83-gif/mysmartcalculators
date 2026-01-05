@@ -50,8 +50,8 @@ export const KNEE_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "knee-calculator", name: "Knee Settlement Calculator", shortName: "Calculator", description: "Calculate knee implant settlement", longDescription: "Free knee replacement lawsuit calculator.", icon: Calculator, category: "legal", keywords: ["knee implant calculator", "knee replacement lawsuit"], featured: true },
-    { id: "knee-guide", name: "Knee Lawsuit Guide", shortName: "Guide", description: "Understanding knee implant claims", longDescription: "Learn about defective knee implants and claims.", icon: FileText, category: "legal", keywords: ["knee lawsuit guide", "implant failure"], featured: true },
+    { id: "knee-implant/knee-calculator", name: "Knee Settlement Calculator", shortName: "Calculator", description: "Calculate knee implant settlement", longDescription: "Free knee replacement lawsuit calculator.", icon: Calculator, category: "legal", keywords: ["knee implant calculator", "knee replacement lawsuit"], featured: true },
+    { id: "knee-implant/knee-guide", name: "Knee Lawsuit Guide", shortName: "Guide", description: "Understanding knee implant claims", longDescription: "Learn about defective knee implants and claims.", icon: FileText, category: "legal", keywords: ["knee lawsuit guide", "implant failure"], featured: true },
 ] as const;
 
 export interface KneeResult { complicationType: string; implantBrand: string; timeToFailure: string; baseDamages: number; brandBonus: number; timeBonus: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

@@ -114,7 +114,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "recovery-guide",
+        id: "spinal-cord/recovery-guide",
         name: "SCI Recovery Guide",
         shortName: "Guide",
         description: "Understanding spinal cord injuries",

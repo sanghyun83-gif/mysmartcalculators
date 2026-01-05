@@ -47,8 +47,8 @@ export const CHEMBURN_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "burn-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate chemical burn settlement", icon: Calculator, keywords: ["chemical burn settlement"], featured: true },
-    { id: "burn-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding chemical burn claims", icon: FileText, keywords: ["chemical burn lawsuit"], featured: true },
+    { id: "chemical-burn/burn-calculator", name: "Settlement Calculator", shortName: "Calculator", description: "Calculate chemical burn settlement", icon: Calculator, keywords: ["chemical burn settlement"], featured: true },
+    { id: "chemical-burn/burn-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding chemical burn claims", icon: FileText, keywords: ["chemical burn lawsuit"], featured: true },
 ] as const;
 
 export interface BurnResult { burnType: string; severity: string; bodyArea: string; baseDamages: number; severityBonus: number; areaBonus: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }

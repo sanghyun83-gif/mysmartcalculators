@@ -134,7 +134,7 @@ export const STATE_SSI_SUPPLEMENTS: Record<string, {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "ssdi-calculator",
+        id: "disability/ssdi-calculator",
         name: "SSDI Calculator",
         shortName: "SSDI",
         description: "Calculate Social Security Disability benefits",
@@ -145,7 +145,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "ssi-calculator",
+        id: "disability/ssi-calculator",
         name: "SSI Calculator",
         shortName: "SSI",
         description: "Calculate Supplemental Security Income",
@@ -156,7 +156,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "eligibility",
+        id: "disability/eligibility",
         name: "Eligibility Guide",
         shortName: "Eligibility",
         description: "Check SSDI vs SSI eligibility requirements",

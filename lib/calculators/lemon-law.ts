@@ -147,7 +147,7 @@ export const STATE_LEMON = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "lemon-calculator",
+        id: "lemon-law/lemon-calculator",
         name: "Lemon Law Calculator",
         shortName: "Calculator",
         description: "Calculate your lemon law claim value",
@@ -158,7 +158,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "state-laws",
+        id: "lemon-law/state-laws",
         name: "Lemon Laws by State",
         shortName: "State Laws",
         description: "Compare lemon law protections by state",

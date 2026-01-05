@@ -74,7 +74,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "nutrition-guide",
+        id: "calorie/nutrition-guide",
         name: "Nutrition Guide",
         shortName: "Guide",
         description: "Understanding calories and macros",

@@ -94,7 +94,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "back-pay-guide",
+        id: "ssdi/back-pay-guide",
         name: "SSDI Back Pay Guide",
         shortName: "Guide",
         description: "Understand how SSDI back pay is calculated",

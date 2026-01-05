@@ -64,7 +64,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "health-guide",
+        id: "bmi/health-guide",
         name: "BMI Health Guide",
         shortName: "Guide",
         description: "Understanding BMI categories",

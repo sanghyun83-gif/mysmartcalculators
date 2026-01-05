@@ -71,7 +71,7 @@ export const HEALTH_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "health-calculator",
+        id: "health-insurance/health-calculator",
         name: "Health Insurance Calculator",
         shortName: "Calculator",
         description: "Calculate monthly premium costs",
@@ -82,7 +82,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "coverage-guide",
+        id: "health-insurance/coverage-guide",
         name: "Coverage Guide",
         shortName: "Guide",
         description: "Compare plan types and coverage",

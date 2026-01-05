@@ -116,7 +116,7 @@ export const TOP_STATES = ['IA', 'NH', 'IL', 'DC', 'MA', 'WA', 'CA'];
 // ============================================
 export const CALCULATORS = [
     {
-        id: "calculator",
+        id: "workers-comp/calculator",
         name: "Workers Comp Calculator",
         shortName: "Calculator",
         description: "Calculate weekly benefits and settlement estimate",
@@ -127,7 +127,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "state-rates",
+        id: "workers-comp/state-rates",
         name: "2026 State Maximum Rates",
         shortName: "State Rates",
         description: "Compare workers comp limits by state",

@@ -139,7 +139,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "state-laws",
+        id: "alimony/state-laws",
         name: "State Alimony Laws",
         shortName: "State Laws",
         description: "View alimony formulas and rules by state",

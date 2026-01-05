@@ -126,7 +126,7 @@ export const TAX_CONSTANTS = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "calculator",
+        id: "tax/calculator",
         name: "Income Tax Calculator",
         shortName: "Tax Calc",
         description: "Calculate your 2025 federal income tax",
@@ -137,7 +137,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "brackets",
+        id: "tax/brackets",
         name: "Tax Brackets",
         shortName: "Brackets",
         description: "2025 federal tax brackets and rates",
@@ -148,7 +148,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "refund",
+        id: "tax/refund",
         name: "Refund Estimator",
         shortName: "Refund",
         description: "Estimate your tax refund or amount owed",
@@ -159,7 +159,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "self-employed",
+        id: "tax/self-employed",
         name: "Self-Employment Tax",
         shortName: "SE Tax",
         description: "Calculate self-employment tax (15.3%)",
@@ -170,7 +170,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "deductions",
+        id: "tax/deductions",
         name: "Deductions Guide",
         shortName: "Deductions",
         description: "Standard vs itemized deductions",
@@ -181,7 +181,7 @@ export const CALCULATORS = [
         featured: false,
     },
     {
-        id: "filing-status",
+        id: "tax/filing-status",
         name: "Filing Status",
         shortName: "Status",
         description: "Compare tax by filing status",

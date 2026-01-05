@@ -49,8 +49,8 @@ export const TRUCK_2026 = {
 } as const;
 
 export const CALCULATORS = [
-    { id: "truck-calculator", name: "18 Wheeler Settlement Calculator", shortName: "Calculator", description: "Calculate truck accident settlement", longDescription: "Free semi-truck accident calculator with commercial vehicle factors.", icon: Calculator, category: "legal", keywords: ["18 wheeler calculator", "truck accident settlement"], featured: true },
-    { id: "truck-guide", name: "Truck Accident Guide", shortName: "Guide", description: "Understanding trucking liability", longDescription: "Learn about FMCSA regulations, trucking company liability, and claims.", icon: FileText, category: "legal", keywords: ["truck accident guide", "semi truck claims"], featured: true },
+    { id: "18-wheeler/truck-calculator", name: "18 Wheeler Settlement Calculator", shortName: "Calculator", description: "Calculate truck accident settlement", longDescription: "Free semi-truck accident calculator with commercial vehicle factors.", icon: Calculator, category: "legal", keywords: ["18 wheeler calculator", "truck accident settlement"], featured: true },
+    { id: "18-wheeler/truck-guide", name: "Truck Accident Guide", shortName: "Guide", description: "Understanding trucking liability", longDescription: "Learn about FMCSA regulations, trucking company liability, and claims.", icon: FileText, category: "legal", keywords: ["truck accident guide", "semi truck claims"], featured: true },
 ] as const;
 
 export interface TruckResult { injuryType: string; liabilityParty: string; baseDamages: number; liabilityBonus: number; medicalCosts: number; lostWages: number; totalLow: number; totalMid: number; totalHigh: number; }

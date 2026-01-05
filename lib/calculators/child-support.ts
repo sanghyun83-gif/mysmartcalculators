@@ -133,7 +133,7 @@ export const STATE_DATA: Record<string, {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "child-support",
+        id: "child-support/child-support",
         name: "Child Support Calculator",
         shortName: "Calculator",
         description: "Calculate child support payments by state",
@@ -144,7 +144,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "state-guidelines",
+        id: "child-support/state-guidelines",
         name: "State Guidelines",
         shortName: "By State",
         description: "Child support guidelines by state",
@@ -155,7 +155,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "custody-calculator",
+        id: "child-support/custody-calculator",
         name: "Custody Percentage Calculator",
         shortName: "Custody",
         description: "Calculate custody time percentages",

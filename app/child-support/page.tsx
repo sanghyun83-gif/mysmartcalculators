@@ -41,7 +41,7 @@ export default function Home() {
           </p>
 
           <Link
-            href="/child-support"
+            href="/child-support/child-support"
             className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105"
           >
             Calculate Child Support
@@ -186,7 +186,7 @@ export default function Home() {
           Calculate child support in under 2 minutes. No email required.
         </p>
         <Link
-          href="/child-support"
+          href="/child-support/child-support"
           className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
         >
           Start Calculator

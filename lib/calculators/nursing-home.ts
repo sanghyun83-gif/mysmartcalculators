@@ -140,7 +140,7 @@ export const ABUSE_TYPES = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "abuse-settlement",
+        id: "nursing-home/abuse-settlement",
         name: "Nursing Home Abuse Calculator",
         shortName: "Settlement",
         description: "Calculate your nursing home abuse settlement value",
@@ -151,7 +151,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "abuse-types",
+        id: "nursing-home/abuse-types",
         name: "Abuse Types Guide",
         shortName: "Abuse Types",
         description: "View settlements by type of abuse or neglect",

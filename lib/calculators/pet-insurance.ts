@@ -81,7 +81,7 @@ export const PET_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "pet-calculator",
+        id: "pet-insurance/pet-calculator",
         name: "Pet Insurance Calculator",
         shortName: "Calculator",
         description: "Calculate monthly premium costs",
@@ -92,7 +92,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "coverage-guide",
+        id: "pet-insurance/coverage-guide",
         name: "Coverage Guide",
         shortName: "Guide",
         description: "Compare coverage types and options",

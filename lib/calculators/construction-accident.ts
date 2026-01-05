@@ -65,7 +65,7 @@ export const CONSTRUCTION_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "construction-calculator",
+        id: "construction-accident/construction-calculator",
         name: "Construction Settlement Calculator",
         shortName: "Calculator",
         description: "Calculate construction accident settlement",
@@ -76,7 +76,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "construction-guide",
+        id: "construction-accident/construction-guide",
         name: "Construction Safety Guide",
         shortName: "Guide",
         description: "Understanding construction accidents",

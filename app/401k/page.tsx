@@ -41,7 +41,7 @@ export default function HomePage() {
           </p>
 
           <Link
-            href="/calculator"
+            href="/401k/calculator"
             className="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-purple-900 px-6 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg"
           >
             <Calculator className="w-5 h-5" />
@@ -165,7 +165,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center mt-6">
-            <Link href="/calculator" className="text-purple-600 font-semibold hover:underline">
+            <Link href="/401k/calculator" className="text-purple-600 font-semibold hover:underline">
               Calculate Your Own →
             </Link>
           </div>
@@ -182,7 +182,7 @@ export default function HomePage() {
             See how your 401k can grow with employer matching and compound interest.
           </p>
           <Link
-            href="/calculator"
+            href="/401k/calculator"
             className="inline-flex items-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-purple-900 px-6 py-4 rounded-xl font-bold transition-colors"
           >
             <Calculator className="w-5 h-5" />

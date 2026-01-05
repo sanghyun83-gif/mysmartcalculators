@@ -41,7 +41,7 @@ export default function HomePage() {
           </p>
 
           <Link
-            href="/calculator"
+            href="/mortgage/calculator"
             className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg"
           >
             <Home className="w-5 h-5" />
@@ -204,7 +204,7 @@ export default function HomePage() {
             Get your personalized estimate in under 1 minute.
           </p>
           <Link
-            href="/calculator"
+            href="/mortgage/calculator"
             className="inline-flex items-center gap-2 bg-white hover:bg-slate-100 text-blue-600 px-8 py-4 rounded-xl font-bold transition-colors"
           >
             <Home className="w-5 h-5" />

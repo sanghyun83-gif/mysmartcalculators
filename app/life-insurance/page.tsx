@@ -41,7 +41,7 @@ export default function HomePage() {
           </p>
 
           <Link
-            href="/calculator"
+            href="/life-insurance/calculator"
             className="inline-flex items-center gap-2 bg-white hover:bg-slate-100 text-blue-700 px-6 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg"
           >
             <Shield className="w-5 h-5" />
@@ -196,7 +196,7 @@ export default function HomePage() {
             It takes less than 2 minutes to find out how much coverage you need.
           </p>
           <Link
-            href="/calculator"
+            href="/life-insurance/calculator"
             className="inline-flex items-center gap-2 bg-white hover:bg-slate-100 text-blue-700 px-6 py-4 rounded-xl font-bold transition-colors"
           >
             <Shield className="w-5 h-5" />

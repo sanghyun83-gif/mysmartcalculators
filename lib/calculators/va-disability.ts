@@ -84,7 +84,7 @@ export function calculateCombinedRating(ratings: number[]): number {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "va-calculator",
+        id: "va-disability/va-calculator",
         name: "VA Disability Calculator",
         shortName: "Calculator",
         description: "Calculate your VA compensation",
@@ -95,7 +95,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "rating-guide",
+        id: "va-disability/rating-guide",
         name: "VA Rating Guide",
         shortName: "Guide",
         description: "Understanding VA disability ratings",

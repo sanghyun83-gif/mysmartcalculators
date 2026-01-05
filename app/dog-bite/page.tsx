@@ -181,7 +181,7 @@ export default function Home() {
 
         <div className="text-center mt-8">
           <Link
-            href="/bite-severity"
+            href="/dog-bite/bite-severity"
             className="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300"
           >
             View All Severity Levels <ArrowRight className="w-4 h-4" />

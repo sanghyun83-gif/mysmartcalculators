@@ -41,7 +41,7 @@ export default function HomePage() {
           </p>
 
           <Link
-            href="/calculator"
+            href="/retirement/calculator"
             className="inline-flex items-center gap-3 bg-amber-500 hover:bg-amber-600 text-slate-900 px-8 py-5 rounded-xl font-bold text-xl transition-all hover:scale-105 shadow-lg"
           >
             <PiggyBank className="w-6 h-6" />
@@ -188,7 +188,7 @@ export default function HomePage() {
             It takes less than 2 minutes to see your projected retirement savings.
           </p>
           <Link
-            href="/calculator"
+            href="/retirement/calculator"
             className="inline-flex items-center gap-3 bg-white hover:bg-slate-100 text-emerald-700 px-8 py-5 rounded-xl font-bold text-xl transition-colors"
           >
             <PiggyBank className="w-6 h-6" />

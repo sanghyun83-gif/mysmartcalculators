@@ -22,7 +22,7 @@ export default function HomePage() {
           <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">Calculate your Paragard IUD fracture settlement. First bellwether trial starts {PARAGARD_2026.bellwetherTrial.date}. {PARAGARD_2026.statistics.lawsuitsFiled.toLocaleString()}+ lawsuits pending in {PARAGARD_2026.bellwetherTrial.mdlNumber}.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/paragard/calculator" className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105">Calculate Settlement<ArrowRight className="w-5 h-5" /></Link>
-            <Link href="/trial-status" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105"><Calendar className="w-5 h-5" />2026 Trial Status</Link>
+            <Link href="/paragard/trial-status" className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105"><Calendar className="w-5 h-5" />2026 Trial Status</Link>
           </div>
           <div className="mt-8 bg-purple-900/30 border border-purple-700/50 rounded-lg p-4 max-w-xl mx-auto">
             <div className="flex items-center gap-2 text-purple-300 text-sm"><AlertTriangle className="w-4 h-4" /><span>{PARAGARD_2026.statistics.defectRate}% device defect rate reported to FDA</span></div>

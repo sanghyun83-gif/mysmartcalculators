@@ -83,7 +83,7 @@ export const INSURANCE_CONSTANTS = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "calculator",
+        id: "life-insurance/calculator",
         name: "Coverage Calculator",
         shortName: "Coverage",
         description: "How much life insurance do you need?",
@@ -94,7 +94,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "term-vs-whole",
+        id: "life-insurance/term-vs-whole",
         name: "Term vs Whole Life",
         shortName: "Term vs Whole",
         description: "Which type of policy is right for you?",
@@ -105,7 +105,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "premium",
+        id: "life-insurance/premium",
         name: "Premium Estimator",
         shortName: "Premium",
         description: "Estimate your monthly premium",
@@ -116,7 +116,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "family-needs",
+        id: "life-insurance/family-needs",
         name: "Family Needs Calculator",
         shortName: "Family Needs",
         description: "Calculate coverage based on family obligations",

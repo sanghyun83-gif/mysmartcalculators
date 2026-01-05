@@ -82,7 +82,7 @@ export const CALCULATORS = [
         featured: true,
     },
     {
-        id: "flsa-guide",
+        id: "overtime/flsa-guide",
         name: "FLSA Overtime Guide",
         shortName: "FLSA Guide",
         description: "Who qualifies for overtime?",
