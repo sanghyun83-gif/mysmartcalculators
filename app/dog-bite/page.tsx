@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SITE, CALCULATORS, DOG_BITE_CONSTANTS_2026, BITE_SEVERITY, formatCurrency } from "@/lib/calculators/dog-bite";
 import { ArrowRight, Dog, AlertTriangle, Scale, Shield } from "lucide-react";
+import { RelatedCalculators } from "@/components/RelatedCalculators";
 
 export default function Home() {
   const severityLevels = Object.entries(BITE_SEVERITY).slice(2, 6); // Level 3-6
@@ -207,6 +208,16 @@ export default function Home() {
       </section>
 
       {/* Footer */}
+      
+      {/* Related Calculators */}
+      <section className="max-w-6xl mx-auto px-4 py-8">
+        <div className="flex justify-center">
+          <div className="w-full max-w-xs">
+            <RelatedCalculators currentCalc="dog-bite" count={5} />
+          </div>
+        </div>
+      </section>
+
       <footer className="bg-slate-800 border-t border-slate-700">
         <div className="max-w-6xl mx-auto px-4 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">

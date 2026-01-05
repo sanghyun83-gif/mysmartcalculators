@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SITE, CALCULATORS, GARNISHMENT_LIMITS_2026, GARNISHMENT_TYPES, formatCurrency } from "@/lib/calculators/wage-garnishment";
 import { ArrowRight, DollarSign, Scale, AlertTriangle, CreditCard, Users, Landmark, GraduationCap } from "lucide-react";
+import { RelatedCalculators } from "@/components/RelatedCalculators";
 
 export default function Home() {
   const garnishmentTypes = Object.entries(GARNISHMENT_TYPES);
@@ -212,6 +213,16 @@ export default function Home() {
       </section>
 
       {/* Footer */}
+      
+      {/* Related Calculators */}
+      <section className="max-w-6xl mx-auto px-4 py-8">
+        <div className="flex justify-center">
+          <div className="w-full max-w-xs">
+            <RelatedCalculators currentCalc="wage-garnishment" count={5} />
+          </div>
+        </div>
+      </section>
+
       <footer className="bg-slate-800 border-t border-slate-700">
         <div className="max-w-6xl mx-auto px-4 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">

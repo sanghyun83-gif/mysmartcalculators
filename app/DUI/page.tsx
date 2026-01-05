@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Scale, AlertTriangle, ArrowRight, Shield, FileWarning } from "lucide-react";
 import { SITE, CALCULATORS } from "@/lib/calculators/DUI";
+import { RelatedCalculators } from "@/components/RelatedCalculators";
 
 export default function HomePage() {
   return (
@@ -151,6 +152,16 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
+      
+      {/* Related Calculators */}
+      <section className="max-w-6xl mx-auto px-4 py-8">
+        <div className="flex justify-center">
+          <div className="w-full max-w-xs">
+            <RelatedCalculators currentCalc="DUI" count={5} />
+          </div>
+        </div>
+      </section>
+
       <footer className="bg-slate-900 border-t border-slate-800 py-8">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-2 mb-4">

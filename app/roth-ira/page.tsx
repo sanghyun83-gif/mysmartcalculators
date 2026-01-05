@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SITE, CALCULATORS, ROTH_2026, formatCurrency } from "@/lib/calculators/roth-ira";
 import { ArrowRight, TrendingUp, DollarSign, Calendar, CheckCircle } from "lucide-react";
+import { RelatedCalculators } from "@/components/RelatedCalculators";
 
 export default function HomePage() {
   return (
@@ -188,6 +189,16 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
+      
+      {/* Related Calculators */}
+      <section className="max-w-6xl mx-auto px-4 py-8">
+        <div className="flex justify-center">
+          <div className="w-full max-w-xs">
+            <RelatedCalculators currentCalc="roth-ira" count={5} />
+          </div>
+        </div>
+      </section>
+
       <footer className="bg-slate-800 border-t border-slate-700">
         <div className="max-w-6xl mx-auto px-4 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">

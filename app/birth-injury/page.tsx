@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SITE, CALCULATORS, BIRTH_INJURY_CONSTANTS_2026, BIRTH_INJURIES, formatCurrency, getSeverityColor } from "@/lib/calculators/birth-injury";
 import { ArrowRight, Baby, AlertTriangle, Stethoscope, Heart, Clock } from "lucide-react";
+import { RelatedCalculators } from "@/components/RelatedCalculators";
 
 export default function Home() {
   const injuries = Object.entries(BIRTH_INJURIES).slice(0, 4);
@@ -227,6 +228,16 @@ export default function Home() {
       </section>
 
       {/* Footer */}
+      
+      {/* Related Calculators */}
+      <section className="max-w-6xl mx-auto px-4 py-8">
+        <div className="flex justify-center">
+          <div className="w-full max-w-xs">
+            <RelatedCalculators currentCalc="birth-injury" count={5} />
+          </div>
+        </div>
+      </section>
+
       <footer className="bg-slate-800 border-t border-slate-700">
         <div className="max-w-6xl mx-auto px-4 py-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">

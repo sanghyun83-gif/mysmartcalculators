@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SITE, CALCULATORS, LEJEUNE_2026, formatCurrency } from "@/lib/calculators/camp-lejeune";
 import { ArrowRight, Droplet, AlertTriangle, Calendar } from "lucide-react";
+import { RelatedCalculators } from "@/components/RelatedCalculators";
 
 export default function HomePage() {
   return (
@@ -65,6 +66,16 @@ export default function HomePage() {
         <h2 className="text-2xl font-bold text-white mb-4">Calculate Your Settlement</h2>
         <p className="text-slate-400 mb-8">If you or a family member lived or worked at Camp Lejeune from 1953-1987, you may be entitled to significant compensation under the PACT Act.</p>
         <Link href="/camp-lejeune/lejeune-calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold">Calculate Now<ArrowRight className="w-5 h-5" /></Link>
+      </section>
+
+      
+      {/* Related Calculators */}
+      <section className="max-w-6xl mx-auto px-4 py-8">
+        <div className="flex justify-center">
+          <div className="w-full max-w-xs">
+            <RelatedCalculators currentCalc="camp-lejeune" count={5} />
+          </div>
+        </div>
       </section>
 
       <footer className="bg-slate-800 border-t border-slate-700">

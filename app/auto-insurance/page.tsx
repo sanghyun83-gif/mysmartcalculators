@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SITE, CALCULATORS, AUTO_INSURANCE_CONSTANTS, formatCurrency, getCheapestStates, getMostExpensiveStates } from "@/lib/calculators/auto-insurance";
 import { ArrowRight, CheckCircle, Car, TrendingDown, TrendingUp } from "lucide-react";
+import { RelatedCalculators } from "@/components/RelatedCalculators";
 
 export default function HomePage() {
   const featuredCalculators = CALCULATORS.filter(c => c.featured);
@@ -207,6 +208,16 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
+      
+      {/* Related Calculators */}
+      <section className="max-w-6xl mx-auto px-4 py-8">
+        <div className="flex justify-center">
+          <div className="w-full max-w-xs">
+            <RelatedCalculators currentCalc="auto-insurance" count={5} />
+          </div>
+        </div>
+      </section>
+
       <footer className="bg-slate-800 text-white">
         <div className="max-w-6xl mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
