@@ -44,6 +44,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'pfas': 'legal',
     '3m-earplug': 'medical',
     'roundup': 'medical',
+    'zantac': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -265,6 +266,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'pfas': 'PFAS Lawsuit',
     '3m-earplug': '3M Earplug',
     'roundup': 'Roundup Lymphoma',
+    'zantac': 'Zantac Cancer',
 };
 
 /**
