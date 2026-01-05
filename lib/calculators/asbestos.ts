@@ -1,5 +1,5 @@
 // ============================================
-// ASBESTOS EXPOSURE CALCULATOR - 심화 버전
+// ASBESTOS EXPOSURE CALCULATOR - Advanced Version
 // 2026 Data - Based on EPA/OSHA/CDC/NIOSH
 // ============================================
 

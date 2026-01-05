@@ -39,7 +39,7 @@ export default function CalculatorPage() {
 
             <section className="max-w-4xl mx-auto px-4 py-8">
                 <div className="text-center mb-8">
-                    <div className="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-500/50 rounded-full px-4 py-2 mb-4"><Calculator className="w-4 h-4 text-amber-400" /><span className="text-sm text-amber-300">심화++ Calculator</span></div>
+                    <div className="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-500/50 rounded-full px-4 py-2 mb-4"><Calculator className="w-4 h-4 text-amber-400" /><span className="text-sm text-amber-300">Advanced+ Calculator</span></div>
                     <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">Toxic Tort Settlement Calculator</h1>
                     <p className="text-slate-400">10+ input fields for comprehensive settlement estimation.</p>
                 </div>

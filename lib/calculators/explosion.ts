@@ -1,5 +1,5 @@
 // ============================================
-// EXPLOSION INJURY CALCULATOR - 표준 버전
+// EXPLOSION INJURY CALCULATOR - Standard Version
 // 2026 Data - Based on OSHA/ATF/NFPA
 // ============================================
 

@@ -1,5 +1,5 @@
 // ============================================
-// WELDING INJURY CALCULATOR - 표준 버전
+// WELDING INJURY CALCULATOR - Standard Version
 // 2026 Data - Based on OSHA/AWS/BLS
 // ============================================
 

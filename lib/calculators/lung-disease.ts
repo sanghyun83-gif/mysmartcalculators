@@ -177,7 +177,7 @@ export const CALCULATORS = [
 ];
 
 // ============================================
-// FAQ DATA (10 FAQs for 심화)
+// FAQ DATA (10 FAQs for Advanced)
 // ============================================
 export const FAQS = [
     {

@@ -1,5 +1,5 @@
 // ============================================
-// REFINERY ACCIDENT CALCULATOR - 표준 버전
+// REFINERY ACCIDENT CALCULATOR - Standard Version
 // 2026 Data - Based on OSHA/CSB/EPA
 // ============================================
 

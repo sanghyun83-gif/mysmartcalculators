@@ -1,5 +1,5 @@
 // ============================================
-// MINING INJURY CALCULATOR - 심화 버전
+// MINING INJURY CALCULATOR - Advanced Version
 // 2026 Data - Based on MSHA/BLS/CDC NIOSH
 // ============================================
 

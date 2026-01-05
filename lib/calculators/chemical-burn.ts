@@ -1,5 +1,5 @@
 // ============================================
-// CHEMICAL BURN CALCULATOR - 표준 버전
+// CHEMICAL BURN CALCULATOR - Standard Version
 // 2026 Data - Based on OSHA/CDC/ABA
 // ============================================
 

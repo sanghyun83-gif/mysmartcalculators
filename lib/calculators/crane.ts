@@ -1,5 +1,5 @@
 // ============================================
-// CRANE INJURY CALCULATOR - SITE CONFIG (심화 버전)
+// CRANE INJURY CALCULATOR - SITE CONFIG (Advanced Version)
 // 2026 Data - Based on OSHA/BLS Construction Statistics
 // ============================================
 

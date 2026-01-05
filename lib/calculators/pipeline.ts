@@ -1,5 +1,5 @@
 // ============================================
-// PIPELINE INJURY CALCULATOR - 표준 버전
+// PIPELINE INJURY CALCULATOR - Standard Version
 // 2026 Data - Based on PHMSA/DOT/NTSB
 // ============================================
 

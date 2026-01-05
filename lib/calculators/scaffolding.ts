@@ -1,5 +1,5 @@
 // ============================================
-// SCAFFOLDING ACCIDENT CALCULATOR - 표준 버전
+// SCAFFOLDING ACCIDENT CALCULATOR - Standard Version
 // 2026 Data - Based on OSHA/BLS/NIOSH
 // ============================================
 

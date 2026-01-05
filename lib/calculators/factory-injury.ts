@@ -1,5 +1,5 @@
 // ============================================
-// FACTORY INJURY CALCULATOR - 표준 버전
+// FACTORY INJURY CALCULATOR - Standard Version
 // 2026 Data - Based on OSHA/BLS/NIOSH
 // ============================================
 

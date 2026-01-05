@@ -1,5 +1,5 @@
 // ============================================
-// PRODUCT LIABILITY CALCULATOR - 심화 버전
+// PRODUCT LIABILITY CALCULATOR - Advanced Version
 // 2026 Data - Based on CPSC/FDA/NHTSA
 // ============================================
 

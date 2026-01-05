@@ -1,5 +1,5 @@
 // ============================================
-// GAS EXPLOSION CALCULATOR - 표준 버전
+// GAS EXPLOSION CALCULATOR - Standard Version
 // 2026 Data - Based on NFPA/PHMSA/NTSB
 // ============================================
 
