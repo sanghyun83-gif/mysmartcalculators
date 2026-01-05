@@ -42,6 +42,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'lead-poisoning': 'medical',
     'water-contamination': 'legal',
     'pfas': 'legal',
+    '3m-earplug': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -261,6 +262,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'lead-poisoning': 'Lead Poisoning',
     'water-contamination': 'Water Contamination',
     'pfas': 'PFAS Lawsuit',
+    '3m-earplug': '3M Earplug',
 };
 
 /**
