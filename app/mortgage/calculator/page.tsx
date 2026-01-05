@@ -275,10 +275,10 @@ export default function MortgageCalculatorPage() {
 
                 {/* Links to Other Calculators */}
                 <div className="grid grid-cols-2 gap-4">
-                    <Link href="/amortization" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-blue-500 transition-colors">
+                    <Link href="/mortgage/amortization" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-blue-500 transition-colors">
                         <p className="text-sm font-medium text-slate-600">Amortization Schedule →</p>
                     </Link>
-                    <Link href="/affordability" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-blue-500 transition-colors">
+                    <Link href="/mortgage/affordability" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-blue-500 transition-colors">
                         <p className="text-sm font-medium text-slate-600">How Much Can I Afford? →</p>
                     </Link>
                 </div>

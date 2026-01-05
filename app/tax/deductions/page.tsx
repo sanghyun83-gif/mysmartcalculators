@@ -145,7 +145,7 @@ export default function DeductionsPage() {
                 </div>
 
                 <div className="text-center">
-                    <Link href="/calculator" className="inline-flex items-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold">
+                    <Link href="/tax/calculator" className="inline-flex items-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold">
                         Calculate Your Tax →
                     </Link>
                 </div>

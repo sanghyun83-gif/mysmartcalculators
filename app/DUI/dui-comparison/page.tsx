@@ -171,7 +171,7 @@ export default function DUIComparisonPage() {
                 {/* CTA */}
                 <div className="mt-8 text-center">
                     <Link
-                        href="/dui-cost"
+                        href="/DUI/dui-cost"
                         className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
                         Calculate Your DUI Cost →

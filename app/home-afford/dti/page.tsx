@@ -175,7 +175,7 @@ export default function DTIPage() {
                     <p className="text-sm text-slate-400">Advertisement</p>
                 </div>
 
-                <Link href="/calculator" className="block bg-green-600 hover:bg-green-700 text-white rounded-lg p-4 text-center font-bold">
+                <Link href="/home-afford/calculator" className="block bg-green-600 hover:bg-green-700 text-white rounded-lg p-4 text-center font-bold">
                     Calculate Affordability →
                 </Link>
             </main>

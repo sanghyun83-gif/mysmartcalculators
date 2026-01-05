@@ -162,7 +162,7 @@ export default function StateGuidePage() {
                 {/* CTA */}
                 <div className="text-center">
                     <Link
-                        href="/division-calculator"
+                        href="/property-division/division-calculator"
                         className="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
                         Calculate Your Division

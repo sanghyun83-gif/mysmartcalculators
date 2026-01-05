@@ -279,7 +279,7 @@ export default function InjurySettlementPage() {
                 {/* CTA */}
                 <div className="mt-8 text-center">
                     <Link
-                        href="/injury-types"
+                        href="/mesothelioma/injury-types"
                         className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
                         View Compensation by Mesothelioma Type →

@@ -287,7 +287,7 @@ export default function SSDICalculatorPage() {
                 {/* CTA */}
                 <div className="mt-8 text-center">
                     <Link
-                        href="/ssi-calculator"
+                        href="/disability/ssi-calculator"
                         className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
                         Calculate SSI Benefits →

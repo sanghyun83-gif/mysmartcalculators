@@ -182,10 +182,10 @@ export default function TaxCalculatorPage() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
-                    <Link href="/refund" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-emerald-500 transition-colors">
+                    <Link href="/tax/refund" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-emerald-500 transition-colors">
                         <p className="text-sm font-medium text-slate-600">Estimate Refund →</p>
                     </Link>
-                    <Link href="/brackets" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-emerald-500 transition-colors">
+                    <Link href="/tax/brackets" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-emerald-500 transition-colors">
                         <p className="text-sm font-medium text-slate-600">View Tax Brackets →</p>
                     </Link>
                 </div>

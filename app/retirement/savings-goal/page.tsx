@@ -162,7 +162,7 @@ export default function SavingsGoalPage() {
                 </div>
 
                 <div className="text-center">
-                    <Link href="/calculator" className="inline-flex items-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold text-lg">
+                    <Link href="/retirement/calculator" className="inline-flex items-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold text-lg">
                         See Your Projected Savings →
                     </Link>
                 </div>

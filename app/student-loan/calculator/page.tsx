@@ -113,10 +113,10 @@ export default function CalculatorPage() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
-                    <Link href="/payoff" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-blue-500">
+                    <Link href="/student-loan/payoff" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-blue-500">
                         <p className="text-sm font-medium text-slate-600">Payoff Calculator →</p>
                     </Link>
-                    <Link href="/idr" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-blue-500">
+                    <Link href="/student-loan/idr" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-blue-500">
                         <p className="text-sm font-medium text-slate-600">IDR Calculator →</p>
                     </Link>
                 </div>

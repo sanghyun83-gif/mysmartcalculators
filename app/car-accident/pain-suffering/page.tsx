@@ -176,7 +176,7 @@ export default function PainSufferingPage() {
                 {/* CTA */}
                 <div className="mt-8 text-center">
                     <Link
-                        href="/settlement-calculator"
+                        href="/car-accident/settlement-calculator"
                         className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold"
                     >
                         Calculate Full Settlement →

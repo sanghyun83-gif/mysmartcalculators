@@ -228,7 +228,7 @@ export default function SellingGuidePage() {
                 {/* CTA */}
                 <div className="text-center">
                     <Link
-                        href="/settlement-calculator"
+                        href="/structured-settlement/settlement-calculator"
                         className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
                         Calculate Your Cash Value

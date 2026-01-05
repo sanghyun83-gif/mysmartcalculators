@@ -216,7 +216,7 @@ export default function StateRatesPage() {
                 {/* CTA */}
                 <div className="mt-8 text-center">
                     <Link
-                        href="/calculator"
+                        href="/workers-comp/calculator"
                         className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-900 px-6 py-3 rounded-lg font-bold transition-colors"
                     >
                         <HardHat className="w-5 h-5" />

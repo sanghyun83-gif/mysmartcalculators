@@ -63,7 +63,7 @@ export default function TrialStatusPage() {
 
                 <div className="my-8 p-6 bg-slate-800 border border-slate-700 rounded-xl text-center"><p className="text-sm text-slate-500">Advertisement</p></div>
 
-                <div className="flex gap-4 justify-center"><Link href="/paragard/calculator" className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold">Calculate Settlement<ArrowRight className="w-5 h-5" /></Link><Link href="/eligibility" className="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white px-6 py-3 rounded-lg font-semibold">Check Eligibility<ArrowRight className="w-5 h-5" /></Link></div>
+                <div className="flex gap-4 justify-center"><Link href="/paragard/calculator" className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold">Calculate Settlement<ArrowRight className="w-5 h-5" /></Link><Link href="/paragard/eligibility" className="inline-flex items-center gap-2 bg-rose-600 hover:bg-rose-700 text-white px-6 py-3 rounded-lg font-semibold">Check Eligibility<ArrowRight className="w-5 h-5" /></Link></div>
                 <p className="mt-8 text-xs text-slate-500 text-center">{PARAGARD_2026.citation}</p>
             </main>
         </div>

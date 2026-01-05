@@ -183,7 +183,7 @@ export default function CoverageGuidePage() {
                 {/* CTA */}
                 <div className="text-center">
                     <Link
-                        href="/pet-calculator"
+                        href="/pet-insurance/pet-calculator"
                         className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
                         Calculate Your Premium

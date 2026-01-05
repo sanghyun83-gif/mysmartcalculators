@@ -196,7 +196,7 @@ export default function LimitsGuidePage() {
                 {/* CTA */}
                 <div className="text-center">
                     <Link
-                        href="/garnishment-calculator"
+                        href="/wage-garnishment/garnishment-calculator"
                         className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
                         Calculate Your Limit

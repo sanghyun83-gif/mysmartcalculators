@@ -176,7 +176,7 @@ export default function FamilyNeedsPage() {
                 </div>
 
                 <div className="text-center">
-                    <Link href="/premium" className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold">
+                    <Link href="/life-insurance/premium" className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold">
                         Get Premium Estimate →
                     </Link>
                 </div>

@@ -196,7 +196,7 @@ export default function StateLawsPage() {
                 {/* CTA */}
                 <div className="text-center">
                     <Link
-                        href="/alimony-calculator"
+                        href="/divorce/alimony-calculator"
                         className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
                         <Calculator className="w-5 h-5" />

@@ -172,7 +172,7 @@ export default function IncomeLimitsPage() {
                 {/* CTA */}
                 <div className="text-center">
                     <Link
-                        href="/roth-calculator"
+                        href="/roth-ira/roth-calculator"
                         className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
                         Calculate Your Roth IRA Growth

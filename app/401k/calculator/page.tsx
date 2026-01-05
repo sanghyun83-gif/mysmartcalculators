@@ -246,10 +246,10 @@ export default function CalculatorPage() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
-                    <Link href="/employer-match" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-purple-500">
+                    <Link href="/401k/employer-match" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-purple-500">
                         <p className="text-sm font-medium text-slate-600">Employer Match →</p>
                     </Link>
-                    <Link href="/roth-vs-traditional" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-purple-500">
+                    <Link href="/401k/roth-vs-traditional" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-purple-500">
                         <p className="text-sm font-medium text-slate-600">Roth vs Traditional →</p>
                     </Link>
                 </div>

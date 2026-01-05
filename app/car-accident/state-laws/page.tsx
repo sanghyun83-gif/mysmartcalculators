@@ -159,7 +159,7 @@ export default function StateLawsPage() {
                 {/* CTA */}
                 <div className="mt-8 text-center">
                     <Link
-                        href="/settlement-calculator"
+                        href="/car-accident/settlement-calculator"
                         className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold"
                     >
                         <Scale className="w-5 h-5" />

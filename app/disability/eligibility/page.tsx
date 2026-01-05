@@ -131,7 +131,7 @@ export default function EligibilityPage() {
                             </li>
                         </ul>
                         <Link
-                            href="/ssdi-calculator"
+                            href="/disability/ssdi-calculator"
                             className="mt-6 inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors"
                         >
                             Calculate SSDI <ArrowRight className="w-4 h-4" />
@@ -162,7 +162,7 @@ export default function EligibilityPage() {
                             </li>
                         </ul>
                         <Link
-                            href="/ssi-calculator"
+                            href="/disability/ssi-calculator"
                             className="mt-6 inline-flex items-center gap-2 bg-teal-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-teal-700 transition-colors"
                         >
                             Calculate SSI <ArrowRight className="w-4 h-4" />

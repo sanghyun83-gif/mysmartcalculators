@@ -175,7 +175,7 @@ export default function InjuryTypesPage() {
                 {/* CTA */}
                 <div className="text-center">
                     <Link
-                        href="/slip-fall-settlement"
+                        href="/slip-and-fall/slip-fall-settlement"
                         className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
                         Get Personalized Estimate

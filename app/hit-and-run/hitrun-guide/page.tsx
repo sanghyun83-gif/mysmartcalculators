@@ -46,7 +46,7 @@ export default function HitRunGuidePage() {
 
                 <div className="my-8 p-6 bg-slate-800 border border-slate-700 rounded-xl text-center"><p className="text-sm text-slate-500">Advertisement</p></div>
 
-                <div className="text-center"><Link href="/hitrun-calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-lg font-semibold">Calculate Your Settlement<ArrowRight className="w-5 h-5" /></Link></div>
+                <div className="text-center"><Link href="/hit-and-run/hitrun-calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-lg font-semibold">Calculate Your Settlement<ArrowRight className="w-5 h-5" /></Link></div>
                 <p className="mt-8 text-xs text-slate-500 text-center">{HITRUN_2026.citation}</p>
             </main>
         </div>
