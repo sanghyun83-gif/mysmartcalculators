@@ -58,6 +58,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'bair-hugger': 'medical',
     'essure': 'medical',
     'shoulder-implant': 'medical',
+    'ankle-implant': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -293,6 +294,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'bair-hugger': 'Bair Hugger',
     'essure': 'Essure Birth Control',
     'shoulder-implant': 'Shoulder Implant',
+    'ankle-implant': 'Ankle Implant',
 };
 
 /**
