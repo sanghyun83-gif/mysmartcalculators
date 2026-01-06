@@ -68,6 +68,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'invokana': 'medical',
     'abilify': 'medical',
     'xarelto': 'medical',
+    'pradaxa': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -313,6 +314,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'invokana': 'Invokana',
     'abilify': 'Abilify',
     'xarelto': 'Xarelto',
+    'pradaxa': 'Pradaxa',
 };
 
 /**
