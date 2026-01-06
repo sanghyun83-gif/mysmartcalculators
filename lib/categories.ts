@@ -64,6 +64,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'pelvic-mesh': 'medical',
     'breast-implant': 'medical',
     'textured-implant': 'medical',
+    'dialysis': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -305,6 +306,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'pelvic-mesh': 'Pelvic Mesh',
     'breast-implant': 'Breast Implant',
     'textured-implant': 'Textured Implant',
+    'dialysis': 'Dialysis',
 };
 
 /**
