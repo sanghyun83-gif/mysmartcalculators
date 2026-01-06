@@ -88,6 +88,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'spinal-fusion': 'medical',
     'bone-graft': 'medical',
     'ethicon-mesh': 'medical',
+    'bard-mesh': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -353,6 +354,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'spinal-fusion': 'Spinal Fusion Hardware',
     'bone-graft': 'Bone Graft',
     'ethicon-mesh': 'Ethicon Hernia Mesh',
+    'bard-mesh': 'Bard Hernia Mesh',
 };
 
 /**
