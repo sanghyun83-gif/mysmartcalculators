@@ -45,6 +45,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     '3m-earplug': 'medical',
     'roundup': 'medical',
     'zantac': 'medical',
+    'baby-formula': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -267,6 +268,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     '3m-earplug': '3M Earplug',
     'roundup': 'Roundup Lymphoma',
     'zantac': 'Zantac Cancer',
+    'baby-formula': 'Baby Formula NEC',
 };
 
 /**
