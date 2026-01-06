@@ -52,6 +52,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'bard-powerport': 'medical',
     'ivc-filter': 'medical',
     'philips-ventilator': 'medical',
+    'nec-formula': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -281,6 +282,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'bard-powerport': 'Bard PowerPort',
     'ivc-filter': 'IVC Filter',
     'philips-ventilator': 'Philips CPAP',
+    'nec-formula': 'NEC Formula',
 };
 
 /**
