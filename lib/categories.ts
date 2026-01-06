@@ -55,6 +55,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'nec-formula': 'medical',
     'firefighter-foam': 'legal',
     'afff': 'legal',
+    'bair-hugger': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -287,6 +288,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'nec-formula': 'NEC Formula',
     'firefighter-foam': 'Firefighter Foam AFFF',
     'afff': 'AFFF Lawsuit',
+    'bair-hugger': 'Bair Hugger',
 };
 
 /**
