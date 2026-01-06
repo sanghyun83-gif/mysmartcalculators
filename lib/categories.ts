@@ -80,6 +80,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'metal-hip': 'medical',
     'biomet-hip': 'medical',
     'wright-hip': 'medical',
+    'zimmer-hip': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -337,6 +338,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'metal-hip': 'Metal-on-Metal Hip',
     'biomet-hip': 'Biomet Hip',
     'wright-hip': 'Wright Hip',
+    'zimmer-hip': 'Zimmer Hip',
 };
 
 /**
