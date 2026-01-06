@@ -51,6 +51,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'elmiron': 'medical',
     'bard-powerport': 'medical',
     'ivc-filter': 'medical',
+    'philips-ventilator': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -279,6 +280,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'elmiron': 'Elmiron Vision Loss',
     'bard-powerport': 'Bard PowerPort',
     'ivc-filter': 'IVC Filter',
+    'philips-ventilator': 'Philips CPAP',
 };
 
 /**
