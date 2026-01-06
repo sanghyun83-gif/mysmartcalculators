@@ -48,6 +48,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'baby-formula': 'medical',
     'tylenol': 'medical',
     'suboxone': 'medical',
+    'elmiron': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -273,6 +274,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'baby-formula': 'Baby Formula NEC',
     'tylenol': 'Tylenol Autism',
     'suboxone': 'Suboxone Tooth Decay',
+    'elmiron': 'Elmiron Vision Loss',
 };
 
 /**
