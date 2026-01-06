@@ -53,6 +53,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'ivc-filter': 'medical',
     'philips-ventilator': 'medical',
     'nec-formula': 'medical',
+    'firefighter-foam': 'legal',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -283,6 +284,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'ivc-filter': 'IVC Filter',
     'philips-ventilator': 'Philips CPAP',
     'nec-formula': 'NEC Formula',
+    'firefighter-foam': 'Firefighter Foam AFFF',
 };
 
 /**
