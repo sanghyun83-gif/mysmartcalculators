@@ -70,6 +70,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'xarelto': 'medical',
     'pradaxa': 'medical',
     'uloric': 'medical',
+    'ppi': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -317,6 +318,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'xarelto': 'Xarelto',
     'pradaxa': 'Pradaxa',
     'uloric': 'Uloric',
+    'ppi': 'PPI',
 };
 
 /**
