@@ -56,6 +56,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'firefighter-foam': 'legal',
     'afff': 'legal',
     'bair-hugger': 'medical',
+    'essure': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -289,6 +290,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'firefighter-foam': 'Firefighter Foam AFFF',
     'afff': 'AFFF Lawsuit',
     'bair-hugger': 'Bair Hugger',
+    'essure': 'Essure Birth Control',
 };
 
 /**
