@@ -72,6 +72,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'uloric': 'medical',
     'ppi': 'medical',
     'risperdal': 'medical',
+    'testosterone': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -321,6 +322,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'uloric': 'Uloric',
     'ppi': 'PPI',
     'risperdal': 'Risperdal',
+    'testosterone': 'Testosterone',
 };
 
 /**
