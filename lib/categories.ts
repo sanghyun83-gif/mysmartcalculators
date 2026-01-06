@@ -50,6 +50,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'suboxone': 'medical',
     'elmiron': 'medical',
     'bard-powerport': 'medical',
+    'ivc-filter': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -277,6 +278,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'suboxone': 'Suboxone Tooth Decay',
     'elmiron': 'Elmiron Vision Loss',
     'bard-powerport': 'Bard PowerPort',
+    'ivc-filter': 'IVC Filter',
 };
 
 /**
