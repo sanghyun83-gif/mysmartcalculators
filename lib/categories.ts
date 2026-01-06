@@ -83,6 +83,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'zimmer-hip': 'medical',
     'depuy-knee': 'medical',
     'stryker-knee': 'medical',
+    'smith-nephew-knee': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -343,6 +344,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'zimmer-hip': 'Zimmer Hip',
     'depuy-knee': 'DePuy Knee',
     'stryker-knee': 'Stryker Knee',
+    'smith-nephew-knee': 'Smith & Nephew Knee',
 };
 
 /**
