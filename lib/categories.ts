@@ -66,6 +66,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'textured-implant': 'medical',
     'dialysis': 'medical',
     'invokana': 'medical',
+    'abilify': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -309,6 +310,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'textured-implant': 'Textured Implant',
     'dialysis': 'Dialysis',
     'invokana': 'Invokana',
+    'abilify': 'Abilify',
 };
 
 /**
