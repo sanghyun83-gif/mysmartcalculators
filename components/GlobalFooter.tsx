@@ -19,19 +19,19 @@ export function GlobalFooter({ siteName = "MySmartCalculators", citation }: Glob
 
                 {/* Links */}
                 <div className="flex flex-wrap justify-center gap-4 mb-6 text-sm">
-                    <Link href="/about" className="text-slate-400 hover:text-emerald-400 transition-colors">About</Link>
+                    <Link href="/about" className="text-slate-400 hover:text-amber-400 transition-colors">About</Link>
                     <span className="text-slate-600">•</span>
-                    <Link href="/privacy" className="text-slate-400 hover:text-emerald-400 transition-colors">Privacy Policy</Link>
+                    <Link href="/privacy" className="text-slate-400 hover:text-amber-400 transition-colors">Privacy Policy</Link>
                     <span className="text-slate-600">•</span>
-                    <Link href="/contact" className="text-slate-400 hover:text-emerald-400 transition-colors">Contact</Link>
+                    <Link href="/contact" className="text-slate-400 hover:text-amber-400 transition-colors">Contact</Link>
                     <span className="text-slate-600">•</span>
-                    <Link href="/" className="text-slate-400 hover:text-emerald-400 transition-colors">All Calculators</Link>
+                    <Link href="/" className="text-slate-400 hover:text-amber-400 transition-colors">All Calculators</Link>
                 </div>
 
                 {/* Brand and Citation */}
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                     <div className="flex items-center gap-2">
-                        <Calculator className="w-5 h-5 text-emerald-500" />
+                        <Calculator className="w-5 h-5 text-amber-500" />
                         <span className="font-semibold text-white">{siteName}</span>
                     </div>
                     {citation && <p className="text-xs text-slate-500 text-center">{citation}</p>}

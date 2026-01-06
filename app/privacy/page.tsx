@@ -12,7 +12,7 @@ export default function PrivacyPage() {
             <header className="bg-slate-800/80 backdrop-blur-sm border-b border-slate-700 sticky top-0 z-50">
                 <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2 hover:opacity-80">
-                        <Calculator className="w-6 h-6 text-emerald-500" />
+                        <Calculator className="w-6 h-6 text-amber-500" />
                         <span className="text-lg font-bold text-white">MySmartCalculators</span>
                     </Link>
                 </div>
@@ -20,9 +20,9 @@ export default function PrivacyPage() {
 
             <main className="max-w-4xl mx-auto px-4 py-16">
                 <div className="text-center mb-12">
-                    <div className="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-500/50 rounded-full px-4 py-2 mb-4">
-                        <Shield className="w-4 h-4 text-emerald-400" />
-                        <span className="text-sm text-emerald-300">Privacy Policy</span>
+                    <div className="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-500/50 rounded-full px-4 py-2 mb-4">
+                        <Shield className="w-4 h-4 text-amber-400" />
+                        <span className="text-sm text-amber-300">Privacy Policy</span>
                     </div>
                     <h1 className="text-4xl font-bold text-white mb-4">Privacy Policy</h1>
                     <p className="text-slate-400">Last updated: January 2026</p>
@@ -62,7 +62,7 @@ export default function PrivacyPage() {
                             <li><strong>Analytics:</strong> Google Analytics to understand website traffic</li>
                             <li><strong>Advertising:</strong> Google AdSense to display personalized ads</li>
                         </ul>
-                        <p className="text-slate-300 mt-3">You can manage cookie preferences through your browser settings. For more information about how Google uses data, visit: <a href="https://policies.google.com/privacy" className="text-emerald-400 hover:underline" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></p>
+                        <p className="text-slate-300 mt-3">You can manage cookie preferences through your browser settings. For more information about how Google uses data, visit: <a href="https://policies.google.com/privacy" className="text-amber-400 hover:underline" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></p>
                     </section>
 
                     <section>
@@ -87,16 +87,16 @@ export default function PrivacyPage() {
 
                     <section>
                         <h2 className="text-xl font-bold text-white mb-3">9. Contact Us</h2>
-                        <p className="text-slate-300">If you have questions about this privacy policy, please contact us at: <Link href="/contact" className="text-emerald-400 hover:underline">Contact Page</Link></p>
+                        <p className="text-slate-300">If you have questions about this privacy policy, please contact us at: <Link href="/contact" className="text-amber-400 hover:underline">Contact Page</Link></p>
                     </section>
                 </div>
 
                 <div className="mt-12 flex flex-wrap gap-4 justify-center">
-                    <Link href="/about" className="text-emerald-400 hover:underline">About Us</Link>
+                    <Link href="/about" className="text-amber-400 hover:underline">About Us</Link>
                     <span className="text-slate-600">•</span>
-                    <Link href="/contact" className="text-emerald-400 hover:underline">Contact Us</Link>
+                    <Link href="/contact" className="text-amber-400 hover:underline">Contact Us</Link>
                     <span className="text-slate-600">•</span>
-                    <Link href="/" className="text-emerald-400 hover:underline">All Calculators</Link>
+                    <Link href="/" className="text-amber-400 hover:underline">All Calculators</Link>
                 </div>
             </main>
 

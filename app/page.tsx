@@ -191,6 +191,23 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="bg-slate-800 border-t border-slate-700">
         <div className="max-w-7xl mx-auto px-4 py-12">
+          {/* Disclaimer */}
+          <div className="mb-8 p-4 bg-amber-900/20 border border-amber-500/20 rounded-lg">
+            <p className="text-xs text-amber-200/70 text-center">
+              <strong>Disclaimer:</strong> All calculators provide estimates for informational purposes only. They do not constitute legal, medical, or financial advice. Always consult with qualified professionals before making important decisions.
+            </p>
+          </div>
+
+          {/* Policy Links */}
+          <div className="flex flex-wrap justify-center gap-6 mb-8 text-sm">
+            <Link href="/about" className="text-slate-400 hover:text-amber-400 transition-colors">About</Link>
+            <span className="text-slate-600">•</span>
+            <Link href="/privacy" className="text-slate-400 hover:text-amber-400 transition-colors">Privacy Policy</Link>
+            <span className="text-slate-600">•</span>
+            <Link href="/contact" className="text-slate-400 hover:text-amber-400 transition-colors">Contact</Link>
+          </div>
+
+          {/* Brand */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-2">
               <Calculator className="w-6 h-6 text-amber-500" />
@@ -198,7 +215,6 @@ export default function HomePage() {
             </div>
             <p className="text-sm text-slate-400 text-center">
               Free online calculators for legal, finance, and insurance calculations.
-              For informational purposes only.
             </p>
             <p className="text-sm text-slate-500">© 2026 MySmartCalculators</p>
           </div>

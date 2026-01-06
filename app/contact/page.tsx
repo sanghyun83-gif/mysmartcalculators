@@ -12,7 +12,7 @@ export default function ContactPage() {
             <header className="bg-slate-800/80 backdrop-blur-sm border-b border-slate-700 sticky top-0 z-50">
                 <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2 hover:opacity-80">
-                        <Calculator className="w-6 h-6 text-emerald-500" />
+                        <Calculator className="w-6 h-6 text-amber-500" />
                         <span className="text-lg font-bold text-white">MySmartCalculators</span>
                     </Link>
                 </div>
@@ -20,9 +20,9 @@ export default function ContactPage() {
 
             <main className="max-w-4xl mx-auto px-4 py-16">
                 <div className="text-center mb-12">
-                    <div className="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-500/50 rounded-full px-4 py-2 mb-4">
-                        <MessageSquare className="w-4 h-4 text-emerald-400" />
-                        <span className="text-sm text-emerald-300">Contact</span>
+                    <div className="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-500/50 rounded-full px-4 py-2 mb-4">
+                        <MessageSquare className="w-4 h-4 text-amber-400" />
+                        <span className="text-sm text-amber-300">Contact</span>
                     </div>
                     <h1 className="text-4xl font-bold text-white mb-4">Contact Us</h1>
                     <p className="text-slate-400">Have questions? We&apos;re here to help.</p>
@@ -31,23 +31,23 @@ export default function ContactPage() {
                 <div className="grid md:grid-cols-2 gap-8">
                     <div className="bg-slate-800 border border-slate-700 rounded-2xl p-8">
                         <div className="flex items-center gap-3 mb-6">
-                            <div className="p-3 bg-emerald-500/10 rounded-lg">
-                                <Mail className="w-6 h-6 text-emerald-400" />
+                            <div className="p-3 bg-amber-500/10 rounded-lg">
+                                <Mail className="w-6 h-6 text-amber-400" />
                             </div>
                             <div>
                                 <h2 className="text-lg font-semibold text-white">Email Us</h2>
                                 <p className="text-sm text-slate-400">For general inquiries</p>
                             </div>
                         </div>
-                        <a href="mailto:contact@mysmartcalculators.com" className="text-emerald-400 hover:underline text-lg">
+                        <a href="mailto:contact@mysmartcalculators.com" className="text-amber-400 hover:underline text-lg">
                             contact@mysmartcalculators.com
                         </a>
                     </div>
 
                     <div className="bg-slate-800 border border-slate-700 rounded-2xl p-8">
                         <div className="flex items-center gap-3 mb-6">
-                            <div className="p-3 bg-blue-500/10 rounded-lg">
-                                <MessageSquare className="w-6 h-6 text-blue-400" />
+                            <div className="p-3 bg-amber-500/10 rounded-lg">
+                                <MessageSquare className="w-6 h-6 text-amber-400" />
                             </div>
                             <div>
                                 <h2 className="text-lg font-semibold text-white">Feedback</h2>
@@ -86,11 +86,11 @@ export default function ContactPage() {
                 </div>
 
                 <div className="mt-8 flex flex-wrap gap-4 justify-center">
-                    <Link href="/about" className="text-emerald-400 hover:underline">About Us</Link>
+                    <Link href="/about" className="text-amber-400 hover:underline">About Us</Link>
                     <span className="text-slate-600">•</span>
-                    <Link href="/privacy" className="text-emerald-400 hover:underline">Privacy Policy</Link>
+                    <Link href="/privacy" className="text-amber-400 hover:underline">Privacy Policy</Link>
                     <span className="text-slate-600">•</span>
-                    <Link href="/" className="text-emerald-400 hover:underline">All Calculators</Link>
+                    <Link href="/" className="text-amber-400 hover:underline">All Calculators</Link>
                 </div>
             </main>
 

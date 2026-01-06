@@ -12,7 +12,7 @@ export default function AboutPage() {
             <header className="bg-slate-800/80 backdrop-blur-sm border-b border-slate-700 sticky top-0 z-50">
                 <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-2 hover:opacity-80">
-                        <Calculator className="w-6 h-6 text-emerald-500" />
+                        <Calculator className="w-6 h-6 text-amber-500" />
                         <span className="text-lg font-bold text-white">MySmartCalculators</span>
                     </Link>
                 </div>
@@ -27,7 +27,7 @@ export default function AboutPage() {
                 <div className="prose prose-invert max-w-none">
                     <section className="mb-12">
                         <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-                            <Scale className="w-6 h-6 text-emerald-400" />
+                            <Scale className="w-6 h-6 text-amber-400" />
                             Our Mission
                         </h2>
                         <p className="text-slate-300">
@@ -37,7 +37,7 @@ export default function AboutPage() {
 
                     <section className="mb-12">
                         <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-                            <Calculator className="w-6 h-6 text-blue-400" />
+                            <Calculator className="w-6 h-6 text-amber-400" />
                             What We Offer
                         </h2>
                         <ul className="space-y-3 text-slate-300">
@@ -63,7 +63,7 @@ export default function AboutPage() {
 
                     <section className="mb-12">
                         <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-                            <Users className="w-6 h-6 text-purple-400" />
+                            <Users className="w-6 h-6 text-amber-400" />
                             Our Team
                         </h2>
                         <p className="text-slate-300">
@@ -72,19 +72,19 @@ export default function AboutPage() {
                     </section>
                 </div>
 
-                <div className="mt-12 p-6 bg-slate-800 border border-slate-700 rounded-xl">
-                    <h3 className="text-lg font-semibold text-white mb-3">Important Disclaimer</h3>
-                    <p className="text-sm text-slate-400">
+                <div className="mt-12 p-6 bg-amber-900/20 border border-amber-500/30 rounded-xl">
+                    <h3 className="text-lg font-semibold text-amber-300 mb-3">Important Disclaimer</h3>
+                    <p className="text-sm text-amber-200/80">
                         The information and calculators provided on this website are for general informational purposes only. They do not constitute legal, medical, financial, or professional advice. Results are estimates based on the information you provide and should not be relied upon for making decisions. Always consult with qualified professionals before taking action based on any calculations.
                     </p>
                 </div>
 
                 <div className="mt-8 flex flex-wrap gap-4 justify-center">
-                    <Link href="/privacy" className="text-emerald-400 hover:underline">Privacy Policy</Link>
+                    <Link href="/privacy" className="text-amber-400 hover:underline">Privacy Policy</Link>
                     <span className="text-slate-600">•</span>
-                    <Link href="/contact" className="text-emerald-400 hover:underline">Contact Us</Link>
+                    <Link href="/contact" className="text-amber-400 hover:underline">Contact Us</Link>
                     <span className="text-slate-600">•</span>
-                    <Link href="/" className="text-emerald-400 hover:underline">All Calculators</Link>
+                    <Link href="/" className="text-amber-400 hover:underline">All Calculators</Link>
                 </div>
             </main>
 
