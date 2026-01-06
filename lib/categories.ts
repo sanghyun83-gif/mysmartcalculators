@@ -75,6 +75,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'testosterone': 'medical',
     'gadolinium': 'medical',
     'transvaginal-mesh': 'medical',
+    'stryker-hip': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -327,6 +328,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'testosterone': 'Testosterone',
     'gadolinium': 'Gadolinium',
     'transvaginal-mesh': 'Transvaginal Mesh',
+    'stryker-hip': 'Stryker Hip',
 };
 
 /**
