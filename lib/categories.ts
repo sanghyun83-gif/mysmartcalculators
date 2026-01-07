@@ -94,6 +94,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'fentanyl-exposure': 'medical',
     'oxycontin': 'medical',
     'accutane': 'medical',
+    'lupron': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -365,6 +366,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'fentanyl-exposure': 'Fentanyl Exposure',
     'oxycontin': 'OxyContin',
     'accutane': 'Accutane Side Effects',
+    'lupron': 'Lupron Side Effects',
 };
 
 /**
