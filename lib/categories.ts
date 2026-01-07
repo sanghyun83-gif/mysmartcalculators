@@ -98,6 +98,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'fluoroquinolone': 'medical',
     'viagra-melanoma': 'medical',
     'nexium': 'medical',
+    'prilosec': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -373,6 +374,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'fluoroquinolone': 'Fluoroquinolone',
     'viagra-melanoma': 'Viagra Melanoma',
     'nexium': 'Nexium Kidney',
+    'prilosec': 'Prilosec Kidney',
 };
 
 /**
