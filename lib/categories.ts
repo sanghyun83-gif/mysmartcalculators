@@ -95,6 +95,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'oxycontin': 'medical',
     'accutane': 'medical',
     'lupron': 'medical',
+    'fluoroquinolone': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -367,6 +368,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'oxycontin': 'OxyContin',
     'accutane': 'Accutane Side Effects',
     'lupron': 'Lupron Side Effects',
+    'fluoroquinolone': 'Fluoroquinolone',
 };
 
 /**
