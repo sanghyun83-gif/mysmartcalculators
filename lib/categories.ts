@@ -90,6 +90,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'ethicon-mesh': 'medical',
     'bard-mesh': 'medical',
     'atrium-mesh': 'medical',
+    'opioid-addiction': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -357,6 +358,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'ethicon-mesh': 'Ethicon Hernia Mesh',
     'bard-mesh': 'Bard Hernia Mesh',
     'atrium-mesh': 'Atrium C-Qur Mesh',
+    'opioid-addiction': 'Opioid Addiction',
 };
 
 /**
