@@ -92,6 +92,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'atrium-mesh': 'medical',
     'opioid-addiction': 'medical',
     'fentanyl-exposure': 'medical',
+    'oxycontin': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -361,6 +362,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'atrium-mesh': 'Atrium C-Qur Mesh',
     'opioid-addiction': 'Opioid Addiction',
     'fentanyl-exposure': 'Fentanyl Exposure',
+    'oxycontin': 'OxyContin',
 };
 
 /**
