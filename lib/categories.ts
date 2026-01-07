@@ -97,6 +97,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'lupron': 'medical',
     'fluoroquinolone': 'medical',
     'viagra-melanoma': 'medical',
+    'nexium': 'medical',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -371,6 +372,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'lupron': 'Lupron Side Effects',
     'fluoroquinolone': 'Fluoroquinolone',
     'viagra-melanoma': 'Viagra Melanoma',
+    'nexium': 'Nexium Kidney',
 };
 
 /**
