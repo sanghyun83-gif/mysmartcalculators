@@ -112,6 +112,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'escalator-injury': 'legal',
     'amusement-park': 'legal',
     'theme-park': 'legal',
+    'waterpark-injury': 'legal',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -401,6 +402,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'escalator-injury': 'Escalator Injury',
     'amusement-park': 'Amusement Park Injury',
     'theme-park': 'Theme Park Injury',
+    'waterpark-injury': 'Waterpark Injury',
 };
 
 /**
