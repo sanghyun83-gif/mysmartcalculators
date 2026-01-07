@@ -101,6 +101,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'prilosec': 'medical',
     'boating-accident': 'legal',
     'jet-ski': 'legal',
+    'atv-accident': 'legal',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -379,6 +380,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'prilosec': 'Prilosec Kidney',
     'boating-accident': 'Boating Accident',
     'jet-ski': 'Jet Ski Accident',
+    'atv-accident': 'ATV Accident',
 };
 
 /**
