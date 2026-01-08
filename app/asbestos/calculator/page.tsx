@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Calculator, Info, Activity } from "lucide-react";
 import { SITE, ASBESTOS_2026, calculateAsbestosSettlement, formatCurrency, AsbestosResult } from "@/lib/calculators/asbestos";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function AsbestosCalculatorPage() {
     const [diseaseIndex, setDiseaseIndex] = useState(0);

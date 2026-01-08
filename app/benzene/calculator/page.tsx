@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Calculator, Info, Droplets } from "lucide-react";
 import { SITE, BENZENE_2026, calculateBenzeneSettlement, formatCurrency, BenzeneResult } from "@/lib/calculators/benzene";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function BenzeneCalculatorPage() {
     const [diseaseIndex, setDiseaseIndex] = useState(0);

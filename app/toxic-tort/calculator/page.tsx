@@ -4,6 +4,7 @@ import Link from "next/link";
 import { SITE, TOXIC_EXPOSURE_TYPES, DISEASE_TYPES, LIABILITY_FACTORS, FAQS, calculateToxicTortSettlement, formatCurrency, TOXIC_TORT_2026 } from "@/lib/calculators/toxic-tort";
 import { RelatedCalculators } from "@/components/RelatedCalculators";
 import { Calculator, Scale, ChevronDown, ChevronUp, ArrowLeft, AlertTriangle } from "lucide-react";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function CalculatorPage() {
     const [exposureType, setExposureType] = useState("water-contamination");
@@ -91,7 +92,9 @@ export default function CalculatorPage() {
                 {FAQS.length > 5 && <button onClick={() => setShowAllFaqs(!showAllFaqs)} className="w-full mt-4 text-amber-400 hover:text-amber-300 text-sm">{showAllFaqs ? 'Show Less' : `Show All ${FAQS.length} FAQs`}</button>}
             </section>
 
-            <section className="max-w-6xl mx-auto px-4 py-8"><div className="flex justify-center"><div className="w-full max-w-xs"><RelatedCalculators currentCalc="toxic-tort" count={5} /></div></div></section>
+            <section className="max-w-6xl mx-auto px-4 py-8"><div className="flex justify-center"><div className="w-full max-w-xs"><RelatedCalculators currentCalc="toxic-tort" count={5} /></div></div>
+      <section className="max-w-4xl mx-auto px-4 py-4"><LegalDisclaimer category="legal" /></section>
+</section>
 
             <footer className="bg-slate-800 border-t border-slate-700"><div className="max-w-6xl mx-auto px-4 py-8 text-center"><p className="text-sm text-slate-400">{TOXIC_TORT_2026.citations.join(" • ")}</p><p className="text-sm text-slate-500 mt-2">© {SITE.year} {SITE.name}</p></div></footer>
         </div>

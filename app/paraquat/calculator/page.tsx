@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Leaf, Calculator, Info, AlertTriangle } from "lucide-react";
 import { SITE, PARAQUAT_2026, calculateParaquatSettlement, formatCurrency, ParaquatResult } from "@/lib/calculators/paraquat";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function ParaquatCalculatorPage() {
     const [stageIndex, setStageIndex] = useState(1);

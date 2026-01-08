@@ -67,7 +67,7 @@ export default function AboutPage() {
                             Our Team
                         </h2>
                         <p className="text-slate-300">
-                            MySmartCalculators is developed by a team of professionals with backgrounds in law, finance, and technology. We combine industry expertise with modern web development to create tools that are both accurate and user-friendly.
+                            MySmartCalculators is developed by data analysts and developers using publicly available formulas, government statistics, and official calculation methodologies. We combine industry research with modern web development to create tools that are both accurate and user-friendly.
                         </p>
                     </section>
                 </div>

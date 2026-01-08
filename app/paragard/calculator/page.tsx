@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Shield, Calculator, Info, AlertTriangle } from "lucide-react";
 import { SITE, PARAGARD_2026, calculateParagardSettlement, formatCurrency, ParagardResult } from "@/lib/calculators/paragard";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function ParagardCalculatorPage() {
     const [fractureIndex, setFractureIndex] = useState(0);

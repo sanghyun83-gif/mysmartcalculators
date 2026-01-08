@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Calculator, Info, Pipette } from "lucide-react";
 import { SITE, PIPELINE_2026, calculatePipelineSettlement, formatCurrency, PipelineResult } from "@/lib/calculators/pipeline";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function PipelineCalculatorPage() {
     const [typeIndex, setTypeIndex] = useState(0);

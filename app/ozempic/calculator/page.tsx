@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Pill, Calculator, Info, AlertTriangle } from "lucide-react";
 import { SITE, OZEMPIC_2026, calculateOzempicSettlement, formatCurrency, OzempicResult } from "@/lib/calculators/ozempic";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function OzempicCalculatorPage() {
     const [sideEffectIndex, setSideEffectIndex] = useState(0);

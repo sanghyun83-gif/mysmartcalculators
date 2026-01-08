@@ -4,6 +4,7 @@ import Link from "next/link";
 import { SITE, AGENT_TYPES, TRANSACTION_VOLUME, COVERAGE_LIMITS, FAQS, calculateEOPremium, formatCurrency, EO_2026 } from "@/lib/calculators/eo-insurance";
 import { RelatedCalculators } from "@/components/RelatedCalculators";
 import { Calculator, Home, ChevronDown, ChevronUp, ArrowLeft, TrendingUp } from "lucide-react";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function CalculatorPage() {
     const [agentType, setAgentType] = useState("real-estate");
@@ -82,7 +83,9 @@ export default function CalculatorPage() {
                 </div>
             </section>
 
-            <section className="max-w-6xl mx-auto px-4 py-8"><div className="flex justify-center"><div className="w-full max-w-xs"><RelatedCalculators currentCalc="eo-insurance" count={5} /></div></div></section>
+            <section className="max-w-6xl mx-auto px-4 py-8"><div className="flex justify-center"><div className="w-full max-w-xs"><RelatedCalculators currentCalc="eo-insurance" count={5} /></div></div>
+      <section className="max-w-4xl mx-auto px-4 py-4"><LegalDisclaimer category="insurance" /></section>
+</section>
 
             <footer className="bg-slate-800 border-t border-slate-700"><div className="max-w-6xl mx-auto px-4 py-8 text-center"><p className="text-sm text-slate-400">{EO_2026.citations.join(" • ")}</p><p className="text-sm text-slate-500 mt-2">© {SITE.year}</p></div></footer>
         </div>

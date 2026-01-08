@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Flame, Calculator, Info, AlertTriangle } from "lucide-react";
 import { SITE, OIL_RIG_2026, calculateOilRigSettlement, formatCurrency, OilRigResult } from "@/lib/calculators/oil-rig";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function OilRigCalculatorPage() {
     const [injuryIndex, setInjuryIndex] = useState(0);

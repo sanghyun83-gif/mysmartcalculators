@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Calculator, HardHat, DollarSign, Info, AlertCircle, CheckCircle } from "lucide-react";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 import {
     SITE,
     WC_CONSTANTS_2026,

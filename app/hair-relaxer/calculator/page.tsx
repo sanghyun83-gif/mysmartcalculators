@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Sparkles, Calculator, Info, AlertTriangle } from "lucide-react";
 import { SITE, HAIR_RELAXER_2026, calculateHairRelaxerSettlement, formatCurrency, HairRelaxerResult } from "@/lib/calculators/hair-relaxer";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function HairRelaxerCalculatorPage() {
     const [cancerIndex, setCancerIndex] = useState(0);

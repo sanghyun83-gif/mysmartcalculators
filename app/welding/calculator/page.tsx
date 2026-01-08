@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Calculator, Info, Flame } from "lucide-react";
 import { SITE, WELDING_2026, calculateWeldingSettlement, formatCurrency, WeldingResult } from "@/lib/calculators/welding";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function WeldingCalculatorPage() {
     const [typeIndex, setTypeIndex] = useState(0);

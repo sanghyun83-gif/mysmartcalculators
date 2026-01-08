@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Zap, Calculator, Info, AlertTriangle } from "lucide-react";
 import { SITE, ELECTROCUTION_2026, calculateElectrocutionSettlement, formatCurrency, ElectrocutionResult } from "@/lib/calculators/electrocution";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function ElectrocutionCalculatorPage() {
     const [voltageIndex, setVoltageIndex] = useState(1);

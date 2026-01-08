@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Calculator, Info, HardHat } from "lucide-react";
 import { SITE, SCAFFOLDING_2026, calculateScaffoldingSettlement, formatCurrency, ScaffoldingResult } from "@/lib/calculators/scaffolding";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function ScaffoldingCalculatorPage() {
     const [typeIndex, setTypeIndex] = useState(0);

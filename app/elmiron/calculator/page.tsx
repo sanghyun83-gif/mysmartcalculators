@@ -4,6 +4,7 @@ import Link from "next/link";
 import { SITE, VISION_SEVERITY, USAGE_DURATION, FAQS, calculateElmironSettlement, formatCurrency, ELMIRON_2026 } from "@/lib/calculators/elmiron";
 import { RelatedCalculators } from "@/components/RelatedCalculators";
 import { Calculator, Eye, ChevronDown, ChevronUp, ArrowLeft, AlertTriangle } from "lucide-react";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function CalculatorPage() {
     const [visionSeverity, setVisionSeverity] = useState("severe");
@@ -75,7 +76,9 @@ export default function CalculatorPage() {
                 </div>
             </section>
 
-            <section className="max-w-6xl mx-auto px-4 py-8"><div className="flex justify-center"><div className="w-full max-w-xs"><RelatedCalculators currentCalc="elmiron" count={5} /></div></div></section>
+            <section className="max-w-6xl mx-auto px-4 py-8"><div className="flex justify-center"><div className="w-full max-w-xs"><RelatedCalculators currentCalc="elmiron" count={5} /></div></div>
+      <section className="max-w-4xl mx-auto px-4 py-4"><LegalDisclaimer category="legal" /></section>
+</section>
 
             <footer className="bg-slate-800 border-t border-slate-700"><div className="max-w-6xl mx-auto px-4 py-8 text-center"><p className="text-sm text-slate-400">{ELMIRON_2026.citations.join(" • ")}</p><p className="text-sm text-slate-500 mt-2">© {SITE.year}</p></div></footer>
         </div>

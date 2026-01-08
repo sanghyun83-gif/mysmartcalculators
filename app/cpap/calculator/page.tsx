@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Wind, Calculator, Info, AlertTriangle } from "lucide-react";
 import { SITE, CPAP_2026, calculateCpapSettlement, formatCurrency, CpapResult } from "@/lib/calculators/cpap";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function CpapCalculatorPage() {
     const [injuryIndex, setInjuryIndex] = useState(0);

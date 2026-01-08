@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Calculator, Info, Zap } from "lucide-react";
 import { SITE, EXPLOSION_2026, calculateExplosionSettlement, formatCurrency, ExplosionResult } from "@/lib/calculators/explosion";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function ExplosionCalculatorPage() {
     const [typeIndex, setTypeIndex] = useState(0);

@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Calculator, Info, AlertTriangle } from "lucide-react";
 import { SITE, CRANE_2026, calculateCraneSettlement, formatCurrency, CraneResult } from "@/lib/calculators/crane";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function CraneCalculatorPage() {
     const [accidentIndex, setAccidentIndex] = useState(0);

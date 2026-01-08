@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Calculator, Info, Truck } from "lucide-react";
 import { SITE, FORKLIFT_2026, calculateForkliftSettlement, formatCurrency, ForkliftResult } from "@/lib/calculators/forklift";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function ForkliftCalculatorPage() {
     const [typeIndex, setTypeIndex] = useState(0);

@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Train, Calculator, Info, AlertTriangle } from "lucide-react";
 import { SITE, FELA_2026, calculateFelaSettlement, formatCurrency, FelaResult } from "@/lib/calculators/fela";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function FelaCalculatorPage() {
     const [injuryIndex, setInjuryIndex] = useState(0);

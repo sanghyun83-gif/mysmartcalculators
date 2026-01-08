@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Plane, Calculator, Info, AlertTriangle } from "lucide-react";
 import { SITE, AVIATION_2026, calculateAviationSettlement, formatCurrency, AviationResult } from "@/lib/calculators/aviation";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function AviationCalculatorPage() {
     const [accidentIndex, setAccidentIndex] = useState(0);

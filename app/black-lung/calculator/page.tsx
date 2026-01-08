@@ -4,6 +4,7 @@ import Link from "next/link";
 import { SITE, BLACK_LUNG_TYPES, SEVERITY_LEVELS, FAQS, calculateBlackLungSettlement, formatCurrency, BLACK_LUNG_2026 } from "@/lib/calculators/black-lung";
 import { RelatedCalculators } from "@/components/RelatedCalculators";
 import { Calculator, Stethoscope, ChevronDown, ChevronUp, ArrowLeft, AlertTriangle } from "lucide-react";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function CalculatorPage() {
     const [lungType, setLungType] = useState("simple");
@@ -78,7 +79,9 @@ export default function CalculatorPage() {
                 </div>
             </section>
 
-            <section className="max-w-6xl mx-auto px-4 py-8"><div className="flex justify-center"><div className="w-full max-w-xs"><RelatedCalculators currentCalc="black-lung" count={5} /></div></div></section>
+            <section className="max-w-6xl mx-auto px-4 py-8"><div className="flex justify-center"><div className="w-full max-w-xs"><RelatedCalculators currentCalc="black-lung" count={5} /></div></div>
+      <section className="max-w-4xl mx-auto px-4 py-4"><LegalDisclaimer category="medical" /></section>
+</section>
 
             <footer className="bg-slate-800 border-t border-slate-700"><div className="max-w-6xl mx-auto px-4 py-8 text-center"><p className="text-sm text-slate-400">{BLACK_LUNG_2026.citation}</p><p className="text-sm text-slate-500 mt-2">© {SITE.year} {SITE.name}</p></div></footer>
         </div>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 import {
     SITE, LUNG_DISEASE_TYPES, SEVERITY_LEVELS, EXPOSURE_SOURCES, FAQS,
     calculateLungDiseaseSettlement, formatCurrency, parseFormattedNumber, LUNG_DISEASE_2026
@@ -262,7 +263,9 @@ export default function CalculatorPage() {
                         <RelatedCalculators currentCalc="lung-disease" count={5} />
                     </div>
                 </div>
-            </section>
+            
+      <section className="max-w-4xl mx-auto px-4 py-4"><LegalDisclaimer category="medical" /></section>
+</section>
 
             {/* Footer */}
             <footer className="bg-slate-800 border-t border-slate-700">

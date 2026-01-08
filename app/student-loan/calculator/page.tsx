@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Calculator } from "lucide-react";
 import { SITE, STUDENT_LOAN_CONSTANTS, calculateLoanPayment, formatCurrency, formatPercent } from "@/lib/calculators/student-loan";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function CalculatorPage() {
     const { defaults, federalRates } = STUDENT_LOAN_CONSTANTS;

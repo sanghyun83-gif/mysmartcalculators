@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Anchor, Calculator, Info, AlertTriangle } from "lucide-react";
 import { SITE, MARITIME_2026, calculateOffshoreSettlement, formatCurrency, OffshoreResult } from "@/lib/calculators/offshore";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function OffshoreCalculatorPage() {
     const [injuryIndex, setInjuryIndex] = useState(0);

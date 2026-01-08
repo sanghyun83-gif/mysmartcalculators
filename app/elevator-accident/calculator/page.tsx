@@ -4,6 +4,7 @@ import Link from "next/link";
 import { SITE, INJURY_TYPES, ACCIDENT_CAUSES, FAQS, calculateElevatorSettlement, formatCurrency, ELEVATOR_2026 } from "@/lib/calculators/elevator-accident";
 import { RelatedCalculators } from "@/components/RelatedCalculators";
 import { Calculator, Building2, ChevronDown, ChevronUp, ArrowLeft, AlertTriangle } from "lucide-react";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function CalculatorPage() {
     const [injuryType, setInjuryType] = useState("fractures");
@@ -77,7 +78,9 @@ export default function CalculatorPage() {
                 </div>
             </section>
 
-            <section className="max-w-6xl mx-auto px-4 py-8"><div className="flex justify-center"><div className="w-full max-w-xs"><RelatedCalculators currentCalc="elevator-accident" count={5} /></div></div></section>
+            <section className="max-w-6xl mx-auto px-4 py-8"><div className="flex justify-center"><div className="w-full max-w-xs"><RelatedCalculators currentCalc="elevator-accident" count={5} /></div></div>
+      <section className="max-w-4xl mx-auto px-4 py-4"><LegalDisclaimer category="legal" /></section>
+</section>
 
             <footer className="bg-slate-800 border-t border-slate-700"><div className="max-w-6xl mx-auto px-4 py-8 text-center"><p className="text-sm text-slate-400">{ELEVATOR_2026.citations.join(" • ")}</p><p className="text-sm text-slate-500 mt-2">© {SITE.year}</p></div></footer>
         </div>
