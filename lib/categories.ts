@@ -133,6 +133,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'retail-store-injury': 'legal',
     'parking-lot-accident': 'legal',
     'garage-accident': 'legal',
+    'valet-accident': 'legal',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -443,6 +444,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'retail-store-injury': 'Retail Store Injury',
     'parking-lot-accident': 'Parking Lot Accident',
     'garage-accident': 'Garage Accident',
+    'valet-accident': 'Valet Accident',
 };
 
 /**
