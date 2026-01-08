@@ -97,6 +97,13 @@ export default function TermsPage() {
                         <h2 className="text-xl font-bold text-white mb-3">11. Contact</h2>
                         <p className="text-slate-300">Questions about these Terms should be directed to: <Link href="/contact" className="text-amber-400 hover:underline">Contact Page</Link></p>
                     </section>
+
+                    <section className="bg-slate-800/50 border border-slate-700 rounded-xl p-6">
+                        <h2 className="text-xl font-bold text-white mb-3">12. Trademark Notice</h2>
+                        <p className="text-slate-300 mb-3">All product names, logos, brands, and trademarks mentioned on this website are property of their respective owners. This includes, but is not limited to: pharmaceutical products, medical devices, insurance companies, and any other branded products or services.</p>
+                        <p className="text-slate-300 mb-3">Use of these names, logos, and brands does not imply endorsement, sponsorship, or affiliation with MySmartCalculators.</p>
+                        <p className="text-slate-300 text-sm"><strong>THIS WEBSITE IS NOT AFFILIATED WITH, SPONSORED BY, OR ENDORSED BY ANY OF THE COMPANIES, PRODUCTS, OR SERVICES MENTIONED.</strong></p>
+                    </section>
                 </div>
 
                 <div className="mt-12 flex flex-wrap gap-4 justify-center">

@@ -19,7 +19,7 @@ export default function EligibilityPage() {
             <header className="bg-slate-800 border-b border-slate-700 sticky top-0 z-10">
                 <div className="max-w-2xl mx-auto px-4 py-4 flex items-center gap-4">
                     <Link href="/paragard" className="text-slate-400 hover:text-white"><ArrowLeft className="w-6 h-6" /></Link>
-                    <div className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-green-500" /><span className="text-lg font-bold text-white">Eligibility Check</span></div>
+                    <div className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-green-500" /><span className="text-lg font-bold text-white">Pre-qualification Screening</span></div>
                     <span className="ml-auto text-xs text-slate-400 bg-slate-700 px-2 py-1 rounded">{SITE.year}</span>
                 </div>
             </header>

@@ -31,7 +31,7 @@ export default function EligibilityPage() {
             <div className="max-w-6xl mx-auto px-4 py-3"><Link href="/3m-earplug" className="inline-flex items-center gap-1 text-sm text-slate-400 hover:text-purple-400"><ArrowLeft className="w-4 h-4" />Back</Link></div>
             <section className="max-w-4xl mx-auto px-4 py-8">
                 <div className="text-center mb-12">
-                    <div className="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-500/50 rounded-full px-4 py-2 mb-4"><CheckCircle className="w-4 h-4 text-purple-400" /><span className="text-sm text-purple-300">Eligibility Check</span></div>
+                    <div className="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-500/50 rounded-full px-4 py-2 mb-4"><CheckCircle className="w-4 h-4 text-purple-400" /><span className="text-sm text-purple-300">Pre-qualification Screening</span></div>
                     <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">3M Earplug Eligibility</h1>
                     <p className="text-slate-400">See if you qualify for the ${(EARPLUG_2026.statistics.settlementAmount / 1000000000).toFixed(0)}B settlement.</p>
                 </div>

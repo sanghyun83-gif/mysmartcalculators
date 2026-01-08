@@ -33,7 +33,7 @@ export default function EligibilityPage() {
             <div className="max-w-6xl mx-auto px-4 py-3"><Link href="/firefighter-foam" className="inline-flex items-center gap-1 text-sm text-slate-400 hover:text-amber-400"><ArrowLeft className="w-4 h-4" />Back</Link></div>
             <section className="max-w-4xl mx-auto px-4 py-8">
                 <div className="text-center mb-12">
-                    <div className="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-500/50 rounded-full px-4 py-2 mb-4"><Shield className="w-4 h-4 text-amber-400" /><span className="text-sm text-amber-300">Eligibility Check</span></div>
+                    <div className="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-500/50 rounded-full px-4 py-2 mb-4"><Shield className="w-4 h-4 text-amber-400" /><span className="text-sm text-amber-300">Pre-qualification Screening</span></div>
                     <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">Do You Qualify for an AFFF Lawsuit?</h1>
                     <p className="text-slate-400">Check the requirements below.</p>
                 </div>
