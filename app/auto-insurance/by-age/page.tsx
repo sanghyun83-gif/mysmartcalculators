@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Users } from "lucide-react";
 import { SITE, AUTO_INSURANCE_CONSTANTS, getAgeComparison, formatCurrency } from "@/lib/calculators/auto-insurance";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function ByAgePage() {
     const states = Object.keys(AUTO_INSURANCE_CONSTANTS.stateRates).sort();

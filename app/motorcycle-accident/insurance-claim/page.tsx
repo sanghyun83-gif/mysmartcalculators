@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Shield, Calculator, Info, AlertTriangle, Bike } from "lucide-react";
 import { SITE, formatCurrency, parseFormattedNumber } from "@/lib/calculators/motorcycle-accident";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function InsuranceClaimPage() {
     const [propertyDamage, setPropertyDamage] = useState("");

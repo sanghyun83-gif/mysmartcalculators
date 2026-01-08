@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Scale, Home, Building } from "lucide-react";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 import {
     MORTGAGE_CONSTANTS,
     calculateRentVsBuy,

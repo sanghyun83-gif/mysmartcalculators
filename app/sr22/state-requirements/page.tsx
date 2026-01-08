@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, MapPin, ArrowRight, Shield, Info } from "lucide-react";
 import { SITE, STATE_SR22, formatCurrency } from "@/lib/calculators/sr22";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function StateRequirementsPage() {
     const stateList = Object.entries(STATE_SR22);

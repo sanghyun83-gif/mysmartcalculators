@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Target, CheckCircle, AlertCircle } from "lucide-react";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 import {
     SITE,
     RETIREMENT_CONSTANTS,

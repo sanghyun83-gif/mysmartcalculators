@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Scale, ArrowRight, Search, Calculator } from "lucide-react";
 import { SITE, STATE_DATA, formatCurrency, calculateChildSupport } from "@/lib/calculators/child-support";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function StateGuidelinesPage() {
     const [searchTerm, setSearchTerm] = useState("");

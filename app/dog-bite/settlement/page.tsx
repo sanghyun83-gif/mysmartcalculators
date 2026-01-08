@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Dog, Calculator, Info, AlertTriangle } from "lucide-react";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 import {
     SITE,
     DOG_BITE_CONSTANTS_2026,

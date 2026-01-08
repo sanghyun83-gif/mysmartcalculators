@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Percent, CheckCircle, AlertTriangle, XCircle } from "lucide-react";
 import { SITE, HOUSING_CONSTANTS, calculateDTI, formatCurrency } from "@/lib/calculators/home-afford";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function DTIPage() {
     const { dtiRules } = HOUSING_CONSTANTS;

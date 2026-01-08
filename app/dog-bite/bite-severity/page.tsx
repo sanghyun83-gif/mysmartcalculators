@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Stethoscope, ArrowRight, Dog, Info, AlertTriangle } from "lucide-react";
 import { SITE, BITE_SEVERITY, formatCurrency } from "@/lib/calculators/dog-bite";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function BiteSeverityPage() {
     const severityList = Object.entries(BITE_SEVERITY);

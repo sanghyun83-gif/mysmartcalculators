@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Stethoscope, ArrowRight, Heart, Info, AlertTriangle } from "lucide-react";
 import { SITE, ABUSE_TYPES, formatCurrency, getSeverityColor } from "@/lib/calculators/nursing-home";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function AbuseTypesPage() {
     const abuseList = Object.entries(ABUSE_TYPES);

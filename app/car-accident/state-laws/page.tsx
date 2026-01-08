@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Gavel, Search, ArrowUpDown, Scale } from "lucide-react";
 import { SITE, STATE_FAULT_LAWS } from "@/lib/calculators/car-accident";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function StateLawsPage() {
     const [searchTerm, setSearchTerm] = useState("");

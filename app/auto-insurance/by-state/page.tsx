@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, MapPin, Search } from "lucide-react";
 import { SITE, getStateRankings, formatCurrency, StateComparison } from "@/lib/calculators/auto-insurance";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function ByStatePage() {
     const allStates = getStateRankings();

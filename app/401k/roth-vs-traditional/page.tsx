@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Scale } from "lucide-react";
 import { SITE, compareRothVsTraditional, formatCurrency } from "@/lib/calculators/401k";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function RothVsTraditionalPage() {
     const [annualContribution, setAnnualContribution] = useState("10000");

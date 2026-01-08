@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Home, Calculator, Info, ArrowRight } from "lucide-react";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 import {
     SITE,
     STATE_DATA,

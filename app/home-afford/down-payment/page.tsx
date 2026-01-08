@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, DollarSign, Info } from "lucide-react";
 import { SITE, calculateDownPayment, formatCurrency } from "@/lib/calculators/home-afford";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function DownPaymentPage() {
     const [homePrice, setHomePrice] = useState("400000");

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, MapPin, ArrowRight, Scale, Info, AlertTriangle } from "lucide-react";
 import { SITE, STATE_BAIL, formatCurrency } from "@/lib/calculators/bail-bond";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function StateBailPage() {
     const stateList = Object.entries(STATE_BAIL);

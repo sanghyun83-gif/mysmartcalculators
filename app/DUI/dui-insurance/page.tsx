@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Shield, Calculator, Info, AlertTriangle, TrendingUp } from "lucide-react";
 import { SITE, STATE_DATA, DUI_COSTS_2025, formatCurrency, parseFormattedNumber, getStateCodes } from "@/lib/calculators/DUI";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 interface InsuranceResult {
     stateName: string;

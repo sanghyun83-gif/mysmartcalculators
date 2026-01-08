@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Scale, Search, ArrowRight, Calculator } from "lucide-react";
 import { SITE, STATE_DATA, COMMUNITY_PROPERTY_STATES, isCommunityPropertyState } from "@/lib/calculators/divorce";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function StateLawsPage() {
     const [searchTerm, setSearchTerm] = useState("");

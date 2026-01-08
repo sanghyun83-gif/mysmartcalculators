@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, TrendingUp, Star } from "lucide-react";
 import { SITE, RETIREMENT_CONSTANTS, calculateCatchUp, formatCurrency } from "@/lib/calculators/401k";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function CatchUpPage() {
     const { contributionLimits, ageThresholds } = RETIREMENT_CONSTANTS;

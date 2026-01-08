@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Calculator } from "lucide-react";
 import { SITE, HOUSING_CONSTANTS, calculateMonthlyPayment, formatCurrency } from "@/lib/calculators/home-afford";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function MonthlyPaymentPage() {
     const { defaults } = HOUSING_CONSTANTS;

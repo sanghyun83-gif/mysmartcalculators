@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Scale } from "lucide-react";
 import { SITE, HOUSING_CONSTANTS, calculateRentVsBuy, formatCurrency } from "@/lib/calculators/home-afford";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function RentVsBuyPage() {
     const { defaults } = HOUSING_CONSTANTS;

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Users, AlertCircle, CheckCircle } from "lucide-react";
 import { SITE, RETIREMENT_CONSTANTS, calculateEmployerMatch, formatCurrency } from "@/lib/calculators/401k";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function EmployerMatchPage() {
     const { defaults, employerMatch } = RETIREMENT_CONSTANTS;

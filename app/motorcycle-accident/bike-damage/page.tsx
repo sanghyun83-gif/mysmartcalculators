@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Bike, Calculator, Info, AlertTriangle } from "lucide-react";
 import { SITE, formatCurrency, parseFormattedNumber } from "@/lib/calculators/motorcycle-accident";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 interface DamageResult {
     repairCost: number;

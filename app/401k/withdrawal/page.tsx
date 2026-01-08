@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowDownCircle, AlertTriangle } from "lucide-react";
 import { SITE, RETIREMENT_CONSTANTS, calculateWithdrawal, formatCurrency } from "@/lib/calculators/401k";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function WithdrawalPage() {
     const { earlyWithdrawal } = RETIREMENT_CONSTANTS;

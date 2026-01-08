@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Bike, Calculator, Info, AlertTriangle, HardHat } from "lucide-react";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 import {
     SITE,
     MOTORCYCLE_CONSTANTS_2026,

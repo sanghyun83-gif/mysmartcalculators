@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, TrendingDown } from "lucide-react";
 import { SITE, calculateLoanPayment, calculatePayoff, formatCurrency, formatDate } from "@/lib/calculators/student-loan";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function PayoffPage() {
     const [balance, setBalance] = useState("35000");

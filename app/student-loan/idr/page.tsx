@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Briefcase } from "lucide-react";
 import { SITE, STUDENT_LOAN_CONSTANTS, calculateIDR, formatCurrency } from "@/lib/calculators/student-loan";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function IDRPage() {
     const { defaults, idrPlans } = STUDENT_LOAN_CONSTANTS;

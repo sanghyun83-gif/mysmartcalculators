@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Stethoscope, ArrowRight, Calculator, Info, Bike } from "lucide-react";
 import { SITE, MOTORCYCLE_INJURIES, formatCurrency, getSeverityColor } from "@/lib/calculators/motorcycle-accident";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function InjuryTypesPage() {
     const injuryList = Object.entries(MOTORCYCLE_INJURIES);

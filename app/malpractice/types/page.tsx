@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Stethoscope, ArrowRight, Calculator, Info, AlertTriangle } from "lucide-react";
 import { SITE, MALPRACTICE_TYPES, formatCurrency, getSeverityColor } from "@/lib/calculators/malpractice";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function MalpracticeTypesPage() {
     const malpracticeList = Object.entries(MALPRACTICE_TYPES);

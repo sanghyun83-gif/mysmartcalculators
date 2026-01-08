@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Stethoscope, ArrowRight, Baby, Info, AlertTriangle } from "lucide-react";
 import { SITE, BIRTH_INJURIES, formatCurrency, getSeverityColor } from "@/lib/calculators/birth-injury";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function InjuryTypesPage() {
     const injuryList = Object.entries(BIRTH_INJURIES);

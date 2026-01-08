@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Award } from "lucide-react";
 import { SITE, STUDENT_LOAN_CONSTANTS, calculatePSLF, formatCurrency, formatDate } from "@/lib/calculators/student-loan";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function PSLFPage() {
     const { pslf } = STUDENT_LOAN_CONSTANTS;

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Shield, Calculator, Info, AlertTriangle, Building } from "lucide-react";
 import { SITE, SLIP_FALL_CONSTANTS_2026, formatCurrency, parseFormattedNumber } from "@/lib/calculators/slip-and-fall";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function InsuranceClaimPage() {
     const [medicalExpenses, setMedicalExpenses] = useState("");

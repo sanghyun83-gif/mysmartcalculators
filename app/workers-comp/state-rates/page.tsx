@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Scale, Search, ArrowUpDown, HardHat } from "lucide-react";
 import { SITE, STATE_WC_DATA, formatCurrency } from "@/lib/calculators/workers-comp";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function StateRatesPage() {
     const [searchTerm, setSearchTerm] = useState("");

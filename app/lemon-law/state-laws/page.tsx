@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, MapPin, ArrowRight, Car, Info } from "lucide-react";
 import { SITE, STATE_LEMON } from "@/lib/calculators/lemon-law";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function StateLawsPage() {
     const stateList = Object.entries(STATE_LEMON);

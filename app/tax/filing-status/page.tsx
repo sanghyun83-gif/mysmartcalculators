@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Users } from "lucide-react";
 import { SITE, TAX_CONSTANTS, calculateTax, formatCurrency, formatPercent } from "@/lib/calculators/tax";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function FilingStatusPage() {
     const { filingStatuses, standardDeduction } = TAX_CONSTANTS;

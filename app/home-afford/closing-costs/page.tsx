@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, FileText } from "lucide-react";
 import { calculateClosingCosts, formatCurrency } from "@/lib/calculators/home-afford";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function ClosingCostsPage() {
     const [homePrice, setHomePrice] = useState("400000");

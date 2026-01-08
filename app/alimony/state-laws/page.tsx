@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, MapPin, ArrowRight, Scale, Info } from "lucide-react";
 import { SITE, STATE_ALIMONY, formatCurrency } from "@/lib/calculators/alimony";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function StateLawsPage() {
     const stateList = Object.entries(STATE_ALIMONY);

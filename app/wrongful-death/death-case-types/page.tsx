@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Heart, ArrowRight, Calculator, Info, AlertTriangle } from "lucide-react";
 import { SITE, DEATH_CASE_TYPES, formatCurrency, getCaseStrengthColor } from "@/lib/calculators/wrongful-death";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function DeathCaseTypesPage() {
     const caseList = Object.entries(DEATH_CASE_TYPES);

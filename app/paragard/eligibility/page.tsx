@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, CheckCircle, XCircle, AlertTriangle } from "lucide-react";
 import { SITE, PARAGARD_2026 } from "@/lib/calculators/paragard";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function EligibilityPage() {
     const [answers, setAnswers] = useState<boolean[]>(new Array(PARAGARD_2026.eligibility.length).fill(false));

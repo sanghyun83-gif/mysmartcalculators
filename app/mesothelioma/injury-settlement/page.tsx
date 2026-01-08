@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Calculator, Info, AlertTriangle, TrendingUp, DollarSign, Stethoscope } from "lucide-react";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 import {
     SITE,
     INJURY_CONSTANTS_2025,

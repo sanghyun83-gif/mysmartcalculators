@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, DollarSign, TrendingUp, TrendingDown } from "lucide-react";
 import { SITE, TAX_CONSTANTS, calculateRefund, formatCurrency, RefundResult } from "@/lib/calculators/tax";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function RefundPage() {
     const { defaults, filingStatuses } = TAX_CONSTANTS;

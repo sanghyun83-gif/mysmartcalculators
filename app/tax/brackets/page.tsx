@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, FileText } from "lucide-react";
 import { SITE, TAX_CONSTANTS, getTaxBrackets, formatCurrency } from "@/lib/calculators/tax";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function BracketsPage() {
     const { filingStatuses, standardDeduction } = TAX_CONSTANTS;

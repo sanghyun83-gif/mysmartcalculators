@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Stethoscope, ArrowRight, Activity, Info } from "lucide-react";
 import { SITE, WHIPLASH_GRADES, formatCurrency, getGradeColor } from "@/lib/calculators/whiplash";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function InjuryGradesPage() {
     const gradeList = Object.entries(WHIPLASH_GRADES);
