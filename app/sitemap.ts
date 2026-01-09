@@ -24,8 +24,7 @@ const CALCULATORS = [
 
     // Insurance
     "auto-insurance", "health-insurance", "life-insurance", "renters-insurance", "pet-insurance",
-    "boat-insurance", "umbrella-insurance", "sr22", "jewelry-insurance", "watch-insurance",
-    "art-insurance", "collectible-insurance", "classic-car-insurance", "antique-car-insurance",
+    "boat-insurance", "umbrella-insurance", "sr22",
 
     // Health
     "bmi", "calorie",
