@@ -166,6 +166,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'mobile-home-insurance': 'insurance',
     'manufactured-home-insurance': 'insurance',
     'flood-insurance': 'insurance',
+    'earthquake-insurance': 'insurance',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -509,6 +510,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'mobile-home-insurance': 'Mobile Home Insurance',
     'manufactured-home-insurance': 'Manufactured Home Insurance',
     'flood-insurance': 'Flood Insurance',
+    'earthquake-insurance': 'Earthquake Insurance',
 };
 
 /**
