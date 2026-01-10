@@ -196,6 +196,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'espp': 'finance',
     'stock-option': 'finance',
     'rsu': 'finance',
+    'bonus-tax': 'finance',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -569,6 +570,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'espp': 'ESPP Calculator',
     'stock-option': 'Stock Option Calculator',
     'rsu': 'RSU Calculator',
+    'bonus-tax': 'Bonus Tax Calculator',
 };
 
 /**
