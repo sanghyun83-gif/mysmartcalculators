@@ -189,6 +189,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'trip-cancellation': 'insurance',
     'cruise-insurance': 'insurance',
     'student-insurance': 'insurance',
+    'vision-insurance': 'insurance',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -555,6 +556,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'trip-cancellation': 'Trip Cancellation',
     'cruise-insurance': 'Cruise Insurance',
     'student-insurance': 'Student Insurance',
+    'vision-insurance': 'Vision Insurance',
 };
 
 /**
