@@ -97,7 +97,7 @@ export default function ESPPCalculatorPage() {
                         </div>
                     )}
 
-                    <LegalDisclaimer category="financial" />
+                    <LegalDisclaimer category="insurance" />
                 </div>
             </section>
 

@@ -94,7 +94,7 @@ export default function FSACalculatorPage() {
                         </div>
                     )}
 
-                    <LegalDisclaimer category="financial" />
+                    <LegalDisclaimer category="insurance" />
                 </div>
             </section>
 
