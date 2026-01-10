@@ -211,6 +211,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'gift-tax': 'finance',
     'trust-tax': 'finance',
     'charitable-donation': 'finance',
+    'medicare-premium': 'insurance',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -599,6 +600,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'gift-tax': 'Gift Tax Calculator',
     'trust-tax': 'Trust Tax Calculator',
     'charitable-donation': 'Charitable Donation Calculator',
+    'medicare-premium': 'Medicare Premium Calculator',
 };
 
 /**
