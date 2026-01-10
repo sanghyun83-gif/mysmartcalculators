@@ -199,6 +199,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'bonus-tax': 'finance',
     'commission': 'finance',
     'rental-income': 'finance',
+    'airbnb-income': 'finance',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -575,6 +576,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'bonus-tax': 'Bonus Tax Calculator',
     'commission': 'Commission Calculator',
     'rental-income': 'Rental Income Calculator',
+    'airbnb-income': 'Airbnb Income Calculator',
 };
 
 /**
