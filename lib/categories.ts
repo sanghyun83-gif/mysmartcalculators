@@ -203,6 +203,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'side-hustle-tax': 'finance',
     '1099-tax': 'finance',
     'freelance-tax': 'finance',
+    'llc-tax': 'finance',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -583,6 +584,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'side-hustle-tax': 'Side Hustle Tax Calculator',
     '1099-tax': '1099 Tax Calculator',
     'freelance-tax': 'Freelance Tax Calculator',
+    'llc-tax': 'LLC Tax Calculator',
 };
 
 /**
