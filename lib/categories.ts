@@ -207,6 +207,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     's-corp-tax': 'finance',
     'quarterly-tax': 'finance',
     'estimated-tax': 'finance',
+    'inheritance': 'finance',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -591,6 +592,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     's-corp-tax': 'S Corp Tax Calculator',
     'quarterly-tax': 'Quarterly Tax Calculator',
     'estimated-tax': 'Estimated Tax Calculator',
+    'inheritance': 'Inheritance Calculator',
 };
 
 /**
