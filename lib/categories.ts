@@ -219,6 +219,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'wic': 'insurance',
     'section-8': 'insurance',
     'hud-housing': 'insurance',
+    'liheap': 'insurance',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -615,6 +616,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'wic': 'WIC Benefits Calculator',
     'section-8': 'Section 8 Calculator',
     'hud-housing': 'HUD Housing Calculator',
+    'liheap': 'LIHEAP Calculator',
 };
 
 /**
