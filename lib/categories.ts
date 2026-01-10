@@ -182,6 +182,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'snowmobile-insurance': 'insurance',
     'atv-insurance': 'insurance',
     'dirt-bike-insurance': 'insurance',
+    'golf-cart-insurance': 'insurance',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -541,6 +542,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'snowmobile-insurance': 'Snowmobile Insurance',
     'atv-insurance': 'ATV Insurance',
     'dirt-bike-insurance': 'Dirt Bike Insurance',
+    'golf-cart-insurance': 'Golf Cart Insurance',
 };
 
 /**
