@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Calculator, Shield, Info, CheckCircle, AlertTriangle, ArrowRight } from "lucide-react";
+import { Calculator, Info, CheckCircle, AlertTriangle, ArrowRight } from "lucide-react";
 import { SITE, BENEFIT_LIMITS, CITATIONS } from "@/lib/calculators/ssi";
 
 export default function SSIGuidePage() {

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Calculator, Shield, Info, CheckCircle, ArrowRight } from "lucide-react";
+import { Calculator, Shield, CheckCircle, ArrowRight } from "lucide-react";
 import { SITE, AMI_LIMITS, CITATIONS } from "@/lib/calculators/era";
 
 export default function ERAGuidePage() {

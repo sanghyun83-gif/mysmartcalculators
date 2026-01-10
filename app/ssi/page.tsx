@@ -67,7 +67,7 @@ export default function SSIPage() {
                 <div className="max-w-4xl mx-auto">
                     <h2 className="text-2xl font-bold text-white mb-6">What is Supplemental Security Income (SSI)?</h2>
                     <p className="text-slate-300 mb-4">
-                        SSI is a federal program that provides monthly cash payments to people with limited income and resources who are 65 or older, blind, or have a disability. It's different from Social Security retirement benefits because it's based on financial need, not your work history.
+                        SSI is a federal program that provides monthly cash payments to people with limited income and resources who are 65 or older, blind, or have a disability. It&apos;s different from Social Security retirement benefits because it&apos;s based on financial need, not your work history.
                     </p>
                     <div className="bg-slate-800 border border-slate-700 rounded-xl p-6 mt-8">
                         <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">

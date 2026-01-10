@@ -6,14 +6,16 @@
 import { AlertTriangle } from 'lucide-react';
 
 interface LegalDisclaimerProps {
-    category?: 'legal' | 'medical' | 'insurance' | 'financial' | 'general';
+    category?: 'legal' | 'medical' | 'insurance' | 'finance' | 'family' | 'health' | 'general';
 }
 
 const disclaimerText = {
     legal: "This estimate is for informational purposes only and does not constitute legal advice. Actual settlement amounts vary significantly based on jurisdiction, evidence, and circumstances. Consult a licensed attorney before making any legal decisions.",
     medical: "This is NOT medical advice. Results are estimates only. Do not delay seeking professional medical treatment based on this information. Consult a licensed healthcare provider for medical decisions.",
     insurance: "This estimate is based on projected 2026 data and industry averages. Actual premiums vary by insurer, location, and individual factors. Consult a licensed insurance agent for accurate quotes.",
-    financial: "Results are estimates based on projected formulas and may not reflect current tax laws or regulations. Past performance does not guarantee future results. Consult a licensed financial advisor or CPA.",
+    finance: "Results are estimates based on projected formulas and may not reflect current tax laws or regulations. Past performance does not guarantee future results. Consult a licensed financial advisor or CPA.",
+    family: "This estimate is for planning purposes only. Eligibility for subsidies and benefits is determined by state agency evaluations and available program funding. Consult your local caseworker for final determinations.",
+    health: "Basic health estimates only. Not a clinical diagnosis. Consult with a qualified healthcare professional before starting any new health or nutrition program.",
     general: "This calculator provides estimates for informational purposes only. Results should not be relied upon for making important decisions. Always consult qualified professionals."
 };
 

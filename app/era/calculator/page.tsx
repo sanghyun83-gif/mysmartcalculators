@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Home, Calculator, ArrowRight, DollarSign } from "lucide-react";
+import { Calculator, ArrowRight, DollarSign } from "lucide-react";
 import { SITE, FAQS, AMI_LIMITS } from "@/lib/calculators/era";
 import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
