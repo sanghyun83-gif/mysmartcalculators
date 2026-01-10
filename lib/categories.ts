@@ -222,6 +222,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'liheap': 'insurance',
     'food-stamps': 'insurance',
     'ebt': 'insurance',
+    'tanf': 'insurance',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -621,6 +622,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'liheap': 'LIHEAP Calculator',
     'food-stamps': 'Food Stamps Calculator',
     'ebt': 'EBT Calculator',
+    'tanf': 'TANF Benefits Calculator',
 };
 
 /**
