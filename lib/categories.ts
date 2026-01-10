@@ -194,6 +194,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'hsa': 'finance',
     'fsa': 'finance',
     'espp': 'finance',
+    'stock-option': 'finance',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -565,6 +566,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'hsa': 'HSA Calculator',
     'fsa': 'FSA Calculator',
     'espp': 'ESPP Calculator',
+    'stock-option': 'Stock Option Calculator',
 };
 
 /**
