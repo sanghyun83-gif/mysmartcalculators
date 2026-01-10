@@ -223,6 +223,8 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'food-stamps': 'insurance',
     'ebt': 'insurance',
     'tanf': 'insurance',
+    'ssi': 'insurance',
+    'era': 'insurance',
     'child-care-subsidy': 'family',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
@@ -624,6 +626,8 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'food-stamps': 'Food Stamps Calculator',
     'ebt': 'EBT Calculator',
     'tanf': 'TANF Benefits Calculator',
+    'ssi': 'SSI Calculator',
+    'era': 'Emergency Rental Assistance Calculator',
     'child-care-subsidy': 'Child Care Subsidy Calculator',
 };
 
