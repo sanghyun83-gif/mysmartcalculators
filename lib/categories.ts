@@ -198,6 +198,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'rsu': 'finance',
     'bonus-tax': 'finance',
     'commission': 'finance',
+    'rental-income': 'finance',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -573,6 +574,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'rsu': 'RSU Calculator',
     'bonus-tax': 'Bonus Tax Calculator',
     'commission': 'Commission Calculator',
+    'rental-income': 'Rental Income Calculator',
 };
 
 /**
