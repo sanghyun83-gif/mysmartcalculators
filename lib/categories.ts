@@ -217,6 +217,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'medicaid': 'insurance',
     'snap': 'insurance',
     'wic': 'insurance',
+    'section-8': 'insurance',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -611,6 +612,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'medicaid': 'Medicaid Eligibility Calculator',
     'snap': 'SNAP Benefits Calculator',
     'wic': 'WIC Benefits Calculator',
+    'section-8': 'Section 8 Calculator',
 };
 
 /**
