@@ -97,7 +97,7 @@ export default function HSACalculatorPage() {
                         </div>
                     )}
 
-                    <LegalDisclaimer category="finance" />
+                    <LegalDisclaimer category="financial" />
                 </div>
             </section>
 

@@ -191,7 +191,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'student-insurance': 'insurance',
     'vision-insurance': 'insurance',
     'dental-insurance': 'insurance',
-    'hsa': 'finance',
+    'hsa': 'financial',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
