@@ -200,6 +200,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'commission': 'finance',
     'rental-income': 'finance',
     'airbnb-income': 'finance',
+    'side-hustle-tax': 'finance',
     'construction-accident': 'legal',
     'pedestrian-accident': 'legal',
     'hit-and-run': 'legal',
@@ -577,6 +578,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'commission': 'Commission Calculator',
     'rental-income': 'Rental Income Calculator',
     'airbnb-income': 'Airbnb Income Calculator',
+    'side-hustle-tax': 'Side Hustle Tax Calculator',
 };
 
 /**
