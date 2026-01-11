@@ -22,7 +22,7 @@ interface HubConfig {
     title: string;
     subtitle: string;
     expertTitle: string;
-    intro: JSX.Element;
+    intro: React.ReactNode;
     statsLabel: string;
     filters: { id: string; name: string; icon: any; color: string; premium?: boolean }[];
     accentColor: string;
@@ -319,14 +319,14 @@ export default function CategoryHubPage() {
                                         key={cat.id}
                                         onClick={() => setActiveFilter(cat.id)}
                                         className={`flex items-center gap-3 px-6 py-3 rounded-2xl text-[11px] font-black uppercase tracking-[0.15em] transition-all border ${activeFilter === cat.id
-                                                ? cat.premium
-                                                    ? slug === 'finance' ? "bg-blue-500 text-white border-blue-300" :
-                                                        slug === 'insurance' ? "bg-emerald-500 text-white border-emerald-300" :
-                                                            slug === 'medical' ? "bg-rose-500 text-white border-rose-300" :
-                                                                slug === 'family' ? "bg-purple-500 text-white border-purple-300" :
-                                                                    "bg-amber-500 text-black border-amber-300"
-                                                    : "bg-white text-black border-white shadow-2xl"
-                                                : "border-transparent text-slate-500 hover:text-white hover:bg-slate-800"
+                                            ? cat.premium
+                                                ? slug === 'finance' ? "bg-blue-500 text-white border-blue-300" :
+                                                    slug === 'insurance' ? "bg-emerald-500 text-white border-emerald-300" :
+                                                        slug === 'medical' ? "bg-rose-500 text-white border-rose-300" :
+                                                            slug === 'family' ? "bg-purple-500 text-white border-purple-300" :
+                                                                "bg-amber-500 text-black border-amber-300"
+                                                : "bg-white text-black border-white shadow-2xl"
+                                            : "border-transparent text-slate-500 hover:text-white hover:bg-slate-800"
                                             }`}
                                     >
                                         <cat.icon className={`w-4 h-4 ${activeFilter === cat.id ? "text-current" : cat.color}`} />
