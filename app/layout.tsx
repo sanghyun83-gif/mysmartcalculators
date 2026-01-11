@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
+import { GlobalFooter } from "@/components/GlobalFooter";
+import GlobalHeader from "@/components/v3/GlobalHeader";
 import "./globals.css";
 
 const GA_MEASUREMENT_ID = "G-CLQYC4HRE3";
@@ -9,6 +11,7 @@ const ADSENSE_ID = "ca-pub-6678501910155801";
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mysmartcalculators.com"),
   title: "MySmartCalculators | 100+ Free Legal, Finance & Insurance Calculators",
   description: "Free online calculators for legal settlements, personal injury claims, mortgage, taxes, insurance, and more. Accurate 2026 calculations based on real data.",
   keywords: ["calculator", "settlement calculator", "injury calculator", "mortgage calculator", "tax calculator", "insurance calculator", "legal calculator"],
@@ -28,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${inter.variable} antialiased bg-slate-900 text-white min-h-screen flex flex-col`}>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
           strategy="afterInteractive"
@@ -41,7 +44,11 @@ export default function RootLayout({
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
-        {children}
+        <GlobalHeader />
+        <main className="flex-grow pt-16">
+          {children}
+        </main>
+        <GlobalFooter />
         <Analytics />
       </body>
     </html>

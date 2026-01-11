@@ -1,34 +1,38 @@
 import { MetadataRoute } from 'next'
-
-import { CATEGORY_MAP } from '@/lib/categories'
-
-// All calculator paths dynamically generated from CATEGORY_MAP
-const CALCULATORS = Object.keys(CATEGORY_MAP);
+import { CATEGORY_MAP, Category } from '@/lib/categories'
 
 const BASE_URL = "https://mysmartcalculators.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const now = new Date().toISOString();
+    const now = new Date();
 
-    // Homepage
-    const routes: MetadataRoute.Sitemap = [
+    // 1. Core Pages (Priority 1.0)
+    const corePages: MetadataRoute.Sitemap = [
         {
             url: BASE_URL,
             lastModified: now,
-            changeFrequency: 'weekly',
+            changeFrequency: 'daily',
             priority: 1,
         },
     ];
 
-    // All calculator pages
-    for (const calc of CALCULATORS) {
-        routes.push({
-            url: `${BASE_URL}/${calc}`,
-            lastModified: now,
-            changeFrequency: 'weekly',
-            priority: 0.9,
-        });
-    }
+    // 2. S-Class Category Hubs (Priority 0.9)
+    const categories: Category[] = ['legal', 'finance', 'insurance', 'medical', 'family', 'health'];
+    const hubPages: MetadataRoute.Sitemap = categories.map(cat => ({
+        url: `${BASE_URL}/category/${cat}`,
+        lastModified: now,
+        changeFrequency: 'daily',
+        priority: 0.9,
+    }));
 
-    return routes;
+    // 3. Dynamic Calculator Pages (Priority 0.8)
+    const calculators = Object.keys(CATEGORY_MAP);
+    const calculatorPages: MetadataRoute.Sitemap = calculators.map(calc => ({
+        url: `${BASE_URL}/${calc}`,
+        lastModified: now,
+        changeFrequency: 'weekly',
+        priority: 0.8,
+    }));
+
+    return [...corePages, ...hubPages, ...calculatorPages];
 }
