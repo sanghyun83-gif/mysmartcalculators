@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import {
-    Activity, ArrowLeft, ChevronRight, Info, Shield,
+    Activity, ArrowLeft, ChevronRight, Info, Shield, TrendingUp,
     Calculator, DollarSign, Scale, Gavel, MapPin, Search, Star, AlertTriangle, BarChart3, Pill, Briefcase, Landmark, PieChart, LineChart, Wallet, ArrowRight, CheckCircle2
 } from "lucide-react";
 import {

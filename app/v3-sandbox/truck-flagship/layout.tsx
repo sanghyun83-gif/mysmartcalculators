@@ -142,7 +142,7 @@ export default function TruckFlagshipLayout({
                     </div>
                 </footer>
 
-                <GlobalFooter cite="TruckMaster AI Intelligence Unit" />
+                <GlobalFooter citation="TruckMaster AI Intelligence Unit" />
             </div>
         </div>
     );

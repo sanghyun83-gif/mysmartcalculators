@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import {
-    Activity, ArrowLeft, ChevronRight, Info, Shield,
+    Activity, ArrowLeft, ChevronRight, Info, Shield, ArrowRight, CheckCircle2,
     Calculator, DollarSign, Scale, Gavel, MapPin, Search, Star, AlertTriangle, BarChart3, Pill, Stethoscope
 } from "lucide-react";
 import {
@@ -52,8 +52,8 @@ export function CalculatorClient() {
                                         key={tier.id}
                                         onClick={() => setInjury(tier.id)}
                                         className={`p-4 rounded-xl border text-left transition-all ${injury === tier.id
-                                                ? 'bg-rose-500/10 border-rose-500 text-white ring-1 ring-rose-500'
-                                                : 'bg-white/5 border-white/10 text-slate-400 hover:border-white/20'
+                                            ? 'bg-rose-500/10 border-rose-500 text-white ring-1 ring-rose-500'
+                                            : 'bg-white/5 border-white/10 text-slate-400 hover:border-white/20'
                                             }`}
                                     >
                                         <div className="text-sm font-black">{tier.label}</div>
@@ -227,22 +227,3 @@ export function CalculatorClient() {
     );
 }
 
-function CheckCircle2(props: any) {
-    return (
-        <svg
-            {...props}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-            <polyline points="22 4 12 14.01 9 11.01" />
-        </svg>
-    )
-}
