@@ -4,11 +4,16 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { GlobalFooter } from "@/components/GlobalFooter";
 import GlobalHeader from "@/components/v3/GlobalHeader";
+import LayoutWrapper from "@/components/LayoutWrapper";
 import "./globals.css";
 
 const GA_MEASUREMENT_ID = "G-CLQYC4HRE3";
 const ADSENSE_ID = "ca-pub-6678501910155801";
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mysmartcalculators.com"),
@@ -21,6 +26,17 @@ export const metadata: Metadata = {
     description: "Free online calculators for legal, finance, and insurance.",
     type: "website",
     url: "https://mysmartcalculators.com",
+    images: [
+      {
+        url: "/og-main.png",
+        width: 1200,
+        height: 630,
+        alt: "MySmartCalculators Global Search Engine",
+      }
+    ],
+  },
+  alternates: {
+    canonical: "./",
   },
 };
 
@@ -44,11 +60,9 @@ export default function RootLayout({
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
-        <GlobalHeader />
-        <main className="flex-grow pt-16">
+        <LayoutWrapper>
           {children}
-        </main>
-        <GlobalFooter />
+        </LayoutWrapper>
         <Analytics />
       </body>
     </html>

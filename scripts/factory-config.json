@@ -1,0 +1,47 @@
+[
+    {
+        "id": "ozempic",
+        "name": "Ozempic Settlement",
+        "brand": "OzempicMaster AI",
+        "description": "Professional-grade estimator for Ozempic Settlement cases and claims.",
+        "icon": "Activity",
+        "color": "rose-500",
+        "accentText": "rose-400",
+        "badge": "Active MDL",
+        "keywords": [
+            "ozempic settlement calculator",
+            "GLP-1 gastroparesis",
+            "ozempic lawsuit"
+        ]
+    },
+    {
+        "id": "roundup",
+        "name": "Roundup Lawsuit",
+        "brand": "RoundupAuditor AI",
+        "description": "Professional-grade estimator for Roundup Lawsuit cases and claims.",
+        "icon": "Leaf",
+        "color": "emerald-500",
+        "accentText": "emerald-400",
+        "badge": "Mass Tort",
+        "keywords": [
+            "roundup lawsuit estimator",
+            "glyphosate claim",
+            "NHL settlement"
+        ]
+    },
+    {
+        "id": "401k",
+        "name": "401k Growth",
+        "brand": "FinancePro AI",
+        "description": "Professional-grade estimator for 401k Growth cases and claims.",
+        "icon": "TrendingUp",
+        "color": "blue-500",
+        "accentText": "blue-400",
+        "badge": "Pro 2026",
+        "keywords": [
+            "401k growth forecast",
+            "retirement savings audit",
+            "401k withdrawal"
+        ]
+    }
+]

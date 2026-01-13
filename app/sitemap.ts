@@ -25,14 +25,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.9,
     }));
 
-    // 3. Dynamic Calculator Pages (Priority 0.8)
+    // 3. Dynamic Calculator Pages (ROI Differential Mapping)
     const calculators = Object.keys(CATEGORY_MAP);
-    const calculatorPages: MetadataRoute.Sitemap = calculators.map(calc => ({
-        url: `${BASE_URL}/${calc}`,
-        lastModified: now,
-        changeFrequency: 'weekly',
-        priority: 0.8,
-    }));
+
+    // High-ROI Segments
+    const tier1 = ['truck-accident']; // Priority 1.0 (Flagship)
+    const tier2 = ['ozempic', 'camp-lejeune', 'roundup']; // Priority 0.9 (Medical/Mass Tort)
+    const tier3 = ['bmi', 'calorie']; // Priority 0.5 (Low Value)
+
+    const calculatorPages: MetadataRoute.Sitemap = calculators.map(calc => {
+        let priority = 0.7; // Standard
+        let changeFreq: any = 'monthly';
+
+        if (tier1.includes(calc)) priority = 1.0;
+        else if (tier2.includes(calc)) priority = 0.9;
+        else if (tier3.includes(calc)) priority = 0.5;
+
+        return {
+            url: `${BASE_URL}/${calc}`,
+            lastModified: now,
+            changeFrequency: changeFreq,
+            priority: priority,
+        };
+    });
 
     return [...corePages, ...hubPages, ...calculatorPages];
 }

@@ -15,7 +15,8 @@ const TRENDING_NICHES = [
   { id: "truck-accident", name: "Truck Accident", category: "legal", badge: "High Value", color: "amber" },
   { id: "ozempic", name: "Ozempic Settlement", category: "medical", badge: "Active MDL", color: "rose" },
   { id: "roundup", name: "Roundup Lawsuit", category: "medical", badge: "Mass Tort", color: "emerald" },
-  { id: "401k", name: "401k Growth", category: "finance", badge: "Pro 2026", color: "blue" },
+  { id: "401k-growth", name: "401k Growth", category: "finance", badge: "Pro 2026", color: "blue" },
+  { id: "car-accident", name: "Car Accident", category: "legal", badge: "S-Class", color: "red" },
 ];
 
 export default function HomePage() {

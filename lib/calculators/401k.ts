@@ -1,98 +1,126 @@
 // ============================================
-// 401K-CALC SITE CONFIGURATION
-// 2025 401k Calculator
-// Purple/Wealth Theme
+// TRUCK-ACCIDENT-CALC SITE CONFIGURATION
+// 2026 401k Growth Settlement Calculator
+// 18-Wheeler, Semi-TrendingUp, Commercial TrendingUp Claims
 // ============================================
 
-import { Calculator, DollarSign, TrendingUp, Users, PiggyBank, ArrowDownCircle, Scale } from 'lucide-react';
+import { Calculator, Scale, FileText, DollarSign, Car, AlertTriangle, Gavel, TrendingUp } from 'lucide-react';
 
 // ============================================
 // SITE METADATA
 // ============================================
 export const SITE = {
-    name: "401k Calculator",
-    tagline: "Free 2025 Retirement Calculator",
-    description: "Calculate your 401k retirement savings for free. See contribution limits, employer matching, Roth vs Traditional comparison, and projected growth.",
-    year: 2025,
+    name: "401k Growth Settlement Calculator",
+    tagline: "Free 2026 Settlement Estimator",
+    description: "Calculate your truck accident settlement value for free. Estimate 18-wheeler, semi-truck, and commercial vehicle accident compensation. Average settlements $500K-$3M.",
+    year: 2026,
     baseUrl: "https://mysmartcalculators.com/401k",
 };
 
 // ============================================
-// 2025 401k CONSTANTS (IRS Official)
+// SETTLEMENT CALCULATION CONSTANTS
 // ============================================
-export const RETIREMENT_CONSTANTS = {
-    // 2025 Contribution Limits (IRS Notice 2024-80)
-    contributionLimits: {
-        employee: 23500,         // Employee elective deferral limit
-        catchUp: 7500,           // Standard catch-up (age 50-59, 64+)
-        superCatchUp: 11250,     // NEW 2025: Super catch-up (age 60-63)
-        total: 70000,            // Total annual additions limit (employee + employer)
-        compensationLimit: 350000, // Maximum compensation considered
+export const SETTLEMENT_CONSTANTS = {
+    // Pain & Suffering Multipliers by injury severity
+    painMultipliers: {
+        minor: { min: 1.5, max: 3, label: "Minor (Soft tissue, bruises)" },
+        moderate: { min: 3, max: 5, label: "Moderate (Fractures, sprains)" },
+        severe: { min: 5, max: 10, label: "Severe (Surgery required)" },
+        permanent: { min: 10, max: 20, label: "Permanent (Disability, TBI)" },
+        catastrophic: { min: 20, max: 50, label: "Catastrophic (Paralysis, death)" },
     },
 
-    // Age thresholds
-    ageThresholds: {
-        catchUpAge: 50,          // When catch-up contributions begin
-        superCatchUpStart: 60,   // NEW 2025: Super catch-up starts
-        superCatchUpEnd: 63,     // Super catch-up ends
-        requiredMinDistribution: 73, // RMD age
+    // Injury types with typical multipliers
+    injuryTypes: {
+        whiplash: { multiplier: 2, weeks: 6, label: "Whiplash" },
+        backInjury: { multiplier: 4, weeks: 16, label: "Back/Spine Injury" },
+        brokenBone: { multiplier: 3, weeks: 12, label: "Broken Bone" },
+        headInjury: { multiplier: 8, weeks: 24, label: "Head/TBI" },
+        kneeInjury: { multiplier: 3.5, weeks: 12, label: "Knee Injury" },
+        shoulderInjury: { multiplier: 3, weeks: 10, label: "Shoulder Injury" },
+        neckInjury: { multiplier: 4, weeks: 14, label: "Neck Injury" },
+        softTissue: { multiplier: 1.5, weeks: 4, label: "Soft Tissue" },
+        concussion: { multiplier: 5, weeks: 8, label: "Concussion" },
+        internalInjury: { multiplier: 7, weeks: 20, label: "Internal Injuries" },
     },
 
-    // Tax Brackets 2025 (for Roth vs Traditional comparison)
-    taxBrackets: {
-        single: [
-            { min: 0, max: 11925, rate: 0.10 },
-            { min: 11925, max: 48475, rate: 0.12 },
-            { min: 48475, max: 103350, rate: 0.22 },
-            { min: 103350, max: 197300, rate: 0.24 },
-            { min: 197300, max: 250525, rate: 0.32 },
-            { min: 250525, max: 626350, rate: 0.35 },
-            { min: 626350, max: Infinity, rate: 0.37 },
-        ],
-        marriedFilingJointly: [
-            { min: 0, max: 23850, rate: 0.10 },
-            { min: 23850, max: 96950, rate: 0.12 },
-            { min: 96950, max: 206700, rate: 0.22 },
-            { min: 206700, max: 394600, rate: 0.24 },
-            { min: 394600, max: 501050, rate: 0.32 },
-            { min: 501050, max: 751600, rate: 0.35 },
-            { min: 751600, max: Infinity, rate: 0.37 },
-        ],
-    },
+    // Attorney impact on settlement
+    attorneyBonus: 0.30, // 30% higher with attorney
+    attorneyFee: 0.33, // 33% contingency fee
 
-    // Average employer match data
-    employerMatch: {
-        averageMatchPercent: 4.5,    // Average employer matches 4.5%
-        averageMatchLimit: 6,         // Up to 6% of salary
-        vestingYears: 4,              // Average vesting period
+    // Average settlements for truck accidents (higher than car accidents)
+    averageSettlements: {
+        minor: { low: 25000, high: 100000 },
+        moderate: { low: 100000, high: 500000 },
+        severe: { low: 500000, high: 1500000 },
+        permanent: { low: 1500000, high: 5000000 },
     },
+};
 
-    // Investment assumptions
-    investmentDefaults: {
-        annualReturn: 7,              // Historical average S&P 500
-        inflationRate: 3,             // Average inflation
-        retirementAge: 65,
-        lifeExpectancy: 90,
-    },
+// ============================================
+// 50 STATE FAULT LAWS
+// ============================================
+export type FaultSystem = 'at-fault' | 'no-fault' | 'choice';
+export type ComparativeType = 'pure' | 'modified-50' | 'modified-51' | 'contributory';
 
-    // Early withdrawal
-    earlyWithdrawal: {
-        penaltyRate: 0.10,            // 10% penalty before 59.5
-        penaltyFreeAge: 59.5,
-        ruleOf55Age: 55,              // Rule of 55 exception
-    },
-
-    // Defaults for inputs
-    defaults: {
-        currentAge: 30,
-        salary: 75000,
-        contributionPercent: 10,
-        currentBalance: 50000,
-        employerMatchPercent: 4,
-        employerMatchLimit: 6,
-        expectedReturn: 7,
-        retirementAge: 65,
-    },
+export const STATE_FAULT_LAWS: Record<string, {
+    name: string;
+    faultSystem: FaultSystem;
+    comparativeType: ComparativeType;
+    threshold: string;
+    notes: string;
+}> = {
+    AL: { name: "Alabama", faultSystem: "at-fault", comparativeType: "contributory", threshold: "None", notes: "Contributory negligence bars recovery" },
+    AK: { name: "Alaska", faultSystem: "at-fault", comparativeType: "pure", threshold: "None", notes: "Pure comparative fault" },
+    AZ: { name: "Arizona", faultSystem: "at-fault", comparativeType: "pure", threshold: "None", notes: "Pure comparative fault" },
+    AR: { name: "Arkansas", faultSystem: "at-fault", comparativeType: "modified-50", threshold: "50%", notes: "Modified comparative (50% bar)" },
+    CA: { name: "California", faultSystem: "at-fault", comparativeType: "pure", threshold: "None", notes: "Pure comparative fault" },
+    CO: { name: "Colorado", faultSystem: "at-fault", comparativeType: "modified-50", threshold: "50%", notes: "Modified comparative (50% bar)" },
+    CT: { name: "Connecticut", faultSystem: "at-fault", comparativeType: "modified-51", threshold: "51%", notes: "Modified comparative (51% bar)" },
+    DE: { name: "Delaware", faultSystem: "at-fault", comparativeType: "modified-51", threshold: "51%", notes: "Modified comparative (51% bar)" },
+    FL: { name: "Florida", faultSystem: "at-fault", comparativeType: "modified-51", threshold: "51%", notes: "Changed from no-fault in 2023" },
+    GA: { name: "Georgia", faultSystem: "at-fault", comparativeType: "modified-50", threshold: "50%", notes: "Modified comparative (50% bar)" },
+    HI: { name: "Hawaii", faultSystem: "no-fault", comparativeType: "modified-51", threshold: "Serious injury", notes: "No-fault with threshold" },
+    ID: { name: "Idaho", faultSystem: "at-fault", comparativeType: "modified-50", threshold: "50%", notes: "Modified comparative (50% bar)" },
+    IL: { name: "Illinois", faultSystem: "at-fault", comparativeType: "modified-51", threshold: "51%", notes: "Modified comparative (51% bar)" },
+    IN: { name: "Indiana", faultSystem: "at-fault", comparativeType: "modified-51", threshold: "51%", notes: "Modified comparative (51% bar)" },
+    IA: { name: "Iowa", faultSystem: "at-fault", comparativeType: "modified-51", threshold: "51%", notes: "Modified comparative (51% bar)" },
+    KS: { name: "Kansas", faultSystem: "no-fault", comparativeType: "modified-50", threshold: "$2,000 med", notes: "No-fault with threshold" },
+    KY: { name: "Kentucky", faultSystem: "choice", comparativeType: "pure", threshold: "Choice", notes: "Choice no-fault state" },
+    LA: { name: "Louisiana", faultSystem: "at-fault", comparativeType: "pure", threshold: "None", notes: "Pure comparative fault" },
+    ME: { name: "Maine", faultSystem: "at-fault", comparativeType: "modified-50", threshold: "50%", notes: "Modified comparative (50% bar)" },
+    MD: { name: "Maryland", faultSystem: "at-fault", comparativeType: "contributory", threshold: "None", notes: "Contributory negligence bars recovery" },
+    MA: { name: "Massachusetts", faultSystem: "no-fault", comparativeType: "modified-51", threshold: "$2,000 med", notes: "No-fault with threshold" },
+    MI: { name: "Michigan", faultSystem: "no-fault", comparativeType: "modified-50", threshold: "Serious injury", notes: "Strong no-fault state" },
+    MN: { name: "Minnesota", faultSystem: "no-fault", comparativeType: "modified-51", threshold: "$4,000 med", notes: "No-fault with threshold" },
+    MS: { name: "Mississippi", faultSystem: "at-fault", comparativeType: "pure", threshold: "None", notes: "Pure comparative fault" },
+    MO: { name: "Missouri", faultSystem: "at-fault", comparativeType: "pure", threshold: "None", notes: "Pure comparative fault" },
+    MT: { name: "Montana", faultSystem: "at-fault", comparativeType: "modified-51", threshold: "51%", notes: "Modified comparative (51% bar)" },
+    NE: { name: "Nebraska", faultSystem: "at-fault", comparativeType: "modified-50", threshold: "50%", notes: "Modified comparative (50% bar)" },
+    NV: { name: "Nevada", faultSystem: "at-fault", comparativeType: "modified-51", threshold: "51%", notes: "Modified comparative (51% bar)" },
+    NH: { name: "New Hampshire", faultSystem: "at-fault", comparativeType: "modified-51", threshold: "51%", notes: "Modified comparative (51% bar)" },
+    NJ: { name: "New Jersey", faultSystem: "choice", comparativeType: "modified-51", threshold: "Choice", notes: "Choice no-fault state" },
+    NM: { name: "New Mexico", faultSystem: "at-fault", comparativeType: "pure", threshold: "None", notes: "Pure comparative fault" },
+    NY: { name: "New York", faultSystem: "no-fault", comparativeType: "pure", threshold: "Serious injury", notes: "No-fault with serious injury threshold" },
+    NC: { name: "North Carolina", faultSystem: "at-fault", comparativeType: "contributory", threshold: "None", notes: "Contributory negligence bars recovery" },
+    ND: { name: "North Dakota", faultSystem: "no-fault", comparativeType: "modified-50", threshold: "$2,500 med", notes: "No-fault with threshold" },
+    OH: { name: "Ohio", faultSystem: "at-fault", comparativeType: "modified-51", threshold: "51%", notes: "Modified comparative (51% bar)" },
+    OK: { name: "Oklahoma", faultSystem: "at-fault", comparativeType: "modified-51", threshold: "51%", notes: "Modified comparative (51% bar)" },
+    OR: { name: "Oregon", faultSystem: "at-fault", comparativeType: "modified-51", threshold: "51%", notes: "Modified comparative (51% bar)" },
+    PA: { name: "Pennsylvania", faultSystem: "choice", comparativeType: "modified-51", threshold: "Choice", notes: "Choice no-fault state" },
+    RI: { name: "Rhode Island", faultSystem: "at-fault", comparativeType: "pure", threshold: "None", notes: "Pure comparative fault" },
+    SC: { name: "South Carolina", faultSystem: "at-fault", comparativeType: "modified-51", threshold: "51%", notes: "Modified comparative (51% bar)" },
+    SD: { name: "South Dakota", faultSystem: "at-fault", comparativeType: "modified-51", threshold: "51%", notes: "Modified comparative (51% bar)" },
+    TN: { name: "Tennessee", faultSystem: "at-fault", comparativeType: "modified-50", threshold: "50%", notes: "Modified comparative (50% bar)" },
+    TX: { name: "Texas", faultSystem: "at-fault", comparativeType: "modified-51", threshold: "51%", notes: "Modified comparative (51% bar)" },
+    UT: { name: "Utah", faultSystem: "no-fault", comparativeType: "modified-50", threshold: "$3,000 med", notes: "No-fault with threshold" },
+    VT: { name: "Vermont", faultSystem: "at-fault", comparativeType: "modified-51", threshold: "51%", notes: "Modified comparative (51% bar)" },
+    VA: { name: "Virginia", faultSystem: "at-fault", comparativeType: "contributory", threshold: "None", notes: "Contributory negligence bars recovery" },
+    WA: { name: "Washington", faultSystem: "at-fault", comparativeType: "pure", threshold: "None", notes: "Pure comparative fault" },
+    WV: { name: "West Virginia", faultSystem: "at-fault", comparativeType: "modified-50", threshold: "50%", notes: "Modified comparative (50% bar)" },
+    WI: { name: "Wisconsin", faultSystem: "at-fault", comparativeType: "modified-51", threshold: "51%", notes: "Modified comparative (51% bar)" },
+    WY: { name: "Wyoming", faultSystem: "at-fault", comparativeType: "modified-51", threshold: "51%", notes: "Modified comparative (51% bar)" },
+    DC: { name: "Washington DC", faultSystem: "at-fault", comparativeType: "contributory", threshold: "None", notes: "Contributory negligence bars recovery" },
 };
 
 // ============================================
@@ -100,400 +128,185 @@ export const RETIREMENT_CONSTANTS = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "401k/calculator",
-        name: "401k Calculator",
-        shortName: "Calculator",
-        description: "Calculate your retirement savings",
-        longDescription: "See how much your 401k will grow by retirement based on contributions and returns.",
+        id: "401k/settlement-calculator",
+        name: "Settlement Calculator",
+        shortName: "Settlement",
+        description: "Calculate your truck accident settlement",
+        longDescription: "Free 2026 truck accident settlement calculator. Estimate your 18-wheeler, semi-truck, or commercial vehicle accident compensation.",
         icon: Calculator,
-        category: "retirement",
-        keywords: ["401k calculator", "retirement calculator", "401k growth"],
+        category: "legal",
+        keywords: ["truck accident settlement calculator", "18 wheeler accident", "semi truck accident"],
         featured: true,
     },
     {
-        id: "401k/limits",
-        name: "Contribution Limits",
-        shortName: "Limits",
-        description: "2025 401k contribution limits",
-        longDescription: "See the official IRS 401k contribution limits for 2025.",
-        icon: DollarSign,
-        category: "retirement",
-        keywords: ["401k limits 2025", "contribution limits", "max 401k"],
-        featured: true,
-    },
-    {
-        id: "401k/employer-match",
-        name: "Employer Match",
-        shortName: "Match",
-        description: "Calculate your employer matching",
-        longDescription: "See how much free money you're getting from employer match.",
-        icon: Users,
-        category: "retirement",
-        keywords: ["employer match calculator", "401k match", "company match"],
-        featured: true,
-    },
-    {
-        id: "401k/roth-vs-traditional",
-        name: "Roth vs Traditional",
-        shortName: "Roth vs Trad",
-        description: "Compare Roth and Traditional 401k",
-        longDescription: "Should you contribute to Roth or Traditional 401k? Compare tax impacts.",
+        id: "401k/pain-suffering",
+        name: "Pain & Suffering Calculator",
+        shortName: "Pain & Suffering",
+        description: "Calculate truck accident pain and suffering",
+        longDescription: "Calculate non-economic damages for truck accident injuries using the multiplier method.",
         icon: Scale,
-        category: "retirement",
-        keywords: ["roth vs traditional", "roth 401k", "pre-tax vs after-tax"],
+        category: "legal",
+        keywords: ["truck accident pain suffering", "non-economic damages", "trucking injury compensation"],
         featured: true,
     },
     {
-        id: "401k/catch-up",
-        name: "Catch-Up Calculator",
-        shortName: "Catch-Up",
-        description: "50+ catch-up contributions",
-        longDescription: "Calculate extra contributions allowed for ages 50 and older.",
-        icon: TrendingUp,
-        category: "retirement",
-        keywords: ["catch up contribution", "over 50 401k", "super catch up"],
-        featured: false,
-    },
-    {
-        id: "401k/withdrawal",
-        name: "Withdrawal Calculator",
-        shortName: "Withdrawal",
-        description: "Calculate 401k withdrawals",
-        longDescription: "See taxes and penalties on 401k withdrawals at any age.",
-        icon: ArrowDownCircle,
-        category: "retirement",
-        keywords: ["401k withdrawal", "early withdrawal penalty", "401k distribution"],
+        id: "401k/state-laws",
+        name: "State TrendingUping Laws",
+        shortName: "State Laws",
+        description: "TrendingUp accident laws by state",
+        longDescription: "Compare trucking accident laws, FMCSA regulations, and liability rules across all 50 states.",
+        icon: Gavel,
+        category: "legal",
+        keywords: ["truck accident laws by state", "FMCSA regulations", "trucking liability"],
         featured: false,
     },
 ] as const;
 
 // ============================================
-// 401K GROWTH CALCULATION
+// SETTLEMENT CALCULATION FUNCTION
 // ============================================
-
-export interface RetirementResult {
-    currentAge: number;
-    retirementAge: number;
-    yearsToRetirement: number;
-    currentBalance: number;
-    annualContribution: number;
-    employerMatch: number;
-    totalAnnualAddition: number;
-    projectedBalance: number;
-    totalContributions: number;
-    totalEmployerMatch: number;
-    totalGrowth: number;
-    yearByYearData: YearlyData[];
+export interface SettlementResult {
+    state: string;
+    stateName: string;
+    faultSystem: FaultSystem;
+    medicalBills: number;
+    lostWages: number;
+    propertyDamage: number;
+    economicDamages: number;
+    painMultiplier: number;
+    painSufferingLow: number;
+    painSufferingHigh: number;
+    faultPercentage: number;
+    faultReduction: number;
+    settlementLow: number;
+    settlementHigh: number;
+    withAttorneyLow: number;
+    withAttorneyHigh: number;
+    afterAttorneyFeeLow: number;
+    afterAttorneyFeeHigh: number;
+    injurySeverity: string;
 }
 
-export interface YearlyData {
-    age: number;
-    year: number;
-    contribution: number;
-    employerMatch: number;
-    growth: number;
-    balance: number;
-}
+export function calculateSettlement(
+    stateCode: string,
+    medicalBills: number,
+    lostWages: number,
+    propertyDamage: number,
+    injurySeverity: 'minor' | 'moderate' | 'severe' | 'permanent' | 'catastrophic',
+    faultPercentage: number = 0 // Your fault percentage (0-100)
+): SettlementResult {
+    const state = STATE_FAULT_LAWS[stateCode] || STATE_FAULT_LAWS['CA'];
+    const constants = SETTLEMENT_CONSTANTS;
+    const multiplierData = constants.painMultipliers[injurySeverity];
 
-export function calculate401kGrowth(
-    currentAge: number,
-    salary: number,
-    contributionPercent: number,
-    currentBalance: number,
-    employerMatchPercent: number,
-    employerMatchLimit: number,
-    expectedReturn: number,
-    retirementAge: number
-): RetirementResult {
-    const yearsToRetirement = retirementAge - currentAge;
-    const monthlyReturn = expectedReturn / 100 / 12;
-    const { contributionLimits, ageThresholds } = RETIREMENT_CONSTANTS;
+    // Calculate economic damages
+    const economicDamages = medicalBills + lostWages + propertyDamage;
 
-    let balance = currentBalance;
-    let totalContributions = 0;
-    let totalEmployerMatch = 0;
-    const yearByYearData: YearlyData[] = [];
-    const currentYear = new Date().getFullYear();
+    // Calculate pain & suffering using multiplier method
+    const avgMultiplier = (multiplierData.min + multiplierData.max) / 2;
+    const painSufferingLow = Math.round(medicalBills * multiplierData.min);
+    const painSufferingHigh = Math.round(medicalBills * multiplierData.max);
 
-    for (let i = 0; i < yearsToRetirement; i++) {
-        const age = currentAge + i;
-        const year = currentYear + i;
+    // Calculate total before fault reduction
+    let totalLow = economicDamages + painSufferingLow;
+    let totalHigh = economicDamages + painSufferingHigh;
 
-        // Calculate annual contribution (capped at IRS limit)
-        let maxContribution = contributionLimits.employee;
+    // Apply fault reduction based on state law
+    let faultReduction = 0;
+    const yourFault = faultPercentage / 100;
 
-        // Add catch-up if eligible
-        if (age >= ageThresholds.superCatchUpStart && age <= ageThresholds.superCatchUpEnd) {
-            maxContribution += contributionLimits.superCatchUp; // 2025 super catch-up
-        } else if (age >= ageThresholds.catchUpAge) {
-            maxContribution += contributionLimits.catchUp;
+    if (state.comparativeType === 'contributory') {
+        // Contributory: Any fault = $0
+        if (faultPercentage > 0) {
+            faultReduction = 1; // 100% reduction
         }
-
-        const desiredContribution = salary * (contributionPercent / 100);
-        const annualContribution = Math.min(desiredContribution, maxContribution);
-
-        // Calculate employer match
-        const matchableAmount = salary * (employerMatchLimit / 100);
-        const actualMatchable = Math.min(annualContribution, matchableAmount);
-        const employerMatch = actualMatchable * (employerMatchPercent / employerMatchLimit);
-
-        // Monthly compounding for the year
-        const monthlyContribution = (annualContribution + employerMatch) / 12;
-        let yearStartBalance = balance;
-
-        for (let month = 0; month < 12; month++) {
-            balance = balance * (1 + monthlyReturn) + monthlyContribution;
+    } else if (state.comparativeType === 'modified-50') {
+        // Modified 50%: More than 50% fault = $0
+        if (faultPercentage > 50) {
+            faultReduction = 1;
+        } else {
+            faultReduction = yourFault;
         }
-
-        const yearGrowth = balance - yearStartBalance - annualContribution - employerMatch;
-
-        totalContributions += annualContribution;
-        totalEmployerMatch += employerMatch;
-
-        yearByYearData.push({
-            age,
-            year,
-            contribution: Math.round(annualContribution),
-            employerMatch: Math.round(employerMatch),
-            growth: Math.round(yearGrowth),
-            balance: Math.round(balance),
-        });
+    } else if (state.comparativeType === 'modified-51') {
+        // Modified 51%: 51% or more fault = $0
+        if (faultPercentage >= 51) {
+            faultReduction = 1;
+        } else {
+            faultReduction = yourFault;
+        }
+    } else {
+        // Pure comparative: Reduce by fault percentage
+        faultReduction = yourFault;
     }
 
-    const totalGrowth = balance - currentBalance - totalContributions - totalEmployerMatch;
+    // Apply fault reduction
+    const settlementLow = Math.round(totalLow * (1 - faultReduction));
+    const settlementHigh = Math.round(totalHigh * (1 - faultReduction));
+
+    // Calculate with attorney bonus
+    const withAttorneyLow = Math.round(settlementLow * (1 + constants.attorneyBonus));
+    const withAttorneyHigh = Math.round(settlementHigh * (1 + constants.attorneyBonus));
+
+    // Calculate after attorney fees
+    const afterAttorneyFeeLow = Math.round(withAttorneyLow * (1 - constants.attorneyFee));
+    const afterAttorneyFeeHigh = Math.round(withAttorneyHigh * (1 - constants.attorneyFee));
 
     return {
-        currentAge,
-        retirementAge,
-        yearsToRetirement,
-        currentBalance,
-        annualContribution: Math.round(salary * (contributionPercent / 100)),
-        employerMatch: Math.round((salary * (employerMatchLimit / 100)) * (employerMatchPercent / employerMatchLimit)),
-        totalAnnualAddition: Math.round(salary * (contributionPercent / 100) + (salary * (employerMatchLimit / 100)) * (employerMatchPercent / employerMatchLimit)),
-        projectedBalance: Math.round(balance),
-        totalContributions: Math.round(totalContributions),
-        totalEmployerMatch: Math.round(totalEmployerMatch),
-        totalGrowth: Math.round(totalGrowth),
-        yearByYearData,
+        state: stateCode,
+        stateName: state.name,
+        faultSystem: state.faultSystem,
+        medicalBills,
+        lostWages,
+        propertyDamage,
+        economicDamages,
+        painMultiplier: avgMultiplier,
+        painSufferingLow,
+        painSufferingHigh,
+        faultPercentage,
+        faultReduction: faultReduction * 100,
+        settlementLow,
+        settlementHigh,
+        withAttorneyLow,
+        withAttorneyHigh,
+        afterAttorneyFeeLow,
+        afterAttorneyFeeHigh,
+        injurySeverity: multiplierData.label,
     };
 }
 
 // ============================================
-// EMPLOYER MATCH CALCULATION
+// PAIN & SUFFERING CALCULATION FUNCTION
 // ============================================
-
-export interface EmployerMatchResult {
-    salary: number;
-    contributionPercent: number;
-    employerMatchPercent: number;
-    employerMatchLimit: number;
-    yourContribution: number;
-    employerMatch: number;
-    totalAnnual: number;
-    freeMoneyPercent: number;
-    isMaxingMatch: boolean;
+export interface PainSufferingResult {
+    medicalBills: number;
+    injuryType: string;
+    multiplier: number;
+    painSufferingAmount: number;
+    recoveryWeeks: number;
+    dailyRate: number;
 }
 
-export function calculateEmployerMatch(
-    salary: number,
-    contributionPercent: number,
-    employerMatchPercent: number,
-    employerMatchLimit: number
-): EmployerMatchResult {
-    const yourContribution = salary * (contributionPercent / 100);
-
-    // Employer matches up to employerMatchLimit% of salary
-    const matchableAmount = salary * (employerMatchLimit / 100);
-    const actualMatchable = Math.min(yourContribution, matchableAmount);
-    const employerMatch = actualMatchable * (employerMatchPercent / employerMatchLimit);
-
-    const freeMoneyPercent = salary > 0 ? (employerMatch / salary) * 100 : 0;
-    const isMaxingMatch = contributionPercent >= employerMatchLimit;
+export function calculatePainSuffering(
+    medicalBills: number,
+    injuryType: keyof typeof SETTLEMENT_CONSTANTS.injuryTypes
+): PainSufferingResult {
+    const injury = SETTLEMENT_CONSTANTS.injuryTypes[injuryType];
+    const painSufferingAmount = Math.round(medicalBills * injury.multiplier);
+    const dailyRate = Math.round(painSufferingAmount / (injury.weeks * 7));
 
     return {
-        salary,
-        contributionPercent,
-        employerMatchPercent,
-        employerMatchLimit,
-        yourContribution: Math.round(yourContribution),
-        employerMatch: Math.round(employerMatch),
-        totalAnnual: Math.round(yourContribution + employerMatch),
-        freeMoneyPercent: Math.round(freeMoneyPercent * 10) / 10,
-        isMaxingMatch,
-    };
-}
-
-// ============================================
-// ROTH VS TRADITIONAL COMPARISON
-// ============================================
-
-export interface RothVsTraditionalResult {
-    traditionalBalance: number;
-    rothBalance: number;
-    traditionalAfterTax: number;
-    rothAfterTax: number; // Same as rothBalance (already taxed)
-    taxSavingsNow: number;
-    taxInRetirement: number;
-    betterOption: 'roth' | 'traditional' | 'same';
-    difference: number;
-}
-
-export function compareRothVsTraditional(
-    annualContribution: number,
-    yearsToRetirement: number,
-    expectedReturn: number,
-    currentTaxRate: number,
-    retirementTaxRate: number
-): RothVsTraditionalResult {
-    // Traditional: Contribute pre-tax, pay tax on withdrawal
-    // Roth: Contribute after-tax, withdraw tax-free
-
-    const monthlyReturn = expectedReturn / 100 / 12;
-    const monthlyContribution = annualContribution / 12;
-
-    // Calculate future value
-    let balance = 0;
-    for (let month = 0; month < yearsToRetirement * 12; month++) {
-        balance = balance * (1 + monthlyReturn) + monthlyContribution;
-    }
-
-    const traditionalBalance = balance;
-    const traditionalAfterTax = balance * (1 - retirementTaxRate / 100);
-
-    // Roth: Less contribution (after-tax), but grows tax-free
-    const rothContribution = annualContribution * (1 - currentTaxRate / 100);
-    const monthlyRothContribution = rothContribution / 12;
-
-    let rothBalance = 0;
-    for (let month = 0; month < yearsToRetirement * 12; month++) {
-        rothBalance = rothBalance * (1 + monthlyReturn) + monthlyRothContribution;
-    }
-
-    const taxSavingsNow = annualContribution * (currentTaxRate / 100) * yearsToRetirement;
-    const taxInRetirement = traditionalBalance * (retirementTaxRate / 100);
-
-    const difference = rothBalance - traditionalAfterTax;
-    let betterOption: 'roth' | 'traditional' | 'same' = 'same';
-    if (difference > 1000) betterOption = 'roth';
-    else if (difference < -1000) betterOption = 'traditional';
-
-    return {
-        traditionalBalance: Math.round(traditionalBalance),
-        rothBalance: Math.round(rothBalance),
-        traditionalAfterTax: Math.round(traditionalAfterTax),
-        rothAfterTax: Math.round(rothBalance), // Already taxed
-        taxSavingsNow: Math.round(taxSavingsNow),
-        taxInRetirement: Math.round(taxInRetirement),
-        betterOption,
-        difference: Math.round(Math.abs(difference)),
-    };
-}
-
-// ============================================
-// WITHDRAWAL CALCULATION
-// ============================================
-
-export interface WithdrawalResult {
-    withdrawalAmount: number;
-    age: number;
-    federalTax: number;
-    stateTax: number;
-    earlyPenalty: number;
-    totalTaxes: number;
-    netAmount: number;
-    effectiveTaxRate: number;
-    isEarlyWithdrawal: boolean;
-}
-
-export function calculateWithdrawal(
-    withdrawalAmount: number,
-    age: number,
-    federalTaxRate: number,
-    stateTaxRate: number = 0
-): WithdrawalResult {
-    const { earlyWithdrawal } = RETIREMENT_CONSTANTS;
-    const isEarlyWithdrawal = age < earlyWithdrawal.penaltyFreeAge;
-
-    const federalTax = withdrawalAmount * (federalTaxRate / 100);
-    const stateTax = withdrawalAmount * (stateTaxRate / 100);
-    const earlyPenalty = isEarlyWithdrawal ? withdrawalAmount * earlyWithdrawal.penaltyRate : 0;
-
-    const totalTaxes = federalTax + stateTax + earlyPenalty;
-    const netAmount = withdrawalAmount - totalTaxes;
-    const effectiveTaxRate = (totalTaxes / withdrawalAmount) * 100;
-
-    return {
-        withdrawalAmount,
-        age,
-        federalTax: Math.round(federalTax),
-        stateTax: Math.round(stateTax),
-        earlyPenalty: Math.round(earlyPenalty),
-        totalTaxes: Math.round(totalTaxes),
-        netAmount: Math.round(netAmount),
-        effectiveTaxRate: Math.round(effectiveTaxRate * 10) / 10,
-        isEarlyWithdrawal,
-    };
-}
-
-// ============================================
-// CATCH-UP CONTRIBUTION CALCULATION
-// ============================================
-
-export interface CatchUpResult {
-    age: number;
-    baseLimit: number;
-    catchUpAmount: number;
-    totalLimit: number;
-    isSuperCatchUp: boolean;
-    additionalSavings: number;
-    projectedGrowth: number;
-}
-
-export function calculateCatchUp(
-    age: number,
-    yearsToRetirement: number,
-    expectedReturn: number
-): CatchUpResult {
-    const { contributionLimits, ageThresholds } = RETIREMENT_CONSTANTS;
-
-    const baseLimit = contributionLimits.employee;
-    let catchUpAmount = 0;
-    let isSuperCatchUp = false;
-
-    if (age >= ageThresholds.superCatchUpStart && age <= ageThresholds.superCatchUpEnd) {
-        catchUpAmount = contributionLimits.superCatchUp;
-        isSuperCatchUp = true;
-    } else if (age >= ageThresholds.catchUpAge) {
-        catchUpAmount = contributionLimits.catchUp;
-    }
-
-    const totalLimit = baseLimit + catchUpAmount;
-    const additionalSavings = catchUpAmount * yearsToRetirement;
-
-    // Calculate projected growth of catch-up contributions
-    const monthlyReturn = expectedReturn / 100 / 12;
-    const monthlyCatchUp = catchUpAmount / 12;
-    let projectedGrowth = 0;
-
-    for (let month = 0; month < yearsToRetirement * 12; month++) {
-        projectedGrowth = projectedGrowth * (1 + monthlyReturn) + monthlyCatchUp;
-    }
-
-    return {
-        age,
-        baseLimit,
-        catchUpAmount,
-        totalLimit,
-        isSuperCatchUp,
-        additionalSavings,
-        projectedGrowth: Math.round(projectedGrowth),
+        medicalBills,
+        injuryType: injury.label,
+        multiplier: injury.multiplier,
+        painSufferingAmount,
+        recoveryWeeks: injury.weeks,
+        dailyRate,
     };
 }
 
 // ============================================
 // UTILITY FUNCTIONS
 // ============================================
-
 export function formatCurrency(amount: number): string {
     return new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -503,19 +316,30 @@ export function formatCurrency(amount: number): string {
     }).format(amount);
 }
 
-export function formatCurrencyWithCents(amount: number): string {
-    return new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-    }).format(amount);
-}
-
-export function formatPercent(value: number): string {
-    return `${value.toFixed(1)}%`;
-}
-
 export function parseFormattedNumber(value: string): number {
     return parseInt(value.replace(/[^0-9]/g, '')) || 0;
+}
+
+export function getStatesList(): { code: string; name: string; faultSystem: FaultSystem }[] {
+    return Object.entries(STATE_FAULT_LAWS).map(([code, data]) => ({
+        code,
+        name: data.name,
+        faultSystem: data.faultSystem,
+    })).sort((a, b) => a.name.localeCompare(b.name));
+}
+
+export function getInjuryTypes(): { id: string; label: string; multiplier: number }[] {
+    return Object.entries(SETTLEMENT_CONSTANTS.injuryTypes).map(([id, data]) => ({
+        id,
+        label: data.label,
+        multiplier: data.multiplier,
+    }));
+}
+
+export function getSeverityLevels(): { id: string; label: string; range: string }[] {
+    return Object.entries(SETTLEMENT_CONSTANTS.painMultipliers).map(([id, data]) => ({
+        id,
+        label: data.label,
+        range: `${data.min}x - ${data.max}x`,
+    }));
 }
