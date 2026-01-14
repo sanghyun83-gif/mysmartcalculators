@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/audit-search-sync.js",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "audit:search": "node scripts/audit-search-sync.js"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
