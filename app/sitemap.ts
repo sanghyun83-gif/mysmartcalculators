@@ -3,6 +3,19 @@ import { CATEGORY_MAP, Category } from '@/lib/categories'
 
 const BASE_URL = "https://mysmartcalculators.com";
 
+// High-ROI calculator subpages to include
+const SUBPAGES = ['settlements', 'legal-guide', 'regulations', 'calculator'];
+
+// Calculators known to have subpages (high-value ones)
+const CALCULATORS_WITH_SUBPAGES = [
+    'truck-accident', 'car-accident', 'motorcycle-accident', 'slip-and-fall',
+    'workers-comp', 'wrongful-death', 'malpractice', 'dog-bite', 'nursing-home',
+    'mesothelioma', 'asbestos', 'ozempic', 'camp-lejeune', 'roundup', 'hernia-mesh',
+    '401k-growth', 'mortgage', 'tax', 'student-loan', 'social-security', 'ssdi',
+    'auto-insurance', 'life-insurance', 'pet-insurance', 'bmi', 'calorie',
+    'child-support', 'alimony', 'divorce', 'retirement', 'roth-ira', 'fafsa',
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
     const now = new Date();
 
@@ -35,7 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     const calculatorPages: MetadataRoute.Sitemap = calculators.map(calc => {
         let priority = 0.7; // Standard
-        let changeFreq: any = 'monthly';
+        let changeFreq: "monthly" | "weekly" | "daily" = 'monthly';
 
         if (tier1.includes(calc)) priority = 1.0;
         else if (tier2.includes(calc)) priority = 0.9;
@@ -49,5 +62,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
         };
     });
 
-    return [...corePages, ...hubPages, ...calculatorPages];
+    // 4. Subpages for High-Value Calculators (NEW - adds 120+ URLs)
+    const subpageUrls: MetadataRoute.Sitemap = [];
+    for (const calc of CALCULATORS_WITH_SUBPAGES) {
+        for (const subpage of SUBPAGES) {
+            subpageUrls.push({
+                url: `${BASE_URL}/${calc}/${subpage}`,
+                lastModified: now,
+                changeFrequency: 'monthly',
+                priority: 0.6,
+            });
+        }
+    }
+
+    return [...corePages, ...hubPages, ...calculatorPages, ...subpageUrls];
 }
+
