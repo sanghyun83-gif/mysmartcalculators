@@ -1,0 +1,179 @@
+"use client";
+
+import Link from "next/link";
+import { ArrowLeft, ArrowRight, Percent, FileText, CheckCircle, AlertTriangle } from "lucide-react";
+import { SITE, DTI_2026 } from "@/lib/calculators/dti";
+
+export default function DTIGuidePage() {
+    return (
+        <>
+            {/* Header */}
+            <header className="bg-slate-800 border-b border-slate-700 sticky top-0 z-10">
+                <div className="max-w-4xl mx-auto px-4 py-4 flex items-center gap-4">
+                    <Link href="/dti" className="text-slate-400 hover:text-white transition-colors">
+                        <ArrowLeft className="w-6 h-6" />
+                    </Link>
+                    <div className="flex items-center gap-2">
+                        <FileText className="w-5 h-5 text-emerald-500" />
+                        <span className="text-lg font-bold text-white">DTI Guide</span>
+                    </div>
+                    <span className="ml-auto text-xs text-slate-400 bg-slate-700 px-2 py-1 rounded">
+                        {SITE.year}
+                    </span>
+                </div>
+            </header>
+
+            <main className="max-w-4xl mx-auto px-4 py-8">
+                {/* Page Header */}
+                <div className="text-center mb-8">
+                    <h1 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                        Understanding DTI Ratios
+                    </h1>
+                    <p className="text-slate-400">
+                        What lenders look for when approving mortgages
+                    </p>
+                </div>
+
+                {/* DTI Ranges */}
+                <div className="bg-slate-800 rounded-xl border border-slate-700 p-6 mb-6">
+                    <h2 className="text-lg font-bold text-white mb-4">
+                        DTI Ratio Categories
+                    </h2>
+
+                    <div className="space-y-3">
+                        <div className="flex items-center justify-between py-3 border-b border-slate-700">
+                            <div>
+                                <p className="text-green-400 font-medium">Excellent</p>
+                                <p className="text-xs text-slate-400">Best rates, most options</p>
+                            </div>
+                            <span className="text-xl font-bold text-green-400">&lt; 20%</span>
+                        </div>
+                        <div className="flex items-center justify-between py-3 border-b border-slate-700">
+                            <div>
+                                <p className="text-emerald-400 font-medium">Good</p>
+                                <p className="text-xs text-slate-400">Easily qualified</p>
+                            </div>
+                            <span className="text-xl font-bold text-emerald-400">20-36%</span>
+                        </div>
+                        <div className="flex items-center justify-between py-3 border-b border-slate-700">
+                            <div>
+                                <p className="text-yellow-400 font-medium">Acceptable</p>
+                                <p className="text-xs text-slate-400">QM limit, may need compensating factors</p>
+                            </div>
+                            <span className="text-xl font-bold text-yellow-400">36-43%</span>
+                        </div>
+                        <div className="flex items-center justify-between py-3">
+                            <div>
+                                <p className="text-red-400 font-medium">High</p>
+                                <p className="text-xs text-slate-400">Difficult to qualify</p>
+                            </div>
+                            <span className="text-xl font-bold text-red-400">&gt; 43%</span>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Front-End vs Back-End */}
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                    <div className="bg-emerald-900/20 border border-emerald-500/50 rounded-xl p-6">
+                        <h2 className="text-lg font-bold text-white mb-3">Front-End DTI</h2>
+                        <p className="text-4xl font-bold text-emerald-400 mb-2">28%</p>
+                        <p className="text-sm text-emerald-200 mb-4">
+                            Target maximum for housing costs only
+                        </p>
+                        <ul className="space-y-2 text-sm text-emerald-200">
+                            <li>• Mortgage payment</li>
+                            <li>• Property taxes</li>
+                            <li>• Homeowners insurance</li>
+                            <li>• HOA fees</li>
+                        </ul>
+                    </div>
+                    <div className="bg-teal-900/20 border border-teal-500/50 rounded-xl p-6">
+                        <h2 className="text-lg font-bold text-white mb-3">Back-End DTI</h2>
+                        <p className="text-4xl font-bold text-teal-400 mb-2">43%</p>
+                        <p className="text-sm text-teal-200 mb-4">
+                            Maximum for QM mortgages (all debt)
+                        </p>
+                        <ul className="space-y-2 text-sm text-teal-200">
+                            <li>• Housing + all other debts</li>
+                            <li>• Car loans</li>
+                            <li>• Student loans</li>
+                            <li>• Credit card minimums</li>
+                        </ul>
+                    </div>
+                </div>
+
+                {/* How to Improve DTI */}
+                <div className="bg-emerald-900/20 border border-emerald-500/50 rounded-xl p-6 mb-6">
+                    <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <CheckCircle className="w-5 h-5 text-emerald-500" />
+                        How to Lower Your DTI
+                    </h2>
+                    <div className="grid md:grid-cols-2 gap-3 text-sm">
+                        {[
+                            "Pay down existing debt",
+                            "Increase your income",
+                            "Avoid new debt before applying",
+                            "Pay off small balances entirely",
+                            "Refinance to lower payments",
+                            "Consider a less expensive home",
+                        ].map((tip, i) => (
+                            <div key={i} className="flex items-center gap-2">
+                                <CheckCircle className="w-4 h-4 text-emerald-400" />
+                                <span className="text-emerald-200">{tip}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* What Counts as Debt */}
+                <div className="bg-slate-800 rounded-xl border border-slate-700 p-6 mb-6">
+                    <h2 className="text-lg font-bold text-white mb-4">
+                        What Counts as Debt?
+                    </h2>
+
+                    <div className="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <h3 className="text-emerald-400 font-medium mb-2">Included ✓</h3>
+                            <ul className="space-y-1 text-sm text-slate-300">
+                                {DTI_2026.debtCategories.map((cat) => (
+                                    <li key={cat.name}>• {cat.name}</li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 className="text-red-400 font-medium mb-2">Not Included ✗</h3>
+                            <ul className="space-y-1 text-sm text-slate-300">
+                                <li>• Utilities</li>
+                                <li>• Food & groceries</li>
+                                <li>• Entertainment</li>
+                                <li>• Health insurance</li>
+                                <li>• Cell phone bills</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Ad Placeholder */}
+                <div className="my-8 p-6 bg-slate-800 border border-slate-700 rounded-xl text-center">
+                    <p className="text-sm text-slate-500">Advertisement</p>
+                </div>
+
+                {/* CTA */}
+                <div className="text-center">
+                    <Link
+                        href="/dti/calculator"
+                        className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                    >
+                        Calculate Your DTI
+                        <ArrowRight className="w-5 h-5" />
+                    </Link>
+                </div>
+
+                {/* Citation */}
+                <p className="mt-8 text-xs text-slate-500 text-center">
+                    {DTI_2026.citation}
+                </p>
+            </main>
+        </>
+    );
+}
