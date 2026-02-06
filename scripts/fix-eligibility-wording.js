@@ -82,7 +82,7 @@ function fixWording(filePath) {
         // Find result section and add note
         if (content.includes('result &&')) {
             // Find the closing of result block and add before it
-            const resultEndPattern = /(<\/div>\s*\)\})/;
+            const resultEndPattern = /(<\</div>\s*\)\})/;
             if (resultEndPattern.test(content)) {
                 content = content.replace(resultEndPattern, disclaimerNote + '\n              $1');
                 changes++;

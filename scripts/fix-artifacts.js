@@ -31,7 +31,7 @@ files.forEach(file => {
 
         // Pattern 1: </span> -> </span>
         if (content.includes('</span>')) {
-            content = content.replace(/\?\?\/span>/g, '</span>');
+            content = content.replace(/\?\?\</span>/g, '</span>');
             changed = true;
         }
 
@@ -40,7 +40,7 @@ files.forEach(file => {
         // Actually, many   are probably mangled Arrows or Symbols.
         if (content.includes(' ')) {
             // If it's   followed by </Link>, it's likely an arrow.
-            content = content.replace(/\?\?\s*<\/Link>/g, ' →</Link>');
+            content = content.replace(/\?\?\s*<\</Link>/g, ' →</Link>');
             // If it's   in other places, maybe replace with | or -
             // But let's be conservative first.
             changed = true;

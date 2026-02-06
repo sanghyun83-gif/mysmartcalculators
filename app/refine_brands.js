@@ -28,7 +28,7 @@ function extractName(calcPath, calcName) {
         if (siteNameMatch.test(content)) return siteNameMatch.exec(content)[1];
 
         // Match h1
-        const h1Match = /<h1[^>]*>([^<]+)<\/h1>/;
+        const h1Match = /<h1[^>]*>([^<]+)<\</h1>/;
         if (h1Match.test(content)) {
             let title = h1Match.exec(content)[1];
             // Remove spans if any inside h1, simplified

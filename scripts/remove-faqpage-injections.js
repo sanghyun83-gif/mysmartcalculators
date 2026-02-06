@@ -42,7 +42,7 @@ allCalcs.forEach((calcName, index) => {
 
         // Remove the injected FAQPage script block
         // Pattern: from "{/* FAQPage Schema - Auto-injected by Phase 6 */}" to "</script>"
-        const pattern = /\s*\{\/\* FAQPage Schema - Auto-injected by Phase 6 \*\/\}[\s\S]*?<\/script>\s*\/>/;
+        const pattern = /\s*\{\/\* FAQPage Schema - Auto-injected by Phase 6 \*\/\}[\s\S]*?<\</script>\s*\/>/;
 
         if (pattern.test(content)) {
             content = content.replace(pattern, '');

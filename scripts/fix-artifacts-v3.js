@@ -52,7 +52,7 @@ files.forEach(file => {
         }
 
         // Pattern 3: Clean up common logic leaks
-        // ??/Link> or ??span> etc.
+        // ??</Link> or ??span> etc.
         if (content.match(/\s+\/(Link|span|div|p|h[1-6]|section|header|footer|main|button|select|input|ul|li|a|script)>/gi)) {
             // Fix cases where ?? was removed and left a space before the tag
             content = content.replace(/\s+(\/(Link|span|div|p|h[1-6]|section|header|footer|main|button|select|input|ul|li|a|script)>)/gi, '$1');

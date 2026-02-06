@@ -254,10 +254,10 @@ export default function RetirementCalculatorPage() {
                 {/* Links to Other Calculators */}
                 <div className="grid grid-cols-2 gap-4">
                     <Link href="/retirement/401k" className="bg-white border border-slate-200 rounded-lg p-5 text-center hover:border-emerald-500 transition-colors">
-                        <p className="text-lg font-medium text-slate-600">401(k) Calculator/p>
+                        <p className="text-lg font-medium text-slate-600">401(k) Calculator</p>
                     </Link>
                     <Link href="/retirement/social-security" className="bg-white border border-slate-200 rounded-lg p-5 text-center hover:border-emerald-500 transition-colors">
-                        <p className="text-lg font-medium text-slate-600">Social Security/p>
+                        <p className="text-lg font-medium text-slate-600">Social Security</p>
                     </Link>
                 </div>
             </main>

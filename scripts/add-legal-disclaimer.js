@@ -97,9 +97,9 @@ function addDisclaimerToResult(content, category) {
     // Pattern 1: Look for closing div of result section before footer
     const patterns = [
         // After result breakdown/summary sections
-        /(<\/div>\s*<\/div>\s*\)\})/g,
+        /(<\</div>\s*<\</div>\s*\)\})/g,
         // Before FAQ sections  
-        /(<\/div>\s*\)\}\s*<\/section>\s*<section.*?FAQ)/gs,
+        /(<\</div>\s*\)\}\s*<\</section>\s*<section.*?FAQ)/gs,
     ];
 
     // Simple approach: Add before the footer section

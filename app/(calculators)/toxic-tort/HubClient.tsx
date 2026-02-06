@@ -80,7 +80,7 @@ export default function HubClient() {
                             </div>
                         ))}
                     </div>
-                    <div className="text-center mt-6"><Link href="/toxic-tort/mdl" className="text-amber-400 hover:text-amber-300 text-sm">View All MDL Cases/Link></div>
+                    <div className="text-center mt-6"><Link href="/toxic-tort/mdl" className="text-amber-400 hover:text-amber-300 text-sm">View All MDL Cases</Link></div>
                 </div>
             </section>
 

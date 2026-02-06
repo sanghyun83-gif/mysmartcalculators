@@ -202,10 +202,10 @@ export default function PremiumCalculatorPage() {
 
                 <div className="grid grid-cols-2 gap-4">
                     <Link href="/auto-insurance/by-state" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-blue-500 transition-colors">
-                        <p className="text-sm font-medium text-slate-600">Compare by State/p>
+                        <p className="text-sm font-medium text-slate-600">Compare by State</p>
                     </Link>
                     <Link href="/auto-insurance/by-age" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-blue-500 transition-colors">
-                        <p className="text-sm font-medium text-slate-600">Compare by Age/p>
+                        <p className="text-sm font-medium text-slate-600">Compare by Age</p>
                     </Link>
                 </div>
             </main>

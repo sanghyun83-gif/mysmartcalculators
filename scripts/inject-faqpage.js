@@ -153,7 +153,7 @@ function injectFAQPage(filePath, calcName) {
 
     // Pattern 2: Div ending </div>
     // return ( ... </div> ); }
-    const divPattern = /(\s*)(<\/div>)\s*\);\s*\}\s*$/;
+    const divPattern = /(\s*)(<\</div>)\s*\);\s*\}\s*$/;
 
     // Pattern 3: Main/section ending </main> or </section>
     const mainPattern = /(\s*)(<\/(?:main|section)>)\s*\);\s*\}\s*$/;

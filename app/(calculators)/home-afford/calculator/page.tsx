@@ -226,10 +226,10 @@ export default function CalculatorPage() {
 
                 <div className="grid grid-cols-2 gap-4">
                     <Link href="/home-afford/down-payment" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-green-500">
-                        <p className="text-sm font-medium text-slate-600">Down Payment/p>
+                        <p className="text-sm font-medium text-slate-600">Down Payment</p>
                     </Link>
                     <Link href="/home-afford/dti" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-green-500">
-                        <p className="text-sm font-medium text-slate-600">DTI Calculator/p>
+                        <p className="text-sm font-medium text-slate-600">DTI Calculator</p>
                     </Link>
                 </div>
             </main>
