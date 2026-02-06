@@ -61,7 +61,7 @@ export default function RoundupSettlementsHub() {
                         </h2>
                         <div className="prose prose-invert prose-slate max-w-none text-slate-400 space-y-6 text-lg font-medium leading-[1.8]">
                             <p>
-                                Settlement values in the Roundup MDL are non-linear. They are dictated by "Bellwether" trials?�initial test cases that set the price of a specific injury type. In recent 2024-2026 trials, jury awards have ranged from defense verdicts to staggering **$2.25 Billion** awards.
+                                Settlement values in the Roundup MDL are non-linear. They are dictated by "Bellwether" trials? initial test cases that set the price of a specific injury type. In recent 2024-2026 trials, jury awards have ranged from defense verdicts to staggering **$2.25 Billion** awards.
                             </p>
                             <p>
                                 Bayer's strategy focuses on a global settlement framework resolving 98% of outstanding claims. This fund allocates "Points" based on medical complexity. A patient with Stage IV NHL who underwent stem-cell therapy represents a **Tier 1** claim, which typically commands 4x the value of a non-surgical Tier 3 claim.

@@ -133,7 +133,7 @@ export default function DTIGuidePage() {
 
                     <div className="grid md:grid-cols-2 gap-4">
                         <div>
-                            <h3 className="text-emerald-400 font-medium mb-2">Included  /h3>
+                            <h3 className="text-emerald-400 font-medium mb-2">Included/h3>
                             <ul className="space-y-1 text-sm text-slate-300">
                                 {DTI_2026.debtCategories.map((cat) => (
                                     <li key={cat.name}> {cat.name}</li>
@@ -141,7 +141,7 @@ export default function DTIGuidePage() {
                             </ul>
                         </div>
                         <div>
-                            <h3 className="text-red-400 font-medium mb-2">Not Included  /h3>
+                            <h3 className="text-red-400 font-medium mb-2">Not Included/h3>
                             <ul className="space-y-1 text-sm text-slate-300">
                                 <li> Utilities</li>
                                 <li> Food & groceries</li>

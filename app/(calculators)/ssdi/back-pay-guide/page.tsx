@@ -90,7 +90,7 @@ export default function BackPayGuidePage() {
                                     By law, no benefits are paid for the first 5 full months after your onset date. This period is unpaid.
                                 </p>
                                 <div className="mt-2 p-2 bg-amber-900/30 rounded text-xs text-amber-200">
-                                    ?�️ Exception: If you received SSI during this time, you may not have a waiting period.
+                                    ? ️ Exception: If you received SSI during this time, you may not have a waiting period.
                                 </div>
                             </div>
                         </div>

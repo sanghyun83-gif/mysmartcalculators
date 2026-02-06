@@ -28,7 +28,7 @@ export default function ParagardCalculatorPage() {
 
             <main className="max-w-2xl mx-auto px-4 py-8">
                 <div className="bg-red-900/30 border border-red-500/50 rounded-lg p-4 mb-6 text-center">
-                    <p className="text-red-300 font-semibold">?�� First Bellwether Trial: {PARAGARD_2026.bellwetherTrial.firstTrialDate}</p>
+                    <p className="text-red-300 font-semibold">?   First Bellwether Trial: {PARAGARD_2026.bellwetherTrial.firstTrialDate}</p>
                     <p className="text-sm text-red-200">{PARAGARD_2026.bellwetherTrial.mdlNumber} | {PARAGARD_2026.bellwetherTrial.court}</p>
                 </div>
 

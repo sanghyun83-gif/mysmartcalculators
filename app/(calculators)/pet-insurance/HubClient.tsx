@@ -24,7 +24,7 @@ const FAQ_DATA = [
     },
     {
         q: "Is pet insurance worth it?",
-        a: "It depends on your risk tolerance and finances. A torn ACL costs $4,000+; cancer treatment $8,000+. Without insurance, you pay 100%. With insurance (80% reimbursement, $500 deductible), you'd pay ~$1,200. Over a pet's lifetime, premiums may exceed claims?�but insurance provides financial protection against catastrophic costs."
+        a: "It depends on your risk tolerance and finances. A torn ACL costs $4,000+; cancer treatment $8,000+. Without insurance, you pay 100%. With insurance (80% reimbursement, $500 deductible), you'd pay ~$1,200. Over a pet's lifetime, premiums may exceed claims? but insurance provides financial protection against catastrophic costs."
     },
     {
         q: "What are pre-existing conditions for pets?",
@@ -40,7 +40,7 @@ const FAQ_DATA = [
     },
     {
         q: "What's the best age to get pet insurance?",
-        a: "As young as possible?�ideally when you first adopt. Reasons: 1) Lower premiums for young pets, 2) No pre-existing conditions yet, 3) Coverage for congenital issues if enrolled before symptoms appear. Most insurers cover pets 8+ weeks old. Some decline pets over 10-14 years."
+        a: "As young as possible? ideally when you first adopt. Reasons: 1) Lower premiums for young pets, 2) No pre-existing conditions yet, 3) Coverage for congenital issues if enrolled before symptoms appear. Most insurers cover pets 8+ weeks old. Some decline pets over 10-14 years."
     },
     {
         q: "Are wellness visits covered?",
@@ -52,11 +52,11 @@ const FAQ_DATA = [
     },
     {
         q: "What's not covered by pet insurance?",
-        a: "Common exclusions: Pre-existing conditions, routine/preventive care (without add-on), cosmetic procedures (tail docking, ear cropping), breeding-related costs, behavioral training, experimental treatments, elective procedures. Read the policy carefully?�exclusions vary by insurer."
+        a: "Common exclusions: Pre-existing conditions, routine/preventive care (without add-on), cosmetic procedures (tail docking, ear cropping), breeding-related costs, behavioral training, experimental treatments, elective procedures. Read the policy carefully? exclusions vary by insurer."
     },
     {
         q: "Do pet insurance premiums increase with age?",
-        a: "Usually yes. Most insurers increase premiums as pets age?�typically a few dollars per year in early years, accelerating after age 8-10. Some insurers lock in rates or have smaller increases. Compare how insurers handle aging when shopping. Lifetime cost matters more than initial premium."
+        a: "Usually yes. Most insurers increase premiums as pets age? typically a few dollars per year in early years, accelerating after age 8-10. Some insurers lock in rates or have smaller increases. Compare how insurers handle aging when shopping. Lifetime cost matters more than initial premium."
     },
     {
         q: "Can I use any vet with pet insurance?",
@@ -178,7 +178,7 @@ export default function PetInsuranceHubClient() {
                         Without insurance, a torn ACL costs ${PET_2026.commonClaims[0].avgCost.toLocaleString()}, and cancer treatment can exceed ${PET_2026.commonClaims[1].avgCost.toLocaleString()}. The <strong className="text-white">American Pet Products Association</strong> reports average annual veterinary costs of ${PET_2026.statistics.avgAnnualVetCost.toLocaleString()}, with emergency visits adding thousands more.
                     </p>
                     <p>
-                        Pet insurance works on a reimbursement model?�you pay the vet, submit a claim, and receive a percentage back (typically 70-90%). While premiums add up over a pet's lifetime, insurance prevents the heartbreaking choice between finances and your pet's health during emergencies.
+                        Pet insurance works on a reimbursement model? you pay the vet, submit a claim, and receive a percentage back (typically 70-90%). While premiums add up over a pet's lifetime, insurance prevents the heartbreaking choice between finances and your pet's health during emergencies.
                     </p>
                 </div>
             </section>

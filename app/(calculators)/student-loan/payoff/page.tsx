@@ -92,7 +92,7 @@ export default function PayoffPage() {
                 </div>
 
                 <div className="my-8 p-6 bg-white border rounded-xl text-center"><p className="text-sm text-slate-400">Advertisement</p></div>
-                <Link href="/student-loan/refinance" className="block bg-blue-600 hover:bg-blue-700 text-white rounded-lg p-4 text-center font-bold">Compare Refinancing  /Link>
+                <Link href="/student-loan/refinance" className="block bg-blue-600 hover:bg-blue-700 text-white rounded-lg p-4 text-center font-bold">Compare Refinancing/Link>
             </main>
         </>
     );

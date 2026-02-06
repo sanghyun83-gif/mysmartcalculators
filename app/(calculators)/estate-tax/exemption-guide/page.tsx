@@ -142,7 +142,7 @@ export default function ExemptionGuidePage() {
                     <div className="flex items-start gap-3">
                         <AlertTriangle className="w-5 h-5 text-red-400 mt-0.5" />
                         <div className="text-sm text-red-200">
-                            <p className="font-medium text-white mb-2">?�️ Exemption Sunset Warning</p>
+                            <p className="font-medium text-white mb-2">? ️ Exemption Sunset Warning</p>
                             <p>
                                 The current high exemption ({formatCurrency(ESTATE_TAX_2026.federalExemption)}) is
                                 scheduled to sunset after 2026. Without Congressional action, the exemption

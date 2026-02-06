@@ -43,7 +43,7 @@ export default function RegulationGuide() {
                                 <div className="grid md:grid-cols-2 gap-6 not-prose">
                                     <div className="p-8 bg-emerald-500/5 border border-emerald-500/20 rounded-[2.5rem] space-y-4">
                                         <h4 className="text-xs font-black text-emerald-500 uppercase tracking-widest leading-none">The 70-Hour Rule</h4>
-                                        <p className="text-sm font-bold text-white leading-relaxed">Drivers may not work more than 70 hours in any 8-day period?”a common violation during "peak freight" seasons.</p>
+                                        <p className="text-sm font-bold text-white leading-relaxed">Drivers may not work more than 70 hours in any 8-day period? a common violation during "peak freight" seasons.</p>
                                     </div>
                                     <div className="p-8 bg-emerald-500/5 border border-emerald-500/20 rounded-[2.5rem] space-y-4">
                                         <h4 className="text-xs font-black text-emerald-500 uppercase tracking-widest leading-none">Adverse Conditions Exception</h4>
@@ -57,7 +57,7 @@ export default function RegulationGuide() {
                         <section className="p-16 bg-slate-900 border border-white/10 rounded-[4rem] space-y-10 shadow-2xl">
                             <h2 className="text-2xl font-black text-white tracking-tight">Part 396: Mechanical Negligence Audit</h2>
                             <p className="text-slate-400 leading-relaxed font-medium">
-                                A motor carrier is legally required to identify and fix mechanical defects BEFORE the truck hits the road. We audit company maintenance files for "Deferred Maintenance"?”a corporate strategy to save money that leads to catastrophic brake failure.
+                                A motor carrier is legally required to identify and fix mechanical defects BEFORE the truck hits the road. We audit company maintenance files for "Deferred Maintenance"? a corporate strategy to save money that leads to catastrophic brake failure.
                             </p>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 {[

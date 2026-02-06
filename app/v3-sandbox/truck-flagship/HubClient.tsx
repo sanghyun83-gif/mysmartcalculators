@@ -207,7 +207,7 @@ export function HubClient() {
                     </div>
                 </div>
             </section>
-            {/* ?èõÔ∏?MASSIVE AUTHORITY CONTENT ENGINE (1,000+ WORDS) */}
+            {/* ?   ?MASSIVE AUTHORITY CONTENT ENGINE (1,000+ WORDS) */}
             <section className="py-32 bg-slate-950 border-t border-white/5">
                 <div className="max-w-4xl mx-auto px-6 space-y-32">
 
@@ -221,7 +221,7 @@ export function HubClient() {
                         </div>
                         <div className="prose prose-invert prose-slate max-w-none text-slate-400 font-medium leading-relaxed space-y-6">
                             <p>
-                                A fully loaded 18-wheeler can weigh up to <strong>80,000 pounds</strong> (40 tons). When traveling at 65 miles per hour, the kinetic energy generated is nearly <span className="text-white italic">20 times</span> that of a standard passenger vehicle. This physical reality isn't just a safety concern?îit is a legal cornerstone. In truck accident litigation, the "Force of Impact" serves as primitive evidence for <strong>Traumatic Brain Injury (TBI)</strong> and internal organ displacement, often justifying "Pain and Suffering" multipliers that start at 5x and scale to 15x.
+                                A fully loaded 18-wheeler can weigh up to <strong>80,000 pounds</strong> (40 tons). When traveling at 65 miles per hour, the kinetic energy generated is nearly <span className="text-white italic">20 times</span> that of a standard passenger vehicle. This physical reality isn't just a safety concern? it is a legal cornerstone. In truck accident litigation, the "Force of Impact" serves as primitive evidence for <strong>Traumatic Brain Injury (TBI)</strong> and internal organ displacement, often justifying "Pain and Suffering" multipliers that start at 5x and scale to 15x.
                             </p>
                             <p>
                                 Recovering a high-value settlement requires a forensic reconstruction of the crash. Our 2026 Audit Engine incorporates variables such as skid-mark telemetry and crush-depth analysis to estimate the G-force experienced by victims. By quantifying the technical severity of the impact, legal professionals can prevent insurance adjusters from low-balling offers based on "soft tissue" labels.
@@ -320,7 +320,7 @@ export function HubClient() {
                                 },
                                 {
                                     q: "What is the role of a 'Black Box' expert in my claim?",
-                                    a: "The Event Data Recorder (EDR) records variables milliseconds before impact. An expert download is required to prove 'Speed Choice' versus 'System Failure'. Our toolkit identifies the specific data points?îlike brake activation timing?îthat maximize your leverage."
+                                    a: "The Event Data Recorder (EDR) records variables milliseconds before impact. An expert download is required to prove 'Speed Choice' versus 'System Failure'. Our toolkit identifies the specific data points? like brake activation timing? that maximize your leverage."
                                 }
                             ].map((faq, i) => (
                                 <div key={i} className="p-10 bg-white/5 rounded-[3rem] border border-white/10 hover:border-red-500/30 transition-all cursor-default group">

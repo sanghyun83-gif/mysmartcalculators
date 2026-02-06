@@ -80,7 +80,7 @@ export default function PropertyDivisionPage() {
                             <div className={`mt-3 p-3 rounded-lg ${isCommunity ? 'bg-indigo-900/30 border border-indigo-700/50' : 'bg-blue-900/30 border border-blue-700/50'
                                 }`}>
                                 <p className={`text-sm font-medium ${isCommunity ? 'text-indigo-300' : 'text-blue-300'}`}>
-                                    {isCommunity ? '?���?Community Property State' : '?�️ Equitable Distribution State'}
+                                    {isCommunity ? '?   ?Community Property State' : '? ️ Equitable Distribution State'}
                                 </p>
                                 <p className="text-xs text-slate-400 mt-1">
                                     {isCommunity

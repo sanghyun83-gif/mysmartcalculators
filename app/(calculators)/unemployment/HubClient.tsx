@@ -36,7 +36,7 @@ const FAQ_DATA = [
     },
     {
         q: "What is the 'base period' for unemployment?",
-        a: "The base period is the timeframe used to calculate your benefits?�typically the first four of the last five completed calendar quarters before you file. Some states offer an 'alternate base period' using more recent wages if you don't qualify under the standard period."
+        a: "The base period is the timeframe used to calculate your benefits? typically the first four of the last five completed calendar quarters before you file. Some states offer an 'alternate base period' using more recent wages if you don't qualify under the standard period."
     },
     {
         q: "Are unemployment benefits taxable?",
@@ -52,7 +52,7 @@ const FAQ_DATA = [
     },
     {
         q: "How do I apply for unemployment benefits?",
-        a: "Apply through your state's unemployment website or by phone. You'll need: Social Security number, driver's license, last employer's contact info and dates of employment, pay stubs or W-2s, bank account info for direct deposit. Apply the first week you're unemployed?�there's usually a one-week waiting period."
+        a: "Apply through your state's unemployment website or by phone. You'll need: Social Security number, driver's license, last employer's contact info and dates of employment, pay stubs or W-2s, bank account info for direct deposit. Apply the first week you're unemployed? there's usually a one-week waiting period."
     },
     {
         q: "What are work search requirements?",
@@ -178,7 +178,7 @@ export default function UnemploymentHubClient() {
                         The <strong className="text-white">U.S. Department of Labor (DOL)</strong> oversees the federal-state unemployment system, but each state administers its own program with varying benefit amounts, duration, and eligibility requirements. According to DOL data, approximately 1.5 million Americans receive unemployment benefits at any given time, with an average weekly benefit of ${UI_CONSTANTS_2026.statistics.avgWeeklyBenefit}.
                     </p>
                     <p>
-                        Benefits typically replace about 45-50% of your prior wages, up to a state maximum. The wide variation in state maximums?�from $275/week in Florida to over $1,000/week in Massachusetts?�means your location significantly impacts your benefit amount. Most states provide up to 26 weeks of regular benefits, though some offer as few as 12 weeks.
+                        Benefits typically replace about 45-50% of your prior wages, up to a state maximum. The wide variation in state maximums? from $275/week in Florida to over $1,000/week in Massachusetts? means your location significantly impacts your benefit amount. Most states provide up to 26 weeks of regular benefits, though some offer as few as 12 weeks.
                     </p>
                 </div>
             </section>

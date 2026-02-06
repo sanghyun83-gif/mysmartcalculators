@@ -20,11 +20,11 @@ const FAQ_DATA = [
     },
     {
         q: "What is the avalanche method vs snowball method?",
-        a: "Avalanche: Pay minimums on all debts, put extra money toward the highest-interest debt first. Mathematically optimal?�saves the most money. Snowball: Pay off smallest balances first for psychological wins. Slightly more expensive but can boost motivation. Choose based on your personality."
+        a: "Avalanche: Pay minimums on all debts, put extra money toward the highest-interest debt first. Mathematically optimal? saves the most money. Snowball: Pay off smallest balances first for psychological wins. Slightly more expensive but can boost motivation. Choose based on your personality."
     },
     {
         q: "Should I pay off debt or invest?",
-        a: "General rule: If debt interest rate exceeds expected investment returns, pay off debt first. Credit cards (20%+) should almost always be prioritized. For low-rate debt (under 5%), investing may be better. Always contribute enough to get employer 401k match first?�that's a guaranteed 50-100% return."
+        a: "General rule: If debt interest rate exceeds expected investment returns, pay off debt first. Credit cards (20%+) should almost always be prioritized. For low-rate debt (under 5%), investing may be better. Always contribute enough to get employer 401k match first? that's a guaranteed 50-100% return."
     },
     {
         q: "What is the bi-weekly payment strategy?",
@@ -60,7 +60,7 @@ const FAQ_DATA = [
     },
     {
         q: "Should I drain savings to pay off debt?",
-        a: "Generally no?�maintain an emergency fund of 3-6 months expenses first. Without savings, unexpected expenses go back on credit cards, restarting the cycle. Exception: If credit card interest is 20%+, consider paying down debt while slowly rebuilding a smaller emergency fund."
+        a: "Generally no? maintain an emergency fund of 3-6 months expenses first. Without savings, unexpected expenses go back on credit cards, restarting the cycle. Exception: If credit card interest is 20%+, consider paying down debt while slowly rebuilding a smaller emergency fund."
     },
     {
         q: "How do I calculate my loan payoff amount?",
@@ -172,10 +172,10 @@ export default function LoanPayoffHubClient() {
                 </h2>
                 <div className="prose prose-invert max-w-none text-slate-300 space-y-4">
                     <p>
-                        Every dollar you pay above your minimum payment goes directly toward your <strong className="text-white">principal balance</strong>?�the amount that accrues interest. This creates a compounding effect in your favor: as your balance drops faster, less interest accrues each month, leaving more of each payment for principal reduction.
+                        Every dollar you pay above your minimum payment goes directly toward your <strong className="text-white">principal balance</strong>? the amount that accrues interest. This creates a compounding effect in your favor: as your balance drops faster, less interest accrues each month, leaving more of each payment for principal reduction.
                     </p>
                     <p>
-                        According to the <strong className="text-white">Federal Reserve</strong>, the average American household carries over $103,000 in debt. The <strong className="text-white">Consumer Financial Protection Bureau (CFPB)</strong> reports that most borrowers dramatically underestimate how much they'll pay in interest over a loan's lifetime?�often 50% or more of the original principal on long-term loans.
+                        According to the <strong className="text-white">Federal Reserve</strong>, the average American household carries over $103,000 in debt. The <strong className="text-white">Consumer Financial Protection Bureau (CFPB)</strong> reports that most borrowers dramatically underestimate how much they'll pay in interest over a loan's lifetime? often 50% or more of the original principal on long-term loans.
                     </p>
                     <p>
                         Even small extra payments make a significant difference. Adding just $50/month to a $25,000 auto loan at 7% saves over $400 in interest and pays off the loan 5 months early. On a $300,000 mortgage, $200/month extra saves approximately $100,000 in interest and cuts 8 years off the loan.
@@ -196,7 +196,7 @@ export default function LoanPayoffHubClient() {
                                 <Target className="w-6 h-6 text-blue-400" />
                             </div>
                             <h3 className="font-bold text-white text-lg mb-2">Avalanche Method</h3>
-                            <p className="text-sm text-slate-400">Pay highest-interest debt first. Mathematically optimal?�saves the most money over time.</p>
+                            <p className="text-sm text-slate-400">Pay highest-interest debt first. Mathematically optimal? saves the most money over time.</p>
                         </div>
                         <div className="bg-slate-800/80 rounded-xl p-6 border border-slate-700/50">
                             <div className="inline-flex items-center justify-center w-12 h-12 bg-green-500/20 rounded-full mb-4">

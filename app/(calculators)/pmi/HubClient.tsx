@@ -48,7 +48,7 @@ const FAQ_DATA = [
     },
     {
         q: "Does credit score affect PMI rates?",
-        a: "Yes, significantly. High credit scores (760+) may pay 0.5% annually; low scores (620-680) may pay 1.5% or more?�THREE times as much. On a $300,000 loan, that's $125/month vs $375/month. Improving your credit score before buying can save thousands in PMI over the loan's life."
+        a: "Yes, significantly. High credit scores (760+) may pay 0.5% annually; low scores (620-680) may pay 1.5% or more? THREE times as much. On a $300,000 loan, that's $125/month vs $375/month. Improving your credit score before buying can save thousands in PMI over the loan's life."
     },
     {
         q: "Is PMI tax deductible?",
@@ -68,11 +68,11 @@ const FAQ_DATA = [
     },
     {
         q: "Does making extra payments remove PMI faster?",
-        a: "Yes! Extra principal payments increase your equity faster, bringing you to 80% LTV sooner. However, you must REQUEST cancellation once you hit 80%?�it won't happen automatically until 78%. Track your loan balance and contact your servicer when you reach 80%. Extra payments are one of the fastest ways to eliminate PMI."
+        a: "Yes! Extra principal payments increase your equity faster, bringing you to 80% LTV sooner. However, you must REQUEST cancellation once you hit 80%? it won't happen automatically until 78%. Track your loan balance and contact your servicer when you reach 80%. Extra payments are one of the fastest ways to eliminate PMI."
     },
     {
         q: "What if my lender won't remove PMI?",
-        a: "If you meet the requirements and your lender won't remove PMI: 1) Send written request (keep copies). 2) Cite the Homeowners Protection Act. 3) File a complaint with CFPB. 4) Consider refinancing with a new lender. Servicers sometimes delay for profit?�know your rights and push back."
+        a: "If you meet the requirements and your lender won't remove PMI: 1) Send written request (keep copies). 2) Cite the Homeowners Protection Act. 3) File a complaint with CFPB. 4) Consider refinancing with a new lender. Servicers sometimes delay for profit? know your rights and push back."
     },
 ];
 
@@ -172,7 +172,7 @@ export default function PMIHubClient() {
                 </h2>
                 <div className="prose prose-invert max-w-none text-slate-300 space-y-4">
                     <p>
-                        <strong className="text-white">Private Mortgage Insurance (PMI)</strong> is insurance required by lenders when you make a down payment of less than 20% on a conventional loan. While PMI protects the lender?�not you?�if you default, it enables millions of Americans to become homeowners sooner.
+                        <strong className="text-white">Private Mortgage Insurance (PMI)</strong> is insurance required by lenders when you make a down payment of less than 20% on a conventional loan. While PMI protects the lender? not you? if you default, it enables millions of Americans to become homeowners sooner.
                     </p>
                     <p>
                         According to the <strong className="text-white">Mortgage Bankers Association</strong>, about 22% of all mortgages carry PMI. The <strong className="text-white">Consumer Financial Protection Bureau (CFPB)</strong> notes that PMI costs typically range from 0.5% to 1.5% of the loan amount annually, adding $50-$300 to monthly payments.

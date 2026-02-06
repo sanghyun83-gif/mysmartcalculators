@@ -125,7 +125,7 @@ export default function HubClient() {
                                 A common failure in basic 401k calculators is the ignorement of **Purchasing Power Erosion**.
                             </p>
                             <p>
-                                If your 401k grows at 7% but inflation persists at 3.5%, your "Real Return" is effectively halved. Furthermore, the future tax liability?�often ignored?�can claim 20-37% of the gross balance upon distribution.
+                                If your 401k grows at 7% but inflation persists at 3.5%, your "Real Return" is effectively halved. Furthermore, the future tax liability? often ignored? can claim 20-37% of the gross balance upon distribution.
                             </p>
                             <div className="flex gap-4 p-8 bg-black/40 rounded-3xl border border-white/5">
                                 <div className="text-blue-500 font-black text-4xl leading-none">35%</div>
@@ -154,7 +154,7 @@ export default function HubClient() {
                                 },
                                 {
                                     q: "Should I prioritize 401k contributions over debt repayment?",
-                                    a: "Actuarial logic dictates that you should always contribute enough to get the full Employer Match?�this is a guaranteed 100% ROI. Beyond the match, if your 401k ROI (est 7-8%) exceeds your post-tax debt interest (e.g., a 4% mortgage), the 401k allocation is mathematically superior."
+                                    a: "Actuarial logic dictates that you should always contribute enough to get the full Employer Match? this is a guaranteed 100% ROI. Beyond the match, if your 401k ROI (est 7-8%) exceeds your post-tax debt interest (e.g., a 4% mortgage), the 401k allocation is mathematically superior."
                                 },
                                 {
                                     q: "What are the common hidden fees in a 401k plan?",

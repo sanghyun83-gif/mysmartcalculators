@@ -28,7 +28,7 @@ const FAQ_DATA = [
     },
     {
         q: "Is alimony taxable?",
-        a: "For divorces finalized after January 1, 2019 (under the Tax Cuts and Jobs Act): Alimony is NOT tax-deductible for the payer and NOT taxable income for the recipient. For pre-2019 divorces: The old rules still apply unless the decree is modified?�payer deducts, recipient reports as income."
+        a: "For divorces finalized after January 1, 2019 (under the Tax Cuts and Jobs Act): Alimony is NOT tax-deductible for the payer and NOT taxable income for the recipient. For pre-2019 divorces: The old rules still apply unless the decree is modified? payer deducts, recipient reports as income."
     },
     {
         q: "What's the difference between alimony and child support?",
@@ -36,7 +36,7 @@ const FAQ_DATA = [
     },
     {
         q: "Can alimony be modified after the divorce?",
-        a: "Yes, in most states alimony can be modified if there's a 'substantial change in circumstances'?�such as job loss, significant income change (for either party), remarriage or cohabitation of the recipient, retirement, or disability. The requesting party must file a motion with the court and prove the change."
+        a: "Yes, in most states alimony can be modified if there's a 'substantial change in circumstances'? such as job loss, significant income change (for either party), remarriage or cohabitation of the recipient, retirement, or disability. The requesting party must file a motion with the court and prove the change."
     },
     {
         q: "When does alimony end?",
@@ -52,7 +52,7 @@ const FAQ_DATA = [
     },
     {
         q: "Does cheating affect alimony?",
-        a: "In most states, no?�adultery typically doesn't affect alimony. Modern 'no-fault' divorce laws focus on financial factors rather than marital misconduct. However, a few states (like Georgia and South Carolina) still consider fault, and adultery may reduce or bar alimony. It may also affect property division in some jurisdictions."
+        a: "In most states, no? adultery typically doesn't affect alimony. Modern 'no-fault' divorce laws focus on financial factors rather than marital misconduct. However, a few states (like Georgia and South Carolina) still consider fault, and adultery may reduce or bar alimony. It may also affect property division in some jurisdictions."
     },
     {
         q: "What is rehabilitative alimony?",
@@ -72,7 +72,7 @@ const FAQ_DATA = [
     },
     {
         q: "How does cohabitation affect alimony?",
-        a: "Most states allow alimony reduction or termination if the recipient cohabits with a new romantic partner. 'Cohabitation' definitions vary?�usually requires living together in a marriage-like relationship, sharing expenses, and/or presenting as a couple. Some states require the cohabitation to reduce the recipient's financial need."
+        a: "Most states allow alimony reduction or termination if the recipient cohabits with a new romantic partner. 'Cohabitation' definitions vary? usually requires living together in a marriage-like relationship, sharing expenses, and/or presenting as a couple. Some states require the cohabitation to reduce the recipient's financial need."
     },
 ];
 
@@ -175,7 +175,7 @@ export default function AlimonyHubClient() {
                         <strong className="text-white">Alimony</strong>, also known as spousal support or spousal maintenance, is a court-ordered payment from one spouse to another during or after divorce. The purpose is to help the lower-earning spouse maintain a similar standard of living to what was established during the marriage and provide time for economic self-sufficiency.
                     </p>
                     <p>
-                        According to the <strong className="text-white">American Academy of Matrimonial Lawyers</strong>, approximately 10% of divorces include an alimony award. The 2017 <strong className="text-white">Tax Cuts and Jobs Act (TCJA)</strong> fundamentally changed alimony taxation?�for divorces finalized after January 1, 2019, alimony is no longer deductible for the payer or taxable for the recipient.
+                        According to the <strong className="text-white">American Academy of Matrimonial Lawyers</strong>, approximately 10% of divorces include an alimony award. The 2017 <strong className="text-white">Tax Cuts and Jobs Act (TCJA)</strong> fundamentally changed alimony taxation? for divorces finalized after January 1, 2019, alimony is no longer deductible for the payer or taxable for the recipient.
                     </p>
                     <p>
                         Alimony laws vary significantly by state. Some states like California, New York, and Illinois use formula-based guidelines, while others like Florida and New Jersey give judges broad discretion. Recent reforms in many states have limited permanent alimony and emphasized rehabilitative support to help recipients become self-supporting.
@@ -291,7 +291,7 @@ export default function AlimonyHubClient() {
                         <div>
                             <h3 className="font-bold text-amber-400 mb-2">TCJA Tax Changes (2019+)</h3>
                             <p className="text-sm text-slate-300">
-                                For divorces finalized after January 1, 2019, alimony payments are <strong className="text-white">no longer tax-deductible</strong> for the payer and <strong className="text-white">no longer taxable income</strong> for the recipient. This represents a significant change?�consult a tax professional for your specific situation.
+                                For divorces finalized after January 1, 2019, alimony payments are <strong className="text-white">no longer tax-deductible</strong> for the payer and <strong className="text-white">no longer taxable income</strong> for the recipient. This represents a significant change? consult a tax professional for your specific situation.
                             </p>
                         </div>
                     </div>

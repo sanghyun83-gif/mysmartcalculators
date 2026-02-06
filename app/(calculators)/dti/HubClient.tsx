@@ -44,7 +44,7 @@ const FAQ_DATA = [
     },
     {
         q: "Does DTI affect my credit score?",
-        a: "DTI itself is NOT part of your credit score calculation?�credit bureaus don't know your income. However, factors related to high DTI (high credit utilization, many accounts with balances) do affect your score. Lenders look at both DTI (income-based) and credit score (history-based) separately."
+        a: "DTI itself is NOT part of your credit score calculation? credit bureaus don't know your income. However, factors related to high DTI (high credit utilization, many accounts with balances) do affect your score. Lenders look at both DTI (income-based) and credit score (history-based) separately."
     },
     {
         q: "What DTI do I need for a mortgage?",
@@ -175,10 +175,10 @@ export default function DTIHubClient() {
                         Your <strong className="text-white">Debt-to-Income (DTI) ratio</strong> is one of the most important numbers lenders look at when you apply for a mortgage or loan. It represents the percentage of your gross monthly income that goes toward paying debts.
                     </p>
                     <p>
-                        The <strong className="text-white">Consumer Financial Protection Bureau (CFPB)</strong> established the 43% DTI limit for Qualified Mortgages (QM)?�loans that meet certain safety standards. According to CFPB data, borrowers with DTIs above 43% are significantly more likely to struggle with payments. The Federal Reserve reports that the average American has a DTI around 36%.
+                        The <strong className="text-white">Consumer Financial Protection Bureau (CFPB)</strong> established the 43% DTI limit for Qualified Mortgages (QM)? loans that meet certain safety standards. According to CFPB data, borrowers with DTIs above 43% are significantly more likely to struggle with payments. The Federal Reserve reports that the average American has a DTI around 36%.
                     </p>
                     <p>
-                        Lenders view DTI as a measure of your financial health and ability to take on additional debt. A lower DTI not only makes loan approval easier but often results in better interest rates, lower fees, and more favorable terms. The <strong className="text-white">28/36 rule</strong>?�keeping housing costs under 28% and total DTI under 36%?�remains the gold standard for financial health.
+                        Lenders view DTI as a measure of your financial health and ability to take on additional debt. A lower DTI not only makes loan approval easier but often results in better interest rates, lower fees, and more favorable terms. The <strong className="text-white">28/36 rule</strong>? keeping housing costs under 28% and total DTI under 36%? remains the gold standard for financial health.
                     </p>
                 </div>
             </section>

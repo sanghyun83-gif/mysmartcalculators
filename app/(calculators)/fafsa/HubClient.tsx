@@ -24,7 +24,7 @@ const FAQ_DATA = [
     },
     {
         q: "When should I file the FAFSA?",
-        a: "The FAFSA for the 2026-27 school year opens December 31, 2026. File as early as possible?�many aid programs are first-come, first-served. Each state and college has different deadlines, some as early as February. Check specific deadlines for your state and target schools."
+        a: "The FAFSA for the 2026-27 school year opens December 31, 2026. File as early as possible? many aid programs are first-come, first-served. Each state and college has different deadlines, some as early as February. Check specific deadlines for your state and target schools."
     },
     {
         q: "What documents do I need to file FAFSA?",
@@ -36,11 +36,11 @@ const FAQ_DATA = [
     },
     {
         q: "What's the difference between subsidized and unsubsidized loans?",
-        a: "Subsidized loans are based on financial need?�the government pays interest while you're in school and during grace/deferment periods. Unsubsidized loans accrue interest immediately. Both types have the same interest rate, but subsidized loans save you money on interest over time."
+        a: "Subsidized loans are based on financial need? the government pays interest while you're in school and during grace/deferment periods. Unsubsidized loans accrue interest immediately. Both types have the same interest rate, but subsidized loans save you money on interest over time."
     },
     {
         q: "How is income counted on the FAFSA?",
-        a: "FAFSA uses your 'prior-prior year' income?�for 2026-27, that's 2024 tax information. Parent income (for dependent students) and student income are both considered.. Approximately 22-47% of parent income above protection allowances, and 50% of student income above $7,600, is factored into SAI."
+        a: "FAFSA uses your 'prior-prior year' income? for 2026-27, that's 2024 tax information. Parent income (for dependent students) and student income are both considered.. Approximately 22-47% of parent income above protection allowances, and 50% of student income above $7,600, is factored into SAI."
     },
     {
         q: "Do assets affect my financial aid?",
@@ -68,7 +68,7 @@ const FAQ_DATA = [
     },
     {
         q: "What is verification and why was I selected?",
-        a: "Verification is when a college asks you to prove FAFSA information is accurate. About 30% of FAFSAs are selected?�randomly or due to incomplete/inconsistent data. You'll need to submit tax transcripts and other documents. Don't ignore it?�you won't receive aid until verified."
+        a: "Verification is when a college asks you to prove FAFSA information is accurate. About 30% of FAFSAs are selected? randomly or due to incomplete/inconsistent data. You'll need to submit tax transcripts and other documents. Don't ignore it? you won't receive aid until verified."
     },
     {
         q: "Does FAFSA cover graduate school?",
@@ -175,7 +175,7 @@ export default function FAFSAHubClient() {
                         The <strong className="text-white">Free Application for Federal Student Aid (FAFSA)</strong> is your gateway to federal student aid, including Pell Grants, Direct Loans, and work-study programs. Administered by the <strong className="text-white">U.S. Department of Education</strong>, FAFSA determines your eligibility based on family income, assets, and household size.
                     </p>
                     <p>
-                        The 2024-25 academic year marked a major overhaul under the <strong className="text-white">FAFSA Simplification Act</strong>. The old Expected Family Contribution (EFC) was replaced by the <strong className="text-white">Student Aid Index (SAI)</strong>?�a number that can now be negative (as low as -$1,500), indicating maximum Pell Grant eligibility. The form itself was reduced from 108 questions to approximately 36.
+                        The 2024-25 academic year marked a major overhaul under the <strong className="text-white">FAFSA Simplification Act</strong>. The old Expected Family Contribution (EFC) was replaced by the <strong className="text-white">Student Aid Index (SAI)</strong>? a number that can now be negative (as low as -$1,500), indicating maximum Pell Grant eligibility. The form itself was reduced from 108 questions to approximately 36.
                     </p>
                     <p>
                         Over 85% of college students receive some form of financial aid. Total federal student aid in the 2023-24 academic year exceeded $113 billion, including $28 billion in Pell Grants and $80 billion in federal student loans. Understanding your SAI helps you plan for college costs and identify additional aid opportunities.
@@ -220,7 +220,7 @@ export default function FAFSAHubClient() {
                     <div className="mt-8 bg-sky-500/10 border border-sky-500/30 rounded-xl p-4 flex items-center gap-3">
                         <CheckCircle className="w-5 h-5 text-sky-400 flex-shrink-0" />
                         <p className="text-sky-300 text-sm">
-                            <strong>Pro Tip:</strong> File FAFSA early?�many state and institutional aid programs are first-come, first-served.
+                            <strong>Pro Tip:</strong> File FAFSA early? many state and institutional aid programs are first-come, first-served.
                         </p>
                     </div>
                 </div>
@@ -312,7 +312,7 @@ export default function FAFSAHubClient() {
                             <h3 className="font-bold text-amber-400 mb-2">Important FAFSA Deadlines</h3>
                             <p className="text-sm text-slate-300">
                                 <strong className="text-white">Federal Deadline:</strong> June 30, 2027 for 2026-27 aid year<br />
-                                <strong className="text-white">State Deadlines:</strong> Vary widely?�some as early as February 2026<br />
+                                <strong className="text-white">State Deadlines:</strong> Vary widely? some as early as February 2026<br />
                                 <strong className="text-white">College Deadlines:</strong> Check each school's priority deadline<br />
                                 <span className="text-amber-400">File FAFSA as early as possible to maximize aid opportunities!</span>
                             </p>

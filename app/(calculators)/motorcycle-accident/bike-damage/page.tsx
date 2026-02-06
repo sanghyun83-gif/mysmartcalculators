@@ -205,7 +205,7 @@ export default function BikeDamagePage() {
                             ? "bg-gradient-to-r from-red-600 to-orange-600"
                             : "bg-gradient-to-r from-orange-600 to-amber-600"}`}>
                             <p className="text-sm opacity-90 mb-1">
-                                {result.totalLoss ? "?�️ TOTAL LOSS" : "Repairable - Property Damage Claim"}
+                                {result.totalLoss ? "? ️ TOTAL LOSS" : "Repairable - Property Damage Claim"}
                             </p>
                             <p className="text-4xl font-bold">{formatCurrency(result.totalPropertyDamage)}</p>
                         </div>

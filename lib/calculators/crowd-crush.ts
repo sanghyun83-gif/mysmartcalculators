@@ -1,7 +1,7 @@
 // ============================================
 // CROWD CRUSH LAWSUIT CALCULATOR
 // 2026 Mass Casualty Events - Advanced Version
-// ?Ž‰ 200th CALCULATOR! ?Ž‰
+// ?   200th CALCULATOR! ?  
 // ============================================
 
 import { Calculator, FileText, Users, AlertTriangle } from 'lucide-react';

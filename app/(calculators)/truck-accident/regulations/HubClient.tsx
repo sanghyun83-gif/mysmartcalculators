@@ -59,7 +59,7 @@ export default function TruckRegulationsHub() {
                         </h2>
                         <div className="prose prose-invert prose-slate max-w-none text-slate-400 space-y-6 text-lg font-medium leading-[1.8]">
                             <p>
-                                The "Hours of Service" (HOS) regulations were created to prevent driver fatigue?”one of the leading causes of fatal 18-wheeler accidents. Current 2026 standards require strict adherence to the **14-hour driving window** and mandatory **10-hour rest periods**.
+                                The "Hours of Service" (HOS) regulations were created to prevent driver fatigue? one of the leading causes of fatal 18-wheeler accidents. Current 2026 standards require strict adherence to the **14-hour driving window** and mandatory **10-hour rest periods**.
                             </p>
                             <p>
                                 In many cases, trucking companies incentivize drivers to exceed these limits, leading to "falsified logs." If discovery reveals a discrepancy between GPS data and the driver's logbook, the case moves from simple negligence to **Punitive Damages** territory.

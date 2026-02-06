@@ -73,7 +73,7 @@ export default function HubClient() {
                 <h2 className="text-2xl font-bold text-white mb-6">What is the Bard PowerPort Lawsuit?</h2>
                 <div className="prose prose-invert max-w-none">
                     <p className="text-slate-300 mb-4">Bard PowerPort is an implanted port catheter used to deliver chemotherapy, medication, and IV fluids. Lawsuits allege that the catheter can fracture and migrate through the body, causing serious injuries.</p>
-                    <p className="text-slate-300">The FDA issued a Class I recall?�the most serious type?�for Bard PowerPort devices. Complications include catheter fracture, migration to the heart, blood clots, and death.</p>
+                    <p className="text-slate-300">The FDA issued a Class I recall? the most serious type? for Bard PowerPort devices. Complications include catheter fracture, migration to the heart, blood clots, and death.</p>
                 </div>
             </section>
 

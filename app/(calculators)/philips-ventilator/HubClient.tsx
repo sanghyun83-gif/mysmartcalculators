@@ -79,7 +79,7 @@ export default function HubClient() {
                 <h2 className="text-2xl font-bold text-white mb-6">What is the Philips CPAP Recall?</h2>
                 <div className="prose prose-invert max-w-none">
                     <p className="text-slate-300 mb-4">In June 2021, Philips recalled millions of CPAP, BiPAP, and ventilator machines due to a sound-dampening foam that can degrade and release toxic particles. Users inhale these particles directly into their lungs.</p>
-                    <p className="text-slate-300">The foam degradation may release carcinogenic chemicals. The FDA classified this as a Class I recall?�the most serious category. MDL 3014 consolidates these cases in Western District of Pennsylvania.</p>
+                    <p className="text-slate-300">The foam degradation may release carcinogenic chemicals. The FDA classified this as a Class I recall? the most serious category. MDL 3014 consolidates these cases in Western District of Pennsylvania.</p>
                 </div>
             </section>
 

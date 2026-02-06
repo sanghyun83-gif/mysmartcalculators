@@ -36,8 +36,8 @@ files.forEach(file => {
         }
 
         // Pattern 2: Corrupted arrows/separators in text
-        // View All  /Link> or View All  Link>
-        if (content.includes(' /Link>')) {
+        // View All/Link> or View All  Link>
+        if (content.includes('/Link>')) {
             content = content.replace(/\?\?\/Link>/g, ' →</Link>');
             changed = true;
         }

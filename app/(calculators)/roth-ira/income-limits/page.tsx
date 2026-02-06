@@ -132,7 +132,7 @@ export default function IncomeLimitsPage() {
                         </li>
                     </ol>
                     <p className="text-xs text-slate-400 mt-4">
-                        ?�️ Be aware of the &quot;pro-rata rule&quot; if you have existing Traditional IRA balances.
+                        ? ️ Be aware of the &quot;pro-rata rule&quot; if you have existing Traditional IRA balances.
                     </p>
                 </div>
 

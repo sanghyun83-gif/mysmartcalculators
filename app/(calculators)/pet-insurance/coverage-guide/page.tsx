@@ -158,13 +158,13 @@ export default function CoverageGuidePage() {
 
                     <div className="grid md:grid-cols-2 gap-4">
                         <div className="text-center p-4 bg-slate-700/50 rounded-lg">
-                            <p className="text-4xl mb-2">?��</p>
+                            <p className="text-4xl mb-2">?  </p>
                             <p className="text-white font-semibold">Dogs</p>
                             <p className="text-blue-400 text-2xl font-bold">{formatCurrency(PET_2026.avgPremiums.dogComprehensive)}/mo</p>
                             <p className="text-xs text-slate-400">avg comprehensive</p>
                         </div>
                         <div className="text-center p-4 bg-slate-700/50 rounded-lg">
-                            <p className="text-4xl mb-2">?��</p>
+                            <p className="text-4xl mb-2">?  </p>
                             <p className="text-white font-semibold">Cats</p>
                             <p className="text-blue-400 text-2xl font-bold">{formatCurrency(PET_2026.avgPremiums.catComprehensive)}/mo</p>
                             <p className="text-xs text-slate-400">avg comprehensive</p>

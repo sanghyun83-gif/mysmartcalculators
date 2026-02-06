@@ -80,7 +80,7 @@ export default function RefinancePage() {
                 <div className={`${isSavings ? 'bg-gradient-to-r from-green-600 to-green-700' : 'bg-gradient-to-r from-amber-600 to-amber-700'} text-white rounded-xl p-6 text-center mb-6`}>
                     <p className="text-sm mb-1">{isSavings ? 'Total Savings' : 'Additional Cost'}</p>
                     <p className="text-4xl font-bold text-yellow-400">{formatCurrency(Math.abs(result.totalSavings))}</p>
-                    <p className="mt-2">{isSavings ? ' Refinancing makes sense!' : '?�️ May not be worth it'}</p>
+                    <p className="mt-2">{isSavings ? ' Refinancing makes sense!' : '? ️ May not be worth it'}</p>
                 </div>
 
                 <div className="bg-white rounded-xl border border-slate-200 p-6 mb-6 text-sm">
@@ -107,11 +107,11 @@ export default function RefinancePage() {
                 </div>
 
                 <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6 text-sm text-amber-700">
-                    <strong>?�️ Warning:</strong> Refinancing federal loans to private loans means losing access to IDR plans, PSLF, and other federal protections.
+                    <strong>? ️ Warning:</strong> Refinancing federal loans to private loans means losing access to IDR plans, PSLF, and other federal protections.
                 </div>
 
                 <div className="my-8 p-6 bg-white border rounded-xl text-center"><p className="text-sm text-slate-400">Advertisement</p></div>
-                <Link href="/student-loan/idr" className="block bg-blue-600 hover:bg-blue-700 text-white rounded-lg p-4 text-center font-bold">Check IDR Options  /Link>
+                <Link href="/student-loan/idr" className="block bg-blue-600 hover:bg-blue-700 text-white rounded-lg p-4 text-center font-bold">Check IDR Options/Link>
             </main>
         </>
     );

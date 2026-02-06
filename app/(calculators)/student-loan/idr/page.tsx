@@ -111,12 +111,12 @@ export default function IDRPage() {
 
                 {plan === 'save' && (
                     <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6 text-sm text-blue-700">
-                        <strong>?�� SAVE Plan ({SITE.year}):</strong> Only {isUndergrad ? '5%' : '10%'} of income above 225% of poverty line. Lowest payments available!
+                        <strong>?   SAVE Plan ({SITE.year}):</strong> Only {isUndergrad ? '5%' : '10%'} of income above 225% of poverty line. Lowest payments available!
                     </div>
                 )}
 
                 <div className="my-8 p-6 bg-white border rounded-xl text-center"><p className="text-sm text-slate-400">Advertisement</p></div>
-                <Link href="/student-loan/pslf" className="block bg-blue-600 hover:bg-blue-700 text-white rounded-lg p-4 text-center font-bold">Check PSLF Eligibility  /Link>
+                <Link href="/student-loan/pslf" className="block bg-blue-600 hover:bg-blue-700 text-white rounded-lg p-4 text-center font-bold">Check PSLF Eligibility/Link>
             </main>
         </>
     );

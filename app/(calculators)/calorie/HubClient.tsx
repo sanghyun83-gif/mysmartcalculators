@@ -20,7 +20,7 @@ const FAQ_DATA = [
     },
     {
         q: "What is TDEE and how is it calculated?",
-        a: "TDEE (Total Daily Energy Expenditure) is the total number of calories you burn in a day. It's calculated by multiplying your BMR (Basal Metabolic Rate) by an activity factor. TDEE = BMR × Activity Multiplier. This represents your maintenance calories?�the amount needed to maintain current weight."
+        a: "TDEE (Total Daily Energy Expenditure) is the total number of calories you burn in a day. It's calculated by multiplying your BMR (Basal Metabolic Rate) by an activity factor. TDEE = BMR × Activity Multiplier. This represents your maintenance calories? the amount needed to maintain current weight."
     },
     {
         q: "What is BMR and why is it important?",
@@ -44,7 +44,7 @@ const FAQ_DATA = [
     },
     {
         q: "What is the difference between net calories and gross calories?",
-        a: "Gross calories are total calories consumed. Net calories = Calories eaten - Exercise calories burned. Some diet plans focus on net calories, allowing you to 'earn' more food through exercise. However, be cautious?�fitness trackers often overestimate exercise calories by 20-50%."
+        a: "Gross calories are total calories consumed. Net calories = Calories eaten - Exercise calories burned. Some diet plans focus on net calories, allowing you to 'earn' more food through exercise. However, be cautious? fitness trackers often overestimate exercise calories by 20-50%."
     },
     {
         q: "How accurate are calorie calculators?",

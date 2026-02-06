@@ -201,10 +201,10 @@ export default function CoverageCalculatorPage() {
                 {/* Links */}
                 <div className="grid grid-cols-2 gap-4">
                     <Link href="/life-insurance/premium" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-blue-500 transition-colors">
-                        <p className="text-sm font-medium text-slate-600">Estimate Premium  /p>
+                        <p className="text-sm font-medium text-slate-600">Estimate Premium/p>
                     </Link>
                     <Link href="/life-insurance/term-vs-whole" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-blue-500 transition-colors">
-                        <p className="text-sm font-medium text-slate-600">Term vs Whole Life  /p>
+                        <p className="text-sm font-medium text-slate-600">Term vs Whole Life/p>
                     </Link>
                 </div>
                 <LegalDisclaimer category="insurance" />

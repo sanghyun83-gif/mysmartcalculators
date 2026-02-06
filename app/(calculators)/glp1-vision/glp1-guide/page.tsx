@@ -26,7 +26,7 @@ export default function GLP1GuidePage() {
                     <h2 className="text-lg font-bold text-white mb-4">{SITE.year} Lawsuit Statistics</h2>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <div className="bg-purple-900/20 border border-purple-500/50 rounded-lg p-4 text-center"><p className="text-2xl font-bold text-purple-400">{(GLP1_2026.statistics.totalUsers / 1000000).toFixed(0)}M</p><p className="text-sm text-purple-200">Users</p></div>
-                        <div className="bg-red-900/20 border border-red-500/50 rounded-lg p-4 text-center"><p className="text-2xl font-bold text-red-400">{GLP1_2026.statistics.naionRiskIncrease}%</p><p className="text-sm text-red-200">Risk  /p></div>
+                        <div className="bg-red-900/20 border border-red-500/50 rounded-lg p-4 text-center"><p className="text-2xl font-bold text-red-400">{GLP1_2026.statistics.naionRiskIncrease}%</p><p className="text-sm text-red-200">Risk/p></div>
                         <div className="bg-yellow-900/20 border border-yellow-500/50 rounded-lg p-4 text-center"><p className="text-2xl font-bold text-yellow-400">{formatCurrency(GLP1_2026.statistics.avgSettlement)}</p><p className="text-sm text-yellow-200">Avg Value</p></div>
                         <div className="bg-rose-900/20 border border-rose-500/50 rounded-lg p-4 text-center"><p className="text-2xl font-bold text-rose-400">{GLP1_2026.statistics.lawsuitsFiled}+</p><p className="text-sm text-rose-200">Lawsuits</p></div>
                     </div>

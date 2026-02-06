@@ -163,7 +163,7 @@ export default function BenefitsGuidePage() {
                         </div>
                     </div>
                     <p className="text-xs text-slate-400 mt-4">
-                        After FRA, there is no earnings test?�work as much as you want!
+                        After FRA, there is no earnings test? work as much as you want!
                     </p>
                 </div>
 

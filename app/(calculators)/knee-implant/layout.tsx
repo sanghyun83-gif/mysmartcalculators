@@ -8,7 +8,7 @@ export default function KneeImplantLayout({
     return (
         <FlagshipLayout
             brandName="Knee Implant Lawsuit"
-            brandIcon="?��"
+            brandIcon="?  "
             hubPath="/knee-implant"
             accentColorRgb="147, 51, 234"
             accentSelectionClass="selection:bg-purple-500/30"

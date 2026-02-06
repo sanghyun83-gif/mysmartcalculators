@@ -63,7 +63,7 @@ export default function HubClient() {
                             </div>
                         ))}
                     </div>
-                    <div className="mt-6 text-center"><Link href="/firefighter-foam/cancers" className="text-amber-400 hover:underline">View all PFAS-linked cancers  /Link></div>
+                    <div className="mt-6 text-center"><Link href="/firefighter-foam/cancers" className="text-amber-400 hover:underline">View all PFAS-linked cancers/Link></div>
                 </div>
             </section>
 

@@ -22,7 +22,7 @@ export default function KneeCalculatorPage() {
         <>
             <main className="max-w-2xl mx-auto px-4 py-8">
                 <div className="bg-red-900/30 border border-red-500/50 rounded-lg p-4 mb-6 text-center">
-                    <p className="text-red-300 font-semibold">?�️ Multiple Recalls: Exactech, Zimmer, Stryker, DePuy</p>
+                    <p className="text-red-300 font-semibold">? ️ Multiple Recalls: Exactech, Zimmer, Stryker, DePuy</p>
                 </div>
 
                 <div className="bg-slate-800 rounded-xl p-6 border border-slate-700">
@@ -31,7 +31,7 @@ export default function KneeCalculatorPage() {
 
                     <div className="space-y-5 mb-6">
                         <div><label className="block text-sm font-medium text-slate-300 mb-2">Complication Type</label><select value={compIndex} onChange={(e) => setCompIndex(parseInt(e.target.value))} className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white">{KNEE_2026.complications.map((c, i) => (<option key={i} value={i}>{c.type}</option>))}</select><p className="text-xs text-slate-500 mt-1">{KNEE_2026.complications[compIndex].description}</p></div>
-                        <div><label className="block text-sm font-medium text-slate-300 mb-2">Implant Brand</label><select value={brandIndex} onChange={(e) => setBrandIndex(parseInt(e.target.value))} className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white">{KNEE_2026.recalledBrands.map((b, i) => (<option key={i} value={i}>{b.brand} ({b.manufacturer})</option>))}</select>{KNEE_2026.recalledBrands[brandIndex].recalled && <p className="text-xs text-red-400 mt-1">?�️ Recalled: {KNEE_2026.recalledBrands[brandIndex].reason}</p>}</div>
+                        <div><label className="block text-sm font-medium text-slate-300 mb-2">Implant Brand</label><select value={brandIndex} onChange={(e) => setBrandIndex(parseInt(e.target.value))} className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white">{KNEE_2026.recalledBrands.map((b, i) => (<option key={i} value={i}>{b.brand} ({b.manufacturer})</option>))}</select>{KNEE_2026.recalledBrands[brandIndex].recalled && <p className="text-xs text-red-400 mt-1">? ️ Recalled: {KNEE_2026.recalledBrands[brandIndex].reason}</p>}</div>
                         <div><label className="block text-sm font-medium text-slate-300 mb-2">Time Until Failure</label><select value={timeIndex} onChange={(e) => setTimeIndex(parseInt(e.target.value))} className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white">{KNEE_2026.timeToFailure.map((t, i) => (<option key={i} value={i}>{t.period}</option>))}</select></div>
                         <div><label className="block text-sm font-medium text-slate-300 mb-2">Medical Bills</label><div className="relative"><span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">$</span><input type="text" value={medicalBills} onChange={handleMedicalChange} className="w-full pl-8 pr-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white" /></div></div>
                     </div>

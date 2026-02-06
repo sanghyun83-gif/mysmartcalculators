@@ -24,7 +24,7 @@ const FAQ_DATA = [
     },
     {
         q: "What conditions qualify for VA disability?",
-        a: "Any illness, injury, or condition connected to your military service may qualify?�including physical injuries, PTSD, hearing loss, tinnitus, sleep apnea, Gulf War Syndrome, Agent Orange exposure conditions, and presumptive conditions. You need evidence of: 1) current diagnosis, 2) in-service event, and 3) a nexus (medical connection)."
+        a: "Any illness, injury, or condition connected to your military service may qualify? including physical injuries, PTSD, hearing loss, tinnitus, sleep apnea, Gulf War Syndrome, Agent Orange exposure conditions, and presumptive conditions. You need evidence of: 1) current diagnosis, 2) in-service event, and 3) a nexus (medical connection)."
     },
     {
         q: "How do I file a VA disability claim?",
@@ -56,7 +56,7 @@ const FAQ_DATA = [
     },
     {
         q: "What is the difference between VA disability and VA pension?",
-        a: "Disability compensation is for service-connected conditions regardless of income/assets. VA pension is for wartime veterans with limited income who are 65+ or permanently disabled (not necessarily service-connected). You cannot receive both?�the VA pays the higher benefit. Disability is usually more valuable."
+        a: "Disability compensation is for service-connected conditions regardless of income/assets. VA pension is for wartime veterans with limited income who are 65+ or permanently disabled (not necessarily service-connected). You cannot receive both? the VA pays the higher benefit. Disability is usually more valuable."
     },
     {
         q: "What are presumptive conditions?",
@@ -178,7 +178,7 @@ export default function VADisabilityHubClient() {
                         Over 5 million veterans currently receive VA disability compensation, with payments ranging from $175.51/month at 10% to $3,825.12/month at 100% for a single veteran. The 2022 <strong className="text-white">PACT Act</strong> significantly expanded eligibility for toxic exposure conditions, adding 23 new presumptive conditions and extending benefits to millions of additional veterans.
                     </p>
                     <p>
-                        Unlike many government benefits, VA disability has no income limits?�you can work full-time and earn any amount while receiving compensation. Combined with the tax-free status, VA disability is one of the most valuable benefits available to veterans. The average veteran receives approximately $1,850/month.
+                        Unlike many government benefits, VA disability has no income limits? you can work full-time and earn any amount while receiving compensation. Combined with the tax-free status, VA disability is one of the most valuable benefits available to veterans. The average veteran receives approximately $1,850/month.
                     </p>
                 </div>
             </section>
@@ -229,7 +229,7 @@ export default function VADisabilityHubClient() {
                         <p className="text-white mt-2 font-bold">Final: Rounded to nearest 10% = <span className="text-blue-400">70%</span></p>
                     </div>
                     <p className="text-slate-400 text-sm mt-4">
-                        This is why two 30% ratings don't equal 60%?�they combine to approximately 51%, rounded to 50%.
+                        This is why two 30% ratings don't equal 60%? they combine to approximately 51%, rounded to 50%.
                     </p>
                 </div>
             </section>

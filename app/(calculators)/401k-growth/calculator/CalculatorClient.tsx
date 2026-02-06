@@ -232,12 +232,12 @@ export function CalculatorClient() {
 
                         <h3 className="text-white text-2xl font-black tracking-tight">Tax-Deferred vs. Inflation Pressure</h3>
                         <p>
-                            A $2M 401k balance sounds robust, but if inflation persists at a 3% target, the purchasing power of that money will be roughly 40% lower in 30 years. This 'Inflation Gap' is why we include a purchasing power metric?�to force a reality check on your retirement lifestyle expectations.
+                            A $2M 401k balance sounds robust, but if inflation persists at a 3% target, the purchasing power of that money will be roughly 40% lower in 30 years. This 'Inflation Gap' is why we include a purchasing power metric? to force a reality check on your retirement lifestyle expectations.
                         </p>
 
                         <h3 className="text-white text-2xl font-black tracking-tight">RMD Strategy and SECURE 2.0</h3>
                         <p>
-                            By moving the Required Minimum Distribution age to 73 (and eventually 75), the IRS has gifted investors several additional years of tax-free growth. However, this creates a 'Tax Cliff' later in life. Strategic Roth conversions during low-income years (e.g., between early retirement and age 73) can significantly reduce your lifetime tax liability?�a concept known as 'Tax Bracket Management.'
+                            By moving the Required Minimum Distribution age to 73 (and eventually 75), the IRS has gifted investors several additional years of tax-free growth. However, this creates a 'Tax Cliff' later in life. Strategic Roth conversions during low-income years (e.g., between early retirement and age 73) can significantly reduce your lifetime tax liability? a concept known as 'Tax Bracket Management.'
                         </p>
                     </div>
 
