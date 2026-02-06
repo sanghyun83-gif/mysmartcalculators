@@ -278,7 +278,7 @@ export default function CalculatorPage() {
                         href="/workers-comp/state-rates"
                         className="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-900 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
-                        View All 50 State Rates ??                    </Link>
+                        View All 50 State Rates  →</Link>
                 </div>
 
                 {/* Disclaimer */}

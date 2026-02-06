@@ -73,7 +73,7 @@ export default function SellingGuidePage() {
                                 <h3 className="font-semibold text-white">Get Multiple Quotes</h3>
                                 <p className="text-sm text-slate-400 mt-1">
                                     Contact at least 3 factoring companies. Each will offer different discount rates.
-                                    Don&apos;t accept the first offer?”rates can vary significantly.
+                                    Don&apos;t accept the first offer?ï¿½rates can vary significantly.
                                 </p>
                             </div>
                         </div>

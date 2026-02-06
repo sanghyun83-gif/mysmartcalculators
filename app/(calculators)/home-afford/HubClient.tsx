@@ -157,7 +157,7 @@ export default function HubClient() {
 
           <div className="text-center mt-6">
             <Link href="/home-afford/calculator" className="text-green-600 font-semibold hover:underline">
-              Calculate Your Affordability ??            </Link>
+              Calculate Your Affordability  →</Link>
           </div>
         </div>
       </section>

@@ -47,7 +47,7 @@ export default function EligibilityPage() {
                     <div className="space-y-3">
                         {helpfulFactors.map((factor, i) => (
                             <div key={i} className="flex items-start gap-3 py-2">
-                                <span className="text-purple-400">??/span>
+                                <span className="text-purple-400"></span>
                                 <span className="text-slate-300">{factor}</span>
                             </div>
                         ))}

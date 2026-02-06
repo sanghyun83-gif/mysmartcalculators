@@ -164,7 +164,7 @@ export default function HubClient() {
 
           <div className="text-center mt-6">
             <Link href="/tax/brackets" className="text-emerald-600 font-semibold hover:underline">
-              View All Filing Statuses ??            </Link>
+              View All Filing Statuses  →</Link>
           </div>
         </div>
       </section>

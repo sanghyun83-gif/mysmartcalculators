@@ -172,7 +172,7 @@ export default function HubClient() {
 
           <div className="text-center mt-6">
             <Link href="/student-loan/calculator" className="text-blue-600 font-semibold hover:underline">
-              Calculate Your Payments ??            </Link>
+              Calculate Your Payments  →</Link>
           </div>
         </div>
       </section>

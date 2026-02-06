@@ -277,7 +277,7 @@ export default function SSDICalculatorPage() {
                         href="/disability/ssi-calculator"
                         className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
-                        Calculate SSI Benefits ??                    </Link>
+                        Calculate SSI Benefits  →</Link>
                 </div>
 
                 {/* Disclaimer */}

@@ -160,7 +160,7 @@ export default function DUIComparisonPage() {
                         href="/DUI/dui-cost"
                         className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
-                        Calculate Your DUI Cost ??                    </Link>
+                        Calculate Your DUI Cost  →</Link>
                 </div>
 
                 {/* Disclaimer */}

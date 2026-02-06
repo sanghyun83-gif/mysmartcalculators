@@ -166,7 +166,7 @@ export default function DTIPage() {
                 </div>
 
                 <Link href="/home-afford/calculator" className="block bg-green-600 hover:bg-green-700 text-white rounded-lg p-4 text-center font-bold">
-                    Calculate Affordability ??                </Link>
+                    Calculate Affordability  →</Link>
             </main>
         </>
     );

@@ -33,10 +33,10 @@ export default function ChildrenPage() {
                 <div className="bg-slate-800 border border-slate-700 rounded-xl p-6 mb-6">
                     <h2 className="text-lg font-bold text-white mb-4">Why Children Are Most Vulnerable</h2>
                     <ul className="space-y-3 text-slate-300">
-                        <li className="flex items-start gap-2"><span className="text-purple-400">??/span>Hand-to-mouth behavior brings lead dust into body</li>
-                        <li className="flex items-start gap-2"><span className="text-purple-400">??/span>Developing brains are more susceptible to damage</li>
-                        <li className="flex items-start gap-2"><span className="text-purple-400">??/span>Higher absorption rate than adults (50% vs 10%)</li>
-                        <li className="flex items-start gap-2"><span className="text-purple-400">??/span>Lower body weight means higher concentration</li>
+                        <li className="flex items-start gap-2"><span className="text-purple-400"></span>Hand-to-mouth behavior brings lead dust into body</li>
+                        <li className="flex items-start gap-2"><span className="text-purple-400"></span>Developing brains are more susceptible to damage</li>
+                        <li className="flex items-start gap-2"><span className="text-purple-400"></span>Higher absorption rate than adults (50% vs 10%)</li>
+                        <li className="flex items-start gap-2"><span className="text-purple-400"></span>Lower body weight means higher concentration</li>
                     </ul>
                 </div>
 

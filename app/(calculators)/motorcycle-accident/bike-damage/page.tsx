@@ -285,7 +285,7 @@ export default function BikeDamagePage() {
                         href="/motorcycle-accident/motorcycle-settlement"
                         className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
-                        Calculate Full Settlement (Including Injuries) ??                    </Link>
+                        Calculate Full Settlement (Including Injuries)  →</Link>
                 </div>
 
                 {/* Disclaimer */}

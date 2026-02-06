@@ -184,7 +184,7 @@ export default function HubClient() {
 
         <div className="text-center">
           <Link href="/overtime/flsa-guide" className="text-emerald-400 hover:text-emerald-300 text-sm">
-            Learn more about FLSA exemptions ??          </Link>
+            Learn more about FLSA exemptions  →</Link>
         </div>
       </section>
 

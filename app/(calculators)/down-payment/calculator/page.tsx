@@ -164,12 +164,12 @@ export default function DownPaymentCalculatorPage() {
                             <div className="flex items-center justify-center gap-2">
                                 {result.pmiRequired ? (
                                     <>
-                                        <span className="text-yellow-400">??/span>
+                                        <span className="text-yellow-400"></span>
                                         <span className="text-yellow-300">PMI Required: {formatCurrency(result.monthlyPMI)}/mo</span>
                                     </>
                                 ) : (
                                     <>
-                                        <span className="text-emerald-400">??/span>
+                                        <span className="text-emerald-400"></span>
                                         <span className="text-emerald-300">No PMI Required!</span>
                                     </>
                                 )}

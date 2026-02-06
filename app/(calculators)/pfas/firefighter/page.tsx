@@ -42,9 +42,9 @@ export default function FirefighterPage() {
                     <h2 className="text-lg font-bold text-white mb-4">State Cancer Presumption Laws</h2>
                     <p className="text-slate-300 text-sm mb-4">Many states have enacted laws presuming that certain cancers in firefighters are work-related, making it easier to obtain workers&apos; compensation and pursue lawsuits.</p>
                     <ul className="space-y-2 text-slate-300 text-sm">
-                        <li className="flex items-start gap-2"><span className="text-emerald-400">??/span>Florida, California, New York, Texas have strong presumption laws</li>
-                        <li className="flex items-start gap-2"><span className="text-emerald-400">??/span>Shifts burden of proof to employer/insurer</li>
-                        <li className="flex items-start gap-2"><span className="text-emerald-400">??/span>May cover PFAS-linked cancers</li>
+                        <li className="flex items-start gap-2"><span className="text-emerald-400"></span>Florida, California, New York, Texas have strong presumption laws</li>
+                        <li className="flex items-start gap-2"><span className="text-emerald-400"></span>Shifts burden of proof to employer/insurer</li>
+                        <li className="flex items-start gap-2"><span className="text-emerald-400"></span>May cover PFAS-linked cancers</li>
                     </ul>
                 </div>
 

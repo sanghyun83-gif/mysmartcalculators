@@ -130,7 +130,7 @@ export default function HubClient() {
               <ul className="space-y-2">
                 {CRYPTO_TAX_2026.taxableEvents.map((event, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-slate-300">
-                    <span className="text-red-400">??/span>
+                    <span className="text-red-400"></span>
                     {event}
                   </li>
                 ))}
@@ -146,7 +146,7 @@ export default function HubClient() {
               <ul className="space-y-2">
                 {CRYPTO_TAX_2026.nonTaxableEvents.map((event, i) => (
                   <li key={i} className="flex items-start gap-2 text-sm text-slate-300">
-                    <span className="text-emerald-400">??/span>
+                    <span className="text-emerald-400"></span>
                     {event}
                   </li>
                 ))}

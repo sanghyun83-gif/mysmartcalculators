@@ -44,10 +44,10 @@ export default function PFASPage() {
                 <div className="bg-slate-800 border border-slate-700 rounded-xl p-6 mb-6">
                     <h2 className="text-lg font-bold text-white mb-4">PFAS MDL Status ({SITE.year})</h2>
                     <ul className="space-y-3 text-slate-300">
-                        <li className="flex items-start gap-2"><span className="text-amber-400">??/span>3M settled for $10.3 billion (public water systems)</li>
-                        <li className="flex items-start gap-2"><span className="text-amber-400">??/span>DuPont/Chemours facing thousands of claims</li>
-                        <li className="flex items-start gap-2"><span className="text-amber-400">??/span>Individual cancer claims proceeding to trial</li>
-                        <li className="flex items-start gap-2"><span className="text-amber-400">??/span>State AG lawsuits ongoing nationwide</li>
+                        <li className="flex items-start gap-2"><span className="text-amber-400"></span>3M settled for $10.3 billion (public water systems)</li>
+                        <li className="flex items-start gap-2"><span className="text-amber-400"></span>DuPont/Chemours facing thousands of claims</li>
+                        <li className="flex items-start gap-2"><span className="text-amber-400"></span>Individual cancer claims proceeding to trial</li>
+                        <li className="flex items-start gap-2"><span className="text-amber-400"></span>State AG lawsuits ongoing nationwide</li>
                     </ul>
                 </div>
 

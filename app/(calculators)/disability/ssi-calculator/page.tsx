@@ -214,14 +214,14 @@ export default function SSICalculatorPage() {
 
                     <div className="space-y-3 text-sm">
                         <div className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg">
-                            <span className="text-teal-600">??/span>
+                            <span className="text-teal-600"></span>
                             <div>
                                 <p className="font-medium text-slate-800">Age or Disability</p>
                                 <p className="text-slate-500">65+ years old, blind, or disabled</p>
                             </div>
                         </div>
                         <div className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg">
-                            <span className="text-teal-600">??/span>
+                            <span className="text-teal-600"></span>
                             <div>
                                 <p className="font-medium text-slate-800">Resource Limit</p>
                                 <p className="text-slate-500">
@@ -231,14 +231,14 @@ export default function SSICalculatorPage() {
                             </div>
                         </div>
                         <div className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg">
-                            <span className="text-teal-600">??/span>
+                            <span className="text-teal-600"></span>
                             <div>
                                 <p className="font-medium text-slate-800">Limited Income</p>
                                 <p className="text-slate-500">Income below SSI limits</p>
                             </div>
                         </div>
                         <div className="flex items-start gap-3 p-3 bg-slate-50 rounded-lg">
-                            <span className="text-teal-600">??/span>
+                            <span className="text-teal-600"></span>
                             <div>
                                 <p className="font-medium text-slate-800">U.S. Resident</p>
                                 <p className="text-slate-500">Must reside in the U.S.</p>
@@ -253,7 +253,7 @@ export default function SSICalculatorPage() {
                         href="/disability/ssdi-calculator"
                         className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
-                        Calculate SSDI Benefits ??                    </Link>
+                        Calculate SSDI Benefits  →</Link>
                 </div>
 
                 {/* Disclaimer */}

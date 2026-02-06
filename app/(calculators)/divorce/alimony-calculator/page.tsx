@@ -280,7 +280,7 @@ export default function AlimonyCalculatorPage() {
                         href="/divorce/property-division"
                         className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
-                        Calculate Property Division ??                    </Link>
+                        Calculate Property Division  →</Link>
                 </div>
 
                 {/* Disclaimer */}

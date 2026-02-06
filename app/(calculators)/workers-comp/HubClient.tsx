@@ -168,7 +168,7 @@ export default function HubClient() {
               href="/workers-comp/state-rates"
               className="text-amber-600 hover:text-amber-700 font-medium text-sm"
             >
-              View all 50 states ??            </Link>
+              View all 50 states  →</Link>
           </div>
         </div>
       </section>

@@ -23,11 +23,11 @@ export function GlobalFooter({ siteName = "MySmartCalculators", citation }: Glob
                 {/* Links */}
                 <div className="flex flex-wrap justify-center gap-6 mb-8 text-xs font-bold uppercase tracking-widest">
                     <Link href="/about" className="text-slate-400 hover:text-amber-400 transition-all">About Our Team</Link>
-                    <span className="text-slate-700">??/span>
+                    <span className="text-slate-700"></span>
                     <Link href="/terms" className="text-slate-400 hover:text-amber-400 transition-all">Terms of Use</Link>
-                    <span className="text-slate-700">??/span>
+                    <span className="text-slate-700"></span>
                     <Link href="/privacy" className="text-slate-400 hover:text-amber-400 transition-all">Privacy Policy</Link>
-                    <span className="text-slate-700">??/span>
+                    <span className="text-slate-700"></span>
                     <Link href="/contact" className="text-slate-400 hover:text-amber-400 transition-all">Compliance Inquiry</Link>
                 </div>
 

@@ -111,7 +111,7 @@ export default function IDRPage() {
 
                 {plan === 'save' && (
                     <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6 text-sm text-blue-700">
-                        <strong>?’¡ SAVE Plan ({SITE.year}):</strong> Only {isUndergrad ? '5%' : '10%'} of income above 225% of poverty line. Lowest payments available!
+                        <strong>?ï¿½ï¿½ SAVE Plan ({SITE.year}):</strong> Only {isUndergrad ? '5%' : '10%'} of income above 225% of poverty line. Lowest payments available!
                     </div>
                 )}
 

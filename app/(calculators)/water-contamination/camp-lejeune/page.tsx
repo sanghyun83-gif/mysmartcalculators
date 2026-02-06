@@ -45,11 +45,11 @@ export default function CampLejeunePage() {
                 <div className="bg-slate-800 border border-slate-700 rounded-xl p-6 mb-6">
                     <h2 className="text-lg font-bold text-white mb-4">Who Qualifies?</h2>
                     <ul className="space-y-3 text-slate-300">
-                        <li className="flex items-start gap-2"><span className="text-amber-400">??/span>Marines and military personnel (30+ days, 1953-1987)</li>
-                        <li className="flex items-start gap-2"><span className="text-amber-400">??/span>Spouses and children who lived on base</li>
-                        <li className="flex items-start gap-2"><span className="text-amber-400">??/span>Civilian employees and contractors</li>
-                        <li className="flex items-start gap-2"><span className="text-amber-400">??/span>Reservists who trained at Camp Lejeune</li>
-                        <li className="flex items-start gap-2"><span className="text-amber-400">??/span>Estate of deceased victims (wrongful death claims)</li>
+                        <li className="flex items-start gap-2"><span className="text-amber-400"></span>Marines and military personnel (30+ days, 1953-1987)</li>
+                        <li className="flex items-start gap-2"><span className="text-amber-400"></span>Spouses and children who lived on base</li>
+                        <li className="flex items-start gap-2"><span className="text-amber-400"></span>Civilian employees and contractors</li>
+                        <li className="flex items-start gap-2"><span className="text-amber-400"></span>Reservists who trained at Camp Lejeune</li>
+                        <li className="flex items-start gap-2"><span className="text-amber-400"></span>Estate of deceased victims (wrongful death claims)</li>
                     </ul>
                 </div>
 

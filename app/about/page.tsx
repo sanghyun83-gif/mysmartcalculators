@@ -81,9 +81,9 @@ export default function AboutPage() {
 
                 <div className="mt-8 flex flex-wrap gap-4 justify-center">
                     <Link href="/privacy" className="text-amber-400 hover:underline">Privacy Policy</Link>
-                    <span className="text-slate-600">??/span>
+                    <span className="text-slate-600"></span>
                     <Link href="/contact" className="text-amber-400 hover:underline">Contact Us</Link>
-                    <span className="text-slate-600">??/span>
+                    <span className="text-slate-600"></span>
                     <Link href="/" className="text-amber-400 hover:underline">All Calculators</Link>
                 </div>
             </main>

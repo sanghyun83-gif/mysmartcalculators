@@ -91,7 +91,7 @@ export function FlagshipLayout({
                         </div>
                         <div className="hidden md:flex items-center gap-4">
                             <span>Data-Driven Audits</span>
-                            <span className="opacity-30">??/span>
+                            <span className="opacity-30">|</span>
                             <span>Expert Analysis</span>
                         </div>
                     </div>

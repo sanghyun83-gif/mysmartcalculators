@@ -172,7 +172,7 @@ export default function HubClient() {
 
           <div className="text-center mt-6">
             <Link href="/auto-insurance/by-state" className="text-blue-600 font-semibold hover:underline">
-              See All 50 States ??            </Link>
+              See All 50 States  →</Link>
           </div>
         </div>
       </section>

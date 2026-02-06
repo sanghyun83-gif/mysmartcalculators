@@ -37,7 +37,7 @@ export function RelatedCalculators({ currentCalc, count = 5 }: RelatedCalculator
                     href="/"
                     className="text-xs text-slate-500 hover:text-amber-400 transition-colors"
                 >
-                    View All Calculators ??                </Link>
+                    View All Calculators  →</Link>
             </div>
         </div>
     );

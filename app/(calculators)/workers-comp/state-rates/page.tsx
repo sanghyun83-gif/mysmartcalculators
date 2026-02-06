@@ -221,7 +221,7 @@ export default function StateRatesPage() {
                         className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-900 px-6 py-3 rounded-lg font-bold transition-colors"
                     >
                         <HardHat className="w-5 h-5" />
-                        Calculate Your Benefits ??                    </Link>
+                        Calculate Your Benefits  →</Link>
                 </div>
 
                 {/* Disclaimer */}
