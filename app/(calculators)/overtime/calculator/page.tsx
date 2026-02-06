@@ -179,7 +179,7 @@ export default function OvertimeCalculatorPage() {
                             <p className="text-sm text-emerald-100 mb-1">Total Weekly Pay</p>
                             <p className="text-4xl font-bold">{formatCurrency(result.totalPay)}</p>
                             <p className="text-sm text-emerald-100 mt-2">
-                                Effective rate: {formatCurrency(result.effectiveHourlyRate)}/hr
+                                Effective rate: {formatCurrency(result.effectiveHourlyRate)}</hr
                             </p>
                         </div>
 
@@ -270,7 +270,7 @@ export default function OvertimeCalculatorPage() {
                             </h3>
                             <p className="text-slate-400">
                                 Overtime is calculated at 1.5× your regular hourly rate.
-                                For a $20/hr worker, OT rate would be $30/hr.
+                                For a $20</hr worker, OT rate would be $30/hr.
                             </p>
                         </div>
                         <div>
@@ -313,7 +313,7 @@ export default function OvertimeCalculatorPage() {
                                 name: "How is overtime calculated?",
                                 acceptedAnswer: {
                                     "@type": "Answer",
-                                    text: "Overtime is calculated at 1.5× your regular hourly rate. For a $20/hr worker, OT rate would be $30/hr.",
+                                    text: "Overtime is calculated at 1.5× your regular hourly rate. For a $20</hr worker, OT rate would be $30/hr.",
                                 },
                             },
                         ],
