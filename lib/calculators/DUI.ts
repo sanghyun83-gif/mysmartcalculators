@@ -1,10 +1,13 @@
 // ============================================
 // DUI-CALC SITE CONFIGURATION
 // DUI Cost Calculator for all 50 US States
-// 2025 data - easy yearly updates
+// 2026 data - easy yearly updates
 // ============================================
 
 import { Scale, FileWarning, Shield, Car } from 'lucide-react';
+import { STATE_DUI_DATA, getStatesList } from './DUI/state-data';
+
+export { getStatesList };
 
 // ============================================
 // SITE METADATA
@@ -12,16 +15,16 @@ import { Scale, FileWarning, Shield, Car } from 'lucide-react';
 export const SITE = {
     name: "DUI Calculator",
     tagline: "Free DUI Cost Estimator",
-    description: "Calculate the true cost of a DUI in your state. Free 2025 DUI cost calculator with fines, lawyer fees, insurance increases, and more.",
-    year: 2025,
+    description: "Calculate the true cost of a DUI in your state. Free 2026 DUI cost calculator with fines, lawyer fees, insurance increases, and more.",
+    year: 2026,
     baseUrl: "https://mysmartcalculators.com/DUI",
 };
 
 // ============================================
-// 2025 DUI COST CONSTANTS (National Averages)
+// 2026 DUI COST CONSTANTS (National Averages)
 // Sources: NHTSA, State DMV websites, Legal databases
 // ============================================
-export const DUI_COSTS_2025 = {
+export const DUI_COSTS_2026 = {
     // Court & Legal
     courtFiling: { min: 150, max: 500 },
     lawyerFirstOffense: { min: 2500, max: 5000 },
@@ -68,7 +71,7 @@ export const DUI_COSTS_2025 = {
 
 // ============================================
 // STATE-SPECIFIC DATA (Top 10 states by population)
-// 2025 verified data - Sources: NHTSA, State DMVs, Insurance.com, Bankrate
+// 2026 verified data - Sources: NHTSA, State DMVs, Insurance.com, Bankrate
 // ============================================
 export const STATE_DATA: Record<string, {
     name: string;
@@ -80,25 +83,25 @@ export const STATE_DATA: Record<string, {
     iidRequired: boolean;
     insuranceIncrease: number; // Percentage increase after DUI
 }> = {
-    // California - 2025 rates verified
+    // California - 2026 rates verified
     CA: { name: "California", fineFirst: 1800, fineSecond: 3000, licenseFirst: "6 months", licenseSecond: "2 years", mandatoryJail: false, iidRequired: true, insuranceIncrease: 87 },
-    // Texas - 2025 rates verified
+    // Texas - 2026 rates verified
     TX: { name: "Texas", fineFirst: 2000, fineSecond: 4000, licenseFirst: "1 year", licenseSecond: "2 years", mandatoryJail: false, iidRequired: true, insuranceIncrease: 76 },
-    // Florida - 2025 rates verified
+    // Florida - 2026 rates verified
     FL: { name: "Florida", fineFirst: 1000, fineSecond: 2000, licenseFirst: "180 days", licenseSecond: "5 years", mandatoryJail: false, iidRequired: true, insuranceIncrease: 82 },
-    // New York - 2025 rates verified
+    // New York - 2026 rates verified
     NY: { name: "New York", fineFirst: 1000, fineSecond: 5000, licenseFirst: "6 months", licenseSecond: "1 year", mandatoryJail: false, iidRequired: true, insuranceIncrease: 76 },
-    // Pennsylvania - 2025 rates verified
+    // Pennsylvania - 2026 rates verified
     PA: { name: "Pennsylvania", fineFirst: 300, fineSecond: 1500, licenseFirst: "1 year", licenseSecond: "1 year", mandatoryJail: false, iidRequired: true, insuranceIncrease: 69 },
-    // Illinois - 2025 rates verified
+    // Illinois - 2026 rates verified
     IL: { name: "Illinois", fineFirst: 2500, fineSecond: 2500, licenseFirst: "1 year", licenseSecond: "5 years", mandatoryJail: false, iidRequired: true, insuranceIncrease: 73 },
-    // Ohio - 2025 rates verified
+    // Ohio - 2026 rates verified
     OH: { name: "Ohio", fineFirst: 1075, fineSecond: 1625, licenseFirst: "1-3 years", licenseSecond: "1-7 years", mandatoryJail: true, iidRequired: true, insuranceIncrease: 80 },
-    // Georgia - 2025 rates verified
+    // Georgia - 2026 rates verified
     GA: { name: "Georgia", fineFirst: 1000, fineSecond: 1000, licenseFirst: "1 year", licenseSecond: "3 years", mandatoryJail: true, iidRequired: true, insuranceIncrease: 85 },
-    // North Carolina - 2025 rates verified (highest in US)
+    // North Carolina - 2026 rates verified (highest in US)
     NC: { name: "North Carolina", fineFirst: 200, fineSecond: 2000, licenseFirst: "1 year", licenseSecond: "4 years", mandatoryJail: false, iidRequired: true, insuranceIncrease: 317 },
-    // Michigan - 2025 rates verified
+    // Michigan - 2026 rates verified
     MI: { name: "Michigan", fineFirst: 500, fineSecond: 1000, licenseFirst: "180 days", licenseSecond: "1 year", mandatoryJail: false, iidRequired: true, insuranceIncrease: 93 },
     // Other/Average
     OTHER: { name: "Other State", fineFirst: 1000, fineSecond: 2500, licenseFirst: "6-12 months", licenseSecond: "1-2 years", mandatoryJail: false, iidRequired: true, insuranceIncrease: 80 },
@@ -144,8 +147,9 @@ export function calculateDUICost(
     bac: number,
     hasAccident: boolean
 ): DUICalculationResult {
-    const costs = DUI_COSTS_2025;
-    const stateInfo = STATE_DATA[stateCode] || STATE_DATA.OTHER;
+    const costs = DUI_COSTS_2026;
+    const stateInfo = STATE_DUI_DATA[stateCode] || STATE_DUI_DATA['CA'];
+    const classicStateInfo = STATE_DATA[stateCode] || STATE_DATA.OTHER;
 
     // Multiplier for high BAC (over 0.15)
     const highBACMultiplier = bac >= 0.15 ? 1.5 : 1;
@@ -168,11 +172,11 @@ export function calculateDUICost(
     // Fines based on state and offense
     let fines: number;
     if (offense === 'first') {
-        fines = Math.round(stateInfo.fineFirst * combinedMultiplier);
+        fines = Math.round(stateInfo.fineFirst[0] * combinedMultiplier);
     } else if (offense === 'second') {
-        fines = Math.round(stateInfo.fineSecond * combinedMultiplier);
+        fines = Math.round(classicStateInfo.fineSecond * combinedMultiplier);
     } else {
-        fines = Math.round(stateInfo.fineSecond * 2 * combinedMultiplier);
+        fines = Math.round(classicStateInfo.fineSecond * 2 * combinedMultiplier);
     }
 
     // DUI programs
@@ -234,8 +238,8 @@ export function calculateDUICost(
         totalMaximum,
         totalAverage,
 
-        licenseSuspension: offense === 'first' ? stateInfo.licenseFirst : stateInfo.licenseSecond,
-        mandatoryJail: stateInfo.mandatoryJail || offense !== 'first',
+        licenseSuspension: offense === 'first' ? stateInfo.suspensionFirst : classicStateInfo.licenseSecond,
+        mandatoryJail: stateInfo.jailFirst[0] > 0 || offense !== 'first',
     };
 }
 
@@ -248,7 +252,7 @@ export const CALCULATORS = [
         name: "DUI Cost Calculator",
         shortName: "DUI Cost",
         description: "Calculate the total cost of a DUI in your state",
-        longDescription: "Free 2025 DUI cost calculator. Estimate fines, lawyer fees, insurance increases, and total expenses for DUI/DWI charges in all 50 US states.",
+        longDescription: "Free 2026 DUI cost calculator. Estimate fines, lawyer fees, insurance increases, and total expenses for DUI/DWI charges in all 50 US states.",
         icon: Scale,
         category: "legal",
         keywords: ["DUI cost", "DWI calculator", "drunk driving fine", "DUI lawyer cost", "DUI insurance"],

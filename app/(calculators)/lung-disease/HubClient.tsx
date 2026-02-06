@@ -144,8 +144,7 @@ export default function HubClient() {
 
                     <div className="text-center mt-8">
                         <Link href="/lung-disease/types" className="text-purple-400 hover:text-purple-300 text-sm">
-                            View All Disease Types →
-                        </Link>
+                            View All Disease Types ??                        </Link>
                     </div>
                 </div>
             </section>

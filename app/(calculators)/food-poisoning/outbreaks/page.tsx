@@ -10,8 +10,8 @@ export default function OutbreaksPage() {
         { date: "2026", pathogen: "E. coli O157:H7", source: "Romaine Lettuce", cases: "150+ cases", deaths: "2 deaths", status: "Investigation ongoing" },
         { date: "2026", pathogen: "Listeria", source: "Deli Meats", cases: "28 cases", deaths: "5 deaths", status: "Recall issued" },
         { date: "2026", pathogen: "Salmonella", source: "Onions", cases: "600+ cases", deaths: "0 deaths", status: "Investigation closed" },
-        { date: "2025", pathogen: "E. coli", source: "McDonald's Quarter Pounders", cases: "100+ cases", deaths: "1 death", status: "Lawsuits filed" },
-        { date: "2025", pathogen: "Listeria", source: "Boar's Head Deli Meats", cases: "57 cases", deaths: "9 deaths", status: "Major lawsuits" },
+        { date: "2026", pathogen: "E. coli", source: "McDonald's Quarter Pounders", cases: "100+ cases", deaths: "1 death", status: "Lawsuits filed" },
+        { date: "2026", pathogen: "Listeria", source: "Boar's Head Deli Meats", cases: "57 cases", deaths: "9 deaths", status: "Major lawsuits" },
     ];
 
     return (
@@ -41,7 +41,7 @@ export default function OutbreaksPage() {
                             <div className="flex justify-between items-start mb-3">
                                 <div>
                                     <h3 className="text-lg font-semibold text-white">{outbreak.source}</h3>
-                                    <p className="text-amber-400 text-sm">{outbreak.pathogen} • {outbreak.date}</p>
+                                    <p className="text-amber-400 text-sm">{outbreak.pathogen} ??{outbreak.date}</p>
                                 </div>
                                 <span className="text-xs bg-amber-500/20 text-amber-400 px-2 py-1 rounded">{outbreak.status}</span>
                             </div>

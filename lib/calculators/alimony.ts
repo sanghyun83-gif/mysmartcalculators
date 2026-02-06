@@ -4,6 +4,9 @@
 // ============================================
 
 import { Calculator, Scale, MapPin, FileText } from 'lucide-react';
+import { STATE_ALIMONY_DATA, getStatesList } from './alimony/state-data';
+
+export { getStatesList };
 
 // ============================================
 // SITE METADATA
@@ -163,55 +166,52 @@ export interface AlimonyResult {
     recipientNetIncome: number;
     formula: string;
     state: string;
+    cohabitationImpact: string;
+    model: string;
 }
 
 export function calculateAlimony(
     payerGrossMonthly: number,
     recipientGrossMonthly: number,
     marriageYears: number,
-    state: keyof typeof STATE_ALIMONY
+    state: string
 ): AlimonyResult {
-    const stateData = STATE_ALIMONY[state];
+    const stateData = STATE_ALIMONY_DATA[state] || STATE_ALIMONY_DATA['CA'];
 
     // Simplified calculation based on common formulas
     let monthlyAlimony = 0;
 
     switch (state) {
         case "california":
+        case "CA":
             // 40% of payer - 50% of recipient
             monthlyAlimony = Math.max(0, (payerGrossMonthly * 0.40) - (recipientGrossMonthly * 0.50));
             break;
         case "texas":
+        case "TX":
             // Lesser of $5,000 or 20% of payer gross
             monthlyAlimony = Math.min(5000, payerGrossMonthly * 0.20);
             break;
         case "newyork":
+        case "NY":
             // 30% of payer - 20% of recipient
             monthlyAlimony = Math.max(0, (payerGrossMonthly * 0.30) - (recipientGrossMonthly * 0.20));
             break;
         case "illinois":
+        case "IL":
             // 33.33% of payer - 25% of recipient (capped at 40% combined)
             const combined = payerGrossMonthly + recipientGrossMonthly;
             monthlyAlimony = Math.max(0, (payerGrossMonthly * 0.3333) - (recipientGrossMonthly * 0.25));
             monthlyAlimony = Math.min(monthlyAlimony, combined * 0.40 - recipientGrossMonthly);
             break;
         default:
-            // Default: 30% of income difference
-            monthlyAlimony = Math.max(0, (payerGrossMonthly - recipientGrossMonthly) * 0.30);
+            // Default: 25% of income difference (conservative expert average)
+            monthlyAlimony = Math.max(0, (payerGrossMonthly - recipientGrossMonthly) * 0.25);
     }
 
-    // Duration calculation
-    let durationYears = 0;
-    if (marriageYears < 5) {
-        durationYears = marriageYears * 0.3;
-    } else if (marriageYears < 10) {
-        durationYears = marriageYears * 0.5;
-    } else if (marriageYears < 20) {
-        durationYears = marriageYears * 0.6;
-    } else {
-        durationYears = marriageYears * 0.75; // Long marriages
-    }
-    durationYears = Math.round(durationYears * 10) / 10;
+    // Duration calculation using state-specific multiplier
+    const multiplier = stateData.durationMultiplier || 0.5;
+    let durationYears = Math.round(marriageYears * multiplier * 10) / 10;
 
     const yearlyAlimony = monthlyAlimony * 12;
     const totalAlimony = yearlyAlimony * durationYears;
@@ -225,6 +225,8 @@ export function calculateAlimony(
         recipientNetIncome: Math.round(recipientGrossMonthly + monthlyAlimony),
         formula: stateData.formula,
         state: stateData.name,
+        cohabitationImpact: stateData.cohabitationImpact,
+        model: stateData.model,
     };
 }
 

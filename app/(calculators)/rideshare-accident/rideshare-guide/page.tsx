@@ -36,11 +36,11 @@ export default function RideshareGuidePage() {
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div className="bg-amber-900/20 border border-amber-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><AlertTriangle className="w-5 h-5 text-amber-500" />Injury Types</h2>
-                        <ul className="space-y-2 text-sm text-amber-200">{RIDESHARE_2026.injuryTypes.map((t, i) => (<li key={i}>• {t.type}: {formatCurrency(t.avgSettlement)} avg</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-amber-200">{RIDESHARE_2026.injuryTypes.map((t, i) => (<li key={i}>??{t.type}: {formatCurrency(t.avgSettlement)} avg</li>))}</ul>
                     </div>
                     <div className="bg-orange-900/20 border border-orange-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Shield className="w-5 h-5 text-orange-500" />Key Facts</h2>
-                        <ul className="space-y-2 text-sm text-orange-200"><li>• Uber: {RIDESHARE_2026.statistics.uberMarketShare}% market share</li><li>• Lyft: {RIDESHARE_2026.statistics.lyftMarketShare}% market share</li><li>• $1M coverage in Periods 2-3</li><li>• Limited coverage in Period 1</li></ul>
+                        <ul className="space-y-2 text-sm text-orange-200"><li>??Uber: {RIDESHARE_2026.statistics.uberMarketShare}% market share</li><li>??Lyft: {RIDESHARE_2026.statistics.lyftMarketShare}% market share</li><li>??$1M coverage in Periods 2-3</li><li>??Limited coverage in Period 1</li></ul>
                     </div>
                 </div>
 

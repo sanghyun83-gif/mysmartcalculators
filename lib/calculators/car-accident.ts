@@ -1,7 +1,6 @@
-/**
- * S-Class Car Accident Logic Engine v5.0
- * Based on 50-State Comparative Fault Rules & 2026 Economic Benchmarks
- */
+import { STATE_ACCIDENT_DATA, getStatesList } from "./car-accident/state-data";
+
+export { STATE_ACCIDENT_DATA, getStatesList };
 
 export const ACCIDENT_CONSTANTS = {
     injuryTiers: {

@@ -36,12 +36,12 @@ export default function CancersPage() {
                 <div className="mt-12 bg-amber-900/20 border border-amber-500/30 rounded-xl p-6">
                     <h3 className="text-lg font-semibold text-amber-300 mb-3">Other PFAS Health Effects</h3>
                     <ul className="grid md:grid-cols-2 gap-2 text-slate-300 text-sm">
-                        <li>• Ulcerative colitis</li>
-                        <li>• Thyroid disorders</li>
-                        <li>• High cholesterol</li>
-                        <li>• Pregnancy complications</li>
-                        <li>• Immune system effects</li>
-                        <li>• Hormone disruption</li>
+                        <li>??Ulcerative colitis</li>
+                        <li>??Thyroid disorders</li>
+                        <li>??High cholesterol</li>
+                        <li>??Pregnancy complications</li>
+                        <li>??Immune system effects</li>
+                        <li>??Hormone disruption</li>
                     </ul>
                 </div>
 

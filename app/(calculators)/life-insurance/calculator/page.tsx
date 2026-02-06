@@ -201,15 +201,50 @@ export default function CoverageCalculatorPage() {
                 {/* Links */}
                 <div className="grid grid-cols-2 gap-4">
                     <Link href="/life-insurance/premium" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-blue-500 transition-colors">
-                        <p className="text-sm font-medium text-slate-600">Estimate Premium →</p>
+                        <p className="text-sm font-medium text-slate-600">Estimate Premium ??/p>
                     </Link>
                     <Link href="/life-insurance/term-vs-whole" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-blue-500 transition-colors">
-                        <p className="text-sm font-medium text-slate-600">Term vs Whole Life →</p>
+                        <p className="text-sm font-medium text-slate-600">Term vs Whole Life ??/p>
                     </Link>
                 </div>
                 <LegalDisclaimer category="insurance" />
             </main>
-        
+
+            {/* Inline FAQ Section */}
+            <section className="max-w-2xl mx-auto px-6 py-16">
+                <div className="bg-slate-900 rounded-[2rem] border border-white/10 p-8 space-y-6 shadow-2xl">
+                    <h2 className="text-xl font-black text-white tracking-tight">
+                        Life Insurance FAQ
+                    </h2>
+                    <div className="space-y-6 text-sm">
+                        <div className="pb-4 border-b border-white/5">
+                            <h3 className="font-bold text-white mb-2">
+                                How much life insurance is enough in 2026?
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                A standard benchmark in 2026 is 10-15 times your gross annual income. However, you should also factor in total debt (mortgage, student loans) and future college tuition for children, which has seen significant inflation.
+                            </p>
+                        </div>
+                        <div className="pb-4 border-b border-white/5">
+                            <h3 className="font-bold text-white mb-2">
+                                Is term or whole life better?
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                Term life is generally 80-90% cheaper and provides high coverage during your peak earning years. Whole life includes a cash value component and permanent coverage but is significantly more expensive per dollar of death benefit.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-white mb-2">
+                                When should I buy life insurance?
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                The best time is typically when you have financial dependents or major debt. Buying younger and healthier locks in lower premiums. In 2026, many carriers offer "no-exam" policies for those under 50 with good health records.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* FAQPage Schema */}
             <script
                 type="application/ld+json"

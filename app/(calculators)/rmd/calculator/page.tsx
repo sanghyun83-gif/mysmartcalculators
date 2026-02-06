@@ -135,7 +135,7 @@ export default function RMDCalculatorPage() {
                             <p className="text-sm text-emerald-100 mb-1">{SITE.year} Required Minimum Distribution</p>
                             <p className="text-4xl font-bold">{formatCurrency(result.rmdAmount)}</p>
                             <p className="text-sm text-emerald-100 mt-2">
-                                {formatCurrency(result.monthlyEquivalent)}/month • Due: {result.deadline}
+                                {formatCurrency(result.monthlyEquivalent)}/month ??Due: {result.deadline}
                             </p>
                         </div>
 

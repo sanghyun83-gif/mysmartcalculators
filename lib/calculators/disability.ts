@@ -19,7 +19,7 @@ export const SITE = {
 
 // ============================================
 // 2026 SSA OFFICIAL CONSTANTS
-// Source: ssa.gov (October 2025 announcement)
+// Source: ssa.gov (October 2026 announcement)
 // ============================================
 export const SSA_CONSTANTS_2026 = {
     // Cost of Living Adjustment

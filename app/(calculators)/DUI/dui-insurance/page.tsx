@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Shield, Calculator, Info, AlertTriangle, TrendingUp } from "lucide-react";
-import { SITE, STATE_DATA, DUI_COSTS_2025, formatCurrency, parseFormattedNumber, getStateCodes } from "@/lib/calculators/DUI";
+import { SITE, STATE_DATA, DUI_COSTS_2026, formatCurrency, parseFormattedNumber, getStateCodes } from "@/lib/calculators/DUI";
 import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 interface InsuranceResult {
@@ -37,7 +37,7 @@ function calculateInsuranceImpact(
     const increasePercent = baseIncrease;
     const newAnnual = Math.round(currentPremium * (1 + baseIncrease / 100));
     const yearlyIncrease = newAnnual - currentPremium;
-    const sr22Fee = DUI_COSTS_2025.srFiling.max * 12; // Annual SR-22 cost
+    const sr22Fee = DUI_COSTS_2026.srFiling.max * 12; // Annual SR-22 cost
 
     // 3-year cost (SR-22 required period)
     const threeYearTotal = (yearlyIncrease + sr22Fee) * 3;
@@ -78,7 +78,7 @@ export default function DUIInsurancePage() {
 
     const handleCalculate = () => {
         const stateCode = state || "OTHER";
-        const amount = parseFormattedNumber(premium) || DUI_COSTS_2025.averageAnnualPremium;
+        const amount = parseFormattedNumber(premium) || DUI_COSTS_2026.averageAnnualPremium;
         setResult(calculateInsuranceImpact(stateCode, amount, offense));
     };
 
@@ -138,12 +138,12 @@ export default function DUIInsurancePage() {
                                     value={premium}
                                     onChange={handleInputChange}
                                     onKeyDown={(e) => e.key === "Enter" && handleCalculate()}
-                                    placeholder={DUI_COSTS_2025.averageAnnualPremium.toLocaleString()}
+                                    placeholder={DUI_COSTS_2026.averageAnnualPremium.toLocaleString()}
                                     className="w-full pl-8 pr-4 py-4 text-lg bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all"
                                 />
                             </div>
                             <p className="text-xs text-slate-500 mt-1">
-                                Average US premium: ${DUI_COSTS_2025.averageAnnualPremium.toLocaleString()}/year
+                                Average US premium: ${DUI_COSTS_2026.averageAnnualPremium.toLocaleString()}/year
                             </p>
                         </div>
 
@@ -309,8 +309,7 @@ export default function DUIInsurancePage() {
                         href="/DUI/dui-cost"
                         className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
-                        Calculate Total DUI Cost →
-                    </Link>
+                        Calculate Total DUI Cost ??                    </Link>
                 </div>
 
                 {/* Disclaimer */}

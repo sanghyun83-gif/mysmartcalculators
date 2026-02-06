@@ -38,7 +38,7 @@ export const TALCUM_2026 = {
         totalVerdicts: 5000000000,
         avgJuryVerdict: 25000000,
         stateSettlement: 700000000,
-        jnjBankruptcy: "Rejected April 2025",
+        jnjBankruptcy: "Rejected April 2026",
     },
     citation: "Based on FDA Asbestos Testing Guidelines and MDL Court Filings 2026 data",
 } as const;

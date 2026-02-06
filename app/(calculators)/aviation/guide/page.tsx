@@ -29,11 +29,11 @@ export default function AviationGuidePage() {
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div className="bg-amber-900/20 border border-amber-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Plane className="w-5 h-5 text-amber-500" />Accident Causes</h2>
-                        <ul className="space-y-2 text-sm text-amber-200">{AVIATION_2026.causeTypes.map((c, i) => (<li key={i}>• <strong>{c.cause}:</strong> {c.percentage}% of accidents</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-amber-200">{AVIATION_2026.causeTypes.map((c, i) => (<li key={i}>??<strong>{c.cause}:</strong> {c.percentage}% of accidents</li>))}</ul>
                     </div>
                     <div className="bg-orange-900/20 border border-orange-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Shield className="w-5 h-5 text-orange-500" />Injury Severity Impact</h2>
-                        <ul className="space-y-2 text-sm text-orange-200">{AVIATION_2026.injurySeverity.map((s, i) => (<li key={i}>• <strong>{s.severity}:</strong> {s.multiplier}x base settlement</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-orange-200">{AVIATION_2026.injurySeverity.map((s, i) => (<li key={i}>??<strong>{s.severity}:</strong> {s.multiplier}x base settlement</li>))}</ul>
                     </div>
                 </div>
 

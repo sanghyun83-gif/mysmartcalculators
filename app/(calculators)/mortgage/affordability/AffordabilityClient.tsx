@@ -1,17 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { Home, Info } from "lucide-react";
+import { Home, Info, MapPin } from "lucide-react";
 import {
     MORTGAGE_CONSTANTS,
     calculateAffordability,
     formatCurrency,
     parseFormattedNumber,
+    getStatesList,
     AffordabilityResult
 } from "@/lib/calculators/mortgage";
 
 export default function AffordabilityClient() {
     const { defaults, dtiLimits } = MORTGAGE_CONSTANTS;
+    const [state, setState] = useState("CA");
     const [annualIncome, setAnnualIncome] = useState("100,000");
     const [monthlyDebts, setMonthlyDebts] = useState("500");
     const [downPayment, setDownPayment] = useState("80,000");
@@ -30,7 +32,7 @@ export default function AffordabilityClient() {
         const debts = parseFormattedNumber(monthlyDebts) || 0;
         const dp = parseFormattedNumber(downPayment) || 0;
         const rate = parseFloat(interestRate) || defaults.interestRate;
-        setResult(calculateAffordability(income, debts, dp, rate));
+        setResult(calculateAffordability(income, debts, dp, state, rate));
     };
 
     return (
@@ -44,6 +46,22 @@ export default function AffordabilityClient() {
                 </div>
 
                 <div className="space-y-6 text-left">
+                    <div>
+                        <label className="block text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-3">Property Location</label>
+                        <div className="relative group/input">
+                            <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-blue-500/50 group-hover/input:text-blue-500 transition-colors" />
+                            <select
+                                value={state}
+                                onChange={(e) => setState(e.target.value)}
+                                className="w-full bg-slate-950/50 pl-10 pr-4 py-4 text-xl font-black text-white border-2 border-white/5 rounded-2xl focus:border-blue-500 transition-all outline-none appearance-none italic"
+                            >
+                                {getStatesList().map((s) => (
+                                    <option key={s.code} value={s.code}>{s.name}</option>
+                                ))}
+                            </select>
+                        </div>
+                    </div>
+
                     <div>
                         <label className="block text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-3">Annual Income (Before Taxes)</label>
                         <div className="relative">
@@ -122,3 +140,4 @@ export default function AffordabilityClient() {
         </div>
     );
 }
+

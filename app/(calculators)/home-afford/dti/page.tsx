@@ -40,7 +40,7 @@ export default function DTIPage() {
                         Debt-to-Income Ratio Calculator
                     </h1>
                     <p className="text-sm text-slate-500 mb-6">
-                        The 28/36 rule: Housing ≤28%, Total debt ≤36% of income
+                        The 28/36 rule: Housing ??8%, Total debt ??6% of income
                     </p>
 
                     <div className="space-y-4">
@@ -92,13 +92,13 @@ export default function DTIPage() {
                         <div className="flex justify-center mb-2">{getStatusIcon(result.frontEndStatus)}</div>
                         <p className="text-sm text-slate-500">Front-End DTI</p>
                         <p className={`text-4xl font-bold ${getStatusColor(result.frontEndStatus)}`}>{result.frontEndDTI}%</p>
-                        <p className="text-xs text-slate-400 mt-1">Target: ≤{dtiRules.conventional.frontEnd}%</p>
+                        <p className="text-xs text-slate-400 mt-1">Target: ??dtiRules.conventional.frontEnd}%</p>
                     </div>
                     <div className={`bg-white rounded-xl border-2 p-6 text-center ${result.backEndStatus === 'good' ? 'border-green-500' : result.backEndStatus === 'warning' ? 'border-amber-500' : 'border-red-500'}`}>
                         <div className="flex justify-center mb-2">{getStatusIcon(result.backEndStatus)}</div>
                         <p className="text-sm text-slate-500">Back-End DTI</p>
                         <p className={`text-4xl font-bold ${getStatusColor(result.backEndStatus)}`}>{result.backEndDTI}%</p>
-                        <p className="text-xs text-slate-400 mt-1">Target: ≤{dtiRules.conventional.backEnd}%</p>
+                        <p className="text-xs text-slate-400 mt-1">Target: ??dtiRules.conventional.backEnd}%</p>
                     </div>
                 </div>
 
@@ -166,8 +166,7 @@ export default function DTIPage() {
                 </div>
 
                 <Link href="/home-afford/calculator" className="block bg-green-600 hover:bg-green-700 text-white rounded-lg p-4 text-center font-bold">
-                    Calculate Affordability →
-                </Link>
+                    Calculate Affordability ??                </Link>
             </main>
         </>
     );

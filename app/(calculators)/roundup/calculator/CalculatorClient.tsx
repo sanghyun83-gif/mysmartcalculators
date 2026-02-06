@@ -260,7 +260,42 @@ export function CalculatorClient() {
                     </div>
                 </div>
             </section>
-        
+
+            {/* Inline FAQ Section */}
+            <section className="max-w-4xl mx-auto px-6 py-16">
+                <div className="bg-slate-900/60 rounded-[2rem] border border-white/10 p-8 space-y-6">
+                    <h2 className="text-xl font-black text-white tracking-tight">
+                        Roundup Lawsuit FAQ
+                    </h2>
+                    <div className="space-y-6 text-sm">
+                        <div className="pb-4 border-b border-white/5">
+                            <h3 className="font-bold text-white mb-2">
+                                What is the average Roundup settlement in 2026?
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                Average Roundup settlements in 2026 range from $100,000 to $200,000 for Stage 1-2 NHL. Stage 3-4 cases or Burkitt's lymphoma can exceed $500,000. Commercial applicators with heavy exposure may receive higher awards.
+                            </p>
+                        </div>
+                        <div className="pb-4 border-b border-white/5">
+                            <h3 className="font-bold text-white mb-2">
+                                Is the Roundup lawsuit still open in 2026?
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                Yes, new claims are still being accepted for individuals diagnosed with Non-Hodgkin Lymphoma after Roundup exposure. The MDL continues to settle cases, and new cases can still be filed if you meet the criteria.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-white mb-2">
+                                What cancers qualify for Roundup settlement?
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                The lawsuit primarily covers Non-Hodgkin Lymphoma subtypes including Diffuse Large B-Cell, Follicular Lymphoma, CLL, Mantle Cell, and Burkitt's Lymphoma. Other cancers are generally not covered in the current MDL structure.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* FAQPage Schema */}
             <script
                 type="application/ld+json"

@@ -138,7 +138,7 @@ export default function UnemploymentCalculatorPage() {
                             <p className="text-sm text-emerald-100 mb-1">Estimated Weekly Benefit</p>
                             <p className="text-4xl font-bold">{formatCurrency(result.weeklyBenefit)}</p>
                             <p className="text-sm text-emerald-100 mt-2">
-                                {result.state} • Up to {result.estimatedDuration} weeks
+                                {result.state} ??Up to {result.estimatedDuration} weeks
                             </p>
                         </div>
 

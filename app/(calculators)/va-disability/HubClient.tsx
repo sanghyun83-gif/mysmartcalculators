@@ -24,7 +24,7 @@ const FAQ_DATA = [
     },
     {
         q: "What conditions qualify for VA disability?",
-        a: "Any illness, injury, or condition connected to your military service may qualify—including physical injuries, PTSD, hearing loss, tinnitus, sleep apnea, Gulf War Syndrome, Agent Orange exposure conditions, and presumptive conditions. You need evidence of: 1) current diagnosis, 2) in-service event, and 3) a nexus (medical connection)."
+        a: "Any illness, injury, or condition connected to your military service may qualify?�including physical injuries, PTSD, hearing loss, tinnitus, sleep apnea, Gulf War Syndrome, Agent Orange exposure conditions, and presumptive conditions. You need evidence of: 1) current diagnosis, 2) in-service event, and 3) a nexus (medical connection)."
     },
     {
         q: "How do I file a VA disability claim?",
@@ -56,7 +56,7 @@ const FAQ_DATA = [
     },
     {
         q: "What is the difference between VA disability and VA pension?",
-        a: "Disability compensation is for service-connected conditions regardless of income/assets. VA pension is for wartime veterans with limited income who are 65+ or permanently disabled (not necessarily service-connected). You cannot receive both—the VA pays the higher benefit. Disability is usually more valuable."
+        a: "Disability compensation is for service-connected conditions regardless of income/assets. VA pension is for wartime veterans with limited income who are 65+ or permanently disabled (not necessarily service-connected). You cannot receive both?�the VA pays the higher benefit. Disability is usually more valuable."
     },
     {
         q: "What are presumptive conditions?",
@@ -178,7 +178,7 @@ export default function VADisabilityHubClient() {
                         Over 5 million veterans currently receive VA disability compensation, with payments ranging from $175.51/month at 10% to $3,825.12/month at 100% for a single veteran. The 2022 <strong className="text-white">PACT Act</strong> significantly expanded eligibility for toxic exposure conditions, adding 23 new presumptive conditions and extending benefits to millions of additional veterans.
                     </p>
                     <p>
-                        Unlike many government benefits, VA disability has no income limits—you can work full-time and earn any amount while receiving compensation. Combined with the tax-free status, VA disability is one of the most valuable benefits available to veterans. The average veteran receives approximately $1,850/month.
+                        Unlike many government benefits, VA disability has no income limits?�you can work full-time and earn any amount while receiving compensation. Combined with the tax-free status, VA disability is one of the most valuable benefits available to veterans. The average veteran receives approximately $1,850/month.
                     </p>
                 </div>
             </section>
@@ -224,12 +224,12 @@ export default function VADisabilityHubClient() {
                     <div className="bg-slate-900/50 rounded-lg p-4 font-mono text-sm">
                         <p className="text-slate-400">Example: 50% + 30% + 20%</p>
                         <p className="text-blue-400 mt-2">Step 1: 50% of 100% = 50% disabled, 50% "healthy" remaining</p>
-                        <p className="text-green-400">Step 2: 30% of 50% = 15% → Total: 65%, 35% remaining</p>
-                        <p className="text-amber-400">Step 3: 20% of 35% = 7% → Total: 72%</p>
+                        <p className="text-green-400">Step 2: 30% of 50% = 15% ??Total: 65%, 35% remaining</p>
+                        <p className="text-amber-400">Step 3: 20% of 35% = 7% ??Total: 72%</p>
                         <p className="text-white mt-2 font-bold">Final: Rounded to nearest 10% = <span className="text-blue-400">70%</span></p>
                     </div>
                     <p className="text-slate-400 text-sm mt-4">
-                        This is why two 30% ratings don't equal 60%—they combine to approximately 51%, rounded to 50%.
+                        This is why two 30% ratings don't equal 60%?�they combine to approximately 51%, rounded to 50%.
                     </p>
                 </div>
             </section>
@@ -244,22 +244,22 @@ export default function VADisabilityHubClient() {
                         <CheckCircle className="w-8 h-8 text-green-400 mb-3" />
                         <h3 className="font-bold text-white text-lg mb-3">Do This:</h3>
                         <ul className="text-sm text-slate-300 space-y-2">
-                            <li>• File an Intent to File first (preserves effective date)</li>
-                            <li>• Get a Nexus letter from a private doctor</li>
-                            <li>• Use a VSO for free assistance</li>
-                            <li>• Describe your worst days at C&P exams</li>
-                            <li>• Claim secondary conditions (caused by primary)</li>
+                            <li>??File an Intent to File first (preserves effective date)</li>
+                            <li>??Get a Nexus letter from a private doctor</li>
+                            <li>??Use a VSO for free assistance</li>
+                            <li>??Describe your worst days at C&P exams</li>
+                            <li>??Claim secondary conditions (caused by primary)</li>
                         </ul>
                     </div>
                     <div className="bg-slate-800/50 border border-red-500/30 rounded-xl p-6">
                         <AlertTriangle className="w-8 h-8 text-red-400 mb-3" />
                         <h3 className="font-bold text-white text-lg mb-3">Avoid This:</h3>
                         <ul className="text-sm text-slate-300 space-y-2">
-                            <li>• Missing C&P exams (claim will be denied)</li>
-                            <li>• Downplaying symptoms to seem "tough"</li>
-                            <li>• Filing without evidence</li>
-                            <li>• Missing appeal deadlines</li>
-                            <li>• Ignoring mental health conditions</li>
+                            <li>??Missing C&P exams (claim will be denied)</li>
+                            <li>??Downplaying symptoms to seem "tough"</li>
+                            <li>??Filing without evidence</li>
+                            <li>??Missing appeal deadlines</li>
+                            <li>??Ignoring mental health conditions</li>
                         </ul>
                     </div>
                 </div>
@@ -325,11 +325,11 @@ export default function VADisabilityHubClient() {
                     Data Sources & Citations
                 </h3>
                 <ul className="text-xs text-slate-500 space-y-2">
-                    <li>• U.S. Department of Veterans Affairs. "VA Disability Compensation Rates." VA.gov, December 2025.</li>
-                    <li>• U.S. Department of Veterans Affairs. "Combined Ratings (38 CFR 4.25)." VA.gov.</li>
-                    <li>• Congressional Research Service. "Veterans' Disability Compensation: Trends and Policy Options." CRS, 2024.</li>
-                    <li>• Public Law 117-168. "Sergeant First Class Heath Robinson Honoring our Promise to Address Comprehensive Toxics Act (PACT Act)." 117th Congress, 2022.</li>
-                    <li>• Government Accountability Office. "VA Disability Benefits: Additional Planning Would Enhance Efforts to Address Claims Backlog." GAO-24-106328, 2024.</li>
+                    <li>??U.S. Department of Veterans Affairs. "VA Disability Compensation Rates." VA.gov, December 2026.</li>
+                    <li>??U.S. Department of Veterans Affairs. "Combined Ratings (38 CFR 4.25)." VA.gov.</li>
+                    <li>??Congressional Research Service. "Veterans' Disability Compensation: Trends and Policy Options." CRS, 2024.</li>
+                    <li>??Public Law 117-168. "Sergeant First Class Heath Robinson Honoring our Promise to Address Comprehensive Toxics Act (PACT Act)." 117th Congress, 2022.</li>
+                    <li>??Government Accountability Office. "VA Disability Benefits: Additional Planning Would Enhance Efforts to Address Claims Backlog." GAO-24-106328, 2024.</li>
                 </ul>
             </section>
 

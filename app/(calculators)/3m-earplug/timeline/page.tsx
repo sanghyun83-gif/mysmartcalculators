@@ -9,8 +9,8 @@ export default function TimelinePage() {
     const timeline = [
         { phase: "2023", event: "$6B Settlement Announced", status: "Completed" },
         { phase: "2024", event: "Initial Payments Begin", status: "Completed" },
-        { phase: "2024-2025", event: "Tier 1-2 Payments Processing", status: "In Progress" },
-        { phase: "2025-2026", event: "Tier 3-4 Payments Processing", status: "Scheduled" },
+        { phase: "2024-2026", event: "Tier 1-2 Payments Processing", status: "In Progress" },
+        { phase: "2026-2026", event: "Tier 3-4 Payments Processing", status: "Scheduled" },
         { phase: "2026+", event: "Final Distributions Complete", status: "Planned" },
     ];
 
@@ -62,10 +62,10 @@ export default function TimelinePage() {
                 <div className="bg-amber-900/20 border border-amber-500/30 rounded-xl p-6">
                     <h3 className="text-lg font-semibold text-amber-300 mb-3">What to Do While Waiting</h3>
                     <ul className="space-y-2 text-sm text-slate-300">
-                        <li>• Keep contact information updated with your attorney</li>
-                        <li>• Respond promptly to any requests for additional documentation</li>
-                        <li>• Don&apos;t fall for scam calls asking for upfront fees</li>
-                        <li>• Check claim status through official channels only</li>
+                        <li>??Keep contact information updated with your attorney</li>
+                        <li>??Respond promptly to any requests for additional documentation</li>
+                        <li>??Don&apos;t fall for scam calls asking for upfront fees</li>
+                        <li>??Check claim status through official channels only</li>
                     </ul>
                 </div>
 

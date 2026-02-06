@@ -166,7 +166,7 @@ export default function HubClient() {
             <div className="text-sm text-amber-200">
               <p className="font-medium text-white">Exemption Sunset Warning</p>
               <p className="mt-1">
-                The current high exemption is set to expire after 2025, potentially dropping
+                The current high exemption is set to expire after 2026, potentially dropping
                 to ~$7 million per person unless Congress acts.
               </p>
             </div>

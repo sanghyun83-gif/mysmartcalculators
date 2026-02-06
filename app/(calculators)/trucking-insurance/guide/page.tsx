@@ -15,7 +15,7 @@ export default function TruckingInsuranceGuidePage() {
                         <span className="text-lg font-bold text-white">MySmartCalculators</span>
                     </Link>
                     <Link href="/trucking-insurance" className="text-slate-400 hover:text-white text-sm">
-                        ← Back to Overview
+                        ??Back to Overview
                     </Link>
                 </div>
             </header>
@@ -77,20 +77,20 @@ export default function TruckingInsuranceGuidePage() {
                             <CheckCircle className="w-8 h-8 text-green-400 mb-3" />
                             <h3 className="text-lg font-semibold text-white mb-2">For Interstate Carriers</h3>
                             <ul className="text-slate-400 text-sm space-y-2">
-                                <li>• $750,000 minimum liability (non-hazmat)</li>
-                                <li>• $1,000,000+ for hazmat carriers</li>
-                                <li>• MCS-90 endorsement required</li>
-                                <li>• BOC-3 filing mandatory</li>
+                                <li>??$750,000 minimum liability (non-hazmat)</li>
+                                <li>??$1,000,000+ for hazmat carriers</li>
+                                <li>??MCS-90 endorsement required</li>
+                                <li>??BOC-3 filing mandatory</li>
                             </ul>
                         </div>
                         <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
                             <CheckCircle className="w-8 h-8 text-green-400 mb-3" />
                             <h3 className="text-lg font-semibold text-white mb-2">For Owner-Operators</h3>
                             <ul className="text-slate-400 text-sm space-y-2">
-                                <li>• Occupational accident coverage</li>
-                                <li>• Non-trucking liability (bobtail)</li>
-                                <li>• Physical damage for your truck</li>
-                                <li>• Trailer interchange if needed</li>
+                                <li>??Occupational accident coverage</li>
+                                <li>??Non-trucking liability (bobtail)</li>
+                                <li>??Physical damage for your truck</li>
+                                <li>??Trailer interchange if needed</li>
                             </ul>
                         </div>
                     </div>

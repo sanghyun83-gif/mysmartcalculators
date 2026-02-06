@@ -141,8 +141,7 @@ export default function SSCalculatorPage() {
                             <p className="text-sm text-emerald-100 mb-1">Monthly Benefit at Age {result.claimAge}</p>
                             <p className="text-4xl font-bold">{formatCurrency(result.monthlyBenefit)}</p>
                             <p className="text-sm text-emerald-100 mt-2">
-                                {formatCurrency(result.annualBenefit)}/year •
-                                {result.reductionPercent > 0 && ` ${result.reductionPercent}% reduction`}
+                                {formatCurrency(result.annualBenefit)}/year ??                                {result.reductionPercent > 0 && ` ${result.reductionPercent}% reduction`}
                                 {result.increasePercent > 0 && ` +${result.increasePercent}% increase`}
                             </p>
                         </div>

@@ -7,7 +7,7 @@ export const metadata = { title: `PFAS Defendant Companies | ${SITE.name}`, desc
 
 export default function ManufacturersPage() {
     const companies = [
-        { name: "3M Company", product: "Scotchgard, AFFF foam", settlement: "$10.3B (water systems)", status: "Individual claims ongoing", note: "Largest PFAS manufacturer; exiting PFAS production by 2025" },
+        { name: "3M Company", product: "Scotchgard, AFFF foam", settlement: "$10.3B (water systems)", status: "Individual claims ongoing", note: "Largest PFAS manufacturer; exiting PFAS production by 2026" },
         { name: "DuPont/Chemours", product: "Teflon, C8/PFOA", settlement: "Multiple settlements", status: "Active MDL litigation", note: "Spin-off Chemours handling legacy liabilities" },
         { name: "Tyco Fire Products", product: "AFFF firefighting foam", settlement: "Pending", status: "Active litigation", note: "Major AFFF supplier to military and airports" },
         { name: "Kidde-Fenwal", product: "Fire suppression systems", settlement: "Pending", status: "Active litigation", note: "Industrial fire suppression manufacturer" },

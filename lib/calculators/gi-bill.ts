@@ -60,7 +60,7 @@ export const GI_BILL_2026 = {
     statistics: {
         beneficiaries: 700000,
         avgAnnualBenefit: 25000,
-        totalPaid2025: 12500000000,  // $12.5B
+        totalPaid2026: 12500000000,  // $12.5B
         percentUsing: 85,
     },
 } as const;

@@ -141,7 +141,7 @@ export default function GIBillCalculatorPage() {
                             <p className="text-sm text-emerald-100 mb-1">Estimated Annual Benefits</p>
                             <p className="text-4xl font-bold">{formatCurrency(result.totalAnnual)}</p>
                             <p className="text-sm text-emerald-100 mt-2">
-                                {result.billType} • {result.eligibilityPercent}% eligibility
+                                {result.billType} ??{result.eligibilityPercent}% eligibility
                             </p>
                         </div>
 
@@ -205,7 +205,7 @@ export default function GIBillCalculatorPage() {
                                 Which GI Bill should I use?
                             </h3>
                             <p className="text-slate-400">
-                                Post-9/11 is usually better—it pays tuition directly plus housing.
+                                Post-9/11 is usually better?�it pays tuition directly plus housing.
                                 Montgomery gives a flat payment but no housing allowance.
                             </p>
                         </div>

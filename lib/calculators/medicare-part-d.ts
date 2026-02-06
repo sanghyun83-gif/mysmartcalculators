@@ -27,7 +27,7 @@ export const COVERAGE_PHASES = [
 // ============================================
 export const STATISTICS = [
     { label: "2026 Deductible", value: "$590", description: "Max annual" },
-    { label: "OOP Cap", value: "$2,000", description: "New 2025 law" },
+    { label: "OOP Cap", value: "$2,000", description: "New 2026 law" },
     { label: "Catastrophic", value: "$0", description: "After cap" },
 ];
 
@@ -37,11 +37,11 @@ export const STATISTICS = [
 export const FAQS = [
     {
         question: "What is the Medicare Part D donut hole?",
-        answer: "The donut hole (coverage gap) was a phase where you paid more for drugs. Starting 2025, it's effectively eliminated. The new $2,000 annual out-of-pocket cap means you pay nothing after reaching this limit. Before, you could pay thousands in the gap."
+        answer: "The donut hole (coverage gap) was a phase where you paid more for drugs. Starting 2026, it's effectively eliminated. The new $2,000 annual out-of-pocket cap means you pay nothing after reaching this limit. Before, you could pay thousands in the gap."
     },
     {
         question: "What is the 2026 Part D out-of-pocket cap?",
-        answer: "The Inflation Reduction Act introduced a $2,000 annual out-of-pocket cap for Part D starting 2025. Once you reach $2,000 in true out-of-pocket costs (deductible + copays), you pay $0 for covered drugs the rest of the year. This is a major improvement."
+        answer: "The Inflation Reduction Act introduced a $2,000 annual out-of-pocket cap for Part D starting 2026. Once you reach $2,000 in true out-of-pocket costs (deductible + copays), you pay $0 for covered drugs the rest of the year. This is a major improvement."
     },
     {
         question: "How much is the Part D premium?",

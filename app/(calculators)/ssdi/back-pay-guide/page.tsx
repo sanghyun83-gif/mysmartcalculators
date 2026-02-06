@@ -90,7 +90,7 @@ export default function BackPayGuidePage() {
                                     By law, no benefits are paid for the first 5 full months after your onset date. This period is unpaid.
                                 </p>
                                 <div className="mt-2 p-2 bg-amber-900/30 rounded text-xs text-amber-200">
-                                    ⚠️ Exception: If you received SSI during this time, you may not have a waiting period.
+                                    ?�️ Exception: If you received SSI during this time, you may not have a waiting period.
                                 </div>
                             </div>
                         </div>
@@ -199,10 +199,10 @@ export default function BackPayGuidePage() {
                         <div className="text-sm text-amber-200">
                             <p className="font-medium text-white mb-2">Important Notes About Back Pay</p>
                             <ul className="space-y-1">
-                                <li>• Large back pay amounts (over ~$10,000) may be paid in 3 installments, 6 months apart</li>
-                                <li>• Back pay may affect other benefits like SSI, Medicaid, or SNAP temporarily</li>
-                                <li>• SSDI back pay is generally NOT taxed at the federal level (consult a tax advisor)</li>
-                                <li>• You should receive your lump sum within 60 days of approval</li>
+                                <li>??Large back pay amounts (over ~$10,000) may be paid in 3 installments, 6 months apart</li>
+                                <li>??Back pay may affect other benefits like SSI, Medicaid, or SNAP temporarily</li>
+                                <li>??SSDI back pay is generally NOT taxed at the federal level (consult a tax advisor)</li>
+                                <li>??You should receive your lump sum within 60 days of approval</li>
                             </ul>
                         </div>
                     </div>

@@ -45,11 +45,11 @@ export default function IBDPage() {
                 <div className="mt-12 bg-purple-900/20 border border-purple-500/30 rounded-xl p-6">
                     <h3 className="text-lg font-semibold text-purple-300 mb-3">IBD Symptoms to Watch</h3>
                     <ul className="space-y-2 text-slate-300">
-                        <li>• Persistent diarrhea (often bloody)</li>
-                        <li>• Abdominal pain and cramping</li>
-                        <li>• Unexplained weight loss</li>
-                        <li>• Fatigue and malaise</li>
-                        <li>• Urgency to use bathroom</li>
+                        <li>??Persistent diarrhea (often bloody)</li>
+                        <li>??Abdominal pain and cramping</li>
+                        <li>??Unexplained weight loss</li>
+                        <li>??Fatigue and malaise</li>
+                        <li>??Urgency to use bathroom</li>
                     </ul>
                 </div>
                 <div className="mt-12 text-center"><Link href="/accutane/calculator" className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-xl font-semibold">Estimate Settlement<ArrowRight className="w-5 h-5" /></Link></div>

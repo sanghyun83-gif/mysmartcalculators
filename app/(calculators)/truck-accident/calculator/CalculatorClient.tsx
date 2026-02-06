@@ -19,6 +19,7 @@ export function CalculatorClient() {
     const [fault, setFault] = useState(0);
 
     const states = getStatesList();
+    const currentStateData = states.find(s => s.code === state);
 
     const results = useMemo(() => {
         return calculateSettlement(
@@ -95,23 +96,40 @@ export function CalculatorClient() {
                             ))}
                         </div>
 
-                        {/* Fault Slider */}
-                        <div className="space-y-4 p-6 bg-white/5 rounded-3xl border border-white/5">
-                            <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-slate-400">
-                                <span>Comparative Fault Audit</span>
-                                <span className={fault > 0 ? "text-red-500" : "text-emerald-500"}>{fault}% At-Fault</span>
+                        {/* Fault Slider & Legal Info */}
+                        <div className="grid md:grid-cols-2 gap-6">
+                            <div className="space-y-4 p-6 bg-white/5 rounded-3xl border border-white/5">
+                                <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-slate-400">
+                                    <span>Comparative Fault Audit</span>
+                                    <span className={fault > 0 ? "text-red-500" : "text-emerald-500"}>{fault}% At-Fault</span>
+                                </div>
+                                <input
+                                    type="range"
+                                    min="0" max="100"
+                                    value={fault}
+                                    onChange={(e) => setFault(parseInt(e.target.value))}
+                                    className="w-full h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-red-600"
+                                />
+                                <p className="text-[9px] text-slate-500 font-bold italic leading-relaxed">
+                                    Adjusted for {results.stateName} {results.faultSystem.toUpperCase()} laws.
+                                    {fault > 50 && " Caution: Recovery may be barred in Modified states."}
+                                </p>
                             </div>
-                            <input
-                                type="range"
-                                min="0" max="100"
-                                value={fault}
-                                onChange={(e) => setFault(parseInt(e.target.value))}
-                                className="w-full h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-red-600"
-                            />
-                            <p className="text-[9px] text-slate-500 font-bold italic leading-relaxed">
-                                Adjusted for {results.stateName} {results.faultSystem.toUpperCase()} laws.
-                                {fault > 50 && " Caution: Recovery may be barred in Modified states."}
-                            </p>
+
+                            <div className="p-6 bg-white/5 border border-white/10 rounded-[2rem] space-y-4">
+                                <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-widest">
+                                    <span className="text-slate-500">Statute of Limitations</span>
+                                    <span className="text-white">{currentStateData?.biSOL} Years (Injury)</span>
+                                </div>
+                                <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-widest">
+                                    <span className="text-slate-500">Negligence Rule</span>
+                                    <span className="text-red-500">{currentStateData?.negligence}</span>
+                                </div>
+                                <div className="flex items-center gap-2 text-[9px] font-bold text-slate-400 italic">
+                                    <Info className="w-3 h-3 text-red-500" />
+                                    <span>2026 Jurisdictional Baseline Applied</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -199,8 +217,44 @@ export function CalculatorClient() {
                     </Link>
                 </div>
             </div>
-        
+
+            {/* Inline FAQ Section */}
+            <section className="max-w-4xl mx-auto px-6 py-16">
+                <div className="bg-slate-900/60 rounded-[2rem] border border-white/10 p-8 space-y-6">
+                    <h2 className="text-xl font-black text-white tracking-tight">
+                        Truck Accident FAQ
+                    </h2>
+                    <div className="space-y-6 text-sm">
+                        <div className="pb-4 border-b border-white/5">
+                            <h3 className="font-bold text-white mb-2">
+                                Why are truck accident settlements higher than car accidents?
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                Semi-trucks weigh up to 80,000 lbs vs 4,000 lbs for cars. This massive weight differential causes more severe injuries. Additionally, commercial trucking companies carry $1M+ insurance policies, and multiple liable parties (driver, trucking company, cargo loader) increase recovery potential.
+                            </p>
+                        </div>
+                        <div className="pb-4 border-b border-white/5">
+                            <h3 className="font-bold text-white mb-2">
+                                What is the average 18-wheeler settlement in 2026?
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                Average truck accident settlements in 2026 range from $50,000-$200,000 for moderate injuries. Severe injuries with permanent disability can exceed $1 million. Catastrophic cases involving wrongful death may reach $5-10 million.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-white mb-2">
+                                Who can be held liable in a truck accident?
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                Multiple parties may be liable: the truck driver, trucking company (vicarious liability), cargo loading company, truck manufacturer (defects), and maintenance providers. An experienced attorney can identify all responsible parties to maximize your recovery.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* FAQPage Schema */}
+
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{

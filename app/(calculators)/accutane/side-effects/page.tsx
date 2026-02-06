@@ -40,9 +40,9 @@ export default function SideEffectsPage() {
                 <div className="mt-12 bg-red-900/20 border border-red-500/30 rounded-xl p-6">
                     <h3 className="text-lg font-semibold text-red-300 mb-3">FDA Black Box Warnings</h3>
                     <ul className="space-y-2 text-slate-300">
-                        <li>• Pregnancy: MUST NOT take if pregnant - severe birth defects</li>
-                        <li>• Depression: May cause depression and suicidal thoughts</li>
-                        <li>• iPLEDGE: Required registration program for all patients</li>
+                        <li>??Pregnancy: MUST NOT take if pregnant - severe birth defects</li>
+                        <li>??Depression: May cause depression and suicidal thoughts</li>
+                        <li>??iPLEDGE: Required registration program for all patients</li>
                     </ul>
                 </div>
                 <div className="mt-12 text-center"><Link href="/accutane/calculator" className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-xl font-semibold">Estimate Settlement<ArrowRight className="w-5 h-5" /></Link></div>

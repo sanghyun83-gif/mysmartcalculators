@@ -131,11 +131,11 @@ export default function TBIGuidePage() {
                             Common Causes
                         </h2>
                         <ul className="space-y-2 text-sm text-amber-200">
-                            <li>• Falls ({TBI_2026.statistics.fallsPercent}%)</li>
-                            <li>• Vehicle Accidents ({TBI_2026.statistics.vehiclePercent}%)</li>
-                            <li>• Assaults ({TBI_2026.statistics.assaultPercent}%)</li>
-                            <li>• Sports Injuries ({TBI_2026.statistics.sportsPercent}%)</li>
-                            <li>• Other/Unknown</li>
+                            <li>??Falls ({TBI_2026.statistics.fallsPercent}%)</li>
+                            <li>??Vehicle Accidents ({TBI_2026.statistics.vehiclePercent}%)</li>
+                            <li>??Assaults ({TBI_2026.statistics.assaultPercent}%)</li>
+                            <li>??Sports Injuries ({TBI_2026.statistics.sportsPercent}%)</li>
+                            <li>??Other/Unknown</li>
                         </ul>
                     </div>
                     <div className="bg-orange-900/20 border border-orange-500/50 rounded-xl p-6">
@@ -145,7 +145,7 @@ export default function TBIGuidePage() {
                         </h2>
                         <ul className="space-y-2 text-sm text-orange-200">
                             {TBI_2026.symptoms.map((symptom, index) => (
-                                <li key={index}>• {symptom}</li>
+                                <li key={index}>??{symptom}</li>
                             ))}
                         </ul>
                     </div>

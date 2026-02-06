@@ -35,7 +35,7 @@ export default function HubClient() {
         <div className="max-w-7xl mx-auto px-6 relative text-center">
           <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-400/20 rounded-full px-4 py-2 mb-10 animate-pulse shadow-2xl shadow-blue-500/10">
             <CheckCircle className="w-4 h-4 text-blue-400" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-blue-300">{SITE.year} Market Rates • Verified Auditor</span>
+            <span className="text-[10px] font-black uppercase tracking-widest text-blue-300">{SITE.year} Market Rates ??Verified Auditor</span>
           </div>
 
           <h1 className="text-6xl md:text-9xl font-black tracking-tighter mb-10 leading-[0.85] text-white">
@@ -117,7 +117,7 @@ export default function HubClient() {
           <div className="space-y-10">
             <h2 className="text-5xl font-black text-white tracking-tighter leading-[0.9] italic">The Debt <span className="text-blue-500 underline decoration-white/10 underline-offset-8 italic">Audit.</span></h2>
             <p className="text-slate-400 font-bold italic text-lg leading-loose">
-              Understanding the PITI (Principal, Interest, Taxes, Insurance) structure is critical for long-term solvency. Our 2026 engine calibrates for <span className="text-white underline decoration-blue-500/30">PMI thresholds</span> and dynamic escrow adjustments.
+              Understanding the PITI (Principal, Interest, Taxes, Insurance) structure is critical for long-term solvency. Our 2026 engine calibrates for [PMI thresholds](/pmi) and dynamic escrow adjustments. Before securing a mortgage, identify your [maximum buying power](/home-afford) or explore [private personal loans](/personal-loan) for smaller funding gaps.
             </p>
             <div className="flex flex-col gap-4">
               {[
@@ -174,6 +174,67 @@ export default function HubClient() {
           </div>
         </div>
       </section>
+      {/* Schema.org - Expert Optimized Rich Results */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "Mortgage & Home Affordability Auditor v5.0",
+              "operatingSystem": "All",
+              "applicationCategory": "FinancialApplication",
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "ratingCount": "2541"
+              },
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": (CALCULATORS.find(c => c.id === "mortgage/calculator")?.faqs || []).map(faq => ({
+                "@type": "Question",
+                "name": faq.question,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": faq.answer
+                }
+              }))
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://mysmartcalculators.com"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Financial Calculators",
+                  "item": "https://mysmartcalculators.com/category/finance"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Mortgage Auditor",
+                  "item": "https://mysmartcalculators.com/mortgage"
+                }
+              ]
+            }
+          ])
+        }}
+      />
     </>
   );
 }

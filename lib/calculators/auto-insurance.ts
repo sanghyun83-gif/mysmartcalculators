@@ -1,27 +1,30 @@
 // ============================================
 // AUTO-INSURANCE-CALC SITE CONFIGURATION
-// 2025 Auto Insurance Calculator
+// 2026 Auto Insurance Calculator
 // Blue Theme
 // ============================================
 
 import { Calculator, Car, MapPin, Users, Shield } from 'lucide-react';
+import { STATE_INSURANCE_DATA, getStatesList } from './auto-insurance/state-data';
+
+export { STATE_INSURANCE_DATA, getStatesList };
 
 // ============================================
 // SITE METADATA
 // ============================================
 export const SITE = {
     name: "Auto Insurance Calculator",
-    tagline: "Free 2025 Rate Estimator",
+    tagline: "Free 2026 Rate Estimator",
     description: "Calculate your auto insurance premium for free. Compare rates by state, age, and coverage type. Get instant estimates and save money on car insurance.",
-    year: 2025,
+    year: 2026,
     baseUrl: "https://mysmartcalculators.com/auto-insurance",
 };
 
 // ============================================
-// 2025 AUTO INSURANCE CONSTANTS
+// 2026 AUTO INSURANCE CONSTANTS
 // ============================================
 export const AUTO_INSURANCE_CONSTANTS = {
-    // National average annual premium (2025)
+    // National average annual premium (2026)
     nationalAverage: 1800,
 
     // Average premiums by state (annual, full coverage)

@@ -151,10 +151,10 @@ export default function NegotiationGuidePage() {
                         <div className="text-sm text-amber-200">
                             <p className="font-medium text-white mb-2">Watch Out For:</p>
                             <ul className="space-y-1">
-                                <li>• Non-compete or non-solicitation clauses that limit future work</li>
-                                <li>• Non-disparagement clauses that are too broad</li>
-                                <li>• Releases that waive claims you may want to pursue</li>
-                                <li>• Unclear language about unemployment benefits</li>
+                                <li>??Non-compete or non-solicitation clauses that limit future work</li>
+                                <li>??Non-disparagement clauses that are too broad</li>
+                                <li>??Releases that waive claims you may want to pursue</li>
+                                <li>??Unclear language about unemployment benefits</li>
                             </ul>
                         </div>
                     </div>

@@ -14,7 +14,7 @@ export default function MedicarePartDCalculatorPage() {
 
     const calculateCosts = () => {
         const deductible = 590; // 2026 deductible
-        const oopCap = 2000; // 2025+ cap
+        const oopCap = 2000; // 2026+ cap
         const afterDeductible = Math.max(0, annualDrugCost - deductible);
 
         // 25% coinsurance until OOP cap

@@ -2,14 +2,16 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, Calculator, Car, Info } from "lucide-react";
+import { ArrowLeft, Calculator, Car, Info, Shield } from "lucide-react";
 import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 import {
     SITE,
     AUTO_INSURANCE_CONSTANTS,
     calculatePremium,
     formatCurrency,
-    PremiumResult
+    PremiumResult,
+    STATE_INSURANCE_DATA,
+    getStatesList
 } from "@/lib/calculators/auto-insurance";
 
 export default function PremiumCalculatorPage() {
@@ -23,9 +25,14 @@ export default function PremiumCalculatorPage() {
     const [vehicle, setVehicle] = useState(defaults.vehicleType);
     const [result, setResult] = useState<PremiumResult | null>(null);
 
+    const statesList = getStatesList();
+    const currentStateData = STATE_INSURANCE_DATA[state] || STATE_INSURANCE_DATA["AL"]; // Fallback to handle name vs code mismatch if any
+
     const handleCalculate = () => {
         const ageNum = parseInt(age) || 35;
-        setResult(calculatePremium(ageNum, state, coverage, driving, vehicle));
+        // Map state code back to name for the legacy calculatePremium function if needed, 
+        // but currentStateData.name is safer.
+        setResult(calculatePremium(ageNum, currentStateData?.name || state, coverage, driving, vehicle));
     };
 
     return (
@@ -42,7 +49,7 @@ export default function PremiumCalculatorPage() {
 
                     {/* Inputs */}
                     <div className="space-y-5 mb-6">
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid md:grid-cols-2 gap-4">
                             <div>
                                 <label className="block text-sm font-semibold text-slate-700 mb-2">Your Age</label>
                                 <input type="number" value={age} onChange={(e) => setAge(e.target.value)} min="16" max="80"
@@ -52,10 +59,38 @@ export default function PremiumCalculatorPage() {
                                 <label className="block text-sm font-semibold text-slate-700 mb-2">State</label>
                                 <select value={state} onChange={(e) => setState(e.target.value)}
                                     className="w-full px-4 py-3 border-2 border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white">
-                                    {states.map(s => (
-                                        <option key={s} value={s}>{s}</option>
+                                    {statesList.map(s => (
+                                        <option key={s.code} value={s.code}>{s.name}</option>
                                     ))}
                                 </select>
+                            </div>
+                        </div>
+
+                        {/* State Legal Block */}
+                        <div className="p-4 bg-blue-50 border border-blue-100 rounded-xl space-y-3">
+                            <div className="flex items-center gap-2 text-blue-800 font-bold text-xs uppercase tracking-wider">
+                                <Shield className="w-4 h-4" />
+                                2026 {currentStateData?.name} Minimum Requirements
+                            </div>
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="space-y-1">
+                                    <p className="text-[10px] text-slate-500 font-bold uppercase">Bodily Injury (P/A)</p>
+                                    <p className="text-sm font-black text-slate-800">${currentStateData?.minBI_Person.toLocaleString()} / ${currentStateData?.minBI_Accident.toLocaleString()}</p>
+                                </div>
+                                <div className="space-y-1">
+                                    <p className="text-[10px] text-slate-500 font-bold uppercase">Property Damage</p>
+                                    <p className="text-sm font-black text-slate-800">${currentStateData?.minPD.toLocaleString()}</p>
+                                </div>
+                                <div className="space-y-1">
+                                    <p className="text-[10px] text-slate-500 font-bold uppercase">Insurance System</p>
+                                    <p className="text-sm font-black text-slate-800">{currentStateData?.system}</p>
+                                </div>
+                                <div className="space-y-1">
+                                    <p className="text-[10px] text-slate-500 font-bold uppercase">PIP Required</p>
+                                    <p className={`text-sm font-black ${currentStateData?.pipRequired ? 'text-blue-600' : 'text-slate-400'}`}>
+                                        {currentStateData?.pipRequired ? 'Yes (Mandatory)' : 'No'}
+                                    </p>
+                                </div>
                             </div>
                         </div>
 
@@ -167,14 +202,49 @@ export default function PremiumCalculatorPage() {
 
                 <div className="grid grid-cols-2 gap-4">
                     <Link href="/auto-insurance/by-state" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-blue-500 transition-colors">
-                        <p className="text-sm font-medium text-slate-600">Compare by State →</p>
+                        <p className="text-sm font-medium text-slate-600">Compare by State ??/p>
                     </Link>
                     <Link href="/auto-insurance/by-age" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-blue-500 transition-colors">
-                        <p className="text-sm font-medium text-slate-600">Compare by Age →</p>
+                        <p className="text-sm font-medium text-slate-600">Compare by Age ??/p>
                     </Link>
                 </div>
             </main>
-        
+
+            {/* Inline FAQ Section */}
+            <section className="max-w-2xl mx-auto px-4 py-12">
+                <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
+                    <h2 className="text-lg font-bold text-slate-800 mb-4">
+                        Auto Insurance FAQ
+                    </h2>
+                    <div className="space-y-4 text-sm">
+                        <div className="pb-3 border-b border-slate-100">
+                            <h3 className="font-semibold text-slate-800 mb-1">
+                                What is the average car insurance cost in 2026?
+                            </h3>
+                            <p className="text-slate-600">
+                                The national average for full coverage auto insurance in 2026 is $2,014 per year ($168/month). Rates vary significantly by state - Maine is cheapest at $1,273/year while Michigan is most expensive at $3,423/year.
+                            </p>
+                        </div>
+                        <div className="pb-3 border-b border-slate-100">
+                            <h3 className="font-semibold text-slate-800 mb-1">
+                                How can I lower my car insurance premium?
+                            </h3>
+                            <p className="text-slate-600">
+                                Top ways to reduce premiums: bundle with home insurance (5-25% discount), raise your deductible, maintain a clean driving record, take defensive driving courses, and compare quotes from multiple insurers annually.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 className="font-semibold text-slate-800 mb-1">
+                                Does credit score affect insurance rates?
+                            </h3>
+                            <p className="text-slate-600">
+                                Yes, in most states. Poor credit can increase premiums by 50-100% compared to excellent credit. Only California, Hawaii, and Massachusetts prohibit using credit scores for auto insurance pricing.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* FAQPage Schema */}
             <script
                 type="application/ld+json"

@@ -13,7 +13,7 @@ export default function RideshareInsuranceGuidePage() {
                         <Calculator className="w-6 h-6 text-blue-500" />
                         <span className="text-lg font-bold text-white">MySmartCalculators</span>
                     </Link>
-                    <Link href="/rideshare-insurance" className="text-slate-400 hover:text-white text-sm">← Back to Overview</Link>
+                    <Link href="/rideshare-insurance" className="text-slate-400 hover:text-white text-sm">??Back to Overview</Link>
                 </div>
             </header>
 
@@ -60,7 +60,7 @@ export default function RideshareInsuranceGuidePage() {
                                         <h4 className="text-sm font-semibold text-red-400 mb-2">Cons</h4>
                                         <ul className="space-y-1">
                                             {option.cons.map((con, i) => (
-                                                <li key={i} className="text-sm text-slate-400">• {con}</li>
+                                                <li key={i} className="text-sm text-slate-400">??{con}</li>
                                             ))}
                                         </ul>
                                     </div>

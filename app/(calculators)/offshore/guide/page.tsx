@@ -36,11 +36,11 @@ export default function OffshoreGuidePage() {
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div className="bg-blue-900/20 border border-blue-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Shield className="w-5 h-5 text-blue-500" />Worker Classifications</h2>
-                        <ul className="space-y-2 text-sm text-blue-200">{MARITIME_2026.workerTypes.map((w, i) => (<li key={i}>• <strong>{w.type}:</strong> {w.description}</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-blue-200">{MARITIME_2026.workerTypes.map((w, i) => (<li key={i}>??<strong>{w.type}:</strong> {w.description}</li>))}</ul>
                     </div>
                     <div className="bg-cyan-900/20 border border-cyan-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Anchor className="w-5 h-5 text-cyan-500" />Vessel Types</h2>
-                        <ul className="space-y-2 text-sm text-cyan-200">{MARITIME_2026.vesselTypes.map((v, i) => (<li key={i}>• <strong>{v.vessel}:</strong> {v.type}</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-cyan-200">{MARITIME_2026.vesselTypes.map((v, i) => (<li key={i}>??<strong>{v.vessel}:</strong> {v.type}</li>))}</ul>
                     </div>
                 </div>
 

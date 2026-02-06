@@ -103,11 +103,11 @@ export default function RecoveryGuidePage() {
                             Causes of SCI
                         </h2>
                         <ul className="space-y-2 text-sm text-amber-200">
-                            <li>• Vehicle Accidents ({SCI_2026.statistics.vehicleAccidentPercent}%)</li>
-                            <li>• Falls ({SCI_2026.statistics.fallsPercent}%)</li>
-                            <li>• Violence ({SCI_2026.statistics.violencePercent}%)</li>
-                            <li>• Sports/Recreation ({SCI_2026.statistics.sportsPercent}%)</li>
-                            <li>• Medical/Surgical Complications</li>
+                            <li>??Vehicle Accidents ({SCI_2026.statistics.vehicleAccidentPercent}%)</li>
+                            <li>??Falls ({SCI_2026.statistics.fallsPercent}%)</li>
+                            <li>??Violence ({SCI_2026.statistics.violencePercent}%)</li>
+                            <li>??Sports/Recreation ({SCI_2026.statistics.sportsPercent}%)</li>
+                            <li>??Medical/Surgical Complications</li>
                         </ul>
                     </div>
                     <div className="bg-orange-900/20 border border-orange-500/50 rounded-xl p-6">
@@ -116,11 +116,11 @@ export default function RecoveryGuidePage() {
                             Settlement Factors
                         </h2>
                         <ul className="space-y-2 text-sm text-orange-200">
-                            <li>• Injury severity (complete vs incomplete)</li>
-                            <li>• Level of injury (cervical vs thoracic)</li>
-                            <li>• Lifetime care requirements</li>
-                            <li>• Lost earning capacity</li>
-                            <li>• Defendant&apos;s degree of negligence</li>
+                            <li>??Injury severity (complete vs incomplete)</li>
+                            <li>??Level of injury (cervical vs thoracic)</li>
+                            <li>??Lifetime care requirements</li>
+                            <li>??Lost earning capacity</li>
+                            <li>??Defendant&apos;s degree of negligence</li>
                         </ul>
                     </div>
                 </div>

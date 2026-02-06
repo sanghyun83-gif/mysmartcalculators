@@ -67,10 +67,10 @@ export default function ExemptionGuidePage() {
                     <div className="bg-slate-700/50 rounded-lg p-4">
                         <p className="text-sm text-slate-400 mb-2">Example:</p>
                         <ul className="text-sm text-slate-300 space-y-1">
-                            <li>• First spouse dies with $5M estate (uses $5M of exemption)</li>
-                            <li>• Remaining exemption: {formatCurrency(ESTATE_TAX_2026.federalExemption - 5000000)}</li>
-                            <li>• With portability, surviving spouse gets this PLUS their own {formatCurrency(ESTATE_TAX_2026.federalExemption)}</li>
-                            <li>• <strong>Total available:</strong> {formatCurrency(ESTATE_TAX_2026.marriedExemption - 5000000)}</li>
+                            <li>??First spouse dies with $5M estate (uses $5M of exemption)</li>
+                            <li>??Remaining exemption: {formatCurrency(ESTATE_TAX_2026.federalExemption - 5000000)}</li>
+                            <li>??With portability, surviving spouse gets this PLUS their own {formatCurrency(ESTATE_TAX_2026.federalExemption)}</li>
+                            <li>??<strong>Total available:</strong> {formatCurrency(ESTATE_TAX_2026.marriedExemption - 5000000)}</li>
                         </ul>
                     </div>
 
@@ -142,10 +142,10 @@ export default function ExemptionGuidePage() {
                     <div className="flex items-start gap-3">
                         <AlertTriangle className="w-5 h-5 text-red-400 mt-0.5" />
                         <div className="text-sm text-red-200">
-                            <p className="font-medium text-white mb-2">⚠️ Exemption Sunset Warning</p>
+                            <p className="font-medium text-white mb-2">?�️ Exemption Sunset Warning</p>
                             <p>
                                 The current high exemption ({formatCurrency(ESTATE_TAX_2026.federalExemption)}) is
-                                scheduled to sunset after 2025. Without Congressional action, the exemption
+                                scheduled to sunset after 2026. Without Congressional action, the exemption
                                 may drop to approximately <strong>$6-7 million</strong> per person.
                             </p>
                         </div>

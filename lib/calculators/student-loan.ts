@@ -1,6 +1,6 @@
 // ============================================
 // STUDENT-LOAN-CALC SITE CONFIGURATION
-// 2025-2026 Student Loan Calculator
+// 2026-2026 Student Loan Calculator
 // Blue/Education Theme
 // ============================================
 
@@ -11,24 +11,24 @@ import { Calculator, GraduationCap, DollarSign, TrendingDown, Briefcase, Award, 
 // ============================================
 export const SITE = {
     name: "Student Loan Calculator",
-    tagline: "Free 2025 Student Loan Tools",
+    tagline: "Free 2026 Student Loan Tools",
     description: "Calculate your student loan payments, refinancing savings, and repayment options. See PSLF eligibility, IDR plans, and loan forgiveness timelines.",
-    year: 2025,
+    year: 2026,
     baseUrl: "https://mysmartcalculators.com/student-loan",
 };
 
 // ============================================
-// 2025-2026 FEDERAL STUDENT LOAN CONSTANTS
-// Effective: July 1, 2025 - June 30, 2026
+// 2026-2026 FEDERAL STUDENT LOAN CONSTANTS
+// Effective: July 1, 2026 - June 30, 2026
 // ============================================
 export const STUDENT_LOAN_CONSTANTS = {
-    // 2025-26 Federal Direct Loan Interest Rates
+    // 2026-26 Federal Direct Loan Interest Rates
     federalRates: {
         subsidized: 6.39,           // Undergrad Direct Subsidized
         unsubsidizedUndergrad: 6.39, // Undergrad Direct Unsubsidized
         unsubsidizedGrad: 7.94,      // Grad/Professional Direct Unsubsidized
         plus: 8.94,                  // Parent PLUS & Grad PLUS
-        effectiveDate: "July 1, 2025 - June 30, 2026",
+        effectiveDate: "July 1, 2026 - June 30, 2026",
     },
 
     // Origination Fees (as of Oct 2020 - Oct 2026)

@@ -297,7 +297,7 @@ export default function LemonCalculatorPage() {
                             </h3>
                             <p className="text-slate-400">
                                 While not required, a lemon law attorney is strongly recommended.
-                                If you win, the manufacturer pays the attorney fees—not you.
+                                If you win, the manufacturer pays the attorney fees?�not you.
                             </p>
                         </div>
                         <div>

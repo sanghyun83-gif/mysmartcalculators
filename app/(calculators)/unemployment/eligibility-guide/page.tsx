@@ -88,14 +88,13 @@ export default function EligibilityGuidePage() {
                     </h2>
 
                     <p className="text-slate-300 mb-4">
-                        Your benefit amount is calculated using wages from your <strong>base period</strong> —
-                        typically the first four of the last five completed calendar quarters before you file.
+                        Your benefit amount is calculated using wages from your <strong>base period</strong> ??                        typically the first four of the last five completed calendar quarters before you file.
                     </p>
 
                     <div className="bg-slate-700/50 rounded-lg p-4 mb-4">
                         <p className="text-sm text-slate-400 mb-2">Example: Filing in January 2026</p>
                         <p className="text-slate-300">
-                            Base period = Oct 2024 – Sept 2025 wages
+                            Base period = Oct 2024 ??Sept 2026 wages
                         </p>
                     </div>
 
@@ -149,10 +148,10 @@ export default function EligibilityGuidePage() {
                         <div className="text-sm text-amber-200">
                             <p className="font-medium text-white mb-2">Important Reminders</p>
                             <ul className="space-y-1">
-                                <li>• File as soon as you&apos;re laid off — don&apos;t wait</li>
-                                <li>• Report ALL income while receiving benefits</li>
-                                <li>• Keep records of your job search activities</li>
-                                <li>• UI fraud is a crime with serious penalties</li>
+                                <li>??File as soon as you&apos;re laid off ??don&apos;t wait</li>
+                                <li>??Report ALL income while receiving benefits</li>
+                                <li>??Keep records of your job search activities</li>
+                                <li>??UI fraud is a crime with serious penalties</li>
                             </ul>
                         </div>
                     </div>

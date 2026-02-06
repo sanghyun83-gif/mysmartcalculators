@@ -52,7 +52,7 @@ const FAQ_DATA = [
     },
     {
         q: "What happens to Social Security benefits when a spouse dies?",
-        a: "The surviving spouse can receive up to 100% of the deceased spouse's benefit (survivor benefits). The amount depends on the survivor's age when claiming. At FRA, you receive 100%; at 60, about 71.5%. You cannot collect both your own benefit and survivor benefits simultaneously—you get the higher of the two."
+        a: "The surviving spouse can receive up to 100% of the deceased spouse's benefit (survivor benefits). The amount depends on the survivor's age when claiming. At FRA, you receive 100%; at 60, about 71.5%. You cannot collect both your own benefit and survivor benefits simultaneously?�you get the higher of the two."
     },
     {
         q: "Is Social Security taxable?",
@@ -178,7 +178,7 @@ export default function SocialSecurityHubClient() {
                         Retirement benefits are funded through payroll taxes (FICA). In {SITE.year}, employees and employers each pay 6.2% of wages up to the taxable maximum ($168,600 projected for 2026). Your benefit amount is calculated based on your 35 highest-earning years, making consistent work history crucial for maximizing benefits.
                     </p>
                     <p>
-                        The timing of when you claim benefits significantly affects your monthly payment. While you can claim as early as age 62, each month before Full Retirement Age results in a permanent reduction. Conversely, delaying past FRA until age 70 earns you 8% more per year in delayed retirement credits—a guaranteed return unmatched by most investments.
+                        The timing of when you claim benefits significantly affects your monthly payment. While you can claim as early as age 62, each month before Full Retirement Age results in a permanent reduction. Conversely, delaying past FRA until age 70 earns you 8% more per year in delayed retirement credits?�a guaranteed return unmatched by most investments.
                     </p>
                 </div>
             </section>
@@ -273,7 +273,7 @@ export default function SocialSecurityHubClient() {
                         <div>
                             <h3 className="font-bold text-amber-400 mb-2">Trust Fund Outlook</h3>
                             <p className="text-sm text-slate-300">
-                                The 2024 Social Security Trustees Report projects the combined trust funds will be depleted by 2034. After that point, continuing payroll tax revenue would cover approximately 77% of scheduled benefits. Congress may enact reforms—such as raising the retirement age, increasing payroll taxes, or adjusting benefit formulas—before this occurs.
+                                The 2024 Social Security Trustees Report projects the combined trust funds will be depleted by 2034. After that point, continuing payroll tax revenue would cover approximately 77% of scheduled benefits. Congress may enact reforms?�such as raising the retirement age, increasing payroll taxes, or adjusting benefit formulas?�before this occurs.
                             </p>
                         </div>
                     </div>
@@ -286,11 +286,11 @@ export default function SocialSecurityHubClient() {
                     Data Sources & Citations
                 </h3>
                 <ul className="text-xs text-slate-500 space-y-2">
-                    <li>• Social Security Administration. "Benefit Calculators." SSA.gov, 2026.</li>
-                    <li>• Social Security Administration. "2024 Annual Report of the Board of Trustees." SSA OASDI Trustees Report, 2024.</li>
-                    <li>• Social Security Administration. "Cost-of-Living Adjustments (COLA)." SSA.gov, 2026.</li>
-                    <li>• Congressional Research Service. "Social Security: What Would Happen If the Trust Funds Ran Out?" CRS Report RL33514, 2024.</li>
-                    <li>• AARP. "Social Security Resource Center." AARP.org, 2026.</li>
+                    <li>??Social Security Administration. "Benefit Calculators." SSA.gov, 2026.</li>
+                    <li>??Social Security Administration. "2024 Annual Report of the Board of Trustees." SSA OASDI Trustees Report, 2024.</li>
+                    <li>??Social Security Administration. "Cost-of-Living Adjustments (COLA)." SSA.gov, 2026.</li>
+                    <li>??Congressional Research Service. "Social Security: What Would Happen If the Trust Funds Ran Out?" CRS Report RL33514, 2024.</li>
+                    <li>??AARP. "Social Security Resource Center." AARP.org, 2026.</li>
                 </ul>
             </section>
 

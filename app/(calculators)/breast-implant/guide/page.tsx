@@ -30,7 +30,7 @@ export default function GuidePage() {
                         {MANUFACTURERS.map((mfr) => (
                             <div key={mfr.id} className={`p-3 rounded-lg border ${mfr.recalled ? 'bg-red-500/10 border-red-500/30' : 'bg-slate-700/50 border-slate-600'}`}>
                                 <p className="text-white font-medium">{mfr.name}</p>
-                                {mfr.recalled && <span className="text-xs text-red-400">⚠️ RECALLED</span>}
+                                {mfr.recalled && <span className="text-xs text-red-400">?�️ RECALLED</span>}
                             </div>
                         ))}
                     </div>

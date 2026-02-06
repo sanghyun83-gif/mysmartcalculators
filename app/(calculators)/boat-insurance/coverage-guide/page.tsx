@@ -96,12 +96,12 @@ export default function CoverageGuidePage() {
                         Ways to Save on Boat Insurance
                     </h2>
                     <ul className="space-y-2 text-sm text-slate-300">
-                        <li>• <strong>Boating safety course:</strong> 15% discount</li>
-                        <li>• <strong>New boat discount:</strong> 10% off</li>
-                        <li>• <strong>Bundle policies:</strong> 10% when combined with auto/home</li>
-                        <li>• <strong>Clean claims history:</strong> Up to 15% off</li>
-                        <li>• <strong>Seasonal lay-up:</strong> Reduced rates during off-season</li>
-                        <li>• <strong>Pay annually:</strong> Save vs monthly payments</li>
+                        <li>??<strong>Boating safety course:</strong> 15% discount</li>
+                        <li>??<strong>New boat discount:</strong> 10% off</li>
+                        <li>??<strong>Bundle policies:</strong> 10% when combined with auto/home</li>
+                        <li>??<strong>Clean claims history:</strong> Up to 15% off</li>
+                        <li>??<strong>Seasonal lay-up:</strong> Reduced rates during off-season</li>
+                        <li>??<strong>Pay annually:</strong> Save vs monthly payments</li>
                     </ul>
                 </div>
 

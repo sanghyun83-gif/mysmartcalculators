@@ -120,7 +120,7 @@ export default function TaxCalculatorPage() {
                             <p className="text-sm text-emerald-100 mb-1">Estimated Federal Tax</p>
                             <p className="text-5xl font-bold">{formatCurrency(result.finalTax)}</p>
                             <p className="text-emerald-200 text-sm mt-1">
-                                Effective Rate: {formatPercent(result.effectiveRate)} • Marginal: {formatPercent(result.marginalRate)}
+                                Effective Rate: {formatPercent(result.effectiveRate)} ??Marginal: {formatPercent(result.marginalRate)}
                             </p>
                         </div>
 
@@ -184,10 +184,10 @@ export default function TaxCalculatorPage() {
 
                 <div className="grid grid-cols-2 gap-4">
                     <Link href="/tax/refund" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-emerald-500 transition-colors">
-                        <p className="text-sm font-medium text-slate-600">Estimate Refund →</p>
+                        <p className="text-sm font-medium text-slate-600">Estimate Refund ??/p>
                     </Link>
                     <Link href="/tax/brackets" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-emerald-500 transition-colors">
-                        <p className="text-sm font-medium text-slate-600">View Tax Brackets →</p>
+                        <p className="text-sm font-medium text-slate-600">View Tax Brackets ??/p>
                     </Link>
                 </div>
             </main>

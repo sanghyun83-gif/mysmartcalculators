@@ -76,10 +76,10 @@ export function HubClient() {
                                 Semaglutide (Ozempic/Wegovy) operates as a GLP-1 receptor agonist, primarily designed to augment insulin secretion and decelerate gastric emptying. While this "deceleration" is a desirable therapeutic effect for weight management, it carries a severe pathological risk: **Gastroparesis**.
                             </p>
                             <p>
-                                In 2026, clinical audits revealed that for a subset of the population, the stomach's muscular contractionsâ€”controlled by the vagus nerveâ€”can effectively cease. This state of persistent **stomach paralysis** lead to the consolidation of MDL 3094. The legal liability stems not from the side effect itself, but from Novo Nordisk's alleged **Failure to Warn** patients and physicians about the permanence of this gastric immobility.
+                                In 2026, clinical audits revealed that for a subset of the population, the stomach's muscular contractions?”controlled by the vagus nerve?”can effectively cease. This state of persistent **stomach paralysis** lead to the consolidation of MDL 3094. The legal liability stems not from the side effect itself, but from Novo Nordisk's alleged **Failure to Warn** patients and physicians about the permanence of this gastric immobility.
                             </p>
                             <div className="p-8 bg-rose-500/5 border border-rose-500/20 rounded-[2.5rem] italic text-rose-200/80">
-                                "The difference between a successful claim and a rejected one often hinges on the scintigraphy evidenceâ€”a nuclear medicine test that proves the rate of gastric retention."
+                                "The difference between a successful claim and a rejected one often hinges on the scintigraphy evidence?”a nuclear medicine test that proves the rate of gastric retention."
                             </div>
                         </div>
                     </div>

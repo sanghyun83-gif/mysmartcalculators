@@ -108,11 +108,11 @@ export default function TermsPage() {
 
                 <div className="mt-12 flex flex-wrap gap-4 justify-center">
                     <Link href="/privacy" className="text-amber-400 hover:underline">Privacy Policy</Link>
-                    <span className="text-slate-600">•</span>
+                    <span className="text-slate-600">??/span>
                     <Link href="/about" className="text-amber-400 hover:underline">About Us</Link>
-                    <span className="text-slate-600">•</span>
+                    <span className="text-slate-600">??/span>
                     <Link href="/accessibility" className="text-amber-400 hover:underline">Accessibility</Link>
-                    <span className="text-slate-600">•</span>
+                    <span className="text-slate-600">??/span>
                     <Link href="/" className="text-amber-400 hover:underline">All Calculators</Link>
                 </div>
             </main>

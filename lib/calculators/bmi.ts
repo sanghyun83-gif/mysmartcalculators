@@ -27,7 +27,7 @@ export const BMI_2026 = {
         { name: "Overweight", range: "25 - 29.9", min: 25, max: 30, color: "text-yellow-400" },
         { name: "Obese Class I", range: "30 - 34.9", min: 30, max: 35, color: "text-orange-400" },
         { name: "Obese Class II", range: "35 - 39.9", min: 35, max: 40, color: "text-red-400" },
-        { name: "Obese Class III", range: "≥ 40", min: 40, max: 100, color: "text-red-500" },
+        { name: "Obese Class III", range: "??40", min: 40, max: 100, color: "text-red-500" },
     ],
 
     // Statistics (CDC 2026)

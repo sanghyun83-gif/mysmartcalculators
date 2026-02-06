@@ -48,7 +48,7 @@ export default function SuperfundPage() {
                 <div className="mt-12 bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
                     <h3 className="text-lg font-semibold text-amber-300 mb-3">Check Your Area</h3>
                     <p className="text-amber-200 text-sm mb-4">The EPA maintains a searchable database of all Superfund sites. Check if you live near contamination and review health advisories for your area.</p>
-                    <a href="https://www.epa.gov/superfund/search-superfund-sites-where-you-live" target="_blank" rel="noopener noreferrer" className="text-amber-400 hover:text-amber-300 text-sm underline">EPA Superfund Site Search →</a>
+                    <a href="https://www.epa.gov/superfund/search-superfund-sites-where-you-live" target="_blank" rel="noopener noreferrer" className="text-amber-400 hover:text-amber-300 text-sm underline">EPA Superfund Site Search ??/a>
                 </div>
 
                 <div className="mt-12 text-center"><Link href="/toxic-tort/calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold">Calculate Settlement<ArrowRight className="w-5 h-5" /></Link></div>

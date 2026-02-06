@@ -347,8 +347,7 @@ export default function MotorcycleSettlementPage() {
                         href="/motorcycle-accident/injury-types"
                         className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
-                        View Settlement Values by Injury Type →
-                    </Link>
+                        View Settlement Values by Injury Type ??                    </Link>
                 </div>
 
                 {/* Disclaimer */}

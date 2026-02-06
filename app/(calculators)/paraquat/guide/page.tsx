@@ -36,11 +36,11 @@ export default function ParaquatGuidePage() {
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div className="bg-green-900/20 border border-green-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Leaf className="w-5 h-5 text-green-500" />Exposure Types</h2>
-                        <ul className="space-y-2 text-sm text-green-200">{PARAQUAT_2026.exposureTypes.map((e, i) => (<li key={i}>• <strong>{e.type}:</strong> {e.multiplier}x</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-green-200">{PARAQUAT_2026.exposureTypes.map((e, i) => (<li key={i}>??<strong>{e.type}:</strong> {e.multiplier}x</li>))}</ul>
                     </div>
                     <div className="bg-amber-900/20 border border-amber-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Shield className="w-5 h-5 text-amber-500" />Defendants</h2>
-                        <ul className="space-y-2 text-sm text-amber-200">{PARAQUAT_2026.defendants.map((d, i) => (<li key={i}>• <strong>{d.company}:</strong> {d.role}</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-amber-200">{PARAQUAT_2026.defendants.map((d, i) => (<li key={i}>??<strong>{d.company}:</strong> {d.role}</li>))}</ul>
                     </div>
                 </div>
 

@@ -55,10 +55,10 @@ export default function CondoInsuranceGuidePage() {
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-slate-700">
-                                <tr><td className="px-4 py-3 text-slate-300">Building Exterior</td><td className="text-center text-red-400">✗</td><td className="text-center text-green-400">✓</td></tr>
-                                <tr><td className="px-4 py-3 text-slate-300">Interior Walls/Finishes</td><td className="text-center text-green-400">✓</td><td className="text-center text-red-400">✗</td></tr>
-                                <tr><td className="px-4 py-3 text-slate-300">Personal Belongings</td><td className="text-center text-green-400">✓</td><td className="text-center text-red-400">✗</td></tr>
-                                <tr><td className="px-4 py-3 text-slate-300">Personal Liability</td><td className="text-center text-green-400">✓</td><td className="text-center text-red-400">✗</td></tr>
+                                <tr><td className="px-4 py-3 text-slate-300">Building Exterior</td><td className="text-center text-red-400">??/td><td className="text-center text-green-400">??/td></tr>
+                                <tr><td className="px-4 py-3 text-slate-300">Interior Walls/Finishes</td><td className="text-center text-green-400">??/td><td className="text-center text-red-400">??/td></tr>
+                                <tr><td className="px-4 py-3 text-slate-300">Personal Belongings</td><td className="text-center text-green-400">??/td><td className="text-center text-red-400">??/td></tr>
+                                <tr><td className="px-4 py-3 text-slate-300">Personal Liability</td><td className="text-center text-green-400">??/td><td className="text-center text-red-400">??/td></tr>
                             </tbody>
                         </table>
                     </div>

@@ -458,7 +458,7 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     "child-support": {
         "id": "child-support",
         "name": "Child Support Calculator",
-        "description": "Calculate child support payments for all 50 US states. Free 2025 calculator based on official state guidelines, income shares, and custody arrangements.",
+        "description": "Calculate child support payments for all 50 US states. Free 2026 calculator based on official state guidelines, income shares, and custody arrangements.",
         "category": "health",
         "tier": 2,
         "color": "emerald-500",
@@ -719,7 +719,7 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     "divorce": {
         "id": "divorce",
         "name": "Divorce Settlement Calculator",
-        "description": "Calculate alimony (spousal support) and property division for divorce. Free 2025 calculator based on state laws for all 50 US states.",
+        "description": "Calculate alimony (spousal support) and property division for divorce. Free 2026 calculator based on state laws for all 50 US states.",
         "category": "legal",
         "tier": 2,
         "color": "rose-500",
@@ -773,7 +773,7 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     "DUI": {
         "id": "DUI",
         "name": "DUI Calculator",
-        "description": "Calculate the true cost of a DUI in your state. Free 2025 DUI cost calculator with fines, lawyer fees, insurance increases, and more.",
+        "description": "Calculate the true cost of a DUI in your state. Free 2026 DUI cost calculator with fines, lawyer fees, insurance increases, and more.",
         "category": "legal",
         "tier": 2,
         "color": "rose-500",
@@ -1259,7 +1259,7 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     "home-afford": {
         "id": "home-afford",
         "name": "Home Affordability Calculator",
-        "description": "Calculate how much house you can afford based on your income. See down payment, DTI ratio, monthly payments, and closing costs with 2025 loan limits.",
+        "description": "Calculate how much house you can afford based on your income. See down payment, DTI ratio, monthly payments, and closing costs with 2026 loan limits.",
         "category": "tax",
         "tier": 2,
         "color": "slate-500",
@@ -2348,7 +2348,7 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     "tax": {
         "id": "tax",
         "name": "Tax Calculator",
-        "description": "Calculate your 2025 federal income tax for free. See your tax bracket, estimate your refund, and understand your tax liability with our easy-to-use calculators.",
+        "description": "Calculate your 2026 federal income tax for free. See your tax bracket, estimate your refund, and understand your tax liability with our easy-to-use calculators.",
         "category": "tax",
         "tier": 2,
         "color": "slate-500",

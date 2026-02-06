@@ -13,7 +13,7 @@ export default function SSIGuidePage() {
                         <Calculator className="w-6 h-6 text-blue-500" />
                         <span className="text-lg font-bold text-white">MySmartCalculators</span>
                     </Link>
-                    <Link href="/ssi" className="text-slate-400 hover:text-white text-sm">← Back</Link>
+                    <Link href="/ssi" className="text-slate-400 hover:text-white text-sm">??Back</Link>
                 </div>
             </header>
 
@@ -62,11 +62,11 @@ export default function SSIGuidePage() {
                                 Included Resources
                             </h3>
                             <ul className="space-y-2 text-slate-400 text-[13px]">
-                                <li>• Cash and bank account balances</li>
-                                <li>• Stocks, bonds, and mutual funds</li>
-                                <li>• Land (other than where you live)</li>
-                                <li>• Life insurance (face value over $1,500)</li>
-                                <li>• Anything you own that can be turned into cash</li>
+                                <li>??Cash and bank account balances</li>
+                                <li>??Stocks, bonds, and mutual funds</li>
+                                <li>??Land (other than where you live)</li>
+                                <li>??Life insurance (face value over $1,500)</li>
+                                <li>??Anything you own that can be turned into cash</li>
                             </ul>
                         </div>
                         <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-6 shadow-sm">
@@ -75,11 +75,11 @@ export default function SSIGuidePage() {
                                 Excluded Resources
                             </h3>
                             <ul className="space-y-2 text-slate-400 text-[13px]">
-                                <li>• The home you live in and the land it occupies</li>
-                                <li>• One vehicle (regardless of value)</li>
-                                <li>• Burial plots and small burial funds</li>
-                                <li>• Household goods and personal effects</li>
-                                <li>• Property essential to self-support</li>
+                                <li>??The home you live in and the land it occupies</li>
+                                <li>??One vehicle (regardless of value)</li>
+                                <li>??Burial plots and small burial funds</li>
+                                <li>??Household goods and personal effects</li>
+                                <li>??Property essential to self-support</li>
                             </ul>
                         </div>
                     </div>

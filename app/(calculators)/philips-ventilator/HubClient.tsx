@@ -19,7 +19,7 @@ export default function HubClient() {
 
             <div className="bg-red-900/30 border-b border-red-500/30">
                 <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-center gap-2">
-                    <AlertTriangle className="w-4 h-4 text-red-400" /><span className="text-sm text-red-200">{PHILIPS_2026.statistics.mdlNumber} Active • {(PHILIPS_2026.statistics.devicesRecalled / 1000000)}M+ Devices Recalled</span>
+                    <AlertTriangle className="w-4 h-4 text-red-400" /><span className="text-sm text-red-200">{PHILIPS_2026.statistics.mdlNumber} Active ??{(PHILIPS_2026.statistics.devicesRecalled / 1000000)}M+ Devices Recalled</span>
                 </div>
             </div>
 
@@ -79,7 +79,7 @@ export default function HubClient() {
                 <h2 className="text-2xl font-bold text-white mb-6">What is the Philips CPAP Recall?</h2>
                 <div className="prose prose-invert max-w-none">
                     <p className="text-slate-300 mb-4">In June 2021, Philips recalled millions of CPAP, BiPAP, and ventilator machines due to a sound-dampening foam that can degrade and release toxic particles. Users inhale these particles directly into their lungs.</p>
-                    <p className="text-slate-300">The foam degradation may release carcinogenic chemicals. The FDA classified this as a Class I recall—the most serious category. MDL 3014 consolidates these cases in Western District of Pennsylvania.</p>
+                    <p className="text-slate-300">The foam degradation may release carcinogenic chemicals. The FDA classified this as a Class I recall?�the most serious category. MDL 3014 consolidates these cases in Western District of Pennsylvania.</p>
                 </div>
             </section>
 

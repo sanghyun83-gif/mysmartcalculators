@@ -28,7 +28,7 @@ export default function HubClient() {
             <div className="text-center"><p className="text-3xl font-bold text-amber-400">{CRANE_2026.statistics.annualDeaths}</p><p className="text-sm text-slate-400 mt-1">Annual Deaths</p></div>
             <div className="text-center"><p className="text-3xl font-bold text-rose-400">{(CRANE_2026.statistics.annualInjuries / 1000).toFixed(1)}K</p><p className="text-sm text-slate-400 mt-1">Annual Injuries</p></div>
             <div className="text-center"><p className="text-3xl font-bold text-yellow-400">{formatCurrency(CRANE_2026.statistics.avgSettlement)}</p><p className="text-sm text-slate-400 mt-1">Avg Settlement</p></div>
-            <div className="text-center"><p className="text-3xl font-bold text-orange-400">{formatCurrency(CRANE_2026.statistics.oshaFines2025)}</p><p className="text-sm text-slate-400 mt-1">OSHA Fines 2025</p></div>
+            <div className="text-center"><p className="text-3xl font-bold text-orange-400">{formatCurrency(CRANE_2026.statistics.oshaFines2026)}</p><p className="text-sm text-slate-400 mt-1">OSHA Fines 2026</p></div>
           </div>
         </div>
       </section>

@@ -40,7 +40,7 @@ export const HAIR_RELAXER_2026 = {
         studyYear: 2022,
         mdlDistrict: "Northern District of Illinois",
         mdlNumber: "MDL 3060",
-        bellwetherDate: "November 2025",
+        bellwetherDate: "November 2026",
     },
     citation: "Based on National Institutes of Health (NIH) Sister Study 2022 and MDL Court Filings 2026 data",
 } as const;

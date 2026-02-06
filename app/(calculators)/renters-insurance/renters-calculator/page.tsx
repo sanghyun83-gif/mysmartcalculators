@@ -191,7 +191,7 @@ export default function RentersCalculatorPage() {
                             <p className="text-sm text-blue-100 mb-1">Estimated Monthly Premium</p>
                             <p className="text-4xl font-bold">{formatCurrency(result.monthlyPremium)}</p>
                             <p className="text-sm text-blue-100 mt-2">
-                                {result.coverageLevel} Coverage • {formatCurrency(result.annualPremium)}/year
+                                {result.coverageLevel} Coverage ??{formatCurrency(result.annualPremium)}/year
                             </p>
                         </div>
 

@@ -127,9 +127,9 @@ export default function StateLawsPage() {
                                         </td>
                                         <td className="px-4 py-3 text-center">
                                             {data.hasAlimonyFormula ? (
-                                                <span className="text-green-400">✓</span>
+                                                <span className="text-green-400">??/span>
                                             ) : (
-                                                <span className="text-slate-500">—</span>
+                                                <span className="text-slate-500">??/span>
                                             )}
                                         </td>
                                         <td className="px-4 py-3 text-slate-400 text-xs">

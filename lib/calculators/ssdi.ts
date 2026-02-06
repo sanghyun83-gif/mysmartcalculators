@@ -55,7 +55,7 @@ export const SSDI_CONSTANTS_2026 = {
     // COLA Increases (recent years)
     colaRates: {
         2024: 3.2,
-        2025: 2.5,
+        2026: 2.5,
         2026: 2.8,  // Estimated
     },
 } as const;

@@ -47,17 +47,17 @@ export default function PayoutGuidePage() {
                         <div className="bg-slate-800/80 rounded-lg p-3">
                             <p className="text-sm text-emerald-400 font-semibold">Pros</p>
                             <ul className="text-xs text-slate-300 mt-1 space-y-1">
-                                <li>• Guaranteed income for life</li>
-                                <li>• No investment risk</li>
-                                <li>• Survivor options available</li>
+                                <li>??Guaranteed income for life</li>
+                                <li>??No investment risk</li>
+                                <li>??Survivor options available</li>
                             </ul>
                         </div>
                         <div className="bg-slate-800/80 rounded-lg p-3">
                             <p className="text-sm text-red-400 font-semibold">Cons</p>
                             <ul className="text-xs text-slate-300 mt-1 space-y-1">
-                                <li>• Nothing left if you die early</li>
-                                <li>• May not keep up with inflation</li>
-                                <li>• Less flexibility</li>
+                                <li>??Nothing left if you die early</li>
+                                <li>??May not keep up with inflation</li>
+                                <li>??Less flexibility</li>
                             </ul>
                         </div>
                     </div>
@@ -75,17 +75,17 @@ export default function PayoutGuidePage() {
                         <div className="bg-slate-700/50 rounded-lg p-3">
                             <p className="text-sm text-emerald-400 font-semibold">Pros</p>
                             <ul className="text-xs text-slate-300 mt-1 space-y-1">
-                                <li>• Full control of your money</li>
-                                <li>• Can invest for higher returns</li>
-                                <li>• Leave inheritance to heirs</li>
+                                <li>??Full control of your money</li>
+                                <li>??Can invest for higher returns</li>
+                                <li>??Leave inheritance to heirs</li>
                             </ul>
                         </div>
                         <div className="bg-slate-700/50 rounded-lg p-3">
                             <p className="text-sm text-red-400 font-semibold">Cons</p>
                             <ul className="text-xs text-slate-300 mt-1 space-y-1">
-                                <li>• Risk of outliving money</li>
-                                <li>• Investment risk on you</li>
-                                <li>• Temptation to overspend</li>
+                                <li>??Risk of outliving money</li>
+                                <li>??Investment risk on you</li>
+                                <li>??Temptation to overspend</li>
                             </ul>
                         </div>
                     </div>

@@ -1,29 +1,43 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
     Calculator, Home, DollarSign, TrendingDown, PiggyBank,
     CheckCircle, AlertCircle, Info, RefreshCcw, ArrowRight,
-    Search, Shield, Activity
+    Search, Shield, Activity, MapPin, Scale
 } from "lucide-react";
 import {
     MORTGAGE_CONSTANTS,
     calculateMortgage,
     formatCurrency,
     parseFormattedNumber,
+    getStatesList,
     MortgageResult
 } from "@/lib/calculators/mortgage";
+import { STATE_MORTGAGE_DATA } from "@/lib/calculators/mortgage/state-data";
 
 export default function MortgageCalculatorClient() {
     const { defaults, loanTerms } = MORTGAGE_CONSTANTS;
+    const [state, setState] = useState("CA");
     const [homePrice, setHomePrice] = useState("400,000");
     const [downPayment, setDownPayment] = useState("80,000");
     const [interestRate, setInterestRate] = useState(defaults.interestRate.toString());
     const [loanTerm, setLoanTerm] = useState(30);
-    const [propertyTax, setPropertyTax] = useState(defaults.propertyTaxRate.toString());
-    const [insurance, setInsurance] = useState(defaults.homeInsuranceYear.toString());
+    const [propertyTax, setPropertyTax] = useState("0.75");
+    const [insurance, setInsurance] = useState("1250");
     const [result, setResult] = useState<MortgageResult | null>(null);
+
+    // Update defaults when state changes
+    useEffect(() => {
+        const stateData = STATE_MORTGAGE_DATA[state];
+        if (stateData) {
+            setPropertyTax(stateData.avgPropertyTax.toString());
+            setInsurance(stateData.avgInsurance.toString());
+            // Optionally update home price if someone hasn't touched it? 
+            // Better to keep user input but maybe just tax/ins are good.
+        }
+    }, [state]);
 
     const handleInputChange = (setter: React.Dispatch<React.SetStateAction<string>>) =>
         (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,10 +53,10 @@ export default function MortgageCalculatorClient() {
         const hp = parseFormattedNumber(homePrice) || defaults.homePrice;
         const dp = parseFormattedNumber(downPayment) || hp * 0.2;
         const rate = parseFloat(interestRate) || defaults.interestRate;
-        const tax = parseFloat(propertyTax) || defaults.propertyTaxRate;
-        const ins = parseFormattedNumber(insurance) || defaults.homeInsuranceYear;
+        const tax = parseFloat(propertyTax);
+        const ins = parseFormattedNumber(insurance);
 
-        setResult(calculateMortgage(hp, dp, rate, loanTerm, tax, ins));
+        setResult(calculateMortgage(hp, dp, rate, loanTerm, state, tax, ins));
     };
 
     return (
@@ -61,6 +75,23 @@ export default function MortgageCalculatorClient() {
                     </div>
 
                     <div className="space-y-6">
+                        {/* State Selection */}
+                        <div className="space-y-3">
+                            <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest pl-2">Property Location</label>
+                            <div className="relative group/input">
+                                <MapPin className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-blue-500/50 group-hover/input:text-blue-500 transition-colors" />
+                                <select
+                                    value={state}
+                                    onChange={(e) => setState(e.target.value)}
+                                    className="w-full bg-slate-950 border border-white/10 rounded-3xl py-5 pl-16 pr-8 text-xl font-bold text-white focus:border-blue-500/50 outline-none transition-all italic tracking-tighter appearance-none"
+                                >
+                                    {getStatesList().map((s) => (
+                                        <option key={s.code} value={s.code}>{s.name}</option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
+
                         {/* Home Price */}
                         <div className="space-y-3">
                             <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest pl-2">Home Purchase Price</label>
@@ -121,12 +152,26 @@ export default function MortgageCalculatorClient() {
                                     <Activity className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-blue-500/50 group-hover/input:text-blue-500 transition-colors" />
                                     <input
                                         type="number"
-                                        step="0.1"
+                                        step="0.01"
                                         value={propertyTax}
                                         onChange={(e) => setPropertyTax(e.target.value)}
                                         className="w-full bg-slate-950 border border-white/10 rounded-3xl py-5 pl-16 pr-8 text-xl font-bold text-white focus:border-blue-500/50 outline-none transition-all italic tracking-tighter"
                                     />
                                 </div>
+                            </div>
+                        </div>
+
+                        {/* Home Insurance */}
+                        <div className="space-y-3">
+                            <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest pl-2">Annual Home Insurance ($)</label>
+                            <div className="relative group/input">
+                                <Shield className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-blue-500/50 group-hover/input:text-blue-500 transition-colors" />
+                                <input
+                                    type="text"
+                                    value={insurance}
+                                    onChange={handleInputChange(setInsurance)}
+                                    className="w-full bg-slate-950 border border-white/10 rounded-3xl py-5 pl-16 pr-8 text-xl font-bold text-white focus:border-blue-500/50 outline-none transition-all italic tracking-tighter"
+                                />
                             </div>
                         </div>
 
@@ -158,6 +203,7 @@ export default function MortgageCalculatorClient() {
                         Execute Calculation
                     </button>
                 </div>
+
 
                 {/* Results Panel */}
                 <div className="space-y-8">
@@ -272,7 +318,42 @@ export default function MortgageCalculatorClient() {
                     </div>
                 </Link>
             </div>
-        
+
+            {/* Inline FAQ Section */}
+            <section className="max-w-4xl mx-auto py-16">
+                <div className="bg-slate-900 rounded-[2rem] border border-white/10 p-8 space-y-6">
+                    <h2 className="text-xl font-black text-white tracking-tight">
+                        Mortgage FAQ
+                    </h2>
+                    <div className="space-y-6 text-sm">
+                        <div className="pb-4 border-b border-white/5">
+                            <h3 className="font-bold text-white mb-2">
+                                What is a good mortgage rate in 2026?
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                As of 2026, average 30-year fixed mortgage rates range from 6.5% to 7.25%. A "good" rate is typically 0.25-0.5% below the national average. Your credit score, down payment, and debt-to-income ratio significantly impact your offered rate.
+                            </p>
+                        </div>
+                        <div className="pb-4 border-b border-white/5">
+                            <h3 className="font-bold text-white mb-2">
+                                How much house can I afford on $100k salary?
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                Using the 28/36 rule, a $100k income typically qualifies for a home priced between $350,000-$450,000. This assumes 20% down, good credit, and minimal existing debt. Monthly payments should stay below 28% of gross income.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-white mb-2">
+                                When can I stop paying PMI?
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                PMI is automatically removed when your loan-to-value (LTV) reaches 78%. You can request removal at 80% LTV. Faster strategies include making extra principal payments or requesting a new appraisal if home values have increased.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* FAQPage Schema */}
             <script
                 type="application/ld+json"

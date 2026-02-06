@@ -229,7 +229,7 @@ export default function CalculatorPage() {
                             </div>
                             <p className="text-xs text-slate-400 mt-2 text-center">
                                 {result.coveragePercent >= 100
-                                    ? "✓ Fully covered!"
+                                    ? "??Fully covered!"
                                     : `Gap: ${formatCurrency(result.estimatedCollegeCost - result.futureValue)}`
                                 }
                             </p>

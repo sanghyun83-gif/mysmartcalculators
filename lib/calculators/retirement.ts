@@ -1,6 +1,6 @@
 // ============================================
 // RETIREMENT-CALC SITE CONFIGURATION
-// 2025 Retirement Planning Calculator
+// 2026 Retirement Planning Calculator
 // Senior-Friendly Design
 // ============================================
 
@@ -11,36 +11,36 @@ import { Calculator, PiggyBank, Building, DollarSign, Target } from 'lucide-reac
 // ============================================
 export const SITE = {
     name: "Retirement Calculator",
-    tagline: "Free 2025 Retirement Planning Tools",
+    tagline: "Free 2026 Retirement Planning Tools",
     description: "Plan your retirement with our free calculators. Estimate how much you need to save, 401k growth, Social Security benefits, and more. Easy to understand results.",
-    year: 2025,
+    year: 2026,
     baseUrl: "https://mysmartcalculators.com/retirement",
 };
 
 // ============================================
-// 2025 RETIREMENT CONSTANTS (IRS LIMITS)
+// 2026 RETIREMENT CONSTANTS (IRS LIMITS)
 // ============================================
 export const RETIREMENT_CONSTANTS = {
-    // 2025 401(k) Limits
+    // 2026 401(k) Limits
     limits401k: {
         under50: 23500,
         catchUp: 7500, // Age 50+
         total50Plus: 31000, // 23500 + 7500
     },
 
-    // 2025 IRA Limits
+    // 2026 IRA Limits
     limitsIRA: {
         under50: 7000,
         catchUp: 1000, // Age 50+
         total50Plus: 8000,
     },
 
-    // Social Security 2025
+    // Social Security 2026
     socialSecurity: {
         maxBenefit62: 2831, // Claiming at 62
         maxBenefit67: 3822, // Full retirement age
         maxBenefit70: 4873, // Maximum at 70
-        cola2025: 2.5, // Cost of living adjustment
+        cola2026: 2.5, // Cost of living adjustment
         fullRetirementAge: 67, // For those born 1960+
     },
 
@@ -92,7 +92,7 @@ export const CALCULATORS = [
         name: "401(k) Calculator",
         shortName: "401(k)",
         description: "Maximize your 401(k) growth with employer match",
-        longDescription: "See how your 401k will grow with employer matching. Includes 2025 contribution limits.",
+        longDescription: "See how your 401k will grow with employer matching. Includes 2026 contribution limits.",
         icon: Building,
         category: "retirement",
         keywords: ["401k calculator", "401k growth calculator", "employer match calculator"],

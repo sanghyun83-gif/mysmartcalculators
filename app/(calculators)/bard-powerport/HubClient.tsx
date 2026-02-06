@@ -13,7 +13,7 @@ export default function HubClient() {
 
             <div className="bg-red-900/30 border-b border-red-500/30">
                 <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-center gap-2">
-                    <AlertTriangle className="w-4 h-4 text-red-400" /><span className="text-sm text-red-200">{POWERPORT_2026.statistics.fdaRecall} • {POWERPORT_2026.statistics.pendingCases}+ Cases Pending</span>
+                    <AlertTriangle className="w-4 h-4 text-red-400" /><span className="text-sm text-red-200">{POWERPORT_2026.statistics.fdaRecall} ??{POWERPORT_2026.statistics.pendingCases}+ Cases Pending</span>
                 </div>
             </div>
 
@@ -73,7 +73,7 @@ export default function HubClient() {
                 <h2 className="text-2xl font-bold text-white mb-6">What is the Bard PowerPort Lawsuit?</h2>
                 <div className="prose prose-invert max-w-none">
                     <p className="text-slate-300 mb-4">Bard PowerPort is an implanted port catheter used to deliver chemotherapy, medication, and IV fluids. Lawsuits allege that the catheter can fracture and migrate through the body, causing serious injuries.</p>
-                    <p className="text-slate-300">The FDA issued a Class I recall—the most serious type—for Bard PowerPort devices. Complications include catheter fracture, migration to the heart, blood clots, and death.</p>
+                    <p className="text-slate-300">The FDA issued a Class I recall?�the most serious type?�for Bard PowerPort devices. Complications include catheter fracture, migration to the heart, blood clots, and death.</p>
                 </div>
             </section>
 

@@ -123,7 +123,7 @@ export default function SSDICalculatorPage() {
                                     onChange={(e) => setDisabilityYear(parseInt(e.target.value))}
                                     className="px-4 py-3 bg-white border border-slate-300 rounded-lg text-slate-800 focus:ring-2 focus:ring-blue-500"
                                 >
-                                    {[2020, 2021, 2022, 2023, 2024, 2025].map((year) => (
+                                    {[2020, 2021, 2022, 2023, 2024, 2026].map((year) => (
                                         <option key={year} value={year}>{year}</option>
                                     ))}
                                 </select>
@@ -277,8 +277,7 @@ export default function SSDICalculatorPage() {
                         href="/disability/ssi-calculator"
                         className="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
-                        Calculate SSI Benefits →
-                    </Link>
+                        Calculate SSI Benefits ??                    </Link>
                 </div>
 
                 {/* Disclaimer */}

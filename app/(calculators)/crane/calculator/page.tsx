@@ -22,7 +22,7 @@ export default function CraneCalculatorPage() {
 
             <main className="max-w-2xl mx-auto px-4 py-8">
                 <div className="bg-red-900/30 border border-red-500/50 rounded-lg p-4 mb-6 text-center">
-                    <p className="text-red-300 font-semibold">⚠️ {CRANE_2026.statistics.annualDeaths} deaths + {CRANE_2026.statistics.annualInjuries.toLocaleString()} injuries/year</p>
+                    <p className="text-red-300 font-semibold">?�️ {CRANE_2026.statistics.annualDeaths} deaths + {CRANE_2026.statistics.annualInjuries.toLocaleString()} injuries/year</p>
                 </div>
 
                 <div className="bg-slate-800 rounded-xl p-6 border border-slate-700">

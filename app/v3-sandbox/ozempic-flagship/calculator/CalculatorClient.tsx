@@ -208,7 +208,7 @@ export function CalculatorClient() {
                             <ul className="space-y-2 text-[11px] font-bold text-slate-500 list-disc pl-4 italic">
                                 <li>4-Hour Gastric Emptying Scan (GES)</li>
                                 <li>Endoscopy/Colonoscopy Reports</li>
-                                <li>Pharmacy Dispense Records (2021-2025)</li>
+                                <li>Pharmacy Dispense Records (2021-2026)</li>
                                 <li>Emergency Admissions for Dehydration</li>
                             </ul>
                         </div>

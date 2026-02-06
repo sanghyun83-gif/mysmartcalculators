@@ -75,7 +75,7 @@ export default function PetCalculatorPage() {
                                         : "bg-slate-700 text-slate-300 border-slate-600"
                                         }`}
                                 >
-                                    🐕 Dog
+                                    ?�� Dog
                                 </button>
                                 <button
                                     type="button"
@@ -85,7 +85,7 @@ export default function PetCalculatorPage() {
                                         : "bg-slate-700 text-slate-300 border-slate-600"
                                         }`}
                                 >
-                                    🐈 Cat
+                                    ?�� Cat
                                 </button>
                             </div>
                         </div>
@@ -226,7 +226,7 @@ export default function PetCalculatorPage() {
                             <p className="text-sm text-blue-100 mb-1">Estimated Monthly Premium</p>
                             <p className="text-4xl font-bold">{formatCurrency(result.monthlyPremium)}</p>
                             <p className="text-sm text-blue-100 mt-2">
-                                {result.petType === "dog" ? "🐕" : "🐈"} {result.coverage} • {formatCurrency(result.annualPremium)}/year
+                                {result.petType === "dog" ? "?��" : "?��"} {result.coverage} ??{formatCurrency(result.annualPremium)}/year
                             </p>
                         </div>
 

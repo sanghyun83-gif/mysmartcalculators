@@ -14,30 +14,29 @@ const BASE_URL = 'https://mysmartcalculators.com';
 
 // ===== ALL CALCULATOR URLS (320+) =====
 
-// Tier 1: High-Value Legal/Medical (Priority 1.0)
+// Tier 1: High-Value Expert-Data Calculators (Priority 1.0 - Phase 5/6 Updates)
 const tier1 = [
-    '/truck-accident', '/car-accident', '/motorcycle-accident', '/slip-and-fall',
-    '/workers-comp', '/wrongful-death', '/malpractice', '/dog-bite',
+    '/car-accident', '/dui', '/alimony', '/personal-loan', '/inheritance',
+    '/mortgage', '/child-support', '/auto-insurance', '/workers-comp', '/truck-accident'
+];
+
+// Tier 2: Legal/Medical Support (Priority 0.95)
+const tier2 = [
+    '/motorcycle-accident', '/slip-and-fall', '/wrongful-death', '/malpractice', '/dog-bite',
     '/nursing-home', '/birth-injury', '/spinal-cord', '/tbi', '/mesothelioma',
     '/ozempic', '/camp-lejeune', '/roundup', '/hernia-mesh', '/hip-implant',
 ];
 
-// Tier 2: Finance (Priority 0.9)
-const tier2 = [
-    '/mortgage', '/401k-growth', '/roth-ira', '/social-security', '/ssdi',
+// Tier 3: Finance & Insurance Deep (Priority 0.9)
+const tier3 = [
+    '/401k-growth', '/roth-ira', '/social-security', '/ssdi',
     '/tax', '/capital-gains', '/estate-tax', '/student-loan', '/fafsa',
     '/dti', '/pmi', '/down-payment', '/closing-cost', '/heloc', '/refinance',
 ];
 
-// Tier 3: Insurance (Priority 0.8)
-const tier3 = [
-    '/auto-insurance', '/health-insurance', '/life-insurance', '/pet-insurance',
-    '/renters-insurance', '/umbrella-insurance', '/sr22', '/flood-insurance',
-];
-
-// Tier 4: Family (Priority 0.7)
+// Tier 4: Family & Support (Priority 0.7)
 const tier4 = [
-    '/child-support', '/alimony', '/divorce', '/property-division',
+    '/divorce', '/property-division',
 ];
 
 // Tier 5: Category Hubs (Priority 0.9)

@@ -1,6 +1,6 @@
 // ============================================
 // HOME-AFFORD-CALC SITE CONFIGURATION
-// 2025 Home Affordability Calculator
+// 2026 Home Affordability Calculator
 // Green/Growth Theme
 // ============================================
 
@@ -11,24 +11,24 @@ import { Calculator, Home, DollarSign, Percent, FileText, Scale, TrendingUp } fr
 // ============================================
 export const SITE = {
     name: "Home Affordability Calculator",
-    tagline: "Free 2025 Housing Calculator",
-    description: "Calculate how much house you can afford based on your income. See down payment, DTI ratio, monthly payments, and closing costs with 2025 loan limits.",
-    year: 2025,
+    tagline: "Free 2026 Housing Calculator",
+    description: "Calculate how much house you can afford based on your income. See down payment, DTI ratio, monthly payments, and closing costs with 2026 loan limits.",
+    year: 2026,
     baseUrl: "https://mysmartcalculators.com/home-afford",
 };
 
 // ============================================
-// 2025 HOUSING CONSTANTS (FHFA & FHA Official)
+// 2026 HOUSING CONSTANTS (FHFA & FHA Official)
 // ============================================
 export const HOUSING_CONSTANTS = {
-    // 2025 Conforming Loan Limits (FHFA November 2024 Announcement)
+    // 2026 Conforming Loan Limits (FHFA November 2024 Announcement)
     conformingLoanLimits: {
         standard: 806500,           // Baseline limit (most U.S. counties)
         highCost: 1209750,          // High-cost areas (150% of baseline)
         superHighCost: 1209750,     // Alaska, Hawaii, Guam, U.S. Virgin Islands
     },
 
-    // 2025 FHA Loan Limits
+    // 2026 FHA Loan Limits
     fhaLoanLimits: {
         floor: 524225,              // Low-cost areas (65% of conforming)
         ceiling: 1209750,           // High-cost areas
@@ -52,7 +52,7 @@ export const HOUSING_CONSTANTS = {
         },
     },
 
-    // 2025 Average Mortgage Rates (December 2025)
+    // 2026 Average Mortgage Rates (December 2026)
     mortgageRates: {
         thirtyYear: 6.50,           // 30-year fixed
         fifteenYear: 5.80,          // 15-year fixed

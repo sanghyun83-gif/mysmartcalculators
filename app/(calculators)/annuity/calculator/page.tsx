@@ -189,7 +189,7 @@ export default function AnnuityCalculatorPage() {
                             <p className="text-sm text-emerald-100 mb-1">Estimated Monthly Income</p>
                             <p className="text-4xl font-bold">{formatCurrency(result.monthlyPayout)}/mo</p>
                             <p className="text-sm text-emerald-100 mt-2">
-                                {formatCurrency(result.annualPayout)}/year • Break-even: {result.breakEvenYears} years
+                                {formatCurrency(result.annualPayout)}/year ??Break-even: {result.breakEvenYears} years
                             </p>
                         </div>
 

@@ -45,11 +45,11 @@ export default function BurnGuidePage() {
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div className="bg-orange-900/20 border border-orange-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><AlertTriangle className="w-5 h-5 text-orange-500" />Common Causes</h2>
-                        <ul className="space-y-2 text-sm text-orange-200">{BURN_2026.causes.map((cause, i) => (<li key={i}>• {cause}</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-orange-200">{BURN_2026.causes.map((cause, i) => (<li key={i}>??{cause}</li>))}</ul>
                     </div>
                     <div className="bg-red-900/20 border border-red-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Heart className="w-5 h-5 text-red-500" />TBSA Multipliers</h2>
-                        <ul className="space-y-2 text-sm text-red-200">{BURN_2026.tbsaMultipliers.map((t, i) => (<li key={i}>• {t.range}: {t.description} ({t.multiplier}x)</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-red-200">{BURN_2026.tbsaMultipliers.map((t, i) => (<li key={i}>??{t.range}: {t.description} ({t.multiplier}x)</li>))}</ul>
                     </div>
                 </div>
 

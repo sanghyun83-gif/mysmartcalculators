@@ -48,7 +48,7 @@ export default function TaxGuidePage() {
                         <ul className="space-y-2">
                             {CRYPTO_TAX_2026.taxableEvents.map((event, i) => (
                                 <li key={i} className="flex items-start gap-2 text-sm text-slate-300">
-                                    <span className="text-red-400">•</span>
+                                    <span className="text-red-400">??/span>
                                     {event}
                                 </li>
                             ))}
@@ -63,7 +63,7 @@ export default function TaxGuidePage() {
                         <ul className="space-y-2">
                             {CRYPTO_TAX_2026.nonTaxableEvents.map((event, i) => (
                                 <li key={i} className="flex items-start gap-2 text-sm text-slate-300">
-                                    <span className="text-emerald-400">•</span>
+                                    <span className="text-emerald-400">??/span>
                                     {event}
                                 </li>
                             ))}
@@ -147,9 +147,9 @@ export default function TaxGuidePage() {
                         currently subject to wash sale rules (as of {SITE.year}).
                     </p>
                     <ul className="text-sm text-blue-200 space-y-1">
-                        <li>• Losses offset gains dollar-for-dollar</li>
-                        <li>• Up to $3,000 in losses can offset ordinary income</li>
-                        <li>• Excess losses carry forward to future years</li>
+                        <li>??Losses offset gains dollar-for-dollar</li>
+                        <li>??Up to $3,000 in losses can offset ordinary income</li>
+                        <li>??Excess losses carry forward to future years</li>
                     </ul>
                 </div>
 

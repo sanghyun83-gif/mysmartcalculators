@@ -51,7 +51,7 @@ export default function CalculatorPage() {
                 {result && (
                     <div className="mt-8 bg-gradient-to-br from-purple-900/30 to-rose-900/20 border border-purple-500/30 rounded-2xl p-6 md:p-8">
                         <h2 className="text-xl font-bold text-white mb-6 text-center">Estimated Settlement</h2>
-                        <div className="text-center mb-6"><p className="text-4xl md:text-5xl font-bold text-purple-400">{formatCurrency(result.totalLow)} - {formatCurrency(result.totalHigh)}</p><p className="text-slate-400 mt-2">{result.severity} • {result.formulaUsed}</p></div>
+                        <div className="text-center mb-6"><p className="text-4xl md:text-5xl font-bold text-purple-400">{formatCurrency(result.totalLow)} - {formatCurrency(result.totalHigh)}</p><p className="text-slate-400 mt-2">{result.severity} ??{result.formulaUsed}</p></div>
                         <div className="bg-slate-800/50 rounded-xl p-4 mt-6">
                             <h3 className="text-lg font-semibold text-white mb-4">Damages Breakdown</h3>
                             <div className="space-y-3">
@@ -80,7 +80,7 @@ export default function CalculatorPage() {
       <section className="max-w-4xl mx-auto px-4 py-4"><LegalDisclaimer category="legal" /></section>
 </section>
 
-            <footer className="bg-slate-800 border-t border-slate-700"><div className="max-w-6xl mx-auto px-4 py-8 text-center"><p className="text-sm text-slate-400">{NEC_2026.citations.join(" • ")}</p><p className="text-sm text-slate-500 mt-2">© {SITE.year}</p></div></footer>
+            <footer className="bg-slate-800 border-t border-slate-700"><div className="max-w-6xl mx-auto px-4 py-8 text-center"><p className="text-sm text-slate-400">{NEC_2026.citations.join(" ??")}</p><p className="text-sm text-slate-500 mt-2">© {SITE.year}</p></div></footer>
         
             {/* FAQPage Schema */}
             <script

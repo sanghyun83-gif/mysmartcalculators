@@ -155,7 +155,7 @@ export default function HubClient() {
                 <div key={i} className="grid grid-cols-3 gap-2 px-4 py-3 hover:bg-slate-50">
                   <span className="font-bold text-emerald-600">{(bracket.rate * 100).toFixed(0)}%</span>
                   <span className="col-span-2 text-slate-700">
-                    {formatCurrency(bracket.min)} – {bracket.max === Infinity ? 'and above' : formatCurrency(bracket.max)}
+                    {formatCurrency(bracket.min)} ??{bracket.max === Infinity ? 'and above' : formatCurrency(bracket.max)}
                   </span>
                 </div>
               ))}
@@ -164,8 +164,7 @@ export default function HubClient() {
 
           <div className="text-center mt-6">
             <Link href="/tax/brackets" className="text-emerald-600 font-semibold hover:underline">
-              View All Filing Statuses →
-            </Link>
+              View All Filing Statuses ??            </Link>
           </div>
         </div>
       </section>

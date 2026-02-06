@@ -112,7 +112,7 @@ export default function PMICalculatorPage() {
                             </div>
                             {downPercent >= 20 && (
                                 <p className="mt-2 text-sm text-green-400">
-                                    ✓ No PMI required with 20%+ down!
+                                    ??No PMI required with 20%+ down!
                                 </p>
                             )}
                         </div>
@@ -141,7 +141,7 @@ export default function PMICalculatorPage() {
                             </p>
                             {result.pmiRate > 0 && (
                                 <p className="text-sm opacity-80 mt-2">
-                                    {result.pmiRate}% annual rate • {formatCurrency(result.annualPMI)}/year
+                                    {result.pmiRate}% annual rate ??{formatCurrency(result.annualPMI)}/year
                                 </p>
                             )}
                         </div>

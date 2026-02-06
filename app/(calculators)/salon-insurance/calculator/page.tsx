@@ -46,7 +46,7 @@ export default function SalonInsuranceCalculatorPage() {
                         <Calculator className="w-6 h-6 text-blue-500" />
                         <span className="text-lg font-bold text-white">MySmartCalculators</span>
                     </Link>
-                    <Link href="/salon-insurance" className="text-slate-400 hover:text-white text-sm">← Back to Overview</Link>
+                    <Link href="/salon-insurance" className="text-slate-400 hover:text-white text-sm">??Back to Overview</Link>
                 </div>
             </header>
 

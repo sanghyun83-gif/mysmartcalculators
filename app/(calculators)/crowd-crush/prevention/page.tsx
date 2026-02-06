@@ -27,7 +27,7 @@ export default function PreventionPage() {
                 </div>
 
                 <div className="bg-red-900/20 border border-red-500/30 rounded-xl p-6 mb-8">
-                    <h3 className="text-lg font-semibold text-red-300 mb-2">{CRUSH_2026.statistics.astroworld} • {CRUSH_2026.statistics.itaewon}</h3>
+                    <h3 className="text-lg font-semibold text-red-300 mb-2">{CRUSH_2026.statistics.astroworld} ??{CRUSH_2026.statistics.itaewon}</h3>
                     <p className="text-slate-300">These preventable tragedies share common patterns of organizational failures that create liability.</p>
                 </div>
 

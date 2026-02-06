@@ -46,13 +46,13 @@ export default function GuidePage() {
 
                 <div className="mt-12 bg-amber-900/20 border border-amber-500/30 rounded-xl p-6">
                     <h3 className="text-lg font-semibold text-amber-300 mb-2">EEOC Claims Rising</h3>
-                    <p className="text-slate-300">EEOC received 81,055 discrimination charges in 2025. Average settlement: $75,000. Defense costs average $125,000 even for unfounded claims.</p>
+                    <p className="text-slate-300">EEOC received 81,055 discrimination charges in 2026. Average settlement: $75,000. Defense costs average $125,000 even for unfounded claims.</p>
                 </div>
 
                 <div className="mt-12 text-center"><Link href="/epli/calculator" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold">Estimate Premium<ArrowRight className="w-5 h-5" /></Link></div>
             </section>
             <section className="max-w-6xl mx-auto px-4 py-8"><div className="flex justify-center"><div className="w-full max-w-xs"><RelatedCalculators currentCalc="epli" count={5} /></div></div></section>
-            <footer className="bg-slate-800 border-t border-slate-700"><div className="max-w-6xl mx-auto px-4 py-8 text-center"><p className="text-sm text-slate-400">{EPLI_2026.citations.join(" • ")}</p><p className="text-sm text-slate-500 mt-2">© {SITE.year}</p></div></footer>
+            <footer className="bg-slate-800 border-t border-slate-700"><div className="max-w-6xl mx-auto px-4 py-8 text-center"><p className="text-sm text-slate-400">{EPLI_2026.citations.join(" ??")}</p><p className="text-sm text-slate-500 mt-2">© {SITE.year}</p></div></footer>
         </>
     );
 }

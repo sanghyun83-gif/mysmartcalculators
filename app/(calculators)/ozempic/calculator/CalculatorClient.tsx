@@ -208,7 +208,7 @@ export function CalculatorClient() {
                             <ul className="space-y-2 text-[11px] font-bold text-slate-500 list-disc pl-4 italic">
                                 <li>4-Hour Gastric Emptying Scan (GES)</li>
                                 <li>Endoscopy/Colonoscopy Reports</li>
-                                <li>Pharmacy Dispense Records (2021-2025)</li>
+                                <li>Pharmacy Dispense Records (2021-2026)</li>
                                 <li>Emergency Admissions for Dehydration</li>
                             </ul>
                         </div>
@@ -223,7 +223,42 @@ export function CalculatorClient() {
                     </div>
                 </div>
             </section>
-        
+
+            {/* Inline FAQ Section */}
+            <section className="max-w-4xl mx-auto px-6 py-16">
+                <div className="bg-slate-900/60 rounded-[2rem] border border-white/10 p-8 space-y-6">
+                    <h2 className="text-xl font-black text-white tracking-tight">
+                        Ozempic Lawsuit FAQ
+                    </h2>
+                    <div className="space-y-6 text-sm">
+                        <div className="pb-4 border-b border-white/5">
+                            <h3 className="font-bold text-white mb-2">
+                                What is the average Ozempic lawsuit settlement in 2026?
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                Early projections for Ozempic/Wegovy settlements in 2026 range from $100,000-$500,000 depending on injury severity. Gastroparesis requiring surgery may exceed $500,000. Bellwether trials are expected to set payout benchmarks.
+                            </p>
+                        </div>
+                        <div className="pb-4 border-b border-white/5">
+                            <h3 className="font-bold text-white mb-2">
+                                What injuries qualify for the Ozempic lawsuit?
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                The MDL 3094 focuses on gastroparesis (stomach paralysis), severe vomiting, intestinal blockage, and gallbladder disease. Pancreatic and thyroid issues may also qualify. Documented medical evidence linking the injury to medication use is required.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-white mb-2">
+                                Is it too late to join the Ozempic lawsuit?
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                No, new cases are still being accepted in 2026. The statute of limitations varies by state (typically 2-3 years from injury discovery). Contact an attorney promptly to preserve your legal rights.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* FAQPage Schema */}
             <script
                 type="application/ld+json"

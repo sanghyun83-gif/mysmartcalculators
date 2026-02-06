@@ -21,7 +21,7 @@ export const SITE = {
 // 2026 MESOTHELIOMA SETTLEMENT CONSTANTS
 // Sources: Meso.org, RAND Institute, Legal databases
 // ============================================
-export const INJURY_CONSTANTS_2025 = {
+export const INJURY_CONSTANTS_2026 = {
     // Mesothelioma Stage Multipliers
     multipliers: {
         minor: { min: 0.7, max: 1.0, avg: 0.85 },      // Stage 1
@@ -173,10 +173,10 @@ export function calculateSettlement(
     severity: 'minor' | 'moderate' | 'severe' | 'catastrophic',
     hasAttorney: boolean = true
 ): SettlementResult {
-    const multipliers = INJURY_CONSTANTS_2025.multipliers[severity];
+    const multipliers = INJURY_CONSTANTS_2026.multipliers[severity];
 
     // Base lawsuit settlement (using mesothelioma averages)
-    const baseLawsuit = INJURY_CONSTANTS_2025.avgSettlements.carAccident.avg;
+    const baseLawsuit = INJURY_CONSTANTS_2026.avgSettlements.carAccident.avg;
 
     // Stage multiplier affects total
     const stageMultiplier = multipliers.avg;
@@ -188,7 +188,7 @@ export function calculateSettlement(
 
     // Attorney fees (if applicable)
     const attorneyFees = hasAttorney
-        ? Math.round(totalBeforeFees * INJURY_CONSTANTS_2025.attorneyFees.preSettlement)
+        ? Math.round(totalBeforeFees * INJURY_CONSTANTS_2026.attorneyFees.preSettlement)
         : 0;
 
     // Net settlement

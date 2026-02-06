@@ -41,7 +41,7 @@ export const OIL_RIG_2026 = {
         fatalityRate: 7.4,
         avgSettlement: 2500000,
         jonesActCases: 5000,
-        oshaFines2025: 15000000,
+        oshaFines2026: 15000000,
     },
     citation: "Based on Jones Act 46 U.S.C. §30104, OSHA Offshore Statistics 2026, and Maritime Law Court Filings data",
 } as const;

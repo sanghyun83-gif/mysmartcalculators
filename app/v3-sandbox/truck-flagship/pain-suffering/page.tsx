@@ -180,8 +180,7 @@ export default function PainSufferingPage() {
                         href="/truck-accident/settlement-calculator"
                         className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold"
                     >
-                        Calculate Full Settlement →
-                    </Link>
+                        Calculate Full Settlement ??                    </Link>
                 </div>
 
                 {/* Disclaimer */}

@@ -14,7 +14,7 @@ export default function HubClient() {
 
             <div className="bg-blue-900/30 border-b border-blue-500/30">
                 <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-center gap-2">
-                    <TrendingUp className="w-4 h-4 text-blue-400" /><span className="text-sm text-blue-200">{DO_2026.statistics.avgPrivate} • {DO_2026.statistics.avgPublic}</span>
+                    <TrendingUp className="w-4 h-4 text-blue-400" /><span className="text-sm text-blue-200">{DO_2026.statistics.avgPrivate} ??{DO_2026.statistics.avgPublic}</span>
                 </div>
             </div>
 

@@ -128,20 +128,20 @@ export default function HubClient() {
               <h3 className="text-lg font-bold text-white mb-3">Buyer Pays</h3>
               <p className="text-4xl font-bold text-emerald-400 mb-4">2-5%</p>
               <ul className="space-y-2 text-sm text-emerald-200">
-                <li>• Loan origination fees</li>
-                <li>• Appraisal & inspection</li>
-                <li>• Title insurance</li>
-                <li>• Prepaid interest & escrow</li>
+                <li>??Loan origination fees</li>
+                <li>??Appraisal & inspection</li>
+                <li>??Title insurance</li>
+                <li>??Prepaid interest & escrow</li>
               </ul>
             </div>
             <div className="bg-teal-900/20 border border-teal-500/50 rounded-xl p-6">
               <h3 className="text-lg font-bold text-white mb-3">Seller Pays</h3>
               <p className="text-4xl font-bold text-teal-400 mb-4">6-10%</p>
               <ul className="space-y-2 text-sm text-teal-200">
-                <li>• Real estate commission (5-6%)</li>
-                <li>• Transfer taxes</li>
-                <li>• Owner&apos;s title insurance</li>
-                <li>• Attorney fees</li>
+                <li>??Real estate commission (5-6%)</li>
+                <li>??Transfer taxes</li>
+                <li>??Owner&apos;s title insurance</li>
+                <li>??Attorney fees</li>
               </ul>
             </div>
           </div>

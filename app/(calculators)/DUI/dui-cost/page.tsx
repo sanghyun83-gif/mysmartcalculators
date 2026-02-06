@@ -6,12 +6,13 @@ import { ArrowLeft, Scale, Calculator, Info, AlertTriangle, CheckCircle2 } from 
 import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 import {
     SITE,
-    STATE_DATA,
     calculateDUICost,
     formatCurrency,
     getStateCodes,
+    getStatesList,
     DUICalculationResult,
 } from "@/lib/calculators/DUI";
+import { STATE_DUI_DATA } from "@/lib/calculators/DUI/state-data";
 
 export default function DUICostPage() {
     const [state, setState] = useState("");
@@ -56,12 +57,11 @@ export default function DUICostPage() {
                                 className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-red-500 focus:border-red-500"
                             >
                                 <option value="">-- Select State --</option>
-                                {stateCodes.map((code) => (
-                                    <option key={code} value={code}>
-                                        {STATE_DATA[code].name}
+                                {getStatesList().map((s) => (
+                                    <option key={s.code} value={s.code}>
+                                        {s.name}
                                     </option>
                                 ))}
-                                <option value="OTHER">Other State</option>
                             </select>
                         </div>
 
@@ -156,7 +156,7 @@ export default function DUICostPage() {
                                     <span className="text-amber-200 font-medium">License Suspension: </span>
                                     <span className="text-amber-300">{result.licenseSuspension}</span>
                                     {result.mandatoryJail && (
-                                        <span className="ml-3 text-red-400">• Jail time possible</span>
+                                        <span className="ml-3 text-red-400">??Jail time possible</span>
                                     )}
                                 </div>
                             </div>
@@ -195,6 +195,54 @@ export default function DUICostPage() {
                                 </div>
                             </div>
                         </div>
+
+                        {/* State Legal Penalties Block (New Expert Content) */}
+                        {state && STATE_DUI_DATA[state] && (
+                            <div className="p-6 bg-slate-900/50 border-t border-slate-700">
+                                <h3 className="text-sm font-bold text-white mb-4 flex items-center gap-2">
+                                    <Scale className="w-4 h-4 text-red-500" />
+                                    2026 {STATE_DUI_DATA[state].name} DUI Legal Requirements
+                                </h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                                    <div className="space-y-2">
+                                        <div className="flex justify-between">
+                                            <span className="text-slate-400">Mandatory Jail (1st)</span>
+                                            <span className="text-white font-medium">{STATE_DUI_DATA[state].jailFirst[0]} to {STATE_DUI_DATA[state].jailFirst[1]} days</span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span className="text-slate-400">Statutory Fine (1st)</span>
+                                            <span className="text-white font-medium">{formatCurrency(STATE_DUI_DATA[state].fineFirst[0])} - {formatCurrency(STATE_DUI_DATA[state].fineFirst[1])}</span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span className="text-slate-400">License Suspension</span>
+                                            <span className="text-white font-medium">{STATE_DUI_DATA[state].suspensionFirst}</span>
+                                        </div>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <div className="flex justify-between">
+                                            <span className="text-slate-400">Ignition Interlock (IID)</span>
+                                            <span className={STATE_DUI_DATA[state].iidMandatory ? "text-red-400 font-bold" : "text-emerald-400"}>
+                                                {STATE_DUI_DATA[state].iidMandatory ? "MANDATORY" : "Optional"}
+                                            </span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span className="text-slate-400">SR-22 Insurance</span>
+                                            <span className={STATE_DUI_DATA[state].sr22Required ? "text-red-400 font-bold" : "text-emerald-400"}>
+                                                {STATE_DUI_DATA[state].sr22Required ? "REQUIRED" : "Not Required"}
+                                            </span>
+                                        </div>
+                                        <div className="flex justify-between">
+                                            <span className="text-slate-400">Lookback Period</span>
+                                            <span className="text-white font-medium">{STATE_DUI_DATA[state].lookbackPeriod} Years</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p className="mt-4 text-xs text-slate-500 italic">
+                                    * Penalties are significantly harsher for high BAC (>0.15) or accidents.
+                                    Looking back {STATE_DUI_DATA[state].lookbackPeriod} years for prior offenses.
+                                </p>
+                            </div>
+                        )}
 
                         {/* Actions */}
                         <div className="p-4 bg-slate-700/50 border-t border-slate-700">

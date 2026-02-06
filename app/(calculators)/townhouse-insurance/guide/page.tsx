@@ -13,7 +13,7 @@ export default function TownhouseInsuranceGuidePage() {
                         <Calculator className="w-6 h-6 text-blue-500" />
                         <span className="text-lg font-bold text-white">MySmartCalculators</span>
                     </Link>
-                    <Link href="/townhouse-insurance" className="text-slate-400 hover:text-white text-sm">← Back</Link>
+                    <Link href="/townhouse-insurance" className="text-slate-400 hover:text-white text-sm">??Back</Link>
                 </div>
             </header>
 
@@ -63,9 +63,9 @@ export default function TownhouseInsuranceGuidePage() {
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-slate-700">
-                                <tr><td className="px-4 py-3 text-slate-300">Own Exterior Walls</td><td className="text-center text-green-400">✓ Use HO-3</td><td className="text-center text-slate-500">No</td></tr>
-                                <tr><td className="px-4 py-3 text-slate-300">HOA Owns Exterior</td><td className="text-center text-slate-500">No</td><td className="text-center text-green-400">✓ Use HO-6</td></tr>
-                                <tr><td className="px-4 py-3 text-slate-300">Full Structure Coverage</td><td className="text-center text-green-400">✓</td><td className="text-center text-slate-500">Interior Only</td></tr>
+                                <tr><td className="px-4 py-3 text-slate-300">Own Exterior Walls</td><td className="text-center text-green-400">??Use HO-3</td><td className="text-center text-slate-500">No</td></tr>
+                                <tr><td className="px-4 py-3 text-slate-300">HOA Owns Exterior</td><td className="text-center text-slate-500">No</td><td className="text-center text-green-400">??Use HO-6</td></tr>
+                                <tr><td className="px-4 py-3 text-slate-300">Full Structure Coverage</td><td className="text-center text-green-400">??/td><td className="text-center text-slate-500">Interior Only</td></tr>
                             </tbody>
                         </table>
                     </div>

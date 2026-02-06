@@ -302,7 +302,7 @@ export function CalculatorClient() {
                                 },
                                 {
                                     q: "Does health insurance affect my truck accident audit?",
-                                    a: "Yes, via 'Collateral Source' rules. In most states, the total billed amountâ€”not the discounted amount paid by insuranceâ€”is the number used for the multiplier. This nuance can add tens of thousands to your final net settlement."
+                                    a: "Yes, via 'Collateral Source' rules. In most states, the total billed amount?”not the discounted amount paid by insurance?”is the number used for the multiplier. This nuance can add tens of thousands to your final net settlement."
                                 }
                             ].map((faq, i) => (
                                 <div key={i} className="p-8 bg-white/5 rounded-3xl border border-white/5 hover:border-red-500/30 transition-all cursor-default group">

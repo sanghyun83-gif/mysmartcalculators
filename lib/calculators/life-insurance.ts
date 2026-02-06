@@ -1,6 +1,6 @@
 // ============================================
 // LIFE-INSURANCE-CALC SITE CONFIGURATION
-// 2025 Life Insurance Calculator
+// 2026 Life Insurance Calculator
 // Blue/Trust Theme
 // ============================================
 
@@ -11,14 +11,14 @@ import { Calculator, Shield, DollarSign, Scale, Users } from 'lucide-react';
 // ============================================
 export const SITE = {
     name: "Life Insurance Calculator",
-    tagline: "Free 2025 Coverage Calculator",
+    tagline: "Free 2026 Coverage Calculator",
     description: "Calculate how much life insurance you need for free. Estimate coverage, compare term vs whole life, and get premium quotes. Protect your family today.",
-    year: 2025,
+    year: 2026,
     baseUrl: "https://mysmartcalculators.com/life-insurance",
 };
 
 // ============================================
-// 2025 LIFE INSURANCE CONSTANTS
+// 2026 LIFE INSURANCE CONSTANTS
 // ============================================
 export const INSURANCE_CONSTANTS = {
     // Coverage multipliers
@@ -28,7 +28,7 @@ export const INSURANCE_CONSTANTS = {
         maximum: 15,
     },
 
-    // 2025 Average monthly premiums per $100,000 coverage (20-year term)
+    // 2026 Average monthly premiums per $100,000 coverage (20-year term)
     // Based on health class and age
     premiumRates: {
         // Preferred Plus (best health)
@@ -65,7 +65,7 @@ export const INSURANCE_CONSTANTS = {
         mortgageYears: 15, // Average remaining mortgage
         childCostPerYear: 15000, // Average cost per child per year
         collegePerChild: 100000, // Average 4-year college cost
-        funeralCost: 15000, // Average funeral cost 2025
+        funeralCost: 15000, // Average funeral cost 2026
     },
 
     // Defaults

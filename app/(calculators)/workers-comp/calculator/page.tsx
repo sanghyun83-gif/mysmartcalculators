@@ -93,7 +93,7 @@ export default function CalculatorPage() {
                                 ))}
                             </select>
                             <p className="text-xs text-amber-600 mt-1">
-                                ✓ {selectedState.name}: Max {formatCurrency(selectedState.maxWeeklyBenefit)}/week ({SITE.year})
+                                ??{selectedState.name}: Max {formatCurrency(selectedState.maxWeeklyBenefit)}/week ({SITE.year})
                             </p>
                         </div>
 
@@ -205,6 +205,16 @@ export default function CalculatorPage() {
                                     <span className="text-slate-600">Waiting Period</span>
                                     <span className="font-medium text-slate-800">{result.waitingPeriod} days</span>
                                 </div>
+                                {result.retroactivePeriod > 0 && (
+                                    <div className="flex justify-between py-2 border-b border-slate-100">
+                                        <span className="text-slate-600">Retroactive Period</span>
+                                        <span className="font-medium text-blue-600">{result.retroactivePeriod} days</span>
+                                    </div>
+                                )}
+                                <div className="flex justify-between py-2 border-b border-slate-100">
+                                    <span className="text-slate-600">Choice of Doctor</span>
+                                    <span className="font-medium text-slate-800">{result.doctorChoice}</span>
+                                </div>
                                 <div className="flex justify-between pt-4 text-lg border-t border-slate-200">
                                     <span className="text-slate-800 font-bold">Weekly Benefit</span>
                                     <span className="font-bold text-amber-600">{formatCurrency(result.weeklyBenefit)}</span>
@@ -268,8 +278,7 @@ export default function CalculatorPage() {
                         href="/workers-comp/state-rates"
                         className="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-900 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
-                        View All 50 State Rates →
-                    </Link>
+                        View All 50 State Rates ??                    </Link>
                 </div>
 
                 {/* Disclaimer */}

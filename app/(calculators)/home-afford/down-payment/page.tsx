@@ -58,7 +58,7 @@ export default function DownPaymentPage() {
                                         <td className="px-4 py-3 font-medium">
                                             {scenario.percent}%
                                             {scenario.percent === 3.5 && <span className="text-xs text-blue-600 ml-1">(FHA)</span>}
-                                            {scenario.percent === 20 && <span className="text-xs text-green-600 ml-1">✓</span>}
+                                            {scenario.percent === 20 && <span className="text-xs text-green-600 ml-1">??/span>}
                                         </td>
                                         <td className="px-4 py-3 text-right font-bold text-green-600">
                                             {formatCurrency(scenario.amount)}
@@ -121,8 +121,7 @@ export default function DownPaymentPage() {
                 </div>
 
                 <Link href="/home-afford/calculator" className="block bg-green-600 hover:bg-green-700 text-white rounded-lg p-4 text-center font-bold">
-                    Calculate Affordability →
-                </Link>
+                    Calculate Affordability ??                </Link>
             </main>
         </>
     );

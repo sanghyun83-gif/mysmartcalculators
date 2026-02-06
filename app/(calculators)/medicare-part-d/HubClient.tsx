@@ -56,7 +56,7 @@ export default function HubClient() {
                 <div className="max-w-4xl mx-auto">
                     <h2 className="text-2xl font-bold text-white mb-6">What is Medicare Part D?</h2>
                     <p className="text-slate-300 mb-4">
-                        Medicare Part D provides prescription drug coverage. The 2025 Inflation Reduction Act introduced a $2,000 annual out-of-pocket cap. After reaching this limit, you pay $0 for covered drugs. Plans vary by premium, formulary, and pharmacy network.
+                        Medicare Part D provides prescription drug coverage. The 2026 Inflation Reduction Act introduced a $2,000 annual out-of-pocket cap. After reaching this limit, you pay $0 for covered drugs. Plans vary by premium, formulary, and pharmacy network.
                     </p>
                 </div>
             </section>

@@ -233,45 +233,37 @@ export default function SSDICalculatorPage() {
                     <p className="text-sm text-slate-500">Advertisement</p>
                 </div>
 
-                {/* FAQ Section */}
-                <section className="bg-slate-800 rounded-xl border border-slate-700 p-6">
-                    <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                        <Info className="w-5 h-5 text-purple-500" />
-                        SSDI Back Pay FAQ
-                    </h2>
-
-                    <div className="space-y-4 text-sm">
-                        <div>
-                            <h3 className="font-semibold text-white mb-1">
-                                What is SSDI back pay?
-                            </h3>
-                            <p className="text-slate-400">
-                                Back pay is the benefits you&apos;re owed from the end of the 5-month waiting period until your approval date. It&apos;s paid as a lump sum.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 className="font-semibold text-white mb-1">
-                                Why is there a 5-month waiting period?
-                            </h3>
-                            <p className="text-slate-400">
-                                Federal law requires a 5-full-month waiting period after your disability onset date before SSDI benefits begin. This waiting period is unpaid.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 className="font-semibold text-white mb-1">
-                                How much is the attorney fee?
-                            </h3>
-                            <p className="text-slate-400">
-                                Disability attorneys are limited by SSA to 25% of your back pay, with a maximum of ${SSDI_CONSTANTS_2026.attorneyFees.maxFee.toLocaleString()} ({SITE.year}). They only get paid if you win.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 className="font-semibold text-white mb-1">
-                                When will I receive my back pay?
-                            </h3>
-                            <p className="text-slate-400">
-                                Typically 1-2 months after approval. Large amounts may be paid in installments every 6 months.
-                            </p>
+                {/* Inline FAQ Section */}
+                <section className="max-w-2xl mx-auto py-16">
+                    <div className="bg-slate-900/60 rounded-[2rem] border border-white/10 p-8 space-y-6">
+                        <h2 className="text-xl font-black text-white tracking-tight">
+                            SSDI Back Pay FAQ
+                        </h2>
+                        <div className="space-y-6 text-sm">
+                            <div className="pb-4 border-b border-white/5">
+                                <h3 className="font-bold text-white mb-2">
+                                    How is SSDI back pay calculated in 2026?
+                                </h3>
+                                <p className="text-slate-400 leading-relaxed">
+                                    Back pay is calculated from your Established Onset Date (EOD) plus a mandatory 5-month waiting period, up until your approval date. The 2026 COLA adjustments are factored into the monthly rates for the months owed.
+                                </p>
+                            </div>
+                            <div className="pb-4 border-b border-white/5">
+                                <h3 className="font-bold text-white mb-2">
+                                    Why is there a 5-month waiting period?
+                                </h3>
+                                <p className="text-slate-400 leading-relaxed">
+                                    Social Security law requires a 5-full-month waiting period before SSDI benefits begin. This means if your onset was January 1st, your benefits would not technically start until June 1st. This period is unpaid.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-white mb-2">
+                                    When will I receive the lump sum?
+                                </h3>
+                                <p className="text-slate-400 leading-relaxed">
+                                    Most claimants receive their back pay lump sum within 60 days of approval. Large amounts (over $10,000) may be split into three installments over 18 months to manage SSA cash flow.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </section>

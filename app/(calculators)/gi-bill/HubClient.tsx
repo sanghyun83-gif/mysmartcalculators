@@ -129,9 +129,9 @@ export default function HubClient() {
                 Most generous. Covers tuition, housing allowance, and books.
               </p>
               <ul className="text-xs text-slate-400 space-y-1">
-                <li>• Up to {formatCurrency(GI_BILL_2026.post911.privateTuition)}/yr tuition</li>
-                <li>• Monthly housing (E-5 BAH rate)</li>
-                <li>• {formatCurrency(GI_BILL_2026.post911.booksStipend)}/yr books stipend</li>
+                <li>??Up to {formatCurrency(GI_BILL_2026.post911.privateTuition)}/yr tuition</li>
+                <li>??Monthly housing (E-5 BAH rate)</li>
+                <li>??{formatCurrency(GI_BILL_2026.post911.booksStipend)}/yr books stipend</li>
               </ul>
             </div>
             <div className="bg-slate-700/50 border border-slate-600 rounded-xl p-5">
@@ -140,9 +140,9 @@ export default function HubClient() {
                 Fixed monthly payment. Good for apprenticeships.
               </p>
               <ul className="text-xs text-slate-400 space-y-1">
-                <li>• {formatCurrency(GI_BILL_2026.montgomery.fullTime)}/mo full-time</li>
-                <li>• No housing allowance</li>
-                <li>• 36 months total</li>
+                <li>??{formatCurrency(GI_BILL_2026.montgomery.fullTime)}/mo full-time</li>
+                <li>??No housing allowance</li>
+                <li>??36 months total</li>
               </ul>
             </div>
           </div>

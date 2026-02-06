@@ -28,7 +28,7 @@ export default function HubClient() {
             <div className="text-center"><p className="text-3xl font-bold text-rose-400">{(HAIR_RELAXER_2026.statistics.activeLawsuits / 1000).toFixed(1)}K+</p><p className="text-sm text-slate-400 mt-1">Active Lawsuits</p></div>
             <div className="text-center"><p className="text-3xl font-bold text-red-400">{HAIR_RELAXER_2026.statistics.uterineRiskIncrease}%</p><p className="text-sm text-slate-400 mt-1">Risk Increase</p></div>
             <div className="text-center"><p className="text-3xl font-bold text-amber-400">MDL 3060</p><p className="text-sm text-slate-400 mt-1">Federal Court</p></div>
-            <div className="text-center"><p className="text-3xl font-bold text-yellow-400">Nov 2025</p><p className="text-sm text-slate-400 mt-1">Bellwether Trial</p></div>
+            <div className="text-center"><p className="text-3xl font-bold text-yellow-400">Nov 2026</p><p className="text-sm text-slate-400 mt-1">Bellwether Trial</p></div>
           </div>
         </div>
       </section>

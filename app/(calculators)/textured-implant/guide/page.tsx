@@ -36,7 +36,7 @@ export default function GuidePage() {
                         {IMPLANT_PRODUCTS.map((product) => (
                             <div key={product.id} className={`p-3 rounded-lg border ${product.recalled ? 'bg-red-500/10 border-red-500/30' : 'bg-slate-700/50 border-slate-600'}`}>
                                 <p className="text-white font-medium">{product.name}</p>
-                                {product.recalled && <span className="text-xs text-red-400">⚠️ RECALLED - July 2019</span>}
+                                {product.recalled && <span className="text-xs text-red-400">?�️ RECALLED - July 2019</span>}
                             </div>
                         ))}
                     </div>

@@ -83,11 +83,11 @@ export default function RefinanceGuidePage() {
                             Good Reasons to Refinance
                         </h2>
                         <ul className="space-y-2 text-sm text-emerald-200">
-                            <li>• Rate is 0.5-1%+ lower than current</li>
-                            <li>• Plan to stay past break-even point</li>
-                            <li>• Want to shorten loan term</li>
-                            <li>• Need to remove PMI</li>
-                            <li>• Switching from ARM to fixed</li>
+                            <li>??Rate is 0.5-1%+ lower than current</li>
+                            <li>??Plan to stay past break-even point</li>
+                            <li>??Want to shorten loan term</li>
+                            <li>??Need to remove PMI</li>
+                            <li>??Switching from ARM to fixed</li>
                         </ul>
                     </div>
                     <div className="bg-orange-900/20 border border-orange-500/50 rounded-xl p-6">
@@ -96,11 +96,11 @@ export default function RefinanceGuidePage() {
                             Think Twice If...
                         </h2>
                         <ul className="space-y-2 text-sm text-orange-200">
-                            <li>• Moving before break-even</li>
-                            <li>• Rate reduction is minimal</li>
-                            <li>• Extending term significantly</li>
-                            <li>• Taking cash out for non-essentials</li>
-                            <li>• Current loan has prepayment penalty</li>
+                            <li>??Moving before break-even</li>
+                            <li>??Rate reduction is minimal</li>
+                            <li>??Extending term significantly</li>
+                            <li>??Taking cash out for non-essentials</li>
+                            <li>??Current loan has prepayment penalty</li>
                         </ul>
                     </div>
                 </div>

@@ -20,7 +20,7 @@ export default function HubClient() {
             <span className="text-lg font-bold text-slate-800">{SITE.name}</span>
           </div>
           <span className="text-sm text-white bg-blue-600 px-3 py-1.5 rounded-full font-bold">
-            2025-26 Rates
+            2026-26 Rates
           </span>
         </div>
       </header>
@@ -34,7 +34,7 @@ export default function HubClient() {
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            2025 Student Loan
+            2026 Student Loan
             <span className="block text-yellow-400">Calculator</span>
           </h1>
 
@@ -54,11 +54,11 @@ export default function HubClient() {
         </div>
       </section>
 
-      {/* 2025-26 Rates */}
+      {/* 2026-26 Rates */}
       <section className="bg-white border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-4 py-10">
           <h2 className="text-lg font-bold text-slate-800 mb-4 text-center">
-            2025-26 Federal Student Loan Rates
+            2026-26 Federal Student Loan Rates
           </h2>
           <div className="grid md:grid-cols-4 gap-4">
             <div className="text-center p-4 bg-blue-50 rounded-xl border border-blue-100">
@@ -172,8 +172,7 @@ export default function HubClient() {
 
           <div className="text-center mt-6">
             <Link href="/student-loan/calculator" className="text-blue-600 font-semibold hover:underline">
-              Calculate Your Payments →
-            </Link>
+              Calculate Your Payments ??            </Link>
           </div>
         </div>
       </section>

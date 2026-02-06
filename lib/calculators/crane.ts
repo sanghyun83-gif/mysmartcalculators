@@ -50,7 +50,7 @@ export const CRANE_2026 = {
         annualDeaths: 79,
         annualInjuries: 2500,
         avgSettlement: 850000,
-        oshaFines2025: 15600000,
+        oshaFines2026: 15600000,
         topViolation: "Failure to conduct pre-lift inspection",
         deadliestType: "Electrocution",
     },

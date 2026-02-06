@@ -164,8 +164,7 @@ export default function StateLawsPage() {
                         className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold"
                     >
                         <Scale className="w-5 h-5" />
-                        Calculate Your Settlement →
-                    </Link>
+                        Calculate Your Settlement ??                    </Link>
                 </div>
             </main>
         </div>

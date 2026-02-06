@@ -20,7 +20,7 @@ export default function LejeuneCalculatorPage() {
 
             <main className="max-w-2xl mx-auto px-4 py-8">
                 <div className="bg-red-900/30 border border-red-500/50 rounded-lg p-4 mb-6 text-center">
-                    <div className="flex items-center justify-center gap-2"><Calendar className="w-4 h-4 text-red-400" /><span className="text-red-300 font-semibold">⏰ Filing Deadline: {LEJEUNE_2026.statistics.deadlineExtended}</span></div>
+                    <div className="flex items-center justify-center gap-2"><Calendar className="w-4 h-4 text-red-400" /><span className="text-red-300 font-semibold">??Filing Deadline: {LEJEUNE_2026.statistics.deadlineExtended}</span></div>
                 </div>
 
                 <div className="bg-slate-800 rounded-xl p-6 border border-slate-700">

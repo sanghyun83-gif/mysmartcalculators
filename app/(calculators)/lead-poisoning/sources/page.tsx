@@ -32,7 +32,7 @@ export default function SourcesPage() {
                     {details.map((source) => (
                         <div key={source.id} className="bg-slate-800 border border-slate-700 rounded-2xl p-6">
                             <h2 className="text-xl font-bold text-purple-400 mb-4">{source.name}</h2>
-                            <ul className="space-y-2 mb-4">{source.facts.map((fact, i) => <li key={i} className="flex items-start gap-2"><span className="text-purple-400 mt-1">•</span><span className="text-slate-300">{fact}</span></li>)}</ul>
+                            <ul className="space-y-2 mb-4">{source.facts.map((fact, i) => <li key={i} className="flex items-start gap-2"><span className="text-purple-400 mt-1">??/span><span className="text-slate-300">{fact}</span></li>)}</ul>
                             <div className="bg-purple-500/10 rounded-lg p-3"><p className="text-purple-200 text-sm"><strong>Legal claims:</strong> {source.claims}</p></div>
                         </div>
                     ))}

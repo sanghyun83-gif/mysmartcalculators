@@ -123,9 +123,9 @@ export default function HubClient() {
               </div>
               <p className="text-sm text-slate-300 mb-3">Held more than 1 year</p>
               <ul className="text-sm text-emerald-300 space-y-1">
-                <li>• 0% if income under {formatCurrency(CAPITAL_GAINS_2026.longTermRates.single[0].max)}</li>
-                <li>• 15% for most taxpayers</li>
-                <li>• 20% for high earners</li>
+                <li>??0% if income under {formatCurrency(CAPITAL_GAINS_2026.longTermRates.single[0].max)}</li>
+                <li>??15% for most taxpayers</li>
+                <li>??20% for high earners</li>
               </ul>
             </div>
             <div className="bg-red-900/20 border border-red-500/50 rounded-xl p-5">
@@ -135,9 +135,9 @@ export default function HubClient() {
               </div>
               <p className="text-sm text-slate-300 mb-3">Held 1 year or less</p>
               <ul className="text-sm text-red-300 space-y-1">
-                <li>• Taxed as ordinary income</li>
-                <li>• Rates from 10% to 37%</li>
-                <li>• Can be much higher than LT</li>
+                <li>??Taxed as ordinary income</li>
+                <li>??Rates from 10% to 37%</li>
+                <li>??Can be much higher than LT</li>
               </ul>
             </div>
           </div>

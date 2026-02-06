@@ -29,11 +29,11 @@ export default function TruckGuidePage() {
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div className="bg-red-900/20 border border-red-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Shield className="w-5 h-5 text-red-500" />Liable Parties</h2>
-                        <ul className="space-y-2 text-sm text-red-200">{TRUCK_2026.liabilityParties.map((p, i) => (<li key={i}>• <strong>{p.party}:</strong> {p.description}</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-red-200">{TRUCK_2026.liabilityParties.map((p, i) => (<li key={i}>??<strong>{p.party}:</strong> {p.description}</li>))}</ul>
                     </div>
                     <div className="bg-amber-900/20 border border-amber-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Truck className="w-5 h-5 text-amber-500" />Accident Types</h2>
-                        <ul className="space-y-2 text-sm text-amber-200">{TRUCK_2026.accidentTypes.map((a, i) => (<li key={i}>• <strong>{a.type}:</strong> {a.cases}</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-amber-200">{TRUCK_2026.accidentTypes.map((a, i) => (<li key={i}>??<strong>{a.type}:</strong> {a.cases}</li>))}</ul>
                     </div>
                 </div>
 

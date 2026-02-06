@@ -58,20 +58,20 @@ export default function HELOCGuidePage() {
                         <h2 className="text-lg font-bold text-white mb-2">Draw Period</h2>
                         <p className="text-4xl font-bold text-emerald-400 mb-2">{HELOC_2026.periods.drawPeriod} years</p>
                         <ul className="space-y-2 text-sm text-emerald-200">
-                            <li>• Borrow as needed, up to limit</li>
-                            <li>• Pay interest only on borrowed amount</li>
-                            <li>• Reuse as you pay down</li>
-                            <li>• Minimum payments required</li>
+                            <li>??Borrow as needed, up to limit</li>
+                            <li>??Pay interest only on borrowed amount</li>
+                            <li>??Reuse as you pay down</li>
+                            <li>??Minimum payments required</li>
                         </ul>
                     </div>
                     <div className="bg-teal-900/20 border border-teal-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-2">Repayment Period</h2>
                         <p className="text-4xl font-bold text-teal-400 mb-2">{HELOC_2026.periods.repaymentPeriod} years</p>
                         <ul className="space-y-2 text-sm text-teal-200">
-                            <li>• No more borrowing allowed</li>
-                            <li>• Pay principal + interest</li>
-                            <li>• Higher monthly payments</li>
-                            <li>• Balance must be paid off</li>
+                            <li>??No more borrowing allowed</li>
+                            <li>??Pay principal + interest</li>
+                            <li>??Higher monthly payments</li>
+                            <li>??Balance must be paid off</li>
                         </ul>
                     </div>
                 </div>
@@ -125,11 +125,11 @@ export default function HELOCGuidePage() {
                             HELOC Pros
                         </h2>
                         <ul className="space-y-2 text-sm text-emerald-200">
-                            <li>• Flexibility - borrow as needed</li>
-                            <li>• Interest-only payments during draw</li>
-                            <li>• Potential tax deduction</li>
-                            <li>• Lower rates than credit cards</li>
-                            <li>• Reuse credit as you pay</li>
+                            <li>??Flexibility - borrow as needed</li>
+                            <li>??Interest-only payments during draw</li>
+                            <li>??Potential tax deduction</li>
+                            <li>??Lower rates than credit cards</li>
+                            <li>??Reuse credit as you pay</li>
                         </ul>
                     </div>
                     <div className="bg-orange-900/20 border border-orange-500/50 rounded-xl p-6">
@@ -138,11 +138,11 @@ export default function HELOCGuidePage() {
                             HELOC Cons
                         </h2>
                         <ul className="space-y-2 text-sm text-orange-200">
-                            <li>• Variable rate can increase</li>
-                            <li>• Your home is collateral</li>
-                            <li>• Payment shock in repayment</li>
-                            <li>• Closing costs apply</li>
-                            <li>• Temptation to overborrow</li>
+                            <li>??Variable rate can increase</li>
+                            <li>??Your home is collateral</li>
+                            <li>??Payment shock in repayment</li>
+                            <li>??Closing costs apply</li>
+                            <li>??Temptation to overborrow</li>
                         </ul>
                     </div>
                 </div>

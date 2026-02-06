@@ -46,7 +46,7 @@ export const REFINANCE_2026 = {
     statistics: {
         avgSavings: 250,          // per month
         avgBreakEven: 24,         // months
-        refinanceRate: 12,        // percent of mortgages refinanced in 2025
+        refinanceRate: 12,        // percent of mortgages refinanced in 2026
         avgClosingCost: 5000,
     },
 

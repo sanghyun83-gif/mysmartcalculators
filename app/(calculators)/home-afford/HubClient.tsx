@@ -42,7 +42,7 @@ export default function HubClient() {
         </div>
       </section>
 
-      {/* 2025 Rates & Limits */}
+      {/* 2026 Rates & Limits */}
       <section className="bg-white border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-4 py-10">
           <h2 className="text-lg font-bold text-slate-800 mb-4 text-center">
@@ -157,8 +157,7 @@ export default function HubClient() {
 
           <div className="text-center mt-6">
             <Link href="/home-afford/calculator" className="text-green-600 font-semibold hover:underline">
-              Calculate Your Affordability →
-            </Link>
+              Calculate Your Affordability ??            </Link>
           </div>
         </div>
       </section>

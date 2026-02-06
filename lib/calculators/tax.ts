@@ -1,6 +1,6 @@
 // ============================================
 // TAX-CALC SITE CONFIGURATION
-// 2025 Tax Calculator
+// 2026 Tax Calculator
 // Green/Money Theme
 // ============================================
 
@@ -11,17 +11,17 @@ import { Calculator, FileText, DollarSign, Briefcase, Receipt, Users, PiggyBank 
 // ============================================
 export const SITE = {
     name: "Tax Calculator",
-    tagline: "Free 2025 Federal Tax Estimator",
-    description: "Calculate your 2025 federal income tax for free. See your tax bracket, estimate your refund, and understand your tax liability with our easy-to-use calculators.",
-    year: 2025,
+    tagline: "Free 2026 Federal Tax Estimator",
+    description: "Calculate your 2026 federal income tax for free. See your tax bracket, estimate your refund, and understand your tax liability with our easy-to-use calculators.",
+    year: 2026,
     baseUrl: "https://mysmartcalculators.com/tax",
 };
 
 // ============================================
-// 2025 IRS TAX CONSTANTS (Official)
+// 2026 IRS TAX CONSTANTS (Official)
 // ============================================
 export const TAX_CONSTANTS = {
-    // 2025 Federal Tax Brackets (IRS Rev. Proc. 2024-40)
+    // 2026 Federal Tax Brackets (IRS Rev. Proc. 2024-40)
     brackets: {
         single: [
             { min: 0, max: 11925, rate: 0.10 },
@@ -52,7 +52,7 @@ export const TAX_CONSTANTS = {
         ],
     },
 
-    // 2025 Standard Deductions
+    // 2026 Standard Deductions
     standardDeduction: {
         single: 15000,
         marriedFilingJointly: 30000,
@@ -68,7 +68,7 @@ export const TAX_CONSTANTS = {
         { id: "headOfHousehold", name: "Head of Household", description: "Unmarried with qualifying dependents" },
     ],
 
-    // Tax Credits (2025)
+    // Tax Credits (2026)
     credits: {
         childTaxCredit: 2000, // per qualifying child
         childTaxCreditRefundable: 1700, // refundable portion (ACTC)
@@ -85,10 +85,10 @@ export const TAX_CONSTANTS = {
         },
     },
 
-    // Self-Employment Tax (2025)
+    // Self-Employment Tax (2026)
     selfEmployment: {
         rate: 0.153, // 15.3% (12.4% SS + 2.9% Medicare)
-        socialSecurityWageCap: 176100, // 2025 SS wage base
+        socialSecurityWageCap: 176100, // 2026 SS wage base
         medicareAdditionalRate: 0.009, // 0.9% additional Medicare over threshold
         medicareThreshold: {
             single: 200000,
@@ -129,22 +129,22 @@ export const CALCULATORS = [
         id: "tax/calculator",
         name: "Income Tax Calculator",
         shortName: "Tax Calc",
-        description: "Calculate your 2025 federal income tax",
+        description: "Calculate your 2026 federal income tax",
         longDescription: "Enter your income and filing status to see your tax liability and effective rate.",
         icon: Calculator,
         category: "tax",
-        keywords: ["income tax calculator", "federal tax calculator", "2025 tax calculator"],
+        keywords: ["income tax calculator", "federal tax calculator", "2026 tax calculator"],
         featured: true,
     },
     {
         id: "tax/brackets",
         name: "Tax Brackets",
         shortName: "Brackets",
-        description: "2025 federal tax brackets and rates",
-        longDescription: "See the official 2025 IRS tax brackets for all filing statuses.",
+        description: "2026 federal tax brackets and rates",
+        longDescription: "See the official 2026 IRS tax brackets for all filing statuses.",
         icon: FileText,
         category: "tax",
-        keywords: ["2025 tax brackets", "federal tax rates", "marginal tax rate"],
+        keywords: ["2026 tax brackets", "federal tax rates", "marginal tax rate"],
         featured: true,
     },
     {
@@ -177,7 +177,7 @@ export const CALCULATORS = [
         longDescription: "Understand which deductions you can take and whether to itemize.",
         icon: Receipt,
         category: "tax",
-        keywords: ["tax deductions", "standard deduction 2025", "itemized deductions"],
+        keywords: ["tax deductions", "standard deduction 2026", "itemized deductions"],
         featured: false,
     },
     {

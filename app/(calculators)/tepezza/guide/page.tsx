@@ -36,11 +36,11 @@ export default function TepezzaGuidePage() {
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div className="bg-purple-900/20 border border-purple-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Ear className="w-5 h-5 text-purple-500" />Infusion Impact</h2>
-                        <ul className="space-y-2 text-sm text-purple-200">{TEPEZZA_2026.infusionFactors.map((inf, i) => (<li key={i}>• <strong>{inf.infusions}:</strong> {inf.multiplier}x base settlement</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-purple-200">{TEPEZZA_2026.infusionFactors.map((inf, i) => (<li key={i}>??<strong>{inf.infusions}:</strong> {inf.multiplier}x base settlement</li>))}</ul>
                     </div>
                     <div className="bg-rose-900/20 border border-rose-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Shield className="w-5 h-5 text-rose-500" />Treated Conditions</h2>
-                        <ul className="space-y-2 text-sm text-rose-200">{TEPEZZA_2026.diagnosisFactors.map((d, i) => (<li key={i}>• {d.diagnosis}</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-rose-200">{TEPEZZA_2026.diagnosisFactors.map((d, i) => (<li key={i}>??{d.diagnosis}</li>))}</ul>
                     </div>
                 </div>
 

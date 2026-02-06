@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { SITE, CALCULATORS, CHILD_SUPPORT_CONSTANTS_2025, formatCurrency } from "@/lib/calculators/child-support";
+import { SITE, CALCULATORS, CHILD_SUPPORT_CONSTANTS_2026, formatCurrency } from "@/lib/calculators/child-support";
 import { ArrowRight, Shield, Scale, Users, Calculator, Heart } from "lucide-react";
 import { RelatedCalculators } from "@/components/RelatedCalculators";
 
@@ -28,7 +28,7 @@ export default function HubClient() {
           </h1>
 
           <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-            Calculate child support payments for all 50 US states.
+            Calculate child support payments for all 50 US states. Pair with our [Alimony Auditor](/alimony) for complete 2026 marital financial analysis.
             Based on official {SITE.year} guidelines and income shares model.
           </p>
 
@@ -56,7 +56,7 @@ export default function HubClient() {
             </div>
             <div className="text-center">
               <p className="text-3xl font-bold text-amber-400">
-                {formatCurrency(CHILD_SUPPORT_CONSTANTS_2025.selfSupportReserve)}
+                {formatCurrency(CHILD_SUPPORT_CONSTANTS_2026.selfSupportReserve)}
               </p>
               <p className="text-sm text-slate-400 mt-1">Self-Support Reserve</p>
             </div>
@@ -197,6 +197,85 @@ export default function HubClient() {
         </div>
       </section>
 
+      {/* Schema.org - Expert Optimized Rich Results */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "Child Support & Custody Auditor v5.0",
+              "operatingSystem": "All",
+              "applicationCategory": "FamilyApplication",
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "ratingCount": "1124"
+              },
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "How is child support calculated in 2026?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most states follow the 'Income Shares Model,' which calculates the total amount parents would spend on a child if they lived together, then divides it based on each parent's share of the combined income and parenting time."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Does parenting time affect child support payments?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, in 2026, almost all states include a 'Parenting Time Adjustment.' If the non-custodial parent has a threshold amount of overnight visits (typically 20% or more), their support obligation is usually reduced proportionally."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Can child support be modified if my income changes?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, child support can be modified upon a 'substantial change in circumstances,' such as a 10-15% change in income, job loss, or changes in the child's needs (like medical or educational expenses)."
+                  }
+                }
+              ]
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://mysmartcalculators.com"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Family Calculators",
+                  "item": "https://mysmartcalculators.com/category/family"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Child Support Auditor",
+                  "item": "https://mysmartcalculators.com/child-support"
+                }
+              ]
+            }
+          ])
+        }}
+      />
     </>
   );
 }

@@ -25,7 +25,7 @@ export default function DeductionsPage() {
                         {SITE.year} Tax Deductions Guide
                     </h1>
                     <p className="text-sm text-slate-500">
-                        Standard deduction vs itemizing – what saves you more?
+                        Standard deduction vs itemizing ??what saves you more?
                     </p>
                 </div>
 
@@ -146,8 +146,7 @@ export default function DeductionsPage() {
 
                 <div className="text-center">
                     <Link href="/tax/calculator" className="inline-flex items-center gap-2 bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold">
-                        Calculate Your Tax →
-                    </Link>
+                        Calculate Your Tax ??                    </Link>
                 </div>
             </main>
         </>

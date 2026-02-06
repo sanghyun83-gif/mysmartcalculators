@@ -23,7 +23,7 @@ export default function HairRelaxerGuidePage() {
                         <div className="bg-rose-900/20 border border-rose-500/50 rounded-lg p-4 text-center"><p className="text-2xl font-bold text-rose-400">{(HAIR_RELAXER_2026.statistics.activeLawsuits / 1000).toFixed(1)}K+</p><p className="text-sm text-rose-200">Active Cases</p></div>
                         <div className="bg-red-900/20 border border-red-500/50 rounded-lg p-4 text-center"><p className="text-2xl font-bold text-red-400">{HAIR_RELAXER_2026.statistics.uterineRiskIncrease}%</p><p className="text-sm text-red-200">Risk Increase</p></div>
                         <div className="bg-amber-900/20 border border-amber-500/50 rounded-lg p-4 text-center"><p className="text-xl font-bold text-amber-400">MDL 3060</p><p className="text-sm text-amber-200">Federal Court</p></div>
-                        <div className="bg-yellow-900/20 border border-yellow-500/50 rounded-lg p-4 text-center"><p className="text-xl font-bold text-yellow-400">Nov 2025</p><p className="text-sm text-yellow-200">Bellwether</p></div>
+                        <div className="bg-yellow-900/20 border border-yellow-500/50 rounded-lg p-4 text-center"><p className="text-xl font-bold text-yellow-400">Nov 2026</p><p className="text-sm text-yellow-200">Bellwether</p></div>
                     </div>
                 </div>
 
@@ -36,11 +36,11 @@ export default function HairRelaxerGuidePage() {
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div className="bg-rose-900/20 border border-rose-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Sparkles className="w-5 h-5 text-rose-500" />Brands Involved</h2>
-                        <ul className="space-y-2 text-sm text-rose-200">{HAIR_RELAXER_2026.brands.map((b, i) => (<li key={i}>• <strong>{b.brand}</strong> ({b.manufacturer})</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-rose-200">{HAIR_RELAXER_2026.brands.map((b, i) => (<li key={i}>??<strong>{b.brand}</strong> ({b.manufacturer})</li>))}</ul>
                     </div>
                     <div className="bg-amber-900/20 border border-amber-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Shield className="w-5 h-5 text-amber-500" />Usage Frequency Factors</h2>
-                        <ul className="space-y-2 text-sm text-amber-200">{HAIR_RELAXER_2026.usageFrequency.map((f, i) => (<li key={i}>• <strong>{f.frequency}:</strong> {f.multiplier}x</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-amber-200">{HAIR_RELAXER_2026.usageFrequency.map((f, i) => (<li key={i}>??<strong>{f.frequency}:</strong> {f.multiplier}x</li>))}</ul>
                     </div>
                 </div>
 

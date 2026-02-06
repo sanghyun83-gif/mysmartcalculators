@@ -134,12 +134,12 @@ export default function CoverageGuidePage() {
                         What Affects Your Premium?
                     </h2>
                     <ul className="space-y-2 text-sm text-slate-300">
-                        <li>• <strong>Location:</strong> Higher crime = higher premiums</li>
-                        <li>• <strong>Coverage amount:</strong> More coverage = higher cost</li>
-                        <li>• <strong>Deductible:</strong> Higher deductible = lower premium</li>
-                        <li>• <strong>Credit score:</strong> Better credit = discounts</li>
-                        <li>• <strong>Bundling:</strong> Combine with auto for 15% off</li>
-                        <li>• <strong>Safety features:</strong> Smoke detectors, security systems</li>
+                        <li>??<strong>Location:</strong> Higher crime = higher premiums</li>
+                        <li>??<strong>Coverage amount:</strong> More coverage = higher cost</li>
+                        <li>??<strong>Deductible:</strong> Higher deductible = lower premium</li>
+                        <li>??<strong>Credit score:</strong> Better credit = discounts</li>
+                        <li>??<strong>Bundling:</strong> Combine with auto for 15% off</li>
+                        <li>??<strong>Safety features:</strong> Smoke detectors, security systems</li>
                     </ul>
                 </div>
 

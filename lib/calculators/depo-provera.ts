@@ -39,7 +39,7 @@ export const DEPO_2026 = {
         lawsuitsFiled: 1300,
         tumorRiskIncrease: 500,
         avgSettlement: 950000,
-        mdlEstablished: "February 2025",
+        mdlEstablished: "February 2026",
         fdaWarning: "January 2026",
     },
     citation: "Based on FDA Safety Communication 2026, MDL No. 3126 (M.D. Fla.), and Pfizer Litigation Data",

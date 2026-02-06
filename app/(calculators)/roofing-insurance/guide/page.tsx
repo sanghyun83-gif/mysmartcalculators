@@ -13,7 +13,7 @@ export default function RoofingInsuranceGuidePage() {
                         <Calculator className="w-6 h-6 text-blue-500" />
                         <span className="text-lg font-bold text-white">MySmartCalculators</span>
                     </Link>
-                    <Link href="/roofing-insurance" className="text-slate-400 hover:text-white text-sm">← Back to Overview</Link>
+                    <Link href="/roofing-insurance" className="text-slate-400 hover:text-white text-sm">??Back to Overview</Link>
                 </div>
             </header>
 
@@ -72,18 +72,18 @@ export default function RoofingInsuranceGuidePage() {
                             <CheckCircle className="w-8 h-8 text-green-400 mb-3" />
                             <h3 className="text-lg font-semibold text-white mb-2">Safety Programs</h3>
                             <ul className="text-slate-400 text-sm space-y-1">
-                                <li>• OSHA 10/30 training for all workers</li>
-                                <li>• Written fall protection plan</li>
-                                <li>• Regular safety meetings</li>
+                                <li>??OSHA 10/30 training for all workers</li>
+                                <li>??Written fall protection plan</li>
+                                <li>??Regular safety meetings</li>
                             </ul>
                         </div>
                         <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
                             <CheckCircle className="w-8 h-8 text-green-400 mb-3" />
                             <h3 className="text-lg font-semibold text-white mb-2">Claims Management</h3>
                             <ul className="text-slate-400 text-sm space-y-1">
-                                <li>• 3+ years claims-free lowers EMR</li>
-                                <li>• Return-to-work programs</li>
-                                <li>• Proper injury reporting</li>
+                                <li>??3+ years claims-free lowers EMR</li>
+                                <li>??Return-to-work programs</li>
+                                <li>??Proper injury reporting</li>
                             </ul>
                         </div>
                     </div>

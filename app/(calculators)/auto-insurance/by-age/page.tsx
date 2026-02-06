@@ -76,10 +76,10 @@ export default function ByAgePage() {
                 <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-6">
                     <h3 className="font-bold text-blue-800 mb-3">Key Insights</h3>
                     <ul className="space-y-2 text-sm text-blue-700">
-                        <li>• <strong>Teen drivers (16-19)</strong> pay 70-150% more than adults</li>
-                        <li>• <strong>Age 25</strong> is the magic number when rates drop significantly</li>
-                        <li>• <strong>Ages 30-50</strong> typically get the best rates</li>
-                        <li>• <strong>Seniors (65+)</strong> see gradual rate increases</li>
+                        <li>??<strong>Teen drivers (16-19)</strong> pay 70-150% more than adults</li>
+                        <li>??<strong>Age 25</strong> is the magic number when rates drop significantly</li>
+                        <li>??<strong>Ages 30-50</strong> typically get the best rates</li>
+                        <li>??<strong>Seniors (65+)</strong> see gradual rate increases</li>
                     </ul>
                 </div>
 
@@ -89,8 +89,7 @@ export default function ByAgePage() {
 
                 <div className="text-center">
                     <Link href="/auto-insurance/calculator" className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold">
-                        Calculate Your Rate →
-                    </Link>
+                        Calculate Your Rate ??                    </Link>
                 </div>
             </main>
         </div>

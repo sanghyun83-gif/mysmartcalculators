@@ -37,7 +37,7 @@ export default function EFCGuidePage() {
                 {/* EFC to SAI Transition */}
                 <div className="bg-emerald-900/30 border border-emerald-500/50 rounded-xl p-6 mb-8">
                     <h2 className="text-lg font-bold text-white mb-4">
-                        EFC → SAI: What Changed?
+                        EFC ??SAI: What Changed?
                     </h2>
                     <p className="text-slate-300 mb-4">
                         Starting with the 2024-25 school year, the Expected Family Contribution (EFC) was
@@ -50,7 +50,7 @@ export default function EFCGuidePage() {
                             "Direct IRS data transfer",
                             "Multiple children in college no longer reduces SAI",
                             "Small business/farm assets often excluded",
-                            "Max Pell Grant for SAI ≤ $0",
+                            "Max Pell Grant for SAI ??$0",
                         ].map((change, i) => (
                             <div key={i} className="flex items-start gap-2">
                                 <CheckCircle className="w-4 h-4 text-emerald-400 mt-1" />
@@ -107,7 +107,7 @@ export default function EFCGuidePage() {
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
                         <div className="bg-emerald-900/30 rounded-lg p-3 border border-emerald-500/50">
-                            <p className="text-sm text-slate-400">SAI ≤ 0</p>
+                            <p className="text-sm text-slate-400">SAI ??0</p>
                             <p className="text-xl font-bold text-emerald-400">{formatCurrency(FAFSA_CONSTANTS_2026.pellGrant.maximum)}</p>
                             <p className="text-xs text-slate-500">Max Pell</p>
                         </div>
@@ -136,10 +136,10 @@ export default function EFCGuidePage() {
                         <div className="text-sm text-amber-200">
                             <p className="font-medium text-white mb-2">Tips to Maximize Aid</p>
                             <ul className="space-y-1">
-                                <li>• Minimize cash/investment accounts (pay down debt instead)</li>
-                                <li>• Maximize retirement contributions before filing</li>
-                                <li>• Keep assets in parent name, not student name</li>
-                                <li>• File FAFSA as early as possible (Oct 1)</li>
+                                <li>??Minimize cash/investment accounts (pay down debt instead)</li>
+                                <li>??Maximize retirement contributions before filing</li>
+                                <li>??Keep assets in parent name, not student name</li>
+                                <li>??File FAFSA as early as possible (Oct 1)</li>
                             </ul>
                         </div>
                     </div>

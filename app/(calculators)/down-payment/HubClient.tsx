@@ -28,11 +28,11 @@ const FAQ_DATA = [
     },
     {
         q: "Is 20% down payment the best option?",
-        a: "Not necessarily. 20% avoids PMI but has opportunity costs. If home values appreciate 5%/year, a $400K home gains $20K/equity annually—making a smaller down payment potentially advantageous. Consider: How long will you stay? Can you invest excess funds elsewhere? Current PMI rates? Do the math for your situation."
+        a: "Not necessarily. 20% avoids PMI but has opportunity costs. If home values appreciate 5%/year, a $400K home gains $20K/equity annually?�making a smaller down payment potentially advantageous. Consider: How long will you stay? Can you invest excess funds elsewhere? Current PMI rates? Do the math for your situation."
     },
     {
         q: "What are closing costs and how much should I budget?",
-        a: "Closing costs are fees for processing the mortgage: appraisal, title insurance, attorney fees, taxes, prepaid items. Budget 2-5% of the home price (typically 3%). On a $400,000 home, expect $8,000-$20,000. These are separate from your down payment—plan for both. Some can be negotiated or paid by seller."
+        a: "Closing costs are fees for processing the mortgage: appraisal, title insurance, attorney fees, taxes, prepaid items. Budget 2-5% of the home price (typically 3%). On a $400,000 home, expect $8,000-$20,000. These are separate from your down payment?�plan for both. Some can be negotiated or paid by seller."
     },
     {
         q: "How long does it take to save for a down payment?",
@@ -56,11 +56,11 @@ const FAQ_DATA = [
     },
     {
         q: "What is down payment assistance (DPA)?",
-        a: "DPA programs help first-time and low-to-moderate income buyers with down payments through grants, forgivable loans, or low-interest second mortgages. Over 2,000 programs exist nationwide—state housing agencies, city programs, employer programs. Many cover 3-5% of purchase price. Check your state's housing finance agency."
+        a: "DPA programs help first-time and low-to-moderate income buyers with down payments through grants, forgivable loans, or low-interest second mortgages. Over 2,000 programs exist nationwide?�state housing agencies, city programs, employer programs. Many cover 3-5% of purchase price. Check your state's housing finance agency."
     },
     {
         q: "Can I use my 401(k) for a down payment?",
-        a: "Options: 1) 401(k) loan: Borrow up to 50% or $50,000, repay with interest to yourself. Risk: job loss = immediate repayment. 2) Hardship withdrawal: Available for first-time buyers in some plans, but face 10% penalty + income taxes. Consider Roth IRA instead—contributions can be withdrawn penalty-free anytime."
+        a: "Options: 1) 401(k) loan: Borrow up to 50% or $50,000, repay with interest to yourself. Risk: job loss = immediate repayment. 2) Hardship withdrawal: Available for first-time buyers in some plans, but face 10% penalty + income taxes. Consider Roth IRA instead?�contributions can be withdrawn penalty-free anytime."
     },
     {
         q: "What's the difference between down payment for primary vs investment property?",
@@ -172,7 +172,7 @@ export default function DownPaymentHubClient() {
                 </h2>
                 <div className="prose prose-invert max-w-none text-slate-300 space-y-4">
                     <p>
-                        Your <strong className="text-white">down payment</strong> is the upfront cash you pay toward a home purchase, expressed as a percentage of the price. While 20% is traditional, the <strong className="text-white">National Association of Realtors (NAR)</strong> reports that the actual average is much lower—around 8% for first-time buyers and 19% for repeat buyers.
+                        Your <strong className="text-white">down payment</strong> is the upfront cash you pay toward a home purchase, expressed as a percentage of the price. While 20% is traditional, the <strong className="text-white">National Association of Realtors (NAR)</strong> reports that the actual average is much lower?�around 8% for first-time buyers and 19% for repeat buyers.
                     </p>
                     <p>
                         The <strong className="text-white">Consumer Financial Protection Bureau (CFPB)</strong> notes that down payment requirements vary by loan type: conventional loans (3-20%), FHA loans (3.5%), VA loans (0%), and USDA loans (0%). Each option has tradeoffs in terms of PMI, interest rates, and eligibility requirements.
@@ -247,10 +247,10 @@ export default function DownPaymentHubClient() {
                         <CheckCircle className="w-8 h-8 text-green-400 mb-3" />
                         <h3 className="font-bold text-white text-lg mb-3">How to Remove PMI</h3>
                         <ul className="text-sm text-slate-300 space-y-2">
-                            <li>• Request removal at 80% LTV (20% equity)</li>
-                            <li>• Auto-cancellation at 78% LTV</li>
-                            <li>• Refinance to a new loan without PMI</li>
-                            <li>• Home appreciation may reach 20% faster</li>
+                            <li>??Request removal at 80% LTV (20% equity)</li>
+                            <li>??Auto-cancellation at 78% LTV</li>
+                            <li>??Refinance to a new loan without PMI</li>
+                            <li>??Home appreciation may reach 20% faster</li>
                         </ul>
                     </div>
                 </div>
@@ -301,11 +301,11 @@ export default function DownPaymentHubClient() {
                     Data Sources & Citations
                 </h3>
                 <ul className="text-xs text-slate-500 space-y-2">
-                    <li>• National Association of Realtors. "Profile of Home Buyers and Sellers." NAR, 2025.</li>
-                    <li>• Consumer Financial Protection Bureau. "What Is Private Mortgage Insurance?" CFPB, 2024.</li>
-                    <li>• Federal Housing Finance Agency. "House Price Index." FHFA, 2026.</li>
-                    <li>• U.S. Department of Housing and Urban Development. "FHA Loan Requirements." HUD, 2026.</li>
-                    <li>• Fannie Mae. "Selling Guide: Eligibility Requirements." Fannie Mae, 2025.</li>
+                    <li>??National Association of Realtors. "Profile of Home Buyers and Sellers." NAR, 2026.</li>
+                    <li>??Consumer Financial Protection Bureau. "What Is Private Mortgage Insurance?" CFPB, 2024.</li>
+                    <li>??Federal Housing Finance Agency. "House Price Index." FHFA, 2026.</li>
+                    <li>??U.S. Department of Housing and Urban Development. "FHA Loan Requirements." HUD, 2026.</li>
+                    <li>??Fannie Mae. "Selling Guide: Eligibility Requirements." Fannie Mae, 2026.</li>
                 </ul>
             </section>
 

@@ -131,7 +131,7 @@ export default function TipHubClient() {
 
                     <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
                         Calculate the perfect tip amount and split bills effortlessly. Our free {SITE.year} calculator
-                        helps you navigate tipping etiquette for restaurants, delivery, bars, and more—with instant results.
+                        helps you navigate tipping etiquette for restaurants, delivery, bars, and more?�with instant results.
                     </p>
 
                     <Link
@@ -175,7 +175,7 @@ export default function TipHubClient() {
                         <strong className="text-white">Tipping</strong> is a gratuity given to service workers as a reward for good service. In the United States, tipping is deeply embedded in the service industry culture and represents a significant portion of workers' income. According to the <strong className="text-white">U.S. Bureau of Labor Statistics</strong>, approximately 4.3 million Americans work in tipped occupations.
                     </p>
                     <p>
-                        The <strong className="text-white">Fair Labor Standards Act (FLSA)</strong> allows employers to pay tipped employees as little as $2.13 per hour, with tips expected to bring total earnings to at least the federal minimum wage of $7.25. This legal framework makes tips essential—not optional—for service worker livelihoods. The <strong className="text-white">National Restaurant Association</strong> reports that tips typically account for 60-80% of a server's total earnings.
+                        The <strong className="text-white">Fair Labor Standards Act (FLSA)</strong> allows employers to pay tipped employees as little as $2.13 per hour, with tips expected to bring total earnings to at least the federal minimum wage of $7.25. This legal framework makes tips essential?�not optional?�for service worker livelihoods. The <strong className="text-white">National Restaurant Association</strong> reports that tips typically account for 60-80% of a server's total earnings.
                     </p>
                     <p>
                         Tipping standards have evolved over time. What was once 15% for good service has shifted to 18-20% as the new baseline. Post-pandemic, many Americans tip more generously, with average tips rising to 19.5% according to recent surveys by Square and Toast payment processors.
@@ -228,17 +228,17 @@ export default function TipHubClient() {
                             <div className="bg-slate-900/50 p-4 rounded-lg">
                                 <p className="text-purple-400 font-bold mb-2">15% Tip</p>
                                 <p className="font-mono text-white text-sm">10% + half of 10%</p>
-                                <p className="text-xs text-slate-400 mt-2">$50 bill → $5 + $2.50 = $7.50</p>
+                                <p className="text-xs text-slate-400 mt-2">$50 bill ??$5 + $2.50 = $7.50</p>
                             </div>
                             <div className="bg-slate-900/50 p-4 rounded-lg">
                                 <p className="text-purple-400 font-bold mb-2">20% Tip</p>
                                 <p className="font-mono text-white text-sm">10% × 2</p>
-                                <p className="text-xs text-slate-400 mt-2">$50 bill → $5 × 2 = $10</p>
+                                <p className="text-xs text-slate-400 mt-2">$50 bill ??$5 × 2 = $10</p>
                             </div>
                             <div className="bg-slate-900/50 p-4 rounded-lg">
                                 <p className="text-purple-400 font-bold mb-2">25% Tip</p>
                                 <p className="font-mono text-white text-sm">20% + 5%</p>
-                                <p className="text-xs text-slate-400 mt-2">$50 bill → $10 + $2.50 = $12.50</p>
+                                <p className="text-xs text-slate-400 mt-2">$50 bill ??$10 + $2.50 = $12.50</p>
                             </div>
                         </div>
                     </div>
@@ -294,11 +294,11 @@ export default function TipHubClient() {
                     Data Sources & Citations
                 </h3>
                 <ul className="text-xs text-slate-500 space-y-2">
-                    <li>• U.S. Department of Labor. "Fact Sheet #15: Tipped Employees Under the Fair Labor Standards Act." Wage and Hour Division, 2024.</li>
-                    <li>• Bureau of Labor Statistics. "Occupational Employment and Wages: Food and Beverage Serving Workers." BLS, May 2024.</li>
-                    <li>• National Restaurant Association. "State of the Restaurant Industry Report 2026." NRA, 2026.</li>
-                    <li>• Square Financial Services. "Annual Tipping Trends Report." Square, 2025.</li>
-                    <li>• Toast Inc. "Restaurant Trends Report: The State of Tipping." Toast, 2025.</li>
+                    <li>??U.S. Department of Labor. "Fact Sheet #15: Tipped Employees Under the Fair Labor Standards Act." Wage and Hour Division, 2024.</li>
+                    <li>??Bureau of Labor Statistics. "Occupational Employment and Wages: Food and Beverage Serving Workers." BLS, May 2024.</li>
+                    <li>??National Restaurant Association. "State of the Restaurant Industry Report 2026." NRA, 2026.</li>
+                    <li>??Square Financial Services. "Annual Tipping Trends Report." Square, 2026.</li>
+                    <li>??Toast Inc. "Restaurant Trends Report: The State of Tipping." Toast, 2026.</li>
                 </ul>
             </section>
 

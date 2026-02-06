@@ -13,7 +13,7 @@ export default function SCorpTaxGuidePage() {
                         <Calculator className="w-6 h-6 text-emerald-500" />
                         <span className="text-lg font-bold text-white">MySmartCalculators</span>
                     </Link>
-                    <Link href="/s-corp-tax" className="text-slate-400 hover:text-white text-sm">← Back</Link>
+                    <Link href="/s-corp-tax" className="text-slate-400 hover:text-white text-sm">??Back</Link>
                 </div>
             </header>
 

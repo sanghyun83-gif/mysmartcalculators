@@ -184,7 +184,7 @@ export default function RothCalculatorPage() {
                             <p className="text-sm text-emerald-100 mb-1">Projected Value at {result.retirementAge}</p>
                             <p className="text-4xl font-bold">{formatCurrency(result.futureValue)}</p>
                             <p className="text-sm text-emerald-100 mt-2">
-                                Tax-free • {result.retirementAge - result.currentAge} years of growth
+                                Tax-free ??{result.retirementAge - result.currentAge} years of growth
                             </p>
                         </div>
 

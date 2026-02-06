@@ -28,7 +28,7 @@ const FAQ_DATA = [
     },
     {
         q: "What is a Backdoor Roth IRA?",
-        a: "A Backdoor Roth is a legal strategy for high earners above the income limits. You contribute to a Traditional IRA (non-deductible), then immediately convert it to a Roth IRA. There are no income limits on conversions. Be aware of the 'pro-rata rule' if you have other Traditional IRA balances—it can trigger taxes on the conversion."
+        a: "A Backdoor Roth is a legal strategy for high earners above the income limits. You contribute to a Traditional IRA (non-deductible), then immediately convert it to a Roth IRA. There are no income limits on conversions. Be aware of the 'pro-rata rule' if you have other Traditional IRA balances?�it can trigger taxes on the conversion."
     },
     {
         q: "What is the 5-year rule for Roth IRA?",
@@ -172,13 +172,13 @@ export default function RothIRAHubClient() {
                 </h2>
                 <div className="prose prose-invert max-w-none text-slate-300 space-y-4">
                     <p>
-                        A <strong className="text-white">Roth IRA</strong> is one of the most powerful retirement savings vehicles available to Americans. Unlike Traditional IRAs or 401(k)s where you defer taxes until retirement, Roth IRAs are funded with after-tax dollars—meaning your money grows completely tax-free and qualified withdrawals are also tax-free.
+                        A <strong className="text-white">Roth IRA</strong> is one of the most powerful retirement savings vehicles available to Americans. Unlike Traditional IRAs or 401(k)s where you defer taxes until retirement, Roth IRAs are funded with after-tax dollars?�meaning your money grows completely tax-free and qualified withdrawals are also tax-free.
                     </p>
                     <p>
                         According to the <strong className="text-white">Investment Company Institute (ICI)</strong>, over 26 million U.S. households own Roth IRAs, with combined assets exceeding $1.2 trillion. The <strong className="text-white">IRS</strong> sets annual contribution limits that are adjusted for inflation, with the 2026 limit at $7,000 ($8,000 for those 50+).
                     </p>
                     <p>
-                        The power of tax-free compounding cannot be overstated. A 25-year-old contributing $7,000 annually until age 65 at a 7% average return would accumulate approximately <strong className="text-white">$1.5 million</strong>—all withdrawable tax-free in retirement. This tax-free status also makes Roth IRAs excellent for estate planning, as beneficiaries inherit the funds without income tax liability.
+                        The power of tax-free compounding cannot be overstated. A 25-year-old contributing $7,000 annually until age 65 at a 7% average return would accumulate approximately <strong className="text-white">$1.5 million</strong>?�all withdrawable tax-free in retirement. This tax-free status also makes Roth IRAs excellent for estate planning, as beneficiaries inherit the funds without income tax liability.
                     </p>
                 </div>
             </section>
@@ -253,7 +253,7 @@ export default function RothIRAHubClient() {
                     </div>
                 </div>
                 <p className="text-slate-400 text-sm mt-4 text-center">
-                    <strong className="text-white">Backdoor Roth:</strong> High earners can contribute to a Traditional IRA (non-deductible) and convert to Roth—no income limits on conversions.
+                    <strong className="text-white">Backdoor Roth:</strong> High earners can contribute to a Traditional IRA (non-deductible) and convert to Roth?�no income limits on conversions.
                 </p>
             </section>
 
@@ -305,7 +305,7 @@ export default function RothIRAHubClient() {
                             <h3 className="font-bold text-emerald-400 mb-2">Power of Compound Growth</h3>
                             <p className="text-sm text-slate-300">
                                 <strong className="text-white">$7,000/year × 40 years @ 7% = ~$1.5 Million</strong><br />
-                                Starting at age 25 and contributing the max until 65, you'd contribute $280,000 total—but end up with over $1.5M, all tax-free. Starting 10 years later (at 35) would yield only ~$700,000. Time in the market beats timing the market.
+                                Starting at age 25 and contributing the max until 65, you'd contribute $280,000 total?�but end up with over $1.5M, all tax-free. Starting 10 years later (at 35) would yield only ~$700,000. Time in the market beats timing the market.
                             </p>
                         </div>
                     </div>
@@ -318,11 +318,11 @@ export default function RothIRAHubClient() {
                     Data Sources & Citations
                 </h3>
                 <ul className="text-xs text-slate-500 space-y-2">
-                    <li>• Internal Revenue Service. "Retirement Topics - IRA Contribution Limits." IRS.gov, 2026.</li>
-                    <li>• Internal Revenue Service. "Amount of Roth IRA Contributions That You Can Make for 2026." IRS Publication 590-A.</li>
-                    <li>• Investment Company Institute. "IRA Ownership in 2025." ICI Research, 2025.</li>
-                    <li>• Congressional Research Service. "Individual Retirement Account (IRA) Ownership: Data and Policy Issues." CRS Report, 2024.</li>
-                    <li>• Securities and Exchange Commission. "Saving and Investing for Retirement." Investor.gov, 2025.</li>
+                    <li>??Internal Revenue Service. "Retirement Topics - IRA Contribution Limits." IRS.gov, 2026.</li>
+                    <li>??Internal Revenue Service. "Amount of Roth IRA Contributions That You Can Make for 2026." IRS Publication 590-A.</li>
+                    <li>??Investment Company Institute. "IRA Ownership in 2026." ICI Research, 2026.</li>
+                    <li>??Congressional Research Service. "Individual Retirement Account (IRA) Ownership: Data and Policy Issues." CRS Report, 2024.</li>
+                    <li>??Securities and Exchange Commission. "Saving and Investing for Retirement." Investor.gov, 2026.</li>
                 </ul>
             </section>
 

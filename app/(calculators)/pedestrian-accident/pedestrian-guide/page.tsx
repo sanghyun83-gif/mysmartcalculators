@@ -36,11 +36,11 @@ export default function PedestrianGuidePage() {
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div className="bg-amber-900/20 border border-amber-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><AlertTriangle className="w-5 h-5 text-amber-500" />Risk Factors</h2>
-                        <ul className="space-y-2 text-sm text-amber-200"><li>• {PEDESTRIAN_2026.statistics.nighttimePercent}% occur at night</li><li>• {PEDESTRIAN_2026.statistics.urbanPercent}% in urban areas</li><li>• {PEDESTRIAN_2026.statistics.hitAndRunPercent}% are hit-and-run</li><li>• {PEDESTRIAN_2026.statistics.alcoholInvolvedPercent}% involve alcohol</li></ul>
+                        <ul className="space-y-2 text-sm text-amber-200"><li>??{PEDESTRIAN_2026.statistics.nighttimePercent}% occur at night</li><li>??{PEDESTRIAN_2026.statistics.urbanPercent}% in urban areas</li><li>??{PEDESTRIAN_2026.statistics.hitAndRunPercent}% are hit-and-run</li><li>??{PEDESTRIAN_2026.statistics.alcoholInvolvedPercent}% involve alcohol</li></ul>
                     </div>
                     <div className="bg-orange-900/20 border border-orange-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Shield className="w-5 h-5 text-orange-500" />Fault Scenarios</h2>
-                        <ul className="space-y-2 text-sm text-orange-200">{PEDESTRIAN_2026.faultScenarios.map((f, i) => (<li key={i}>• {f.scenario}: {f.multiplier}x</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-orange-200">{PEDESTRIAN_2026.faultScenarios.map((f, i) => (<li key={i}>??{f.scenario}: {f.multiplier}x</li>))}</ul>
                     </div>
                 </div>
 

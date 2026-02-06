@@ -50,7 +50,7 @@ export default function InherentRiskPage() {
                     <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
                         <div className="grid md:grid-cols-2 gap-3">
                             {inherentRisks.map((risk, i) => (
-                                <div key={i} className="flex items-center gap-2"><span className="text-amber-400">•</span><span className="text-slate-300">{risk}</span></div>
+                                <div key={i} className="flex items-center gap-2"><span className="text-amber-400">??/span><span className="text-slate-300">{risk}</span></div>
                             ))}
                         </div>
                     </div>

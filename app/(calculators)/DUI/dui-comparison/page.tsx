@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import { ArrowLeft, FileWarning, Info, CheckCircle2, XCircle } from "lucide-react";
-import { SITE, STATE_DATA, DUI_COSTS_2025, formatCurrency, getStateCodes } from "@/lib/calculators/DUI";
+import { SITE, STATE_DATA, DUI_COSTS_2026, formatCurrency, getStateCodes } from "@/lib/calculators/DUI";
 
 export default function DUIComparisonPage() {
     const stateCodes = getStateCodes();
-    const insuranceIncrease = DUI_COSTS_2025.averageAnnualPremium * (DUI_COSTS_2025.insuranceIncreasePercent / 100);
+    const insuranceIncrease = DUI_COSTS_2026.averageAnnualPremium * (DUI_COSTS_2026.insuranceIncreasePercent / 100);
 
     return (
         <>
@@ -82,7 +82,7 @@ export default function DUIComparisonPage() {
                         <div className="grid md:grid-cols-3 gap-4 text-center mb-6">
                             <div className="bg-slate-700/50 rounded-lg p-4">
                                 <p className="text-slate-400 text-sm">Average Increase</p>
-                                <p className="text-2xl font-bold text-amber-400">+{DUI_COSTS_2025.insuranceIncreasePercent}%</p>
+                                <p className="text-2xl font-bold text-amber-400">+{DUI_COSTS_2026.insuranceIncreasePercent}%</p>
                             </div>
                             <div className="bg-slate-700/50 rounded-lg p-4">
                                 <p className="text-slate-400 text-sm">Annual Extra Cost</p>
@@ -160,8 +160,7 @@ export default function DUIComparisonPage() {
                         href="/DUI/dui-cost"
                         className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
-                        Calculate Your DUI Cost →
-                    </Link>
+                        Calculate Your DUI Cost ??                    </Link>
                 </div>
 
                 {/* Disclaimer */}

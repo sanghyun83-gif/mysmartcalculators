@@ -112,7 +112,7 @@ export default function ForgivenessPage() {
                                 </div>
                                 <p className="text-sm text-green-700">Total Paid: <span className="font-bold">{formatCurrency(result.pslfTotalPaid)}</span></p>
                                 <p className="text-xs text-green-500">Forgiveness after 10 years (120 payments)</p>
-                                <span className="inline-block mt-2 text-xs bg-green-500 text-white px-2 py-1 rounded-full">Best Option ✓</span>
+                                <span className="inline-block mt-2 text-xs bg-green-500 text-white px-2 py-1 rounded-full">Best Option ??/span>
                             </div>
                         )}
                     </div>
@@ -138,7 +138,7 @@ export default function ForgivenessPage() {
                 </div>
 
                 <div className="my-8 p-6 bg-white border rounded-xl text-center"><p className="text-sm text-slate-400">Advertisement</p></div>
-                <Link href="/student-loan/calculator" className="block bg-blue-600 hover:bg-blue-700 text-white rounded-lg p-4 text-center font-bold">Calculate Your Payments →</Link>
+                <Link href="/student-loan/calculator" className="block bg-blue-600 hover:bg-blue-700 text-white rounded-lg p-4 text-center font-bold">Calculate Your Payments ??/Link>
             </main>
         </>
     );

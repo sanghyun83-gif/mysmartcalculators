@@ -44,7 +44,7 @@ const FAQ_DATA = [
     },
     {
         q: "Does DTI affect my credit score?",
-        a: "DTI itself is NOT part of your credit score calculation—credit bureaus don't know your income. However, factors related to high DTI (high credit utilization, many accounts with balances) do affect your score. Lenders look at both DTI (income-based) and credit score (history-based) separately."
+        a: "DTI itself is NOT part of your credit score calculation?�credit bureaus don't know your income. However, factors related to high DTI (high credit utilization, many accounts with balances) do affect your score. Lenders look at both DTI (income-based) and credit score (history-based) separately."
     },
     {
         q: "What DTI do I need for a mortgage?",
@@ -175,10 +175,10 @@ export default function DTIHubClient() {
                         Your <strong className="text-white">Debt-to-Income (DTI) ratio</strong> is one of the most important numbers lenders look at when you apply for a mortgage or loan. It represents the percentage of your gross monthly income that goes toward paying debts.
                     </p>
                     <p>
-                        The <strong className="text-white">Consumer Financial Protection Bureau (CFPB)</strong> established the 43% DTI limit for Qualified Mortgages (QM)—loans that meet certain safety standards. According to CFPB data, borrowers with DTIs above 43% are significantly more likely to struggle with payments. The Federal Reserve reports that the average American has a DTI around 36%.
+                        The <strong className="text-white">Consumer Financial Protection Bureau (CFPB)</strong> established the 43% DTI limit for Qualified Mortgages (QM)?�loans that meet certain safety standards. According to CFPB data, borrowers with DTIs above 43% are significantly more likely to struggle with payments. The Federal Reserve reports that the average American has a DTI around 36%.
                     </p>
                     <p>
-                        Lenders view DTI as a measure of your financial health and ability to take on additional debt. A lower DTI not only makes loan approval easier but often results in better interest rates, lower fees, and more favorable terms. The <strong className="text-white">28/36 rule</strong>—keeping housing costs under 28% and total DTI under 36%—remains the gold standard for financial health.
+                        Lenders view DTI as a measure of your financial health and ability to take on additional debt. A lower DTI not only makes loan approval easier but often results in better interest rates, lower fees, and more favorable terms. The <strong className="text-white">28/36 rule</strong>?�keeping housing costs under 28% and total DTI under 36%?�remains the gold standard for financial health.
                     </p>
                 </div>
             </section>
@@ -232,20 +232,20 @@ export default function DTIHubClient() {
                         <TrendingDown className="w-8 h-8 text-green-400 mb-3" />
                         <h3 className="font-bold text-white text-lg mb-3">Reduce Debt</h3>
                         <ul className="text-sm text-slate-300 space-y-2">
-                            <li>• Pay down credit card balances</li>
-                            <li>• Pay off small loans entirely</li>
-                            <li>• Avoid new debt before applying</li>
-                            <li>• Refinance for lower payments</li>
+                            <li>??Pay down credit card balances</li>
+                            <li>??Pay off small loans entirely</li>
+                            <li>??Avoid new debt before applying</li>
+                            <li>??Refinance for lower payments</li>
                         </ul>
                     </div>
                     <div className="bg-slate-800/50 border border-cyan-500/30 rounded-xl p-6">
                         <TrendingDown className="w-8 h-8 text-cyan-400 mb-3 rotate-180" />
                         <h3 className="font-bold text-white text-lg mb-3">Increase Income</h3>
                         <ul className="text-sm text-slate-300 space-y-2">
-                            <li>• Ask for a raise</li>
-                            <li>• Start a side business</li>
-                            <li>• Document all income sources</li>
-                            <li>• Add a co-borrower's income</li>
+                            <li>??Ask for a raise</li>
+                            <li>??Start a side business</li>
+                            <li>??Document all income sources</li>
+                            <li>??Add a co-borrower's income</li>
                         </ul>
                     </div>
                 </div>
@@ -296,11 +296,11 @@ export default function DTIHubClient() {
                     Data Sources & Citations
                 </h3>
                 <ul className="text-xs text-slate-500 space-y-2">
-                    <li>• Consumer Financial Protection Bureau. "Qualified Mortgage Definition under the Truth in Lending Act." 12 CFR Part 1026.</li>
-                    <li>• Consumer Financial Protection Bureau. "Debt-to-Income Ratio Threshold for Qualified Mortgages." CFPB, 2021.</li>
-                    <li>• Federal Reserve. "Report on the Economic Well-Being of U.S. Households." FRB, 2024.</li>
-                    <li>• Fannie Mae. "Selling Guide: Debt Ratios." Fannie Mae, 2025.</li>
-                    <li>• Federal Housing Administration. "FHA Loan Requirements." HUD, 2026.</li>
+                    <li>??Consumer Financial Protection Bureau. "Qualified Mortgage Definition under the Truth in Lending Act." 12 CFR Part 1026.</li>
+                    <li>??Consumer Financial Protection Bureau. "Debt-to-Income Ratio Threshold for Qualified Mortgages." CFPB, 2021.</li>
+                    <li>??Federal Reserve. "Report on the Economic Well-Being of U.S. Households." FRB, 2024.</li>
+                    <li>??Fannie Mae. "Selling Guide: Debt Ratios." Fannie Mae, 2026.</li>
+                    <li>??Federal Housing Administration. "FHA Loan Requirements." HUD, 2026.</li>
                 </ul>
             </section>
 

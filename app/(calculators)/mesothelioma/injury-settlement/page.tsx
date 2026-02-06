@@ -6,7 +6,7 @@ import { ArrowLeft, Calculator, Info, AlertTriangle, TrendingUp, DollarSign, Ste
 import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 import {
     SITE,
-    INJURY_CONSTANTS_2025,
+    INJURY_CONSTANTS_2026,
     calculateSettlement,
     formatCurrency,
     parseFormattedNumber,
@@ -268,8 +268,7 @@ export default function InjurySettlementPage() {
                         href="/mesothelioma/injury-types"
                         className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
-                        View Compensation by Mesothelioma Type →
-                    </Link>
+                        View Compensation by Mesothelioma Type ??                    </Link>
                 </div>
 
                 {/* Disclaimer */}

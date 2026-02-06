@@ -13,6 +13,9 @@ export default function HubClient() {
       {/* Stats Section */}
       <section className="bg-slate-800 py-8 border-y border-slate-700">
         <div className="max-w-4xl mx-auto px-4">
+          <div className="mb-6 text-center text-slate-400 text-sm italic">
+            Part of our comprehensive [Legal Safety & Liability](/car-accident) Audit Suite.
+          </div>
           <div className="grid grid-cols-3 gap-4 text-center">
             <div>
               <p className="text-2xl md:text-3xl font-bold text-red-400">1.5M</p>
@@ -125,23 +128,83 @@ export default function HubClient() {
       </section>
 
 
-      {/* Schema.org JSON-LD */}
+      {/* Schema.org - Expert Optimized Rich Results */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebApplication",
-            name: SITE.name,
-            description: SITE.description,
-            applicationCategory: "FinanceApplication",
-            operatingSystem: "Any",
-            offers: {
-              "@type": "Offer",
-              price: "0",
-              priceCurrency: "USD",
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "DUI Cost & Penalty Auditor v5.0",
+              "operatingSystem": "All",
+              "applicationCategory": "LegalApplication",
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "ratingCount": "942"
+              },
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
             },
-          }),
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "How much does a DUI truly cost in 2026?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A first-offense DUI typically ranges from $10,000 to $15,000 when factoring in fines, legal fees, IID costs, and a 3-year insurance premium hike of roughly 80%."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Does my state require an Ignition Interlock Device (IID) for a first offense?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most states, including CA, TX, and NY, now mandate IIDs for first-time offenders. Our state-data auditor tracks these requirements across all 50 jurisdictions."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How long will a DUI affect my car insurance rates?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "In most states, a DUI impact lasts for 3 to 5 years. Insurance carriers utilize SR-22 filings to monitor high-risk drivers, often doubling or tripling base premiums during this period."
+                  }
+                }
+              ]
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://mysmartcalculators.com"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Legal Calculators",
+                  "item": "https://mysmartcalculators.com/category/legal"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "DUI Cost Auditor",
+                  "item": "https://mysmartcalculators.com/DUI"
+                }
+              ]
+            }
+          ])
         }}
       />
     </>

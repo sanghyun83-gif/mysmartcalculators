@@ -141,7 +141,7 @@ export default function CalculatorPage() {
                         <p className="text-sm text-green-100 mb-1">You Can Afford</p>
                         <p className="text-5xl font-bold text-yellow-400">{formatCurrency(result.maxHomePrice)}</p>
                         <p className="text-green-100 mt-2">
-                            {result.loanType} Loan • {formatPercent(result.frontEndDTI)} front-end DTI
+                            {result.loanType} Loan ??{formatPercent(result.frontEndDTI)} front-end DTI
                         </p>
                     </div>
 
@@ -185,7 +185,7 @@ export default function CalculatorPage() {
                             <span>Loan Type</span>
                             <span className={`font-medium ${result.isConforming ? 'text-green-600' : 'text-amber-600'}`}>
                                 {result.loanType}
-                                {result.isConforming && ' ✓'}
+                                {result.isConforming && ' ??}
                             </span>
                         </div>
                     </div>
@@ -199,20 +199,20 @@ export default function CalculatorPage() {
                                 <p className={`text-xl font-bold ${result.frontEndDTI <= 28 ? 'text-green-600' : 'text-amber-600'}`}>
                                     {formatPercent(result.frontEndDTI)}
                                 </p>
-                                <p className="text-xs text-slate-400">Target: ≤28%</p>
+                                <p className="text-xs text-slate-400">Target: ??8%</p>
                             </div>
                             <div className="text-center p-3 bg-slate-50 rounded-lg">
                                 <p className="text-xs text-slate-500">Back-End DTI</p>
                                 <p className={`text-xl font-bold ${result.backEndDTI <= 36 ? 'text-green-600' : 'text-amber-600'}`}>
                                     {formatPercent(result.backEndDTI)}
                                 </p>
-                                <p className="text-xs text-slate-400">Target: ≤36%</p>
+                                <p className="text-xs text-slate-400">Target: ??6%</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* 2025 Loan Limit Info */}
+                {/* 2026 Loan Limit Info */}
                 <div className="mt-6 bg-slate-100 rounded-xl p-4 text-sm">
                     <p className="text-slate-600">
                         <strong>{SITE.year} Conforming Loan Limit:</strong> {formatCurrency(conformingLoanLimits.standard)} (most areas) |
@@ -226,10 +226,10 @@ export default function CalculatorPage() {
 
                 <div className="grid grid-cols-2 gap-4">
                     <Link href="/home-afford/down-payment" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-green-500">
-                        <p className="text-sm font-medium text-slate-600">Down Payment →</p>
+                        <p className="text-sm font-medium text-slate-600">Down Payment ??/p>
                     </Link>
                     <Link href="/home-afford/dti" className="bg-white border border-slate-200 rounded-lg p-4 text-center hover:border-green-500">
-                        <p className="text-sm font-medium text-slate-600">DTI Calculator →</p>
+                        <p className="text-sm font-medium text-slate-600">DTI Calculator ??/p>
                     </Link>
                 </div>
             </main>

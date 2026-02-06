@@ -32,9 +32,9 @@ export default function StateLawsuitsPage() {
                 <div className="bg-slate-800 rounded-xl border border-slate-700 p-6 mb-8">
                     <h2 className="text-lg font-bold text-white mb-4">About State AG Lawsuits</h2>
                     <div className="space-y-3 text-sm text-slate-300">
-                        <p>• In October 2023, 42 State Attorneys General filed lawsuits against Meta for allegedly harming youth mental health.</p>
-                        <p>• These lawsuits claim Meta knew Instagram was addictive and harmful to teenagers but prioritized profits over safety.</p>
-                        <p>• Individual claims can be filed alongside state AG lawsuits for personal compensation.</p>
+                        <p>??In October 2023, 42 State Attorneys General filed lawsuits against Meta for allegedly harming youth mental health.</p>
+                        <p>??These lawsuits claim Meta knew Instagram was addictive and harmful to teenagers but prioritized profits over safety.</p>
+                        <p>??Individual claims can be filed alongside state AG lawsuits for personal compensation.</p>
                     </div>
                 </div>
 

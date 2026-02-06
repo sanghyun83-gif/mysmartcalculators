@@ -17,7 +17,7 @@ export default function CraneGuidePage() {
                         <div className="bg-amber-900/20 border border-amber-500/50 rounded-lg p-4 text-center"><p className="text-2xl font-bold text-amber-400">{CRANE_2026.statistics.annualDeaths}</p><p className="text-sm text-amber-200">Deaths/Year</p></div>
                         <div className="bg-rose-900/20 border border-rose-500/50 rounded-lg p-4 text-center"><p className="text-2xl font-bold text-rose-400">{(CRANE_2026.statistics.annualInjuries / 1000).toFixed(1)}K</p><p className="text-sm text-rose-200">Injuries/Year</p></div>
                         <div className="bg-yellow-900/20 border border-yellow-500/50 rounded-lg p-4 text-center"><p className="text-2xl font-bold text-yellow-400">{formatCurrency(CRANE_2026.statistics.avgSettlement)}</p><p className="text-sm text-yellow-200">Avg Settlement</p></div>
-                        <div className="bg-orange-900/20 border border-orange-500/50 rounded-lg p-4 text-center"><p className="text-2xl font-bold text-orange-400">{formatCurrency(CRANE_2026.statistics.oshaFines2025)}</p><p className="text-sm text-orange-200">OSHA Fines '25</p></div>
+                        <div className="bg-orange-900/20 border border-orange-500/50 rounded-lg p-4 text-center"><p className="text-2xl font-bold text-orange-400">{formatCurrency(CRANE_2026.statistics.oshaFines2026)}</p><p className="text-sm text-orange-200">OSHA Fines '25</p></div>
                     </div>
                 </div>
 

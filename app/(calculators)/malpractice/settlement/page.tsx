@@ -324,8 +324,7 @@ export default function MalpracticeSettlementPage() {
                         href="/malpractice/types"
                         className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
-                        View Settlements by Malpractice Type →
-                    </Link>
+                        View Settlements by Malpractice Type ??                    </Link>
                 </div>
 
                 {/* Disclaimer */}

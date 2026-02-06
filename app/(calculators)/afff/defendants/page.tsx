@@ -35,10 +35,10 @@ export default function DefendantsPage() {
                 <div className="mt-12 bg-amber-900/20 border border-amber-500/30 rounded-xl p-6">
                     <h3 className="text-lg font-semibold text-amber-300 mb-3">Key Settlement Developments</h3>
                     <ul className="space-y-2 text-slate-300 text-sm">
-                        <li>• <strong>3M Water Settlement (2024):</strong> $12.5B+ to settle water contamination claims</li>
-                        <li>• <strong>Personal Injury Claims:</strong> Being litigated separately in MDL 2873</li>
-                        <li>• <strong>Bellwether Trials:</strong> First cancer trials scheduled for 2026</li>
-                        <li>• <strong>3M PFAS Exit:</strong> Company announced plans to stop PFAS production</li>
+                        <li>??<strong>3M Water Settlement (2024):</strong> $12.5B+ to settle water contamination claims</li>
+                        <li>??<strong>Personal Injury Claims:</strong> Being litigated separately in MDL 2873</li>
+                        <li>??<strong>Bellwether Trials:</strong> First cancer trials scheduled for 2026</li>
+                        <li>??<strong>3M PFAS Exit:</strong> Company announced plans to stop PFAS production</li>
                     </ul>
                 </div>
 

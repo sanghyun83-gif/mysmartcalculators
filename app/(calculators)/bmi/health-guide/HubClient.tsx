@@ -74,7 +74,7 @@ export default function BMIHealthHub() {
                                             { c: "Overweight", r: "25 - 29.9", m: "Increased", s: "text-yellow-400" },
                                             { c: "Obese Class I", r: "30 - 34.9", m: "High", s: "text-orange-400" },
                                             { c: "Obese Class II", r: "35 - 39.9", m: "Very High", s: "text-red-400" },
-                                            { c: "Obese Class III", r: "≥ 40", m: "Nuclear", s: "text-red-500 underline" }
+                                            { c: "Obese Class III", r: "??40", m: "Nuclear", s: "text-red-500 underline" }
                                         ].map((row, i) => (
                                             <tr key={i} className="border-b border-white/5 hover:bg-white/5 transition-colors group/row">
                                                 <td className={`py-6 ${row.s} italic tracking-tighter text-lg`}>{row.c}</td>

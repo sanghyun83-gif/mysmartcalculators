@@ -1,6 +1,6 @@
 // ============================================
 // MORTGAGE-CALC SITE CONFIGURATION
-// 2025 Mortgage Payment Calculator
+// 2026 Mortgage Payment Calculator
 // ============================================
 
 import { Calculator, Home, DollarSign, TrendingDown, PiggyBank, Scale, Building } from 'lucide-react';
@@ -10,11 +10,15 @@ import { Calculator, Home, DollarSign, TrendingDown, PiggyBank, Scale, Building 
 // ============================================
 export const SITE = {
     name: "Mortgage Calculator",
-    tagline: "Free 2025 Payment Calculator",
-    description: "Calculate your mortgage payment for free. Estimate monthly payments, amortization schedule, and home affordability. Includes PMI and property tax calculations.",
-    year: 2025,
+    tagline: "Free 2026 Payment Calculator",
+    description: "Calculate your mortgage payment for free. Estimate monthly payments, amortization schedule, and home affordability. Includes state-specific property tax and insurance.",
+    year: 2026,
     baseUrl: "https://mysmartcalculators.com/mortgage",
 };
+
+import { STATE_MORTGAGE_DATA, getStatesList } from "./mortgage/state-data";
+export { getStatesList };
+
 
 // ============================================
 // MORTGAGE CONSTANTS
@@ -24,7 +28,7 @@ export const MORTGAGE_CONSTANTS = {
     defaults: {
         homePrice: 400000,
         downPaymentPercent: 20,
-        interestRate: 6.5, // 2025 average
+        interestRate: 6.5, // 2026 average
         loanTermYears: 30,
         propertyTaxRate: 1.2, // percent of home value per year
         homeInsuranceYear: 1800, // yearly
@@ -49,7 +53,7 @@ export const MORTGAGE_CONSTANTS = {
 
     // Average home prices by state (for reference)
     avgHomePriceUS: 420000,
-    avgInterestRate2025: 6.5,
+    avgInterestRate2026: 6.5,
 };
 
 // ============================================
@@ -164,9 +168,15 @@ export function calculateMortgage(
     downPayment: number,
     interestRate: number,
     loanTermYears: number,
-    propertyTaxRate: number = MORTGAGE_CONSTANTS.defaults.propertyTaxRate,
-    homeInsuranceYear: number = MORTGAGE_CONSTANTS.defaults.homeInsuranceYear
+    stateCode: string = "CA",
+    customTaxRate?: number,
+    customInsurance?: number
 ): MortgageResult {
+    const stateData = STATE_MORTGAGE_DATA[stateCode] || STATE_MORTGAGE_DATA["CA"];
+    const propertyTaxRate = customTaxRate ?? stateData.avgPropertyTax;
+    const homeInsuranceYear = customInsurance ?? stateData.avgInsurance;
+    const pmiRate = stateData.pmiRate;
+
     const loanAmount = homePrice - downPayment;
     const downPaymentPercent = (downPayment / homePrice) * 100;
     const monthlyRate = interestRate / 100 / 12;
@@ -191,8 +201,9 @@ export function calculateMortgage(
     // Calculate PMI if down payment < 20%
     const hasPMI = downPaymentPercent < MORTGAGE_CONSTANTS.pmiThreshold;
     const monthlyPMI = hasPMI
-        ? Math.round((loanAmount * (MORTGAGE_CONSTANTS.defaults.pmiRate / 100)) / 12)
+        ? Math.round((loanAmount * (pmiRate / 100)) / 12)
         : 0;
+
 
     // Total monthly payment (PITI + PMI)
     const totalMonthlyPayment = monthlyPI + monthlyTax + monthlyInsurance + monthlyPMI;
@@ -319,9 +330,12 @@ export function calculateAffordability(
     annualIncome: number,
     monthlyDebts: number,
     downPayment: number,
+    stateCode: string = "CA",
     interestRate: number = MORTGAGE_CONSTANTS.defaults.interestRate,
     loanTermYears: number = 30
 ): AffordabilityResult {
+    const stateData = STATE_MORTGAGE_DATA[stateCode] || STATE_MORTGAGE_DATA["CA"];
+
     const monthlyIncome = annualIncome / 12;
     const maxHousingPayment = monthlyIncome * (MORTGAGE_CONSTANTS.dtiLimits.housing / 100);
     const maxTotalDebt = monthlyIncome * (MORTGAGE_CONSTANTS.dtiLimits.total / 100);

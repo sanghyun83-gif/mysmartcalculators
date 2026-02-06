@@ -133,10 +133,10 @@ export default function CoverageGuidePage() {
                         <div>
                             <p className="text-sm text-slate-400 mb-2">HSA Benefits</p>
                             <ul className="text-sm text-slate-300 space-y-1">
-                                <li>• Triple tax advantage</li>
-                                <li>• Contributions deductible</li>
-                                <li>• Grows tax-free</li>
-                                <li>• Tax-free withdrawals</li>
+                                <li>??Triple tax advantage</li>
+                                <li>??Contributions deductible</li>
+                                <li>??Grows tax-free</li>
+                                <li>??Tax-free withdrawals</li>
                             </ul>
                         </div>
                     </div>

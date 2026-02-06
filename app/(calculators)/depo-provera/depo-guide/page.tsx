@@ -30,11 +30,11 @@ export default function DepoGuidePage() {
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div className="bg-purple-900/20 border border-purple-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Brain className="w-5 h-5 text-purple-500" />Usage Duration Impact</h2>
-                        <ul className="space-y-2 text-sm text-purple-200">{DEPO_2026.usageDuration.map((u, i) => (<li key={i}>• <strong>{u.duration}:</strong> {u.multiplier}x base settlement</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-purple-200">{DEPO_2026.usageDuration.map((u, i) => (<li key={i}>??<strong>{u.duration}:</strong> {u.multiplier}x base settlement</li>))}</ul>
                     </div>
                     <div className="bg-rose-900/20 border border-rose-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Shield className="w-5 h-5 text-rose-500" />Surgery Impact</h2>
-                        <ul className="space-y-2 text-sm text-rose-200">{DEPO_2026.surgeryFactors.map((s, i) => (<li key={i}>• <strong>{s.surgery}:</strong> {s.multiplier}x base settlement</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-rose-200">{DEPO_2026.surgeryFactors.map((s, i) => (<li key={i}>??<strong>{s.surgery}:</strong> {s.multiplier}x base settlement</li>))}</ul>
                     </div>
                 </div>
 

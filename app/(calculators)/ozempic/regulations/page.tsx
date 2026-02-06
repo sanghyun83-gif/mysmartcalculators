@@ -88,7 +88,7 @@ export default function OzempicRegulations() {
                         </div>
                         <div className="grid md:grid-cols-2 gap-8 text-slate-400 text-sm font-medium leading-relaxed">
                             <p>
-                                In 2025, the signal for **Gastroparesis** reached a consolidated threshold of 4.5 (Empirical Bayes Geometric Mean), indicating a massive statistically significant correlation compared to other weight-loss medications. This signal detection is the foundation for the expert testimony currently being prepared for the 2026 Pennsylvania bellwether trials.
+                                In 2026, the signal for **Gastroparesis** reached a consolidated threshold of 4.5 (Empirical Bayes Geometric Mean), indicating a massive statistically significant correlation compared to other weight-loss medications. This signal detection is the foundation for the expert testimony currently being prepared for the 2026 Pennsylvania bellwether trials.
                             </p>
                             <p>
                                 Furthermore, the **Gastrointestinal Disruption Score** (GDS) for Semaglutide is currently the highest ever recorded for an outpatient injectable in the metabolic category. This regulatory data point is crucial for proving "unreasonable risk" under pharmaceutical negligence laws.

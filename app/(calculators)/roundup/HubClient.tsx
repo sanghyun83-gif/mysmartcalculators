@@ -79,7 +79,7 @@ export default function HubClient() {
                                     Glyphosate, the active phosphonate salt in Roundup, was classified as a **Group 2A "Probable Carcinogen"** by the International Agency for Research on Cancer (IARC) in March 2015. This classification (Monograph 112) anchored the scientific basis for thousands of Non-Hodgkin Lymphoma claims worldwide.
                                 </p>
                                 <p>
-                                    The biological liability stems from **oxidative stress** and **Genotoxicity**. Peer-reviewed meta-analyses have shown that high-volume exposure to glyphosate-based herbicides (GBHs) correlates with a **41% increased risk** of developing B-cell lymphomas. The litigation focuses on Bayer/Monsanto's alleged suppression of internal toxicity studies—a phenomenon often referred to in court documents as "scientific ghostwriting."
+                                    The biological liability stems from **oxidative stress** and **Genotoxicity**. Peer-reviewed meta-analyses have shown that high-volume exposure to glyphosate-based herbicides (GBHs) correlates with a **41% increased risk** of developing B-cell lymphomas. The litigation focuses on Bayer/Monsanto's alleged suppression of internal toxicity studies?�a phenomenon often referred to in court documents as "scientific ghostwriting."
                                 </p>
                                 <div className="p-12 bg-emerald-500/5 border border-emerald-500/10 rounded-[3rem] shadow-inner relative overflow-hidden group">
                                     <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
@@ -153,7 +153,7 @@ export default function HubClient() {
                                 },
                                 {
                                     q: "Can I still file a claim in 2026 under the Bayer settlement?",
-                                    a: "Yes. While Bayer has attempted several 'Stay' orders on litigation, the 11th Circuit Court and various state-level Supreme Courts have upheld the right to sue for Failure to Warn. Current funds are being allocated through 2030, but the 'Bellwether' verdicts of 2025 have already set the valuation floor for new filings."
+                                    a: "Yes. While Bayer has attempted several 'Stay' orders on litigation, the 11th Circuit Court and various state-level Supreme Courts have upheld the right to sue for Failure to Warn. Current funds are being allocated through 2030, but the 'Bellwether' verdicts of 2026 have already set the valuation floor for new filings."
                                 },
                                 {
                                     q: "How does the 'Exposure-Time' factor work?",

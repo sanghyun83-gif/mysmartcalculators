@@ -13,7 +13,7 @@ export default function HubClient() {
 
             <div className="bg-emerald-900/30 border-b border-emerald-500/30">
                 <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-center gap-2">
-                    <AlertTriangle className="w-4 h-4 text-emerald-400" /><span className="text-sm text-emerald-200">{EARPLUG_2026.statistics.mdlNumber} Settled • ${(EARPLUG_2026.statistics.settlementAmount / 1000000000).toFixed(0)}B Total • {EARPLUG_2026.statistics.status}</span>
+                    <AlertTriangle className="w-4 h-4 text-emerald-400" /><span className="text-sm text-emerald-200">{EARPLUG_2026.statistics.mdlNumber} Settled ??${(EARPLUG_2026.statistics.settlementAmount / 1000000000).toFixed(0)}B Total ??{EARPLUG_2026.statistics.status}</span>
                 </div>
             </div>
 

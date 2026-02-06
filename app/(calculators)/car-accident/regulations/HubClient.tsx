@@ -77,7 +77,7 @@ export default function CarAccidentRegulationsHub() {
                                 New federal mandates require **Event Data Recorders (EDR)** in all passenger vehicles. This data is considered "Neutral Evidence" but is frequently subpoenaed to prove speed, braking timing, and force of impact.
                             </p>
                             <p>
-                                <strong className="text-white underline decoration-red-600 decoration-2">Legal Admissibility</strong>: Understanding who "owns" this data—the manufacturer, the owner, or the insurer—varies significantly by state. Our auditor helps you identify the data privacy hurdles in your specific jurisdiction.
+                                <strong className="text-white underline decoration-red-600 decoration-2">Legal Admissibility</strong>: Understanding who "owns" this data?�the manufacturer, the owner, or the insurer?�varies significantly by state. Our auditor helps you identify the data privacy hurdles in your specific jurisdiction.
                             </p>
                         </div>
                     </section>

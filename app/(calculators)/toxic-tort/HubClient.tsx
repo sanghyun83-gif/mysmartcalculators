@@ -20,7 +20,7 @@ export default function HubClient() {
 
             <div className="bg-red-900/30 border-b border-red-500/30">
                 <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-center gap-2">
-                    <AlertTriangle className="w-4 h-4 text-red-400" /><span className="text-sm text-red-200">{TOXIC_TORT_2026.statistics.superfundSites} Superfund Sites Nationwide • {(TOXIC_TORT_2026.statistics.annualToxicTortFilings / 1000).toFixed(0)}K+ Annual Toxic Tort Claims</span>
+                    <AlertTriangle className="w-4 h-4 text-red-400" /><span className="text-sm text-red-200">{TOXIC_TORT_2026.statistics.superfundSites} Superfund Sites Nationwide ??{(TOXIC_TORT_2026.statistics.annualToxicTortFilings / 1000).toFixed(0)}K+ Annual Toxic Tort Claims</span>
                 </div>
             </div>
 
@@ -75,12 +75,12 @@ export default function HubClient() {
                     <div className="space-y-4">
                         {MAJOR_MDL_CASES.map((mdl, i) => (
                             <div key={i} className="bg-slate-800 border border-slate-700 rounded-xl p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-                                <div><h3 className="text-white font-semibold">{mdl.name}</h3><p className="text-sm text-slate-400">{mdl.mdl} • {mdl.defendants}</p></div>
+                                <div><h3 className="text-white font-semibold">{mdl.name}</h3><p className="text-sm text-slate-400">{mdl.mdl} ??{mdl.defendants}</p></div>
                                 <span className={`text-xs px-3 py-1 rounded-full ${mdl.status === 'Active' ? 'bg-red-500/20 text-red-300' : 'bg-emerald-500/20 text-emerald-300'}`}>{mdl.status}</span>
                             </div>
                         ))}
                     </div>
-                    <div className="text-center mt-6"><Link href="/toxic-tort/mdl" className="text-amber-400 hover:text-amber-300 text-sm">View All MDL Cases →</Link></div>
+                    <div className="text-center mt-6"><Link href="/toxic-tort/mdl" className="text-amber-400 hover:text-amber-300 text-sm">View All MDL Cases ??/Link></div>
                 </div>
             </section>
 

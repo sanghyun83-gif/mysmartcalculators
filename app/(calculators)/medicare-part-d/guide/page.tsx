@@ -50,12 +50,12 @@ export default function MedicarePartDGuidePage() {
                     <h2 className="text-xl font-bold text-white mb-4">New $2,000 OOP Cap</h2>
                     <div className="grid md:grid-cols-2 gap-4">
                         <div className="bg-slate-800 border border-slate-700 rounded-xl p-4">
-                            <h3 className="text-white font-semibold">Before 2025</h3>
+                            <h3 className="text-white font-semibold">Before 2026</h3>
                             <p className="text-slate-400 text-sm mt-1">No annual cap on costs</p>
                             <p className="text-red-400 text-sm mt-1">Could pay thousands in donut hole</p>
                         </div>
                         <div className="bg-slate-800 border border-slate-700 rounded-xl p-4">
-                            <h3 className="text-white font-semibold">2025 and After</h3>
+                            <h3 className="text-white font-semibold">2026 and After</h3>
                             <p className="text-slate-400 text-sm mt-1">$2,000 annual OOP cap</p>
                             <p className="text-blue-400 text-sm mt-1">$0 after reaching cap</p>
                         </div>

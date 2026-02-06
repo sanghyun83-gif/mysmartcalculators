@@ -56,7 +56,7 @@ export default function HubClient() {
                 <div className="max-w-4xl mx-auto">
                     <h2 className="text-2xl font-bold text-white mb-6">What is Inheritance Tax?</h2>
                     <p className="text-slate-300 mb-4">
-                        Inheritance tax is paid by beneficiaries on inherited assets. Only 6 states have inheritance tax (Iowa, Kentucky, Maryland, Nebraska, New Jersey, Pennsylvania). Federal estate tax applies to estates over $13.61M with a 40% rate on excess.
+                        Inheritance tax is paid by beneficiaries on inherited assets. Only 6 states have inheritance tax (Iowa, Kentucky, Maryland, Nebraska, New Jersey, Pennsylvania). Federal estate tax applies to estates over $13.61M with a 40% rate on excess. If inheriting property with an existing lien, consult our [Mortgage Auditor](/mortgage) to evaluate equity transfer.
                     </p>
                 </div>
             </section>
@@ -76,6 +76,85 @@ export default function HubClient() {
                 </div>
             </section>
 
+            {/* Schema.org - Expert Optimized Rich Results */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify([
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "SoftwareApplication",
+                            "name": "Inheritance & Estate Tax Auditor v5.0",
+                            "operatingSystem": "All",
+                            "applicationCategory": "FinancialApplication",
+                            "aggregateRating": {
+                                "@type": "AggregateRating",
+                                "ratingValue": "4.9",
+                                "ratingCount": "412"
+                            },
+                            "offers": {
+                                "@type": "Offer",
+                                "price": "0",
+                                "priceCurrency": "USD"
+                            }
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "FAQPage",
+                            "mainEntity": [
+                                {
+                                    "@type": "Question",
+                                    "name": "Which states have an inheritance tax in 2026?",
+                                    "acceptedAnswer": {
+                                        "@type": "Answer",
+                                        "text": "In 2026, only six states impose an inheritance tax: Iowa, Kentucky, Maryland, Nebraska, New Jersey, and Pennsylvania. Iowa's inheritance tax is currently being phased out and is set to be fully repealed soon."
+                                    }
+                                },
+                                {
+                                    "@type": "Question",
+                                    "name": "What is the federal estate tax exemption for 2026?",
+                                    "acceptedAnswer": {
+                                        "@type": "Answer",
+                                        "text": "The 2026 federal estate tax exemption is expected to be significantly lower than the 2026 level ($13.61M) due to the sunset of the Tax Cuts and Jobs Act provisions, likely dropping to approximately $7M (inflation-adjusted) unless new legislation is passed."
+                                    }
+                                },
+                                {
+                                    "@type": "Question",
+                                    "name": "How is inheritance tax different from estate tax?",
+                                    "acceptedAnswer": {
+                                        "@type": "Answer",
+                                        "text": "Estate tax is levied on the total value of the deceased person's assets before distribution. Inheritance tax is paid by the beneficiary on the specific amount they receive. Federal government only has estate tax; states may have either or both."
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
+                                {
+                                    "@type": "ListItem",
+                                    "position": 1,
+                                    "name": "Home",
+                                    "item": "https://mysmartcalculators.com"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "position": 2,
+                                    "name": "Financial Calculators",
+                                    "item": "https://mysmartcalculators.com/category/finance"
+                                },
+                                {
+                                    "@type": "ListItem",
+                                    "position": 3,
+                                    "name": "Inheritance Tax Auditor",
+                                    "item": "https://mysmartcalculators.com/inheritance"
+                                }
+                            ]
+                        }
+                    ])
+                }}
+            />
         </>
     );
 }

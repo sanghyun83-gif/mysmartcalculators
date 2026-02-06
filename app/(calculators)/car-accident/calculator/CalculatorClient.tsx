@@ -7,7 +7,7 @@ import {
     Calculator, DollarSign, Scale, Gavel, MapPin, Search, Star, AlertTriangle, BarChart3, Pill, Briefcase, Landmark, PieChart, LineChart, Wallet, ArrowRight, CheckCircle2
 } from "lucide-react";
 import {
-    calculateCarAccidentSettlement, formatCurrency, ACCIDENT_CONSTANTS
+    calculateCarAccidentSettlement, formatCurrency, ACCIDENT_CONSTANTS, getStatesList, STATE_ACCIDENT_DATA
 } from "@/lib/calculators/car-accident";
 
 export function CalculatorClient() {
@@ -17,6 +17,9 @@ export function CalculatorClient() {
     const [faultPercentage, setFaultPercentage] = useState(0);
     const [stateCode, setStateCode] = useState("CA");
     const [injuryTier, setInjuryTier] = useState<keyof typeof ACCIDENT_CONSTANTS.injuryTiers>("MODERATE");
+
+    const states = getStatesList();
+    const currentStateData = STATE_ACCIDENT_DATA[stateCode];
 
     const results = useMemo(() => {
         return calculateCarAccidentSettlement({
@@ -95,10 +98,10 @@ export function CalculatorClient() {
                                     <select
                                         value={stateCode}
                                         onChange={(e) => setStateCode(e.target.value)}
-                                        className="bg-black border border-white/10 rounded-xl px-4 py-3 text-sm font-black text-white focus:border-red-500 outline-none appearance-none cursor-pointer pr-10"
+                                        className="bg-black border border-white/10 rounded-xl px-4 py-3 text-sm font-black text-white focus:border-red-500 outline-none appearance-none cursor-pointer pr-10 w-full"
                                     >
-                                        {["CA", "NY", "TX", "FL", "IL", "PA", "GA", "VA", "AZ", "WA"].map(st => (
-                                            <option key={st} value={st}>{st} - {st === "VA" ? "Contributory Bar" : "Comparative"}</option>
+                                        {states.map(st => (
+                                            <option key={st.code} value={st.code}>{st.name}</option>
                                         ))}
                                     </select>
                                 </div>
@@ -114,9 +117,21 @@ export function CalculatorClient() {
                                     />
                                 </div>
                             </div>
-                            <div className="flex items-center gap-4 text-[10px] font-black text-slate-400 uppercase tracking-widest bg-red-600/5 p-4 rounded-xl border border-red-600/10 italic">
-                                <AlertTriangle className="w-4 h-4 text-red-500" />
-                                Warning: {faultPercentage > 50 ? "51% Rule may bar recovery in many states." : "Fault reduction lowers total economic recovery."}
+                            <div className="grid md:grid-cols-2 gap-4">
+                                <div className="flex items-center gap-4 text-[10px] font-black text-slate-400 uppercase tracking-widest bg-red-600/5 p-4 rounded-xl border border-red-600/10 italic">
+                                    <AlertTriangle className="w-4 h-4 text-red-500" />
+                                    Warning: {faultPercentage > 50 ? "51% Rule may bar recovery in many states." : "Fault reduction lowers total economic recovery."}
+                                </div>
+                                <div className="p-4 bg-white/5 border border-white/10 rounded-xl space-y-2">
+                                    <div className="flex justify-between items-center text-[9px] font-black uppercase tracking-widest">
+                                        <span className="text-slate-500">Statute of Limitations</span>
+                                        <span className="text-white">{currentStateData?.biSOL} Years (BI)</span>
+                                    </div>
+                                    <div className="flex justify-between items-center text-[9px] font-black uppercase tracking-widest">
+                                        <span className="text-slate-500">Negligence Rule</span>
+                                        <span className="text-red-500">{currentStateData?.negligence}</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -241,8 +256,44 @@ export function CalculatorClient() {
                     </div>
                 </div>
             </section>
-        
+
+            {/* Inline FAQ Section - Visible to Users */}
+            <section className="max-w-4xl mx-auto px-6 py-16">
+                <div className="bg-slate-900/60 rounded-[2rem] border border-white/10 p-8 space-y-6">
+                    <h2 className="text-xl font-black text-white tracking-tight">
+                        Car Accident FAQ
+                    </h2>
+                    <div className="space-y-6 text-sm">
+                        <div className="pb-4 border-b border-white/5">
+                            <h3 className="font-bold text-white mb-2">
+                                How much is my car accident claim worth in 2026?
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                Average car accident settlements in 2026 range from $15,000 to $75,000 for moderate injuries. Severe injuries with surgery can exceed $100,000. Your settlement depends on medical bills, lost wages, pain and suffering, and fault percentage.
+                            </p>
+                        </div>
+                        <div className="pb-4 border-b border-white/5">
+                            <h3 className="font-bold text-white mb-2">
+                                How long do I have to file a car accident claim?
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                Statute of limitations varies by state: California (2 years), Texas (2 years), New York (3 years), Florida (4 years). Missing this deadline typically bars you from any recovery.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-white mb-2">
+                                Should I accept the insurance company's first offer?
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                First settlement offers are typically 30-50% below fair value. Insurance adjusters are trained to minimize payouts. Consider consulting an attorney before accepting any offer, especially for injuries requiring ongoing treatment.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* FAQPage Schema */}
+
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{

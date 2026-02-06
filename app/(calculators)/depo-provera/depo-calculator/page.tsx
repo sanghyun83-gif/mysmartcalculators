@@ -60,7 +60,7 @@ export default function DepoCalculatorPage() {
                     <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2"><Info className="w-5 h-5 text-purple-500" />Depo-Provera FAQ</h2>
                     <div className="space-y-4 text-sm">
                         <div><h3 className="font-semibold text-white mb-1">What is the link between Depo-Provera and brain tumors?</h3><p className="text-slate-400">Studies show that long-term Depo-Provera use increases meningioma (brain tumor) risk by up to 500%. In January 2026, the FDA required updated labeling to warn about this risk.</p></div>
-                        <div><h3 className="font-semibold text-white mb-1">What is the Depo-Provera MDL?</h3><p className="text-slate-400">In February 2025, federal lawsuits were consolidated into MDL No. 3126 in the Middle District of Florida. Over 1,300 cases are pending against Pfizer.</p></div>
+                        <div><h3 className="font-semibold text-white mb-1">What is the Depo-Provera MDL?</h3><p className="text-slate-400">In February 2026, federal lawsuits were consolidated into MDL No. 3126 in the Middle District of Florida. Over 1,300 cases are pending against Pfizer.</p></div>
                     </div>
                 </section>
                 <p className="mt-8 text-xs text-slate-500 text-center">{DEPO_2026.citation}</p>

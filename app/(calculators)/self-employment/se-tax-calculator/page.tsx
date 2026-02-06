@@ -150,7 +150,7 @@ export default function SETaxCalculatorPage() {
                             <p className="text-sm text-emerald-100 mb-1">Total Self-Employment Tax</p>
                             <p className="text-4xl font-bold">{formatCurrency(result.totalSETax)}</p>
                             <p className="text-sm text-emerald-100 mt-2">
-                                {result.effectiveRate}% effective rate • {formatCurrency(result.quarterlyEstimate)}/quarter
+                                {result.effectiveRate}% effective rate ??{formatCurrency(result.quarterlyEstimate)}/quarter
                             </p>
                         </div>
 

@@ -19,7 +19,7 @@ export default function HubClient() {
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-slate-900 to-rose-900/20" />
         <div className="relative max-w-4xl mx-auto px-4 py-16 text-center">
           <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/50 rounded-full px-4 py-2 mb-6 animate-pulse">
-            <Scale className="w-4 h-4 text-red-400" /><span className="text-sm text-red-300 font-semibold">🔥 Bellwether Trial: {PARAGARD_2026.bellwetherTrial.firstTrialDate}</span>
+            <Scale className="w-4 h-4 text-red-400" /><span className="text-sm text-red-300 font-semibold">?�� Bellwether Trial: {PARAGARD_2026.bellwetherTrial.firstTrialDate}</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Paragard IUD<span className="text-purple-400"> Lawsuit Calculator</span></h1>
           <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">Calculate your Paragard IUD fracture settlement. First bellwether trial starts {PARAGARD_2026.bellwetherTrial.date}. {PARAGARD_2026.statistics.lawsuitsFiled.toLocaleString()}+ lawsuits pending in {PARAGARD_2026.bellwetherTrial.mdlNumber}.</p>

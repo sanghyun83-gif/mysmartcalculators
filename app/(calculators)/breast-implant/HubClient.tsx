@@ -13,14 +13,14 @@ export default function HubClient() {
 
             <div className="bg-red-900/30 border-b border-red-500/30">
                 <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-center gap-2">
-                    <AlertTriangle className="w-4 h-4 text-red-400" /><span className="text-sm text-red-200">Allergan Recall: {BREAST_IMPLANT_2026.statistics.allerganRecall} • {BREAST_IMPLANT_2026.statistics.biaAlclCases} BIA-ALCL Cases</span>
+                    <AlertTriangle className="w-4 h-4 text-red-400" /><span className="text-sm text-red-200">Allergan Recall: {BREAST_IMPLANT_2026.statistics.allerganRecall} ??{BREAST_IMPLANT_2026.statistics.biaAlclCases} BIA-ALCL Cases</span>
                 </div>
             </div>
 
             <section className="relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-slate-900 to-rose-900/20" />
                 <div className="relative max-w-4xl mx-auto px-4 py-16 text-center">
-                    <div className="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-500/50 rounded-full px-4 py-2 mb-6"><Scale className="w-4 h-4 text-purple-400" /><span className="text-sm text-purple-300">Advanced Calculator • {BREAST_IMPLANT_2026.statistics.status}</span></div>
+                    <div className="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-500/50 rounded-full px-4 py-2 mb-6"><Scale className="w-4 h-4 text-purple-400" /><span className="text-sm text-purple-300">Advanced Calculator ??{BREAST_IMPLANT_2026.statistics.status}</span></div>
                     <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Breast Implant Illness<span className="block text-purple-400">Lawsuit Calculator</span></h1>
                     <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">Calculate BII & BIA-ALCL lawsuit settlements. Allergan recall, textured implant complications, lymphoma claims.</p>
                     <Link href="/breast-implant/calculator" className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105">Calculate Settlement<ArrowRight className="w-5 h-5" /></Link>

@@ -28,7 +28,7 @@ export default function CalculatorPage() {
 
             <section className="max-w-4xl mx-auto px-4 py-8">
                 <div className="text-center mb-8">
-                    <div className="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-500/50 rounded-full px-4 py-2 mb-4"><Calculator className="w-4 h-4 text-purple-400" /><span className="text-sm text-purple-300">Advanced Calculator • 7 Inputs</span></div>
+                    <div className="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-500/50 rounded-full px-4 py-2 mb-4"><Calculator className="w-4 h-4 text-purple-400" /><span className="text-sm text-purple-300">Advanced Calculator ??7 Inputs</span></div>
                     <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">BII/ALCL Settlement Calculator</h1>
                     <p className="text-slate-400">Comprehensive claim estimation with 7 factors.</p>
                 </div>
@@ -37,7 +37,7 @@ export default function CalculatorPage() {
                     <div className="grid md:grid-cols-2 gap-6">
                         <div><label className="block text-sm font-medium text-slate-300 mb-2">Injury Type</label><select value={injuryType} onChange={(e) => setInjuryType(e.target.value)} className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 text-white">{INJURY_TYPES.map((i) => <option key={i.id} value={i.id}>{i.name}</option>)}</select></div>
                         <div><label className="block text-sm font-medium text-slate-300 mb-2">Implant Type</label><select value={implantType} onChange={(e) => setImplantType(e.target.value)} className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 text-white">{IMPLANT_TYPES.map((i) => <option key={i.id} value={i.id}>{i.name}</option>)}</select></div>
-                        <div><label className="block text-sm font-medium text-slate-300 mb-2">Manufacturer</label><select value={manufacturer} onChange={(e) => setManufacturer(e.target.value)} className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 text-white">{MANUFACTURERS.map((m) => <option key={m.id} value={m.id}>{m.name}{m.recalled ? ' ⚠️ RECALLED' : ''}</option>)}</select></div>
+                        <div><label className="block text-sm font-medium text-slate-300 mb-2">Manufacturer</label><select value={manufacturer} onChange={(e) => setManufacturer(e.target.value)} className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 text-white">{MANUFACTURERS.map((m) => <option key={m.id} value={m.id}>{m.name}{m.recalled ? ' ?�️ RECALLED' : ''}</option>)}</select></div>
                         <div><label className="block text-sm font-medium text-slate-300 mb-2">Surgery Required</label><select value={surgeryRequired} onChange={(e) => setSurgeryRequired(e.target.value)} className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 text-white">{SURGERY_REQUIRED.map((s) => <option key={s.id} value={s.id}>{s.name}</option>)}</select></div>
                         <div><label className="block text-sm font-medium text-slate-300 mb-2">Medical Expenses ($)</label><input type="text" value={medicalExpenses} onChange={(e) => setMedicalExpenses(e.target.value.replace(/\D/g, ''))} className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 text-white" /></div>
                         <div><label className="block text-sm font-medium text-slate-300 mb-2">Years with Implants</label><input type="number" value={yearsWithImplants} onChange={(e) => setYearsWithImplants(e.target.value)} min="0" className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 text-white" /></div>
@@ -49,7 +49,7 @@ export default function CalculatorPage() {
                 {result && (
                     <div className="mt-8 bg-gradient-to-br from-purple-900/30 to-rose-900/20 border border-purple-500/30 rounded-2xl p-6 md:p-8">
                         <h2 className="text-xl font-bold text-white mb-6 text-center">Estimated Settlement</h2>
-                        <div className="text-center mb-6"><p className="text-4xl md:text-5xl font-bold text-purple-400">{formatCurrency(result.totalLow)} - {formatCurrency(result.totalHigh)}</p><p className="text-slate-400 mt-2">{result.injuryType} • {result.manufacturer}</p></div>
+                        <div className="text-center mb-6"><p className="text-4xl md:text-5xl font-bold text-purple-400">{formatCurrency(result.totalLow)} - {formatCurrency(result.totalHigh)}</p><p className="text-slate-400 mt-2">{result.injuryType} ??{result.manufacturer}</p></div>
                         <div className="bg-slate-800/50 rounded-xl p-4 mt-6">
                             <h3 className="text-lg font-semibold text-white mb-4">Damages Breakdown</h3>
                             <div className="space-y-3">

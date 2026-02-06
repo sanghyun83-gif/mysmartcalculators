@@ -1,7 +1,7 @@
 // ============================================
 // DIVORCE-CALC SITE CONFIGURATION
 // Divorce Settlement & Alimony Calculator
-// 2025 data - US State Laws
+// 2026 data - US State Laws
 // ============================================
 
 import { Calculator, Scale, Users, FileText, Home, DollarSign, Gavel } from 'lucide-react';
@@ -12,16 +12,16 @@ import { Calculator, Scale, Users, FileText, Home, DollarSign, Gavel } from 'luc
 export const SITE = {
     name: "Divorce Settlement Calculator",
     tagline: "Free Alimony & Property Division Calculator",
-    description: "Calculate alimony (spousal support) and property division for divorce. Free 2025 calculator based on state laws for all 50 US states.",
-    year: 2025,
+    description: "Calculate alimony (spousal support) and property division for divorce. Free 2026 calculator based on state laws for all 50 US states.",
+    year: 2026,
     baseUrl: "https://mysmartcalculators.com/divorce",
 };
 
 // ============================================
-// 2025 DIVORCE/ALIMONY CONSTANTS
+// 2026 DIVORCE/ALIMONY CONSTANTS
 // Based on State Laws and Guidelines
 // ============================================
-export const DIVORCE_CONSTANTS_2025 = {
+export const DIVORCE_CONSTANTS_2026 = {
     // Alimony duration multipliers (years of marriage × multiplier)
     alimonyDurationMultiplier: {
         shortTerm: 0.3,    // Marriage < 10 years
@@ -51,7 +51,7 @@ export const DIVORCE_CONSTANTS_2025 = {
 };
 
 // ============================================
-// STATE PROPERTY DIVISION LAWS (2025)
+// STATE PROPERTY DIVISION LAWS (2026)
 // ============================================
 export type PropertyDivisionType = 'community' | 'equitable';
 
@@ -130,7 +130,7 @@ export const CALCULATORS = [
         name: "Alimony Calculator",
         shortName: "Alimony",
         description: "Calculate spousal support payments",
-        longDescription: "Free 2025 alimony calculator. Estimate monthly spousal support based on income, marriage duration, and state guidelines.",
+        longDescription: "Free 2026 alimony calculator. Estimate monthly spousal support based on income, marriage duration, and state guidelines.",
         icon: Calculator,
         category: "divorce",
         keywords: ["alimony calculator", "spousal support calculator", "divorce alimony", "maintenance calculator"],
@@ -184,7 +184,7 @@ export function calculateAlimony(
     marriageYears: number
 ): AlimonyResult {
     const state = STATE_DATA[stateCode] || STATE_DATA['CA'];
-    const constants = DIVORCE_CONSTANTS_2025;
+    const constants = DIVORCE_CONSTANTS_2026;
 
     // Income difference
     const incomeDifference = higherEarnerIncome - lowerEarnerIncome;
@@ -268,7 +268,7 @@ export function calculatePropertyDivision(
     spouse1Contribution: number = 50 // percentage, only for equitable
 ): PropertyDivisionResult {
     const state = STATE_DATA[stateCode] || STATE_DATA['CA'];
-    const constants = DIVORCE_CONSTANTS_2025;
+    const constants = DIVORCE_CONSTANTS_2026;
 
     const netMaritalEstate = totalAssets - totalDebts;
 

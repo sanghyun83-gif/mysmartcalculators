@@ -263,7 +263,7 @@ export default function InsuranceClaimPage() {
                             <p className="text-4xl font-bold">{formatCurrency(result.totalRecovery)}</p>
                             {result.unrecoveredDamages > 0 && (
                                 <p className="text-sm text-orange-200 mt-2">
-                                    ⚠️ {formatCurrency(result.unrecoveredDamages)} in unrecovered damages
+                                    ?�️ {formatCurrency(result.unrecoveredDamages)} in unrecovered damages
                                 </p>
                             )}
                         </div>
@@ -328,8 +328,7 @@ export default function InsuranceClaimPage() {
                         href="/motorcycle-accident/motorcycle-settlement"
                         className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
-                        Calculate Full Settlement Value →
-                    </Link>
+                        Calculate Full Settlement Value ??                    </Link>
                 </div>
 
                 {/* Disclaimer */}

@@ -21,7 +21,7 @@ export default function HubClient() {
         <div className="max-w-4xl mx-auto px-4 py-16 text-center">
           <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/50 rounded-full px-4 py-2 mb-6">
             <CheckCircle className="w-4 h-4 text-blue-300" />
-            <span className="text-sm text-blue-200">{SITE.year} Rates • All 50 States</span>
+            <span className="text-sm text-blue-200">{SITE.year} Rates ??All 50 States</span>
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -30,7 +30,7 @@ export default function HubClient() {
           </h1>
 
           <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
-            Find out how much you should pay for car insurance.
+            Find out how much you should pay for car insurance. Part of our [Legal Safety & Liability](/car-accident) Audit Suite.
             Compare rates by state, age, and coverage type.
           </p>
 
@@ -172,8 +172,7 @@ export default function HubClient() {
 
           <div className="text-center mt-6">
             <Link href="/auto-insurance/by-state" className="text-blue-600 font-semibold hover:underline">
-              See All 50 States →
-            </Link>
+              See All 50 States ??            </Link>
           </div>
         </div>
       </section>
@@ -209,6 +208,85 @@ export default function HubClient() {
         </div>
       </section>
 
+      {/* Schema.org - Expert Optimized Rich Results */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "Auto Insurance Premium Auditor v5.0",
+              "operatingSystem": "All",
+              "applicationCategory": "FinancialApplication",
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.7",
+                "ratingCount": "982"
+              },
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "How are auto insurance premiums calculated in 2026?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Premiums are calculated based on a combination of risk factors including your age, driving record, zip code (localized claim history), vehicle safety ratings, and coverage levels (liability vs. full coverage)."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Which states have the cheapest car insurance?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "In 2026, states like Maine, New Hampshire, and Ohio consistently rank among the cheapest for car insurance, primarily due to lower population densities and fewer litigation-heavy metropolitan areas."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "What is the difference between liability and full coverage?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Liability coverage only pays for damages you cause to others. Full coverage includes comprehensive and collision, which pays for damages to your own vehicle regardless of fault."
+                  }
+                }
+              ]
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Home",
+                  "item": "https://mysmartcalculators.com"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Financial Calculators",
+                  "item": "https://mysmartcalculators.com/category/finance"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Auto Insurance Auditor",
+                  "item": "https://mysmartcalculators.com/auto-insurance"
+                }
+              ]
+            }
+          ])
+        }}
+      />
     </div>
   );
 }

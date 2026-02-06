@@ -20,7 +20,7 @@ const FAQ_DATA = [
     },
     {
         q: "What is TDEE and how is it calculated?",
-        a: "TDEE (Total Daily Energy Expenditure) is the total number of calories you burn in a day. It's calculated by multiplying your BMR (Basal Metabolic Rate) by an activity factor. TDEE = BMR × Activity Multiplier. This represents your maintenance calories—the amount needed to maintain current weight."
+        a: "TDEE (Total Daily Energy Expenditure) is the total number of calories you burn in a day. It's calculated by multiplying your BMR (Basal Metabolic Rate) by an activity factor. TDEE = BMR × Activity Multiplier. This represents your maintenance calories?�the amount needed to maintain current weight."
     },
     {
         q: "What is BMR and why is it important?",
@@ -44,7 +44,7 @@ const FAQ_DATA = [
     },
     {
         q: "What is the difference between net calories and gross calories?",
-        a: "Gross calories are total calories consumed. Net calories = Calories eaten - Exercise calories burned. Some diet plans focus on net calories, allowing you to 'earn' more food through exercise. However, be cautious—fitness trackers often overestimate exercise calories by 20-50%."
+        a: "Gross calories are total calories consumed. Net calories = Calories eaten - Exercise calories burned. Some diet plans focus on net calories, allowing you to 'earn' more food through exercise. However, be cautious?�fitness trackers often overestimate exercise calories by 20-50%."
     },
     {
         q: "How accurate are calorie calculators?",
@@ -257,11 +257,11 @@ export default function CalorieHubClient() {
                     Data Sources & Citations
                 </h3>
                 <ul className="text-xs text-slate-500 space-y-2">
-                    <li>• U.S. Department of Agriculture. "Dietary Guidelines for Americans, 2020-2025." USDA, 2020.</li>
-                    <li>• Mifflin MD, et al. "A new predictive equation for resting energy expenditure in healthy individuals." Am J Clin Nutr. 1990;51(2):241-247.</li>
-                    <li>• CDC. "Adult Obesity Facts." Centers for Disease Control and Prevention, 2026.</li>
-                    <li>• Institute of Medicine. "Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids." National Academies Press, 2005.</li>
-                    <li>• Academy of Nutrition and Dietetics. "Position of the Academy: Total Diet Approach." J Acad Nutr Diet. 2024.</li>
+                    <li>??U.S. Department of Agriculture. "Dietary Guidelines for Americans, 2020-2026." USDA, 2020.</li>
+                    <li>??Mifflin MD, et al. "A new predictive equation for resting energy expenditure in healthy individuals." Am J Clin Nutr. 1990;51(2):241-247.</li>
+                    <li>??CDC. "Adult Obesity Facts." Centers for Disease Control and Prevention, 2026.</li>
+                    <li>??Institute of Medicine. "Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids." National Academies Press, 2005.</li>
+                    <li>??Academy of Nutrition and Dietetics. "Position of the Academy: Total Diet Approach." J Acad Nutr Diet. 2024.</li>
                 </ul>
             </section>
 

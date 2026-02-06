@@ -36,7 +36,7 @@ const FAQ_DATA = [
     },
     {
         q: "What is the 'base period' for unemployment?",
-        a: "The base period is the timeframe used to calculate your benefits—typically the first four of the last five completed calendar quarters before you file. Some states offer an 'alternate base period' using more recent wages if you don't qualify under the standard period."
+        a: "The base period is the timeframe used to calculate your benefits?�typically the first four of the last five completed calendar quarters before you file. Some states offer an 'alternate base period' using more recent wages if you don't qualify under the standard period."
     },
     {
         q: "Are unemployment benefits taxable?",
@@ -52,7 +52,7 @@ const FAQ_DATA = [
     },
     {
         q: "How do I apply for unemployment benefits?",
-        a: "Apply through your state's unemployment website or by phone. You'll need: Social Security number, driver's license, last employer's contact info and dates of employment, pay stubs or W-2s, bank account info for direct deposit. Apply the first week you're unemployed—there's usually a one-week waiting period."
+        a: "Apply through your state's unemployment website or by phone. You'll need: Social Security number, driver's license, last employer's contact info and dates of employment, pay stubs or W-2s, bank account info for direct deposit. Apply the first week you're unemployed?�there's usually a one-week waiting period."
     },
     {
         q: "What are work search requirements?",
@@ -178,7 +178,7 @@ export default function UnemploymentHubClient() {
                         The <strong className="text-white">U.S. Department of Labor (DOL)</strong> oversees the federal-state unemployment system, but each state administers its own program with varying benefit amounts, duration, and eligibility requirements. According to DOL data, approximately 1.5 million Americans receive unemployment benefits at any given time, with an average weekly benefit of ${UI_CONSTANTS_2026.statistics.avgWeeklyBenefit}.
                     </p>
                     <p>
-                        Benefits typically replace about 45-50% of your prior wages, up to a state maximum. The wide variation in state maximums—from $275/week in Florida to over $1,000/week in Massachusetts—means your location significantly impacts your benefit amount. Most states provide up to 26 weeks of regular benefits, though some offer as few as 12 weeks.
+                        Benefits typically replace about 45-50% of your prior wages, up to a state maximum. The wide variation in state maximums?�from $275/week in Florida to over $1,000/week in Massachusetts?�means your location significantly impacts your benefit amount. Most states provide up to 26 weeks of regular benefits, though some offer as few as 12 weeks.
                     </p>
                 </div>
             </section>
@@ -221,22 +221,22 @@ export default function UnemploymentHubClient() {
                         <CheckCircle className="w-8 h-8 text-green-400 mb-3" />
                         <h3 className="font-bold text-white text-lg mb-3">You May Qualify If:</h3>
                         <ul className="text-sm text-slate-300 space-y-2">
-                            <li>• Lost job through layoff, reduction in force, or company closure</li>
-                            <li>• Meet minimum earnings requirements in your state</li>
-                            <li>• Able and available to work full-time</li>
-                            <li>• Actively searching for new employment</li>
-                            <li>• Quit for "good cause" (harassment, safety, medical)</li>
+                            <li>??Lost job through layoff, reduction in force, or company closure</li>
+                            <li>??Meet minimum earnings requirements in your state</li>
+                            <li>??Able and available to work full-time</li>
+                            <li>??Actively searching for new employment</li>
+                            <li>??Quit for "good cause" (harassment, safety, medical)</li>
                         </ul>
                     </div>
                     <div className="bg-slate-800/50 border border-red-500/30 rounded-xl p-6">
                         <AlertTriangle className="w-8 h-8 text-red-400 mb-3" />
                         <h3 className="font-bold text-white text-lg mb-3">You May NOT Qualify If:</h3>
                         <ul className="text-sm text-slate-300 space-y-2">
-                            <li>• Fired for misconduct (theft, policy violations)</li>
-                            <li>• Quit without good cause</li>
-                            <li>• Self-employed or independent contractor (1099)</li>
-                            <li>• Failed to meet work search requirements</li>
-                            <li>• Refused suitable job offers</li>
+                            <li>??Fired for misconduct (theft, policy violations)</li>
+                            <li>??Quit without good cause</li>
+                            <li>??Self-employed or independent contractor (1099)</li>
+                            <li>??Failed to meet work search requirements</li>
+                            <li>??Refused suitable job offers</li>
                         </ul>
                     </div>
                 </div>
@@ -287,11 +287,11 @@ export default function UnemploymentHubClient() {
                     Data Sources & Citations
                 </h3>
                 <ul className="text-xs text-slate-500 space-y-2">
-                    <li>• U.S. Department of Labor. "Unemployment Insurance Weekly Claims Data." DOL ETA, 2026.</li>
-                    <li>• U.S. Department of Labor. "Comparison of State Unemployment Insurance Laws." DOL, 2025.</li>
-                    <li>• Center on Budget and Policy Priorities. "Policy Basics: How Many Weeks of Unemployment Compensation Are Available?" CBPP, 2024.</li>
-                    <li>• National Employment Law Project. "Unemployment Insurance: A State-by-State Analysis." NELP, 2024.</li>
-                    <li>• Internal Revenue Service. "Topic No. 418 Unemployment Compensation." IRS.gov, 2026.</li>
+                    <li>??U.S. Department of Labor. "Unemployment Insurance Weekly Claims Data." DOL ETA, 2026.</li>
+                    <li>??U.S. Department of Labor. "Comparison of State Unemployment Insurance Laws." DOL, 2026.</li>
+                    <li>??Center on Budget and Policy Priorities. "Policy Basics: How Many Weeks of Unemployment Compensation Are Available?" CBPP, 2024.</li>
+                    <li>??National Employment Law Project. "Unemployment Insurance: A State-by-State Analysis." NELP, 2024.</li>
+                    <li>??Internal Revenue Service. "Topic No. 418 Unemployment Compensation." IRS.gov, 2026.</li>
                 </ul>
             </section>
 

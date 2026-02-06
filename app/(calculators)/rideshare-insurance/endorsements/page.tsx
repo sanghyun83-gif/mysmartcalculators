@@ -22,7 +22,7 @@ export default function RideshareInsuranceEndorsementsPage() {
                         <Calculator className="w-6 h-6 text-blue-500" />
                         <span className="text-lg font-bold text-white">MySmartCalculators</span>
                     </Link>
-                    <Link href="/rideshare-insurance" className="text-slate-400 hover:text-white text-sm">← Back to Overview</Link>
+                    <Link href="/rideshare-insurance" className="text-slate-400 hover:text-white text-sm">??Back to Overview</Link>
                 </div>
             </header>
 
@@ -92,10 +92,10 @@ export default function RideshareInsuranceEndorsementsPage() {
                         <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
                             <h3 className="text-lg font-semibold text-red-400 mb-3">May Not Be Covered</h3>
                             <ul className="space-y-2 text-sm text-slate-400">
-                                <li>• Higher liability limits (need upgrade)</li>
-                                <li>• Lost wages while car is being repaired</li>
-                                <li>• Commercial activities beyond rideshare</li>
-                                <li>• Intentional damage or racing</li>
+                                <li>??Higher liability limits (need upgrade)</li>
+                                <li>??Lost wages while car is being repaired</li>
+                                <li>??Commercial activities beyond rideshare</li>
+                                <li>??Intentional damage or racing</li>
                             </ul>
                         </div>
                     </div>

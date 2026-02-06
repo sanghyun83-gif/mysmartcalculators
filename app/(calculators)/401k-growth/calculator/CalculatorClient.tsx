@@ -232,12 +232,12 @@ export function CalculatorClient() {
 
                         <h3 className="text-white text-2xl font-black tracking-tight">Tax-Deferred vs. Inflation Pressure</h3>
                         <p>
-                            A $2M 401k balance sounds robust, but if inflation persists at a 3% target, the purchasing power of that money will be roughly 40% lower in 30 years. This 'Inflation Gap' is why we include a purchasing power metric—to force a reality check on your retirement lifestyle expectations.
+                            A $2M 401k balance sounds robust, but if inflation persists at a 3% target, the purchasing power of that money will be roughly 40% lower in 30 years. This 'Inflation Gap' is why we include a purchasing power metric?�to force a reality check on your retirement lifestyle expectations.
                         </p>
 
                         <h3 className="text-white text-2xl font-black tracking-tight">RMD Strategy and SECURE 2.0</h3>
                         <p>
-                            By moving the Required Minimum Distribution age to 73 (and eventually 75), the IRS has gifted investors several additional years of tax-free growth. However, this creates a 'Tax Cliff' later in life. Strategic Roth conversions during low-income years (e.g., between early retirement and age 73) can significantly reduce your lifetime tax liability—a concept known as 'Tax Bracket Management.'
+                            By moving the Required Minimum Distribution age to 73 (and eventually 75), the IRS has gifted investors several additional years of tax-free growth. However, this creates a 'Tax Cliff' later in life. Strategic Roth conversions during low-income years (e.g., between early retirement and age 73) can significantly reduce your lifetime tax liability?�a concept known as 'Tax Bracket Management.'
                         </p>
                     </div>
 
@@ -264,7 +264,42 @@ export function CalculatorClient() {
                     </div>
                 </div>
             </section>
-        
+
+            {/* Inline FAQ Section */}
+            <section className="max-w-4xl mx-auto px-6 py-16">
+                <div className="bg-slate-900/60 rounded-[2rem] border border-white/10 p-8 space-y-6">
+                    <h2 className="text-xl font-black text-white tracking-tight">
+                        401(k) FAQ
+                    </h2>
+                    <div className="space-y-6 text-sm">
+                        <div className="pb-4 border-b border-white/5">
+                            <h3 className="font-bold text-white mb-2">
+                                What is the 401k contribution limit in 2026?
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                The 2026 401(k) contribution limit is $23,500 for employees under 50. Those 50 and older can contribute an additional $7,500 catch-up, for a total of $31,000. Employer matching does not count toward this limit.
+                            </p>
+                        </div>
+                        <div className="pb-4 border-b border-white/5">
+                            <h3 className="font-bold text-white mb-2">
+                                How much should I have in my 401k by age 40?
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                A common benchmark is 3x your annual salary by age 40. If you earn $100,000, aim for $300,000 in retirement savings. This assumes consistent contributions of 15% of income and average market returns of 7% annually.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-white mb-2">
+                                Should I max out 401k or pay off mortgage first?
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed">
+                                Generally, contribute enough to get full employer match first (free money). Then if mortgage rate is below 5%, prioritize 401k for tax benefits. Above 5%, consider splitting between both goals.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* FAQPage Schema */}
             <script
                 type="application/ld+json"

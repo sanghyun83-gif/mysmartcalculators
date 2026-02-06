@@ -221,6 +221,14 @@ export default function ChildSupportPage() {
                                         <span className="font-medium text-green-400">-{formatCurrency(result.custodyAdjustment)}</span>
                                     </div>
                                 )}
+                                <div className="flex justify-between py-2 border-b border-slate-700">
+                                    <span className="text-slate-300">Interest on Arrears (State Law)</span>
+                                    <span className="font-medium text-white">{result.interestRate}%</span>
+                                </div>
+                                <div className="flex justify-between py-2 border-b border-slate-700">
+                                    <span className="text-slate-300">Age of Emancipation</span>
+                                    <span className="font-medium text-white">{result.emancipationAge} years</span>
+                                </div>
                                 <div className="flex justify-between pt-4 text-lg">
                                     <span className="text-white font-bold">Monthly Support</span>
                                     <span className="font-bold text-purple-400">{formatCurrency(result.monthlySupport)}</span>
@@ -246,49 +254,37 @@ export default function ChildSupportPage() {
                     <p className="text-sm text-slate-500">Advertisement</p>
                 </div>
 
-                {/* FAQ Section */}
-                <section className="bg-slate-800 rounded-xl border border-slate-700 p-6">
-                    <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                        <Info className="w-5 h-5 text-purple-500" />
-                        Child Support FAQ
-                    </h2>
-
-                    <div className="space-y-4 text-sm">
-                        <div>
-                            <h3 className="font-semibold text-white mb-1">
-                                How is child support calculated?
-                            </h3>
-                            <p className="text-slate-400">
-                                Most states use the Income Shares Model: both parents&apos; incomes are combined,
-                                a percentage is applied based on number of children, then divided proportionally based on each parent&apos;s income share.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 className="font-semibold text-white mb-1">
-                                Does custody affect child support?
-                            </h3>
-                            <p className="text-slate-400">
-                                Yes. The more custody time the paying parent has, the lower the support payment.
-                                50/50 custody typically results in significantly reduced or no support depending on income difference.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 className="font-semibold text-white mb-1">
-                                What income is used for calculation?
-                            </h3>
-                            <p className="text-slate-400">
-                                Gross income (before taxes) is typically used, including wages, bonuses, commissions,
-                                self-employment income, and sometimes imputed income if unemployed.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 className="font-semibold text-white mb-1">
-                                Can child support be modified?
-                            </h3>
-                            <p className="text-slate-400">
-                                Yes. Support can be modified if there&apos;s a significant change in circumstances,
-                                such as job loss, income change, or change in custody arrangement.
-                            </p>
+                {/* Inline FAQ Section */}
+                <section className="max-w-2xl mx-auto py-16">
+                    <div className="bg-slate-900/60 rounded-[2rem] border border-white/10 p-8 space-y-6">
+                        <h2 className="text-xl font-black text-white tracking-tight">
+                            Child Support FAQ
+                        </h2>
+                        <div className="space-y-6 text-sm">
+                            <div className="pb-4 border-b border-white/5">
+                                <h3 className="font-bold text-white mb-2">
+                                    How is child support calculated in 2026?
+                                </h3>
+                                <p className="text-slate-400 leading-relaxed">
+                                    Most states use the Income Shares Model in 2026: both parents&apos; incomes are combined, a percentage is applied based on the number of children, and the total is divided proportionally. Some states like TX use the Percentage of Income model.
+                                </p>
+                            </div>
+                            <div className="pb-4 border-b border-white/5">
+                                <h3 className="font-bold text-white mb-2">
+                                    Does joint custody stop child support?
+                                </h3>
+                                <p className="text-slate-400 leading-relaxed">
+                                    Joint custody (50/50) does not automatically eliminate support. If one parent earns significantly more, they may still owe support to ensure the child maintains a similar standard of living in both households.
+                                </p>
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-white mb-2">
+                                    Can I change my child support amount?
+                                </h3>
+                                <p className="text-slate-400 leading-relaxed">
+                                    Yes, through a modification petition. Valid reasons include a 15-20% change in income, significant changes in medical insurance costs, or major shifts in the physical custody schedule.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -299,8 +295,7 @@ export default function ChildSupportPage() {
                         href="/child-support/state-guidelines"
                         className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                     >
-                        View State Guidelines →
-                    </Link>
+                        View State Guidelines ??                    </Link>
                 </div>
 
                 {/* Disclaimer */}

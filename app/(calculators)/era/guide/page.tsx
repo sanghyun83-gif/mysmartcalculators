@@ -13,7 +13,7 @@ export default function ERAGuidePage() {
                         <Calculator className="w-6 h-6 text-blue-500" />
                         <span className="text-lg font-bold text-white">MySmartCalculators</span>
                     </Link>
-                    <Link href="/era" className="text-slate-400 hover:text-white text-sm">← Back</Link>
+                    <Link href="/era" className="text-slate-400 hover:text-white text-sm">??Back</Link>
                 </div>
             </header>
 
@@ -63,7 +63,7 @@ export default function ERAGuidePage() {
                             <CheckCircle className="w-5 h-5 text-blue-400 flex-shrink-0 mt-1" />
                             <div>
                                 <h3 className="text-white font-bold mb-2">Income Verification</h3>
-                                <p className="text-slate-400 text-xs leading-relaxed">Copies of 2025/2026 tax returns, pay stubs, or unemployment benefit statements for all household adults.</p>
+                                <p className="text-slate-400 text-xs leading-relaxed">Copies of 2026/2026 tax returns, pay stubs, or unemployment benefit statements for all household adults.</p>
                             </div>
                         </div>
                         <div className="bg-slate-800 border border-slate-700 p-6 rounded-xl flex items-start gap-3 shadow-inner">

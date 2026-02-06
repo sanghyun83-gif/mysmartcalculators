@@ -127,7 +127,7 @@ export default function TreatmentPage() {
                 <div className="mt-12 bg-purple-900/20 border border-purple-500/30 rounded-xl p-6">
                     <h3 className="text-lg font-semibold text-purple-300 mb-3">Why Treatment Costs Matter for Your Claim</h3>
                     <p className="text-purple-200 text-sm">
-                        Documenting all medical expenses—past, current, and projected future costs—is critical for maximizing your settlement.
+                        Documenting all medical expenses?�past, current, and projected future costs?�is critical for maximizing your settlement.
                         Our calculator factors in these costs to provide an accurate estimate. Keep all receipts, bills, and treatment records.
                     </p>
                 </div>

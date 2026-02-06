@@ -40,7 +40,7 @@ export const HEALTH_2026 = {
     // ACA subsidy income limits (% of FPL)
     subsidyLimits: {
         maxIncome: 400,  // 400% FPL
-        enhancedSubsidy: true,  // Extended through 2025
+        enhancedSubsidy: true,  // Extended through 2026
     },
 
     // Federal Poverty Level 2026

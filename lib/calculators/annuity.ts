@@ -55,7 +55,7 @@ export const ANNUITY_2026 = {
 
     // Statistics
     statistics: {
-        totalAnnuitySales: 385, // $385 billion in 2025
+        totalAnnuitySales: 385, // $385 billion in 2026
         avgPurchaseAge: 62,
         avgPremium: 150000,
         percentGuaranteedIncome: 68, // % wanting guaranteed income
