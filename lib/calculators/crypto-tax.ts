@@ -63,7 +63,7 @@ export const CRYPTO_TAX_2026 = {
 
     // Form 8949 categories
     formCategories: {
-        shortTerm: "Short-term (held ??1 year)",
+        shortTerm: "Short-term (held  1 year)",
         longTerm: "Long-term (held > 1 year)",
     },
 

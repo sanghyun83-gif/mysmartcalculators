@@ -220,7 +220,7 @@ export function calculateTax(
     const { brackets, standardDeduction, credits } = TAX_CONSTANTS;
 
     // Get standard deduction
-    const deduction = customDeduction ?? (standardDeduction[filingStatus] || standardDeduction.single);
+    const deduction = customDeduction   (standardDeduction[filingStatus] || standardDeduction.single);
 
     // Taxable income
     const taxableIncome = Math.max(0, grossIncome - deduction);

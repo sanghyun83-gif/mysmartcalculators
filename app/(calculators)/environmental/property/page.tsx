@@ -39,10 +39,10 @@ export default function PropertyPage() {
                 <div className="mt-12 bg-slate-800 border border-slate-700 rounded-xl p-6">
                     <h3 className="text-lg font-semibold text-white mb-3">Proving Property Damage</h3>
                     <ul className="text-slate-400 space-y-2 text-sm">
-                        <li>??Environmental testing showing contamination levels</li>
-                        <li>??Before/after property appraisals</li>
-                        <li>??Remediation cost estimates from contractors</li>
-                        <li>??Documentation of the source of contamination</li>
+                        <li> Environmental testing showing contamination levels</li>
+                        <li> Before/after property appraisals</li>
+                        <li> Remediation cost estimates from contractors</li>
+                        <li> Documentation of the source of contamination</li>
                     </ul>
                 </div>
                 <div className="mt-12 text-center"><Link href="/environmental/calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold">Calculate Your Claim<ArrowRight className="w-5 h-5" /></Link></div>

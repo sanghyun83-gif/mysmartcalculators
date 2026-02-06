@@ -140,7 +140,7 @@ export default function DivisionCalculatorPage() {
                         </select>
                         <p className="text-xs text-slate-500 mt-1">
                             {isCommunity
-                                ? "??Community Property: Assets split 50/50"
+                                ? " Community Property: Assets split 50/50"
                                 : "Equitable Distribution: Fair split based on factors"}
                         </p>
                     </div>

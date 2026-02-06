@@ -130,9 +130,9 @@ export default function BenefitsGuidePage() {
                         <div className="text-sm text-amber-200">
                             <p className="font-medium text-white mb-2">Tax Considerations</p>
                             <ul className="space-y-1">
-                                <li>??<strong>Employer-paid premiums:</strong> Benefits are taxable income</li>
-                                <li>??<strong>You pay premiums:</strong> Benefits are tax-free</li>
-                                <li>??<strong>Split arrangement:</strong> Proportionally taxed</li>
+                                <li> <strong>Employer-paid premiums:</strong> Benefits are taxable income</li>
+                                <li> <strong>You pay premiums:</strong> Benefits are tax-free</li>
+                                <li> <strong>Split arrangement:</strong> Proportionally taxed</li>
                             </ul>
                         </div>
                     </div>

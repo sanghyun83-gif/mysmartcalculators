@@ -165,7 +165,7 @@ export default function HealthCalculatorPage() {
                             <p className="text-sm text-blue-100 mb-1">Estimated Monthly Premium</p>
                             <p className="text-4xl font-bold">{formatCurrency(result.monthlyPremium)}</p>
                             <p className="text-sm text-blue-100 mt-2">
-                                {result.tier} Plan ??{formatCurrency(result.annualPremium)}/year
+                                {result.tier} Plan  {formatCurrency(result.annualPremium)}/year
                             </p>
                         </div>
 

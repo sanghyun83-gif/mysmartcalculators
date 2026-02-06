@@ -139,7 +139,7 @@ export default function CoverageGuidePage() {
                     <div className="mt-4 bg-slate-700/30 rounded-lg p-4">
                         <p className="text-sm text-slate-400 mb-2"><strong>Example:</strong></p>
                         <p className="text-sm text-slate-300">
-                            $2,000 vet bill ??$500 deductible ??80% reimbursement
+                            $2,000 vet bill  $500 deductible  80% reimbursement
                         </p>
                         <p className="text-sm text-blue-300">
                             Insurance pays: ($2,000 - $500) × 80% = <strong>$1,200</strong>

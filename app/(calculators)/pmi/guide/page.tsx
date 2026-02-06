@@ -78,7 +78,7 @@ export default function PMIGuidePage() {
                                 ))}
                                 <tr>
                                     <td className="py-3 text-green-400 font-medium">20%+</td>
-                                    <td className="py-3 text-center text-slate-300">??0%</td>
+                                    <td className="py-3 text-center text-slate-300"> 0%</td>
                                     <td className="py-3 text-right text-green-400 font-bold">No PMI</td>
                                 </tr>
                             </tbody>

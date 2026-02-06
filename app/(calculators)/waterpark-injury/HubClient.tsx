@@ -19,7 +19,7 @@ export default function HubClient() {
 
             <div className="bg-amber-900/30 border-b border-amber-500/30">
                 <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-center gap-2">
-                    <AlertTriangle className="w-4 h-4 text-amber-400" /><span className="text-sm text-amber-200">{WATERPARK_2026.statistics.deaths} ??Water Slides &amp; Wave Pools</span>
+                    <AlertTriangle className="w-4 h-4 text-amber-400" /><span className="text-sm text-amber-200">{WATERPARK_2026.statistics.deaths}  Water Slides &amp; Wave Pools</span>
                 </div>
             </div>
 

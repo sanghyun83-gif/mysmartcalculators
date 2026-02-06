@@ -318,11 +318,11 @@ export default function RothIRAHubClient() {
                     Data Sources & Citations
                 </h3>
                 <ul className="text-xs text-slate-500 space-y-2">
-                    <li>??Internal Revenue Service. "Retirement Topics - IRA Contribution Limits." IRS.gov, 2026.</li>
-                    <li>??Internal Revenue Service. "Amount of Roth IRA Contributions That You Can Make for 2026." IRS Publication 590-A.</li>
-                    <li>??Investment Company Institute. "IRA Ownership in 2026." ICI Research, 2026.</li>
-                    <li>??Congressional Research Service. "Individual Retirement Account (IRA) Ownership: Data and Policy Issues." CRS Report, 2024.</li>
-                    <li>??Securities and Exchange Commission. "Saving and Investing for Retirement." Investor.gov, 2026.</li>
+                    <li> Internal Revenue Service. "Retirement Topics - IRA Contribution Limits." IRS.gov, 2026.</li>
+                    <li> Internal Revenue Service. "Amount of Roth IRA Contributions That You Can Make for 2026." IRS Publication 590-A.</li>
+                    <li> Investment Company Institute. "IRA Ownership in 2026." ICI Research, 2026.</li>
+                    <li> Congressional Research Service. "Individual Retirement Account (IRA) Ownership: Data and Policy Issues." CRS Report, 2024.</li>
+                    <li> Securities and Exchange Commission. "Saving and Investing for Retirement." Investor.gov, 2026.</li>
                 </ul>
             </section>
 

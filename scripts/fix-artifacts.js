@@ -35,13 +35,13 @@ files.forEach(file => {
             changed = true;
         }
 
-        // Pattern 2: ?? -> → (usually for "View all" or "Check out")
+        // Pattern 2:   -> → (usually for "View all" or "Check out")
         // We'll be careful here. Only if it looks like a separator.
-        // Actually, many ?? are probably mangled Arrows or Symbols.
-        if (content.includes('??')) {
-            // If it's ?? followed by </Link>, it's likely an arrow.
+        // Actually, many   are probably mangled Arrows or Symbols.
+        if (content.includes(' ')) {
+            // If it's   followed by </Link>, it's likely an arrow.
             content = content.replace(/\?\?\s*<\/Link>/g, ' →</Link>');
-            // If it's ?? in other places, maybe replace with | or -
+            // If it's   in other places, maybe replace with | or -
             // But let's be conservative first.
             changed = true;
         }

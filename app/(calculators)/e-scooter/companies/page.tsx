@@ -39,10 +39,10 @@ export default function CompaniesPage() {
                     <h3 className="text-lg font-semibold text-white mb-4">Arbitration Clauses</h3>
                     <p className="text-slate-400 mb-4">Most e-scooter apps include arbitration clauses that limit your right to sue. However, these clauses may not cover:</p>
                     <ul className="space-y-2 text-slate-300">
-                        <li>??Product liability claims (defective scooters)</li>
-                        <li>??Gross negligence or recklessness</li>
-                        <li>??Claims in states that limit arbitration</li>
-                        <li>??Wrongful death claims (in some jurisdictions)</li>
+                        <li> Product liability claims (defective scooters)</li>
+                        <li> Gross negligence or recklessness</li>
+                        <li> Claims in states that limit arbitration</li>
+                        <li> Wrongful death claims (in some jurisdictions)</li>
                     </ul>
                 </div>
                 <div className="mt-12 text-center"><Link href="/e-scooter/calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold">Estimate Settlement<ArrowRight className="w-5 h-5" /></Link></div>

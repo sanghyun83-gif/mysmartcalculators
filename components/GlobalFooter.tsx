@@ -38,7 +38,7 @@ export function GlobalFooter({ siteName = "MySmartCalculators", citation }: Glob
                         <span className="text-xs font-black text-white uppercase tracking-tighter">{siteName}</span>
                     </div>
                     {citation && <p className="text-[10px] text-slate-500 font-medium">{citation}</p>}
-                    <p className="text-[10px] text-slate-500 font-medium uppercase tracking-widest">© 2026 MySmartCalculators ??Global Entity</p>
+                    <p className="text-[10px] text-slate-500 font-medium uppercase tracking-widest">© 2026 MySmartCalculators  Global Entity</p>
                 </div>
             </div>
         </footer>

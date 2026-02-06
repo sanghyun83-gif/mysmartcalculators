@@ -108,13 +108,13 @@ export default function PSLFPage() {
                     <h4 className="font-bold text-blue-800 mb-2">Qualifying Employers</h4>
                     <ul className="text-sm text-blue-700 space-y-1">
                         {pslf.qualifyingEmployers.map((emp, i) => (
-                            <li key={i}>??{emp}</li>
+                            <li key={i}> {emp}</li>
                         ))}
                     </ul>
                 </div>
 
                 <div className="my-8 p-6 bg-white border rounded-xl text-center"><p className="text-sm text-slate-400">Advertisement</p></div>
-                <Link href="/student-loan/forgiveness" className="block bg-blue-600 hover:bg-blue-700 text-white rounded-lg p-4 text-center font-bold">View All Forgiveness Options ??/Link>
+                <Link href="/student-loan/forgiveness" className="block bg-blue-600 hover:bg-blue-700 text-white rounded-lg p-4 text-center font-bold">View All Forgiveness Options  /Link>
             </main>
         </>
     );

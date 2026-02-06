@@ -199,10 +199,10 @@ export default function BackPayGuidePage() {
                         <div className="text-sm text-amber-200">
                             <p className="font-medium text-white mb-2">Important Notes About Back Pay</p>
                             <ul className="space-y-1">
-                                <li>??Large back pay amounts (over ~$10,000) may be paid in 3 installments, 6 months apart</li>
-                                <li>??Back pay may affect other benefits like SSI, Medicaid, or SNAP temporarily</li>
-                                <li>??SSDI back pay is generally NOT taxed at the federal level (consult a tax advisor)</li>
-                                <li>??You should receive your lump sum within 60 days of approval</li>
+                                <li> Large back pay amounts (over ~$10,000) may be paid in 3 installments, 6 months apart</li>
+                                <li> Back pay may affect other benefits like SSI, Medicaid, or SNAP temporarily</li>
+                                <li> SSDI back pay is generally NOT taxed at the federal level (consult a tax advisor)</li>
+                                <li> You should receive your lump sum within 60 days of approval</li>
                             </ul>
                         </div>
                     </div>

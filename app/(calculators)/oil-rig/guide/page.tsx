@@ -36,11 +36,11 @@ export default function OilRigGuidePage() {
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div className="bg-orange-900/20 border border-orange-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Shield className="w-5 h-5 text-orange-500" />Maritime Laws</h2>
-                        <ul className="space-y-2 text-sm text-orange-200">{OIL_RIG_2026.liabilityTypes.map((lib, i) => (<li key={i}>??<strong>{lib.type}:</strong> {lib.description}</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-orange-200">{OIL_RIG_2026.liabilityTypes.map((lib, i) => (<li key={i}> <strong>{lib.type}:</strong> {lib.description}</li>))}</ul>
                     </div>
                     <div className="bg-red-900/20 border border-red-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Flame className="w-5 h-5 text-red-500" />Major Companies</h2>
-                        <ul className="space-y-2 text-sm text-red-200">{OIL_RIG_2026.companies.map((c, i) => (<li key={i}>??<strong>{c.company}:</strong> {c.incidents}</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-red-200">{OIL_RIG_2026.companies.map((c, i) => (<li key={i}> <strong>{c.company}:</strong> {c.incidents}</li>))}</ul>
                     </div>
                 </div>
 

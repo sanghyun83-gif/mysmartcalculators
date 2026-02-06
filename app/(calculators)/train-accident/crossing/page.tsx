@@ -63,9 +63,9 @@ export default function CrossingPage() {
                     <h3 className="text-lg font-semibold text-amber-300 mb-3">Typical Crossing Accident Settlements</h3>
                     <p className="text-slate-300 mb-4">When railroad negligence is proven, crossing accident settlements typically range:</p>
                     <ul className="text-slate-300 space-y-2">
-                        <li>??<strong>Serious Injury:</strong> $500,000 - $2,000,000</li>
-                        <li>??<strong>Wrongful Death:</strong> $1,000,000 - $5,000,000+</li>
-                        <li>??<strong>Multiple Fatalities:</strong> Multi-million dollar settlements</li>
+                        <li> <strong>Serious Injury:</strong> $500,000 - $2,000,000</li>
+                        <li> <strong>Wrongful Death:</strong> $1,000,000 - $5,000,000+</li>
+                        <li> <strong>Multiple Fatalities:</strong> Multi-million dollar settlements</li>
                     </ul>
                 </div>
                 <div className="mt-12 text-center"><Link href="/train-accident/calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold">Estimate Settlement<ArrowRight className="w-5 h-5" /></Link></div>

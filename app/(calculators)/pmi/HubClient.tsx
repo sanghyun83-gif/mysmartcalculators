@@ -219,20 +219,20 @@ export default function PMIHubClient() {
                         <CheckCircle className="w-8 h-8 text-green-400 mb-3" />
                         <h3 className="font-bold text-white text-lg mb-3">Request at 80% LTV</h3>
                         <ul className="text-sm text-slate-300 space-y-2">
-                            <li>??Contact your servicer in writing</li>
-                            <li>??Must have good payment history</li>
-                            <li>??Current on loan payments</li>
-                            <li>??May require new appraisal</li>
+                            <li> Contact your servicer in writing</li>
+                            <li> Must have good payment history</li>
+                            <li> Current on loan payments</li>
+                            <li> May require new appraisal</li>
                         </ul>
                     </div>
                     <div className="bg-slate-800/50 border border-teal-500/30 rounded-xl p-6">
                         <TrendingDown className="w-8 h-8 text-teal-400 mb-3" />
                         <h3 className="font-bold text-white text-lg mb-3">Automatic at 78% LTV</h3>
                         <ul className="text-sm text-slate-300 space-y-2">
-                            <li>??Happens automatically per HPA</li>
-                            <li>??Based on original amortization</li>
-                            <li>??Must be current on payments</li>
-                            <li>??No action needed from you</li>
+                            <li> Happens automatically per HPA</li>
+                            <li> Based on original amortization</li>
+                            <li> Must be current on payments</li>
+                            <li> No action needed from you</li>
                         </ul>
                     </div>
                 </div>
@@ -283,11 +283,11 @@ export default function PMIHubClient() {
                     Data Sources & Citations
                 </h3>
                 <ul className="text-xs text-slate-500 space-y-2">
-                    <li>??Consumer Financial Protection Bureau. "What Is Private Mortgage Insurance?" CFPB, 2024.</li>
-                    <li>??Federal Reserve. "Homeowners Protection Act (12 U.S.C. §4901)." FRB Regulations.</li>
-                    <li>??Mortgage Bankers Association. "Quarterly Mortgage Market Statistics." MBA, 2026.</li>
-                    <li>??Urban Institute. "Housing Finance at a Glance: PMI Market Trends." Urban Institute, 2024.</li>
-                    <li>??Fannie Mae. "Selling Guide: Private Mortgage Insurance Requirements." Fannie Mae, 2026.</li>
+                    <li> Consumer Financial Protection Bureau. "What Is Private Mortgage Insurance?" CFPB, 2024.</li>
+                    <li> Federal Reserve. "Homeowners Protection Act (12 U.S.C. §4901)." FRB Regulations.</li>
+                    <li> Mortgage Bankers Association. "Quarterly Mortgage Market Statistics." MBA, 2026.</li>
+                    <li> Urban Institute. "Housing Finance at a Glance: PMI Market Trends." Urban Institute, 2024.</li>
+                    <li> Fannie Mae. "Selling Guide: Private Mortgage Insurance Requirements." Fannie Mae, 2026.</li>
                 </ul>
             </section>
 

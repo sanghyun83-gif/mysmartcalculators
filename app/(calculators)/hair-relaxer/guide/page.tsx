@@ -36,11 +36,11 @@ export default function HairRelaxerGuidePage() {
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div className="bg-rose-900/20 border border-rose-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Sparkles className="w-5 h-5 text-rose-500" />Brands Involved</h2>
-                        <ul className="space-y-2 text-sm text-rose-200">{HAIR_RELAXER_2026.brands.map((b, i) => (<li key={i}>??<strong>{b.brand}</strong> ({b.manufacturer})</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-rose-200">{HAIR_RELAXER_2026.brands.map((b, i) => (<li key={i}> <strong>{b.brand}</strong> ({b.manufacturer})</li>))}</ul>
                     </div>
                     <div className="bg-amber-900/20 border border-amber-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Shield className="w-5 h-5 text-amber-500" />Usage Frequency Factors</h2>
-                        <ul className="space-y-2 text-sm text-amber-200">{HAIR_RELAXER_2026.usageFrequency.map((f, i) => (<li key={i}>??<strong>{f.frequency}:</strong> {f.multiplier}x</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-amber-200">{HAIR_RELAXER_2026.usageFrequency.map((f, i) => (<li key={i}> <strong>{f.frequency}:</strong> {f.multiplier}x</li>))}</ul>
                     </div>
                 </div>
 

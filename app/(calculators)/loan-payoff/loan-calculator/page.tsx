@@ -195,7 +195,7 @@ export default function LoanCalculatorPage() {
                             <p className="text-sm text-emerald-100 mb-1">Debt Free By</p>
                             <p className="text-4xl font-bold">{result.payoffDate}</p>
                             <p className="text-sm text-emerald-100 mt-2">
-                                {result.newMonths} months ??{formatCurrency(result.totalPayment)}/mo
+                                {result.newMonths} months  {formatCurrency(result.totalPayment)}/mo
                             </p>
                         </div>
 

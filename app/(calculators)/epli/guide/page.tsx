@@ -52,7 +52,7 @@ export default function GuidePage() {
                 <div className="mt-12 text-center"><Link href="/epli/calculator" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold">Estimate Premium<ArrowRight className="w-5 h-5" /></Link></div>
             </section>
             <section className="max-w-6xl mx-auto px-4 py-8"><div className="flex justify-center"><div className="w-full max-w-xs"><RelatedCalculators currentCalc="epli" count={5} /></div></div></section>
-            <footer className="bg-slate-800 border-t border-slate-700"><div className="max-w-6xl mx-auto px-4 py-8 text-center"><p className="text-sm text-slate-400">{EPLI_2026.citations.join(" ??")}</p><p className="text-sm text-slate-500 mt-2">© {SITE.year}</p></div></footer>
+            <footer className="bg-slate-800 border-t border-slate-700"><div className="max-w-6xl mx-auto px-4 py-8 text-center"><p className="text-sm text-slate-400">{EPLI_2026.citations.join("  ")}</p><p className="text-sm text-slate-500 mt-2">© {SITE.year}</p></div></footer>
         </>
     );
 }

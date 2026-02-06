@@ -36,11 +36,11 @@ export default function DrowningGuidePage() {
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div className="bg-blue-900/20 border border-blue-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><AlertTriangle className="w-5 h-5 text-blue-500" />Negligence Factors</h2>
-                        <ul className="space-y-2 text-sm text-blue-200">{DROWNING_2026.negligenceFactors.map((n, i) => (<li key={i}>??{n.factor}: {n.multiplier}x</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-blue-200">{DROWNING_2026.negligenceFactors.map((n, i) => (<li key={i}> {n.factor}: {n.multiplier}x</li>))}</ul>
                     </div>
                     <div className="bg-amber-900/20 border border-amber-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Shield className="w-5 h-5 text-amber-500" />Liability by Location</h2>
-                        <ul className="space-y-2 text-sm text-amber-200">{DROWNING_2026.liabilityTypes.map((l, i) => (<li key={i}>??{l.type}: {formatCurrency(l.avgSettlement)}</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-amber-200">{DROWNING_2026.liabilityTypes.map((l, i) => (<li key={i}> {l.type}: {formatCurrency(l.avgSettlement)}</li>))}</ul>
                     </div>
                 </div>
 

@@ -147,9 +147,9 @@ export default function TaxGuidePage() {
                         currently subject to wash sale rules (as of {SITE.year}).
                     </p>
                     <ul className="text-sm text-blue-200 space-y-1">
-                        <li>??Losses offset gains dollar-for-dollar</li>
-                        <li>??Up to $3,000 in losses can offset ordinary income</li>
-                        <li>??Excess losses carry forward to future years</li>
+                        <li> Losses offset gains dollar-for-dollar</li>
+                        <li> Up to $3,000 in losses can offset ordinary income</li>
+                        <li> Excess losses carry forward to future years</li>
                     </ul>
                 </div>
 

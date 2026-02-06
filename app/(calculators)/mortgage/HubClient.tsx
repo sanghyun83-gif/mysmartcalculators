@@ -35,7 +35,7 @@ export default function HubClient() {
         <div className="max-w-7xl mx-auto px-6 relative text-center">
           <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-400/20 rounded-full px-4 py-2 mb-10 animate-pulse shadow-2xl shadow-blue-500/10">
             <CheckCircle className="w-4 h-4 text-blue-400" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-blue-300">{SITE.year} Market Rates ??Verified Auditor</span>
+            <span className="text-[10px] font-black uppercase tracking-widest text-blue-300">{SITE.year} Market Rates  Verified Auditor</span>
           </div>
 
           <h1 className="text-6xl md:text-9xl font-black tracking-tighter mb-10 leading-[0.85] text-white">

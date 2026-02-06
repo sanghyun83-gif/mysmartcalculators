@@ -41,7 +41,7 @@ export default function HubClient() {
           <div className="mt-8 bg-emerald-900/30 border border-emerald-700/50 rounded-lg p-4 max-w-xl mx-auto">
             <div className="flex items-center gap-2 text-emerald-300 text-sm">
               <DollarSign className="w-4 h-4" />
-              <span>{SITE.year} Gift Limit: <strong>{formatCurrency(PLAN_529_2026.annualGiftExclusion)}</strong>/beneficiary ??Superfunding: <strong>{formatCurrency(PLAN_529_2026.superfunding)}</strong></span>
+              <span>{SITE.year} Gift Limit: <strong>{formatCurrency(PLAN_529_2026.annualGiftExclusion)}</strong>/beneficiary  Superfunding: <strong>{formatCurrency(PLAN_529_2026.superfunding)}</strong></span>
             </div>
           </div>
         </div>

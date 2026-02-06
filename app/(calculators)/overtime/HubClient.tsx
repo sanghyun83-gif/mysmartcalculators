@@ -163,9 +163,9 @@ export default function HubClient() {
               <h3 className="font-semibold text-white">Non-Exempt (Gets OT)</h3>
             </div>
             <ul className="text-sm text-slate-300 space-y-1">
-              <li>??Hourly workers</li>
-              <li>??Salaried under ${Math.round(OVERTIME_CONSTANTS_2026.federal.salaryThreshold / 1000)}K/year</li>
-              <li>??Most blue collar jobs</li>
+              <li> Hourly workers</li>
+              <li> Salaried under ${Math.round(OVERTIME_CONSTANTS_2026.federal.salaryThreshold / 1000)}K/year</li>
+              <li> Most blue collar jobs</li>
             </ul>
           </div>
 
@@ -175,9 +175,9 @@ export default function HubClient() {
               <h3 className="font-semibold text-white">Exempt (No OT)</h3>
             </div>
             <ul className="text-sm text-slate-300 space-y-1">
-              <li>??Executive, admin, professional</li>
-              <li>??Salaried over ${Math.round(OVERTIME_CONSTANTS_2026.federal.salaryThreshold / 1000)}K/year</li>
-              <li>??Outside sales, computer pros</li>
+              <li> Executive, admin, professional</li>
+              <li> Salaried over ${Math.round(OVERTIME_CONSTANTS_2026.federal.salaryThreshold / 1000)}K/year</li>
+              <li> Outside sales, computer pros</li>
             </ul>
           </div>
         </div>

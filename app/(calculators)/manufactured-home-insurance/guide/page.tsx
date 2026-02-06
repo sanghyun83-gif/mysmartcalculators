@@ -54,7 +54,7 @@ export default function ManufacturedHomeInsuranceGuidePage() {
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-slate-700">
-                                <tr><td className="px-4 py-3 text-slate-300">HUD Code</td><td className="text-center text-green-400">??Yes</td><td className="text-center text-red-400">??No</td></tr>
+                                <tr><td className="px-4 py-3 text-slate-300">HUD Code</td><td className="text-center text-green-400"> Yes</td><td className="text-center text-red-400"> No</td></tr>
                                 <tr><td className="px-4 py-3 text-slate-300">Construction Standards</td><td className="text-center text-green-400">Modern</td><td className="text-center text-amber-400">Older</td></tr>
                                 <tr><td className="px-4 py-3 text-slate-300">Insurance Rates</td><td className="text-center text-green-400">Lower</td><td className="text-center text-amber-400">Higher</td></tr>
                             </tbody>

@@ -13,7 +13,7 @@ export default function FoodStampsGuidePage() {
                         <Calculator className="w-6 h-6 text-blue-500" />
                         <span className="text-lg font-bold text-white">MySmartCalculators</span>
                     </Link>
-                    <Link href="/food-stamps" className="text-slate-400 hover:text-white text-sm">??Back</Link>
+                    <Link href="/food-stamps" className="text-slate-400 hover:text-white text-sm"> Back</Link>
                 </div>
             </header>
 
@@ -62,9 +62,9 @@ export default function FoodStampsGuidePage() {
                     <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
                         <p className="text-white font-mono text-lg mb-4">Benefit = Max Benefit - (30% × Net Income)</p>
                         <div className="space-y-2 text-sm text-slate-400">
-                            <p>??<span className="text-white">Net Income</span> = Gross - 20% earned income - $198 standard deduction</p>
-                            <p>??Additional deductions for shelter, childcare, medical (elderly/disabled)</p>
-                            <p>??Minimum benefit for 1-2 person households: $23/month</p>
+                            <p> <span className="text-white">Net Income</span> = Gross - 20% earned income - $198 standard deduction</p>
+                            <p> Additional deductions for shelter, childcare, medical (elderly/disabled)</p>
+                            <p> Minimum benefit for 1-2 person households: $23/month</p>
                         </div>
                     </div>
                 </div>

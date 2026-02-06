@@ -36,11 +36,11 @@ export default function HerniaGuidePage() {
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div className="bg-red-900/20 border border-red-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><AlertTriangle className="w-5 h-5 text-red-500" />Recalled Mesh Products</h2>
-                        <ul className="space-y-2 text-sm text-red-200">{HERNIA_2026.meshTypes.filter(m => m.recalled).map((m, i) => (<li key={i}>??<strong>{m.mesh}</strong> ({m.manufacturer})</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-red-200">{HERNIA_2026.meshTypes.filter(m => m.recalled).map((m, i) => (<li key={i}> <strong>{m.mesh}</strong> ({m.manufacturer})</li>))}</ul>
                     </div>
                     <div className="bg-amber-900/20 border border-amber-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Shield className="w-5 h-5 text-amber-500" />Surgery Factors</h2>
-                        <ul className="space-y-2 text-sm text-amber-200">{HERNIA_2026.surgeryFactors.map((s, i) => (<li key={i}>??<strong>{s.factor}:</strong> {s.multiplier}x</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-amber-200">{HERNIA_2026.surgeryFactors.map((s, i) => (<li key={i}> <strong>{s.factor}:</strong> {s.multiplier}x</li>))}</ul>
                     </div>
                 </div>
 

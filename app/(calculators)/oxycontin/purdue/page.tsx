@@ -52,10 +52,10 @@ export default function PurduePage() {
                 <div className="mt-12 bg-amber-900/20 border border-amber-500/30 rounded-xl p-6">
                     <h3 className="text-lg font-semibold text-amber-300 mb-3">Where Does the Money Go?</h3>
                     <ul className="space-y-2 text-slate-300">
-                        <li>??Individual victim compensation through bankruptcy trust</li>
-                        <li>??State and local government abatement programs</li>
-                        <li>??Addiction treatment and prevention programs</li>
-                        <li>??Naloxone distribution and overdose prevention</li>
+                        <li> Individual victim compensation through bankruptcy trust</li>
+                        <li> State and local government abatement programs</li>
+                        <li> Addiction treatment and prevention programs</li>
+                        <li> Naloxone distribution and overdose prevention</li>
                     </ul>
                 </div>
                 <div className="mt-12 text-center"><Link href="/oxycontin/calculator" className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-xl font-semibold">Estimate Settlement<ArrowRight className="w-5 h-5" /></Link></div>

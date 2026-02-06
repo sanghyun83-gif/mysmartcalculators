@@ -221,22 +221,22 @@ export default function UnemploymentHubClient() {
                         <CheckCircle className="w-8 h-8 text-green-400 mb-3" />
                         <h3 className="font-bold text-white text-lg mb-3">You May Qualify If:</h3>
                         <ul className="text-sm text-slate-300 space-y-2">
-                            <li>??Lost job through layoff, reduction in force, or company closure</li>
-                            <li>??Meet minimum earnings requirements in your state</li>
-                            <li>??Able and available to work full-time</li>
-                            <li>??Actively searching for new employment</li>
-                            <li>??Quit for "good cause" (harassment, safety, medical)</li>
+                            <li> Lost job through layoff, reduction in force, or company closure</li>
+                            <li> Meet minimum earnings requirements in your state</li>
+                            <li> Able and available to work full-time</li>
+                            <li> Actively searching for new employment</li>
+                            <li> Quit for "good cause" (harassment, safety, medical)</li>
                         </ul>
                     </div>
                     <div className="bg-slate-800/50 border border-red-500/30 rounded-xl p-6">
                         <AlertTriangle className="w-8 h-8 text-red-400 mb-3" />
                         <h3 className="font-bold text-white text-lg mb-3">You May NOT Qualify If:</h3>
                         <ul className="text-sm text-slate-300 space-y-2">
-                            <li>??Fired for misconduct (theft, policy violations)</li>
-                            <li>??Quit without good cause</li>
-                            <li>??Self-employed or independent contractor (1099)</li>
-                            <li>??Failed to meet work search requirements</li>
-                            <li>??Refused suitable job offers</li>
+                            <li> Fired for misconduct (theft, policy violations)</li>
+                            <li> Quit without good cause</li>
+                            <li> Self-employed or independent contractor (1099)</li>
+                            <li> Failed to meet work search requirements</li>
+                            <li> Refused suitable job offers</li>
                         </ul>
                     </div>
                 </div>
@@ -287,11 +287,11 @@ export default function UnemploymentHubClient() {
                     Data Sources & Citations
                 </h3>
                 <ul className="text-xs text-slate-500 space-y-2">
-                    <li>??U.S. Department of Labor. "Unemployment Insurance Weekly Claims Data." DOL ETA, 2026.</li>
-                    <li>??U.S. Department of Labor. "Comparison of State Unemployment Insurance Laws." DOL, 2026.</li>
-                    <li>??Center on Budget and Policy Priorities. "Policy Basics: How Many Weeks of Unemployment Compensation Are Available?" CBPP, 2024.</li>
-                    <li>??National Employment Law Project. "Unemployment Insurance: A State-by-State Analysis." NELP, 2024.</li>
-                    <li>??Internal Revenue Service. "Topic No. 418 Unemployment Compensation." IRS.gov, 2026.</li>
+                    <li> U.S. Department of Labor. "Unemployment Insurance Weekly Claims Data." DOL ETA, 2026.</li>
+                    <li> U.S. Department of Labor. "Comparison of State Unemployment Insurance Laws." DOL, 2026.</li>
+                    <li> Center on Budget and Policy Priorities. "Policy Basics: How Many Weeks of Unemployment Compensation Are Available?" CBPP, 2024.</li>
+                    <li> National Employment Law Project. "Unemployment Insurance: A State-by-State Analysis." NELP, 2024.</li>
+                    <li> Internal Revenue Service. "Topic No. 418 Unemployment Compensation." IRS.gov, 2026.</li>
                 </ul>
             </section>
 

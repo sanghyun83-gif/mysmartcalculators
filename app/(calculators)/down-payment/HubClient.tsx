@@ -247,10 +247,10 @@ export default function DownPaymentHubClient() {
                         <CheckCircle className="w-8 h-8 text-green-400 mb-3" />
                         <h3 className="font-bold text-white text-lg mb-3">How to Remove PMI</h3>
                         <ul className="text-sm text-slate-300 space-y-2">
-                            <li>??Request removal at 80% LTV (20% equity)</li>
-                            <li>??Auto-cancellation at 78% LTV</li>
-                            <li>??Refinance to a new loan without PMI</li>
-                            <li>??Home appreciation may reach 20% faster</li>
+                            <li> Request removal at 80% LTV (20% equity)</li>
+                            <li> Auto-cancellation at 78% LTV</li>
+                            <li> Refinance to a new loan without PMI</li>
+                            <li> Home appreciation may reach 20% faster</li>
                         </ul>
                     </div>
                 </div>
@@ -301,11 +301,11 @@ export default function DownPaymentHubClient() {
                     Data Sources & Citations
                 </h3>
                 <ul className="text-xs text-slate-500 space-y-2">
-                    <li>??National Association of Realtors. "Profile of Home Buyers and Sellers." NAR, 2026.</li>
-                    <li>??Consumer Financial Protection Bureau. "What Is Private Mortgage Insurance?" CFPB, 2024.</li>
-                    <li>??Federal Housing Finance Agency. "House Price Index." FHFA, 2026.</li>
-                    <li>??U.S. Department of Housing and Urban Development. "FHA Loan Requirements." HUD, 2026.</li>
-                    <li>??Fannie Mae. "Selling Guide: Eligibility Requirements." Fannie Mae, 2026.</li>
+                    <li> National Association of Realtors. "Profile of Home Buyers and Sellers." NAR, 2026.</li>
+                    <li> Consumer Financial Protection Bureau. "What Is Private Mortgage Insurance?" CFPB, 2024.</li>
+                    <li> Federal Housing Finance Agency. "House Price Index." FHFA, 2026.</li>
+                    <li> U.S. Department of Housing and Urban Development. "FHA Loan Requirements." HUD, 2026.</li>
+                    <li> Fannie Mae. "Selling Guide: Eligibility Requirements." Fannie Mae, 2026.</li>
                 </ul>
             </section>
 

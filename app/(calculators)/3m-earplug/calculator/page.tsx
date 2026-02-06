@@ -51,7 +51,7 @@ export default function CalculatorPage() {
                 {result && (
                     <div className="mt-8 bg-gradient-to-br from-purple-900/30 to-blue-900/20 border border-purple-500/30 rounded-2xl p-6 md:p-8">
                         <h2 className="text-xl font-bold text-white mb-6 text-center">Estimated Settlement</h2>
-                        <div className="text-center mb-6"><p className="text-4xl md:text-5xl font-bold text-purple-400">{formatCurrency(result.estimateLow)} - {formatCurrency(result.estimateHigh)}</p><p className="text-slate-400 mt-2">{result.condition} ??{result.servicePeriod}</p></div>
+                        <div className="text-center mb-6"><p className="text-4xl md:text-5xl font-bold text-purple-400">{formatCurrency(result.estimateLow)} - {formatCurrency(result.estimateHigh)}</p><p className="text-slate-400 mt-2">{result.condition}  {result.servicePeriod}</p></div>
                         <div className="bg-slate-800/50 rounded-xl p-4 mt-6 text-center">
                             <p className="text-slate-400">Estimated Tier Classification</p>
                             <p className="text-2xl font-bold text-purple-400 mt-2">{result.tier}</p>

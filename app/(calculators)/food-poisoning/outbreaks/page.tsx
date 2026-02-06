@@ -41,7 +41,7 @@ export default function OutbreaksPage() {
                             <div className="flex justify-between items-start mb-3">
                                 <div>
                                     <h3 className="text-lg font-semibold text-white">{outbreak.source}</h3>
-                                    <p className="text-amber-400 text-sm">{outbreak.pathogen} ??{outbreak.date}</p>
+                                    <p className="text-amber-400 text-sm">{outbreak.pathogen}  {outbreak.date}</p>
                                 </div>
                                 <span className="text-xs bg-amber-500/20 text-amber-400 px-2 py-1 rounded">{outbreak.status}</span>
                             </div>

@@ -30,11 +30,11 @@ export default function DUIGuidePage() {
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div className="bg-red-900/20 border border-red-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><AlertTriangle className="w-5 h-5 text-red-500" />Damage Types</h2>
-                        <ul className="space-y-2 text-sm text-red-200">{DUI_2026.damageTypes.map((d, i) => (<li key={i}>??<strong>{d.type}:</strong> {d.description}</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-red-200">{DUI_2026.damageTypes.map((d, i) => (<li key={i}> <strong>{d.type}:</strong> {d.description}</li>))}</ul>
                     </div>
                     <div className="bg-amber-900/20 border border-amber-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Shield className="w-5 h-5 text-amber-500" />Injury Settlements</h2>
-                        <ul className="space-y-2 text-sm text-amber-200">{DUI_2026.injuryTypes.slice(0, 4).map((t, i) => (<li key={i}>??{t.type}: {formatCurrency(t.avgSettlement)}</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-amber-200">{DUI_2026.injuryTypes.slice(0, 4).map((t, i) => (<li key={i}> {t.type}: {formatCurrency(t.avgSettlement)}</li>))}</ul>
                     </div>
                 </div>
 

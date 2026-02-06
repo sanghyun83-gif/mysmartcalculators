@@ -40,17 +40,17 @@ export default function GuidePage() {
                 <div className="mt-12 bg-blue-900/20 border border-blue-500/30 rounded-xl p-6">
                     <h3 className="text-lg font-semibold text-blue-300 mb-2">Additional Savings</h3>
                     <ul className="text-slate-300 space-y-2">
-                        <li>??Telematics: 8% additional discount</li>
-                        <li>??Safety program: 5% additional discount</li>
-                        <li>??Claims-free 3 years: 5-10% discount</li>
-                        <li>??Long-term policy: 3-5% discount</li>
+                        <li> Telematics: 8% additional discount</li>
+                        <li> Safety program: 5% additional discount</li>
+                        <li> Claims-free 3 years: 5-10% discount</li>
+                        <li> Long-term policy: 3-5% discount</li>
                     </ul>
                 </div>
 
                 <div className="mt-12 text-center"><Link href="/fleet-insurance/calculator" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold">Calculate Savings<ArrowRight className="w-5 h-5" /></Link></div>
             </section>
             <section className="max-w-6xl mx-auto px-4 py-8"><div className="flex justify-center"><div className="w-full max-w-xs"><RelatedCalculators currentCalc="fleet-insurance" count={5} /></div></div></section>
-            <footer className="bg-slate-800 border-t border-slate-700"><div className="max-w-6xl mx-auto px-4 py-8 text-center"><p className="text-sm text-slate-400">{FLEET_2026.citations.join(" ??")}</p><p className="text-sm text-slate-500 mt-2">© {SITE.year}</p></div></footer>
+            <footer className="bg-slate-800 border-t border-slate-700"><div className="max-w-6xl mx-auto px-4 py-8 text-center"><p className="text-sm text-slate-400">{FLEET_2026.citations.join("  ")}</p><p className="text-sm text-slate-500 mt-2">© {SITE.year}</p></div></footer>
         </>
     );
 }

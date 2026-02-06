@@ -189,7 +189,7 @@ export default function BoatCalculatorPage() {
                             <p className="text-sm text-blue-100 mb-1">Estimated Annual Premium</p>
                             <p className="text-4xl font-bold">{formatCurrency(result.annualPremium)}</p>
                             <p className="text-sm text-blue-100 mt-2">
-                                {result.coverageType} Coverage ??{formatCurrency(result.monthlyPremium)}/month
+                                {result.coverageType} Coverage  {formatCurrency(result.monthlyPremium)}/month
                             </p>
                         </div>
 

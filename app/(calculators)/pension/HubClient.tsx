@@ -52,7 +52,7 @@ export default function HubClient() {
           <div className="mt-8 bg-emerald-900/30 border border-emerald-700/50 rounded-lg p-4 max-w-xl mx-auto">
             <div className="flex items-center gap-2 text-emerald-300 text-sm">
               <DollarSign className="w-4 h-4" />
-              <span>Avg Private Pension: <strong>{formatCurrency(PENSION_2026.statistics.avgPrivatePension)}/mo</strong> ??Public: <strong>{formatCurrency(PENSION_2026.statistics.avgPublicPension)}/mo</strong></span>
+              <span>Avg Private Pension: <strong>{formatCurrency(PENSION_2026.statistics.avgPrivatePension)}/mo</strong>  Public: <strong>{formatCurrency(PENSION_2026.statistics.avgPublicPension)}/mo</strong></span>
             </div>
           </div>
         </div>

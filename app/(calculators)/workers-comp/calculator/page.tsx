@@ -93,7 +93,7 @@ export default function CalculatorPage() {
                                 ))}
                             </select>
                             <p className="text-xs text-amber-600 mt-1">
-                                ??{selectedState.name}: Max {formatCurrency(selectedState.maxWeeklyBenefit)}/week ({SITE.year})
+                                 {selectedState.name}: Max {formatCurrency(selectedState.maxWeeklyBenefit)}/week ({SITE.year})
                             </p>
                         </div>
 

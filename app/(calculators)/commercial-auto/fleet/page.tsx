@@ -45,10 +45,10 @@ export default function FleetPage() {
                 <div className="mt-12 bg-emerald-900/20 border border-emerald-500/30 rounded-xl p-6">
                     <h3 className="text-lg font-semibold text-emerald-300 mb-2">Additional Fleet Benefits</h3>
                     <ul className="text-slate-300 space-y-2">
-                        <li>??Dedicated claims handling</li>
-                        <li>??Risk management consultation</li>
-                        <li>??Telematics integration discounts</li>
-                        <li>??Driver training program credits</li>
+                        <li> Dedicated claims handling</li>
+                        <li> Risk management consultation</li>
+                        <li> Telematics integration discounts</li>
+                        <li> Driver training program credits</li>
                     </ul>
                 </div>
 

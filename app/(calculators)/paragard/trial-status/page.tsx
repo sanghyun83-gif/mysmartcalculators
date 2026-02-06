@@ -54,10 +54,10 @@ export default function TrialStatusPage() {
                     <h3 className="text-lg font-bold text-white mb-4">What is a Bellwether Trial?</h3>
                     <p className="text-slate-300 text-sm mb-4">A bellwether trial is a test case selected to represent the larger group of plaintiffs in a mass tort litigation. The outcome of this first trial will:</p>
                     <ul className="space-y-2 text-sm text-purple-200">
-                        <li>??Set precedent for how evidence is evaluated</li>
-                        <li>??Determine potential settlement values for similar cases</li>
-                        <li>??Often lead to global settlement negotiations</li>
-                        <li>??Help both sides assess case strength</li>
+                        <li> Set precedent for how evidence is evaluated</li>
+                        <li> Determine potential settlement values for similar cases</li>
+                        <li> Often lead to global settlement negotiations</li>
+                        <li> Help both sides assess case strength</li>
                     </ul>
                 </div>
 

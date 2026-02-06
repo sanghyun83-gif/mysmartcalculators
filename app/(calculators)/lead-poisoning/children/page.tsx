@@ -55,11 +55,11 @@ export default function ChildrenPage() {
                 <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
                     <h2 className="text-lg font-bold text-white mb-4">Damages for Child Lead Poisoning</h2>
                     <ul className="space-y-2 text-slate-300">
-                        <li>??Special education costs (often $100,000+)</li>
-                        <li>??Lifetime reduced earning capacity</li>
-                        <li>??Ongoing medical monitoring and treatment</li>
-                        <li>??Therapy for behavioral issues</li>
-                        <li>??Pain and suffering for child and parents</li>
+                        <li> Special education costs (often $100,000+)</li>
+                        <li> Lifetime reduced earning capacity</li>
+                        <li> Ongoing medical monitoring and treatment</li>
+                        <li> Therapy for behavioral issues</li>
+                        <li> Pain and suffering for child and parents</li>
                     </ul>
                 </div>
 

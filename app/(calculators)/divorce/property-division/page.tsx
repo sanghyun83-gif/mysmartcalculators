@@ -244,21 +244,21 @@ export default function PropertyDivisionPage() {
 
                     <div className="grid md:grid-cols-2 gap-4 text-sm">
                         <div className="bg-green-900/20 border border-green-700/30 rounded-lg p-4">
-                            <h3 className="font-semibold text-green-400 mb-2">??Marital Property</h3>
+                            <h3 className="font-semibold text-green-400 mb-2"> Marital Property</h3>
                             <ul className="text-slate-400 space-y-1">
-                                <li>??Home purchased during marriage</li>
-                                <li>??Joint bank accounts</li>
-                                <li>??Retirement accounts (accrued during marriage)</li>
-                                <li>??Vehicles, investments, businesses</li>
+                                <li> Home purchased during marriage</li>
+                                <li> Joint bank accounts</li>
+                                <li> Retirement accounts (accrued during marriage)</li>
+                                <li> Vehicles, investments, businesses</li>
                             </ul>
                         </div>
                         <div className="bg-red-900/20 border border-red-700/30 rounded-lg p-4">
-                            <h3 className="font-semibold text-red-400 mb-2">??Separate Property</h3>
+                            <h3 className="font-semibold text-red-400 mb-2"> Separate Property</h3>
                             <ul className="text-slate-400 space-y-1">
-                                <li>??Assets owned before marriage</li>
-                                <li>??Inheritances (even during marriage)</li>
-                                <li>??Gifts received individually</li>
-                                <li>??Personal injury settlements</li>
+                                <li> Assets owned before marriage</li>
+                                <li> Inheritances (even during marriage)</li>
+                                <li> Gifts received individually</li>
+                                <li> Personal injury settlements</li>
                             </ul>
                         </div>
                     </div>

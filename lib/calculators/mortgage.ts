@@ -173,8 +173,8 @@ export function calculateMortgage(
     customInsurance?: number
 ): MortgageResult {
     const stateData = STATE_MORTGAGE_DATA[stateCode] || STATE_MORTGAGE_DATA["CA"];
-    const propertyTaxRate = customTaxRate ?? stateData.avgPropertyTax;
-    const homeInsuranceYear = customInsurance ?? stateData.avgInsurance;
+    const propertyTaxRate = customTaxRate   stateData.avgPropertyTax;
+    const homeInsuranceYear = customInsurance   stateData.avgInsurance;
     const pmiRate = stateData.pmiRate;
 
     const loanAmount = homePrice - downPayment;

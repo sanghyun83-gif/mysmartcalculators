@@ -113,7 +113,7 @@ export default function CryptoCalculatorPage() {
                                         : "bg-slate-700 text-slate-300 border-slate-600"
                                         }`}
                                 >
-                                    Short-Term (?? Year)
+                                    Short-Term (  Year)
                                 </button>
                             </div>
                         </div>

@@ -80,7 +80,7 @@ export default function BracketsPage() {
                                     {(bracket.rate * 100).toFixed(0)}%
                                 </span>
                                 <span className="col-span-2 text-slate-700">
-                                    {formatCurrency(bracket.min)} ??{bracket.max === Infinity ? 'and above' : formatCurrency(bracket.max)}
+                                    {formatCurrency(bracket.min)}  {bracket.max === Infinity ? 'and above' : formatCurrency(bracket.max)}
                                 </span>
                             </div>
                         ))}
@@ -97,10 +97,10 @@ export default function BracketsPage() {
                         <strong className="text-white">Example:</strong> If you&apos;re single with $60,000 taxable income, you pay:
                     </p>
                     <ul className="text-sm text-slate-300 mt-2 space-y-1">
-                        <li>??10% on first $11,925 = $1,193</li>
-                        <li>??12% on $11,925??48,475 = $4,386</li>
-                        <li>??22% on $48,475??60,000 = $2,536</li>
-                        <li className="text-emerald-400 font-semibold">??Total Tax = $8,115 (13.5% effective rate)</li>
+                        <li> 10% on first $11,925 = $1,193</li>
+                        <li> 12% on $11,925 - 48,475 = $4,386</li>
+                        <li> 22% on $48,475 - 60,000 = $2,536</li>
+                        <li className="text-emerald-400 font-semibold"> Total Tax = $8,115 (13.5% effective rate)</li>
                     </ul>
                 </div>
 

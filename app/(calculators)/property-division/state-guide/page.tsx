@@ -58,10 +58,10 @@ export default function StateGuidePage() {
                         <div className="text-sm text-slate-400">
                             <p className="font-medium text-white mb-2">Key Points:</p>
                             <ul className="space-y-1">
-                                <li>??Assets split exactly 50/50</li>
-                                <li>??Both spouses own everything equally</li>
-                                <li>??Simpler, more predictable outcome</li>
-                                <li>??9 states use this system</li>
+                                <li> Assets split exactly 50/50</li>
+                                <li> Both spouses own everything equally</li>
+                                <li> Simpler, more predictable outcome</li>
+                                <li> 9 states use this system</li>
                             </ul>
                         </div>
                     </div>
@@ -89,7 +89,7 @@ export default function StateGuidePage() {
                             <p className="font-medium text-white mb-2">Factors Considered:</p>
                             <ul className="space-y-1">
                                 {DIVISION_CONSTANTS_2026.equitableFactors.slice(0, 5).map((factor, i) => (
-                                    <li key={i}>??{factor}</li>
+                                    <li key={i}> {factor}</li>
                                 ))}
                             </ul>
                         </div>
@@ -133,22 +133,22 @@ export default function StateGuidePage() {
                         <div className="bg-green-900/20 border border-green-700/50 rounded-lg p-4">
                             <h3 className="font-semibold text-green-400 mb-2">Marital Property (Divided)</h3>
                             <ul className="text-sm text-slate-300 space-y-1">
-                                <li>??Income earned during marriage</li>
-                                <li>??Home purchased together</li>
-                                <li>??Retirement contributed during marriage</li>
-                                <li>??Joint bank accounts</li>
-                                <li>??Vehicles bought during marriage</li>
+                                <li> Income earned during marriage</li>
+                                <li> Home purchased together</li>
+                                <li> Retirement contributed during marriage</li>
+                                <li> Joint bank accounts</li>
+                                <li> Vehicles bought during marriage</li>
                             </ul>
                         </div>
 
                         <div className="bg-blue-900/20 border border-blue-700/50 rounded-lg p-4">
                             <h3 className="font-semibold text-blue-400 mb-2">Separate Property (Kept)</h3>
                             <ul className="text-sm text-slate-300 space-y-1">
-                                <li>??Assets owned before marriage</li>
-                                <li>??Inheritances to one spouse</li>
-                                <li>??Gifts to one spouse</li>
-                                <li>??Personal injury settlements</li>
-                                <li>??Property excluded by prenup</li>
+                                <li> Assets owned before marriage</li>
+                                <li> Inheritances to one spouse</li>
+                                <li> Gifts to one spouse</li>
+                                <li> Personal injury settlements</li>
+                                <li> Property excluded by prenup</li>
                             </ul>
                         </div>
                     </div>

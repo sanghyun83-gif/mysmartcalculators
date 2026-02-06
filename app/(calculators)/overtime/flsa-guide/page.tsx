@@ -145,10 +145,10 @@ export default function FLSAGuidePage() {
                         <div className="text-sm text-amber-200">
                             <p className="font-medium text-white mb-2">Common Misclassification Issues</p>
                             <ul className="space-y-1">
-                                <li>??{OVERTIME_CONSTANTS_2026.statistics.misclassifiedWorkers}% of workers are wrongly classified as exempt</li>
-                                <li>??&quot;Manager&quot; title doesn&apos;t automatically make you exempt</li>
-                                <li>??Paying salary doesn&apos;t make someone exempt from OT</li>
-                                <li>??You may be owed back pay if misclassified</li>
+                                <li> {OVERTIME_CONSTANTS_2026.statistics.misclassifiedWorkers}% of workers are wrongly classified as exempt</li>
+                                <li> &quot;Manager&quot; title doesn&apos;t automatically make you exempt</li>
+                                <li> Paying salary doesn&apos;t make someone exempt from OT</li>
+                                <li> You may be owed back pay if misclassified</li>
                             </ul>
                         </div>
                     </div>

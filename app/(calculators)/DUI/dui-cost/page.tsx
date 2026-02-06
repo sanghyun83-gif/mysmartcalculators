@@ -156,7 +156,7 @@ export default function DUICostPage() {
                                     <span className="text-amber-200 font-medium">License Suspension: </span>
                                     <span className="text-amber-300">{result.licenseSuspension}</span>
                                     {result.mandatoryJail && (
-                                        <span className="ml-3 text-red-400">??Jail time possible</span>
+                                        <span className="ml-3 text-red-400"> Jail time possible</span>
                                     )}
                                 </div>
                             </div>

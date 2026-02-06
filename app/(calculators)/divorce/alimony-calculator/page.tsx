@@ -75,7 +75,7 @@ export default function AlimonyCalculatorPage() {
                             </select>
                             {selectedState && (
                                 <p className="text-xs text-slate-500 mt-1">
-                                    {selectedState.notes} ??Alimony: {selectedState.alimonyFactor} generosity
+                                    {selectedState.notes}  Alimony: {selectedState.alimonyFactor} generosity
                                 </p>
                             )}
                         </div>

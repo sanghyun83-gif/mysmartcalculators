@@ -30,11 +30,11 @@ export default function CpapGuidePage() {
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div className="bg-purple-900/20 border border-purple-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Shield className="w-5 h-5 text-purple-500" />Recalled Devices</h2>
-                        <ul className="space-y-2 text-sm text-purple-200">{CPAP_2026.deviceTypes.filter(d => d.recalled).map((d, i) => (<li key={i}>??<strong>{d.device}:</strong> {d.models}</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-purple-200">{CPAP_2026.deviceTypes.filter(d => d.recalled).map((d, i) => (<li key={i}> <strong>{d.device}:</strong> {d.models}</li>))}</ul>
                     </div>
                     <div className="bg-amber-900/20 border border-amber-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Wind className="w-5 h-5 text-amber-500" />Usage Impact</h2>
-                        <ul className="space-y-2 text-sm text-amber-200">{CPAP_2026.usageFactors.map((u, i) => (<li key={i}>??<strong>{u.usage}:</strong> {u.multiplier}x multiplier</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-amber-200">{CPAP_2026.usageFactors.map((u, i) => (<li key={i}> <strong>{u.usage}:</strong> {u.multiplier}x multiplier</li>))}</ul>
                     </div>
                 </div>
 

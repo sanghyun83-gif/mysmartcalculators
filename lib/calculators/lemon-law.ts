@@ -212,12 +212,12 @@ export function calculateLemonClaim(
 
     if (repairAttempts >= minAttempts) {
         qualifies = true;
-        qualifyReason = `??${repairAttempts} repair attempts meets ${stateData.name} threshold of ${minAttempts}`;
+        qualifyReason = ` ${repairAttempts} repair attempts meets ${stateData.name} threshold of ${minAttempts}`;
     } else if (daysInShop >= stateData.daysOutOfService) {
         qualifies = true;
-        qualifyReason = `??${daysInShop} days out of service exceeds ${stateData.daysOutOfService}-day limit`;
+        qualifyReason = ` ${daysInShop} days out of service exceeds ${stateData.daysOutOfService}-day limit`;
     } else {
-        qualifyReason = `??Need ${minAttempts - repairAttempts} more repairs OR ${stateData.daysOutOfService - daysInShop} more days in shop`;
+        qualifyReason = ` Need ${minAttempts - repairAttempts} more repairs OR ${stateData.daysOutOfService - daysInShop} more days in shop`;
     }
 
     return {

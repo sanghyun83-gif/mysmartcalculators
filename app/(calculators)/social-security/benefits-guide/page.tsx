@@ -135,9 +135,9 @@ export default function BenefitsGuidePage() {
                     </p>
 
                     <ul className="text-sm text-slate-300 space-y-1">
-                        <li>??Available at age 60 (reduced)</li>
-                        <li>??Age 50 if disabled</li>
-                        <li>??Any age if caring for child under 16</li>
+                        <li> Available at age 60 (reduced)</li>
+                        <li> Age 50 if disabled</li>
+                        <li> Any age if caring for child under 16</li>
                     </ul>
                 </div>
 

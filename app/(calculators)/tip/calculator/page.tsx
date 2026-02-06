@@ -136,7 +136,7 @@ export default function TipCalculatorPage() {
                                     onClick={() => setSplitCount(Math.max(1, splitCount - 1))}
                                     className="w-12 h-12 bg-slate-700 rounded-lg text-white text-xl font-bold hover:bg-slate-600"
                                 >
-                                    ??                                </button>
+                                                                     </button>
                                 <span className="text-2xl font-bold text-white w-16 text-center">{splitCount}</span>
                                 <button
                                     type="button"

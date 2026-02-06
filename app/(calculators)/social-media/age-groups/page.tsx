@@ -32,7 +32,7 @@ export default function AgeGroupsPage() {
                                 </div>
                             </div>
                             <div className="mt-4 bg-slate-700/50 rounded-lg p-3">
-                                <p className="text-sm text-slate-300">Example: {formatCurrency(400000)} base ??<span className="text-amber-400 font-bold">{formatCurrency(400000 * a.multiplier)}</span> with age factor</p>
+                                <p className="text-sm text-slate-300">Example: {formatCurrency(400000)} base  <span className="text-amber-400 font-bold">{formatCurrency(400000 * a.multiplier)}</span> with age factor</p>
                             </div>
                         </div>
                     ))}

@@ -58,10 +58,10 @@ export default function RecallPage() {
                 <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
                     <h2 className="text-lg font-bold text-white mb-4">Key Discovery</h2>
                     <ul className="space-y-2 text-slate-300 text-sm">
-                        <li>??NDMA forms when ranitidine is exposed to heat (even body temperature)</li>
-                        <li>??NDMA levels increase the longer ranitidine is stored</li>
-                        <li>??Testing showed some pills exceeded safe limits by thousands of times</li>
-                        <li>??All brand-name and generic ranitidine products were affected</li>
+                        <li> NDMA forms when ranitidine is exposed to heat (even body temperature)</li>
+                        <li> NDMA levels increase the longer ranitidine is stored</li>
+                        <li> Testing showed some pills exceeded safe limits by thousands of times</li>
+                        <li> All brand-name and generic ranitidine products were affected</li>
                     </ul>
                 </div>
 

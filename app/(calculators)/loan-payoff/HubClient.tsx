@@ -40,7 +40,7 @@ const FAQ_DATA = [
     },
     {
         q: "Should I refinance to pay off my loan faster?",
-        a: "Refinancing makes sense if: you can get a significantly lower rate (1%+ reduction), you'll stay in the loan long enough to recoup closing costs, and you won't extend your term. A shorter-term refinance (30??5 years) builds equity faster but has higher monthly payments."
+        a: "Refinancing makes sense if: you can get a significantly lower rate (1%+ reduction), you'll stay in the loan long enough to recoup closing costs, and you won't extend your term. A shorter-term refinance (30 - 5 years) builds equity faster but has higher monthly payments."
     },
     {
         q: "What is the 'debt-to-income ratio' and why does it matter?",
@@ -286,11 +286,11 @@ export default function LoanPayoffHubClient() {
                     Data Sources & Citations
                 </h3>
                 <ul className="text-xs text-slate-500 space-y-2">
-                    <li>??Federal Reserve. "Consumer Credit - G.19 Report." Board of Governors, 2026.</li>
-                    <li>??Consumer Financial Protection Bureau. "Consumer Credit Trends." CFPB, 2024.</li>
-                    <li>??Experian. "State of Credit 2026." Experian Consumer Insights, 2026.</li>
-                    <li>??Federal Reserve Bank of New York. "Quarterly Report on Household Debt and Credit." FRBNY, Q4 2026.</li>
-                    <li>??Bankrate. "Survey: Current Interest Rates for Personal Loans, Auto Loans, and Credit Cards." Bankrate, 2026.</li>
+                    <li> Federal Reserve. "Consumer Credit - G.19 Report." Board of Governors, 2026.</li>
+                    <li> Consumer Financial Protection Bureau. "Consumer Credit Trends." CFPB, 2024.</li>
+                    <li> Experian. "State of Credit 2026." Experian Consumer Insights, 2026.</li>
+                    <li> Federal Reserve Bank of New York. "Quarterly Report on Household Debt and Credit." FRBNY, Q4 2026.</li>
+                    <li> Bankrate. "Survey: Current Interest Rates for Personal Loans, Auto Loans, and Credit Cards." Bankrate, 2026.</li>
                 </ul>
             </section>
 

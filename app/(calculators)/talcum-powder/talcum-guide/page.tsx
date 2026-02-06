@@ -36,11 +36,11 @@ export default function TalcumGuidePage() {
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div className="bg-amber-900/20 border border-amber-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Droplet className="w-5 h-5 text-amber-500" />Products Involved</h2>
-                        <ul className="space-y-2 text-sm text-amber-200">{TALCUM_2026.products.map((p, i) => (<li key={i}>??<strong>{p.product}</strong> ({p.manufacturer})</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-amber-200">{TALCUM_2026.products.map((p, i) => (<li key={i}> <strong>{p.product}</strong> ({p.manufacturer})</li>))}</ul>
                     </div>
                     <div className="bg-red-900/20 border border-red-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Shield className="w-5 h-5 text-red-500" />Usage Factors</h2>
-                        <ul className="space-y-2 text-sm text-red-200">{TALCUM_2026.usageTypes.map((u, i) => (<li key={i}>??<strong>{u.type}:</strong> {u.multiplier}x</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-red-200">{TALCUM_2026.usageTypes.map((u, i) => (<li key={i}> <strong>{u.type}:</strong> {u.multiplier}x</li>))}</ul>
                     </div>
                 </div>
 

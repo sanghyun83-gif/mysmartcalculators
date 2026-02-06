@@ -149,9 +149,9 @@ export default function RatingGuidePage() {
                         <div className="text-sm text-amber-200">
                             <p className="font-medium text-white mb-2">Important Notes</p>
                             <ul className="space-y-1">
-                                <li>??Ratings are rounded to nearest 10% for payment purposes</li>
-                                <li>??TDIU (Total Disability Individual Unemployability) pays at 100% rate</li>
-                                <li>??SMC (Special Monthly Compensation) provides additional benefits for severe conditions</li>
+                                <li> Ratings are rounded to nearest 10% for payment purposes</li>
+                                <li> TDIU (Total Disability Individual Unemployability) pays at 100% rate</li>
+                                <li> SMC (Special Monthly Compensation) provides additional benefits for severe conditions</li>
                             </ul>
                         </div>
                     </div>

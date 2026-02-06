@@ -17,10 +17,10 @@ export const SITE = {
 // ============================================
 export const IRMAA_BRACKETS = [
     { income: "$106,000 or less", single: "$106,000", married: "$212,000", partB: "$185.00", partD: "$0.00" },
-    { income: "$106,001 - $133,500", single: "??133,500", married: "??267,000", partB: "$259.00", partD: "$13.70" },
-    { income: "$133,501 - $167,000", single: "??167,000", married: "??334,000", partB: "$370.00", partD: "$35.30" },
-    { income: "$167,001 - $200,000", single: "??200,000", married: "??400,000", partB: "$480.90", partD: "$57.00" },
-    { income: "$200,001 - $500,000", single: "??500,000", married: "??750,000", partB: "$591.90", partD: "$78.60" },
+    { income: "$106,001 - $133,500", single: " 133,500", married: " 267,000", partB: "$259.00", partD: "$13.70" },
+    { income: "$133,501 - $167,000", single: " 167,000", married: " 334,000", partB: "$370.00", partD: "$35.30" },
+    { income: "$167,001 - $200,000", single: " 200,000", married: " 400,000", partB: "$480.90", partD: "$57.00" },
+    { income: "$200,001 - $500,000", single: " 500,000", married: " 750,000", partB: "$591.90", partD: "$78.60" },
     { income: "Over $500,000", single: ">$500,000", married: ">$750,000", partB: "$628.90", partD: "$85.80" },
 ];
 

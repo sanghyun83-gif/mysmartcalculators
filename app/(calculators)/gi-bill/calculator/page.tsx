@@ -141,7 +141,7 @@ export default function GIBillCalculatorPage() {
                             <p className="text-sm text-emerald-100 mb-1">Estimated Annual Benefits</p>
                             <p className="text-4xl font-bold">{formatCurrency(result.totalAnnual)}</p>
                             <p className="text-sm text-emerald-100 mt-2">
-                                {result.billType} ??{result.eligibilityPercent}% eligibility
+                                {result.billType}  {result.eligibilityPercent}% eligibility
                             </p>
                         </div>
 

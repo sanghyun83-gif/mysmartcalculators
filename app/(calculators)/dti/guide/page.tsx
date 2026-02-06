@@ -81,10 +81,10 @@ export default function DTIGuidePage() {
                             Target maximum for housing costs only
                         </p>
                         <ul className="space-y-2 text-sm text-emerald-200">
-                            <li>??Mortgage payment</li>
-                            <li>??Property taxes</li>
-                            <li>??Homeowners insurance</li>
-                            <li>??HOA fees</li>
+                            <li> Mortgage payment</li>
+                            <li> Property taxes</li>
+                            <li> Homeowners insurance</li>
+                            <li> HOA fees</li>
                         </ul>
                     </div>
                     <div className="bg-teal-900/20 border border-teal-500/50 rounded-xl p-6">
@@ -94,10 +94,10 @@ export default function DTIGuidePage() {
                             Maximum for QM mortgages (all debt)
                         </p>
                         <ul className="space-y-2 text-sm text-teal-200">
-                            <li>??Housing + all other debts</li>
-                            <li>??Car loans</li>
-                            <li>??Student loans</li>
-                            <li>??Credit card minimums</li>
+                            <li> Housing + all other debts</li>
+                            <li> Car loans</li>
+                            <li> Student loans</li>
+                            <li> Credit card minimums</li>
                         </ul>
                     </div>
                 </div>
@@ -133,21 +133,21 @@ export default function DTIGuidePage() {
 
                     <div className="grid md:grid-cols-2 gap-4">
                         <div>
-                            <h3 className="text-emerald-400 font-medium mb-2">Included ??/h3>
+                            <h3 className="text-emerald-400 font-medium mb-2">Included  /h3>
                             <ul className="space-y-1 text-sm text-slate-300">
                                 {DTI_2026.debtCategories.map((cat) => (
-                                    <li key={cat.name}>??{cat.name}</li>
+                                    <li key={cat.name}> {cat.name}</li>
                                 ))}
                             </ul>
                         </div>
                         <div>
-                            <h3 className="text-red-400 font-medium mb-2">Not Included ??/h3>
+                            <h3 className="text-red-400 font-medium mb-2">Not Included  /h3>
                             <ul className="space-y-1 text-sm text-slate-300">
-                                <li>??Utilities</li>
-                                <li>??Food & groceries</li>
-                                <li>??Entertainment</li>
-                                <li>??Health insurance</li>
-                                <li>??Cell phone bills</li>
+                                <li> Utilities</li>
+                                <li> Food & groceries</li>
+                                <li> Entertainment</li>
+                                <li> Health insurance</li>
+                                <li> Cell phone bills</li>
                             </ul>
                         </div>
                     </div>

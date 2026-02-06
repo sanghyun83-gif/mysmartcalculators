@@ -75,7 +75,7 @@ export default function TruckingInsuranceCalculatorPage() {
                         <span className="text-lg font-bold text-white">MySmartCalculators</span>
                     </Link>
                     <Link href="/trucking-insurance" className="text-slate-400 hover:text-white text-sm">
-                        ??Back to Overview
+                         Back to Overview
                     </Link>
                 </div>
             </header>

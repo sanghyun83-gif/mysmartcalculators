@@ -202,7 +202,7 @@ export default function DTICalculatorPage() {
                                 {result.isQMQualified ? (
                                     <>
                                         <span className="text-emerald-400"></span>
-                                        <span className="text-emerald-300">Qualifies for QM Mortgage (??DTI_2026.qmLimit}%)</span>
+                                        <span className="text-emerald-300">Qualifies for QM Mortgage ( DTI_2026.qmLimit}%)</span>
                                     </>
                                 ) : (
                                     <>

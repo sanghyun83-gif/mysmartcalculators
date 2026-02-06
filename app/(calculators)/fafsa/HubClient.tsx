@@ -242,17 +242,17 @@ export default function FAFSAHubClient() {
                             <div>
                                 <p className="text-sky-400 font-semibold mb-2">Parent Contribution (Dependent Students)</p>
                                 <ul className="text-slate-300 space-y-1">
-                                    <li>??~22-47% of available income</li>
-                                    <li>??~5.64% of available assets</li>
-                                    <li>??Income protection allowances apply</li>
+                                    <li> ~22-47% of available income</li>
+                                    <li> ~5.64% of available assets</li>
+                                    <li> Income protection allowances apply</li>
                                 </ul>
                             </div>
                             <div>
                                 <p className="text-sky-400 font-semibold mb-2">Student Contribution</p>
                                 <ul className="text-slate-300 space-y-1">
-                                    <li>??50% of income above $7,600</li>
-                                    <li>??20% of all assets</li>
-                                    <li>??No asset protection for students</li>
+                                    <li> 50% of income above $7,600</li>
+                                    <li> 20% of all assets</li>
+                                    <li> No asset protection for students</li>
                                 </ul>
                             </div>
                         </div>
@@ -327,11 +327,11 @@ export default function FAFSAHubClient() {
                     Data Sources & Citations
                 </h3>
                 <ul className="text-xs text-slate-500 space-y-2">
-                    <li>??U.S. Department of Education. "Federal Student Aid Handbook 2026-27." FSA, 2026.</li>
-                    <li>??Federal Student Aid. "FAFSA Simplification Act Changes." StudentAid.gov, 2024.</li>
-                    <li>??College Board. "Trends in Student Aid 2024." CollegeBoard.org, 2024.</li>
-                    <li>??National Association of Student Financial Aid Administrators (NASFAA). "2024-25 Federal Student Aid Handbook." NASFAA, 2024.</li>
-                    <li>??Congressional Research Service. "The Pell Grant Program: Recent Developments." CRS Report R46975, 2024.</li>
+                    <li> U.S. Department of Education. "Federal Student Aid Handbook 2026-27." FSA, 2026.</li>
+                    <li> Federal Student Aid. "FAFSA Simplification Act Changes." StudentAid.gov, 2024.</li>
+                    <li> College Board. "Trends in Student Aid 2024." CollegeBoard.org, 2024.</li>
+                    <li> National Association of Student Financial Aid Administrators (NASFAA). "2024-25 Federal Student Aid Handbook." NASFAA, 2024.</li>
+                    <li> Congressional Research Service. "The Pell Grant Program: Recent Developments." CRS Report R46975, 2024.</li>
                 </ul>
             </section>
 

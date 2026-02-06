@@ -36,11 +36,11 @@ export default function ElectrocutionGuidePage() {
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div className="bg-yellow-900/20 border border-yellow-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Zap className="w-5 h-5 text-yellow-500" />Voltage Levels</h2>
-                        <ul className="space-y-2 text-sm text-yellow-200">{ELECTROCUTION_2026.voltageLevels.map((v, i) => (<li key={i}>??{v.level}: {v.multiplier}x</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-yellow-200">{ELECTROCUTION_2026.voltageLevels.map((v, i) => (<li key={i}> {v.level}: {v.multiplier}x</li>))}</ul>
                     </div>
                     <div className="bg-amber-900/20 border border-amber-500/50 rounded-xl p-6">
                         <h2 className="text-lg font-bold text-white mb-3 flex items-center gap-2"><Shield className="w-5 h-5 text-amber-500" />Liability Types</h2>
-                        <ul className="space-y-2 text-sm text-amber-200">{ELECTROCUTION_2026.liabilityTypes.map((l, i) => (<li key={i}>??<strong>{l.type}:</strong> {l.description}</li>))}</ul>
+                        <ul className="space-y-2 text-sm text-amber-200">{ELECTROCUTION_2026.liabilityTypes.map((l, i) => (<li key={i}> <strong>{l.type}:</strong> {l.description}</li>))}</ul>
                     </div>
                 </div>
 

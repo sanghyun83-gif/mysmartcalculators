@@ -224,8 +224,8 @@ export default function VADisabilityHubClient() {
                     <div className="bg-slate-900/50 rounded-lg p-4 font-mono text-sm">
                         <p className="text-slate-400">Example: 50% + 30% + 20%</p>
                         <p className="text-blue-400 mt-2">Step 1: 50% of 100% = 50% disabled, 50% "healthy" remaining</p>
-                        <p className="text-green-400">Step 2: 30% of 50% = 15% ??Total: 65%, 35% remaining</p>
-                        <p className="text-amber-400">Step 3: 20% of 35% = 7% ??Total: 72%</p>
+                        <p className="text-green-400">Step 2: 30% of 50% = 15%  Total: 65%, 35% remaining</p>
+                        <p className="text-amber-400">Step 3: 20% of 35% = 7%  Total: 72%</p>
                         <p className="text-white mt-2 font-bold">Final: Rounded to nearest 10% = <span className="text-blue-400">70%</span></p>
                     </div>
                     <p className="text-slate-400 text-sm mt-4">
@@ -244,22 +244,22 @@ export default function VADisabilityHubClient() {
                         <CheckCircle className="w-8 h-8 text-green-400 mb-3" />
                         <h3 className="font-bold text-white text-lg mb-3">Do This:</h3>
                         <ul className="text-sm text-slate-300 space-y-2">
-                            <li>??File an Intent to File first (preserves effective date)</li>
-                            <li>??Get a Nexus letter from a private doctor</li>
-                            <li>??Use a VSO for free assistance</li>
-                            <li>??Describe your worst days at C&P exams</li>
-                            <li>??Claim secondary conditions (caused by primary)</li>
+                            <li> File an Intent to File first (preserves effective date)</li>
+                            <li> Get a Nexus letter from a private doctor</li>
+                            <li> Use a VSO for free assistance</li>
+                            <li> Describe your worst days at C&P exams</li>
+                            <li> Claim secondary conditions (caused by primary)</li>
                         </ul>
                     </div>
                     <div className="bg-slate-800/50 border border-red-500/30 rounded-xl p-6">
                         <AlertTriangle className="w-8 h-8 text-red-400 mb-3" />
                         <h3 className="font-bold text-white text-lg mb-3">Avoid This:</h3>
                         <ul className="text-sm text-slate-300 space-y-2">
-                            <li>??Missing C&P exams (claim will be denied)</li>
-                            <li>??Downplaying symptoms to seem "tough"</li>
-                            <li>??Filing without evidence</li>
-                            <li>??Missing appeal deadlines</li>
-                            <li>??Ignoring mental health conditions</li>
+                            <li> Missing C&P exams (claim will be denied)</li>
+                            <li> Downplaying symptoms to seem "tough"</li>
+                            <li> Filing without evidence</li>
+                            <li> Missing appeal deadlines</li>
+                            <li> Ignoring mental health conditions</li>
                         </ul>
                     </div>
                 </div>
@@ -325,11 +325,11 @@ export default function VADisabilityHubClient() {
                     Data Sources & Citations
                 </h3>
                 <ul className="text-xs text-slate-500 space-y-2">
-                    <li>??U.S. Department of Veterans Affairs. "VA Disability Compensation Rates." VA.gov, December 2026.</li>
-                    <li>??U.S. Department of Veterans Affairs. "Combined Ratings (38 CFR 4.25)." VA.gov.</li>
-                    <li>??Congressional Research Service. "Veterans' Disability Compensation: Trends and Policy Options." CRS, 2024.</li>
-                    <li>??Public Law 117-168. "Sergeant First Class Heath Robinson Honoring our Promise to Address Comprehensive Toxics Act (PACT Act)." 117th Congress, 2022.</li>
-                    <li>??Government Accountability Office. "VA Disability Benefits: Additional Planning Would Enhance Efforts to Address Claims Backlog." GAO-24-106328, 2024.</li>
+                    <li> U.S. Department of Veterans Affairs. "VA Disability Compensation Rates." VA.gov, December 2026.</li>
+                    <li> U.S. Department of Veterans Affairs. "Combined Ratings (38 CFR 4.25)." VA.gov.</li>
+                    <li> Congressional Research Service. "Veterans' Disability Compensation: Trends and Policy Options." CRS, 2024.</li>
+                    <li> Public Law 117-168. "Sergeant First Class Heath Robinson Honoring our Promise to Address Comprehensive Toxics Act (PACT Act)." 117th Congress, 2022.</li>
+                    <li> Government Accountability Office. "VA Disability Benefits: Additional Planning Would Enhance Efforts to Address Claims Backlog." GAO-24-106328, 2024.</li>
                 </ul>
             </section>
 

@@ -79,7 +79,7 @@ export default function SSICalculatorPage() {
                             </select>
                             {selectedState && selectedState.supplement > 0 && (
                                 <p className="text-xs text-teal-600 mt-1">
-                                    ??{selectedState.name} adds {formatCurrency(selectedState.supplement)}/mo to federal SSI
+                                     {selectedState.name} adds {formatCurrency(selectedState.supplement)}/mo to federal SSI
                                 </p>
                             )}
                         </div>

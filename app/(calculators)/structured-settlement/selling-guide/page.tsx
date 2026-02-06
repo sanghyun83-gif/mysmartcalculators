@@ -211,10 +211,10 @@ export default function SellingGuidePage() {
                         <div className="text-sm text-amber-200">
                             <p className="font-medium text-white mb-2">Before You Sell, Consider:</p>
                             <ul className="space-y-1">
-                                <li>??You will lose 20-40% or more of your settlement&apos;s total value</li>
-                                <li>??Once sold, you cannot get those payments back</li>
-                                <li>??Structured settlements are tax-free; lump sums may have tax implications</li>
-                                <li>??Seek advice from a financial advisor before making this decision</li>
+                                <li> You will lose 20-40% or more of your settlement&apos;s total value</li>
+                                <li> Once sold, you cannot get those payments back</li>
+                                <li> Structured settlements are tax-free; lump sums may have tax implications</li>
+                                <li> Seek advice from a financial advisor before making this decision</li>
                             </ul>
                         </div>
                     </div>

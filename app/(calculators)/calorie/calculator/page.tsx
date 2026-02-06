@@ -181,7 +181,7 @@ export default function CalorieCalculatorPage() {
                             <p className="text-sm text-purple-100 mb-1">Your Daily Calories</p>
                             <p className="text-5xl font-bold">{formatNumber(result.goalCalories)}</p>
                             <p className="text-sm text-purple-100 mt-2">
-                                {result.activityLevel} ??{result.goal}
+                                {result.activityLevel}  {result.goal}
                             </p>
                         </div>
 

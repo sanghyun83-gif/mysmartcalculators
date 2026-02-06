@@ -21,7 +21,7 @@ export default function HubClient() {
             <section className="relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-slate-900 to-red-900/20" />
                 <div className="relative max-w-4xl mx-auto px-4 py-16 text-center">
-                    <div className="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-500/50 rounded-full px-4 py-2 mb-6"><Scale className="w-4 h-4 text-purple-400" /><span className="text-sm text-purple-300">Medical Calculator ??Advanced</span></div>
+                    <div className="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-500/50 rounded-full px-4 py-2 mb-6"><Scale className="w-4 h-4 text-purple-400" /><span className="text-sm text-purple-300">Medical Calculator  Advanced</span></div>
                     <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">DePuy Knee Implant<span className="block text-purple-400">Lawsuit Calculator</span></h1>
                     <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">Calculate DePuy knee lawsuit settlements. Attune tibial loosening, early failure claims.</p>
                     <Link href="/depuy-knee/calculator" className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105">Calculate Settlement<ArrowRight className="w-5 h-5" /></Link>

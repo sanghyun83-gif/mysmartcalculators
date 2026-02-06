@@ -46,7 +46,7 @@ export const CAPITAL_GAINS_2026 = {
     },
 
     // Short-term capital gains = ordinary income rates
-    shortTermNote: "Short-term gains (held ??1 year) are taxed as ordinary income (10%-37%)",
+    shortTermNote: "Short-term gains (held  1 year) are taxed as ordinary income (10%-37%)",
 
     // Net Investment Income Tax (NIIT)
     niit: {

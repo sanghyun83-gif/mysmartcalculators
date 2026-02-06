@@ -53,10 +53,10 @@ export default function CancersPage() {
                 <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
                     <h2 className="text-lg font-bold text-white mb-4">Scientific Evidence</h2>
                     <ul className="space-y-2 text-slate-300 text-sm">
-                        <li>??FDA testing found NDMA in Zantac at levels exceeding 0.32 mcg daily limit</li>
-                        <li>??Independent laboratory Valisure detected NDMA levels up to 3,000,000 ng per tablet</li>
-                        <li>??NDMA classified as &quot;probably carcinogenic&quot; by WHO IARC</li>
-                        <li>??Animal studies link NDMA to liver tumors and other cancers</li>
+                        <li> FDA testing found NDMA in Zantac at levels exceeding 0.32 mcg daily limit</li>
+                        <li> Independent laboratory Valisure detected NDMA levels up to 3,000,000 ng per tablet</li>
+                        <li> NDMA classified as &quot;probably carcinogenic&quot; by WHO IARC</li>
+                        <li> Animal studies link NDMA to liver tumors and other cancers</li>
                     </ul>
                 </div>
 

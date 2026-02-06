@@ -273,11 +273,11 @@ export default function PetInsuranceHubClient() {
                     Data Sources & Citations
                 </h3>
                 <ul className="text-xs text-slate-500 space-y-2">
-                    <li>??North American Pet Health Insurance Association. "State of the Industry Report." NAPHIA, 2026.</li>
-                    <li>??American Pet Products Association. "Pet Industry Market Size & Ownership Statistics." APPA, 2026.</li>
-                    <li>??Insurance Information Institute. "Pet Insurance Facts + Statistics." III, 2024.</li>
-                    <li>??American Veterinary Medical Association. "AVMA Pet Ownership and Demographics Sourcebook." AVMA, 2024.</li>
-                    <li>??Consumer Reports. "Pet Insurance Buying Guide and Ratings." Consumer Reports, 2024.</li>
+                    <li> North American Pet Health Insurance Association. "State of the Industry Report." NAPHIA, 2026.</li>
+                    <li> American Pet Products Association. "Pet Industry Market Size & Ownership Statistics." APPA, 2026.</li>
+                    <li> Insurance Information Institute. "Pet Insurance Facts + Statistics." III, 2024.</li>
+                    <li> American Veterinary Medical Association. "AVMA Pet Ownership and Demographics Sourcebook." AVMA, 2024.</li>
+                    <li> Consumer Reports. "Pet Insurance Buying Guide and Ratings." Consumer Reports, 2024.</li>
                 </ul>
             </section>
 

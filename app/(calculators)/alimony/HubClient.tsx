@@ -304,11 +304,11 @@ export default function AlimonyHubClient() {
                     Data Sources & Citations
                 </h3>
                 <ul className="text-xs text-slate-500 space-y-2">
-                    <li>??Internal Revenue Service. "Topic No. 452 Alimony and Separate Maintenance." IRS.gov, 2024.</li>
-                    <li>??American Academy of Matrimonial Lawyers. "Alimony Trends Survey 2024." AAML, 2024.</li>
-                    <li>??California Family Code §4320. "Factors in Ordering Spousal Support." Leginfo.ca.gov.</li>
-                    <li>??New York Domestic Relations Law §236. "Maintenance Guidelines." NYCourts.gov.</li>
-                    <li>??Florida Statutes §61.08. "Alimony." Florida Legislature, 2023 (as amended).</li>
+                    <li> Internal Revenue Service. "Topic No. 452 Alimony and Separate Maintenance." IRS.gov, 2024.</li>
+                    <li> American Academy of Matrimonial Lawyers. "Alimony Trends Survey 2024." AAML, 2024.</li>
+                    <li> California Family Code §4320. "Factors in Ordering Spousal Support." Leginfo.ca.gov.</li>
+                    <li> New York Domestic Relations Law §236. "Maintenance Guidelines." NYCourts.gov.</li>
+                    <li> Florida Statutes §61.08. "Alimony." Florida Legislature, 2023 (as amended).</li>
                 </ul>
             </section>
 

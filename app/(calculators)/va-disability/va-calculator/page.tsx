@@ -206,7 +206,7 @@ export default function VACalculatorPage() {
                         {/* Tax Note */}
                         <div className="p-4 bg-green-900/30 border-t border-green-700/50">
                             <p className="text-sm text-green-200">
-                                ??VA disability compensation is <strong>tax-free</strong> at the federal level
+                                 VA disability compensation is <strong>tax-free</strong> at the federal level
                             </p>
                         </div>
                     </div>

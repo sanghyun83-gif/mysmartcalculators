@@ -19,7 +19,7 @@ export default function HubClient() {
 
             <div className="bg-red-900/30 border-b border-red-500/30">
                 <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-center gap-2">
-                    <AlertTriangle className="w-4 h-4 text-red-400" /><span className="text-sm text-red-200">{PFAS_2026.statistics.mdlNumber} Active ??3M ${(PFAS_2026.statistics.threeM_Settlement / 1000000000).toFixed(1)}B Settlement</span>
+                    <AlertTriangle className="w-4 h-4 text-red-400" /><span className="text-sm text-red-200">{PFAS_2026.statistics.mdlNumber} Active  3M ${(PFAS_2026.statistics.threeM_Settlement / 1000000000).toFixed(1)}B Settlement</span>
                 </div>
             </div>
 

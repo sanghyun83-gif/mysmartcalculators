@@ -24,7 +24,7 @@ export default function PFASPage() {
                 <div className="text-center mb-12">
                     <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/50 rounded-full px-4 py-2 mb-4"><AlertTriangle className="w-4 h-4 text-red-400" /><span className="text-sm text-red-300">Active MDL</span></div>
                     <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">PFAS &quot;Forever Chemicals&quot; Lawsuits</h1>
-                    <p className="text-slate-400">{WATER_CONTAMINATION_2026.statistics.pfasMDL} ??{(WATER_CONTAMINATION_2026.statistics.pfasAffectedPeople / 1000000).toFixed(0)}M+ Americans Exposed</p>
+                    <p className="text-slate-400">{WATER_CONTAMINATION_2026.statistics.pfasMDL}  {(WATER_CONTAMINATION_2026.statistics.pfasAffectedPeople / 1000000).toFixed(0)}M+ Americans Exposed</p>
                 </div>
 
                 <div className="bg-red-900/20 border border-red-500/30 rounded-xl p-6 mb-8">
@@ -54,11 +54,11 @@ export default function PFASPage() {
                 <div className="bg-slate-800 border border-slate-700 rounded-xl p-6">
                     <h2 className="text-lg font-bold text-white mb-4">Who Can File a PFAS Lawsuit?</h2>
                     <ul className="space-y-2 text-slate-300">
-                        <li>??Residents near contaminated water sources</li>
-                        <li>??People diagnosed with PFAS-linked cancers or diseases</li>
-                        <li>??Firefighters exposed to AFFF foam</li>
-                        <li>??Military personnel at bases with contamination</li>
-                        <li>??Workers at PFAS manufacturing facilities</li>
+                        <li> Residents near contaminated water sources</li>
+                        <li> People diagnosed with PFAS-linked cancers or diseases</li>
+                        <li> Firefighters exposed to AFFF foam</li>
+                        <li> Military personnel at bases with contamination</li>
+                        <li> Workers at PFAS manufacturing facilities</li>
                     </ul>
                 </div>
 

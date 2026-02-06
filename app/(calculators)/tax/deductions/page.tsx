@@ -25,7 +25,7 @@ export default function DeductionsPage() {
                         {SITE.year} Tax Deductions Guide
                     </h1>
                     <p className="text-sm text-slate-500">
-                        Standard deduction vs itemizing ??what saves you more?
+                        Standard deduction vs itemizing  what saves you more?
                     </p>
                 </div>
 

@@ -143,9 +143,9 @@ export default function DeductionsGuidePage() {
                         deduct up to <strong>20% of qualified business income</strong>.
                     </p>
                     <ul className="text-sm text-blue-200 space-y-1">
-                        <li>??Subject to taxable income thresholds</li>
-                        <li>??Some service businesses are limited</li>
-                        <li>??Calculated on Form 8995</li>
+                        <li> Subject to taxable income thresholds</li>
+                        <li> Some service businesses are limited</li>
+                        <li> Calculated on Form 8995</li>
                     </ul>
                 </div>
 

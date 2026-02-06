@@ -118,13 +118,13 @@ export default function CoverageGuidePage() {
                         Who Needs Umbrella Insurance?
                     </h2>
                     <ul className="space-y-2 text-sm text-slate-300">
-                        <li>??<strong>Homeowners</strong> with assets to protect</li>
-                        <li>??<strong>Landlords</strong> with rental properties</li>
-                        <li>??<strong>High net worth</strong> individuals</li>
-                        <li>??<strong>Teen drivers</strong> in the household</li>
-                        <li>??<strong>Pool or trampoline</strong> owners</li>
-                        <li>??<strong>Public figures</strong> at risk of lawsuits</li>
-                        <li>??<strong>Dog owners</strong> (especially certain breeds)</li>
+                        <li> <strong>Homeowners</strong> with assets to protect</li>
+                        <li> <strong>Landlords</strong> with rental properties</li>
+                        <li> <strong>High net worth</strong> individuals</li>
+                        <li> <strong>Teen drivers</strong> in the household</li>
+                        <li> <strong>Pool or trampoline</strong> owners</li>
+                        <li> <strong>Public figures</strong> at risk of lawsuits</li>
+                        <li> <strong>Dog owners</strong> (especially certain breeds)</li>
                     </ul>
                 </div>
 

@@ -286,11 +286,11 @@ export default function SocialSecurityHubClient() {
                     Data Sources & Citations
                 </h3>
                 <ul className="text-xs text-slate-500 space-y-2">
-                    <li>??Social Security Administration. "Benefit Calculators." SSA.gov, 2026.</li>
-                    <li>??Social Security Administration. "2024 Annual Report of the Board of Trustees." SSA OASDI Trustees Report, 2024.</li>
-                    <li>??Social Security Administration. "Cost-of-Living Adjustments (COLA)." SSA.gov, 2026.</li>
-                    <li>??Congressional Research Service. "Social Security: What Would Happen If the Trust Funds Ran Out?" CRS Report RL33514, 2024.</li>
-                    <li>??AARP. "Social Security Resource Center." AARP.org, 2026.</li>
+                    <li> Social Security Administration. "Benefit Calculators." SSA.gov, 2026.</li>
+                    <li> Social Security Administration. "2024 Annual Report of the Board of Trustees." SSA OASDI Trustees Report, 2024.</li>
+                    <li> Social Security Administration. "Cost-of-Living Adjustments (COLA)." SSA.gov, 2026.</li>
+                    <li> Congressional Research Service. "Social Security: What Would Happen If the Trust Funds Ran Out?" CRS Report RL33514, 2024.</li>
+                    <li> AARP. "Social Security Resource Center." AARP.org, 2026.</li>
                 </ul>
             </section>
 

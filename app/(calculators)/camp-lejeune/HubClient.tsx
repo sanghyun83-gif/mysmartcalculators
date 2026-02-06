@@ -13,7 +13,7 @@ export default function HubClient() {
         <div className="absolute inset-0 bg-gradient-to-br from-amber-900/30 via-slate-900 to-orange-900/20" />
         <div className="relative max-w-4xl mx-auto px-4 py-16 text-center">
           <div className="inline-flex items-center gap-2 bg-red-500/20 border border-red-500/50 rounded-full px-4 py-2 mb-6">
-            <Calendar className="w-4 h-4 text-red-400" /><span className="text-sm text-red-300">??Deadline: {LEJEUNE_2026.statistics.deadlineExtended}</span>
+            <Calendar className="w-4 h-4 text-red-400" /><span className="text-sm text-red-300"> Deadline: {LEJEUNE_2026.statistics.deadlineExtended}</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Camp Lejeune Water<span className="text-amber-400"> Calculator</span></h1>
           <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">Calculate your Camp Lejeune toxic water contamination settlement. Veterans, families, and civilian employees exposed from {LEJEUNE_2026.statistics.contaminationPeriod}. Free {SITE.year} calculator under the PACT Act.</p>

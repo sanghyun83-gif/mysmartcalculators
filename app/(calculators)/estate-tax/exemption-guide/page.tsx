@@ -67,10 +67,10 @@ export default function ExemptionGuidePage() {
                     <div className="bg-slate-700/50 rounded-lg p-4">
                         <p className="text-sm text-slate-400 mb-2">Example:</p>
                         <ul className="text-sm text-slate-300 space-y-1">
-                            <li>??First spouse dies with $5M estate (uses $5M of exemption)</li>
-                            <li>??Remaining exemption: {formatCurrency(ESTATE_TAX_2026.federalExemption - 5000000)}</li>
-                            <li>??With portability, surviving spouse gets this PLUS their own {formatCurrency(ESTATE_TAX_2026.federalExemption)}</li>
-                            <li>??<strong>Total available:</strong> {formatCurrency(ESTATE_TAX_2026.marriedExemption - 5000000)}</li>
+                            <li> First spouse dies with $5M estate (uses $5M of exemption)</li>
+                            <li> Remaining exemption: {formatCurrency(ESTATE_TAX_2026.federalExemption - 5000000)}</li>
+                            <li> With portability, surviving spouse gets this PLUS their own {formatCurrency(ESTATE_TAX_2026.federalExemption)}</li>
+                            <li> <strong>Total available:</strong> {formatCurrency(ESTATE_TAX_2026.marriedExemption - 5000000)}</li>
                         </ul>
                     </div>
 
