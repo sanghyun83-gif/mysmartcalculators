@@ -34,13 +34,20 @@ export const TALCUM_2026 = {
         { product: "Generic Talcum Powder", manufacturer: "Various" },
     ],
     statistics: {
-        activeLawsuits: 67000,
+        activeLawsuits: 67622,
         totalVerdicts: 5000000000,
         avgJuryVerdict: 25000000,
         stateSettlement: 700000000,
         jnjBankruptcy: "Rejected April 2025",
         mdlNumber: "MDL 2738",
     },
+    expertFactors: {
+        bankruptcyRejection: { id: "trial", label: "Individual Trial Path (Bankruptcy Opt-Out)", multiplier: 1.5 },
+        asbestosContamination: { id: "asb", label: "Aural-Forensic Asbestos Marker", multiplier: 1.35 },
+        failureToWarn: { id: "warn", label: "General Duty Breach (Post-1970 Knowledge)", multiplier: 1.25 }
+    },
+    brcaFactor: 0.85, // Sensitivity adjustment for genetic predisposition
+    lienMitigation: 0.75, // Estimated take-home factor after Medicare/Medicaid liens
     citations: [
         "MDL 2738 - Johnson & Johnson Talcum Powder Products Marketing, Sales Practices and Products Liability Litigation",
         "IARC Monograph 129: Talc with Asbestiform Fibers and Ovarian Cancer",
@@ -54,18 +61,63 @@ export const CALCULATORS = [
     { id: "talcum-powder/talcum-guide", name: "Talcum Powder Lawsuit Guide", shortName: "Guide", description: "Understanding J&J lawsuits", longDescription: "Learn about talcum powder cancer link, J&J liability, and claim eligibility.", icon: FileText, category: "legal", keywords: ["talcum powder lawsuit guide", "johnson johnson lawsuit"], featured: true },
 ] as const;
 
-export interface TalcumResult { cancerType: string; usageType: string; baseDamages: number; usageBonus: number; medicalCosts: number; painSuffering: number; totalLow: number; totalMid: number; totalHigh: number; }
+export interface TalcumResult {
+    cancerType: string;
+    usageType: string;
+    baseDamages: number;
+    usageBonus: number;
+    medicalCosts: number;
+    painSuffering: number;
+    expertBonus: number; // +α Step 1
+    netEstimation: number; // +α Step 1
+    totalLow: number;
+    totalMid: number;
+    totalHigh: number;
+}
 
-export function calculateTalcumSettlement(cancerIndex: number, usageIndex: number, yearsOfUse: number, medicalBills: number): TalcumResult {
+export function calculateTalcumSettlement(
+    cancerIndex: number,
+    usageIndex: number,
+    yearsOfUse: number,
+    medicalBills: number,
+    hasBankruptcyOptOut: boolean = false, // +α Step 1
+    hasAsbestosMarker: boolean = false, // +α Step 1
+    hasBrcaMutation: boolean = false // +α Step 1
+): TalcumResult {
     const cancer = TALCUM_2026.cancerTypes[cancerIndex];
     const usage = TALCUM_2026.usageTypes[usageIndex];
     const baseDamages = cancer.avgSettlement;
     const medicalCosts = medicalBills * 2.5;
     const painSuffering = baseDamages * 0.6;
+
+    // Expert Multipliers (+α Step 1)
+    let expertMultiplier = 1.0;
+    if (hasBankruptcyOptOut) expertMultiplier *= TALCUM_2026.expertFactors.bankruptcyRejection.multiplier;
+    if (hasAsbestosMarker) expertMultiplier *= TALCUM_2026.expertFactors.asbestosContamination.multiplier;
+
+    // BRCA Sensitivity Adjustment
+    const causalityMultiplier = hasBrcaMutation ? TALCUM_2026.brcaFactor : 1.0;
+
     const yearsMultiplier = Math.min(yearsOfUse / 20, 2);
-    const usageBonus = baseDamages * (usage.multiplier - 1) * yearsMultiplier;
-    const total = baseDamages + medicalCosts + painSuffering + usageBonus;
-    return { cancerType: cancer.type, usageType: usage.type, baseDamages: Math.round(baseDamages), usageBonus: Math.round(usageBonus), medicalCosts: Math.round(medicalCosts), painSuffering: Math.round(painSuffering), totalLow: Math.round(total * 0.5), totalMid: Math.round(total), totalHigh: Math.round(total * 1.8) };
+    const baseTotal = (baseDamages + medicalCosts + painSuffering) * causalityMultiplier;
+    const usageBonus = baseTotal * (usage.multiplier - 1) * yearsMultiplier;
+
+    const expertBonus = (baseTotal + usageBonus) * (expertMultiplier - 1);
+    const total = baseTotal + usageBonus + expertBonus;
+
+    return {
+        cancerType: cancer.type,
+        usageType: usage.type,
+        baseDamages: Math.round(baseDamages),
+        usageBonus: Math.round(usageBonus),
+        medicalCosts: Math.round(medicalCosts),
+        painSuffering: Math.round(painSuffering),
+        expertBonus: Math.round(expertBonus),
+        netEstimation: Math.round(total * TALCUM_2026.lienMitigation),
+        totalLow: Math.round(total * 0.55), // Refined 2026 range
+        totalMid: Math.round(total),
+        totalHigh: Math.round(total * 1.6)
+    };
 }
 
 export function formatCurrency(amount: number): string { return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(amount); }

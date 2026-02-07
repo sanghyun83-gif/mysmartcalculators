@@ -17,6 +17,8 @@ export function CalculatorClient() {
     const [hospitalization, setHospitalization] = useState(false);
     const [surgery, setSurgery] = useState(false);
     const [pre2023, setPre2023] = useState(false);
+    const [gesConfirmed, setGesConfirmed] = useState(false); // +α Step 4
+    const [pacemaker, setPacemaker] = useState(false); // +α Step 4
 
     const results = useMemo(() => {
         return calculateSettlement(
@@ -25,9 +27,11 @@ export function CalculatorClient() {
             parseInt(medicalBills.replace(/[^0-9]/g, '')) || 0,
             hospitalization,
             surgery,
-            pre2023
+            pre2023,
+            gesConfirmed,
+            pacemaker
         );
-    }, [injury, duration, medicalBills, hospitalization, surgery, pre2023]);
+    }, [injury, duration, medicalBills, hospitalization, surgery, pre2023, gesConfirmed, pacemaker]);
 
     return (
         <>
@@ -101,7 +105,9 @@ export function CalculatorClient() {
                                     {[
                                         { id: 'hosp', l: 'Hospitalization', v: hospitalization, s: setHospitalization },
                                         { id: 'surg', l: 'Surgical Intervention', v: surgery, s: setSurgery },
-                                        { id: 'pre23', l: 'Pre-2023 Usage', v: pre2023, s: setPre2023 }
+                                        { id: 'pre23', l: 'Pre-2023 Usage', v: pre2023, s: setPre2023 },
+                                        { id: 'ges', l: 'GES Scintigraphy (+40%)', v: gesConfirmed, s: setGesConfirmed },
+                                        { id: 'pace', l: 'Pacemaker/G-Tube (+60%)', v: pacemaker, s: setPacemaker }
                                     ].map((f) => (
                                         <label key={f.id} className="flex items-center gap-3 cursor-pointer group">
                                             <div className="relative">
@@ -111,10 +117,10 @@ export function CalculatorClient() {
                                                     checked={f.v}
                                                     onChange={e => f.s(e.target.checked)}
                                                 />
-                                                <div className="w-5 h-5 border-2 border-white/10 rounded bg-white/5 peer-checked:bg-rose-500 peer-checked:border-rose-500 transition-all shadow-sm" />
+                                                <div className="w-5 h-5 border-2 border-white/10 rounded-lg bg-white/5 peer-checked:bg-rose-500 peer-checked:border-rose-500 transition-all shadow-sm" />
                                                 <CheckCircle2 className="w-3 h-3 text-white absolute top-1 left-1 opacity-0 peer-checked:opacity-100 transition-all" />
                                             </div>
-                                            <span className="text-xs font-bold text-slate-400 group-hover:text-white transition-colors">{f.l}</span>
+                                            <span className="text-[11px] font-black text-slate-500 group-hover:text-white transition-colors uppercase tracking-widest">{f.l}</span>
                                         </label>
                                     ))}
                                 </div>
@@ -158,8 +164,8 @@ export function CalculatorClient() {
                                 </div>
                                 {results.factorBonus > 0 && (
                                     <div className="flex justify-between items-center text-xs">
-                                        <span className="text-slate-500 font-medium italic">Legal Aggravation Bonus</span>
-                                        <span className="text-amber-500 font-black">+{formatCurrency(results.factorBonus)}</span>
+                                        <span className="text-slate-500 font-medium italic">Forensic Liability Delta</span>
+                                        <span className="text-rose-500 font-black animate-pulse">+{formatCurrency(results.factorBonus)}</span>
                                     </div>
                                 )}
                             </div>

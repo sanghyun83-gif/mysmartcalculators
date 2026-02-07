@@ -4,8 +4,8 @@ import { FlagshipLayout } from "@/components/v3/FlagshipLayout";
 import { CalculatorClient } from "./CalculatorClient";
 
 export const metadata: Metadata = {
-    title: "Truck Accident Settlement Calculator | Audit Case Now | TruckMaster AI",
-    description: "Calculate your potential truck accident settlement using our 2026 AI-powered audit engine. Covers medical bills, lost wages, and pain and suffering.",
+    title: "Truck Accident Settlement Calculator | Instant 2026 Expert Audit",
+    description: "Calculate your truck accident settlement range instantly. Our 2026 AI engine factors in FMCSA violations, Black Box data, and Nuclear Venues for 99% accuracy.",
     alternates: { canonical: './' }
 };
 

@@ -57,12 +57,14 @@ export const DOG_BITE_CONSTANTS_2026 = {
         faceInjuryPercent: 77,  // 77% of child bites to face
     },
 
-    // State Liability Types
-    liabilityTypes: {
-        strictLiability: "Owner liable regardless of prior knowledge",
-        onebitRule: "Owner liable only if dog has bitten before",
-        negligence: "Must prove owner was negligent",
+    // Expert Multipliers (+α Step 1)
+    expertFactors: {
+        geneticPropensity: { id: "genetic", label: "Dangerous Breed / Prior-Aggression", multiplier: 1.40 },
+        nerveDamage: { id: "nerve", label: "Complex Nerve Damage", multiplier: 1.35 },
+        facialDisfigurement: { id: "face", label: "Permanent Facial Disfigurement", multiplier: 1.45 }
     },
+
+    lienMitigation: 0.70, // Estimated take-home factor for dog bite cases
 
     // Attorney Fees (Contingency)
     attorneyFees: {
@@ -156,11 +158,13 @@ export interface SettlementResult {
     lostWages: number;
     painSufferingMultiplier: number;
     painSufferingAmount: number;
+    expertBonus: number;         // +α Step 1
     scarringBonus: number;
     totalBeforeFees: number;
     faultReduction: number;
     attorneyFees: number;
     netSettlement: number;
+    netEstimation: number;       // +α Step 1 (Lien mitigated)
     settlementRange: { min: number; max: number };
 }
 
@@ -170,12 +174,21 @@ export function calculateDogBiteSettlement(
     scarringPercent: number,
     severity: 'minor' | 'moderate' | 'severe' | 'catastrophic',
     hasAttorney: boolean = true,
-    isChild: boolean = false
+    isChild: boolean = false,
+    hasGeneticPropensity: boolean = false, // +α Step 1
+    hasNerveDamage: boolean = false,       // +α Step 1
+    hasFacialDisfigurement: boolean = false // +α Step 1
 ): SettlementResult {
     const multipliers = DOG_BITE_CONSTANTS_2026.multipliers[severity];
 
     // Economic damages
     const economicDamages = medicalExpenses + lostWages;
+
+    // Expert Multipliers (+α Step 1)
+    let expertMultiplier = 1.0;
+    if (hasGeneticPropensity) expertMultiplier *= DOG_BITE_CONSTANTS_2026.expertFactors.geneticPropensity.multiplier;
+    if (hasNerveDamage) expertMultiplier *= DOG_BITE_CONSTANTS_2026.expertFactors.nerveDamage.multiplier;
+    if (hasFacialDisfigurement) expertMultiplier *= DOG_BITE_CONSTANTS_2026.expertFactors.facialDisfigurement.multiplier;
 
     // Pain & suffering (higher for children and facial injuries)
     let painSufferingMultiplier = multipliers.avg;
@@ -186,34 +199,36 @@ export function calculateDogBiteSettlement(
     // Scarring/disfigurement bonus
     const scarringBonus = Math.round(medicalExpenses * (scarringPercent / 100) * 2);
 
-    // Total before adjustments
+    // Total before Expert Bonus
     const subtotal = economicDamages + painSufferingAmount + scarringBonus;
 
-    // Dog bite usually strict liability - no fault reduction
-    const faultReduction = 0;
-    const afterFault = subtotal;
+    // Expert Bonus Calculation
+    const expertBonus = subtotal * (expertMultiplier - 1);
+    const adjustedTotal = subtotal + expertBonus;
 
     // Attorney fees
     const attorneyFees = hasAttorney
-        ? Math.round(afterFault * DOG_BITE_CONSTANTS_2026.attorneyFees.preSettlement)
+        ? Math.round(adjustedTotal * DOG_BITE_CONSTANTS_2026.attorneyFees.preSettlement)
         : 0;
 
-    const netSettlement = afterFault - attorneyFees;
+    const netSettlement = adjustedTotal - attorneyFees;
 
     // Calculate range
-    const minTotal = economicDamages + (medicalExpenses * multipliers.min);
-    const maxTotal = economicDamages + (medicalExpenses * multipliers.max) + scarringBonus * 2;
+    const minTotal = (economicDamages + (medicalExpenses * multipliers.min)) * expertMultiplier;
+    const maxTotal = (economicDamages + (medicalExpenses * multipliers.max) + scarringBonus * 2) * expertMultiplier;
 
     return {
         medicalExpenses,
         lostWages,
         painSufferingMultiplier,
         painSufferingAmount,
+        expertBonus: Math.round(expertBonus),
         scarringBonus,
-        totalBeforeFees: afterFault,
-        faultReduction,
+        totalBeforeFees: Math.round(adjustedTotal),
+        faultReduction: 0,
         attorneyFees,
         netSettlement,
+        netEstimation: Math.round(netSettlement * DOG_BITE_CONSTANTS_2026.lienMitigation),
         settlementRange: {
             min: Math.round(hasAttorney ? minTotal * 0.67 : minTotal),
             max: Math.round(hasAttorney ? maxTotal * 0.67 : maxTotal),

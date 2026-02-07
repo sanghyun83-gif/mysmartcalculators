@@ -65,7 +65,18 @@ export const SLIP_FALL_CONSTANTS_2026 = {
         hipFracturePercent: 5, // 5% result in hip fractures
     },
 
-    // Average Daily Wage
+    // Expert Multipliers (+α Step 1)
+    expertFactors: {
+        noticeQuality: {
+            constructive: { id: "const", label: "Constructive Notice (Time/Duration)", multiplier: 0.85 },
+            actual: { id: "actual", label: "Actual Notice (Prior Complaint)", multiplier: 1.15 },
+            warningFailure: { id: "fail", label: "Failure to Warn (No Signs)", multiplier: 1.30 }
+        },
+        ansiBreach: { id: "ansi", label: "ANSI/NFSI B101.1 Breach (Floor Slip)", multiplier: 1.25 },
+        surveillance: { id: "video", label: "Surveillance Proof (Impact Velocity)", multiplier: 1.20 }
+    },
+
+    lienMitigation: 0.68, // Estimated take-home factor for slip and fall
     avgDailyWage: 220,
     citation: "Based on 2026 ANSI/NFSI B101.1 Floor Safety Standards, NSCC Premises Liability Verdict Data, and National Floor Safety Institute (NFSI) slip resistance benchmarks."
 } as const;
@@ -220,10 +231,12 @@ export interface SettlementResult {
     lostWages: number;
     painSufferingMultiplier: number;
     painSufferingAmount: number;
+    expertBonus: number; // +α Step 1
     totalBeforeFees: number;
     faultReduction: number;
     attorneyFees: number;
     netSettlement: number;
+    netEstimation: number; // +α Step 1
     settlementRange: { min: number; max: number };
 }
 
@@ -233,13 +246,22 @@ export function calculateSlipFallSettlement(
     faultPercent: number,
     severity: 'minor' | 'moderate' | 'severe' | 'catastrophic',
     hasAttorney: boolean = true,
-    location: string = 'retail'
+    location: string = 'retail',
+    hasActualNotice: boolean = false, // +α Step 1
+    hasAnsiBreach: boolean = false,   // +α Step 1
+    hasSurveillance: boolean = false  // +α Step 1
 ): SettlementResult {
     const multipliers = SLIP_FALL_CONSTANTS_2026.multipliers[severity];
     const locationFactor = SLIP_FALL_CONSTANTS_2026.locationFactors[location as keyof typeof SLIP_FALL_CONSTANTS_2026.locationFactors] || 1.0;
 
     // Economic damages
     const economicDamages = medicalExpenses + lostWages;
+
+    // Expert Multipliers (+α Step 1)
+    let expertMultiplier = 1.0;
+    if (hasActualNotice) expertMultiplier *= SLIP_FALL_CONSTANTS_2026.expertFactors.noticeQuality.actual.multiplier;
+    if (hasAnsiBreach) expertMultiplier *= SLIP_FALL_CONSTANTS_2026.expertFactors.ansiBreach.multiplier;
+    if (hasSurveillance) expertMultiplier *= SLIP_FALL_CONSTANTS_2026.expertFactors.surveillance.multiplier;
 
     // Pain & suffering
     const painSufferingMultiplier = multipliers.avg;
@@ -248,9 +270,13 @@ export function calculateSlipFallSettlement(
     // Total before adjustments
     const subtotal = economicDamages + painSufferingAmount;
 
+    // Expert Bonus Calculation
+    const expertBonus = subtotal * (expertMultiplier - 1);
+    const adjustedTotal = subtotal + expertBonus;
+
     // Comparative fault reduction
-    const faultReduction = Math.round(subtotal * (faultPercent / 100));
-    const afterFault = subtotal - faultReduction;
+    const faultReduction = Math.round(adjustedTotal * (faultPercent / 100));
+    const afterFault = adjustedTotal - faultReduction;
 
     // Attorney fees
     const attorneyFees = hasAttorney
@@ -260,18 +286,20 @@ export function calculateSlipFallSettlement(
     const netSettlement = afterFault - attorneyFees;
 
     // Calculate range
-    const minTotal = (economicDamages + (medicalExpenses * multipliers.min * locationFactor)) * (1 - faultPercent / 100);
-    const maxTotal = (economicDamages + (medicalExpenses * multipliers.max * locationFactor)) * (1 - faultPercent / 100);
+    const minTotal = (economicDamages + (medicalExpenses * multipliers.min * locationFactor)) * expertMultiplier * (1 - faultPercent / 100);
+    const maxTotal = (economicDamages + (medicalExpenses * multipliers.max * locationFactor)) * expertMultiplier * (1 - faultPercent / 100);
 
     return {
         medicalExpenses,
         lostWages,
         painSufferingMultiplier,
         painSufferingAmount,
-        totalBeforeFees: afterFault,
+        expertBonus: Math.round(expertBonus),
+        totalBeforeFees: Math.round(afterFault),
         faultReduction,
         attorneyFees,
         netSettlement,
+        netEstimation: Math.round(netSettlement * SLIP_FALL_CONSTANTS_2026.lienMitigation),
         settlementRange: {
             min: Math.round(hasAttorney ? minTotal * 0.67 : minTotal),
             max: Math.round(hasAttorney ? maxTotal * 0.67 : maxTotal),

@@ -27,35 +27,35 @@ export const OZEMPIC_CONSTANTS = {
             label: "Gastroparesis (Stomach Paralysis)",
             baseLow: 150000,
             baseHigh: 450000,
-            description: "Chronic delayed gastric emptying confirmed by scintigraphy."
+            description: "Chronic delayed gastric emptying confirmed by scintigraphy (GES)."
         },
         obstruction: {
             id: "obstruction",
             label: "Intestinal Obstruction/Ileus",
             baseLow: 250000,
-            baseHigh: 650000,
+            baseHigh: 550000,
             description: "Bowel blockage requiring surgical intervention or emergency care."
         },
         visionLoss: {
             id: "visionLoss",
             label: "NAION (Vision Loss)",
-            baseLow: 400000,
-            baseHigh: 1200000,
-            description: "Non-arteritic anterior ischemic optic neuropathy."
+            baseLow: 500000,
+            baseHigh: 1500000,
+            description: "Non-arteritic anterior ischemic optic neuropathy causing permanent impairment."
         },
         pancreatitis: {
             id: "pancreatitis",
             label: "Acute Pancreatitis",
             baseLow: 100000,
-            baseHigh: 300000,
-            description: "Severe inflammation requiring hospitalization."
+            baseHigh: 350000,
+            description: "Severe inflammation requiring hospitalization or permanent endocrine damage."
         },
         standard: {
             id: "standard",
             label: "Chronic GI Distress (Persistent)",
             baseLow: 30000,
-            baseHigh: 100000,
-            description: "Persistent nausea/vomiting requiring medical management."
+            baseHigh: 120000,
+            description: "Persistent nausea/vomiting requiring chronic medical management."
         }
     },
 
@@ -72,7 +72,9 @@ export const OZEMPIC_CONSTANTS = {
         hospitalization: { label: "Hospitalization Required", bonus: 0.25 },
         surgery: { label: "Surgery Required", bonus: 0.50 },
         permanentDamage: { label: "Permanent Organ Damage", bonus: 0.75 },
-        failureToWarn: { label: "Pre-2023 Usage (No Label)", bonus: 0.20 }
+        failureToWarn: { label: "Pre-2023 Usage (No Label)", bonus: 0.20 },
+        gesConfirmed: { label: "GES Scintigraphy Confirmed", bonus: 0.40 }, // +α Expert Factor
+        pacemaker: { label: "Gastric Pacemaker/G-Tube", bonus: 0.60 } // +α Expert Factor
     },
 
     // Global Statistics for E-E-A-T
@@ -148,7 +150,9 @@ export function calculateSettlement(
     medicalBills: number,
     hospitalization: boolean = false,
     surgery: boolean = false,
-    pre2023: boolean = false
+    pre2023: boolean = false,
+    gesConfirmed: boolean = false,
+    pacemaker: boolean = false
 ): OzempicResult {
     const tier = OZEMPIC_CONSTANTS.injuryTiers[injuryId] || OZEMPIC_CONSTANTS.injuryTiers.standard;
     const durationObj = OZEMPIC_CONSTANTS.durationMultipliers[durationId] || OZEMPIC_CONSTANTS.durationMultipliers.medium;
@@ -162,6 +166,8 @@ export function calculateSettlement(
     if (hospitalization) bonusPercentage += OZEMPIC_CONSTANTS.factors.hospitalization.bonus;
     if (surgery) bonusPercentage += OZEMPIC_CONSTANTS.factors.surgery.bonus;
     if (pre2023) bonusPercentage += OZEMPIC_CONSTANTS.factors.failureToWarn.bonus;
+    if (gesConfirmed) bonusPercentage += OZEMPIC_CONSTANTS.factors.gesConfirmed.bonus;
+    if (pacemaker) bonusPercentage += OZEMPIC_CONSTANTS.factors.pacemaker.bonus;
 
     const factorBonus = baseHigh * bonusPercentage;
 

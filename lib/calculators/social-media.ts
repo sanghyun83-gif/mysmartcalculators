@@ -62,6 +62,13 @@ export const SOCIAL_2026 = {
         affectedYouth: 25000000,
         mdlCourt: "Northern District of California",
         mdlNumber: "MDL 3047",
+        designLiabilityFactor: 1.5, // +α Step 1: Design-based liability bypass
+        algorithmMultiplier: 1.3, // +α Step 1: Algorithmic manipulation
+    },
+    expertFactors: {
+        algorithmicHarm: { id: "algo", label: "Algorithmic Manipulation (Infinite Scroll/Rewards)", multiplier: 1.3 },
+        section230Bypass: { id: "s230", label: "Section 230 Design Liability Exception", multiplier: 1.5 },
+        coppaViolation: { id: "coppa", label: "COPPA/Age-Gate Failure", multiplier: 1.25 }
     },
     citations: [
         {
@@ -95,19 +102,64 @@ export const CALCULATORS = [
     { id: "social-media/state-lawsuits", name: "State Lawsuits", shortName: "States", description: "State AG lawsuits map", icon: MapPin, keywords: ["social media state lawsuit"], featured: false },
 ] as const;
 
-export interface SocialResult { platform: string; symptom: string; ageGroup: string; usageDuration: string; baseDamages: number; platformBonus: number; ageBonus: number; usageBonus: number; totalLow: number; totalMid: number; totalHigh: number; }
+export interface SocialResult {
+    platform: string;
+    symptom: string;
+    ageGroup: string;
+    usageDuration: string;
+    baseDamages: number;
+    platformBonus: number;
+    ageBonus: number;
+    usageBonus: number;
+    expertBonus: number; // +α Step 4
+    totalLow: number;
+    totalMid: number;
+    totalHigh: number;
+}
 
-export function calculateSocialSettlement(platformIndex: number, symptomIndex: number, ageIndex: number, usageIndex: number): SocialResult {
+export function calculateSocialSettlement(
+    platformIndex: number,
+    symptomIndex: number,
+    ageIndex: number,
+    usageIndex: number,
+    hasAlgoHarm: boolean = false, // +α Step 1
+    hasS230Bypass: boolean = false, // +α Step 1
+    hasCoppaViolation: boolean = false // +α Step 1
+): SocialResult {
     const platform = SOCIAL_2026.platforms[platformIndex];
     const symptom = SOCIAL_2026.symptoms[symptomIndex];
     const age = SOCIAL_2026.ageGroups[ageIndex];
     const usage = SOCIAL_2026.usageDuration[usageIndex];
+
     const baseDamages = symptom.avgSettlement;
     const platformBonus = baseDamages * (platform.multiplier - 1);
     const ageBonus = baseDamages * (age.multiplier - 1);
     const usageBonus = baseDamages * (usage.multiplier - 1);
-    const total = baseDamages + platformBonus + ageBonus + usageBonus;
-    return { platform: platform.name, symptom: symptom.symptom, ageGroup: age.group, usageDuration: usage.duration, baseDamages: Math.round(baseDamages), platformBonus: Math.round(platformBonus), ageBonus: Math.round(ageBonus), usageBonus: Math.round(usageBonus), totalLow: Math.round(total * 0.5), totalMid: Math.round(total), totalHigh: Math.round(total * 1.8) };
+
+    // Expert Multipliers (+α Step 1)
+    let expertMultiplier = 1.0;
+    if (hasAlgoHarm) expertMultiplier *= SOCIAL_2026.expertFactors.algorithmicHarm.multiplier;
+    if (hasS230Bypass) expertMultiplier *= SOCIAL_2026.expertFactors.section230Bypass.multiplier;
+    if (hasCoppaViolation) expertMultiplier *= SOCIAL_2026.expertFactors.coppaViolation.multiplier;
+
+    const expertBonus = (baseDamages + platformBonus + ageBonus + usageBonus) * (expertMultiplier - 1);
+
+    const total = baseDamages + platformBonus + ageBonus + usageBonus + expertBonus;
+
+    return {
+        platform: platform.name,
+        symptom: symptom.symptom,
+        ageGroup: age.group,
+        usageDuration: usage.duration,
+        baseDamages: Math.round(baseDamages),
+        platformBonus: Math.round(platformBonus),
+        ageBonus: Math.round(ageBonus),
+        usageBonus: Math.round(usageBonus),
+        expertBonus: Math.round(expertBonus),
+        totalLow: Math.round(total * 0.7), // Refined 2026 floor
+        totalMid: Math.round(total),
+        totalHigh: Math.round(total * 1.5) // Refined 2026 ceiling
+    };
 }
 
 export function formatCurrency(amount: number): string { return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(amount); }

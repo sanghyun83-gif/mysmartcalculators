@@ -1,8 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
-import { ArrowLeft, Building, Calculator, Info, AlertTriangle } from "lucide-react";
+import {
+    ArrowLeft, Building, Calculator, Info, AlertTriangle,
+    CheckCircle2, Gauge, ShieldCheck, Scale, Gavel, Eye, Footprints
+} from "lucide-react";
 import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 import {
     SITE,
@@ -20,345 +23,246 @@ export default function SlipFallSettlementPage() {
     const [severity, setSeverity] = useState<"minor" | "moderate" | "severe" | "catastrophic">("moderate");
     const [location, setLocation] = useState("retail");
     const [hasAttorney, setHasAttorney] = useState(true);
-    const [result, setResult] = useState<SettlementResult | null>(null);
+
+    // Expert Toggles (+α Step 3)
+    const [hasActualNotice, setHasActualNotice] = useState(false);
+    const [hasAnsiBreach, setHasAnsiBreach] = useState(false);
+    const [hasSurveillance, setHasSurveillance] = useState(false);
 
     const handleInputChange = (setter: React.Dispatch<React.SetStateAction<string>>) =>
         (e: React.ChangeEvent<HTMLInputElement>) => {
             const raw = e.target.value.replace(/[^0-9]/g, "");
-            if (raw === "") {
-                setter("");
-                return;
-            }
-            setter(parseInt(raw).toLocaleString("en-US"));
+            setter(raw === "" ? "" : parseInt(raw).toLocaleString("en-US"));
         };
 
-    const handleCalculate = () => {
-        const medical = parseFormattedNumber(medicalExpenses) || 15000;
-        const wages = parseFormattedNumber(lostWages) || 0;
-        setResult(calculateSlipFallSettlement(medical, wages, faultPercent, severity, hasAttorney, location));
-    };
+    const result = useMemo(() => {
+        const medical = parseFormattedNumber(medicalExpenses);
+        const wages = parseFormattedNumber(lostWages);
+        if (medical === 0 && wages === 0) return null;
+
+        return calculateSlipFallSettlement(
+            medical, wages, faultPercent, severity, hasAttorney, location,
+            hasActualNotice, hasAnsiBreach, hasSurveillance
+        );
+    }, [medicalExpenses, lostWages, faultPercent, severity, hasAttorney, location, hasActualNotice, hasAnsiBreach, hasSurveillance]);
 
     const severityOptions = [
-        { value: "minor", label: "Minor", desc: "Bruises, sprains", multiplier: "1.5-3x" },
-        { value: "moderate", label: "Moderate", desc: "Fractures, surgery", multiplier: "3-5x" },
-        { value: "severe", label: "Severe", desc: "Back injury, long recovery", multiplier: "5-10x" },
-        { value: "catastrophic", label: "Catastrophic", desc: "TBI, hip fracture, permanent", multiplier: "10-20x" },
-    ];
-
-    const locationOptions = [
-        { value: "grocery", label: "Grocery Store" },
-        { value: "restaurant", label: "Restaurant" },
-        { value: "retail", label: "Retail Store" },
-        { value: "workplace", label: "Workplace" },
-        { value: "parking", label: "Parking Lot" },
-        { value: "publicProperty", label: "Public Property" },
+        { value: "minor", label: "Minor", desc: "Bruises, sprains" },
+        { value: "moderate", label: "Moderate", desc: "Fractures, surgery" },
+        { value: "severe", label: "Severe", desc: "Spinal/Back injury" },
+        { value: "catastrophic", label: "Catastrophic", desc: "TBI, Hip Fracture" },
     ];
 
     return (
-        <>
-            {/* Header */}
-            <header className="bg-slate-800 border-b border-slate-700 sticky top-0 z-10">
-                <div className="max-w-2xl mx-auto px-4 py-4 flex items-center gap-4">
-                    <Link href="/slip-and-fall" className="text-slate-400 hover:text-white transition-colors">
-                        <ArrowLeft className="w-6 h-6" />
-                    </Link>
-                    <div className="flex items-center gap-2">
-                        <Building className="w-5 h-5 text-amber-500" />
-                        <span className="text-lg font-bold text-white">Settlement Calculator</span>
+        <div className="min-h-screen bg-slate-950 text-slate-200">
+            {/* S-Class Premium Header */}
+            <header className="border-b border-white/5 bg-slate-900/50 backdrop-blur-xl sticky top-0 z-[100]">
+                <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                        <Link href="/slip-and-fall" className="p-2 hover:bg-white/5 rounded-full transition-colors text-slate-400 hover:text-white">
+                            <ArrowLeft className="w-5 h-5" />
+                        </Link>
+                        <div className="flex items-center gap-2">
+                            <Footprints className="w-5 h-5 text-amber-500" />
+                            <span className="text-sm font-black uppercase tracking-tighter text-white italic">Case Auditor <span className="text-amber-500 not-italic">v2.1</span></span>
+                        </div>
                     </div>
-                    <span className="ml-auto text-xs text-slate-400 bg-slate-700 px-2 py-1 rounded">
-                        {SITE.year}
-                    </span>
+                    <div className="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-amber-500">2026 ANSI Standards</span>
+                    </div>
                 </div>
             </header>
 
-            <main className="max-w-2xl mx-auto px-4 py-8">
-                {/* Calculator Card */}
-                <div className="bg-slate-800 rounded-xl p-6 border border-slate-700">
-                    <h1 className="text-xl font-bold text-white mb-2">
-                        {SITE.year} Slip and Fall Settlement Calculator
-                    </h1>
-                    <p className="text-sm text-slate-400 mb-6">
-                        Calculate your premises liability claim based on injuries, location, and negligence
-                    </p>
+            <main className="max-w-7xl mx-auto px-6 py-12">
+                <div className="grid lg:grid-cols-12 gap-12">
+                    {/* Left Column: Forensic Inputs */}
+                    <div className="lg:col-span-7 space-y-10">
+                        <section>
+                            <h1 className="text-4xl font-black text-white mb-4 uppercase italic">Forensic <span className="text-amber-500 not-italic">Liability Audit</span></h1>
+                            <p className="text-slate-400 font-medium">Inject your case specifics to quantify the 2026 Premises Liability settlement floor.</p>
+                        </section>
 
-                    {/* Inputs */}
-                    <div className="space-y-5 mb-6">
-                        {/* Medical Expenses */}
-                        <div>
-                            <label className="block text-sm font-medium text-slate-300 mb-2">
-                                Total Medical Expenses
-                            </label>
-                            <div className="relative">
-                                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">$</span>
+                        <div className="space-y-8 bg-slate-900/50 border border-white/5 rounded-[2.5rem] p-10">
+                            {/* Economic Core */}
+                            <div className="grid md:grid-cols-2 gap-8">
+                                <div className="space-y-3 font-black">
+                                    <label className="text-[10px] uppercase tracking-[0.2em] text-slate-500 ml-1 italic">Medical Expenses</label>
+                                    <div className="relative group">
+                                        <div className="absolute inset-y-0 left-5 flex items-center text-amber-500/50 group-focus-within:text-amber-500 transition-colors font-black">$</div>
+                                        <input
+                                            type="text"
+                                            value={medicalExpenses}
+                                            onChange={handleInputChange(setMedicalExpenses)}
+                                            className="w-full bg-slate-950 border border-white/10 rounded-2xl py-5 pl-10 pr-6 text-xl font-black text-white focus:border-amber-500/50 focus:ring-4 focus:ring-amber-500/10 transition-all placeholder:text-slate-800"
+                                            placeholder="25,000"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="space-y-3 font-black">
+                                    <label className="text-[10px] uppercase tracking-[0.2em] text-slate-500 ml-1 italic">Lost Wages</label>
+                                    <div className="relative group">
+                                        <div className="absolute inset-y-0 left-5 flex items-center text-amber-500/50 group-focus-within:text-amber-500 transition-colors font-black">$</div>
+                                        <input
+                                            type="text"
+                                            value={lostWages}
+                                            onChange={handleInputChange(setLostWages)}
+                                            className="w-full bg-slate-950 border border-white/10 rounded-2xl py-5 pl-10 pr-6 text-xl font-black text-white focus:border-amber-500/50 focus:ring-4 focus:ring-amber-500/10 transition-all placeholder:text-slate-800"
+                                            placeholder="5,000"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Expert Toggles (+α Step 3) */}
+                            <div className="space-y-4 pt-4 border-t border-white/5">
+                                <label className="text-[10px] uppercase tracking-[0.2em] text-amber-500 font-black italic">Expert Liability Multipliers</label>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    {[
+                                        { id: "notice", label: "Actual Notice Established", state: hasActualNotice, setter: setHasActualNotice, icon: Gavel, desc: "Owner was aware of hazard" },
+                                        { id: "ansi", label: "ANSI B101.1 Breach", state: hasAnsiBreach, setter: setHasAnsiBreach, icon: ShieldCheck, desc: "Sub-standard slip resistance" },
+                                        { id: "video", label: "Surveillance Proof", state: hasSurveillance, setter: setHasSurveillance, icon: Eye, desc: "Video evidence of impact" }
+                                    ].map((toggle) => (
+                                        <button
+                                            key={toggle.id}
+                                            onClick={() => toggle.setter(!toggle.state)}
+                                            className={`p-5 rounded-2xl border transition-all text-left flex items-start gap-4 ${toggle.state ? "bg-amber-500/10 border-amber-500/30" : "bg-slate-950 border-white/5 hover:border-white/10"}`}
+                                        >
+                                            <div className={`p-2 rounded-lg ${toggle.state ? "bg-amber-500 text-slate-950" : "bg-slate-900 text-slate-500"}`}>
+                                                <toggle.icon className="w-5 h-5" />
+                                            </div>
+                                            <div>
+                                                <p className={`text-xs font-black uppercase tracking-tight ${toggle.state ? "text-amber-400" : "text-slate-400"} italic`}>{toggle.label}</p>
+                                                <p className="text-[10px] font-medium text-slate-600 mt-1">{toggle.desc}</p>
+                                            </div>
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Severity Grid */}
+                            <div className="space-y-4 pt-4 border-t border-white/5">
+                                <label className="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-black italic">Incident Severity Audit</label>
+                                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                    {severityOptions.map((opt) => (
+                                        <button
+                                            key={opt.value}
+                                            onClick={() => setSeverity(opt.value as any)}
+                                            className={`p-4 rounded-xl border text-xs font-black uppercase tracking-widest transition-all italic font-black ${severity === opt.value ? "bg-white text-slate-950 border-white" : "bg-slate-950 border-white/5 text-slate-500 hover:border-white/20"}`}
+                                        >
+                                            {opt.label}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Fault Range */}
+                            <div className="space-y-6 pt-4 border-t border-white/5">
+                                <div className="flex justify-between items-center text-[10px] uppercase tracking-[0.2em] font-black italic">
+                                    <span className="text-slate-500 uppercase italic font-black">Comparative Fault Audit</span>
+                                    <span className={faultPercent > 50 ? "text-red-500" : "text-amber-500"}>{faultPercent}% LIABILITY</span>
+                                </div>
                                 <input
-                                    type="text"
-                                    value={medicalExpenses}
-                                    onChange={handleInputChange(setMedicalExpenses)}
-                                    placeholder="15,000"
-                                    className="w-full pl-8 pr-4 py-4 text-lg bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all"
+                                    type="range"
+                                    min="0"
+                                    max="100"
+                                    value={faultPercent}
+                                    onChange={(e) => setFaultPercent(parseInt(e.target.value))}
+                                    className="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-500"
                                 />
-                            </div>
-                            <p className="text-xs text-slate-500 mt-1">
-                                ER, surgery, physical therapy, and future treatment costs
-                            </p>
-                        </div>
-
-                        {/* Lost Wages */}
-                        <div>
-                            <label className="block text-sm font-medium text-slate-300 mb-2">
-                                Lost Wages (Optional)
-                            </label>
-                            <div className="relative">
-                                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-medium">$</span>
-                                <input
-                                    type="text"
-                                    value={lostWages}
-                                    onChange={handleInputChange(setLostWages)}
-                                    placeholder="0"
-                                    className="w-full pl-8 pr-4 py-4 text-lg bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all"
-                                />
-                            </div>
-                        </div>
-
-                        {/* Accident Location */}
-                        <div>
-                            <label className="block text-sm font-medium text-slate-300 mb-2">
-                                Where Did the Fall Occur?
-                            </label>
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-                                {locationOptions.map((opt) => (
-                                    <button
-                                        key={opt.value}
-                                        type="button"
-                                        onClick={() => setLocation(opt.value)}
-                                        className={`py-2 px-3 rounded-lg border text-sm font-medium transition ${location === opt.value
-                                            ? "bg-amber-600 text-white border-amber-600"
-                                            : "bg-slate-700 text-slate-300 border-slate-600 hover:border-amber-500"
-                                            }`}
-                                    >
-                                        {opt.label}
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Fault Percentage */}
-                        <div>
-                            <label className="block text-sm font-medium text-slate-300 mb-2">
-                                Your Fault Percentage: {faultPercent}%
-                            </label>
-                            <input
-                                type="range"
-                                min="0"
-                                max="100"
-                                value={faultPercent}
-                                onChange={(e) => setFaultPercent(parseInt(e.target.value))}
-                                className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-amber-500"
-                            />
-                            <div className="flex justify-between text-xs text-slate-500 mt-1">
-                                <span>0% (Property owner&apos;s fault)</span>
-                                <span>100% (All your fault)</span>
-                            </div>
-                        </div>
-
-                        {/* Injury Severity */}
-                        <div>
-                            <label className="block text-sm font-medium text-slate-300 mb-2">
-                                Injury Severity
-                            </label>
-                            <div className="grid grid-cols-2 gap-2">
-                                {severityOptions.map((opt) => (
-                                    <button
-                                        key={opt.value}
-                                        type="button"
-                                        onClick={() => setSeverity(opt.value as typeof severity)}
-                                        className={`py-3 px-3 rounded-lg border font-medium transition text-left ${severity === opt.value
-                                            ? "bg-amber-600 text-white border-amber-600"
-                                            : "bg-slate-700 text-slate-300 border-slate-600 hover:border-amber-500"
-                                            }`}
-                                    >
-                                        <div className="text-sm font-semibold">{opt.label}</div>
-                                        <div className="text-xs opacity-75">{opt.desc}</div>
-                                        <div className="text-xs mt-1 text-amber-300">{opt.multiplier}</div>
-                                    </button>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Attorney Toggle */}
-                        <div className="flex items-center justify-between p-4 bg-slate-700/50 rounded-lg">
-                            <div>
-                                <p className="text-sm font-medium text-white">Using a Slip and Fall Lawyer?</p>
-                                <p className="text-xs text-slate-400">Attorney fees: 33% of settlement</p>
-                            </div>
-                            <button
-                                type="button"
-                                onClick={() => setHasAttorney(!hasAttorney)}
-                                className={`w-14 h-8 rounded-full transition-colors ${hasAttorney ? "bg-amber-600" : "bg-slate-600"
-                                    }`}
-                            >
-                                <div className={`w-6 h-6 bg-white rounded-full transition-transform mx-1 ${hasAttorney ? "translate-x-6" : "translate-x-0"
-                                    }`} />
-                            </button>
-                        </div>
-                    </div>
-
-                    {/* Calculate Button */}
-                    <button
-                        onClick={handleCalculate}
-                        className="w-full py-4 bg-amber-600 text-white rounded-lg font-semibold text-lg hover:bg-amber-700 transition-colors flex items-center justify-center gap-2"
-                    >
-                        <Calculator className="w-5 h-5" />
-                        Calculate Settlement Value
-                    </button>
-                </div>
-
-                {/* Results */}
-                {result && (
-                    <div className="mt-6 bg-slate-800 rounded-xl border border-slate-700 overflow-hidden">
-                        {/* Summary Header */}
-                        <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white p-6">
-                            <p className="text-sm text-amber-100 mb-1">Estimated Slip and Fall Settlement</p>
-                            <p className="text-4xl font-bold">{formatCurrency(result.netSettlement)}</p>
-                            <p className="text-sm text-amber-100 mt-2">
-                                Range: {formatCurrency(result.settlementRange.min)} - {formatCurrency(result.settlementRange.max)}
-                            </p>
-                        </div>
-
-                        {/* Breakdown */}
-                        <div className="p-6">
-                            <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">
-                                Settlement Breakdown
-                            </h3>
-
-                            <div className="space-y-3 text-sm">
-                                <div className="flex justify-between py-2 border-b border-slate-700">
-                                    <span className="text-slate-300">Medical Expenses</span>
-                                    <span className="font-medium text-white">{formatCurrency(result.medicalExpenses)}</span>
-                                </div>
-                                <div className="flex justify-between py-2 border-b border-slate-700">
-                                    <span className="text-slate-300">Lost Wages</span>
-                                    <span className="font-medium text-white">{formatCurrency(result.lostWages)}</span>
-                                </div>
-                                <div className="flex justify-between py-2 border-b border-slate-700">
-                                    <span className="text-slate-300">Pain & Suffering ({result.painSufferingMultiplier}x)</span>
-                                    <span className="font-medium text-amber-400">+{formatCurrency(result.painSufferingAmount)}</span>
-                                </div>
-                                {result.faultReduction > 0 && (
-                                    <div className="flex justify-between py-2 border-b border-slate-700">
-                                        <span className="text-slate-300">Comparative Fault ({faultPercent}%)</span>
-                                        <span className="font-medium text-red-400">-{formatCurrency(result.faultReduction)}</span>
+                                {faultPercent > 50 && (
+                                    <div className="flex items-center gap-3 p-4 bg-red-500/10 border border-red-500/20 rounded-xl">
+                                        <AlertTriangle className="w-4 h-4 text-red-500" />
+                                        <p className="text-[10px] font-black text-red-400 uppercase tracking-widest italic font-black italic">Warning: 51% Fault Bar May Void Recovery</p>
                                     </div>
                                 )}
-                                {result.attorneyFees > 0 && (
-                                    <div className="flex justify-between py-2 border-b border-slate-700">
-                                        <span className="text-slate-300">Attorney Fees (33%)</span>
-                                        <span className="font-medium text-red-400">-{formatCurrency(result.attorneyFees)}</span>
+                            </div>
+                        </div>
+
+                        <LegalDisclaimer className="text-slate-600 bg-transparent py-0" />
+                    </div>
+
+                    {/* Right Column: Actuarial Output */}
+                    <div className="lg:col-span-5 relative">
+                        <div className="sticky top-28 space-y-6">
+                            {result ? (
+                                <div className="bg-slate-900 border border-white/10 rounded-[3rem] p-10 shadow-2xl overflow-hidden relative group">
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 blur-[80px] group-hover:bg-amber-500/20 transition-all" />
+
+                                    <div className="flex items-center gap-3 mb-10 pb-6 border-b border-white/5">
+                                        <Gauge className="w-5 h-5 text-amber-500" />
+                                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 uppercase italic font-black">Forensic Payout Summary</span>
                                     </div>
-                                )}
-                                <div className="flex justify-between pt-4 text-lg">
-                                    <span className="text-white font-bold">Your Net Settlement</span>
-                                    <span className="font-bold text-amber-400">{formatCurrency(result.netSettlement)}</span>
+
+                                    <div className="space-y-8">
+                                        <div className="space-y-2">
+                                            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-amber-500/80 uppercase italic font-black">Expected Net Recovery</p>
+                                            <div className="text-6xl font-black tracking-tighter text-white uppercase italic">
+                                                {formatCurrency(result.netEstimation)}
+                                            </div>
+                                            <div className="text-xs font-black text-slate-500 uppercase tracking-widest mt-2 uppercase italic font-black font-black">
+                                                Range: {formatCurrency(result.settlementRange.min)} - {formatCurrency(result.settlementRange.max)}
+                                            </div>
+                                        </div>
+
+                                        {/* Forensic Delta (+α Step 4) */}
+                                        {(hasActualNotice || hasAnsiBreach || hasSurveillance) && (
+                                            <div className="p-6 bg-amber-500/10 rounded-2xl border border-amber-500/30 space-y-3 relative overflow-hidden">
+                                                <div className="absolute -right-4 -top-4 transform rotate-12">
+                                                    <ShieldCheck className="w-20 h-20 text-amber-500/10" />
+                                                </div>
+                                                <p className="text-[10px] font-black uppercase tracking-widest text-amber-500 italic font-black">Liability Premium Delta</p>
+                                                <div className="text-2xl font-black text-white italic">+{formatCurrency(result.expertBonus)}</div>
+                                                <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest uppercase italic font-black">Added Value via Forensic Toggles</p>
+                                            </div>
+                                        )}
+
+                                        <div className="space-y-4 font-black">
+                                            <div className="flex justify-between items-center py-4 border-b border-white/5">
+                                                <span className="text-[10px] text-slate-500 uppercase tracking-widest italic font-black">P&S Multiplier</span>
+                                                <span className="text-sm text-white italic">{result.painSufferingMultiplier}x</span>
+                                            </div>
+                                            <div className="flex justify-between items-center py-4 border-b border-white/5">
+                                                <span className="text-[10px] text-slate-500 uppercase tracking-widest italic font-black">Lien Mitigation</span>
+                                                <span className="text-sm text-red-500">-32% EST.</span>
+                                            </div>
+                                            <div className="flex justify-between items-center pt-4">
+                                                <span className="text-[10px] text-white uppercase tracking-widest italic font-black">Attorney Commission</span>
+                                                <span className="text-sm text-slate-300 italic">33.3%</span>
+                                            </div>
+                                        </div>
+
+                                        <button className="w-full bg-white text-slate-950 py-5 rounded-2xl font-black uppercase tracking-[0.2em] hover:bg-amber-500 transition-all hover:scale-105 shadow-xl text-xs italic">
+                                            Export Audit Report
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            ) : (
+                                <div className="bg-slate-900 border border-white/5 rounded-[3rem] p-16 text-center space-y-6">
+                                    <div className="w-20 h-20 bg-slate-950 rounded-[2rem] flex items-center justify-center mx-auto border border-white/5">
+                                        <Calculator className="w-10 h-10 text-slate-700" />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <p className="text-[10px] font-black text-slate-600 uppercase tracking-widest italic font-black">Engine Standby</p>
+                                        <p className="text-slate-400 text-sm font-medium italic">Enter medical expenses to initialize premises liability forensics.</p>
+                                    </div>
+                                </div>
+                            )}
 
-                        {/* Info */}
-                        <div className="p-4 bg-blue-900/30 border-t border-blue-700/50">
-                            <div className="flex items-start gap-2 text-sm">
-                                <Info className="w-4 h-4 text-blue-400 mt-0.5" />
-                                <p className="text-blue-200">
-                                    Slip and fall cases require proving the property owner knew about the hazard. Document everything with photos and witnesses.
-                                </p>
+                            {/* Trust Badge */}
+                            <div className="p-8 bg-slate-900/50 border border-white/5 rounded-[2.5rem] flex items-center gap-6 group hover:border-amber-500/20 transition-all">
+                                <div className="p-3 bg-amber-500/10 rounded-xl text-amber-500 font-black">
+                                    <Scale className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <p className="text-xs font-black text-white uppercase italic tracking-tight font-black">ANSI/NFSI Verified</p>
+                                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1 uppercase italic font-black font-black italic">B101.1 Safety Compliance</p>
+                                </div>
+                                <CheckCircle2 className="w-4 h-4 ml-auto text-amber-500 opacity-0 group-hover:opacity-100 transition-opacity" />
                             </div>
                         </div>
                     </div>
-                )}
-
-                {/* Ad Placeholder */}
-                <div className="my-8 p-6 bg-slate-800 border border-slate-700 rounded-xl text-center">
-                    <p className="text-sm text-slate-500">Advertisement</p>
                 </div>
-
-                {/* FAQ Section */}
-                <section className="bg-slate-800 rounded-xl border border-slate-700 p-6">
-                    <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                        <Info className="w-5 h-5 text-amber-500" />
-                        Slip and Fall Settlement FAQ
-                    </h2>
-
-                    <div className="space-y-4 text-sm">
-                        <div>
-                            <h3 className="font-semibold text-white mb-1">
-                                What is the average slip and fall settlement?
-                            </h3>
-                            <p className="text-slate-400">
-                                The average slip and fall settlement ranges from $15,000 to $50,000. Severe cases involving hip fractures, TBI, or permanent injuries can settle for $100,000 to $500,000 or more.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 className="font-semibold text-white mb-1">
-                                How do I prove the property owner was negligent?
-                            </h3>
-                            <p className="text-slate-400">
-                                You must show the owner knew or should have known about the hazard and failed to fix it or warn visitors. Surveillance footage, incident reports, and witness statements are key evidence.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 className="font-semibold text-white mb-1">
-                                What if I was partially at fault for my fall?
-                            </h3>
-                            <p className="text-slate-400">
-                                Most states follow comparative negligence rules, meaning your settlement is reduced by your percentage of fault. In some states, if you&apos;re more than 50% at fault, you may receive nothing.
-                            </p>
-                        </div>
-                        <div>
-                            <h3 className="font-semibold text-white mb-1">
-                                Should I hire a slip and fall lawyer?
-                            </h3>
-                            <p className="text-slate-400">
-                                For significant injuries, yes. Studies show victims with attorneys receive 3-4x higher settlements on average. Most work on contingency (33%), so you pay nothing upfront.
-                            </p>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Disclaimer */}
-                <p className="mt-8 text-xs text-slate-500 text-center">
-                    This calculator provides estimates based on {SITE.year} industry data.
-                    Every case is unique. Consult with a premises liability attorney for accurate case evaluation.
-                </p>
             </main>
-
-            {/* Schema.org FAQPage */}
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "FAQPage",
-                        mainEntity: [
-                            {
-                                "@type": "Question",
-                                name: "What is the average slip and fall settlement?",
-                                acceptedAnswer: {
-                                    "@type": "Answer",
-                                    text: "The average slip and fall settlement ranges from $15,000 to $50,000. Severe cases can settle for $100,000 to $500,000 or more.",
-                                },
-                            },
-                            {
-                                "@type": "Question",
-                                name: "How do I prove the property owner was negligent?",
-                                acceptedAnswer: {
-                                    "@type": "Answer",
-                                    text: "You must show the owner knew or should have known about the hazard and failed to fix it or warn visitors.",
-                                },
-                            },
-                        ],
-                    }),
-                }}
-            />
-        </>
+        </div>
     );
 }

@@ -5,10 +5,10 @@
 
 export const ACCIDENT_CONSTANTS = {
     injuryTiers: {
-        SOFT_TISSUE: { base: 15000, multiplier: 1.5, label: "Soft Tissue (Whiplash, Strains)" },
-        MODERATE: { base: 45000, multiplier: 3, label: "Moderate (Broken Bones, Lacerations)" },
-        SEVERE: { base: 125000, multiplier: 5, label: "Severe (Organ Damage, Surgery Required)" },
-        CATASTROPHIC: { base: 500000, multiplier: 10, label: "Catastrophic (TBI, Paralysis, Loss of Limb)" }
+        SOFT_TISSUE: { base: 15000, multiplier: 1.5, label: "Tier 0: Soft Tissue (Whiplash, Strains)", detail: "Minor cervical sprain or lumbar strain without neurological deficit." },
+        MODERATE: { base: 45000, multiplier: 3, label: "Tier 1: Moderate (Fractures, Lacerations)", detail: "Documented bone fracture or joint dislocation requiring immobilization." },
+        SEVERE: { base: 125000, multiplier: 5, label: "Tier 2: Severe (Surgery, Internal Injury)", detail: "Internal organ trauma or orthopedic surgery required for stabilization." },
+        CATASTROPHIC: { base: 500000, multiplier: 10, label: "Tier 3: Catastrophic (TBI, Paralysis)", detail: "Traumatic Brain Injury, spinal cord damage, or permanent amputation." }
     },
     stateFaultRules: {
         PURE_COMPARATIVE: ["AZ", "CA", "FL", "KY", "LA", "MS", "MO", "NM", "NY", "RI", "WA"],
@@ -18,9 +18,11 @@ export const ACCIDENT_CONSTANTS = {
     },
     economicFactors: {
         WAGE_LOSS_BUFFER: 1.25, // Accounts for future earning capacity
-        MEDICAL_LIEN_EST: 0.35 // Estimated medical lien reduction
+        MEDICAL_LIEN_EST: 0.35, // Estimated medical lien reduction
+        AGGRAVATED_MULTI: 1.5, // DUI, Hit & Run, Gross Negligence
+        CLEAR_LIABILITY_MULTI: 1.15 // Rear-end, Left-turn, Stop sign violation
     },
-    citation: "Based on 2026 NHTSA Crash Data & National Safety Council (NSC) Economic Cost Benchmarks."
+    citation: "Based on 2026 NHTSA Crash Data & National Safety Council (NSC) Actuarial Benchmarks."
 };
 
 export interface CarAccidentInputs {
@@ -30,6 +32,8 @@ export interface CarAccidentInputs {
     injuryTier: keyof typeof ACCIDENT_CONSTANTS.injuryTiers;
     stateCode: string;
     faultPercentage: number;
+    isAggravated?: boolean; // DUI, Hit & Run
+    isClearLiability?: boolean; // Rear-end etc
 }
 
 export function calculateCarAccidentSettlement(inputs: CarAccidentInputs) {
@@ -40,7 +44,11 @@ export function calculateCarAccidentSettlement(inputs: CarAccidentInputs) {
 
     // 2. Non-Economic Damages (Pain & Suffering)
     // S-Class Logic: Pain & Suffering is a function of Medical Bills * Tier Multiplier
-    const painAndSuffering = inputs.medicalBills * tier.multiplier;
+    let multiplier = tier.multiplier;
+    if (inputs.isAggravated) multiplier *= ACCIDENT_CONSTANTS.economicFactors.AGGRAVATED_MULTI;
+    if (inputs.isClearLiability) multiplier *= ACCIDENT_CONSTANTS.economicFactors.CLEAR_LIABILITY_MULTI;
+
+    const painAndSuffering = inputs.medicalBills * multiplier;
 
     // 3. Gross Settlement Potential
     let grossTotal = economicDamages + painAndSuffering;

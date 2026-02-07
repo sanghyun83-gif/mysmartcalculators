@@ -20,11 +20,17 @@ export const ROUNDUP_CONSTANTS = {
         highTiersMax: 1000000,
     },
     injuryTiers: [
-        { id: "nhl-stage-4", label: "NHL Stage IV / High Grade", baseValue: 500000, multiplier: 2.0 },
-        { id: "nhl-stage-3", label: "NHL Stage III", baseValue: 350000, multiplier: 1.5 },
-        { id: "nhl-stage-1-2", label: "NHL Stage I-II", baseValue: 200000, multiplier: 1.0 },
-        { id: "other-lymphoma", label: "Other Lymphoma Types", baseValue: 100000, multiplier: 0.8 },
+        { id: "nhl-stage-4", label: "NHL Stage IV / High Grade (DLBCL)", baseValue: 500000, multiplier: 2.0, subtypeWeight: 1.4 },
+        { id: "nhl-stage-3", label: "NHL Stage III", baseValue: 350000, multiplier: 1.5, subtypeWeight: 1.3 },
+        { id: "nhl-stage-1-2", label: "NHL Stage I-II", baseValue: 200000, multiplier: 1.0, subtypeWeight: 1.1 },
+        { id: "other-lymphoma", label: "Other Lymphoma Types (Follicular/SLL)", baseValue: 100000, multiplier: 0.8, subtypeWeight: 1.0 },
     ],
+    expertFactors: {
+        monsantoPapers: { id: "ghost", label: "Monsanto Papers Evidence (Ghostwriting)", multiplier: 1.35 },
+        failureToWarn: { id: "warn", label: "Failure to Warn (Aggravated)", multiplier: 1.25 },
+        durnellCatalyst: { id: "durnell", label: "2026 Durnell SC Catalyst", multiplier: 1.15 }
+    },
+    lienMitigation: 0.72, // +α Step 1: Estimated take-home factor after Medicare/Medicaid liens
     exposureLevels: [
         { id: "ext", label: "Extensive (20+ Years / Commercial)", factor: 1.5 },
         { id: "med", label: "Moderate (5-20 Years / Residential)", factor: 1.0 },
@@ -42,6 +48,8 @@ export interface RoundupResult {
     injuryLabel: string;
     exposureLabel: string;
     liabilityMultiplier: number;
+    expertBonus: number; // +α Step 1
+    netEstimation: number; // +α Step 1
 }
 
 export function calculateRoundupSettlement(
@@ -49,7 +57,10 @@ export function calculateRoundupSettlement(
     exposureId: string,
     medicalBills: number,
     isCommercial: boolean,
-    pre2015Diagnosis: boolean // 2015 IARC Classification window
+    pre2015Diagnosis: boolean,
+    hasMonsantoEvidence: boolean = false, // +α Step 1
+    hasWarnAggravation: boolean = false, // +α Step 1
+    hasDurnellCatalyst: boolean = false  // +α Step 1
 ): RoundupResult {
     const injury = ROUNDUP_CONSTANTS.injuryTiers.find(t => t.id === injuryId) || ROUNDUP_CONSTANTS.injuryTiers[2];
     const exposure = ROUNDUP_CONSTANTS.exposureLevels.find(e => e.id === exposureId) || ROUNDUP_CONSTANTS.exposureLevels[1];
@@ -68,17 +79,28 @@ export function calculateRoundupSettlement(
     // Economic Multiplier (Special Damages)
     const economicImpact = medicalBills * 2.5;
 
-    const totalMid = (baseValue * injury.multiplier * exposureFactor * liabilityMultiplier) + economicImpact;
+    // Expert Multipliers (+α Step 1)
+    let expertMultiplier = 1.0;
+    if (hasMonsantoEvidence) expertMultiplier *= ROUNDUP_CONSTANTS.expertFactors.monsantoPapers.multiplier;
+    if (hasWarnAggravation) expertMultiplier *= ROUNDUP_CONSTANTS.expertFactors.failureToWarn.multiplier;
+    if (hasDurnellCatalyst) expertMultiplier *= ROUNDUP_CONSTANTS.expertFactors.durnellCatalyst.multiplier;
+
+    const baseCalculated = (baseValue * injury.multiplier * exposureFactor * liabilityMultiplier * (injury.subtypeWeight || 1.0));
+    const expertBonus = baseCalculated * (expertMultiplier - 1);
+
+    const totalMid = baseCalculated + expertBonus + economicImpact;
 
     return {
-        totalLow: totalMid * 0.7,
-        totalHigh: totalMid * 1.3,
-        totalMid,
+        totalLow: Math.round(totalMid * 0.75), // Refined 2026 range
+        totalHigh: Math.round(totalMid * 1.45),
+        totalMid: Math.round(totalMid),
         baseValue,
         exposureFactor,
         injuryLabel: injury.label,
         exposureLabel: exposure.label,
-        liabilityMultiplier
+        liabilityMultiplier,
+        expertBonus: Math.round(expertBonus),
+        netEstimation: Math.round(totalMid * ROUNDUP_CONSTANTS.lienMitigation)
     };
 }
 

@@ -18,6 +18,12 @@ export function CalculatorClient() {
     const [severity, setSeverity] = useState<any>("severe");
     const [fault, setFault] = useState(0);
 
+    // Expert Audit State
+    const [fmcsa, setFmcsa] = useState(false);
+    const [venue, setVenue] = useState(false);
+    const [edr, setEdr] = useState(false);
+    const [hospital, setHospital] = useState(false);
+
     const states = getStatesList();
 
     const results = useMemo(() => {
@@ -27,9 +33,13 @@ export function CalculatorClient() {
             parseInt(wages) || 0,
             parseInt(property) || 0,
             severity,
-            fault
+            fault,
+            fmcsa,
+            venue,
+            edr,
+            hospital
         );
-    }, [state, medical, wages, property, severity, fault]);
+    }, [state, medical, wages, property, severity, fault, fmcsa, venue, edr, hospital]);
 
     return (
         <>
@@ -113,6 +123,38 @@ export function CalculatorClient() {
                                 {fault > 50 && " Caution: Recovery may be barred in Modified states."}
                             </p>
                         </div>
+
+                        {/* Nobel Expert Audit Switches */}
+                        <div className="p-8 bg-black/40 rounded-[2rem] border border-red-500/20 space-y-6">
+                            <div className="flex items-center gap-2 mb-2">
+                                <Shield className="w-4 h-4 text-red-500" />
+                                <span className="text-[11px] font-black text-white uppercase tracking-[0.2em]">Expert Logic Audit</span>
+                            </div>
+
+                            <div className="grid md:grid-cols-3 gap-4">
+                                {[
+                                    { id: 'fmcsa', label: 'FMCSA Violation', state: fmcsa, set: setFmcsa, desc: '+50% Penalty' },
+                                    { id: 'venue', label: 'Nuclear Venue', state: venue, set: setVenue, desc: '+35% Payout' },
+                                    { id: 'edr', label: 'EDR/Black Box', state: edr, set: setEdr, desc: '+15% Precision' },
+                                    { id: 'hospital', label: 'Inpatient Stay', state: hospital, set: setHospital, desc: '+25% Premium' },
+                                ].map((expert) => (
+                                    <button
+                                        key={expert.id}
+                                        onClick={() => expert.set(!expert.state)}
+                                        className={`p-4 rounded-2xl border transition-all text-left space-y-1 ${expert.state
+                                            ? 'bg-red-500/20 border-red-500 shadow-[0_0_20px_rgba(239,68,68,0.2)]'
+                                            : 'bg-white/5 border-white/5 opacity-50 grayscale hover:opacity-100'
+                                            }`}
+                                    >
+                                        <div className="text-[10px] font-black text-white uppercase leading-none">{expert.label}</div>
+                                        <div className="text-[9px] font-bold text-red-400 opacity-80 uppercase tracking-tighter">{expert.desc}</div>
+                                    </button>
+                                ))}
+                            </div>
+                            <p className="text-[9px] text-slate-500 font-medium leading-tight">
+                                *Activating these variables triggers advanced "Expert Gaps" logic used by Top 1% law firms to maximize claim value.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
@@ -142,48 +184,59 @@ export function CalculatorClient() {
                                     </div>
                                 </div>
 
-                                <div className="space-y-6">
-                                    <div className="flex items-center gap-4 group/item">
-                                        <div className="p-3 bg-red-500/10 rounded-xl group-hover/item:bg-red-500 transition-colors">
-                                            <Scale className="w-5 h-5 text-red-500 group-hover/item:text-white" />
-                                        </div>
-                                        <div>
-                                            <div className="text-[10px] font-black text-slate-500 uppercase">Multiplier Logic</div>
-                                            <div className="text-sm font-bold">Severity-Matched {results.painMultiplier}x Multiplier</div>
-                                        </div>
+                                <div className="flex items-center gap-4 group/item">
+                                    <div className="p-3 bg-red-500/10 rounded-xl group-hover/item:bg-red-500 transition-colors">
+                                        <Scale className="w-5 h-5 text-red-500 group-hover/item:text-white" />
                                     </div>
-                                    <div className="flex items-center gap-4 group/item">
-                                        <div className="p-3 bg-blue-500/10 rounded-xl group-hover/item:bg-blue-500 transition-colors">
-                                            <Gavel className="w-5 h-5 text-blue-500 group-hover/item:text-white" />
-                                        </div>
-                                        <div>
-                                            <div className="text-[10px] font-black text-slate-500 uppercase">Jurisdiction Rules</div>
-                                            <div className="text-sm font-bold">{results.stateName} Statutory Adherence</div>
-                                        </div>
+                                    <div>
+                                        <div className="text-[10px] font-black text-slate-500 uppercase">Multiplier Logic</div>
+                                        <div className="text-sm font-bold">Severity-Matched {results.painMultiplier}x Multiplier</div>
                                     </div>
                                 </div>
 
-                                <button className="w-full bg-white text-black py-6 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-slate-200 transition-all shadow-2xl">
-                                    Secure Full Case Audit <ChevronRight className="w-4 h-4 inline ml-2" />
-                                </button>
-                            </div>
-                        </div>
+                                {(fmcsa || venue || edr || hospital) && (
+                                    <div className="p-5 bg-red-500/10 border border-red-500/20 rounded-3xl space-y-3 animate-in fade-in slide-in-from-right duration-500">
+                                        <div className="text-[9px] font-black text-red-400 uppercase tracking-widest">Expert Delta Impact</div>
+                                        <div className="space-y-2">
+                                            {fmcsa && <div className="flex justify-between text-xs font-bold text-white"><span>FMCSA Violation</span> <span className="text-red-400">+{formatCurrency(results.fmcsaImpact)}</span></div>}
+                                            {venue && <div className="flex justify-between text-xs font-bold text-white"><span>Nuclear Venue</span> <span className="text-red-400">+{formatCurrency(results.venueImpact)}</span></div>}
+                                            {edr && <div className="flex justify-between text-xs font-bold text-white"><span>EDR Precision</span> <span className="text-red-400">+{formatCurrency(results.edrImpact)}</span></div>}
+                                            {hospital && <div className="flex justify-between text-xs font-bold text-white"><span>Inpatient Bonus</span> <span className="text-red-400">+{formatCurrency(results.hospitalImpact)}</span></div>}
+                                        </div>
+                                    </div>
+                                )}
 
-                        {/* EEAT Footnote */}
-                        <div className="p-6 bg-white/5 rounded-[2rem] border border-white/5 flex items-center gap-4 group cursor-default">
-                            <div className="flex -space-x-3">
-                                {[1, 2, 3].map(i => (
-                                    <div key={i} className="w-8 h-8 rounded-full border-2 border-[#111827] bg-slate-800 flex items-center justify-center text-[8px] font-black text-red-500 uppercase">DA</div>
-                                ))}
+                                <div className="flex items-center gap-4 group/item">
+                                    <div className="p-3 bg-blue-500/10 rounded-xl group-hover/item:bg-blue-500 transition-colors">
+                                        <Gavel className="w-5 h-5 text-blue-500 group-hover/item:text-white" />
+                                    </div>
+                                    <div>
+                                        <div className="text-[10px] font-black text-slate-500 uppercase">Jurisdiction Rules</div>
+                                        <div className="text-sm font-bold">{results.stateName} Statutory Adherence</div>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="text-left">
-                                <div className="text-[10px] font-bold text-slate-500 leading-none">Verified by</div>
-                                <div className="text-xs font-black text-white uppercase tracking-widest group-hover:text-red-500 transition-colors">Data Analyst Expert Team</div>
-                            </div>
+
+                            <button className="w-full bg-white text-black py-6 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-slate-200 transition-all shadow-2xl">
+                                Secure Full Case Audit <ChevronRight className="w-4 h-4 inline ml-2" />
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* EEAT Footnote */}
+                    <div className="p-6 bg-white/5 rounded-[2rem] border border-white/5 flex items-center gap-4 group cursor-default">
+                        <div className="flex -space-x-3">
+                            {[1, 2, 3].map(i => (
+                                <div key={i} className="w-8 h-8 rounded-full border-2 border-[#111827] bg-slate-800 flex items-center justify-center text-[8px] font-black text-red-500 uppercase">DA</div>
+                            ))}
+                        </div>
+                        <div className="text-left">
+                            <div className="text-[10px] font-bold text-slate-500 leading-none">Verified by</div>
+                            <div className="text-xs font-black text-white uppercase tracking-widest group-hover:text-red-500 transition-colors">Data Analyst Expert Team</div>
                         </div>
                     </div>
                 </div>
-            </main>
+            </main >
 
             {/* Mobile Sticky Result Bar - "The Dopamine Bar" */}
             <div className="lg:hidden fixed bottom-0 left-0 right-0 z-[120] bg-[#111827]/95 backdrop-blur-xl border-t border-red-500/30 p-4 shadow-[0_-10px_40px_rgba(239,68,68,0.2)] animate-in slide-in-from-bottom duration-500">
@@ -198,7 +251,7 @@ export function CalculatorClient() {
                         Audit Case Now
                     </Link>
                 </div>
-            </div>
+            </div >
         </>
     );
 }

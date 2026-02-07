@@ -55,6 +55,13 @@ export const SETTLEMENT_CONSTANTS = {
         severe: { low: 500000, high: 1500000 },
         permanent: { low: 1500000, high: 5000000 },
     },
+
+    expertMultipliers: {
+        fmcsaViolation: 1.50, // +50% for safety reg violations
+        nuclearVenue: 1.35,   // +35% for high-payout counties (e.g., South Texas)
+        edrEvidence: 1.15,    // +15% for black-box data verification
+        hospitalizationBonus: 1.25, // +25% for inpatient stay
+    }
 };
 
 // ============================================
@@ -185,6 +192,11 @@ export interface SettlementResult {
     afterAttorneyFeeLow: number;
     afterAttorneyFeeHigh: number;
     injurySeverity: string;
+    // Expert Audit Fields
+    fmcsaImpact: number;
+    venueImpact: number;
+    edrImpact: number;
+    hospitalImpact: number;
 }
 
 export function calculateSettlement(
@@ -193,7 +205,11 @@ export function calculateSettlement(
     lostWages: number,
     propertyDamage: number,
     injurySeverity: 'minor' | 'moderate' | 'severe' | 'permanent' | 'catastrophic',
-    faultPercentage: number = 0 // Your fault percentage (0-100)
+    faultPercentage: number = 0, // Your fault percentage (0-100)
+    hasFmcsaViolation: boolean = false,
+    isNuclearVenue: boolean = false,
+    hasEdrData: boolean = false,
+    wasHospitalized: boolean = false
 ): SettlementResult {
     const state = STATE_FAULT_LAWS[stateCode] || STATE_FAULT_LAWS['CA'];
     const constants = SETTLEMENT_CONSTANTS;
@@ -251,6 +267,35 @@ export function calculateSettlement(
     const afterAttorneyFeeLow = Math.round(withAttorneyLow * (1 - constants.attorneyFee));
     const afterAttorneyFeeHigh = Math.round(withAttorneyHigh * (1 - constants.attorneyFee));
 
+    let fmcsaImpact = 0;
+    let venueImpact = 0;
+    let edrImpact = 0;
+    let hospitalImpact = 0;
+
+    let finalSettlementLow = settlementLow;
+    let finalSettlementHigh = settlementHigh;
+
+    if (hasFmcsaViolation) {
+        fmcsaImpact = Math.round(finalSettlementHigh * (constants.expertMultipliers.fmcsaViolation - 1));
+        finalSettlementLow *= constants.expertMultipliers.fmcsaViolation;
+        finalSettlementHigh *= constants.expertMultipliers.fmcsaViolation;
+    }
+    if (isNuclearVenue) {
+        venueImpact = Math.round(finalSettlementHigh * (constants.expertMultipliers.nuclearVenue - 1));
+        finalSettlementLow *= constants.expertMultipliers.nuclearVenue;
+        finalSettlementHigh *= constants.expertMultipliers.nuclearVenue;
+    }
+    if (hasEdrData) {
+        edrImpact = Math.round(finalSettlementHigh * (constants.expertMultipliers.edrEvidence - 1));
+        finalSettlementLow *= constants.expertMultipliers.edrEvidence;
+        finalSettlementHigh *= constants.expertMultipliers.edrEvidence;
+    }
+    if (wasHospitalized) {
+        hospitalImpact = Math.round(finalSettlementHigh * (constants.expertMultipliers.hospitalizationBonus - 1));
+        finalSettlementLow *= constants.expertMultipliers.hospitalizationBonus;
+        finalSettlementHigh *= constants.expertMultipliers.hospitalizationBonus;
+    }
+
     return {
         state: stateCode,
         stateName: state.name,
@@ -264,13 +309,17 @@ export function calculateSettlement(
         painSufferingHigh,
         faultPercentage,
         faultReduction: faultReduction * 100,
-        settlementLow,
-        settlementHigh,
-        withAttorneyLow,
-        withAttorneyHigh,
-        afterAttorneyFeeLow,
-        afterAttorneyFeeHigh,
+        settlementLow: Math.round(finalSettlementLow),
+        settlementHigh: Math.round(finalSettlementHigh),
+        withAttorneyLow: Math.round(finalSettlementLow * (1 + constants.attorneyBonus)),
+        withAttorneyHigh: Math.round(finalSettlementHigh * (1 + constants.attorneyBonus)),
+        afterAttorneyFeeLow: Math.round(finalSettlementLow * (1 + constants.attorneyBonus) * (1 - constants.attorneyFee)),
+        afterAttorneyFeeHigh: Math.round(finalSettlementHigh * (1 + constants.attorneyBonus) * (1 - constants.attorneyFee)),
         injurySeverity: multiplierData.label,
+        fmcsaImpact,
+        venueImpact,
+        edrImpact,
+        hospitalImpact
     };
 }
 

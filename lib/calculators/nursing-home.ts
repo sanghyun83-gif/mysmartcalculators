@@ -50,13 +50,17 @@ export const NURSING_HOME_CONSTANTS_2026 = {
         unreportedPercent: 90,      // 90% of abuse goes unreported
     },
 
-    // Common Facility Violations
-    violationMultipliers: {
-        staffingRatio: 1.2,
-        priorViolations: 1.3,
-        medicaidFraud: 1.4,
-        repeatedComplaints: 1.5,
+    // Expert Multipliers (+α Step 1)
+    expertFactors: {
+        cmsRating: {
+            oneStar: { id: "cms1", label: "CMS 1-Star Rating (Substandard Care)", multiplier: 1.40 },
+            twoStar: { id: "cms2", label: "CMS 2-Star Rating", multiplier: 1.20 }
+        },
+        staffingBreach: { id: "staff", label: "Federal Staffing Minimum Breach", multiplier: 1.25 },
+        chronicViolation: { id: "chronic", label: "Repeated F-Tag Citations", multiplier: 1.35 }
     },
+
+    lienMitigation: 0.65, // Estimated take-home factor for nursing home cases
 
     // Attorney Fees
     attorneyFees: {
@@ -172,11 +176,13 @@ export interface SettlementResult {
     futureCareCost: number;
     painSufferingMultiplier: number;
     painSufferingAmount: number;
+    expertBonus: number;                // +α Step 1
     punitiveMultiplier: number;
     punitiveDamages: number;
     totalBeforeFees: number;
     attorneyFees: number;
     netSettlement: number;
+    netEstimation: number;              // +α Step 1
     settlementRange: { min: number; max: number };
 }
 
@@ -185,7 +191,10 @@ export function calculateNursingHomeSettlement(
     futureCareCost: number,
     abuseType: keyof typeof ABUSE_TYPES,
     hasPriorViolations: boolean = false,
-    hasAttorney: boolean = true
+    hasAttorney: boolean = true,
+    hasCmsPenalty: boolean = false,      // +α Step 1
+    hasStaffingBreach: boolean = false, // +α Step 1
+    hasChronicViolation: boolean = false // +α Step 1
 ): SettlementResult {
     const abuse = ABUSE_TYPES[abuseType];
     const severity = abuse.severity as keyof typeof NURSING_HOME_CONSTANTS_2026.multipliers;
@@ -193,6 +202,12 @@ export function calculateNursingHomeSettlement(
 
     // Economic damages
     const economicDamages = medicalExpenses + futureCareCost;
+
+    // Expert Multipliers (+α Step 1)
+    let expertMultiplier = 1.0;
+    if (hasCmsPenalty) expertMultiplier *= NURSING_HOME_CONSTANTS_2026.expertFactors.cmsRating.oneStar.multiplier;
+    if (hasStaffingBreach) expertMultiplier *= NURSING_HOME_CONSTANTS_2026.expertFactors.staffingBreach.multiplier;
+    if (hasChronicViolation) expertMultiplier *= NURSING_HOME_CONSTANTS_2026.expertFactors.chronicViolation.multiplier;
 
     // Pain & suffering
     const painSufferingMultiplier = multipliers.avg;
@@ -202,29 +217,35 @@ export function calculateNursingHomeSettlement(
     const punitiveMultiplier = hasPriorViolations ? 2 : 0;
     const punitiveDamages = hasPriorViolations ? Math.round(economicDamages * punitiveMultiplier) : 0;
 
-    // Total
+    // Total before Expert Bonus
     const subtotal = economicDamages + painSufferingAmount + punitiveDamages;
+
+    // Expert Bonus Calculation
+    const expertBonus = subtotal * (expertMultiplier - 1);
+    const adjustedTotal = subtotal + expertBonus;
 
     // Attorney fees
     const attorneyFees = hasAttorney
-        ? Math.round(subtotal * NURSING_HOME_CONSTANTS_2026.attorneyFees.preSettlement)
+        ? Math.round(adjustedTotal * NURSING_HOME_CONSTANTS_2026.attorneyFees.preSettlement)
         : 0;
 
-    const netSettlement = subtotal - attorneyFees;
+    const netSettlement = adjustedTotal - attorneyFees;
 
     return {
         medicalExpenses,
         futureCareCost,
         painSufferingMultiplier,
         painSufferingAmount,
+        expertBonus: Math.round(expertBonus),
         punitiveMultiplier,
         punitiveDamages,
-        totalBeforeFees: subtotal,
+        totalBeforeFees: Math.round(adjustedTotal),
         attorneyFees,
         netSettlement,
+        netEstimation: Math.round(netSettlement * NURSING_HOME_CONSTANTS_2026.lienMitigation),
         settlementRange: {
-            min: abuse.avgSettlement.min,
-            max: abuse.avgSettlement.max,
+            min: Math.round(abuse.avgSettlement.min * expertMultiplier),
+            max: Math.round(abuse.avgSettlement.max * expertMultiplier),
         },
     };
 }

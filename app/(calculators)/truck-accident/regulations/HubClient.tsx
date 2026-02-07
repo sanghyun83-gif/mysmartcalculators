@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, Shield, AlertTriangle, ArrowRight, Gavel, Scale, FileText, Activity } from "lucide-react";
+import { ArrowLeft, Shield, TriangleAlert, ArrowRight, Gavel, Scale, FileText, Activity } from "lucide-react";
 
 export default function TruckRegulationsHub() {
     return (
@@ -59,7 +59,7 @@ export default function TruckRegulationsHub() {
                         </h2>
                         <div className="prose prose-invert prose-slate max-w-none text-slate-400 space-y-6 text-lg font-medium leading-[1.8]">
                             <p>
-                                The "Hours of Service" (HOS) regulations were created to prevent driver fatigueâ€”one of the leading causes of fatal 18-wheeler accidents. Current 2026 standards require strict adherence to the **14-hour driving window** and mandatory **10-hour rest periods**.
+                                The "Hours of Service" (HOS) regulations were created to prevent driver fatigue?”one of the leading causes of fatal 18-wheeler accidents. Current 2026 standards require strict adherence to the **14-hour driving window** and mandatory **10-hour rest periods**.
                             </p>
                             <p>
                                 In many cases, trucking companies incentivize drivers to exceed these limits, leading to "falsified logs." If discovery reveals a discrepancy between GPS data and the driver's logbook, the case moves from simple negligence to **Punitive Damages** territory.
@@ -70,7 +70,7 @@ export default function TruckRegulationsHub() {
                     {/* Section 2: Maintenance */}
                     <section id="maintenance" className="p-12 bg-slate-900 border border-white/10 rounded-[4rem] space-y-8 relative overflow-hidden text-balance">
                         <div className="absolute -right-8 -top-8 p-12 opacity-5">
-                            <AlertTriangle className="w-48 h-48 text-emerald-500" />
+                            <TriangleAlert className="w-48 h-48 text-emerald-500" />
                         </div>
                         <h2 className="text-3xl font-black text-white italic">Maintenance & Log Integrity</h2>
                         <div className="prose prose-invert prose-slate text-slate-400 text-lg font-medium leading-relaxed space-y-6">

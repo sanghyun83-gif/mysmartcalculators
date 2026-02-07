@@ -16,6 +16,9 @@ export function CalculatorClient() {
     const [medicalBills, setMedicalBills] = useState("75000");
     const [isCommercial, setIsCommercial] = useState(false);
     const [pre2015, setPre2015] = useState(false);
+    const [hasMonsanto, setHasMonsanto] = useState(false); // +α Step 4
+    const [hasWarn, setHasWarn] = useState(false); // +α Step 4
+    const [hasDurnell, setHasDurnell] = useState(false); // +α Step 4
 
     const results = useMemo(() => {
         return calculateRoundupSettlement(
@@ -23,9 +26,12 @@ export function CalculatorClient() {
             exposure,
             parseInt(medicalBills.replace(/[^0-9]/g, '')) || 0,
             isCommercial,
-            pre2015
+            pre2015,
+            hasMonsanto,
+            hasWarn,
+            hasDurnell
         );
-    }, [injury, exposure, medicalBills, isCommercial, pre2015]);
+    }, [injury, exposure, medicalBills, isCommercial, pre2015, hasMonsanto, hasWarn, hasDurnell]);
 
     return (
         <>
@@ -108,7 +114,10 @@ export function CalculatorClient() {
                                 <div className="space-y-5">
                                     {[
                                         { id: 'comm', l: 'Commercial Usage (Landscaping/Farm)', v: isCommercial, s: setIsCommercial },
-                                        { id: 'pre15', l: 'Pre-2015 Diagnosis Window', v: pre2015, s: setPre2015 }
+                                        { id: 'pre15', l: 'Pre-2015 Diagnosis Window', v: pre2015, s: setPre2015 },
+                                        { id: 'monsanto', l: 'Monsanto Papers Evidence (+α)', v: hasMonsanto, s: setHasMonsanto },
+                                        { id: 'warn', l: 'Failure to Warn Aggravation (+α)', v: hasWarn, s: setHasWarn },
+                                        { id: 'durnell', l: '2026 Durnell SC Catalyst (+α)', v: hasDurnell, s: setHasDurnell }
                                     ].map((f) => (
                                         <label key={f.id} className="flex items-center gap-4 cursor-pointer group">
                                             <div className="relative">
@@ -176,7 +185,20 @@ export function CalculatorClient() {
                                 </div>
                                 <div className="flex justify-between items-center group/item">
                                     <span className="text-slate-500 font-bold uppercase tracking-widest italic group-hover/item:text-slate-400">Scientific Liability Weight</span>
-                                    <span className="text-amber-500 font-black">x{results.liabilityMultiplier.toFixed(2)}</span>
+                                    <span className="text-amber-500 font-black">X{results.liabilityMultiplier.toFixed(2)}</span>
+                                </div>
+                                {results.expertBonus > 0 && (
+                                    <div className="flex justify-between items-center group/item pt-4 border-t border-emerald-500/10">
+                                        <span className="text-emerald-500 font-black uppercase tracking-[0.2em] italic">Forensic Liability Delta</span>
+                                        <span className="text-emerald-500 font-black animate-pulse">+{formatCurrency(results.expertBonus)}</span>
+                                    </div>
+                                )}
+                                <div className="flex justify-between items-center group/item pt-4 border-t border-white/5">
+                                    <div className="flex flex-col">
+                                        <span className="text-slate-500 font-bold uppercase tracking-widest italic text-[10px]">Forensic Net Payout</span>
+                                        <span className="text-[9px] text-slate-600 font-medium">After estimated 2026 Admin Liens</span>
+                                    </div>
+                                    <span className="text-white font-black text-lg">{formatCurrency(results.netEstimation)}</span>
                                 </div>
                             </div>
 

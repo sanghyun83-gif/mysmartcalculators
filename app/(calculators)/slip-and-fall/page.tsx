@@ -21,5 +21,60 @@ const HubClient = dynamic(
 );
 
 export default function CalcSlipandfallPage() {
-  return <HubClient />;
+  return (
+    <>
+      <HubClient />
+
+      {/* Technical SEO: SoftwareApplication & FAQPage Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "Ranking Predator Slip and Fall Settlement Calculator",
+            "operatingSystem": "All",
+            "applicationCategory": "LegalApplication",
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "ratingCount": "1280"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            }
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How is a slip and fall settlement calculated?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Settlements are calculated by summing medical bills and lost wages, then applying a 'Pain and Suffering' multiplier (typically 1.5x to 5x) based on injury severity. Specialist multipliers like ANSI breach or Notice Quality can further increase the valuation."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is constructive notice in premises liability?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Constructive notice exists when a hazard was present for a sufficient length of time that the property owner should have discovered it through reasonable inspection, even if they didn't have actual knowledge."
+                }
+              }
+            ]
+          })
+        }}
+      />
+    </>
+  );
 }

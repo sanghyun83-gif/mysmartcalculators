@@ -7,6 +7,7 @@ import { AlertTriangle } from 'lucide-react';
 
 interface LegalDisclaimerProps {
     category?: 'legal' | 'medical' | 'insurance' | 'finance' | 'family' | 'health' | 'general';
+    className?: string;
 }
 
 const disclaimerText = {
@@ -19,9 +20,9 @@ const disclaimerText = {
     general: "This calculator provides estimates for informational purposes only. Results should not be relied upon for making important decisions. Always consult qualified professionals."
 };
 
-export function LegalDisclaimer({ category = 'general' }: LegalDisclaimerProps) {
+export function LegalDisclaimer({ category = 'general', className }: LegalDisclaimerProps) {
     return (
-        <div className="mt-6 p-4 bg-amber-900/20 border border-amber-500/30 rounded-lg">
+        <div className={`mt-6 p-4 bg-amber-900/20 border border-amber-500/30 rounded-lg ${className || ""}`}>
             <div className="flex items-start gap-3">
                 <AlertTriangle className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
                 <div>

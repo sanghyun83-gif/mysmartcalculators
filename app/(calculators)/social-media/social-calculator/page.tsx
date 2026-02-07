@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, Smartphone, Calculator, Info, AlertTriangle } from "lucide-react";
+import { ArrowLeft, Smartphone, Calculator, Info, AlertTriangle, CheckCircle2 } from "lucide-react";
 import { SITE, SOCIAL_2026, calculateSocialSettlement, formatCurrency, SocialResult } from "@/lib/calculators/social-media";
 
 export default function SocialCalculatorPage() {
@@ -9,9 +9,22 @@ export default function SocialCalculatorPage() {
     const [symptomIndex, setSymptomIndex] = useState(3);
     const [ageIndex, setAgeIndex] = useState(1);
     const [usageIndex, setUsageIndex] = useState(2);
+    const [hasAlgoHarm, setHasAlgoHarm] = useState(false); // +α Step 4
+    const [hasS230Bypass, setHasS230Bypass] = useState(false); // +α Step 4
+    const [hasCoppaViolation, setHasCoppaViolation] = useState(false); // +α Step 4
     const [result, setResult] = useState<SocialResult | null>(null);
 
-    const handleCalculate = () => { setResult(calculateSocialSettlement(platformIndex, symptomIndex, ageIndex, usageIndex)); };
+    const handleCalculate = () => {
+        setResult(calculateSocialSettlement(
+            platformIndex,
+            symptomIndex,
+            ageIndex,
+            usageIndex,
+            hasAlgoHarm,
+            hasS230Bypass,
+            hasCoppaViolation
+        ));
+    };
 
     return (
         <>
@@ -39,6 +52,29 @@ export default function SocialCalculatorPage() {
                         <div><label className="block text-sm font-medium text-slate-300 mb-2">Usage Duration</label><select value={usageIndex} onChange={(e) => setUsageIndex(parseInt(e.target.value))} className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white">{SOCIAL_2026.usageDuration.map((u, i) => (<option key={i} value={i}>{u.duration}</option>))}</select></div>
                     </div>
 
+                    <div className="mb-6 space-y-3">
+                        <label className="block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-3">Forensic Liability Audits (+α)</label>
+                        {[
+                            { id: "algo", label: "Algorithmic Manipulation Loop", value: hasAlgoHarm, setter: setHasAlgoHarm },
+                            { id: "s230", label: "Section 230 Design Exception", value: hasS230Bypass, setter: setHasS230Bypass },
+                            { id: "coppa", label: "COPPA / Age-Gate Failure", value: hasCoppaViolation, setter: setHasCoppaViolation }
+                        ].map((f) => (
+                            <label key={f.id} className="flex items-center gap-3 cursor-pointer group">
+                                <div className="relative">
+                                    <input
+                                        type="checkbox"
+                                        className="peer sr-only"
+                                        checked={f.value}
+                                        onChange={e => f.setter(e.target.checked)}
+                                    />
+                                    <div className="w-5 h-5 border-2 border-white/10 rounded-lg bg-white/5 peer-checked:bg-amber-500 peer-checked:border-amber-500 transition-all shadow-sm" />
+                                    <CheckCircle2 className="w-3 h-3 text-slate-950 absolute top-1 left-1 opacity-0 peer-checked:opacity-100 transition-all" />
+                                </div>
+                                <span className="text-[11px] font-black text-slate-400 group-hover:text-white transition-colors uppercase tracking-widest">{f.label}</span>
+                            </label>
+                        ))}
+                    </div>
+
                     <button onClick={handleCalculate} className="w-full py-4 bg-amber-600 text-white rounded-lg font-semibold text-lg hover:bg-amber-700 flex items-center justify-center gap-2"><Calculator className="w-5 h-5" />Calculate Settlement</button>
                 </div>
 
@@ -55,8 +91,14 @@ export default function SocialCalculatorPage() {
                             <div className="space-y-3 text-sm">
                                 <div className="flex justify-between py-2 border-b border-slate-700"><span className="text-slate-300">Base Damages</span><span className="font-medium text-white">{formatCurrency(result.baseDamages)}</span></div>
                                 <div className="flex justify-between py-2 border-b border-slate-700"><span className="text-slate-300">Age Factor ({result.ageGroup})</span><span className="font-medium text-amber-400">{formatCurrency(result.ageBonus)}</span></div>
-                                <div className="flex justify-between py-2 border-b border-slate-700"><span className="text-slate-300">Usage Duration ({result.usageDuration})</span><span className="font-medium text-amber-400">{formatCurrency(result.usageBonus)}</span></div>
-                                <div className="flex justify-between py-2"><span className="text-slate-300">Platform Factor</span><span className="font-medium text-amber-400">{formatCurrency(result.platformBonus)}</span></div>
+                                <div className="flex justify-between py-2 border-b border-white/5"><span className="text-slate-400">Usage Duration ({result.usageDuration})</span><span className="font-bold text-white">{formatCurrency(result.usageBonus)}</span></div>
+                                <div className="flex justify-between py-2 border-b border-white/5"><span className="text-slate-400">Platform Factor</span><span className="font-bold text-white">{formatCurrency(result.platformBonus)}</span></div>
+                                {result.expertBonus > 0 && (
+                                    <div className="flex justify-between py-2">
+                                        <span className="text-amber-500 font-bold uppercase italic text-[10px] tracking-widest">Forensic Liability Delta</span>
+                                        <span className="font-black text-amber-500 animate-pulse">+{formatCurrency(result.expertBonus)}</span>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>
