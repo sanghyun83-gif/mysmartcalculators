@@ -73,7 +73,7 @@ export default function OffshoreCalculatorPage() {
                         <div><h3 className="font-semibold text-white mb-1">What is Maintenance and Cure?</h3><p className="text-slate-400">Maintenance and Cure is a maritime benefit that provides injured seamen with daily living expenses (maintenance) and medical care (cure) regardless of fault.</p></div>
                     </div>
                 </section>
-                <p className="mt-8 text-xs text-slate-500 text-center">{MARITIME_2026.citation}</p>
+                <p className="mt-8 text-xs text-slate-500 text-center">{MARITIME_2026.citationNote}</p>
             </main>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [{ "@type": "Question", name: "Who qualifies as a Jones Act seaman?", acceptedAnswer: { "@type": "Answer", text: "A Jones Act seaman must spend at least 30% of their work time in service of a vessel in navigation." } }] }) }} />
         </>

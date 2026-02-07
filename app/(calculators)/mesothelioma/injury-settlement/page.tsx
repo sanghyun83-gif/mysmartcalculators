@@ -6,7 +6,7 @@ import { ArrowLeft, Calculator, Info, AlertTriangle, TrendingUp, DollarSign, Ste
 import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 import {
     SITE,
-    INJURY_CONSTANTS_2025,
+
     calculateSettlement,
     formatCurrency,
     parseFormattedNumber,

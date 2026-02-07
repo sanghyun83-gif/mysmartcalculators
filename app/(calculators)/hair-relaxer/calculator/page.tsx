@@ -61,7 +61,7 @@ export default function HairRelaxerCalculatorPage() {
                         <div><h3 className="font-semibold text-white mb-1">Am I eligible to file a lawsuit?</h3><p className="text-slate-400">You may be eligible if you regularly used chemical hair straighteners/relaxers and were diagnosed with uterine cancer, ovarian cancer, endometriosis, or uterine fibroids.</p></div>
                     </div>
                 </section>
-                <p className="mt-8 text-xs text-slate-500 text-center">{HAIR_RELAXER_2026.citation}</p>
+                <p className="mt-8 text-xs text-slate-500 text-center">{HAIR_RELAXER_2026.citationNote}</p>
             </main>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [{ "@type": "Question", name: "What is the hair relaxer lawsuit about?", acceptedAnswer: { "@type": "Answer", text: "Studies link chemical hair relaxers to uterine cancer and endometriosis. Lawsuits allege manufacturers failed to warn consumers about these risks." } }] }) }} />
         </>
