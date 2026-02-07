@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { SITE, CALCULATORS, INJURY_CONSTANTS_2025, formatCurrency } from "@/lib/calculators/mesothelioma";
+import { SITE, CALCULATORS, MESO_CONSTANTS_2026, formatCurrency } from "@/lib/calculators/mesothelioma";
 import { ArrowRight, Shield, Scale, AlertTriangle } from "lucide-react";
 import { RelatedCalculators } from "@/components/RelatedCalculators";
 
@@ -55,13 +55,13 @@ export default function HubClient() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center">
               <p className="text-3xl font-bold text-amber-400">
-                {formatCurrency(INJURY_CONSTANTS_2025.avgSettlements.carAccident.avg)}
+                {formatCurrency(MESO_CONSTANTS_2026.avgSettlements.lawsuit.avg)}
               </p>
               <p className="text-sm text-slate-400 mt-1">Avg Lawsuit Settlement</p>
             </div>
             <div className="text-center">
               <p className="text-3xl font-bold text-blue-400">
-                {formatCurrency(INJURY_CONSTANTS_2025.avgSettlements.slipAndFall.avg)}
+                {formatCurrency(MESO_CONSTANTS_2026.avgSettlements.trustFund.avg)}
               </p>
               <p className="text-sm text-slate-400 mt-1">Avg Trust Fund Claim</p>
             </div>
