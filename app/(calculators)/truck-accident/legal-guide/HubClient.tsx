@@ -59,7 +59,7 @@ export default function TruckLegalHub() {
                         </h2>
                         <div className="prose prose-invert prose-slate max-w-none text-slate-400 space-y-6 text-lg font-medium leading-[1.8]">
                             <p>
-                                In 18-wheeler cases, "Pain and Suffering" is often calculated by taking your total medical bills and multiplying them by a factor?�usually between 1.5x and 5x. However, in cases involving gross negligence or safety violations, this multiplier can exceed 10x.
+                                In 18-wheeler cases, "Pain and Suffering" is often calculated by taking your total medical bills and multiplying them by a factor—usually between 1.5x and 5x. However, in cases involving gross negligence or safety violations, this multiplier can exceed 10x.
                             </p>
                             <p>
                                 Insurance adjusters use software like **Colossus** to determine these values. Our S-Class engine reverses this logic, auditing case details against the same actuarial data used by major insurance carriers in 2026.
@@ -78,7 +78,7 @@ export default function TruckLegalHub() {
                                 Under <strong className="text-white">Comparative Fault</strong>, your settlement is reduced by your percentage of fault. If you are 10% at fault and the award is $1M, you receive $900,000.
                             </p>
                             <p>
-                                <strong className="text-white underline decoration-red-500">The 51% Bar</strong>: In modified comparative states (like TX or FL), if discovery proves you are 51% or more at fault, the defendant pays zero. This is по?ем? (why) early representation and black-box data preservation are critical.
+                                <strong className="text-white underline decoration-red-500">The 51% Bar</strong>: In modified comparative states (like TX or FL), if discovery proves you are 51% or more at fault, the defendant pays zero. This is why early representation and black-box data preservation are critical.
                             </p>
                         </div>
                     </section>
