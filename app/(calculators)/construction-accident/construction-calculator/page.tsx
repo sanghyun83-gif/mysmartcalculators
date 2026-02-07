@@ -67,7 +67,7 @@ export default function ConstructionCalculatorPage() {
                         <div><h3 className="font-semibold text-white mb-1">How do OSHA violations affect settlements?</h3><p className="text-slate-400">Willful violations can multiply settlement amounts, as they indicate the employer knowingly disregarded safety regulations.</p></div>
                     </div>
                 </section>
-                <p className="mt-8 text-xs text-slate-500 text-center">{CONSTRUCTION_2026.citation}</p>
+                <p className="mt-8 text-xs text-slate-500 text-center">{CONSTRUCTION_2026.citationNote}</p>
             </main>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [{ "@type": "Question", name: "What is OSHA's Fatal Four?", acceptedAnswer: { "@type": "Answer", text: "The four leading causes of construction deaths: Falls, Struck-by, Electrocution, and Caught-in/between." } }] }) }} />
         </>
