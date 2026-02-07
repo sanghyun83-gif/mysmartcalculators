@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, Calculator, Info, AlertTriangle, Stethoscope } from "lucide-react";
+import { ArrowLeft, Calculator, Info, AlertTriangle, Stethoscope, Zap, Gavel, Shield } from "lucide-react";
 import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 import {
     SITE,
@@ -11,20 +11,9 @@ import {
     parseFormattedNumber,
     getSeverityLabel,
     getSeverityColor,
+    calculateSettlement,
+    SettlementResult
 } from "@/lib/calculators/malpractice";
-
-interface MalpracticeResult {
-    medicalExpenses: number;
-    futureCareCosts: number;
-    lostWages: number;
-    painSufferingMultiplier: number;
-    painSufferingAmount: number;
-    totalBeforeFees: number;
-    attorneyFees: number;
-    expertWitnessCosts: number;
-    netSettlement: number;
-    settlementRange: { min: number; max: number };
-}
 
 export default function MalpracticeSettlementPage() {
     const [medicalExpenses, setMedicalExpenses] = useState("");
@@ -32,7 +21,14 @@ export default function MalpracticeSettlementPage() {
     const [lostWages, setLostWages] = useState("");
     const [severity, setSeverity] = useState<"minor" | "moderate" | "severe" | "catastrophic">("severe");
     const [hasAttorney, setHasAttorney] = useState(true);
-    const [result, setResult] = useState<MalpracticeResult | null>(null);
+
+    // Expert Toggles
+    const [isNeverEvent, setIsNeverEvent] = useState(false);
+    const [hasExpertAffidavit, setHasExpertAffidavit] = useState(false);
+    const [applyFutureCareMultiplier, setApplyFutureCareMultiplier] = useState(false);
+    const [isMultipleDefendants, setIsMultipleDefendants] = useState(false);
+
+    const [result, setResult] = useState<SettlementResult | null>(null);
 
     const handleInputChange = (setter: React.Dispatch<React.SetStateAction<string>>) =>
         (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,33 +45,20 @@ export default function MalpracticeSettlementPage() {
         const future = parseFormattedNumber(futureCareCosts) || 0;
         const wages = parseFormattedNumber(lostWages) || 0;
 
-        const multipliers = MALPRACTICE_CONSTANTS.multipliers[severity];
-        const economicDamages = medical + future + wages;
-        const painSufferingMultiplier = multipliers.avg;
-        const painSufferingAmount = Math.round(medical * painSufferingMultiplier);
-        const expertWitnessCosts = MALPRACTICE_CONSTANTS.expertWitnessCosts.avg;
-        const totalBeforeFees = economicDamages + painSufferingAmount;
-        const attorneyFees = hasAttorney ? Math.round(totalBeforeFees * MALPRACTICE_CONSTANTS.attorneyFees.preSettlement) : 0;
-        const netSettlement = totalBeforeFees - attorneyFees - expertWitnessCosts;
+        const settlementResult = calculateSettlement(
+            medical,
+            future,
+            wages,
+            0, // futureLostEarnings (not used in current UI but available in lib)
+            severity,
+            hasAttorney,
+            isNeverEvent,
+            hasExpertAffidavit,
+            applyFutureCareMultiplier,
+            isMultipleDefendants
+        );
 
-        const minTotal = economicDamages + (medical * multipliers.min);
-        const maxTotal = economicDamages + (medical * multipliers.max);
-
-        setResult({
-            medicalExpenses: medical,
-            futureCareCosts: future,
-            lostWages: wages,
-            painSufferingMultiplier,
-            painSufferingAmount,
-            totalBeforeFees,
-            attorneyFees,
-            expertWitnessCosts,
-            netSettlement,
-            settlementRange: {
-                min: Math.round(hasAttorney ? minTotal * 0.67 : minTotal),
-                max: Math.round(hasAttorney ? maxTotal * 0.67 : maxTotal),
-            },
-        });
+        setResult(settlementResult);
     };
 
     const severityOptions = [
@@ -184,20 +167,54 @@ export default function MalpracticeSettlementPage() {
                             </div>
                         </div>
 
+                        {/* Expert Audit Toggles */}
+                        <div className="p-6 bg-amber-500/5 border border-amber-500/20 rounded-2xl space-y-6">
+                            <div className="flex items-center gap-2 mb-2">
+                                <Zap className="w-4 h-4 text-amber-500" />
+                                <span className="text-[10px] font-black text-amber-500 uppercase tracking-widest">Expert Case Audit (+α)</span>
+                            </div>
+
+                            <div className="grid gap-4">
+                                {[
+                                    { id: "never", label: "Never-Event (Surgical Sponge, Wrong Site)", state: isNeverEvent, setter: setIsNeverEvent, desc: "+50% Multiplier" },
+                                    { id: "affidavit", label: "Specialist Expert Affidavit Required", state: hasExpertAffidavit, setter: setHasExpertAffidavit, desc: "+35% Multiplier" },
+                                    { id: "future", label: "Long-term Future Care Projection", state: applyFutureCareMultiplier, setter: setApplyFutureCareMultiplier, desc: "+20% Multiplier" },
+                                    { id: "multi", label: "Multiple Defendants (Hospital + Doctor)", state: isMultipleDefendants, setter: setIsMultipleDefendants, desc: "+15% Multiplier" }
+                                ].map((toggle) => (
+                                    <button
+                                        key={toggle.id}
+                                        onClick={() => toggle.setter(!toggle.state)}
+                                        className={`flex items-center justify-between p-4 rounded-xl border transition-all ${toggle.state
+                                                ? "bg-amber-500/10 border-amber-500/40"
+                                                : "bg-slate-800/50 border-white/5 hover:border-white/10"
+                                            }`}
+                                    >
+                                        <div className="text-left">
+                                            <div className={`text-xs font-bold ${toggle.state ? "text-amber-400" : "text-slate-300"}`}>
+                                                {toggle.label}
+                                            </div>
+                                            <div className="text-[10px] text-slate-500 font-medium">{toggle.desc}</div>
+                                        </div>
+                                        <div className={`w-10 h-5 rounded-full relative transition-colors ${toggle.state ? "bg-amber-500" : "bg-slate-700"}`}>
+                                            <div className={`absolute top-1 w-3 h-3 bg-white rounded-full transition-all ${toggle.state ? "left-6" : "left-1"}`} />
+                                        </div>
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
                         {/* Attorney Toggle */}
-                        <div className="flex items-center justify-between p-4 bg-slate-700/50 rounded-lg">
+                        <div className="flex items-center justify-between p-6 bg-slate-900 border border-white/5 rounded-2xl">
                             <div>
-                                <p className="text-sm font-medium text-white">Using a Malpractice Attorney?</p>
-                                <p className="text-xs text-slate-400">Attorney fees: 33% + expert witness costs ~$25K</p>
+                                <p className="text-sm font-bold text-white italic">Legal Representation</p>
+                                <p className="text-[10px] text-slate-500 font-medium uppercase tracking-wider mt-1">Boosts valuation by ~3x on average</p>
                             </div>
                             <button
                                 type="button"
                                 onClick={() => setHasAttorney(!hasAttorney)}
-                                className={`w-14 h-8 rounded-full transition-colors ${hasAttorney ? "bg-amber-600" : "bg-slate-600"
-                                    }`}
+                                className={`w-14 h-8 rounded-full transition-colors relative ${hasAttorney ? "bg-amber-600 shadow-lg shadow-amber-500/20" : "bg-slate-700"}`}
                             >
-                                <div className={`w-6 h-6 bg-white rounded-full transition-transform mx-1 ${hasAttorney ? "translate-x-6" : "translate-x-0"
-                                    }`} />
+                                <div className={`absolute top-1 w-6 h-6 bg-white rounded-full transition-all shadow-md ${hasAttorney ? "left-7" : "left-1"}`} />
                             </button>
                         </div>
                     </div>
@@ -237,33 +254,74 @@ export default function MalpracticeSettlementPage() {
                                     <span className="text-slate-300">Future Care Costs</span>
                                     <span className="font-medium text-white">{formatCurrency(result.futureCareCosts)}</span>
                                 </div>
-                                <div className="flex justify-between py-2 border-b border-slate-700">
-                                    <span className="text-slate-300">Lost Wages</span>
-                                    <span className="font-medium text-white">{formatCurrency(result.lostWages)}</span>
+                                <div className="flex justify-between py-2 border-b border-white/5">
+                                    <span className="text-slate-400">Lost Wages</span>
+                                    <span className="font-bold text-white">{formatCurrency(result.lostWages)}</span>
                                 </div>
-                                <div className="flex justify-between py-2 border-b border-slate-700">
-                                    <span className="text-slate-300">Pain & Suffering ({result.painSufferingMultiplier}x)</span>
-                                    <span className="font-medium text-amber-400">+{formatCurrency(result.painSufferingAmount)}</span>
+                                <div className="flex justify-between py-2 border-b border-white/5">
+                                    <span className="text-slate-400">Pain & Suffering ({result.painSufferingMultiplier}x)</span>
+                                    <span className="font-bold text-amber-500">+{formatCurrency(result.painSufferingAmount)}</span>
                                 </div>
-                                <div className="flex justify-between py-2 border-b border-slate-700">
-                                    <span className="text-white font-medium">Total Before Fees</span>
-                                    <span className="font-bold text-white">{formatCurrency(result.totalBeforeFees)}</span>
-                                </div>
-                                {result.attorneyFees > 0 && (
-                                    <>
-                                        <div className="flex justify-between py-2 border-b border-slate-700">
-                                            <span className="text-slate-300">Attorney Fees (33%)</span>
-                                            <span className="font-medium text-red-400">-{formatCurrency(result.attorneyFees)}</span>
+
+                                {/* Expert Delta Display */}
+                                {result.totalExpertDelta > 0 && (
+                                    <div className="p-4 bg-amber-500/10 border border-amber-500/20 rounded-2xl space-y-2 mt-4">
+                                        <div className="flex items-center gap-2 mb-2">
+                                            <Zap className="w-3 h-3 text-amber-500 fill-amber-500" />
+                                            <span className="text-[10px] font-black text-amber-500 uppercase tracking-widest">Expert Delta Audit</span>
                                         </div>
-                                        <div className="flex justify-between py-2 border-b border-slate-700">
-                                            <span className="text-slate-300">Expert Witness Costs</span>
-                                            <span className="font-medium text-red-400">-{formatCurrency(result.expertWitnessCosts)}</span>
+                                        {result.neverEventImpact > 0 && (
+                                            <div className="flex justify-between text-[11px] font-bold">
+                                                <span className="text-slate-400">Never-Event Bonus</span>
+                                                <span className="text-emerald-400">+{formatCurrency(result.neverEventImpact)}</span>
+                                            </div>
+                                        )}
+                                        {result.expertAffidavitImpact > 0 && (
+                                            <div className="flex justify-between text-[11px] font-bold">
+                                                <span className="text-slate-400">Expert Affidavit Impact</span>
+                                                <span className="text-emerald-400">+{formatCurrency(result.expertAffidavitImpact)}</span>
+                                            </div>
+                                        )}
+                                        {result.futureCareImpact > 0 && (
+                                            <div className="flex justify-between text-[11px] font-bold">
+                                                <span className="text-slate-400">Future Care Projection</span>
+                                                <span className="text-emerald-400">+{formatCurrency(result.futureCareImpact)}</span>
+                                            </div>
+                                        )}
+                                        {result.multiDefendantImpact > 0 && (
+                                            <div className="flex justify-between text-[11px] font-bold">
+                                                <span className="text-slate-400">Multi-Defendant Leverage</span>
+                                                <span className="text-emerald-400">+{formatCurrency(result.multiDefendantImpact)}</span>
+                                            </div>
+                                        )}
+                                        <div className="flex justify-between pt-2 border-t border-amber-500/20 text-xs font-black">
+                                            <span className="text-amber-500">Total Expert Value Add</span>
+                                            <span className="text-amber-400">{formatCurrency(result.totalExpertDelta)}</span>
                                         </div>
-                                    </>
+                                    </div>
                                 )}
-                                <div className="flex justify-between pt-4 text-lg">
-                                    <span className="text-white font-bold">Your Net Settlement</span>
-                                    <span className="font-bold text-amber-400">{formatCurrency(result.netSettlement)}</span>
+
+                                <div className="flex justify-between py-4 text-white font-black uppercase tracking-tighter text-lg">
+                                    <span>Total Gross Valuation</span>
+                                    <span>{formatCurrency(result.totalBeforeFees)}</span>
+                                </div>
+
+                                {result.attorneyFees > 0 && (
+                                    <div className="space-y-3 opacity-60">
+                                        <div className="flex justify-between text-xs font-bold">
+                                            <span className="text-slate-400 italic">Attorney Contingency (33%)</span>
+                                            <span className="text-red-400">-{formatCurrency(result.attorneyFees)}</span>
+                                        </div>
+                                        <div className="flex justify-between text-xs font-bold">
+                                            <span className="text-slate-400 italic">Clinical Expert Costs</span>
+                                            <span className="text-red-400">-{formatCurrency(result.expertWitnessCosts)}</span>
+                                        </div>
+                                    </div>
+                                )}
+
+                                <div className="flex justify-between pt-6 mt-4 border-t-2 border-amber-500/50">
+                                    <span className="text-xl font-black text-white italic tracking-tighter uppercase">Net Recovery</span>
+                                    <span className="text-3xl font-black text-amber-500 italic tracking-tighter">{formatCurrency(result.netSettlement)}</span>
                                 </div>
                             </div>
                         </div>

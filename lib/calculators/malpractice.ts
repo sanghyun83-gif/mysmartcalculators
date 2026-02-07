@@ -58,6 +58,15 @@ export const MALPRACTICE_CONSTANTS = {
 
     // Medical Lien (typical percentage)
     medicalLienPercent: 0.25,
+
+    // Expert Multipliers (+α) for v2.1
+    expertMultipliers: {
+        neverEventBonus: 1.50,         // +50% for "Never-Events" (surgical sponge left, wrong site)
+        expertAffidavitBonus: 1.35,    // +35% for cases requiring board-certified specialist affidavit
+        futureCareMultiplier: 1.20,    // +20% for long-term clinical maintenance projection
+        multipleDefendantMultiplier: 1.15, // +15% for multi-party liability (hospital + physician)
+    },
+
     citation: "Based on National Practitioner Data Bank (NPDB) 2026 Annual Report, Jury Verdict Research (JVR) Benchmarks, and State Medical Board disciplinary guidelines."
 } as const;
 
@@ -159,6 +168,12 @@ export interface SettlementResult {
     expertWitnessCosts: number;
     netSettlement: number;
     settlementRange: { min: number; max: number };
+    // Expert Audit Fields
+    neverEventImpact: number;
+    expertAffidavitImpact: number;
+    futureCareImpact: number;
+    multiDefendantImpact: number;
+    totalExpertDelta: number;
 }
 
 export function calculateSettlement(
@@ -167,9 +182,14 @@ export function calculateSettlement(
     lostWages: number,
     futureLostEarnings: number,
     severity: 'minor' | 'moderate' | 'severe' | 'catastrophic',
-    hasAttorney: boolean = true
+    hasAttorney: boolean = true,
+    isNeverEvent: boolean = false,
+    hasExpertAffidavit: boolean = false,
+    applyFutureCareMultiplier: boolean = false,
+    isMultipleDefendants: boolean = false
 ): SettlementResult {
-    const multipliers = MALPRACTICE_CONSTANTS.multipliers[severity];
+    const constants = MALPRACTICE_CONSTANTS;
+    const multipliers = constants.multipliers[severity];
 
     // Economic damages
     const economicDamages = medicalExpenses + futureCareCosts + lostWages + futureLostEarnings;
@@ -178,23 +198,54 @@ export function calculateSettlement(
     const painSufferingMultiplier = multipliers.avg;
     const painSufferingAmount = Math.round(medicalExpenses * painSufferingMultiplier);
 
-    // Expert witness costs
-    const expertWitnessCosts = MALPRACTICE_CONSTANTS.expertWitnessCosts.avg;
+    // Initial Total
+    const initialTotal = economicDamages + painSufferingAmount;
 
-    // Total before fees
-    const totalBeforeFees = economicDamages + painSufferingAmount;
+    // Expert Multipliers Logic
+    let neverEventImpact = 0;
+    let expertAffidavitImpact = 0;
+    let futureCareImpact = 0;
+    let multiDefendantImpact = 0;
+
+    let finalTotal = initialTotal;
+
+    if (isNeverEvent) {
+        const bonus = Math.round(finalTotal * (constants.expertMultipliers.neverEventBonus - 1));
+        neverEventImpact = bonus;
+        finalTotal += bonus;
+    }
+    if (hasExpertAffidavit) {
+        const bonus = Math.round(finalTotal * (constants.expertMultipliers.expertAffidavitBonus - 1));
+        expertAffidavitImpact = bonus;
+        finalTotal += bonus;
+    }
+    if (applyFutureCareMultiplier) {
+        const bonus = Math.round(finalTotal * (constants.expertMultipliers.futureCareMultiplier - 1));
+        futureCareImpact = bonus;
+        finalTotal += bonus;
+    }
+    if (isMultipleDefendants) {
+        const bonus = Math.round(finalTotal * (constants.expertMultipliers.multipleDefendantMultiplier - 1));
+        multiDefendantImpact = bonus;
+        finalTotal += bonus;
+    }
+
+    const totalExpertDelta = neverEventImpact + expertAffidavitImpact + futureCareImpact + multiDefendantImpact;
+
+    // Expert witness costs
+    const expertWitnessCosts = constants.expertWitnessCosts.avg;
 
     // Attorney fees (if applicable)
     const attorneyFees = hasAttorney
-        ? Math.round(totalBeforeFees * MALPRACTICE_CONSTANTS.attorneyFees.preSettlement)
+        ? Math.round(finalTotal * constants.attorneyFees.preSettlement)
         : 0;
 
     // Net settlement (after fees and costs)
-    const netSettlement = totalBeforeFees - attorneyFees - expertWitnessCosts;
+    const netSettlement = finalTotal - attorneyFees - expertWitnessCosts;
 
     // Calculate range using min/max multipliers
-    const minTotal = economicDamages + (medicalExpenses * multipliers.min);
-    const maxTotal = economicDamages + (medicalExpenses * multipliers.max);
+    const minTotal = economicDamages + (medicalExpenses * multipliers.min) + totalExpertDelta;
+    const maxTotal = economicDamages + (medicalExpenses * multipliers.max) + totalExpertDelta;
 
     return {
         medicalExpenses,
@@ -203,7 +254,7 @@ export function calculateSettlement(
         futureLostEarnings,
         painSufferingMultiplier,
         painSufferingAmount,
-        totalBeforeFees,
+        totalBeforeFees: finalTotal,
         attorneyFees,
         expertWitnessCosts,
         netSettlement,
@@ -211,6 +262,11 @@ export function calculateSettlement(
             min: Math.round(hasAttorney ? minTotal * 0.67 : minTotal),
             max: Math.round(hasAttorney ? maxTotal * 0.67 : maxTotal),
         },
+        neverEventImpact,
+        expertAffidavitImpact,
+        futureCareImpact,
+        multiDefendantImpact,
+        totalExpertDelta
     };
 }
 
