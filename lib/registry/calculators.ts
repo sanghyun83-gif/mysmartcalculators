@@ -2221,9 +2221,9 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "sr22": {
         "id": "sr22",
-        "name": "2026 SR-22 Insurance Calculator | High-Risk Cost Estimator",
-        "description": "Calculate your 2026 SR-22 insurance cost instantly. Free DUI/DWI insurance negotiator with official DMV filing fees, state liability requirements, and high-risk rate data.",
-        "category": "general",
+        "name": "2026 SR-22 Insurance Calculator | High-Risk DUI Rates",
+        "description": "Calculate 2026 SR-22 insurance costs instantly. Free high-risk quote estimator with official state DMV filing fees, NAIC risk classifications, and non-owner policy rates.",
+        "category": "legal",
         "tier": 1,
         "color": "rose-500",
         "icon": "shield-alert"
