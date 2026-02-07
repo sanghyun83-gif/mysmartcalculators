@@ -69,6 +69,36 @@ export const FAQS = [
     { question: "How long do I have to file?", answer: "Statutes of limitations vary by state (typically 2-3 years). Claims against government entities may have much shorter notice requirements (30-180 days)." },
 ];
 
+export const DOG_BITE_CONSTANTS_2026 = {
+    // ... existing constants
+};
+
+// Expert Factors (+α Step 1)
+export const BUS_EXPERT_FACTORS = {
+    commonCarrier: { id: "common", label: "Common Carrier Liability (1.50x)", multiplier: 1.50 },
+    fmcsaBreach: { id: "fmcsa", label: "FMCSA Safety Breach (1.35x)", multiplier: 1.35 },
+    sovereignImmunity: { id: "sovereign", label: "Public Transit / Sovereign Immunity", penalty: 0.80 }
+} as const;
+
+export const LIEN_MITIGATION_FACTOR = 0.68; // 2026 Estimated take-home factor
+
+export interface SettlementResult {
+    medicalExpenses: number;
+    painSuffering: number;
+    expertBonus: number;
+    totalBeforeFees: number;
+    attorneyFees: number;
+    netSettlement: number;
+    netEstimation: number;
+    settlementRange: {
+        min: number;
+        max: number;
+    };
+    injuryType: string;
+    busType: string;
+    accidentCause: string;
+}
+
 export function calculateBusSettlement(
     injuryType: string,
     busType: string,
@@ -76,27 +106,53 @@ export function calculateBusSettlement(
     medicalExpenses: number,
     isPassenger: boolean,
     governmentBus: boolean,
-    hasDocumentation: boolean
-) {
+    hasDocumentation: boolean,
+    hasCommonCarrier: boolean = true,
+    hasFmcsaBreach: boolean = false
+): SettlementResult {
     const injury = INJURY_TYPES.find(i => i.id === injuryType) || INJURY_TYPES[0];
     const bus = BUS_TYPES.find(b => b.id === busType) || BUS_TYPES[0];
     const cause = ACCIDENT_CAUSES.find(c => c.id === accidentCause) || ACCIDENT_CAUSES[0];
 
+    // Expert Multipliers (+α Step 1)
+    let expertMultiplier = 1.0;
+    if (hasCommonCarrier) expertMultiplier *= BUS_EXPERT_FACTORS.commonCarrier.multiplier;
+    if (hasFmcsaBreach) expertMultiplier *= BUS_EXPERT_FACTORS.fmcsaBreach.multiplier;
+    if (governmentBus) expertMultiplier *= BUS_EXPERT_FACTORS.sovereignImmunity.penalty;
+
     const passengerBonus = isPassenger ? 1.2 : 1.0;
-    const govPenalty = governmentBus ? 0.85 : 1.0;
     const docsBonus = hasDocumentation ? 1.15 : 1.0;
 
-    const baseMultiplier = injury.multiplier * bus.multiplier * cause.multiplier * passengerBonus * govPenalty * docsBonus;
-    const painSuffering = Math.round(medicalExpenses * baseMultiplier);
+    // Base Calculation
+    const baseMultiplier = injury.multiplier * bus.multiplier * cause.multiplier * passengerBonus * docsBonus;
+    const standardPainSuffering = Math.round(medicalExpenses * baseMultiplier);
+
+    // Total before Expert Delta
+    const subtotal = medicalExpenses + standardPainSuffering;
+
+    // Expert Delta Calculation
+    const expertBonus = Math.round(subtotal * (expertMultiplier - 1));
+    const adjustedTotal = subtotal + expertBonus;
+
+    // Attorney Fees (33.3%)
+    const attorneyFees = Math.round(adjustedTotal * 0.333);
+    const netSettlement = adjustedTotal - attorneyFees;
 
     return {
+        medicalExpenses,
+        painSuffering: standardPainSuffering,
+        expertBonus,
+        totalBeforeFees: adjustedTotal,
+        attorneyFees,
+        netSettlement,
+        netEstimation: Math.round(netSettlement * LIEN_MITIGATION_FACTOR),
+        settlementRange: {
+            min: Math.round(adjustedTotal * 0.75),
+            max: Math.round(adjustedTotal * 1.35),
+        },
         injuryType: injury.name,
         busType: bus.name,
         accidentCause: cause.name,
-        medicalExpenses,
-        painSuffering,
-        totalLow: Math.round((medicalExpenses + painSuffering) * 0.7),
-        totalHigh: Math.round((medicalExpenses + painSuffering) * 1.3),
     };
 }
 
