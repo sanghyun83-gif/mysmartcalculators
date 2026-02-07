@@ -1,0 +1,76 @@
+"use client";
+import { useState } from "react";
+import Link from "next/link";
+import { SITE, EMPLOYEE_COUNTS, INDUSTRY_RISKS, FAQS, calculateEPLIPremium, formatCurrency, EPLI_2026 } from "@/lib/calculators/epli";
+import { RelatedCalculators } from "@/components/RelatedCalculators";
+import { Calculator, Users, ChevronDown, ChevronUp, ArrowLeft, TrendingUp } from "lucide-react";
+import { LegalDisclaimer } from "@/components/LegalDisclaimer";
+
+export default function CalculatorPage() {
+    const [employeeCount, setEmployeeCount] = useState("11-25");
+    const [industryRisk, setIndustryRisk] = useState("medium");
+    const [hasHRPolicies, setHasHRPolicies] = useState(true);
+    const [hasTraining, setHasTraining] = useState(false);
+    const [claimsHistory, setClaimsHistory] = useState(false);
+    const [result, setResult] = useState<ReturnType<typeof calculateEPLIPremium> | null>(null);
+    const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+    const handleCalculate = () => {
+        setResult(calculateEPLIPremium(employeeCount, industryRisk, hasHRPolicies, hasTraining, claimsHistory));
+    };
+
+    return (
+        <>
+
+
+
+
+            <section className="max-w-4xl mx-auto px-4 py-8">
+                <div className="text-center mb-8">
+                    <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-500/50 rounded-full px-4 py-2 mb-4"><Calculator className="w-4 h-4 text-blue-400" /><span className="text-sm text-blue-300">Premium Calculator</span></div>
+                    <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">EPLI Premium Calculator</h1>
+                    <p className="text-slate-400">5 input fields for premium estimation.</p>
+                </div>
+
+                <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6 md:p-8">
+                    <div className="space-y-6">
+                        <div><label className="block text-sm font-medium text-slate-300 mb-2">Employee Count</label><select value={employeeCount} onChange={(e) => setEmployeeCount(e.target.value)} className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 text-white">{EMPLOYEE_COUNTS.map((e) => <option key={e.id} value={e.id}>{e.name}</option>)}</select></div>
+                        <div><label className="block text-sm font-medium text-slate-300 mb-2">Industry Risk Level</label><select value={industryRisk} onChange={(e) => setIndustryRisk(e.target.value)} className="w-full bg-slate-700 border border-slate-600 rounded-lg px-4 py-3 text-white">{INDUSTRY_RISKS.map((i) => <option key={i.id} value={i.id}>{i.name}</option>)}</select></div>
+                    </div>
+                    <div className="space-y-3 mt-6">
+                        <label className="flex items-center gap-3 p-3 bg-emerald-700/20 border border-emerald-500/30 rounded-lg cursor-pointer"><input type="checkbox" checked={hasHRPolicies} onChange={() => setHasHRPolicies(!hasHRPolicies)} className="w-4 h-4 text-emerald-500" /><span className="text-emerald-300 text-sm">Has written HR policies (10% discount)</span></label>
+                        <label className="flex items-center gap-3 p-3 bg-emerald-700/20 border border-emerald-500/30 rounded-lg cursor-pointer"><input type="checkbox" checked={hasTraining} onChange={() => setHasTraining(!hasTraining)} className="w-4 h-4 text-emerald-500" /><span className="text-emerald-300 text-sm">Has harassment training program (10% discount)</span></label>
+                        <label className="flex items-center gap-3 p-3 bg-slate-700/50 rounded-lg cursor-pointer"><input type="checkbox" checked={claimsHistory} onChange={() => setClaimsHistory(!claimsHistory)} className="w-4 h-4 text-blue-500" /><span className="text-slate-300 text-sm">Prior EPLI claims (50% surcharge)</span></label>
+                    </div>
+                    <button onClick={handleCalculate} className="w-full mt-6 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 rounded-xl flex items-center justify-center gap-2"><Calculator className="w-5 h-5" />Calculate Premium</button>
+                </div>
+
+                {result && (
+                    <div className="mt-8 bg-gradient-to-br from-blue-900/30 to-slate-900 border border-blue-500/30 rounded-2xl p-6 md:p-8">
+                        <h2 className="text-xl font-bold text-white mb-6 text-center">Estimated Premium</h2>
+                        <div className="text-center mb-6"><p className="text-4xl md:text-5xl font-bold text-blue-400">{formatCurrency(result.annualPremium)}/year</p><p className="text-2xl text-emerald-400 mt-2">{formatCurrency(result.monthlyPremium)}/month</p><p className="text-slate-400 mt-2">{result.employeeRange}</p></div>
+                        <div className="mt-6 p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg flex items-start gap-3"><TrendingUp className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" /><p className="text-sm text-blue-200">Implement HR policies and training programs to reduce premiums by up to 20%.</p></div>
+                    </div>
+                )}
+            </section>
+
+            <section className="max-w-4xl mx-auto px-4 py-16">
+                <h2 className="text-2xl font-bold text-white mb-8 text-center">Frequently Asked Questions</h2>
+                <div className="space-y-4">
+                    {FAQS.map((faq, i) => (
+                        <div key={i} className="bg-slate-800 border border-slate-700 rounded-xl overflow-hidden">
+                            <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full flex items-center justify-between p-4 text-left"><span className="text-white font-medium pr-4">{faq.question}</span>{openFaq === i ? <ChevronUp className="w-5 h-5 text-blue-400" /> : <ChevronDown className="w-5 h-5 text-slate-400" />}</button>
+                            {openFaq === i && <div className="px-4 pb-4"><p className="text-slate-400">{faq.answer}</p></div>}
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <section className="max-w-6xl mx-auto px-4 py-8"><div className="flex justify-center"><div className="w-full max-w-xs"><RelatedCalculators currentCalc="epli" count={5} /></div></div>
+                <section className="max-w-4xl mx-auto px-4 py-4"><LegalDisclaimer category="insurance" /></section>
+            </section>
+
+
+        </>
+    );
+}
