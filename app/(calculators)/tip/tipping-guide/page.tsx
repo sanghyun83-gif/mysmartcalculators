@@ -140,7 +140,7 @@ export default function TippingGuidePage() {
 
                 {/* Citation */}
                 <p className="mt-8 text-xs text-slate-500 text-center">
-                    {TIP_2026.citation}
+                    {TIP_2026.citationNote}
                 </p>
             </main>
         </>

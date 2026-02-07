@@ -67,7 +67,7 @@ export default function TepezzaCalculatorPage() {
                         <div><h3 className="font-semibold text-white mb-1">When did the FDA update Tepezza warnings?</h3><p className="text-slate-400">In 2023, the FDA required updated labeling to warn about hearing impairment, including permanent hearing loss. Many patients were not adequately warned before receiving treatment.</p></div>
                     </div>
                 </section>
-                <p className="mt-8 text-xs text-slate-500 text-center">{TEPEZZA_2026.citation}</p>
+                <p className="mt-8 text-xs text-slate-500 text-center">{TEPEZZA_2026.citationNote}</p>
             </main>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [{ "@type": "Question", name: "What is Tepezza?", acceptedAnswer: { "@type": "Answer", text: "Tepezza is the only FDA-approved treatment for Thyroid Eye Disease, but 65%+ of patients experience hearing problems." } }] }) }} />
         </>

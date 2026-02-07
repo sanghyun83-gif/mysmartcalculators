@@ -186,7 +186,7 @@ export default function HubClient() {
       </section>
 
       {/* Footer */}
-      
+
       {/* Related Calculators */}
       <section className="max-w-6xl mx-auto px-4 py-8">
         <div className="flex justify-center">
@@ -204,7 +204,7 @@ export default function HubClient() {
               <span className="font-semibold text-white">{SITE.name}</span>
             </div>
             <p className="text-sm text-slate-400 text-center">
-              {RENTERS_2026.citation}. For informational purposes only.
+              {RENTERS_2026.citationNote}. For informational purposes only.
             </p>
             <p className="text-sm text-slate-500">
               © {SITE.year} {SITE.name}

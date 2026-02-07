@@ -272,7 +272,7 @@ export default function UmbrellaCalculatorPage() {
 
                 {/* Citation */}
                 <p className="mt-8 text-xs text-slate-500 text-center">
-                    {UMBRELLA_2026.citation}. This is an estimate only.
+                    {UMBRELLA_2026.citationNote}. This is an estimate only.
                 </p>
             </main>
 

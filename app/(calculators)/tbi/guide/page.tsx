@@ -169,7 +169,7 @@ export default function TBIGuidePage() {
 
                 {/* Citation */}
                 <p className="mt-8 text-xs text-slate-500 text-center">
-                    {TBI_2026.citation}
+                    {TBI_2026.citationNote}
                 </p>
             </main>
         </>

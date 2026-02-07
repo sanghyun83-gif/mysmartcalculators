@@ -102,7 +102,7 @@ export default function HubClient() {
             <footer className="bg-slate-800 border-t border-slate-700">
                 <div className="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
                     <div className="flex items-center gap-2"><Stethoscope className="w-5 h-5 text-purple-500" /><span className="font-semibold text-white">{SITE.name}</span></div>
-                    <p className="text-sm text-slate-400 text-center">{SILICOSIS_2026.citation}</p>
+                    <p className="text-sm text-slate-400 text-center">{SILICOSIS_2026.citationNote}</p>
                     <p className="text-sm text-slate-500">© {SITE.year} {SITE.name}</p>
                 </div>
             </footer>

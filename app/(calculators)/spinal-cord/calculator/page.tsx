@@ -252,7 +252,7 @@ export default function SpinalCordCalculatorPage() {
 
                 {/* Citation */}
                 <p className="mt-8 text-xs text-slate-500 text-center">
-                    {SCI_2026.citation}
+                    {SCI_2026.citationNote}
                 </p>
             </main>
 

@@ -34,6 +34,8 @@ export const EPLI_2026 = {
         highEndVerdict: 250000,
         eeocCharges: 67414,
         source: "EEOC 2026 Data",
+        avgPremium: 2500,
+        avgClaim: 40000,
     },
     citations: [
         "EEOC Litigation Statistics FY 2026",

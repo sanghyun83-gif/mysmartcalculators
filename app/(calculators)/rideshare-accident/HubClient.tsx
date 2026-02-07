@@ -70,7 +70,7 @@ export default function HubClient() {
         <Link href="/rideshare-accident/rideshare-calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold">Calculate Now<ArrowRight className="w-5 h-5" /></Link>
       </section>
 
-      
+
       {/* Related Calculators */}
       <section className="max-w-6xl mx-auto px-4 py-8">
         <div className="flex justify-center">
@@ -83,7 +83,7 @@ export default function HubClient() {
       <footer className="bg-slate-800 border-t border-slate-700">
         <div className="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2"><Car className="w-5 h-5 text-amber-500" /><span className="font-semibold text-white">{SITE.name}</span></div>
-          <p className="text-sm text-slate-400 text-center">{RIDESHARE_2026.citation}. For informational purposes only.</p>
+          <p className="text-sm text-slate-400 text-center">{RIDESHARE_2026.citationNote}. For informational purposes only.</p>
           <p className="text-sm text-slate-500">© {SITE.year} {SITE.name}</p>
         </div>
       </footer>

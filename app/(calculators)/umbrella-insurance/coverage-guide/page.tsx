@@ -146,7 +146,7 @@ export default function CoverageGuidePage() {
 
                 {/* Citation */}
                 <p className="mt-8 text-xs text-slate-500 text-center">
-                    {UMBRELLA_2026.citation}
+                    {UMBRELLA_2026.citationNote}
                 </p>
             </main>
         </>

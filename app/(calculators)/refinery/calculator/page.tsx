@@ -66,7 +66,7 @@ export default function RefineryCalculatorPage() {
                         <div><h3 className="font-semibold text-white mb-1">What damages can I recover?</h3><p className="text-slate-400">Medical expenses, lost wages, future earnings, pain and suffering, disfigurement, and in cases of gross negligence, punitive damages.</p></div>
                     </div>
                 </section>
-                <p className="mt-8 text-xs text-slate-500 text-center">{REFINERY_2026.citation}</p>
+                <p className="mt-8 text-xs text-slate-500 text-center">{REFINERY_2026.citationNote}</p>
             </main>
         </>
     );

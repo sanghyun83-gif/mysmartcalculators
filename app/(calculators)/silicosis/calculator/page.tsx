@@ -79,10 +79,10 @@ export default function CalculatorPage() {
             </section>
 
             <section className="max-w-6xl mx-auto px-4 py-8"><div className="flex justify-center"><div className="w-full max-w-xs"><RelatedCalculators currentCalc="silicosis" count={5} /></div></div>
-      <section className="max-w-4xl mx-auto px-4 py-4"><LegalDisclaimer category="legal" /></section>
-</section>
+                <section className="max-w-4xl mx-auto px-4 py-4"><LegalDisclaimer category="legal" /></section>
+            </section>
 
-            <footer className="bg-slate-800 border-t border-slate-700"><div className="max-w-6xl mx-auto px-4 py-8 text-center"><p className="text-sm text-slate-400">{SILICOSIS_2026.citation}</p><p className="text-sm text-slate-500 mt-2">© {SITE.year} {SITE.name}</p></div></footer>
+            <footer className="bg-slate-800 border-t border-slate-700"><div className="max-w-6xl mx-auto px-4 py-8 text-center"><p className="text-sm text-slate-400">{SILICOSIS_2026.citationNote}</p><p className="text-sm text-slate-500 mt-2">© {SITE.year} {SITE.name}</p></div></footer>
         </>
     );
 }

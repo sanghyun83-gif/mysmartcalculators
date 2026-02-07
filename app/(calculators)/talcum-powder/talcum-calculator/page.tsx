@@ -69,7 +69,7 @@ export default function TalcumCalculatorPage() {
                         <div><h3 className="font-semibold text-white mb-1">Am I eligible to file a lawsuit?</h3><p className="text-slate-400">You may be eligible if you used talcum powder products for personal hygiene and were diagnosed with ovarian cancer, mesothelioma, or other related cancers.</p></div>
                     </div>
                 </section>
-                <p className="mt-8 text-xs text-slate-500 text-center">{TALCUM_2026.citation}</p>
+                <p className="mt-8 text-xs text-slate-500 text-center">{TALCUM_2026.citationNote}</p>
             </main>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [{ "@type": "Question", name: "What is the talcum powder lawsuit about?", acceptedAnswer: { "@type": "Answer", text: "Lawsuits allege J&J knew their talcum powder contained asbestos and caused cancer but failed to warn consumers." } }] }) }} />
         </>

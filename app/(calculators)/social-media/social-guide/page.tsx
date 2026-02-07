@@ -36,7 +36,7 @@ export default function SocialGuidePage() {
                 <div className="my-8 p-6 bg-slate-800 border border-slate-700 rounded-xl text-center"><p className="text-sm text-slate-500">Advertisement</p></div>
 
                 <div className="flex gap-4 justify-center flex-wrap"><Link href="/social-media/social-calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-lg font-semibold">Calculate Settlement<ArrowRight className="w-5 h-5" /></Link><Link href="/social-media/platforms" className="inline-flex items-center gap-2 bg-slate-700 hover:bg-slate-600 text-white px-6 py-3 rounded-lg font-semibold">View Platforms<ArrowRight className="w-5 h-5" /></Link></div>
-                <p className="mt-8 text-xs text-slate-500 text-center">{SOCIAL_2026.citation}</p>
+                <p className="mt-8 text-xs text-slate-500 text-center">{SOCIAL_2026.citationNote}</p>
             </main>
         </>
     );
