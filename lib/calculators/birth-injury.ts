@@ -71,7 +71,7 @@ export const BIRTH_INJURY_CONSTANTS_2026 = {
             year: "2026"
         },
     ],
-    citationNote: "Based on official NPDB medical malpractice payout data, HIE treatment benchmarks, and 2026 HRSA settlement statistics for neonatal injury claims.",
+    citation: "Based on official NPDB medical malpractice payout data, HIE treatment benchmarks, and 2026 HRSA settlement statistics for neonatal injury claims.",
 
     // Attorney Fees
     attorneyFees: {

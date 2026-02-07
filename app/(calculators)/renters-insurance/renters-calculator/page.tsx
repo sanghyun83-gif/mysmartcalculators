@@ -265,7 +265,7 @@ export default function RentersCalculatorPage() {
 
                 {/* Citation */}
                 <p className="mt-8 text-xs text-slate-500 text-center">
-                    {RENTERS_2026.citationNote}. This is an estimate only.
+                    {RENTERS_2026.citation}. This is an estimate only.
                 </p>
             </main>
 

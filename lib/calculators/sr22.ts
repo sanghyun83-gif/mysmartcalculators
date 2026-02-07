@@ -77,7 +77,7 @@ export const SR22_CONSTANTS_2026 = {
             year: "2026"
         },
     ],
-    citationNote: "Based on official NAIC insurance data, State DMV filing requirements, and industry rate benchmarks.",
+    citation: "Based on official NAIC insurance data, State DMV filing requirements, and industry rate benchmarks.",
 } as const;
 
 // ============================================

@@ -254,7 +254,7 @@ export default function TipCalculatorPage() {
 
                 {/* Citation */}
                 <p className="mt-8 text-xs text-slate-500 text-center">
-                    {TIP_2026.citationNote}
+                    {TIP_2026.citation}
                 </p>
             </main>
 

@@ -65,7 +65,7 @@ export const MARITIME_2026 = {
             year: "2026"
         },
     ],
-    citationNote: "Based on 46 U.S.C. §30104 (Jones Act), General Maritime Law (Unseaworthiness), and USCG Marine Casualty benchmarks.",
+    citation: "Based on 46 U.S.C. §30104 (Jones Act), General Maritime Law (Unseaworthiness), and USCG Marine Casualty benchmarks.",
 } as const;
 
 export const CALCULATORS = [

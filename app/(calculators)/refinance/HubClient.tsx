@@ -181,7 +181,7 @@ export default function HubClient() {
               <span className="font-semibold text-white">{SITE.name}</span>
             </div>
             <p className="text-sm text-slate-400 text-center">
-              {REFINANCE_2026.citationNote}. For informational purposes only.
+              {REFINANCE_2026.citation}. For informational purposes only.
             </p>
             <p className="text-sm text-slate-500">
               © {SITE.year} {SITE.name}

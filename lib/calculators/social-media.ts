@@ -83,7 +83,7 @@ export const SOCIAL_2026 = {
             year: "2026"
         },
     ],
-    citationNote: "Based on official MDL 3047 court filings, State Attorney General complaints, and 2026 clinical research on algorithmic addiction harms.",
+    citation: "Based on official MDL 3047 court filings, State Attorney General complaints, and 2026 clinical research on algorithmic addiction harms.",
 } as const;
 
 export const CALCULATORS = [

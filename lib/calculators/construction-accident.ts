@@ -78,7 +78,7 @@ export const CONSTRUCTION_2026 = {
             year: "2026"
         },
     ],
-    citationNote: "Based on official OSHA 'Fatal Four' hazard data, BLS nonfatal injury reports, and 2026 construction safety standards.",
+    citation: "Based on official OSHA 'Fatal Four' hazard data, BLS nonfatal injury reports, and 2026 construction safety standards.",
 } as const;
 
 // ============================================

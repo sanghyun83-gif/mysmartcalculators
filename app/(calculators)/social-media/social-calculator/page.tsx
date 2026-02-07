@@ -71,7 +71,7 @@ export default function SocialCalculatorPage() {
                         <div><h3 className="font-semibold text-white mb-1">What is MDL 3047?</h3><p className="text-slate-400">MDL 3047 is the consolidated social media addiction litigation in the Northern District of California, combining thousands of cases against Meta, TikTok, Snap, and other platforms.</p></div>
                     </div>
                 </section>
-                <p className="mt-8 text-xs text-slate-500 text-center">{SOCIAL_2026.citationNote}</p>
+                <p className="mt-8 text-xs text-slate-500 text-center">{SOCIAL_2026.citation}</p>
             </main>
         </>
     );

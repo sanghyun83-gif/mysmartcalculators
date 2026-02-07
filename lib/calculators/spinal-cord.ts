@@ -115,7 +115,7 @@ export const SCI_2026 = {
             year: "2026"
         },
     ],
-    citationNote: "Based on official NSCISC longitudinal data, ASIA impairment scale ISNCSCI standards, and 2026 healthcare cost indices for catastrophic injury management.",
+    citation: "Based on official NSCISC longitudinal data, ASIA impairment scale ISNCSCI standards, and 2026 healthcare cost indices for catastrophic injury management.",
 };
 
 // ============================================

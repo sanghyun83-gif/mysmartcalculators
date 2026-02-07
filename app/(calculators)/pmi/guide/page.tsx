@@ -147,7 +147,7 @@ export default function PMIGuidePage() {
 
                 {/* Citation */}
                 <p className="mt-8 text-xs text-slate-500 text-center">
-                    {PMI_2026.citationNote}
+                    {PMI_2026.citation}
                 </p>
             </main>
         </>

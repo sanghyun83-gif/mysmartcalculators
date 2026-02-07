@@ -62,7 +62,7 @@ export const DEPO_2026 = {
             year: "2026"
         },
     ],
-    citationNote: "Based on the landmark French ANSM study (5.6x risk increase), 2026 BMJ findings, and Pfizer's 'Black Box' meningioma warning updates.",
+    citation: "Based on the landmark French ANSM study (5.6x risk increase), 2026 BMJ findings, and Pfizer's 'Black Box' meningioma warning updates.",
 } as const;
 
 export const CALCULATORS = [

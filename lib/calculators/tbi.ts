@@ -123,7 +123,7 @@ export const TBI_2026 = {
             year: "2026"
         },
     ],
-    citationNote: "Based on official CDC TBI surveillance data, Glasgow Coma Scale (GCS) injury severity classifications, and 2026 NIH medical cost indices for neuro-rehabilitation.",
+    citation: "Based on official CDC TBI surveillance data, Glasgow Coma Scale (GCS) injury severity classifications, and 2026 NIH medical cost indices for neuro-rehabilitation.",
 };
 
 // ============================================

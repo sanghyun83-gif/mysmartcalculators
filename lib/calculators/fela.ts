@@ -65,7 +65,7 @@ export const FELA_2026 = {
             year: "2026"
         },
     ],
-    citationNote: "Based on Federal Employers' Liability Act (FELA) statutes, FRA accident reports, and comparative negligence standards.",
+    citation: "Based on Federal Employers' Liability Act (FELA) statutes, FRA accident reports, and comparative negligence standards.",
 } as const;
 
 export const CALCULATORS = [

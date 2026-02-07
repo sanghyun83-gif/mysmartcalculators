@@ -62,7 +62,7 @@ export const HAIR_RELAXER_2026 = {
             year: "2026"
         },
     ],
-    citationNote: "Based on official NIH Sister Study findings (2.5x risk increase), MDL 3060 court filings, and 2026 gynecologic oncology research.",
+    citation: "Based on official NIH Sister Study findings (2.5x risk increase), MDL 3060 court filings, and 2026 gynecologic oncology research.",
 } as const;
 
 export const CALCULATORS = [

@@ -252,7 +252,7 @@ export default function TBICalculatorPage() {
 
                 {/* Citation */}
                 <p className="mt-8 text-xs text-slate-500 text-center">
-                    {TBI_2026.citationNote}
+                    {TBI_2026.citation}
                 </p>
             </main>
 

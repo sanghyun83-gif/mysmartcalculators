@@ -71,7 +71,7 @@ export default function RideshareCalculatorPage() {
                         <div><h3 className="font-semibold text-white mb-1">Who is liable in an Uber/Lyft accident?</h3><p className="text-slate-400">Liability depends on the period. In Periods 2-3, Uber/Lyft&apos;s $1M policy typically applies. In Period 1, limited contingent coverage applies.</p></div>
                     </div>
                 </section>
-                <p className="mt-8 text-xs text-slate-500 text-center">{RIDESHARE_2026.citationNote}</p>
+                <p className="mt-8 text-xs text-slate-500 text-center">{RIDESHARE_2026.citation}</p>
             </main>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [{ "@type": "Question", name: "What are Uber/Lyft insurance periods?", acceptedAnswer: { "@type": "Answer", text: "Period 0: App off. Period 1: App on, waiting. Period 2: Ride accepted. Period 3: Passenger in vehicle. Coverage increases in Periods 2-3 to $1M." } }] }) }} />
         </>

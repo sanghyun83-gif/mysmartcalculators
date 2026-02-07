@@ -60,7 +60,7 @@ export const TEPEZZA_2026 = {
             year: "2026"
         },
     ],
-    citationNote: "Based on official MDL 3079 court filings, FDA label warning updates (July 2023), and 2026 Audiology clinical research on IGF-1R inhibitor ototoxicity.",
+    citation: "Based on official MDL 3079 court filings, FDA label warning updates (July 2023), and 2026 Audiology clinical research on IGF-1R inhibitor ototoxicity.",
 } as const;
 
 export const CALCULATORS = [

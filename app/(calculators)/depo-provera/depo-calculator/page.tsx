@@ -63,7 +63,7 @@ export default function DepoCalculatorPage() {
                         <div><h3 className="font-semibold text-white mb-1">What is the Depo-Provera MDL?</h3><p className="text-slate-400">In February 2025, federal lawsuits were consolidated into MDL No. 3126 in the Middle District of Florida. Over 1,300 cases are pending against Pfizer.</p></div>
                     </div>
                 </section>
-                <p className="mt-8 text-xs text-slate-500 text-center">{DEPO_2026.citationNote}</p>
+                <p className="mt-8 text-xs text-slate-500 text-center">{DEPO_2026.citation}</p>
             </main>
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [{ "@type": "Question", name: "What is the link between Depo-Provera and brain tumors?", acceptedAnswer: { "@type": "Answer", text: "Long-term Depo-Provera use increases meningioma risk by up to 500%." } }] }) }} />
         </>
