@@ -69,7 +69,7 @@ export default function TruckCalculatorPage() {
                                         label="Corporate Liability Bonus"
                                         value={formatCurrency(result.liabilityBonus)}
                                         description="Added weight for commercial carrier negligence."
-                                        variant="trend"
+                                        variant="highlight"
                                     />
                                 )}
                             </div>
