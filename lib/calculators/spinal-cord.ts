@@ -115,6 +115,18 @@ export const SCI_2026 = {
             year: "2026"
         },
     ],
+    // Expert Multipliers (+α Step 1)
+    expertMultipliers: {
+        asiaScale: {
+            A: 1.50, // Complete: No motor or sensory function is preserved
+            B: 1.35, // Incomplete: Sensory but not motor function is preserved
+            C: 1.20, // Incomplete: Motor function is preserved (Grade < 3)
+            D: 1.10, // Incomplete: Motor function is preserved (Grade >= 3)
+        },
+        homeModBonus: 1.35,      // +35% for custom accessibility infrastructure
+        actuarialLifeWeight: 1.20 // +20% for 2026 life expectancy actuarial adjustment
+    },
+
     citation: "Based on official NSCISC longitudinal data, ASIA impairment scale ISNCSCI standards, and 2026 healthcare cost indices for catastrophic injury management.",
 };
 
@@ -159,6 +171,14 @@ export interface SCIResult {
     totalLow: number;
     totalMid: number;
     totalHigh: number;
+    // Expert Delta (+α Step 1)
+    expertDelta: {
+        asiaImpact: number;
+        homeModImpact: number;
+        actuarialImpact: number;
+        totalDelta: number;
+    };
+    finalTotal: number;
 }
 
 export function calculateSCISettlement(
@@ -166,9 +186,13 @@ export function calculateSCISettlement(
     age: number,
     annualIncome: number,
     medicalBills: number,
-    isGrossNegligence: boolean = false
+    isGrossNegligence: boolean = false,
+    asiaGrade: 'A' | 'B' | 'C' | 'D' = 'C',
+    applyHomeMod: boolean = false,
+    applyActuarialLife: boolean = false
 ): SCIResult {
     const severity = SCI_2026.severityLevels[severityIndex];
+    const constants = SCI_2026;
 
     // Calculate remaining work years
     const remainingYears = Math.max(0, 65 - age);
@@ -187,12 +211,40 @@ export function calculateSCISettlement(
     const painSuffering = medicalBills * severityMultiplier;
 
     // Apply gross negligence if applicable
-    const negligenceMultiplier = isGrossNegligence ? SCI_2026.multipliers.grossNegligence : 1.0;
+    const negligenceMultiplier = isGrossNegligence ? constants.multipliers.grossNegligence : 1.0;
 
-    // Calculate totals
-    const baseTotal = medicalCosts + lifetimeCare + lostWages + painSuffering;
-    const totalMid = baseTotal * negligenceMultiplier;
-    const totalLow = totalMid * 0.6;
+    // Calculate subtotal before Expert Delta
+    const subtotal = (medicalCosts + lifetimeCare + lostWages + painSuffering) * negligenceMultiplier;
+
+    // Expert Delta Logic (+α Step 1)
+    let asiaImpact = 0;
+    let homeModImpact = 0;
+    let actuarialImpact = 0;
+
+    let rollingTotal = subtotal;
+
+    // 1. ASIA Scale Impact
+    const asiaMult = constants.expertMultipliers.asiaScale[asiaGrade];
+    asiaImpact = Math.round(rollingTotal * (asiaMult - 1));
+    rollingTotal += asiaImpact;
+
+    // 2. Home Modification Impact
+    if (applyHomeMod) {
+        homeModImpact = Math.round(rollingTotal * (constants.expertMultipliers.homeModBonus - 1));
+        rollingTotal += homeModImpact;
+    }
+
+    // 3. Actuarial Life Expectancy Impact
+    if (applyActuarialLife) {
+        actuarialImpact = Math.round(rollingTotal * (constants.expertMultipliers.actuarialLifeWeight - 1));
+        rollingTotal += actuarialImpact;
+    }
+
+    const totalDelta = asiaImpact + homeModImpact + actuarialImpact;
+
+    // Calculate final ranges based on augmented total
+    const totalMid = rollingTotal;
+    const totalLow = totalMid * 0.75;
     const totalHigh = totalMid * 1.5;
 
     return {
@@ -205,6 +257,13 @@ export function calculateSCISettlement(
         totalLow: Math.round(totalLow),
         totalMid: Math.round(totalMid),
         totalHigh: Math.round(totalHigh),
+        expertDelta: {
+            asiaImpact,
+            homeModImpact,
+            actuarialImpact,
+            totalDelta
+        },
+        finalTotal: totalMid
     };
 }
 

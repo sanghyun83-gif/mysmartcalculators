@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, Heart, ArrowRight, Calculator, Info, AlertTriangle } from "lucide-react";
-import { SITE, DEATH_CASE_TYPES, formatCurrency, getCaseStrengthColor } from "@/lib/calculators/wrongful-death";
+import { ArrowLeft, Heart, ArrowRight, Calculator, Info, AlertCircle } from "lucide-react";
+import { SITE, DEATH_CASE_TYPES, formatCurrency, getCaseStrengthColor } from "@/lib/calculators/wrongful-death-v2";
 import { LegalDisclaimer } from "@/components/LegalDisclaimer";
 
 export default function DeathCaseTypesPage() {
@@ -149,7 +149,7 @@ export default function DeathCaseTypesPage() {
                 {/* Warning */}
                 <div className="bg-amber-900/20 border border-amber-700/50 rounded-xl p-4 mb-8">
                     <div className="flex items-start gap-3">
-                        <AlertTriangle className="w-5 h-5 text-amber-400 mt-0.5" />
+                        <AlertCircle className="w-5 h-5 text-amber-400 mt-0.5" />
                         <div className="text-sm text-amber-200">
                             <p className="font-medium text-white mb-1">Time is Critical</p>
                             <p>

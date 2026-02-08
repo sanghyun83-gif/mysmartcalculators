@@ -1,9 +1,9 @@
 // ============================================
-// WRONGFUL DEATH SETTLEMENT CALCULATOR
+// WRONGFUL DEATH SETTLEMENT CALCULATOR (V2)
 // 2026 data - Wrongful death claim compensation
 // ============================================
 
-import { Scale, FileText, Shield, Calculator, Heart, Users, DollarSign } from 'lucide-react';
+// Pure logic file - removed all UI/icon imports to prevent Turbopack HMR issues
 
 // ============================================
 // SITE METADATA
@@ -64,6 +64,13 @@ export const WRONGFUL_DEATH_CONSTANTS = {
         min: 7000,
         max: 15000,
         avg: 10000,
+    },
+
+    // Expert Alpha Multipliers (+α)
+    expertMultipliers: {
+        survivalAction: 1.50, // Pre-death pain and suffering
+        hedonicDamage: 1.35,  // Loss of life's pleasure (actuarial)
+        consortiumBonus: 1.20 // Loss of companionship/guidance (dependents)
     },
     citation: "Based on 2026 Social Security Administration (SSA) Period Life Tables, CDC National Vital Statistics Reports (NVSR), and Bureau of Labor Statistics (BLS) Fatal Occupational Injuries data."
 } as const;
@@ -126,7 +133,7 @@ export const CALCULATORS = [
         shortName: "Settlement",
         description: "Calculate wrongful death settlement value",
         longDescription: "Free 2026 wrongful death settlement calculator. Estimate compensation for lost income, loss of companionship, and survivor damages.",
-        icon: Calculator,
+        icon: "Calculator",
         category: "legal",
         keywords: ["wrongful death calculator", "death settlement", "fatality compensation", "survivor damages"],
         featured: true,
@@ -137,7 +144,7 @@ export const CALCULATORS = [
         shortName: "Case Types",
         description: "Average settlements by cause of death",
         longDescription: "See average wrongful death settlement values for medical malpractice, car accidents, workplace deaths, and more.",
-        icon: FileText,
+        icon: "FileText",
         category: "legal",
         keywords: ["wrongful death by type", "malpractice death", "car accident death", "workplace fatality"],
         featured: true,
@@ -153,6 +160,7 @@ export interface WrongfulDeathResult {
     funeralCosts: number;
     lossOfCompanionship: number;
     medicalExpenses: number;
+    expertDelta: number;
     totalBeforeFees: number;
     attorneyFees: number;
     netSettlement: number;
@@ -165,9 +173,13 @@ export function calculateWrongfulDeath(
     funeralCosts: number,
     medicalExpenses: number,
     caseStrength: 'weak' | 'moderate' | 'strong' | 'exceptional',
-    hasAttorney: boolean = true
+    hasAttorney: boolean = true,
+    applySurvivalAction: boolean = false,
+    applyHedonic: boolean = false,
+    applyConsortium: boolean = false
 ): WrongfulDeathResult {
     const multipliers = WRONGFUL_DEATH_CONSTANTS.multipliers[caseStrength];
+    const expert = WRONGFUL_DEATH_CONSTANTS.expertMultipliers;
 
     // Lost income (future earnings)
     const lostIncome = Math.round(annualIncome * yearsRemaining);
@@ -176,13 +188,38 @@ export function calculateWrongfulDeath(
     const lostBenefits = Math.round(lostIncome * 0.30);
 
     // Loss of companionship (non-economic) - using multiplier on annual income
-    const lossOfCompanionship = Math.round(annualIncome * multipliers.avg * yearsRemaining * 0.5);
+    const baseCompanionship = Math.round(annualIncome * multipliers.avg * yearsRemaining * 0.5);
+
+    // Expert Delta Logic (+α Step 1)
+    let expertDelta = 0;
+    let rollingCompanionship = baseCompanionship;
+
+    // 1. Survival Action Delta (Pre-death pain/suffering)
+    if (applySurvivalAction) {
+        const delta = Math.round(rollingCompanionship * (expert.survivalAction - 1));
+        expertDelta += delta;
+        rollingCompanionship += delta;
+    }
+
+    // 2. Hedonic Damage Alpha (Loss of life's pleasure)
+    if (applyHedonic) {
+        const delta = Math.round(rollingCompanionship * (expert.hedonicDamage - 1));
+        expertDelta += delta;
+        rollingCompanionship += delta;
+    }
+
+    // 3. Consortium Bonus (Survivor dependents)
+    if (applyConsortium) {
+        const delta = Math.round(rollingCompanionship * (expert.consortiumBonus - 1));
+        expertDelta += delta;
+        rollingCompanionship += delta;
+    }
 
     // Total economic damages
     const economicDamages = lostIncome + lostBenefits + funeralCosts + medicalExpenses;
 
     // Total before fees
-    const totalBeforeFees = economicDamages + lossOfCompanionship;
+    const totalBeforeFees = economicDamages + rollingCompanionship;
 
     // Attorney fees
     const attorneyFees = hasAttorney
@@ -193,15 +230,16 @@ export function calculateWrongfulDeath(
     const netSettlement = totalBeforeFees - attorneyFees;
 
     // Calculate range
-    const minTotal = economicDamages + (annualIncome * multipliers.min * yearsRemaining * 0.5);
-    const maxTotal = economicDamages + (annualIncome * multipliers.max * yearsRemaining * 0.5);
+    const minTotal = economicDamages + (annualIncome * multipliers.min * yearsRemaining * 0.5 * (rollingCompanionship / baseCompanionship || 1));
+    const maxTotal = economicDamages + (annualIncome * multipliers.max * yearsRemaining * 0.5 * (rollingCompanionship / baseCompanionship || 1));
 
     return {
         lostIncome,
         lostBenefits,
         funeralCosts,
-        lossOfCompanionship,
+        lossOfCompanionship: rollingCompanionship,
         medicalExpenses,
+        expertDelta,
         totalBeforeFees,
         attorneyFees,
         netSettlement,

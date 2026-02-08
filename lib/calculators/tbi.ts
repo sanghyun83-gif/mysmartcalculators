@@ -102,6 +102,13 @@ export const TBI_2026 = {
         malePercent: 69,
     },
 
+    // Multiplier Alpha (+α) - 2026 Expert Standards
+    expertMultipliers: {
+        gcsSevereAudit: 1.50,    // GCS 3-8 (Severe) baseline shift
+        daiDetection: 1.35,      // Diffuse Axonal Injury (Highest permanence)
+        neuroLifeCareDelta: 1.15 // 2026 ActuarialCare projection index
+    },
+
     // Citations
     citations: [
         {
@@ -132,24 +139,24 @@ export const TBI_2026 = {
 export const CALCULATORS = [
     {
         id: "tbi/calculator",
-        name: "TBI Settlement Calculator",
-        shortName: "Calculator",
-        description: "Calculate traumatic brain injury settlement",
-        longDescription: "Free TBI calculator. Estimate your settlement based on injury severity and lifetime care costs.",
-        icon: Calculator,
+        name: "TBI Settlement Auditor",
+        shortName: "Auditor",
+        description: "Calculate expert-grade TBI settlement value",
+        longDescription: "High-fidelity TBI auditor injecting GCS severity, DAI permanence, and actuarial lifetime care multipliers.",
+        icon: Brain,
         category: "legal",
-        keywords: ["tbi settlement calculator", "brain injury calculator", "head injury settlement"],
+        keywords: ["tbi settlement calculator", "brain injury auditor", "head injury payout"],
         featured: true,
     },
     {
         id: "tbi/guide",
-        name: "TBI Guide",
+        name: "Case Intelligence Guide",
         shortName: "Guide",
-        description: "Understanding traumatic brain injuries",
-        longDescription: "Learn about TBI severity levels, GCS scores, symptoms, and the legal process.",
+        description: "Forensic analysis of brain injury claims",
+        longDescription: "Deep-dive into TBI severity levels, GCS scores, and the 'Trinity Analysis' of catastrophic injury law.",
         icon: FileText,
         category: "legal",
-        keywords: ["tbi guide", "brain injury guide", "head injury information"],
+        keywords: ["tbi guide", "brain injury EEAT", "head injury benchmarks"],
         featured: true,
     },
 ] as const;
@@ -165,6 +172,7 @@ export interface TBIResult {
     lifetimeCare: number;
     lostWages: number;
     painSuffering: number;
+    expertDelta: number;
     totalLow: number;
     totalMid: number;
     totalHigh: number;
@@ -175,9 +183,13 @@ export function calculateTBISettlement(
     age: number,
     annualIncome: number,
     medicalBills: number,
-    hasPermanentDisability: boolean = false
+    hasPermanentDisability: boolean = false,
+    applyGCSAudit: boolean = false,
+    applyDAIPivot: boolean = false,
+    applyFutureCare: boolean = false
 ): TBIResult {
     const severity = TBI_2026.severityLevels[severityIndex];
+    const expert = TBI_2026.expertMultipliers;
 
     // Calculate remaining work years
     const remainingYears = Math.max(0, 65 - age);
@@ -188,21 +200,44 @@ export function calculateTBISettlement(
     // Lifetime care costs
     const lifetimeCare = severity.lifetimeCost;
 
-    // Lost wages calculation
-    const lostWages = annualIncome * remainingYears * (severityIndex >= 2 ? 0.9 : 0.5);
+    // Lost wages calculation (Weighted by severity)
+    const lostWages = annualIncome * remainingYears * (severityIndex >= 2 ? 0.95 : 0.6);
 
     // Pain and suffering (multiplier based on severity)
-    const severityMultiplier = 2 + severityIndex * 1.5;
-    const painSuffering = medicalBills * severityMultiplier;
+    const severityMultiplier = 3 + severityIndex * 2.5; // Upgraded for S-Class
+    const basePainSuffering = medicalBills * severityMultiplier;
+
+    // Expert Delta Logic (+α Step 1)
+    let expertDelta = 0;
+    let rollingPainSuffering = basePainSuffering;
+
+    // 1. GCS Severe Audit (Higher multiplier for lower GCS)
+    if (applyGCSAudit && severityIndex >= 2) {
+        const delta = Math.round(rollingPainSuffering * (expert.gcsSevereAudit - 1));
+        expertDelta += delta;
+        rollingPainSuffering += delta;
+    }
+
+    // 2. DAI Detection (Specialized brain injury type)
+    if (applyDAIPivot) {
+        const delta = Math.round(rollingPainSuffering * (expert.daiDetection - 1));
+        expertDelta += delta;
+        rollingPainSuffering += delta;
+    }
+
+    // 3. 2026 Future Care Delta
+    if (applyFutureCare) {
+        const delta = Math.round(lifetimeCare * (expert.neuroLifeCareDelta - 1));
+        expertDelta += delta;
+    }
 
     // Apply permanent disability multiplier if applicable
     const disabilityMultiplier = hasPermanentDisability ? TBI_2026.multipliers.permanentDisability : 1.0;
 
     // Calculate totals
-    const baseTotal = medicalCosts + lifetimeCare + lostWages + painSuffering;
-    const totalMid = baseTotal * disabilityMultiplier;
-    const totalLow = totalMid * 0.6;
-    const totalHigh = totalMid * 1.6;
+    const economicDamages = medicalCosts + lifetimeCare + lostWages;
+    const totalBeforeExpert = economicDamages + basePainSuffering;
+    const totalMid = (economicDamages + rollingPainSuffering + (applyFutureCare ? (lifetimeCare * (expert.neuroLifeCareDelta - 1)) : 0)) * disabilityMultiplier;
 
     return {
         severityLevel: severity.level,
@@ -211,10 +246,11 @@ export function calculateTBISettlement(
         medicalCosts: Math.round(medicalCosts),
         lifetimeCare: Math.round(lifetimeCare),
         lostWages: Math.round(lostWages),
-        painSuffering: Math.round(painSuffering),
-        totalLow: Math.round(totalLow),
+        painSuffering: Math.round(rollingPainSuffering),
+        expertDelta: Math.round(expertDelta),
+        totalLow: Math.round(totalMid * 0.75),
         totalMid: Math.round(totalMid),
-        totalHigh: Math.round(totalHigh),
+        totalHigh: Math.round(totalMid * 1.5),
     };
 }
 

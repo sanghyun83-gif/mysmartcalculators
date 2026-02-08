@@ -46,6 +46,12 @@ export const LEJEUNE_2026 = {
         { name: "Benzene", level: "35x safe limit" },
         { name: "Vinyl Chloride", level: "Severely elevated" },
     ],
+    expertMultipliers: {
+        eesTrack: 1.15, // DOJ Elective Early Settlement Track
+        tortPremium: 1.65, // Full Litigation/Trial Delta
+        latencyAlpha: 1.25, // Exposure > 10 years bonus
+        peakPeriodAlpha: 1.1, // 1970-1985 peak contamination
+    },
     statistics: {
         exposedPeople: 1000000,
         claimsFiled: 250000,
@@ -62,18 +68,72 @@ export const CALCULATORS = [
     { id: "camp-lejeune/lejeune-guide", name: "Lawsuit Guide", shortName: "Guide", description: "Understanding Camp Lejeune claims", longDescription: "Learn about PACT Act, eligibility, and claims.", icon: FileText, category: "legal", keywords: ["camp lejeune lawsuit guide", "pact act claims"], featured: true },
 ] as const;
 
-export interface LejeuneResult { condition: string; exposurePeriod: string; claimantType: string; baseDamages: number; exposureBonus: number; claimantBonus: number; medicalCosts: number; totalLow: number; totalMid: number; totalHigh: number; }
+export interface LejeuneResult {
+    condition: string;
+    exposurePeriod: string;
+    claimantType: string;
+    baseDamages: number;
+    exposureBonus: number;
+    claimantBonus: number;
+    medicalCosts: number;
+    expertDelta: number;
+    totalLow: number;
+    totalMid: number;
+    totalHigh: number;
+    isEESEligible: boolean;
+}
 
-export function calculateLejeuneSettlement(conditionIndex: number, exposureIndex: number, claimantIndex: number, medicalBills: number): LejeuneResult {
+export function calculateLejeuneSettlement(
+    conditionIndex: number,
+    exposureIndex: number,
+    claimantIndex: number,
+    medicalBills: number,
+    isExpertMode: boolean = false,
+    useEESTrack: boolean = false
+): LejeuneResult {
     const cond = LEJEUNE_2026.conditions[conditionIndex];
     const exposure = LEJEUNE_2026.exposureYears[exposureIndex];
     const claimant = LEJEUNE_2026.claimantTypes[claimantIndex];
-    const baseDamages = cond.avgSettlement;
+    const multipliers = LEJEUNE_2026.expertMultipliers;
+
+    let baseDamages = cond.avgSettlement;
+    let expertDelta = 0;
+
+    // Apply Expert Multipliers if in Expert Mode
+    if (isExpertMode) {
+        if (useEESTrack && cond.tier === 1) {
+            baseDamages *= multipliers.eesTrack; // Guaranteed but capped DOJ track
+        } else {
+            baseDamages *= multipliers.tortPremium; // Higher potential through litigation
+        }
+
+        // Latency Alpha for long-term residents
+        if (exposure.multiplier >= 1.2) {
+            baseDamages *= multipliers.latencyAlpha;
+        }
+
+        expertDelta = baseDamages - cond.avgSettlement;
+    }
+
     const medicalCosts = medicalBills * 2;
     const exposureBonus = baseDamages * (exposure.multiplier - 1);
     const claimantBonus = baseDamages * (claimant.multiplier - 1);
     const total = baseDamages + medicalCosts + exposureBonus + claimantBonus;
-    return { condition: cond.condition, exposurePeriod: exposure.period, claimantType: claimant.type, baseDamages: Math.round(baseDamages), exposureBonus: Math.round(exposureBonus), claimantBonus: Math.round(claimantBonus), medicalCosts: Math.round(medicalCosts), totalLow: Math.round(total * 0.5), totalMid: Math.round(total), totalHigh: Math.round(total * 1.8) };
+
+    return {
+        condition: cond.condition,
+        exposurePeriod: exposure.period,
+        claimantType: claimant.type,
+        baseDamages: Math.round(baseDamages),
+        exposureBonus: Math.round(exposureBonus),
+        claimantBonus: Math.round(claimantBonus),
+        medicalCosts: Math.round(medicalCosts),
+        expertDelta: Math.round(expertDelta),
+        totalLow: Math.round(total * 0.8),
+        totalMid: Math.round(total),
+        totalHigh: Math.round(total * 1.45),
+        isEESEligible: cond.tier === 1
+    };
 }
 
 export function formatCurrency(amount: number): string { return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(amount); }

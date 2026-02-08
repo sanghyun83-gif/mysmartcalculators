@@ -12,14 +12,14 @@ export const metadata = {
   }
 };
 
-const HubClient = dynamic(
-  () => import("./HubClient"),
+const MesoHubEngine = dynamic(
+  () => import("./MesoHubEngine").then(mod => mod.MesoHubEngineComponent),
   {
     ssr: true,
-    loading: () => <div className="min-h-screen bg-slate-950" />
+    loading: () => <div className="min-h-screen bg-slate-950 line-rebuild-v2-1-4" />
   }
 );
 
 export default function CalcMesotheliomaPage() {
-  return <HubClient />;
+  return <MesoHubEngine />;
 }
