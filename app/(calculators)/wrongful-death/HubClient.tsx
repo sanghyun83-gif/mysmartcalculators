@@ -3,7 +3,7 @@
 import { Heart, ChevronRight, Activity, CheckCircle2, Gavel, Scale, Shield, ArrowRight, AlertCircle, FileText, Landmark, Users, Search, TrendingUp, Zap, MapPin, DollarSign, Info, Stethoscope, Briefcase } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { WRONGFUL_DEATH_CONSTANTS, formatCurrency } from "@/lib/calculators/wrongful-death-v2";
+import { WRONGFUL_DEATH_CONSTANTS, formatCurrency } from "@/lib/calculators/wrongful-death";
 
 export default function HubClient() {
   const [isScrolled, setIsScrolled] = useState(false);

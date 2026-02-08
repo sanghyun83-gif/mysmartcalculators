@@ -24,7 +24,7 @@ import {
     parseFormattedNumber,
     calculateYearsRemaining,
     calculateWrongfulDeath,
-} from "@/lib/calculators/wrongful-death-v2";
+} from "@/lib/calculators/wrongful-death";
 
 export default function WrongfulDeathSettlementPage() {
     const [annualIncome, setAnnualIncome] = useState("65,000");
