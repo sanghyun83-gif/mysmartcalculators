@@ -1,4 +1,4 @@
-import { FlagshipLayout } from "@/components/layout/FlagshipLayout";
+import { FlagshipLayout } from "@/components/v3/FlagshipLayout";
 
 export default function AgeLayout({
     children,
