@@ -50,6 +50,46 @@ export const TRUCK_2026 = {
 };
 
 // ============================================
+// LEGACY COMPATIBILITY (For v3-sandbox builds)
+// ============================================
+export const SETTLEMENT_CONSTANTS = {
+    injuryTypes: {
+        whiplash: { label: "Whiplash / Soft Tissue", multiplier: 1.5, recoveryWeeks: 8, dailyRate: 50 },
+        fracture: { label: "Bone Fracture", multiplier: 3.0, recoveryWeeks: 16, dailyRate: 100 },
+        surgery: { label: "Surgery Required", multiplier: 4.0, recoveryWeeks: 24, dailyRate: 150 },
+        permanent: { label: "Permanent Disability", multiplier: 5.0, recoveryWeeks: 52, dailyRate: 200 },
+        catastrophic: { label: "Catastrophic / TBI", multiplier: 7.0, recoveryWeeks: 104, dailyRate: 500 }
+    }
+};
+
+export interface PainSufferingResult {
+    medicalBills: number;
+    injuryType: string;
+    multiplier: number;
+    recoveryWeeks: number;
+    dailyRate: number;
+    painSufferingAmount: number;
+}
+
+export interface SettlementResult {
+    stateName: string;
+    medicalBills: number;
+    lostWages: number;
+    propertyDamage: number;
+    economicDamages: number;
+    injurySeverity: string;
+    painMultiplier: number;
+    painSufferingLow: number;
+    painSufferingHigh: number;
+    faultPercentage: number;
+    faultReduction: number;
+    settlementLow: number;
+    settlementHigh: number;
+    withAttorneyHigh: number;
+    afterAttorneyFeeHigh: number;
+}
+
+// ============================================
 // S-CLASS v2.1 FORENSIC TRUCK ACCIDENT ENGINE
 // ============================================
 export interface TruckSClassResult {
@@ -197,16 +237,43 @@ export const STATE_FAULT_LAWS: Record<string, {
     DC: { name: "Washington DC", faultSystem: "at-fault", comparativeType: "contributory", threshold: "None", notes: "Contributory negligence bars recovery" },
 };
 
-export function getInjuryTypes(): { id: string; name: string; description: string }[] {
-    return TRUCK_2026.injuryTypes.map(t => ({
-        id: t.id,
-        name: t.name,
-        description: t.description
+export function getInjuryTypes() {
+    return Object.entries(SETTLEMENT_CONSTANTS.injuryTypes).map(([id, data]) => ({
+        id,
+        label: data.label,
+        multiplier: data.multiplier,
+        description: `${data.label} with ${data.multiplier}x multiplier`
     }));
 }
 
 export function getFmcsaPillars(): { id: string; name: string; description: string }[] {
     return TRUCK_2026.fmcsaPillars;
+}
+
+export function calculatePainSuffering(medicalBills: number, injuryKey: string): PainSufferingResult {
+    const key = (injuryKey === 'minor' ? 'whiplash' : injuryKey === 'severe' ? 'surgery' : injuryKey) as keyof typeof SETTLEMENT_CONSTANTS.injuryTypes;
+    const injury = SETTLEMENT_CONSTANTS.injuryTypes[key] || SETTLEMENT_CONSTANTS.injuryTypes.whiplash;
+
+    const amountByMultiplier = medicalBills * injury.multiplier;
+    const amountByPerDiem = injury.recoveryWeeks * 7 * injury.dailyRate;
+    const painSufferingAmount = (amountByMultiplier + amountByPerDiem) / 2;
+
+    return {
+        medicalBills,
+        injuryType: injury.label,
+        multiplier: injury.multiplier,
+        recoveryWeeks: injury.recoveryWeeks,
+        dailyRate: injury.dailyRate,
+        painSufferingAmount
+    };
+}
+
+export function getSeverityLevels() {
+    return Object.entries(SETTLEMENT_CONSTANTS.injuryTypes).map(([id, data]) => ({
+        id,
+        label: data.label,
+        range: `${data.multiplier}x`
+    }));
 }
 
 // ============================================
@@ -240,20 +307,36 @@ export function calculateSettlement(
     lostWages: number,
     propertyDamage: number,
     injurySeverity: string,
-    faultPercentage: number = 0,
-    hasFmcsaViolation: boolean = false,
-    isNuclearVenue: boolean = false
-): any {
-    return calculateTruckSClass(
-        injurySeverity,
+    faultPercentage: number = 0
+): SettlementResult {
+    const state = STATE_FAULT_LAWS[stateCode];
+    const ps = calculatePainSuffering(medicalBills, injurySeverity);
+
+    const economicDamages = medicalBills + lostWages + propertyDamage;
+    const baseLow = economicDamages + ps.painSufferingAmount * 0.8;
+    const baseHigh = economicDamages + ps.painSufferingAmount * 1.2;
+
+    const faultReduction = (faultPercentage / 100);
+    const settlementLow = baseLow * (1 - faultReduction);
+    const settlementHigh = baseHigh * (1 - faultReduction);
+
+    return {
+        stateName: state.name,
         medicalBills,
         lostWages,
-        45, // default age
-        hasFmcsaViolation,
-        isNuclearVenue,
-        false,
-        injurySeverity === 'tbi-permanent'
-    );
+        propertyDamage,
+        economicDamages,
+        injurySeverity: ps.injuryType,
+        painMultiplier: ps.multiplier,
+        painSufferingLow: ps.painSufferingAmount * 0.8,
+        painSufferingHigh: ps.painSufferingAmount * 1.2,
+        faultPercentage,
+        faultReduction: faultPercentage,
+        settlementLow,
+        settlementHigh,
+        withAttorneyHigh: settlementHigh * 1.3,
+        afterAttorneyFeeHigh: (settlementHigh * 1.3) * 0.67
+    };
 }
 
 // ============================================
