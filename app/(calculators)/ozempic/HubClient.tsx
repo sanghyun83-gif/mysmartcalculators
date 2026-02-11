@@ -7,6 +7,7 @@ import {
     CheckCircle2, Pill, Stethoscope, Gavel, DollarSign, TrendingUp, Search, Star
 } from "lucide-react";
 import { OZEMPIC_CONSTANTS, formatCurrency } from "@/lib/calculators/ozempic";
+import { RelatedCalculators } from "@/components/RelatedCalculators";
 
 export default function HubClient() {
     const stats = OZEMPIC_CONSTANTS.stats;
@@ -273,6 +274,13 @@ export default function HubClient() {
                             </Link>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            {/* Related Calculators */}
+            <section className="py-16 bg-slate-950">
+                <div className="max-w-7xl mx-auto px-6">
+                    <RelatedCalculators currentCalc="ozempic" count={6} />
                 </div>
             </section>
 

@@ -1,4 +1,5 @@
 import { getCalculatorMeta } from "@/lib/registry/calculators";
+import { BMI_2026 } from "@/lib/calculators/bmi";
 import dynamic from "next/dynamic";
 
 const id = "bmi";
@@ -21,5 +22,42 @@ const HubClient = dynamic(
 );
 
 export default function CalcBmiPage() {
-  return <HubClient />;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": meta?.title,
+        "description": meta?.description,
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": BMI_2026.faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.answer
+          }
+        }))
+      }
+    ]
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <HubClient />
+    </>
+  );
 }

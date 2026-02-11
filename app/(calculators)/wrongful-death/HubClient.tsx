@@ -4,6 +4,7 @@ import { Heart, ChevronRight, Activity, CheckCircle2, Gavel, Scale, Shield, Arro
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { WRONGFUL_DEATH_CONSTANTS, formatCurrency } from "@/lib/calculators/wrongful-death";
+import { RelatedCalculators } from "@/components/RelatedCalculators";
 
 export default function HubClient() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -311,7 +312,7 @@ export default function HubClient() {
 
       {/* 8. Related Items */}
       <footer className="py-24 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-24">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="space-y-8">
             <div className="flex items-center gap-3">
               <Heart className="w-6 h-6 text-amber-500" />
@@ -320,21 +321,8 @@ export default function HubClient() {
             <p className="text-slate-500 text-xs font-bold leading-[2.5] uppercase tracking-widest">
               STRICT COMPLIANCE WITH 2026 LEGAL DISCLAIMER GUIDELINES. NOT LEGAL ADVICE. PROVISION OF ESTIMATES ONLY. ALL DATA MANAGED UNDER JURISDICTION OF LOCAL STATUTES.
             </p>
-          </div>
-          <div className="grid grid-cols-2 gap-12">
-            <div className="space-y-6">
-              <h5 className="text-[10px] font-black text-white uppercase tracking-[0.3em]">Audits</h5>
-              <div className="flex flex-col gap-4">
-                <Link href="/medical-malpractice" className="text-[11px] font-bold text-slate-500 hover:text-amber-500 transition-colors uppercase">Medical Malpractice</Link>
-                <Link href="/truck-accident" className="text-[11px] font-bold text-slate-500 hover:text-amber-500 transition-colors uppercase">Truck Accident</Link>
-              </div>
-            </div>
-            <div className="space-y-6">
-              <h5 className="text-[10px] font-black text-white uppercase tracking-[0.3em]">Legal Intelligence</h5>
-              <div className="flex flex-col gap-4">
-                <Link href="/workers-comp" className="text-[11px] font-bold text-slate-500 hover:text-amber-500 transition-colors uppercase">Workers Comp</Link>
-                <Link href="/auto-insurance" className="text-[11px] font-bold text-slate-500 hover:text-amber-500 transition-colors uppercase">Policy Limits</Link>
-              </div>
+            <div className="mt-12">
+              <RelatedCalculators currentCalc="wrongful-death" count={6} />
             </div>
           </div>
         </div>

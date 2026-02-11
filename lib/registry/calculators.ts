@@ -358,7 +358,7 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "bus-accident": {
         "id": "bus-accident",
-        "name": "Bus Accident Calculator",
+        "name": "2026 Bus Accident Settlement Calculator | Injury Payouts",
         "description": "Calculate bus accident lawsuit settlements. Public transit, school bus, charter bus injury claims. Based on 2026 NHTSA data.",
         "category": "legal",
         "tier": 2,
@@ -1175,6 +1175,15 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "color": "rose-500",
         "icon": "gavel"
     },
+    "gpa": {
+        "id": "gpa",
+        "name": "2026 GPA Calculator | Precision Academic Audit Engine",
+        "description": "Calculate cumulative and semester GPA with 2026 academic precision. Free audit tool for weighted AP/IB honors and unweighted 4.0 scale benchmarks.",
+        "category": "general",
+        "tier": 1,
+        "color": "indigo-600",
+        "icon": "graduation-cap"
+    },
     "grocery-store-injury": {
         "id": "grocery-store-injury",
         "name": "Grocery Store Injury Calculator",
@@ -1724,6 +1733,15 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "color": "blue-500",
         "icon": "landmark"
     },
+    "percentage": {
+        "id": "percentage",
+        "name": "2026 Percentage Calculator | Precision Math & Growth Engine",
+        "description": "Calculate 2026 percentages instantly. Free math negotiator with official NIST precision benchmarks, percentage increase/decrease logic, and business margin analytics.",
+        "category": "general",
+        "tier": 1,
+        "color": "blue-500",
+        "icon": "percent"
+    },
     "pet-insurance": {
         "id": "pet-insurance",
         "name": "Pet Insurance Calculator",
@@ -2056,6 +2074,15 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "tier": 2,
         "color": "rose-500",
         "icon": "gavel"
+    },
+    "scientific": {
+        "id": "scientific",
+        "name": "Scientific Calculator",
+        "description": "High-precision scientific calculator for trigonometry, logarithms, and calculus. Fully compliant with 2026 SAT/ACT guidelines.",
+        "category": "general",
+        "tier": 2,
+        "color": "blue-600",
+        "icon": "binary"
     },
     "section-8": {
         "id": "section-8",

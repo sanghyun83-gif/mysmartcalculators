@@ -70,15 +70,63 @@ export const CALCULATORS = [
         faqs: [
             {
                 question: "What is PITI in a mortgage?",
-                answer: "PITI stands for Principal, Interest, Taxes, and Insurance. These are the four main components of a monthly mortgage payment."
+                answer: "PITI stands for Principal, Interest, Taxes, and Insurance. These are the four main components of a monthly mortgage payment. Principal and Interest go to the lender, while Taxes (property tax) and Insurance (homeowners insurance) are often held in escrow."
             },
             {
                 question: "How much down payment do I need?",
-                answer: "While 20% is the traditional benchmark to avoid PMI, many conventional loans allow as little as 3% down, and FHA loans allow 3.5%."
+                answer: "While 20% is the traditional benchmark to avoid PMI, many conventional loans allow as little as 3% down, and FHA loans allow 3.5%. However, a larger down payment reduces your monthly payment and total interest paid over the life of the loan."
             },
             {
-                question: "What is PMI?",
-                answer: "Private Mortgage Insurance (PMI) is usually required if your down payment is less than 20%. It protects the lender if you default on the loan."
+                question: "What is PMI (Private Mortgage Insurance)?",
+                answer: "PMI is usually required on conventional loans if your down payment is less than 20% of the home's value. It protects the lender in case of default. You can typically request to cancel PMI once your loan-to-value (LTV) ratio reaches 80%."
+            },
+            {
+                question: "What is an escrow account?",
+                answer: "An escrow account is a neutral holding area managed by your lender to pay for property taxes and homeowners insurance. A portion of your monthly payment is funneled here so the lender can pay these large annual bills on your behalf."
+            },
+            {
+                question: "How do mortgage points work?",
+                answer: "Mortgage points, or discount points, are fees paid directly to the lender at closing in exchange for a lower interest rate. One point typically costs 1% of the mortgage amount and can significantly reduce long-term interest costs."
+            },
+            {
+                question: "What is the difference between a 15-year and 30-year mortgage?",
+                answer: "A 30-year term offers lower monthly payments but higher total interest over time. A 15-year term has higher monthly payments but allows you to build equity faster and pay significantly less in total interest."
+            },
+            {
+                question: "What is mortgage amortization?",
+                answer: "Amortization is the process of paying off debt through regular payments over time. In early years, a larger portion of your payment goes toward interest. As the balance decreases, more of your payment is applied to the principal."
+            },
+            {
+                question: "What are typical closing costs?",
+                answer: "Closing costs usually range from 2% to 5% of the home's purchase price. They include loan origination fees, appraisal fees, title insurance, taxes, and deed recording fees."
+            },
+            {
+                question: "What is DTI (Debt-to-Income) ratio?",
+                answer: "DTI is the percentage of your gross monthly income that goes toward paying debts. Lenders use it to measure your ability to manage monthly payments. Most lenders prefer a back-end DTI ratio of 36% or lower."
+            },
+            {
+                question: "What is the difference between Pre-qualified and Pre-approved?",
+                answer: "Pre-qualification is an informal estimate based on self-reported data. Pre-approval is a conditional commitment from a lender after a thorough check of your credit, income, and financial history, giving you more leverage as a buyer."
+            },
+            {
+                question: "Can I pay off my mortgage early?",
+                answer: "Most modern mortgages do not have prepayment penalties, allowing you to make extra payments toward the principal. Doing so can save thousands in interest and shave years off your loan term."
+            },
+            {
+                question: "What is an ARM (Adjustable-Rate Mortgage)?",
+                answer: "An ARM has an interest rate that changes periodically. It usually starts with a fixed lower 'teaser' rate for 5-10 years, after which the rate adjusts based on market indexes like SOFR plus a margin."
+            },
+            {
+                question: "What is the FHA loan requirement?",
+                answer: "FHA loans are backed by the Federal Housing Administration and are popular for first-time buyers. They require as little as 3.5% down and have more flexible credit score requirements (typically 580 or higher)."
+            },
+            {
+                question: "How does property tax impact my payment?",
+                answer: "Property taxes vary by location and are based on the assessed value of your home. A $400k home in a 1.2% tax area adds $4,800 annually ($400/month) to your PITI payment."
+            },
+            {
+                question: "Is 2026 a good time to buy a home?",
+                answer: "Market conditions in 2026 depend on interest rate trends and housing inventory. Stabilizing rates compared to previous cycles may offer more predictable monthly payments for long-term homeowners."
             }
         ]
     },

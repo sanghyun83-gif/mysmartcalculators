@@ -32,7 +32,7 @@ export default function CalcWrongfuldeathPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
-            "name": "Wrongful Death Settlement Auditor v2.1",
+            "name": "2026 Wrongful Death Settlement Auditor",
             "operatingSystem": "All",
             "applicationCategory": "FinancialApplication",
             "description": "Expert-grade wrongful death settlement calculator injecting Survival Action and Hedonic damage multipliers.",

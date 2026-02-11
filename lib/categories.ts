@@ -286,6 +286,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'student-loan': 'finance',
     'fafsa': 'finance',
     '529': 'finance',
+    'gpa': 'finance',
     'social-security': 'finance',
     'ssdi': 'finance',
     'unemployment': 'finance',
@@ -297,6 +298,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'disability': 'finance',
     'ltd': 'finance',
     'tip': 'finance',
+    'scientific': 'finance',
 
     // Insurance
     'auto-insurance': 'insurance',
@@ -317,6 +319,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     // Health
     'bmi': 'health',
     'calorie': 'health',
+    'percentage': 'finance',
 };
 
 export const CATEGORY_NAMES: Record<Category, string> = {
@@ -437,6 +440,8 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'property-division': 'Property Division',
     'bmi': 'BMI',
     'calorie': 'Calorie',
+    'scientific': 'Scientific Calculator',
+    'percentage': 'Percentage Calculator',
     'lung-disease': 'Lung Disease',
     'silicosis': 'Silicosis',
     'black-lung': 'Black Lung',
@@ -586,6 +591,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'atv-insurance': 'ATV Insurance',
     'dirt-bike-insurance': 'Dirt Bike Insurance',
     'golf-cart-insurance': 'Golf Cart Insurance',
+    'gpa': 'GPA Calculator',
     'wedding-insurance': 'Wedding Insurance',
     'event-insurance': 'Event Insurance',
     'travel-insurance': 'Travel Insurance',

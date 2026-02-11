@@ -1,5 +1,6 @@
 import { getCalculatorMeta } from "@/lib/registry/calculators";
-import dynamic from "next/dynamic";
+import React, { lazy, Suspense } from "react";
+import { ClientOnly } from "@/components/ClientOnly";
 
 const id = "truck-accident";
 const meta = getCalculatorMeta(id);
@@ -12,19 +13,13 @@ export const metadata = {
   }
 };
 
-const HubClient = dynamic(
-  () => import("./HubClientFixed"),
-  {
-    ssr: true,
-    loading: () => <div className="min-h-screen bg-slate-950" />
-  }
-);
+import HubClient from "./HubClient";
 
 export default function CalcTruckaccidentPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Truck Accident Settlement Calculator",
+    "name": "2026 Truck Accident Settlement Calculator",
     "operatingSystem": "All",
     "applicationCategory": "FinancialValueCalculator",
     "aggregateRating": {
@@ -45,10 +40,10 @@ export default function CalcTruckaccidentPage() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is the average settlement for a truck accident?",
+        "name": "What is the average truck accident settlement in 2026?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Average truck accident settlements range from $100,000 to over $1,500,000, depending on injury severity, FMCSA violations, and jurisdiction code."
+          "text": "Average 2026 truck accident settlements range from $100,000 to over $1,500,000, depending on injury severity, FMCSA violations, and jurisdiction code."
         }
       },
       {
@@ -72,7 +67,9 @@ export default function CalcTruckaccidentPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
       />
-      <HubClient />
+      <ClientOnly fallback={<div className="min-h-screen bg-[#020617]" />}>
+        <HubClient />
+      </ClientOnly>
     </>
   );
 }

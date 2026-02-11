@@ -7,6 +7,7 @@ import {
   Brain, Shield, Gavel, BarChart3, TrendingUp, Info, Search, Pill, Users, Lock, Star
 } from "lucide-react";
 import { SITE, SOCIAL_2026, CALCULATORS, formatCurrency } from "@/lib/calculators/social-media";
+import { RelatedCalculators } from "@/components/RelatedCalculators";
 
 export default function HubClient() {
   const [scrolled, setScrolled] = useState(false);
@@ -220,6 +221,9 @@ export default function HubClient() {
           <div className="text-slate-400 text-[10px] font-black tracking-widest uppercase">
             © {SITE.year} {SITE.name}
           </div>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 mt-8">
+          <RelatedCalculators currentCalc="social-media" count={6} />
         </div>
       </footer>
     </div>

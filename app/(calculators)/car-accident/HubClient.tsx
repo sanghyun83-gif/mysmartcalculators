@@ -4,6 +4,7 @@ import { Car, ChevronRight, Activity, CheckCircle2, Gavel, Scale, Shield, ArrowR
 import Link from "next/link";
 import { useState } from "react";
 import { ACCIDENT_CONSTANTS, formatCurrency } from "@/lib/calculators/car-accident";
+import { RelatedCalculators } from "@/components/RelatedCalculators";
 
 export default function HubClient() {
     const [selectedState, setSelectedState] = useState("CA");
@@ -293,6 +294,13 @@ export default function HubClient() {
                             </Link>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            {/* Related Calculators */}
+            <section className="py-16 bg-slate-950">
+                <div className="max-w-7xl mx-auto px-6">
+                    <RelatedCalculators currentCalc="car-accident" count={6} />
                 </div>
             </section>
         </div>

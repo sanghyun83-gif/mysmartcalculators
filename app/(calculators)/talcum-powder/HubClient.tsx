@@ -7,6 +7,7 @@ import {
   ArrowRight, Droplet, AlertTriangle, Shield, Gavel, Microscope,
   Activity, BarChart3, Info, Star, CheckCircle2, FlaskConical, Scale
 } from "lucide-react";
+import { RelatedCalculators } from "@/components/RelatedCalculators";
 
 export default function HubClient() {
   const [scrolled, setScrolled] = useState(false);
@@ -218,6 +219,9 @@ export default function HubClient() {
           <p className="text-[10px] text-slate-600 font-bold uppercase tracking-[0.2em] italic max-w-md text-center md:text-right">
             S-Class Intelligence Engine v2.1. Developed for MDL 2738 actuary verification. NOT legal advice.
           </p>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 mt-8">
+          <RelatedCalculators currentCalc="talcum-powder" count={6} />
         </div>
       </footer>
     </div>

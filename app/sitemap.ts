@@ -13,6 +13,7 @@ const CALCULATORS_WITH_SUBPAGES = [
     'mesothelioma', 'asbestos', 'ozempic', 'camp-lejeune', 'roundup', 'hernia-mesh',
     '401k-growth', 'mortgage', 'tax', 'student-loan', 'social-security', 'ssdi',
     'auto-insurance', 'life-insurance', 'pet-insurance', 'bmi', 'calorie',
+    'scientific', 'percentage', 'age', 'gpa', 'loan', 'tip', 'compound-interest',
     'child-support', 'alimony', 'divorce', 'retirement', 'roth-ira', 'fafsa',
 ];
 
@@ -42,9 +43,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const calculators = Object.keys(CATEGORY_MAP);
 
     // High-ROI Segments
+    // High-ROI Segments
     const tier1 = ['truck-accident']; // Priority 1.0 (Flagship)
-    const tier2 = ['ozempic', 'camp-lejeune', 'roundup']; // Priority 0.9 (Medical/Mass Tort)
-    const tier3 = ['bmi', 'calorie']; // Priority 0.5 (Low Value)
+    const tier2 = [
+        'ozempic', 'camp-lejeune', 'roundup',
+        'bmi', 'calorie', 'scientific', 'percentage', 'age', 'gpa',
+        'mortgage', 'loan', 'tip', 'compound-interest', 'grade'
+    ]; // Priority 0.9 (Big Volume + Medical)
+    const tier3: string[] = []; // Reserved for deprecated/low-value
 
     const calculatorPages: MetadataRoute.Sitemap = calculators.map(calc => {
         let priority = 0.7; // Standard

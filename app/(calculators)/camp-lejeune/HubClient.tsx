@@ -331,6 +331,9 @@ export default function HubClient() {
             </div>
           </div>
         </div>
+        <div className="mt-12">
+          <RelatedCalculators currentCalc="camp-lejeune" count={6} />
+        </div>
       </footer>
     </div>
   );

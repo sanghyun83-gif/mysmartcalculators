@@ -7,6 +7,7 @@ import {
     BarChart3, Info, Microscope, Stethoscope, Search, DollarSign, Star, TrendingUp, Lock
 } from "lucide-react";
 import { ROUNDUP_CONSTANTS, SITE } from "@/lib/calculators/roundup";
+import { RelatedCalculators } from "@/components/RelatedCalculators";
 
 export default function HubClient() {
     const [scrolled, setScrolled] = useState(false);
@@ -203,6 +204,9 @@ export default function HubClient() {
                     <div className="text-slate-400 text-[10px] font-black tracking-widest uppercase">
                         © {SITE.year} {SITE.name}
                     </div>
+                </div>
+                <div className="max-w-7xl mx-auto px-6 mt-8">
+                    <RelatedCalculators currentCalc="roundup" count={6} />
                 </div>
             </footer>
         </div>

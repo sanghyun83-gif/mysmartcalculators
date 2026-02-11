@@ -322,6 +322,9 @@ export default function SCIHub() {
             </div>
           </div>
         </div>
+        <div className="mt-12">
+          <RelatedCalculators currentCalc="spinal-cord" count={6} />
+        </div>
       </footer>
     </div>
   );

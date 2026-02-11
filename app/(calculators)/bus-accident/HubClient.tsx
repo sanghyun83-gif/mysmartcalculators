@@ -8,6 +8,7 @@ import {
     Gavel, Search, BarChart3, Info, Star, CheckCircle2,
     Zap, Eye, Activity, FileText, Globe
 } from "lucide-react";
+import { RelatedCalculators } from "@/components/RelatedCalculators";
 
 export default function HubClient() {
     const [scrolled, setScrolled] = useState(false);
@@ -258,6 +259,9 @@ export default function HubClient() {
                     <p className="text-[10px] text-slate-700 font-black uppercase tracking-[0.2em] italic max-w-sm leading-relaxed uppercase italic">
                         Predator Engine v2.1. Developed for Common Carrier liability audit. Not legal advice.
                     </p>
+                </div>
+                <div className="max-w-7xl mx-auto px-6 mt-8">
+                    <RelatedCalculators currentCalc="bus-accident" count={6} />
                 </div>
             </footer>
         </div>

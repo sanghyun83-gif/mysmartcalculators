@@ -32,7 +32,7 @@ export default function CalcSlipandfallPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "SoftwareApplication",
-            "name": "Ranking Predator Slip and Fall Settlement Calculator",
+            "name": "2026 Slip and Fall Settlement Calculator",
             "operatingSystem": "All",
             "applicationCategory": "LegalApplication",
             "aggregateRating": {

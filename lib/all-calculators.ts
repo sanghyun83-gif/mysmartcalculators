@@ -19,11 +19,11 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "3m-earplug",
-        "name": "3M Earplug Lawsuit Calculator"
+        "name": "3M Earplug Settlement Calculator"
     },
     {
-        "id": "401k",
-        "name": "401k Calculator"
+        "id": "401k-growth",
+        "name": "401k-growth"
     },
     {
         "id": "529",
@@ -95,7 +95,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "baby-formula",
-        "name": "Baby Formula NEC Calculator"
+        "name": "NEC Baby Formula Settlement Calculator"
     },
     {
         "id": "bail-bond",
@@ -167,7 +167,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "business-insurance",
-        "name": "Business Insurance Calculator"
+        "name": "Business Insurance Cost Calculator"
     },
     {
         "id": "calorie",
@@ -175,7 +175,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "camp-lejeune",
-        "name": "Camp Lejeune Water Calculator"
+        "name": "Camp Lejeune Settlement Calculator"
     },
     {
         "id": "camper-insurance",
@@ -187,7 +187,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "car-accident",
-        "name": "Car Accident Settlement Calculator"
+        "name": "car-accident"
     },
     {
         "id": "casino-injury",
@@ -247,7 +247,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "construction-accident",
-        "name": "Construction Accident Calculator"
+        "name": "Construction Accident Settlement Calculator"
     },
     {
         "id": "contractor-insurance",
@@ -299,7 +299,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "depo-provera",
-        "name": "Depo-Provera Brain Tumor Calculator"
+        "name": "Depo-Provera Lawsuit Calculator"
     },
     {
         "id": "depuy-hip",
@@ -347,7 +347,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "DUI",
-        "name": "DUI Calculator"
+        "name": "DUI Cost Calculator"
     },
     {
         "id": "e-bike",
@@ -391,7 +391,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "epli",
-        "name": "EPLI Calculator"
+        "name": "Wrongful Termination Settlement Calculator"
     },
     {
         "id": "era",
@@ -443,7 +443,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "fela",
-        "name": "Railroad Injury (FELA) Calculator"
+        "name": "FELA Railroad Injury Settlement Calculator"
     },
     {
         "id": "fentanyl-exposure",
@@ -503,7 +503,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "general-liability",
-        "name": "General Liability Calculator"
+        "name": "General Liability Insurance Calculator"
     },
     {
         "id": "gi-bill",
@@ -515,7 +515,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "glp1-vision",
-        "name": "GLP-1 Vision Loss Calculator"
+        "name": "GLP-1 Vision Loss Settlement Calculator"
     },
     {
         "id": "golf-cart-insurance",
@@ -524,6 +524,10 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     {
         "id": "golf-cart",
         "name": "Golf Cart Accident Calculator"
+    },
+    {
+        "id": "gpa",
+        "name": "GPA Calculator"
     },
     {
         "id": "grocery-store-injury",
@@ -551,7 +555,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "hernia-mesh",
-        "name": "Hernia Mesh Lawsuit Calculator"
+        "name": "Bard Hernia Mesh Settlement Calculator"
     },
     {
         "id": "hip-implant",
@@ -723,7 +727,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "offshore",
-        "name": "Offshore Maritime Calculator"
+        "name": "Jones Act Settlement Calculator"
     },
     {
         "id": "oil-rig",
@@ -743,7 +747,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "ozempic",
-        "name": "Ozempic Lawsuit Calculator"
+        "name": "Ozempic Settlement Calculator"
     },
     {
         "id": "paragard",
@@ -770,6 +774,10 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
         "name": "Pension Calculator"
     },
     {
+        "id": "percentage",
+        "name": "Percentage Calculator"
+    },
+    {
         "id": "pet-insurance",
         "name": "Pet Insurance Calculator"
     },
@@ -779,7 +787,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "philips-ventilator",
-        "name": "Philips CPAP Lawsuit Calculator"
+        "name": "Philips CPAP Settlement Calculator"
     },
     {
         "id": "pipeline",
@@ -891,7 +899,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "roundup",
-        "name": "Roundup Lymphoma Lawsuit Calculator"
+        "name": "Roundup Settlement Calculator"
     },
     {
         "id": "rsu",
@@ -916,6 +924,10 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     {
         "id": "school-injury",
         "name": "School Injury Calculator"
+    },
+    {
+        "id": "scientific",
+        "name": "Scientific Calculator"
     },
     {
         "id": "section-8",
@@ -967,7 +979,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "social-media",
-        "name": "Social Media Addiction Calculator"
+        "name": "Social Media Addiction Lawsuit Calculator"
     },
     {
         "id": "social-security",
@@ -991,7 +1003,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "sr22",
-        "name": "SR-22 Insurance Calculator"
+        "name": "SR-22 Insurance Cost Calculator"
     },
     {
         "id": "ssdi",
@@ -1039,7 +1051,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "talcum-powder",
-        "name": "Talcum Powder Lawsuit Calculator"
+        "name": "Talcum Powder Settlement Calculator"
     },
     {
         "id": "tanf",
@@ -1055,7 +1067,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "tepezza",
-        "name": "Tepezza Hearing Loss Calculator"
+        "name": "Tepezza Hearing Loss Lawsuit Calculator"
     },
     {
         "id": "testosterone",

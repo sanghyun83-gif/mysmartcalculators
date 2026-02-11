@@ -18,51 +18,118 @@ export const SITE = {
 };
 
 // ============================================
-// SETTLEMENT CALCULATION CONSTANTS
+// 2026 TRUCK ACCIDENT CONSTANTS (S-Class v2.1)
 // ============================================
-export const SETTLEMENT_CONSTANTS = {
-    // Pain & Suffering Multipliers by injury severity
-    painMultipliers: {
-        minor: { min: 1.5, max: 3, label: "Minor (Soft tissue, bruises)" },
-        moderate: { min: 3, max: 5, label: "Moderate (Fractures, sprains)" },
-        severe: { min: 5, max: 10, label: "Severe (Surgery required)" },
-        permanent: { min: 10, max: 20, label: "Permanent (Disability, TBI)" },
-        catastrophic: { min: 20, max: 50, label: "Catastrophic (Paralysis, death)" },
-    },
+export const TRUCK_2026 = {
+    // Expert Delta Multipliers (Alpha)
+    fmcsaMultiplier: 1.50,    // FMCSA Safety Regulation Violations
+    nuclearVenueAlpha: 1.35,  // High-payout jurisdictions (TX, GA, FL)
+    edrAlpha: 1.15,          // Black Box / EDR evidentiary precision
 
-    // Injury types with typical multipliers
-    injuryTypes: {
-        whiplash: { multiplier: 2, weeks: 6, label: "Whiplash" },
-        backInjury: { multiplier: 4, weeks: 16, label: "Back/Spine Injury" },
-        brokenBone: { multiplier: 3, weeks: 12, label: "Broken Bone" },
-        headInjury: { multiplier: 8, weeks: 24, label: "Head/TBI" },
-        kneeInjury: { multiplier: 3.5, weeks: 12, label: "Knee Injury" },
-        shoulderInjury: { multiplier: 3, weeks: 10, label: "Shoulder Injury" },
-        neckInjury: { multiplier: 4, weeks: 14, label: "Neck Injury" },
-        softTissue: { multiplier: 1.5, weeks: 4, label: "Soft Tissue" },
-        concussion: { multiplier: 5, weeks: 8, label: "Concussion" },
-        internalInjury: { multiplier: 7, weeks: 20, label: "Internal Injuries" },
-    },
+    injuryTypes: [
+        { id: "soft-tissue", name: "Soft Tissue / Whiplash", base: 45000, description: "Muscle strains, neck pain, no surgery." },
+        { id: "fracture", name: "Simple Fracture", base: 125000, description: "Broken bones requiring casting/immobility." },
+        { id: "surgery", name: "Surgical Orthopedic", base: 350000, description: "Pins, plates, or joint reconstruction." },
+        { id: "spinal", name: "Spinal / Discal Matrix", base: 850000, description: "Herniated discs with nerve impingement." },
+        { id: "tbi-permanent", name: "Catastrophic TBI/Paralysis", base: 2500000, description: "Permanent neurological or physical impairment." }
+    ],
 
-    // Attorney impact on settlement
-    attorneyBonus: 0.30, // 30% higher with attorney
-    attorneyFee: 0.33, // 33% contingency fee
+    // FMCSA Regulatory Pillars
+    fmcsaPillars: [
+        { id: "hos", name: "Hours of Service (HOS)", description: "Driver fatigue exceeding legal driving limits." },
+        { id: "maintenance", name: "Equipment Maintenance", description: "Brake failure or tire blowouts due to neglect." },
+        { id: "licensing", name: "CDL / Qualification", description: "Unqualified driver or high-risk hiring history." }
+    ],
 
-    // Average settlements for truck accidents (higher than car accidents)
-    averageSettlements: {
-        minor: { low: 25000, high: 100000 },
-        moderate: { low: 100000, high: 500000 },
-        severe: { low: 500000, high: 1500000 },
-        permanent: { low: 1500000, high: 5000000 },
-    },
-
-    expertMultipliers: {
-        fmcsaViolation: 1.50, // +50% for safety reg violations
-        nuclearVenue: 1.35,   // +35% for high-payout counties (e.g., South Texas)
-        edrEvidence: 1.15,    // +15% for black-box data verification
-        hospitalizationBonus: 1.25, // +25% for inpatient stay
+    statistics: {
+        annualCommercialAccidents: 500000,
+        averageSettlement: 450000,
+        highTierCeiling: 15000000,
+        status: "MDL 2026 Regulatory Sync"
     }
 };
+
+// ============================================
+// S-CLASS v2.1 FORENSIC TRUCK ACCIDENT ENGINE
+// ============================================
+export interface TruckSClassResult {
+    totalLow: number;
+    totalHigh: number;
+    economicDelta: number;
+    fmcsaPremium: number;
+    venueEscalation: number;
+    edrBonus: number;
+    verdict: string;
+    severityLabel: string;
+}
+
+export function calculateTruckSClass(
+    injuryId: string,
+    medicalBills: number,
+    annualIncome: number,
+    age: number,
+    hasFmcsaViolation: boolean = false,
+    isNuclearVenue: boolean = false,
+    hasEdrData: boolean = false,
+    isPermanent: boolean = false
+): TruckSClassResult {
+    const injury = TRUCK_2026.injuryTypes.find(t => t.id === injuryId) || TRUCK_2026.injuryTypes[0];
+
+    // 1. Economic Foundation (Wage loss + Life care)
+    const workYearsRemaining = Math.max(0, 65 - age);
+    const wageLossPotential = annualIncome * workYearsRemaining * (isPermanent ? 0.7 : 0.2);
+    const economicDelta = medicalBills + wageLossPotential;
+
+    // 2. Base Valuation (S-Class Weighted)
+    let baseVal = injury.base + (economicDelta * 1.5);
+
+    // 3. Expert Delta Multipliers (Predator α)
+    let fmcsaPremium = 0;
+    let venueEscalation = 0;
+    let edrBonus = 0;
+
+    if (hasFmcsaViolation) {
+        fmcsaPremium = baseVal * (TRUCK_2026.fmcsaMultiplier - 1);
+        baseVal *= TRUCK_2026.fmcsaMultiplier;
+    }
+
+    if (isNuclearVenue) {
+        venueEscalation = baseVal * (TRUCK_2026.nuclearVenueAlpha - 1);
+        baseVal *= TRUCK_2026.nuclearVenueAlpha;
+    }
+
+    if (hasEdrData) {
+        edrBonus = baseVal * (TRUCK_2026.edrAlpha - 1);
+        baseVal *= TRUCK_2026.edrAlpha;
+    }
+
+    // 4. Final Aggregation
+    const totalHigh = Math.round(baseVal);
+    const totalLow = Math.round(baseVal * 0.65);
+
+    // 5. Verdict Matrix
+    let verdict = "Standard Tier Settlement Pathway.";
+    let severityLabel = "MODERATE";
+
+    if (baseVal > 1500000) {
+        verdict = "Catastrophic Liability Triggering High-Tier Settlement.";
+        severityLabel = "CRITICAL";
+    } else if (baseVal > 500000) {
+        verdict = "Significant Liability with High Economic Impact.";
+        severityLabel = "SEVERE";
+    }
+
+    return {
+        totalLow,
+        totalHigh,
+        economicDelta,
+        fmcsaPremium,
+        venueEscalation,
+        edrBonus,
+        verdict,
+        severityLabel
+    };
+}
 
 // ============================================
 // 50 STATE FAULT LAWS
@@ -130,227 +197,16 @@ export const STATE_FAULT_LAWS: Record<string, {
     DC: { name: "Washington DC", faultSystem: "at-fault", comparativeType: "contributory", threshold: "None", notes: "Contributory negligence bars recovery" },
 };
 
-// ============================================
-// CALCULATOR DEFINITIONS
-// ============================================
-export const CALCULATORS = [
-    {
-        id: "truck-accident/settlement-calculator",
-        name: "Settlement Calculator",
-        shortName: "Settlement",
-        description: "Calculate your truck accident settlement",
-        longDescription: "Free 2026 truck accident settlement calculator. Estimate your 18-wheeler, semi-truck, or commercial vehicle accident compensation.",
-        icon: Calculator,
-        category: "legal",
-        keywords: ["truck accident settlement calculator", "18 wheeler accident", "semi truck accident"],
-        featured: true,
-    },
-    {
-        id: "truck-accident/pain-suffering",
-        name: "Pain & Suffering Calculator",
-        shortName: "Pain & Suffering",
-        description: "Calculate truck accident pain and suffering",
-        longDescription: "Calculate non-economic damages for truck accident injuries using the multiplier method.",
-        icon: Scale,
-        category: "legal",
-        keywords: ["truck accident pain suffering", "non-economic damages", "trucking injury compensation"],
-        featured: true,
-    },
-    {
-        id: "truck-accident/state-laws",
-        name: "State Trucking Laws",
-        shortName: "State Laws",
-        description: "Truck accident laws by state",
-        longDescription: "Compare trucking accident laws, FMCSA regulations, and liability rules across all 50 states.",
-        icon: Gavel,
-        category: "legal",
-        keywords: ["truck accident laws by state", "FMCSA regulations", "trucking liability"],
-        featured: false,
-    },
-] as const;
-
-// ============================================
-// SETTLEMENT CALCULATION FUNCTION
-// ============================================
-export interface SettlementResult {
-    state: string;
-    stateName: string;
-    faultSystem: FaultSystem;
-    medicalBills: number;
-    lostWages: number;
-    propertyDamage: number;
-    economicDamages: number;
-    painMultiplier: number;
-    painSufferingLow: number;
-    painSufferingHigh: number;
-    faultPercentage: number;
-    faultReduction: number;
-    settlementLow: number;
-    settlementHigh: number;
-    withAttorneyLow: number;
-    withAttorneyHigh: number;
-    afterAttorneyFeeLow: number;
-    afterAttorneyFeeHigh: number;
-    injurySeverity: string;
-    // Expert Audit Fields
-    fmcsaImpact: number;
-    venueImpact: number;
-    edrImpact: number;
-    hospitalImpact: number;
+export function getInjuryTypes(): { id: string; name: string; description: string }[] {
+    return TRUCK_2026.injuryTypes.map(t => ({
+        id: t.id,
+        name: t.name,
+        description: t.description
+    }));
 }
 
-export function calculateSettlement(
-    stateCode: string,
-    medicalBills: number,
-    lostWages: number,
-    propertyDamage: number,
-    injurySeverity: 'minor' | 'moderate' | 'severe' | 'permanent' | 'catastrophic',
-    faultPercentage: number = 0, // Your fault percentage (0-100)
-    hasFmcsaViolation: boolean = false,
-    isNuclearVenue: boolean = false,
-    hasEdrData: boolean = false,
-    wasHospitalized: boolean = false
-): SettlementResult {
-    const state = STATE_FAULT_LAWS[stateCode] || STATE_FAULT_LAWS['CA'];
-    const constants = SETTLEMENT_CONSTANTS;
-    const multiplierData = constants.painMultipliers[injurySeverity];
-
-    // Calculate economic damages
-    const economicDamages = medicalBills + lostWages + propertyDamage;
-
-    // Calculate pain & suffering using multiplier method
-    const avgMultiplier = (multiplierData.min + multiplierData.max) / 2;
-    const painSufferingLow = Math.round(medicalBills * multiplierData.min);
-    const painSufferingHigh = Math.round(medicalBills * multiplierData.max);
-
-    // Calculate total before fault reduction
-    let totalLow = economicDamages + painSufferingLow;
-    let totalHigh = economicDamages + painSufferingHigh;
-
-    // Apply fault reduction based on state law
-    let faultReduction = 0;
-    const yourFault = faultPercentage / 100;
-
-    if (state.comparativeType === 'contributory') {
-        // Contributory: Any fault = $0
-        if (faultPercentage > 0) {
-            faultReduction = 1; // 100% reduction
-        }
-    } else if (state.comparativeType === 'modified-50') {
-        // Modified 50%: More than 50% fault = $0
-        if (faultPercentage > 50) {
-            faultReduction = 1;
-        } else {
-            faultReduction = yourFault;
-        }
-    } else if (state.comparativeType === 'modified-51') {
-        // Modified 51%: 51% or more fault = $0
-        if (faultPercentage >= 51) {
-            faultReduction = 1;
-        } else {
-            faultReduction = yourFault;
-        }
-    } else {
-        // Pure comparative: Reduce by fault percentage
-        faultReduction = yourFault;
-    }
-
-    // Apply fault reduction
-    const settlementLow = Math.round(totalLow * (1 - faultReduction));
-    const settlementHigh = Math.round(totalHigh * (1 - faultReduction));
-
-    // Calculate with attorney bonus
-    const withAttorneyLow = Math.round(settlementLow * (1 + constants.attorneyBonus));
-    const withAttorneyHigh = Math.round(settlementHigh * (1 + constants.attorneyBonus));
-
-    // Calculate after attorney fees
-    const afterAttorneyFeeLow = Math.round(withAttorneyLow * (1 - constants.attorneyFee));
-    const afterAttorneyFeeHigh = Math.round(withAttorneyHigh * (1 - constants.attorneyFee));
-
-    let fmcsaImpact = 0;
-    let venueImpact = 0;
-    let edrImpact = 0;
-    let hospitalImpact = 0;
-
-    let finalSettlementLow = settlementLow;
-    let finalSettlementHigh = settlementHigh;
-
-    if (hasFmcsaViolation) {
-        fmcsaImpact = Math.round(finalSettlementHigh * (constants.expertMultipliers.fmcsaViolation - 1));
-        finalSettlementLow *= constants.expertMultipliers.fmcsaViolation;
-        finalSettlementHigh *= constants.expertMultipliers.fmcsaViolation;
-    }
-    if (isNuclearVenue) {
-        venueImpact = Math.round(finalSettlementHigh * (constants.expertMultipliers.nuclearVenue - 1));
-        finalSettlementLow *= constants.expertMultipliers.nuclearVenue;
-        finalSettlementHigh *= constants.expertMultipliers.nuclearVenue;
-    }
-    if (hasEdrData) {
-        edrImpact = Math.round(finalSettlementHigh * (constants.expertMultipliers.edrEvidence - 1));
-        finalSettlementLow *= constants.expertMultipliers.edrEvidence;
-        finalSettlementHigh *= constants.expertMultipliers.edrEvidence;
-    }
-    if (wasHospitalized) {
-        hospitalImpact = Math.round(finalSettlementHigh * (constants.expertMultipliers.hospitalizationBonus - 1));
-        finalSettlementLow *= constants.expertMultipliers.hospitalizationBonus;
-        finalSettlementHigh *= constants.expertMultipliers.hospitalizationBonus;
-    }
-
-    return {
-        state: stateCode,
-        stateName: state.name,
-        faultSystem: state.faultSystem,
-        medicalBills,
-        lostWages,
-        propertyDamage,
-        economicDamages,
-        painMultiplier: avgMultiplier,
-        painSufferingLow,
-        painSufferingHigh,
-        faultPercentage,
-        faultReduction: faultReduction * 100,
-        settlementLow: Math.round(finalSettlementLow),
-        settlementHigh: Math.round(finalSettlementHigh),
-        withAttorneyLow: Math.round(finalSettlementLow * (1 + constants.attorneyBonus)),
-        withAttorneyHigh: Math.round(finalSettlementHigh * (1 + constants.attorneyBonus)),
-        afterAttorneyFeeLow: Math.round(finalSettlementLow * (1 + constants.attorneyBonus) * (1 - constants.attorneyFee)),
-        afterAttorneyFeeHigh: Math.round(finalSettlementHigh * (1 + constants.attorneyBonus) * (1 - constants.attorneyFee)),
-        injurySeverity: multiplierData.label,
-        fmcsaImpact,
-        venueImpact,
-        edrImpact,
-        hospitalImpact
-    };
-}
-
-// ============================================
-// PAIN & SUFFERING CALCULATION FUNCTION
-// ============================================
-export interface PainSufferingResult {
-    medicalBills: number;
-    injuryType: string;
-    multiplier: number;
-    painSufferingAmount: number;
-    recoveryWeeks: number;
-    dailyRate: number;
-}
-
-export function calculatePainSuffering(
-    medicalBills: number,
-    injuryType: keyof typeof SETTLEMENT_CONSTANTS.injuryTypes
-): PainSufferingResult {
-    const injury = SETTLEMENT_CONSTANTS.injuryTypes[injuryType];
-    const painSufferingAmount = Math.round(medicalBills * injury.multiplier);
-    const dailyRate = Math.round(painSufferingAmount / (injury.weeks * 7));
-
-    return {
-        medicalBills,
-        injuryType: injury.label,
-        multiplier: injury.multiplier,
-        painSufferingAmount,
-        recoveryWeeks: injury.weeks,
-        dailyRate,
-    };
+export function getFmcsaPillars(): { id: string; name: string; description: string }[] {
+    return TRUCK_2026.fmcsaPillars;
 }
 
 // ============================================
@@ -377,18 +233,53 @@ export function getStatesList(): { code: string; name: string; faultSystem: Faul
     })).sort((a, b) => a.name.localeCompare(b.name));
 }
 
-export function getInjuryTypes(): { id: string; label: string; multiplier: number }[] {
-    return Object.entries(SETTLEMENT_CONSTANTS.injuryTypes).map(([id, data]) => ({
-        id,
-        label: data.label,
-        multiplier: data.multiplier,
-    }));
+// Deprecated legacy function (keeping signature for compatibility, but updating logic)
+export function calculateSettlement(
+    stateCode: string,
+    medicalBills: number,
+    lostWages: number,
+    propertyDamage: number,
+    injurySeverity: string,
+    faultPercentage: number = 0,
+    hasFmcsaViolation: boolean = false,
+    isNuclearVenue: boolean = false
+): any {
+    return calculateTruckSClass(
+        injurySeverity,
+        medicalBills,
+        lostWages,
+        45, // default age
+        hasFmcsaViolation,
+        isNuclearVenue,
+        false,
+        injurySeverity === 'tbi-permanent'
+    );
 }
 
-export function getSeverityLevels(): { id: string; label: string; range: string }[] {
-    return Object.entries(SETTLEMENT_CONSTANTS.painMultipliers).map(([id, data]) => ({
-        id,
-        label: data.label,
-        range: `${data.min}x - ${data.max}x`,
-    }));
-}
+// ============================================
+// CALCULATOR DEFINITIONS
+// ============================================
+export const CALCULATORS = [
+    {
+        id: "truck-accident/settlement-calculator",
+        name: "Settlement Auditor",
+        shortName: "Auditor",
+        description: "Calculate FMCSA & Nuclear Venue impact",
+        longDescription: "Free 2026 truck accident settlement auditor. Estimate your 18-wheeler, semi-truck, or commercial vehicle accident compensation.",
+        icon: Calculator,
+        category: "legal",
+        keywords: ["truck accident settlement calculator", "18 wheeler accident", "semi truck accident"],
+        featured: true,
+    },
+    {
+        id: "truck-accident/guide",
+        name: "Forensic Guide",
+        shortName: "Guide",
+        description: "Trucking liability & FMCSA regs",
+        longDescription: "Expert guide on trucking accident laws, FMCSA regulations, and liability rules.",
+        icon: FileText,
+        category: "legal",
+        keywords: ["truck accident laws by state", "FMCSA regulations", "trucking liability"],
+        featured: false,
+    },
+] as const;

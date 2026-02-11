@@ -8,6 +8,7 @@ import {
   Gavel, Search, BarChart3, Info, Star, CheckCircle2,
   Footprints, Eye, Activity
 } from "lucide-react";
+import { RelatedCalculators } from "@/components/RelatedCalculators";
 
 export default function HubClient() {
   const [scrolled, setScrolled] = useState(false);
@@ -218,6 +219,9 @@ export default function HubClient() {
           <p className="text-[10px] text-slate-600 font-bold uppercase tracking-[0.2em] italic max-w-md text-center md:text-right uppercase italic font-black">
             S-Class Intelligence Engine v2.1. Developed for ANSI/NFSI compliance audit. NOT legal advice.
           </p>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 mt-8">
+          <RelatedCalculators currentCalc="slip-and-fall" count={6} />
         </div>
       </footer>
     </div>

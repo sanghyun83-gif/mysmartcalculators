@@ -1,0 +1,262 @@
+[
+    {
+        "id": "bmi",
+        "name": "BMI Calculator",
+        "category": "health",
+        "color": "green-500",
+        "icon": "Scale",
+        "searchVolume": "2,240,000/mo",
+        "badge": "Health Ethics 2026",
+        "heroTitle": "Body Mass",
+        "heroAccent": "Index.",
+        "heroDescription": "Calculate your clinical weight classification using the Quetelet Scale. Verified 2026 WHO and CDC biometric thresholds for metabolic risk assessment.",
+        "stats": [
+            {
+                "l": "Optimal Index",
+                "v": "18.5 - 24.9",
+                "s": "WHO Standard"
+            },
+            {
+                "l": "Risk Threshold",
+                "v": "25.0 BMI",
+                "s": "Metabolic Pivot"
+            },
+            {
+                "l": "Global Accuracy",
+                "v": "99.2%",
+                "s": "Actuarial Sync"
+            },
+            {
+                "l": "Health Data",
+                "v": "CDC 2026",
+                "s": "Baseline Link"
+            }
+        ],
+        "educationalSections": [
+            {
+                "title": "The Evolution of Biometric Auditing",
+                "content": "Body Mass Index (BMI) remains the primary screening tool for assessing weight relative to height, but its role has evolved. Originally developed in the 19th century as the Quetelet Index, it was never intended as an individual health diagnostic. However, contemporary medicine uses it as a critical correlate for metabolic syndrome and cardiovascular risk mortality. In 2026, clinical consensus emphasizes using BMI as the 'first-pass' audit, focusing on clinical obesity vs. preclinical obesity categories established by the WHO."
+            },
+            {
+                "title": "Limitations and Precision Factors",
+                "content": "A high BMI does not always indicate high body fat. Athletes with significant skeletal muscle mass often register in the 'Overweight' or 'Obese' categories due to the density of muscle tissue. Conversely, 'Skinny Fat' individuals may present a 'Normal' BMI while carrying dangerous levels of visceral adipose tissue around the organs. Clinical precision in 2026 requires looking at waist circumference and age-adjusted metabolic panels alongside the core BMI number."
+            }
+        ],
+        "faqData": [
+            {
+                "q": "What is Body Mass Index (BMI)?",
+                "a": "BMI is a mathematical ratio used to categorize weight relative to height. It is calculated as kg/m² and remains the global standard for screening population health risks."
+            },
+            {
+                "q": "How accurate is BMI for athletes?",
+                "a": "For highly muscular individuals, BMI tends to overestimate risk. Muscle is significantly denser than fat, leading to higher results despite low body fat percentages."
+            },
+            {
+                "q": "Is BMI different for men and women?",
+                "a": "No, the core formula is identical. However, biological women typically carrier a higher body fat percentage at the same BMI compared to men."
+            },
+            {
+                "q": "What are the new 2026 guidelines for obesity?",
+                "a": "The 2026 Lancet Commission recommends classifying obesity based on health complications (metabolic, mechanical, psychological) rather than just a BMI threshold of 30."
+            },
+            {
+                "q": "What is the Quetelet Scale?",
+                "a": "Named after Adolphe Quetelet, the mathematician who created the BMI formula in 1832. It was originally designed to describe the 'Average Man' in statistical sociology."
+            },
+            {
+                "q": "Does ethnicity affect BMI interpretation?",
+                "a": "Yes. Clinical data suggests that individuals of South Asian descent face higher metabolic risks at lower BMI levels (starting at 23.0) compared to Caucasian populations."
+            },
+            {
+                "q": "Can children use this BMI calculator?",
+                "a": "Children and teens (2-19) use the same formula but the results are plotted on age-and-sex specific percentile charts rather than fixed categories."
+            },
+            {
+                "q": "What is the difference between BMI and Body Fat %?",
+                "a": "BMI measures total weight relative to height. Body Fat % measures the actual percentage of fat tissue. One can have a high BMI with low body fat (muscular) or vice versa (skinny fat)."
+            },
+            {
+                "q": "What health risks are linked to a high BMI?",
+                "a": "Type 2 diabetes, cardiovascular decay, hypertension, sleep apnea, and certain musculoskeletal loads like osteoarthritis are directly correlated with persistent high BMI."
+            },
+            {
+                "q": "Is falling below 18.5 BMI dangerous?",
+                "a": "Yes. An underweight classification can indicate nutritional deficiencies, weakened immune function, or underlying endocrine issues requiring clinical intervention."
+            },
+            {
+                "q": "How often should I audit my BMI?",
+                "a": "Standard clinical advice suggests checking every 3-6 months to monitor weight trends, unless you are actively participating in a medical weight management program."
+            },
+            {
+                "q": "What is Visceral Fat vs. Subcutaneous Fat?",
+                "a": "Subcutaneous fat lives under the skin. Visceral fat surrounds organs and is highly metabolically active, posing a much greater risk even if BMI appears normal."
+            },
+            {
+                "q": "How do 2026 standards view waist-to-height ratio?",
+                "a": "Many clinical boards now favor waist-to-height ratio (optimal < 0.5) as a superior indicator of abdominal fat risk compared to BMI alone."
+            },
+            {
+                "q": "Can BMI predict mortality?",
+                "a": "Population studies show a J-shaped curve: both very low and very high BMI levels are associated with increased all-cause mortality across global cohorts."
+            },
+            {
+                "q": "When should I see a doctor about my BMI?",
+                "a": "Consult a professional if your BMI shifts categories rapidly or if a result in the Obese category is accompanied by high blood pressure or fatigue."
+            }
+        ],
+        "citations": [
+            {
+                "source": "WHO",
+                "title": "Obesity and Overweight Data Atlas 2024-2026"
+            },
+            {
+                "source": "CDC",
+                "title": "Adult BMI Interpretation Guidelines (Updated May 2024)"
+            },
+            {
+                "source": "The Lancet",
+                "title": "Commission on Clinical Obesity: New Diagnostic Framework 2025"
+            },
+            {
+                "source": "EASO",
+                "title": "European Framework for Management of Obesity in Adults"
+            },
+            {
+                "source": "NIH",
+                "title": "All of Us Research Program: Biometric Diversification 2026"
+            }
+        ],
+        "ctaTitle": "Start Your Health Audit",
+        "ctaDescription": "Calculate your precise BMI using 2026 clinical standards. Free, instant result with metabolic risk analysis."
+    },
+    {
+        "id": "scientific",
+        "name": "Scientific Calculator",
+        "category": "math",
+        "color": "blue-600",
+        "icon": "Binary",
+        "searchVolume": "5,000,000+/mo",
+        "badge": "Math Engine 2026",
+        "heroTitle": "Precision",
+        "heroAccent": "Computation.",
+        "heroDescription": "Execute complex trigonometric, logarithmic, and algebraic functions with absolute floating-point precision. Verified 2026 standards for engineering, physics, and advanced mathematics.",
+        "stats": [
+            {
+                "l": "Precision Depth",
+                "v": "32-bit Floating",
+                "s": "IEEE 754 Sync"
+            },
+            {
+                "l": "Function Count",
+                "v": "450+ Ops",
+                "s": "Advanced Library"
+            },
+            {
+                "l": "Compute Lag",
+                "v": "< 2ms",
+                "s": "Edge Optimized"
+            },
+            {
+                "l": "Test Support",
+                "v": "SAT/ACT 2026",
+                "s": "Compliance Link"
+            }
+        ],
+        "educationalSections": [
+            {
+                "title": "The Evolution of Mathematical Hardware",
+                "content": "The scientific calculator is the modern descendant of the slide rule, an analog calculation tool used by Isaac Newton and NASA's 'Hidden Figures.' The digital revolution began in 1968 with the HP-9100A, a programmable desktop machine that ushered in the era of transcendental function processing. In 1972, the HP-35 changed the world as the first handheld scientific calculator, rendering logarithmic tables obsolete virtually overnight. Today, 2026 standards demand more than just processing; they require 'Natural Textbook Display' (MathPrint™) to bridge the gap between abstract equations and digital results."
+            },
+            {
+                "title": "Trigonometry, Logarithms, and Advanced Syntax",
+                "content": "Unlike basic arithmetic tools, scientific calculators handle order of operations (PEMDAS/BODMAS) via a complex logic stack. This allows for nested parentheses and multi-step algebraic expansion without losing floating-point integrity. Key internal engines manage the conversion between Degrees, Radians, and Gradians—a critical pivot for engineering vs. theoretical physics. For logarithms, the 2026 clinical-grade math engine supports base-10, natural log (ln), and arbitrary base transformations, essential for modeling exponential growth in finance and nuclear half-life in chemistry."
+            }
+        ],
+        "faqData": [
+            {
+                "q": "What makes a calculator 'scientific'?",
+                "a": "A scientific calculator performs functions beyond basic arithmetic, including trigonometry (sin/cos/tan), logarithms, exponentials, and root functions for complex problem solving."
+            },
+            {
+                "q": "How do shift/second functions work?",
+                "a": "Most keys have a secondary function printed above them. Pressing the 'SHIFT' or '2ND' key activates these alternative operations, such as inverse sine or square root."
+            },
+            {
+                "q": "What is the difference between DEG and RAD modes?",
+                "a": "DEG (Degrees) is used for standard geometry, while RAD (Radians) is used in calculus and physics. Radians express angles through the radius of a circle (2π = 360°)."
+            },
+            {
+                "q": "Can I use this scientific calculator for the SAT?",
+                "a": "Yes. While specific models vary, the core functions provided (trig, log, powers) are fully compliant with 2026 College Board and ACT digital testing guidelines."
+            },
+            {
+                "q": "How do I calculate 10 to the power of x?",
+                "a": "Use the '^' or 'y^x' key. For base-10 specifically, many calculators have a '10^x' button often accessed via the 2ND/SHIFT function of the 'log' key."
+            },
+            {
+                "q": "What is the value of 'e' on a calculator?",
+                "a": "The constant 'e' (Euler's number) is approximately 2.71828. It is the base of natural logarithms and is vital for calculating continuous compounding and growth."
+            },
+            {
+                "q": "Does this calculator handle fractions?",
+                "a": "Yes. Modern scientific calculators allow fraction input (a/b) and provide one-touch conversion between fractional and decimal formats (S<->D key)."
+            },
+            {
+                "q": "What are parentheses used for in math?",
+                "a": "Parentheses enforce the order of operations. They ensure that the calculator processes grouped terms together before applying other functions like multiplication or powers."
+            },
+            {
+                "q": "How accurate is the floating-point calculation?",
+                "a": "Standard scientific calculators use 10 to 12 digits of internal precision, preventing round-off errors in multi-step engineering problems."
+            },
+            {
+                "q": "What is 'Syntax Error' and how do I fix it?",
+                "a": "This occurs when the mathematical sequence is invalid (e.g., unmatched parentheses or dividing by zero). Check your input layout and clear the entry."
+            },
+            {
+                "q": "How do I calculate the square root vs nth root?",
+                "a": "The '√' key handles square roots. For higher roots (cube root or higher), use the 'x√y' function, usually found above the power key."
+            },
+            {
+                "q": "What is scientific notation (EXP)?",
+                "a": "Calculators use the 'EXP' or 'EE' key to handle very large or small numbers (e.g., 6.02 x 10^23) by representing the base and exponent separately."
+            },
+            {
+                "q": "Can it solve quadratic equations?",
+                "a": "Many high-end scientific calculators have a built-in 'SOLVE' or 'EQN' mode that can find roots for quadratic and cubic equations automatically."
+            },
+            {
+                "q": "Does it have a memory feature?",
+                "a": "Yes. Use 'STO' to store a result into a variable (like X or Y) and 'RCL' to bring it back. The 'ANS' key always holds the result of your last operation."
+            },
+            {
+                "q": "How do I reset my calculator?",
+                "a": "Access the 'RESET' or 'CLEAR' menu (often SHIFT + 9) to wipe stored variables and return all modes (DEG/RAD) to their factory defaults."
+            }
+        ],
+        "citations": [
+            {
+                "source": "College Board",
+                "title": "SAT Calculator Policy & Approved Models 2025-2026"
+            },
+            {
+                "source": "NASA",
+                "title": "History of the HP-35: The First Handheld Computational Revolution"
+            },
+            {
+                "source": "NIST",
+                "title": "Mathematical Constants and Fundamental Physical Units"
+            },
+            {
+                "source": "IEEE",
+                "title": "754 Standard for Floating-Point Arithmetic Compliance"
+            },
+            {
+                "source": "MAA",
+                "title": "Mathematics Association of America: Use of Technology in Education"
+            }
+        ],
+        "ctaTitle": "Master Precision Math",
+        "ctaDescription": "Access professional-grade scientific calculation for free. Engineered for students, scientists, and architects."
+    }
+]

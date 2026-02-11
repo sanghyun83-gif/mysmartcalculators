@@ -1,5 +1,6 @@
 import { getCalculatorMeta } from "@/lib/registry/calculators";
-import dynamic from "next/dynamic";
+import { ClientOnly } from "@/components/ClientOnly";
+import { LejeuneAuditEngineComponent as LejeuneAuditEngine } from "./LejeuneAuditEngine";
 
 const id = "camp-lejeune";
 const meta = getCalculatorMeta(id);
@@ -12,13 +13,10 @@ export const metadata = {
     }
 };
 
-const LejeuneAuditEngine = dynamic(
-    () => import("./LejeuneAuditEngine").then(mod => mod.LejeuneAuditEngineComponent),
-    {
-        loading: () => <div className="min-h-screen bg-slate-950" />
-    }
-);
-
 export default function LejeuneCalculatorPage() {
-    return <LejeuneAuditEngine />;
+    return (
+        <ClientOnly fallback={<div className="min-h-screen bg-slate-950" />}>
+            <LejeuneAuditEngine />
+        </ClientOnly>
+    );
 }

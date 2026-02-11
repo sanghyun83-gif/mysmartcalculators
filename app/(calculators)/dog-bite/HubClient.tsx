@@ -317,6 +317,9 @@ export default function HubClient() {
               ))}
             </div>
           </div>
+          <div className="mt-12">
+            <RelatedCalculators currentCalc="dog-bite" count={6} />
+          </div>
           <div className="mt-20 pt-8 border-t border-white/5 text-center">
             <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-600 italic">
               &copy; 2026 Dog Bite Forensic Standards. All Rights Reserved.
