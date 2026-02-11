@@ -73,6 +73,7 @@ export interface PainSufferingResult {
 
 export interface SettlementResult {
     stateName: string;
+    faultSystem: string;
     medicalBills: number;
     lostWages: number;
     propertyDamage: number;
@@ -87,6 +88,10 @@ export interface SettlementResult {
     settlementHigh: number;
     withAttorneyHigh: number;
     afterAttorneyFeeHigh: number;
+    fmcsaImpact: number;
+    venueImpact: number;
+    edrImpact: number;
+    hospitalImpact: number;
 }
 
 // ============================================
@@ -300,32 +305,54 @@ export function getStatesList(): { code: string; name: string; faultSystem: Faul
     })).sort((a, b) => a.name.localeCompare(b.name));
 }
 
-// Deprecated legacy function (keeping signature for compatibility, but updating logic)
+// Master calculation function (handles production S-Class and legacy sandbox builds)
 export function calculateSettlement(
     stateCode: string,
     medicalBills: number,
     lostWages: number,
     propertyDamage: number,
     injurySeverity: string,
-    faultPercentage: number = 0
+    faultPercentage: number = 0,
+    hasFmcsaViolation: boolean = false,
+    isNuclearVenue: boolean = false,
+    hasEdrData: boolean = false,
+    hasInpatientStay: boolean = false
 ): SettlementResult {
-    const state = STATE_FAULT_LAWS[stateCode];
+    const state = STATE_FAULT_LAWS[stateCode] || STATE_FAULT_LAWS.CA;
     const ps = calculatePainSuffering(medicalBills, injurySeverity);
 
-    const economicDamages = medicalBills + lostWages + propertyDamage;
-    const baseLow = economicDamages + ps.painSufferingAmount * 0.8;
-    const baseHigh = economicDamages + ps.painSufferingAmount * 1.2;
+    // Base Economic
+    let totalEconomic = medicalBills + lostWages + propertyDamage;
 
-    const faultReduction = (faultPercentage / 100);
-    const settlementLow = baseLow * (1 - faultReduction);
-    const settlementHigh = baseHigh * (1 - faultReduction);
+    // Apply Expert S-Class Deltas
+    let fmcsaImpact = 0;
+    let venueImpact = 0;
+    let edrImpact = 0;
+    let hospitalImpact = 0;
+
+    const baseForImpact = medicalBills + ps.painSufferingAmount;
+
+    if (hasFmcsaViolation) fmcsaImpact = baseForImpact * 0.50;
+    if (isNuclearVenue) venueImpact = baseForImpact * 0.35;
+    if (hasEdrData) edrImpact = baseForImpact * 0.15;
+    if (hasInpatientStay) hospitalImpact = baseForImpact * 0.25;
+
+    const totalExpertImpact = fmcsaImpact + venueImpact + edrImpact + hospitalImpact;
+
+    const baseLow = totalEconomic + (ps.painSufferingAmount * 0.8) + totalExpertImpact;
+    const baseHigh = totalEconomic + (ps.painSufferingAmount * 1.2) + totalExpertImpact;
+
+    const faultReductionMult = (faultPercentage / 100);
+    const settlementLow = baseLow * (1 - faultReductionMult);
+    const settlementHigh = baseHigh * (1 - faultReductionMult);
 
     return {
         stateName: state.name,
+        faultSystem: state.faultSystem,
         medicalBills,
         lostWages,
         propertyDamage,
-        economicDamages,
+        economicDamages: totalEconomic,
         injurySeverity: ps.injuryType,
         painMultiplier: ps.multiplier,
         painSufferingLow: ps.painSufferingAmount * 0.8,
@@ -335,7 +362,11 @@ export function calculateSettlement(
         settlementLow,
         settlementHigh,
         withAttorneyHigh: settlementHigh * 1.3,
-        afterAttorneyFeeHigh: (settlementHigh * 1.3) * 0.67
+        afterAttorneyFeeHigh: (settlementHigh * 1.3) * 0.67,
+        fmcsaImpact,
+        venueImpact,
+        edrImpact,
+        hospitalImpact
     };
 }
 
