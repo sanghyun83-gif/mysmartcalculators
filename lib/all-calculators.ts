@@ -42,6 +42,10 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
         "name": "AFFF Lawsuit Calculator"
     },
     {
+        "id": "age",
+        "name": "Age Calculator"
+    },
+    {
         "id": "airbnb-income",
         "name": "Airbnb Income Calculator"
     },

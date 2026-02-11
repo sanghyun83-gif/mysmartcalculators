@@ -319,6 +319,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     // Health
     'bmi': 'health',
     'calorie': 'health',
+    'age': 'health',
     'percentage': 'finance',
 };
 
@@ -635,6 +636,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'ssi': 'SSI Calculator',
     'era': 'Emergency Rental Assistance Calculator',
     'child-care-subsidy': 'Child Care Subsidy Calculator',
+    'age': 'Age Calculator',
 };
 
 /**
