@@ -534,6 +534,10 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
         "name": "GPA Calculator"
     },
     {
+        "id": "grade",
+        "name": "Grade Calculator"
+    },
+    {
         "id": "grocery-store-injury",
         "name": "Grocery Store Injury Calculator"
     },
@@ -826,6 +830,10 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
         "name": "Pradaxa Lawsuit Calculator"
     },
     {
+        "id": "pregnancy",
+        "name": "Pregnancy Calculator"
+    },
+    {
         "id": "prilosec",
         "name": "Prilosec Kidney Lawsuit Calculator"
     },
@@ -1091,7 +1099,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "tip",
-        "name": "Tip Calculator"
+        "name": "2026 Tip Calculator | Gratuity Gold Precision Engine"
     },
     {
         "id": "townhouse-insurance",

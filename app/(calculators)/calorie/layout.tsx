@@ -13,8 +13,8 @@ export default function CalorieFlagshipLayout({
             brandName="CalorieMaster AI"
             brandIcon="activity"
             hubPath="/calorie"
-            accentColorRgb="249, 115, 22" // orange-500
-            accentSelectionClass="selection:bg-orange-500/30"
+            accentColorRgb="245, 158, 11" // amber-500
+            accentSelectionClass="selection:bg-amber-500/30"
             navLinks={[
                 { label: "CALCULATOR", href: "/calorie/calculator" },
                 { label: "NUTRITION GUIDE", href: "/calorie/nutrition-guide" },

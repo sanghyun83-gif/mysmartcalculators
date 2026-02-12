@@ -1184,6 +1184,15 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "color": "rose-500",
         "icon": "gavel"
     },
+    "grade": {
+        "id": "grade",
+        "name": "2026 Grade Calculator | Institutional Academic Audit Engine",
+        "description": "Calculate your course grades, weighted averages, and final exam targets with 2026 academic precision. Expert guide for university grading scales, GPA conversion, and performance optimization.",
+        "category": "general",
+        "tier": 1,
+        "color": "emerald-500",
+        "icon": "graduation-cap"
+    },
     "gpa": {
         "id": "gpa",
         "name": "2026 GPA Calculator | Precision Academic Audit Engine",
@@ -1444,6 +1453,15 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "tier": 1,
         "color": "blue-500",
         "icon": "landmark"
+    },
+    "pregnancy": {
+        "id": "pregnancy",
+        "name": "2026 Pregnancy Due Date Calculator | S-Class Maternal Audit",
+        "description": "Calculate your estimated due date (EDD) with clinical precision. Track maternal milestones, trimester transitions, and fetal development cycles using 2026 medical standards.",
+        "category": "health",
+        "tier": 1,
+        "color": "rose-500",
+        "icon": "baby"
     },
     "loan-payoff": {
         "id": "loan-payoff",

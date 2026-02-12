@@ -10,14 +10,15 @@ export default function TipFlagshipLayout({
 }) {
     return (
         <FlagshipLayout
-            brandName="TipMaster AI"
-            brandIcon="coins"
+            brandName="Gratuity Gold AI"
+            brandIcon="dollar-sign"
             hubPath="/tip"
-            accentColorRgb="168, 85, 247" // purple-500
-            accentSelectionClass="selection:bg-purple-500/30"
+            accentColorRgb="245, 158, 11" // amber-500
+            accentSelectionClass="selection:bg-amber-500/30"
             navLinks={[
                 { label: "CALCULATOR", href: "/tip/calculator" },
-                { label: "TIPPING GUIDE", href: "/tip/tipping-guide" },
+                { label: "ETIQUETTE HUB", href: "/tip" },
+                { label: "GLOBAL STANDARDS", href: "/tip/tipping-guide" },
             ]}
             trustScore="4.9/5 TrustScore"
         >

@@ -1,4 +1,5 @@
 "use client";
+// Force HMR for Grade Calculator visibility
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
@@ -22,9 +23,11 @@ const TRENDING_NICHES = [
 export default function HomePage() {
   const [searchQuery, setSearchQuery] = useState("");
 
+  console.log("Client-side ALL_CALCULATORS count:", ALL_CALCULATORS.length);
+
   const filteredCalculators = useMemo(() => {
     if (!searchQuery) return [];
-    const query = searchQuery.toLowerCase();
+    const query = searchQuery.toLowerCase().trim();
     return ALL_CALCULATORS
       .filter(calc => calc.name.toLowerCase().includes(query))
       .sort((a, b) => {

@@ -288,6 +288,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'fafsa': 'finance',
     '529': 'finance',
     'gpa': 'finance',
+    'grade': 'finance',
     'social-security': 'finance',
     'ssdi': 'finance',
     'unemployment': 'finance',
@@ -319,7 +320,8 @@ export const CATEGORY_MAP: Record<string, Category> = {
 
     // Health
     'bmi': 'health',
-    'calorie': 'health',
+    'pregnancy': 'health',
+    'ideal-weight': 'health',
     'age': 'health',
     'percentage': 'finance',
 };
@@ -442,7 +444,8 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'divorce': 'Divorce',
     'property-division': 'Property Division',
     'bmi': 'BMI',
-    'calorie': 'Calorie',
+    'pregnancy': 'Pregnancy',
+    'ideal-weight': 'Ideal Weight',
     'scientific': 'Scientific Calculator',
     'percentage': 'Percentage Calculator',
     'age': 'Age',
