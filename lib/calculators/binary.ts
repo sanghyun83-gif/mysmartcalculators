@@ -1,4 +1,4 @@
-import { Binary, CPU, ShieldCheck, Zap, Info, Activity } from "lucide-react";
+import { Binary, Cpu, ShieldCheck, Zap, Info, Activity } from "lucide-react";
 import React from 'react';
 
 export const BINARY_2026 = {
