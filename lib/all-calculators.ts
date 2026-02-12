@@ -646,6 +646,10 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
         "name": "Loan Payoff Calculator"
     },
     {
+        "id": "loan",
+        "name": "Loan Calculator"
+    },
+    {
         "id": "ltd",
         "name": "Long Term Disability Calculator"
     },

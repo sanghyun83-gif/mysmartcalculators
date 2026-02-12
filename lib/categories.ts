@@ -264,6 +264,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
 
     // Finance & Tax
     'mortgage': 'finance',
+    'loan': 'finance',
     'loan-payoff': 'finance',
     'refinance': 'finance',
     'heloc': 'finance',
@@ -394,6 +395,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'cpap': 'CPAP',
     'social-media': 'Social Media',
     'mortgage': 'Mortgage',
+    'loan': 'Loan',
     'loan-payoff': 'Loan Payoff',
     'refinance': 'Refinance',
     'heloc': 'HELOC',
@@ -443,6 +445,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'calorie': 'Calorie',
     'scientific': 'Scientific Calculator',
     'percentage': 'Percentage Calculator',
+    'age': 'Age',
     'lung-disease': 'Lung Disease',
     'silicosis': 'Silicosis',
     'black-lung': 'Black Lung',
@@ -636,7 +639,6 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'ssi': 'SSI Calculator',
     'era': 'Emergency Rental Assistance Calculator',
     'child-care-subsidy': 'Child Care Subsidy Calculator',
-    'age': 'Age Calculator',
 };
 
 /**

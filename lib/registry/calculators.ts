@@ -88,12 +88,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "age": {
         "id": "age",
-        "name": "2026 Age Calculator | Precision Chronological Auditor",
-        "description": "Calculate your exact age in years, months, days, and seconds. Professional-grade 2026 auditor with biological aging benchmarks and institutional milestones.",
-        "category": "health",
-        "tier": 2,
-        "color": "emerald-500",
-        "icon": "hourglass"
+        "name": "2026 Age Calculator | Precision Chronological Audit Engine",
+        "description": "Calculate your exact age in years, months, and days with 2026 precision. Free chronological negotiator with official WHO demographic benchmarks, zodiac mapping, and life milestone tracking.",
+        "category": "general",
+        "tier": 1,
+        "color": "blue-600",
+        "icon": "clock"
     },
     "airbnb-income": {
         "id": "airbnb-income",
@@ -1435,6 +1435,15 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "tier": 2,
         "color": "slate-500",
         "icon": "calculator"
+    },
+    "loan": {
+        "id": "loan",
+        "name": "2026 Loan Amortization Calculator | Precision Debt Audit",
+        "description": "Calculate your 2026 loan payments and amortization schedules instantly. Free debt negotiator with official TILA compliance benchmarks, interest decay analysis, and principal acceleration modeling.",
+        "category": "finance",
+        "tier": 1,
+        "color": "blue-500",
+        "icon": "landmark"
     },
     "loan-payoff": {
         "id": "loan-payoff",

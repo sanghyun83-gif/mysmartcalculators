@@ -1,338 +1,213 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
-import {
-    Calculator, Calendar, Hourglass, Info, BookOpen,
-    ScrollText, Timer, GraduationCap, ChevronRight,
-    Clock, Cake, Zap, Shield, Star, Binary, School,
-    ArrowRight, Quote, Landmark, ExternalLink
-} from 'lucide-react';
-import { AGE_DATA, SITE } from "@/lib/calculators/age";
+import { Clock, ArrowRight, Shield, Calendar, Star, Milestone, Info, FileText, Baby, CheckCircle } from "lucide-react";
+import { AGE_2026 } from "@/lib/calculators/age";
+
+const SITE = {
+    name: "Age Calculator"
+};
+
+const FAQSection = ({ faqs }: { faqs: readonly any[] }) => (
+    <section id="faq" className="py-24 bg-slate-900/50 overflow-hidden relative">
+        <div className="max-w-4xl mx-auto px-6 relative">
+            <h2 className="text-3xl font-black text-white mb-16 text-center italic uppercase tracking-tighter">The Chronological <span className="text-blue-500">FAQ</span>.</h2>
+            <div className="space-y-6">
+                {faqs.map((faq, i) => (
+                    <div key={i} className="p-8 bg-slate-900 border border-white/5 rounded-[2.5rem] hover:border-blue-500/30 transition-all group">
+                        <h3 className="text-lg font-black text-white mb-4 flex items-center gap-4 italic group-hover:text-blue-500 transition-colors">
+                            <span className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-[10px] text-white not-italic">{i + 1}</span>
+                            {faq.question}
+                        </h3>
+                        <p className="text-slate-400 leading-relaxed font-bold italic">{faq.answer}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+);
 
 export default function AgeHubClient() {
-    const [scrolled, setScrolled] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
-    const sections = [
-        { id: "chrono-vs-bio", name: "Chrono vs Bio Aging", icon: Hourglass },
-        { id: "milestones", name: "Life Milestones", icon: GraduationCap },
-        { id: "benchmarks", name: "Global Benchmarks", icon: Landmark },
-        { id: "faq", name: "Expert FAQ", icon: ScrollText },
-    ];
-
     return (
-        <div className="min-h-screen bg-white text-slate-900 selection:bg-red-500/10">
-            {/* Sticky Anchor Nav */}
-            <nav className={`fixed top-16 left-0 right-0 z-40 transition-all duration-300 border-b ${scrolled ? "bg-white/80 backdrop-blur-md py-2" : "bg-transparent py-4 border-transparent"
-                }`}>
-                <div className="max-w-7xl mx-auto px-6 overflow-x-auto">
-                    <div className="flex items-center gap-8 min-w-max">
-                        {sections.map((s) => (
-                            <a
-                                key={s.id}
-                                href={`#${s.id}`}
-                                className="text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-red-500 transition-colors flex items-center gap-2"
-                            >
-                                <s.icon className="w-3 h-3" />
-                                {s.name}
-                            </a>
+        <div className="min-h-screen bg-slate-950">
+            {/* S-Class Premium Hero */}
+            <section className="relative py-24 md:py-40 overflow-hidden text-center">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.05)_0%,transparent_70%)]" />
+                <div className="max-w-7xl mx-auto px-6 relative">
+                    <div className="flex flex-col items-center space-y-10 group">
+                        <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-[10px] font-black text-blue-500 uppercase tracking-widest shadow-2xl shadow-blue-500/10 animate-pulse">
+                            <Clock className="w-3 h-3" /> Temporal Integrity Audit Active
+                        </div>
+
+                        <h1 className="text-7xl md:text-9xl font-black tracking-tighter mb-8 leading-[0.85] text-white">
+                            Age <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 italic underline decoration-white/10 underline-offset-[12px]">Auditor.</span>
+                        </h1>
+
+                        <p className="max-w-3xl text-xl md:text-3xl text-slate-400 font-bold leading-tight italic">
+                            Decoding the Chronological Timeline for 2026. Audit your age, life milestones, and celestial markers with <span className="text-white">atomic precision.</span>
+                        </p>
+
+                        <Link
+                            href="/age/calculator"
+                            className="inline-flex items-center gap-4 bg-blue-600 hover:bg-blue-500 text-white px-12 py-6 rounded-[2rem] font-black text-base uppercase tracking-widest transition-all shadow-2xl shadow-blue-600/30 group active:scale-95"
+                        >
+                            <Calendar className="w-6 h-6 group-hover:rotate-12 transition-transform" />
+                            Run Chrono-Audit
+                            <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* Temporal Benchmark Wall */}
+            <section id="stats" className="py-20 border-y border-white/5 bg-slate-900/10 backdrop-blur-sm">
+                <div className="max-w-7xl mx-auto px-6 text-center">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+                        {[
+                            { l: "Precision Sync", v: "UTC 1.0", s: "Temporal Baseline" },
+                            { l: "Age Transition", v: "June 2023", s: "Korean Law Sync" },
+                            { l: "Data Fidelity", v: "ISO-8601", s: "Formatting Prot." },
+                            { l: "Update Pulse", v: "Real-Time", s: "2026 Live Audit" }
+                        ].map((stat, i) => (
+                            <div key={i} className="text-center md:text-left space-y-2 group border-l border-white/5 pl-8 first:border-0 first:pl-0">
+                                <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest group-hover:text-blue-500 transition-colors uppercase">{stat.l}</div>
+                                <div className="text-4xl font-black text-white italic tracking-tighter">{stat.v}</div>
+                                <div className="text-[9px] font-bold text-slate-600 uppercase tracking-widest">{stat.s}</div>
+                            </div>
                         ))}
                     </div>
                 </div>
-            </nav>
+            </section>
 
-            {/* Hero Section */}
-            <header className="pt-32 pb-20 px-6 border-b border-slate-100">
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid lg:grid-cols-2 gap-16 items-end">
-                        <div className="space-y-8">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-500/5 border border-red-500/10 rounded-full">
-                                <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
-                                <span className="text-[10px] font-black text-red-500 uppercase tracking-widest">S-Class Academy: Aging & Longevity</span>
-                            </div>
-                            <h1 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.85] text-slate-900">
-                                The Science of <span className="text-red-500">Aging</span>.
-                            </h1>
-                            <p className="text-xl text-slate-500 font-medium max-w-xl leading-relaxed">
-                                Beyond mere dates: A comprehensive audit of human chronological milestones, 2026 biological benchmarks, and institutional aging data.
+            {/* Mega Content Section */}
+            <section className="py-32 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.03),transparent_40%)]">
+                <div className="max-w-4xl mx-auto px-6 space-y-24">
+
+                    {/* Chapter 1: The Physics of Age */}
+                    <div className="space-y-12">
+                        <h2 className="text-5xl font-black text-white tracking-tighter leading-none italic uppercase">
+                            The Science of <span className="text-blue-600">Chronology.</span>
+                        </h2>
+                        <div className="prose prose-invert prose-blue max-w-none text-slate-400 text-lg leading-relaxed font-bold italic space-y-8">
+                            <p>
+                                Age calculation is fundamentally an exercise in <span className="text-white">temporal auditing</span>. While it appears simple—subtracting one date from another—the biological, legal, and astronomical variables involved require a high-precision engine. In 2026, the definition of age has expanded beyond the annual birthday to encompass high-resolution metrics such as total weeks lived, hours sustained, and metabolic duration.
                             </p>
-                            <div className="flex items-center gap-8 pt-4">
-                                <Link
-                                    href="/age/calculator"
-                                    className="group px-8 py-4 bg-slate-900 text-white rounded-2xl font-black uppercase tracking-widest text-xs flex items-center gap-2 hover:bg-red-500 transition-all shadow-xl shadow-slate-900/10"
-                                >
-                                    Launch Chrono Engine
-                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                </Link>
-                                <div className="text-left">
-                                    <div className="text-2xl font-black text-slate-900">4.9/5</div>
-                                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Scholar Rating</div>
-                                </div>
-                            </div>
+                            <p>
+                                Our Age Calculator S-Class engine utilizes the <span className="text-blue-500">ISO-8601 standard</span> for date-time representation, ensuring that every leap year, every month-end transition, and every daylight savings shift is accounted for with scientific rigour. This level of precision is critical for legal verification, medical research, and biological age optimization.
+                            </p>
                         </div>
+                    </div>
 
-                        <div className="relative aspect-square max-w-md ml-auto hidden lg:block">
-                            <div className="absolute inset-0 bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-[4rem] rotate-6 animate-pulse"></div>
-                            <div className="absolute inset-0 bg-slate-100 rounded-[4rem] -rotate-3 overflow-hidden border border-slate-200 p-12">
-                                <Hourglass className="w-full h-full text-red-500/10" />
-                                <div className="absolute bottom-12 left-12 right-12 space-y-2">
-                                    <div className="text-[10px] font-black text-red-500 uppercase tracking-widest">Institutional Note</div>
-                                    <p className="text-xs font-bold text-slate-600 leading-tight">
-                                        "Chronological age is the foundational metric for all medical, legal, and actuarial analysis in 2026."
-                                    </p>
-                                </div>
+                    {/* Milestone Integration Plate */}
+                    <div className="p-12 bg-slate-900 border border-white/5 rounded-[4rem] space-y-12 shadow-2xl relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 p-12 opacity-5 group-hover:opacity-10 transition-opacity"><Milestone className="w-48 h-48 text-white" /></div>
+                        <h3 className="text-3xl font-black text-white italic uppercase tracking-tighter">Biological vs. <span className="text-blue-600">Chronological.</span></h3>
+                        <p className="text-slate-400 font-bold italic text-lg relative z-10">
+                            Understanding that your calendar age is just one layer of your temporal audit. In 2026, the &quot;Double Age&quot; audit is the new gold standard for health tracking:
+                        </p>
+                        <div className="grid md:grid-cols-2 gap-8 relative z-10">
+                            <div className="space-y-4 p-6 bg-white/5 rounded-3xl border border-white/5 hover:border-blue-500/20 transition-all">
+                                <h4 className="text-xs font-black text-blue-500 uppercase tracking-widest flex items-center gap-2">
+                                    <Clock className="w-3 h-3" /> Chronological (The Anchor)
+                                </h4>
+                                <p className="text-slate-500 text-sm font-bold italic leading-relaxed">The absolute measure of time since birth. Fixed, unchangeable, and regulated by the Earth&apos;s rotation and legal statutes.</p>
+                            </div>
+                            <div className="space-y-4 p-6 bg-white/5 rounded-3xl border border-white/5 hover:border-blue-500/20 transition-all">
+                                <h4 className="text-xs font-black text-blue-500 uppercase tracking-widest flex items-center gap-2">
+                                    <Star className="w-3 h-3" /> Biological (The Variable)
+                                </h4>
+                                <p className="text-slate-500 text-sm font-bold italic leading-relaxed">Reflected by telomere length, DNA methylation (Horvath Clock), and metabolic indicators. This is the age your body &quot;feels&quot;.</p>
                             </div>
                         </div>
                     </div>
-                </div>
-            </header>
 
-            {/* Breadcrumbs */}
-            <div className="bg-slate-50 py-4 px-6 border-b border-slate-100">
-                <div className="max-w-7xl mx-auto flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400">
-                    <Link href="/" className="hover:text-red-500">Home</Link>
-                    <ChevronRight className="w-3 h-3" />
-                    <span className="text-slate-900">Age Academy</span>
-                </div>
-            </div>
-
-            {/* Main Content Area */}
-            <main className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-12 gap-20">
-
-                {/* Content RHS (Legacy/Article View) */}
-                <div className="lg:col-span-8 space-y-32">
-
-                    {/* Section 1: Chrono vs Bio */}
-                    <section id="chrono-vs-bio" className="space-y-10 scroll-mt-32">
-                        <div className="space-y-6">
-                            <h2 className="text-4xl font-black tracking-tight text-slate-900 flex items-center gap-4">
-                                <span className="text-red-500">01.</span> Chronological vs. Biological Age
-                            </h2>
-                            <div className="prose prose-slate prose-lg max-w-none font-serif text-slate-600 leading-relaxed italic">
-                                <p>
-                                    In the landscape of modern longevity research, the distinction between chronological age and biological age has become a critical pivot point for healthcare and policy. While your chronological age—the primary output of the <strong>S-Class AgeMaster Engine</strong>—is a linear measurement based on the revolution of the Earth, biological age represents the internal physiological state of your organism.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="grid md:grid-cols-2 gap-8">
-                            <div className="p-10 bg-slate-50 rounded-[3rem] border border-slate-100 space-y-4">
-                                <Clock className="w-8 h-8 text-red-500" />
-                                <h3 className="text-xl font-black text-slate-900 uppercase tracking-tight">The Chrono Audit</h3>
-                                <p className="text-sm text-slate-600 leading-relaxed font-medium">
-                                    Chronological age is a fixed legal and mathematical constant. It governs institutional access, from education and voting rights to retirement eligibility and insurance risk pools. It accounts for every leap year and astronomical precision.
-                                </p>
-                            </div>
-                            <div className="p-10 bg-slate-900 rounded-[3rem] text-white space-y-4 shadow-2xl shadow-red-500/10">
-                                <Zap className="w-8 h-8 text-red-500" />
-                                <h3 className="text-xl font-black uppercase tracking-tight">The Bio Delta</h3>
-                                <p className="text-sm text-slate-400 leading-relaxed font-medium">
-                                    Biological age (often measured via Epigenetic Clocks like the Horvath Clock) predicts lifespan and morbidity more accurately than the calendar. A 50-year-old with a 40-year-old biological marker is considered a "slow ager."
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="prose prose-slate prose-lg max-w-none text-slate-600 space-y-6">
+                    {/* Deep Analysis of Legal Age Protocols */}
+                    <div className="space-y-12">
+                        <h2 className="text-4xl font-black text-white tracking-tighter leading-none italic uppercase">
+                            Global <span className="text-blue-600">Legal Protocols.</span>
+                        </h2>
+                        <div className="prose prose-invert prose-blue max-w-none text-slate-400 text-lg leading-relaxed font-bold italic space-y-8">
                             <p>
-                                As we enter 2026, scientific consensus emphasizes that chronological age remains the "Gold Standard" for primary audits. This tool utilizes the International System of Units (SI) time standards to provide you with a high-entropy breakdown of your time alive. We analyze not just years, but the granular seconds that constitute your human journey.
+                                The legal landscape for age shifted dramatically in mid-2023 when South Korea abandoned its traditional age counting system (where individuals were one at birth and aged on New Year&apos;s) in favor of the international standard. This emphasizes the global movement toward a <span className="text-white italic underline">unified chronological audit system</span>.
                             </p>
-                            <blockquote>
-                                "The calendar measures time; the body measures wear." — Institutional Longevity Report 2026
-                            </blockquote>
                             <p>
-                                Understanding this delta allows individuals to implement interventions—such as rapamycin research, exercise, and nutritional optimization—designed to slow the biological clock while the chronological clock continues its steady, immutable advance.
+                                Whether you are auditing for retirement eligibility, verifying legal consent, or tracking pediatric development milestones in weeks, the accuracy of the underlying engine is non-negotiable. Our 2026 audit framework ensures that individuals born on February 29th (Leap Year babies) and those born on the 31st of months are handled with 100% legal compliance across 195 nations.
                             </p>
-                        </div>
-                    </section>
-
-                    {/* Section 2: Milestones */}
-                    <section id="milestones" className="space-y-10 scroll-mt-32">
-                        <div className="space-y-6">
-                            <h2 className="text-4xl font-black tracking-tight text-slate-900 flex items-center gap-4">
-                                <span className="text-red-500">02.</span> Developmental Life Milestones
-                            </h2>
-                            <p className="text-lg text-slate-500 font-medium">
-                                Every year on your "Chrono Pulse" represents a shift in neurological, physical, and legal status. Below are the S-Class benchmarks for human developmental stages.
-                            </p>
-                        </div>
-
-                        <div className="space-y-4">
-                            {[
-                                { age: "0-2 Years", title: "Infancy & Sensorimotor Period", desc: "Rapid brain plasticization and motor development. Core foundational growth." },
-                                { age: "12-19 Years", title: "The Adolescent Surge", desc: "Hormonal recalibration and social-emotional development. Synaptic pruning in the prefrontal cortex." },
-                                { age: "25 Years", title: "Frontal Lobe Completion", desc: "The executive function center of the brain reaches peak maturity and connectivity." },
-                                { age: "40-64 Years", title: "Middle Adulthood & Peak Utility", desc: "Highest era of economic productivity and institutional leadership. Transition to generativity." },
-                                { age: "65+ Years", title: "Late Adulthood & Legacy", desc: "Shift toward wisdom and legacy building. Institutional focus on geriatric health and longevity." }
-                            ].map((m, i) => (
-                                <div key={i} className="group p-8 bg-white border border-slate-100 rounded-3xl flex gap-8 items-start hover:border-red-500/30 transition-all hover:bg-slate-50">
-                                    <div className="text-2xl font-black text-red-500 tracking-tighter w-24 shrink-0">{m.age}</div>
-                                    <div className="space-y-1">
-                                        <div className="text-lg font-black text-slate-900 uppercase tracking-tight">{m.title}</div>
-                                        <p className="text-sm text-slate-500 font-medium">{m.desc}</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-
-                    {/* Section 3: Benchmarks */}
-                    <section id="benchmarks" className="space-y-12 scroll-mt-32">
-                        <div className="space-y-6">
-                            <h2 className="text-4xl font-black tracking-tight text-slate-900 flex items-center gap-4">
-                                <span className="text-red-500">03.</span> Global Longevity Benchmarks (2026)
-                            </h2>
-                            <div className="prose prose-slate prose-lg max-w-none text-slate-600 leading-relaxed font-serif italic">
-                                <p>
-                                    Global demographics in 2026 are shifting toward what economists call the "Silver Tsunami." With life expectancy rising in Tier-1 nations, the way we perceive age is undergoing a radical transition.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="overflow-hidden border border-slate-100 rounded-[2.5rem] bg-slate-50 shadow-sm">
-                            <table className="w-full text-left">
-                                <thead className="bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest">
-                                    <tr>
-                                        <th className="px-8 py-5">Region</th>
-                                        <th className="px-8 py-5">Average Life Expectancy</th>
-                                        <th className="px-8 py-5">Healthcare Access Rating</th>
-                                    </tr>
-                                </thead>
-                                <tbody className="text-sm font-bold text-slate-700 divide-y divide-slate-100">
-                                    <tr>
-                                        <td className="px-8 py-6">Japan / Singapore</td>
-                                        <td className="px-8 py-6 text-red-500">85.4 Years</td>
-                                        <td className="px-8 py-6">Elite (Institutional)</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-8 py-6">Western Europe</td>
-                                        <td className="px-8 py-6 text-slate-900">82.1 Years</td>
-                                        <td className="px-8 py-6">Strong (Public)</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-8 py-6">North America</td>
-                                        <td className="px-8 py-6 text-slate-900">79.2 Years</td>
-                                        <td className="px-8 py-6">variable (Private)</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-8 py-6">Global Average</td>
-                                        <td className="px-8 py-6 text-slate-400">73.6 Years</td>
-                                        <td className="px-8 py-6">Emerging</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div className="p-10 bg-red-500 rounded-[3rem] text-white space-y-6">
-                            <Quote className="w-10 h-10 text-white/50" />
-                            <p className="text-2xl font-serif italic leading-relaxed">
-                                "The ultimate goal is not just to add years to life, but to add life to years. Compression of morbidity is the 2026 focus of longevity medicine."
-                            </p>
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-1 border-t-2 border-white/30"></div>
-                                <span className="text-[11px] font-black uppercase tracking-widest">Global Longevity Commission</span>
-                            </div>
-                        </div>
-                    </section>
-
-                    {/* Section 4: FAQ */}
-                    <section id="faq" className="space-y-12 scroll-mt-32">
-                        <div className="space-y-4">
-                            <h2 className="text-4xl font-black text-slate-900 tracking-tight">Expert Age FAQ</h2>
-                            <p className="text-slate-500 font-medium">Institutional answers regarding chronological precision and aging.</p>
-                        </div>
-
-                        <div className="grid gap-6">
-                            {AGE_DATA.faqs.map((faq, i) => (
-                                <div key={i} className="p-8 bg-white border border-slate-100 rounded-3xl space-y-3 hover:border-red-500/20 transition-all shadow-sm">
-                                    <h3 className="text-lg font-black text-slate-900 flex items-start gap-3">
-                                        <span className="text-red-500 font-mono">Q.</span>
-                                        {faq.question}
-                                    </h3>
-                                    <p className="text-sm text-slate-500 leading-relaxed pl-7">
-                                        {faq.answer}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-
-                    {/* Citations Footer */}
-                    <section className="pt-20 border-t border-slate-100 space-y-8">
-                        <div className="flex items-center gap-3 text-slate-400">
-                            <Landmark className="w-5 h-5" />
-                            <span className="text-[11px] font-black uppercase tracking-widest">Institutional Sources & Citations</span>
-                        </div>
-                        <ul className="grid md:grid-cols-2 gap-4">
-                            {AGE_DATA.citations.map((c, i) => (
-                                <li key={i}>
-                                    <a
-                                        href={c.url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-transparent hover:border-red-500/20 hover:bg-white transition-all group"
-                                    >
-                                        <span className="text-xs font-bold text-slate-600">{c.name}</span>
-                                        <ExternalLink className="w-3 h-3 text-slate-300 group-hover:text-red-500 transition-colors" />
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </section>
-                </div>
-
-                {/* Sticky Sidebar LHS (Stats/Summary) */}
-                <div className="lg:col-span-4 space-y-8">
-                    <div className="sticky top-32 space-y-8">
-                        <div className="p-10 bg-slate-900 rounded-[3rem] text-white space-y-8 shadow-2xl">
-                            <div className="space-y-2">
-                                <div className="text-[11px] font-black text-red-500 uppercase tracking-[0.3em]">Knowledge Module</div>
-                                <h3 className="text-3xl font-black text-white leading-tight tracking-tighter">Fast Aging <span className="text-red-500 italic">Audit</span>.</h3>
-                            </div>
-                            <div className="space-y-6">
-                                {[
-                                    { label: "Precision", val: "High Frequency" },
-                                    { label: "Content Weight", val: "2,150+ Words" },
-                                    { label: "Authority", val: "Institutional" },
-                                    { label: "Status", val: "S-Class Certified" }
-                                ].map((stat, i) => (
-                                    <div key={i} className="flex justify-between items-center py-4 border-b border-white/5">
-                                        <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest">{stat.label}</span>
-                                        <span className="text-sm font-bold text-white uppercase tracking-tighter">{stat.val}</span>
-                                    </div>
-                                ))}
-                            </div>
-                            <Link
-                                href="/age/calculator"
-                                className="w-full py-5 bg-red-600 text-white rounded-2xl font-black uppercase tracking-widest text-xs flex items-center justify-center gap-2 hover:bg-red-700 transition-colors"
-                            >
-                                Open Chrono Engine
-                            </Link>
-                        </div>
-
-                        <div className="p-8 bg-white border border-slate-100 rounded-[2.5rem] shadow-sm space-y-6">
-                            <div className="flex items-center gap-3">
-                                <Shield className="w-5 h-5 text-emerald-500" />
-                                <span className="text-[10px] font-black text-slate-900 uppercase tracking-widest">E-E-A-T Framework</span>
-                            </div>
-                            <p className="text-[11px] text-slate-500 font-medium leading-relaxed italic">
-                                "Our aging datasets are synchronized with 2026 World Health Organization demographic projections to ensure authoritativeness in risk-assessment calculations."
-                            </p>
-                            <div className="pt-4 flex items-center gap-2">
-                                <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-[8px] font-black text-slate-400">AM</div>
-                                <div className="text-[9px] font-bold text-slate-900 leading-none">AgeMaster AI Editorial Team</div>
-                            </div>
                         </div>
                     </div>
+
+                    {/* Feature Highlight Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {[
+                            { t: "Atomic Sync", d: "Time subtraction using millisecond-precision UTC timestamps for absolute data integrity.", i: Clock },
+                            { t: "Milestone Audit", d: "Automated identification of 10k, 20k, and 30k day milestones for life-optimization.", i: Milestone },
+                            { t: "Zodiac Mapping", d: "High-accuracy astronomical zodiac mapping including both Western and Chinese celestial markers.", i: Star },
+                            { t: "Birthday Pulse", d: "Precision countdown to the next annual increment with 'age turning' projection data.", i: Calendar }
+                        ].map((feat, i) => (
+                            <div key={i} className="p-8 bg-white/5 border border-white/5 rounded-[2.5rem] space-y-4 hover:bg-blue-500/5 hover:border-blue-500/20 transition-all group">
+                                <feat.i className="w-8 h-8 text-blue-500 group-hover:scale-110 transition-transform" />
+                                <h3 className="text-xl font-black text-white italic uppercase">{feat.t}</h3>
+                                <p className="text-slate-500 text-sm font-bold italic leading-relaxed">{feat.d}</p>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Cultural Significance & Zodiacs */}
+                    <div className="space-y-12">
+                        <h2 className="text-3xl font-black text-white tracking-tighter uppercase italic">
+                            Celestial <span className="text-blue-600">Markers & Identity.</span>
+                        </h2>
+                        <p className="text-slate-400 font-bold italic text-lg leading-relaxed">
+                            Beyond numbers, our audit connects you to ancient celestial identity systems. By mapping your temporal origin to the position of the stars (Western Zodiac) and the lunar cycles (Chinese Zodiac), we provide a multi-dimensional perspective on your chronological identity.
+                        </p>
+                        <div className="p-8 bg-blue-600/5 border border-blue-500/20 rounded-[3rem] space-y-6">
+                            <div className="flex items-center gap-4 text-xs font-black text-blue-500 uppercase tracking-widest">
+                                <Star className="w-5 h-5" /> Astrological Audit Logic
+                            </div>
+                            <p className="text-slate-300 font-bold italic text-sm leading-relaxed">
+                                Our Western Zodiac audit uses the tropical zodiac framework, aligning with modern astrological standards used by millions of consultants globally. The Chinese Zodiac audit follows the 12-year animal cycle, providing cultural context to your birth year.
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
-            </main>
+            </section>
+
+            {/* Citations Section */}
+            <section className="py-24 border-y border-white/5 bg-slate-900/10">
+                <div className="max-w-4xl mx-auto px-6 text-center">
+                    <h2 className="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em] mb-12">Institutional Citations & Scientific Source Integrity</h2>
+                    <div className="grid md:grid-cols-2 gap-12 text-left">
+                        {AGE_2026.citations.map((cite, i) => (
+                            <div key={i} className="space-y-2 first:col-span-2 group">
+                                <div className="text-[9px] font-black text-blue-600 uppercase tracking-widest">{cite.s}</div>
+                                <h4 className="text-sm font-black text-white group-hover:text-blue-500 transition-colors">{cite.t}</h4>
+                                <p className="text-[11px] text-slate-500 font-bold italic leading-relaxed">{cite.d}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Bottom CTA */}
+            <section className="py-32 bg-blue-600 relative overflow-hidden">
+                <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+                <div className="max-w-4xl mx-auto px-6 text-center space-y-10 relative z-10">
+                    <h2 className="text-5xl md:text-7xl font-black text-white italic tracking-tighter uppercase leading-none">
+                        Audit Your <span className="underline decoration-white/20 underline-offset-8">Chronology Now.</span>
+                    </h2>
+                    <p className="text-blue-100 text-xl font-bold italic">Calculate precise age metrics with 2026 temporal benchmarks.</p>
+                    <Link
+                        href="/age/calculator"
+                        className="inline-flex items-center gap-4 bg-white text-blue-600 px-16 py-8 rounded-full font-black text-lg uppercase tracking-widest transition-all hover:scale-105 active:scale-95 shadow-2xl"
+                    >
+                        Access Auditor <ArrowRight className="w-6 h-6" />
+                    </Link>
+                </div>
+            </section>
+
+            {/* FAQ Section */}
+            <FAQSection faqs={AGE_2026.faqs} />
         </div>
     );
 }

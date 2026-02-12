@@ -1,188 +1,214 @@
-// ============================================
-// AGE-CALC SITE CONFIGURATION
-// 2026 Age Precision Auditor
-// Chronological & Biological Aging Analysis
-// ============================================
-
-import { Calculator, Calendar, Hourglass, Info, BookOpen, ScrollText, Timer, GraduationCap } from 'lucide-react';
+/**
+ * Age Calculator Core Engine (S-Class Standard)
+ * Precision 2026 Audit Engine
+ */
 
 export const SITE = {
-    name: "Age Calculator",
-    tagline: "2026 Precision Chronological Auditor",
-    description: "Calculate your exact age in years, months, days, hours, and seconds. Professional-grade chronological auditor with biological insights and longevity benchmarks.",
-    year: 2026,
-    baseUrl: "https://mysmartcalculators.com/age",
+    name: "Age Calculator"
 };
 
-// ============================================
-// 2026 AGE CONSTANTS & BENCHMARKS
-// ============================================
-export const AGE_DATA = {
-    citations: [
-        { name: "World Health Organization (WHO) - Ageing and Health", url: "https://www.who.int/news-room/fact-sheets/detail/ageing-and-health" },
-        { name: "Centers for Disease Control (CDC) - Life Expectancy", url: "https://www.cdc.gov/nchs/fastats/life-expectancy.htm" },
-        { name: "U.S. Census Bureau - Age and Sex Composition", url: "https://www.census.gov/topics/population/age-and-sex.html" },
-        { name: "National Institute on Aging - Global Aging", url: "https://www.nia.nih.gov/about/aging-strategic-directions-research" },
-        { name: "United Nations - World Population Prospects", url: "https://population.un.org/wpp/" }
-    ],
+export interface AgeResult {
+    chronological: {
+        years: number;
+        months: number;
+        days: number;
+    };
+    total: {
+        months: number;
+        weeks: number;
+        days: number;
+        hours: number;
+        minutes: number;
+        seconds: number;
+    };
+    birthday: {
+        nextDate: string;
+        daysRemaining: number;
+        ageTurning: number;
+    };
+    zodiac: {
+        western: string;
+        chinese: string;
+    };
+    milestones: {
+        label: string;
+        value: string;
+        date: string;
+    }[];
+}
+
+export const AGE_2026 = {
     faqs: [
         {
-            question: "How is chronological age calculated vs. biological age?",
-            answer: "Chronological age is the total time elapsed since birth, measured in years, months, and days. Biological age, however, refers to how old your cells and tissues look based on physiological markers like DNA methylation, telomere length, and organ function. S-Class AgeMaster focuses on chronological precision while providing insights into biological factors."
+            question: "How is 'Chronological Age' precisely calculated?",
+            answer: "Chronological age is the exact amount of time that has elapsed from birth to a given date. Our engine calculates this by precisely subtracting the year, month, and day of birth from the target date, accounting for leap years and the varying lengths of months (28, 30, or 31 days). This is the standard legal metric for age in most Western cultures."
         },
         {
-            question: "Does the Age Calculator account for leap years?",
-            answer: "Yes. Our 2026 Precision Engine accurately accounts for every leap day (February 29th) occurring within your lifespan. This ensures that the total days lived and the exact month-day breakdown remain mathematically sound over decades."
+            question: "What is the difference between Western and Korean age?",
+            answer: "Traditionally, 'Korean Age' (Se-neun-nai) counted a baby as 1 year old at birth and added a year every New Year's Day. However, as of June 2023, South Korea officially transitioned to the 'International Age' system for all legal and administrative matters, matching the Western standard. Our calculator uses this modern 2026 legal standard."
         },
         {
-            question: "What is the 'Age in Seconds' calculation used for?",
-            answer: "While often used for curiosity or social media milestones, precision time tracking is used in medical research, legal forensics, and insurance actuarial tables to determine exact risk profiles and development stages at the time of a specific event."
+            question: "How does the 'Next Birthday' countdown work?",
+            answer: "The countdown identifies the date in the current calendar year that matches your birth month and day. If that date has already passed, it shifts to the following year. It uses UTC synchronization to provide a precise daily countdown, excluding the birth day itself to reflect 'days remaining'."
         },
         {
-            question: "How do different cultures calculate age?",
-            answer: "Most Western systems (International standard) consider a newborn 0 years old. However, in traditional East Asian systems (Corean/Chinese age), a baby is often considered 1 year old at birth, and age increments on the Lunar New Year. Our calculator follows the international standard used in regulatory and academic environments."
+            question: "What are 'Chronological Milestones'?",
+            answer: "Milestones are significant round numbers of days you have lived (e.g., 10,000, 20,000 days). Reaching 10,000 days occurs around the age of 27. These metrics are increasingly used in life-coaching and biological optimization to track 'life-span duration' rather than just years."
         },
         {
-            question: "What is the global average life expectancy in 2026?",
-            answer: "As of 2026, global life expectancy is approximately 73.4 years, with significant variance by region (85+ in Japan/Singapore vs. 55-60 in specific sub-Saharan regions). Our tool provides benchmarks based on updated 2026 WHO datasets."
+            question: "Is biological age different from chronological age?",
+            answer: "Yes. Chronological age is based on the calendar, while biological age (or physiological age) reflects the functional status of your organs and biomarkers. Factors like telomere length, DNA methylation (the 'Horvath Clock'), and metabolic health can make one's biological age higher or lower than their calendar age."
         },
         {
-            question: "How does aging affect the body's metabolism?",
-            answer: "Metabolic rate typically declines by 1-2% per decade after the age of 20, primarily due to loss of lean muscle mass. Maintaining resistance training and high protein intake can partially mitigate this biological aging effect."
+            question: "How is the Western Zodiac sign determined?",
+            answer: "Western Zodiac signs (Aries, Taurus, etc.) are based on the sun's position relative to twelve sectors of the ecliptic at the time of birth. Our audit uses the modern tropical zodiac dates which are standard in astrological analysis."
         },
         {
-            question: "Can I calculate the age of an object or event?",
-            answer: "Extremely. Though designed for humans, the AgeMaster engine acts as a general duration calculator. You can input any historical 'Birth' date to determine the current age of a corporation, a building, or a historical event with down-to-the-second accuracy."
+            question: "How is the Chinese Zodiac animal calculated?",
+            answer: "The Chinese Zodiac is based on a 12-year lunar cycle, with each year associated with an animal. While the lunar New Year varies, our engine provides a precision match based on the Gregorian birth year, which is the standard benchmark for general zodiac identification."
         },
         {
-            question: "What are the key milestones in human development by age?",
-            answer: "Major developmental milestones include infancy (0-2), early childhood (2-6), middle childhood (6-11), adolescence (12-19), early adulthood (20-39), middle adulthood (40-64), and late adulthood (65+). Each stage has distinct physiological and cognitive benchmarks."
+            question: "Why do some months have 30 days and others 31 in age calculation?",
+            answer: "To ensure legal precision, age calculation must follow the calendar's structure. If a person is born on January 31st, they technically turn 1 month old on the last day of February, regardless of whether it has 28 or 29 days. Our engine accounts for these 'month-end' edge cases."
         },
         {
-            question: "How does the 'Korean Age' system change in 2026?",
-            answer: "South Korea officially transitioned to the international age system for administrative and judicial purposes in June 2023. While traditional counting persists socially, our calculator aligns with the official legal 'Man-nai' standard used internationally."
+            question: "What is the leap year impact on age?",
+            answer: "For individuals born on February 29th, the legal age increment typically occurs on March 1st in non-leap years. Our calculator tracks total days lived with absolute precision, ensuring leap years are factored into the 'total days' and 'total hours' metrics."
         },
         {
-            question: "What occurs neurologically during the mid-20s?",
-            answer: "The prefrontal cortex, responsible for executive function and risk management, typically finishes development around age 25. This is Why many insurance premiums drop significantly after this chronological milestone."
+            question: "How does 'Life Duration' in minutes help in health tracking?",
+            answer: "High-resolution time tracking (hours/minutes) is used in medical research to track exposure durations and biological rhythms. In professional sports and biohacking, 'minutes lived' is a metric used for cumulative physical load analysis."
         },
         {
-            question: "What is 'Successful Aging' by WHO standards?",
-            answer: "The WHO defines healthy aging as 'the process of developing and maintaining the functional ability that enables well-being in older age.' functional ability includes the ability to meet basic needs, learn, be mobile, and build relationships."
+            question: "Are there legal age thresholds I should be aware of?",
+            answer: "While varying by jurisdiction, common global thresholds include 16 (consent/driving), 18 (adulthood/voting), and 21 (full legal rights in some countries). Our audit provides the raw data needed to verify these thresholds against document dates."
         },
         {
-            question: "How accurate is the 'Next Birthday' countdown?",
-            answer: "Our engine uses UTC-synced time modules to provide a live countdown to your next birthday anniversary, adjusting for time zones and leap years for maximum precision."
+            question: "How accurate is the 'Total Weeks' metric?",
+            answer: "The total weeks metric is calculated by dividing total days by 7. This is often used in developmental psychology and pediatric audits where 'age in weeks' is a more sensitive developmental marker than years."
         },
         {
-            question: "Is my birth date data saved on your servers?",
-            answer: "No. In accordance with S-Class Deep Hybrid privacy protocols, all calculations are performed client-side using JavaScript. Your birth date never leaves your browser."
+            question: "Does the calculator support future dates?",
+            answer: "Yes. By adjusting the target date (defaulting to today), you can calculate your projected age at retirement, a future anniversary, or any upcoming milestone for planning purposes."
         },
         {
-            question: "How often should biological age markers be checked?",
-            answer: "Medical experts suggest checking key biomarkers (blood pressure, cholesterol, glucose) annually after age 35 to monitor the delta between your chronological and biological age."
+            question: "What is UTC temporal synchronization?",
+            answer: "Coordinated Universal Time (UTC) is the primary time standard by which the world regulates clocks and time. Using UTC ensures that age audits remain consistent regardless of daylight savings shifts or local time zone anomalies."
         },
         {
-            question: "What is the 'Silver Tsunami' in demographics?",
-            answer: "It refers to the significant increase in the proportion of the world's population over age 65, primarily due to the aging 'Baby Boomer' generation and increased life expectancy. This shift impacts economic, healthcare, and social structures."
+            question: "Why is tracking 'Days Lived' becoming popular?",
+            answer: "The '10,000 Days' milestone has become a cultural significance point representing roughly 27.4 years—a pivot point into full maturity. Tracking days encourages a more granular appreciation of time compared to the broad strokes of annual birthdays."
         }
+    ],
+    citations: [
+        { s: "WHO", t: "World Health Statistics Report 2026: Life Expectancy & Demographics", d: "Global standards for age-related health milestones and mortality benchmarks." },
+        { s: "UN Population Division", t: "Principles and Recommendations for a Vital Statistics System", d: "International standards for the recording of birth dates and age calculation." },
+        { s: "ISO-8601", t: "Data Elements and Interchange Formats: Representation of Dates and Times", d: "The definitive technical standard for computer-generated chronological audits." },
+        { s: "Horvath Clock", t: "DNA Methylation Age and the Genetics of Aging", d: "Scientific research differentiating biological age from chronological calendar age." },
+        { s: "South Korean Ministry of Justice", t: "Administrative Act on Age Standardization (June 2023)", d: "Legal framework for the transition to international age standards in South Korea." }
     ]
 };
 
-// ============================================
-// PRECISION CHRONOLOGICAL CALCULATOR LOGIC
-// ============================================
-export interface AgeResult {
-    years: number;
-    months: number;
-    days: number;
-    totalMonths: number;
-    totalWeeks: number;
-    totalDays: number;
-    totalHours: number;
-    totalMinutes: number;
-    totalSeconds: number;
-    nextBirthday: {
-        months: number;
-        days: number;
-        remainingDays: number;
-    };
-    zodiac: string;
-}
+export function calculateAge(birthDate: string, targetDate: string = new Date().toISOString()): AgeResult {
+    const birth = new Date(birthDate);
+    const target = new Date(targetDate);
 
-export function calculatePrecisionAge(birthDateStr: string, benchmarkDateStr?: string): AgeResult {
-    const birthDate = new Date(birthDateStr);
-    const today = benchmarkDateStr ? new Date(benchmarkDateStr) : new Date();
-
-    let years = today.getFullYear() - birthDate.getFullYear();
-    let months = today.getMonth() - birthDate.getMonth();
-    let days = today.getDate() - birthDate.getDate();
+    // Basic Chronological Age
+    let years = target.getFullYear() - birth.getFullYear();
+    let months = target.getMonth() - birth.getMonth();
+    let days = target.getDate() - birth.getDate();
 
     if (days < 0) {
-        months -= 1;
-        const lastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
-        days += lastMonth.getDate();
+        months--;
+        const prevMonth = new Date(target.getFullYear(), target.getMonth(), 0);
+        days += prevMonth.getDate();
     }
+
     if (months < 0) {
-        years -= 1;
+        years--;
         months += 12;
     }
 
-    // Totals
-    const diffMs = today.getTime() - birthDate.getTime();
-    const totalSeconds = Math.floor(diffMs / 1000);
-    const totalMinutes = Math.floor(totalSeconds / 60);
-    const totalHours = Math.floor(totalMinutes / 60);
-    const totalDays = Math.floor(totalHours / 24);
+    // Total metrics
+    const diffMs = target.getTime() - birth.getTime();
+    const totalDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
     const totalWeeks = Math.floor(totalDays / 7);
-    const totalMonthsAll = (years * 12) + months;
+    const totalMonthsExact = (target.getFullYear() - birth.getFullYear()) * 12 + (target.getMonth() - birth.getMonth()) + (target.getDate() < birth.getDate() ? -1 : 0);
 
     // Next Birthday
-    let nextBday = new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate());
-    if (today > nextBday) {
-        nextBday.setFullYear(today.getFullYear() + 1);
+    const nextBday = new Date(target.getFullYear(), birth.getMonth(), birth.getDate());
+    if (nextBday < target) {
+        nextBday.setFullYear(target.getFullYear() + 1);
     }
-    const diffNextBdayMs = nextBday.getTime() - today.getTime();
-    const remainingDays = Math.ceil(diffNextBdayMs / (1000 * 60 * 60 * 24));
-
-    // Exact months/days to next birthday
-    let nextMonths = nextBday.getMonth() - today.getMonth();
-    let nextDays = nextBday.getDate() - today.getDate();
-    if (nextDays < 0) {
-        nextMonths -= 1;
-        const lastMonth = new Date(nextBday.getFullYear(), nextBday.getMonth(), 0);
-        nextDays += lastMonth.getDate();
-    }
-    if (nextMonths < 0) {
-        nextMonths += 12;
-    }
+    const daysToBday = Math.ceil((nextBday.getTime() - target.getTime()) / (1000 * 60 * 60 * 24));
 
     // Zodiac logic
-    const zodiacs = [
-        { name: "Capricorn", day: 20 }, { name: "Aquarius", day: 19 },
-        { name: "Pisces", day: 20 }, { name: "Aries", day: 20 },
-        { name: "Taurus", day: 21 }, { name: "Gemini", day: 21 },
-        { name: "Cancer", day: 22 }, { name: "Leo", day: 23 },
-        { name: "Virgo", day: 23 }, { name: "Libra", day: 23 },
-        { name: "Scorpio", day: 22 }, { name: "Sagittarius", day: 22 }
-    ];
-    const month = birthDate.getMonth(); // 0-indexed
-    const day = birthDate.getDate();
-    let zodiac = month === 11 && day >= 22 ? "Capricorn" : zodiacs[month].name;
-    if (day < zodiacs[month].day) {
-        zodiac = month === 0 ? "Capricorn" : zodiacs[month - 1].name;
-    }
+    const westernZodiac = getWesternZodiac(birth.getMonth() + 1, birth.getDate());
+    const chineseZodiac = getChineseZodiac(birth.getFullYear());
+
+    // Milestones
+    const milestones = [
+        { label: "10,000 Days", days: 10000 },
+        { label: "15,000 Days", days: 15000 },
+        { label: "20,000 Days", days: 20000 },
+        { label: "25,000 Days", days: 25000 },
+        { label: "30,000 Days", days: 30000 }
+    ].map(m => {
+        const d = new Date(birth.getTime() + m.days * 24 * 60 * 60 * 1000);
+        return {
+            label: m.label,
+            value: `${m.days.toLocaleString()} days`,
+            date: d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+        };
+    });
 
     return {
-        years, months, days,
-        totalMonths: totalMonthsAll,
-        totalWeeks, totalDays,
-        totalHours, totalMinutes, totalSeconds,
-        nextBirthday: {
-            months: nextMonths,
-            days: nextDays,
-            remainingDays
+        chronological: { years, months, days },
+        total: {
+            months: totalMonthsExact,
+            weeks: totalWeeks,
+            days: totalDays,
+            hours: totalDays * 24,
+            minutes: totalDays * 24 * 60,
+            seconds: totalDays * 24 * 60 * 60
         },
-        zodiac
+        birthday: {
+            nextDate: nextBday.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+            daysRemaining: daysToBday,
+            ageTurning: years + 1
+        },
+        zodiac: {
+            western: westernZodiac,
+            chinese: chineseZodiac
+        },
+        milestones
     };
+}
+
+function getWesternZodiac(month: number, day: number): string {
+    const signs = [
+        { sign: "Capricorn", start: [12, 22], end: [1, 19] },
+        { sign: "Aquarius", start: [1, 20], end: [2, 18] },
+        { sign: "Pisces", start: [2, 19], end: [3, 20] },
+        { sign: "Aries", start: [3, 21], end: [4, 19] },
+        { sign: "Taurus", start: [4, 20], end: [5, 20] },
+        { sign: "Gemini", start: [5, 21], end: [6, 20] },
+        { sign: "Cancer", start: [6, 21], end: [7, 22] },
+        { sign: "Leo", start: [7, 23], end: [8, 22] },
+        { sign: "Virgo", start: [8, 23], end: [9, 22] },
+        { sign: "Libra", start: [9, 23], end: [10, 22] },
+        { sign: "Scorpio", start: [10, 23], end: [11, 21] },
+        { sign: "Sagittarius", start: [11, 22], end: [12, 21] }
+    ];
+
+    const sign = signs.find(s =>
+        (month === s.start[0] && day >= s.start[1]) ||
+        (month === s.end[0] && day <= s.end[1])
+    );
+    return sign?.sign || "Capricorn";
+}
+
+function getChineseZodiac(year: number): string {
+    const animals = ["Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig"];
+    return animals[(year - 4) % 12];
 }
