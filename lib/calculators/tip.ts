@@ -48,6 +48,7 @@ export const TIP_2026 = {
         { name: "National Restaurant Association 2026", url: "https://restaurant.org/" },
         { name: "Pew Research: Service Economy Trends", url: "https://www.pewresearch.org/" }
     ],
+    citation: "Institutional Source: Emily Post & US-DOL Gratuity Standards (2026)",
 
     faqs: [
         {
