@@ -55,6 +55,9 @@ export const LAYOUT_CONFIG: Record<string, LayoutShellType> = {
     "/bard-mesh": 'S_CLASS',
     "/bard-powerport": 'S_CLASS',
     "/benzene": 'S_CLASS',
+    "/binary": 'S_CLASS',
+    "/conversion": 'S_CLASS',
+    "/date": 'S_CLASS',
     "/biomet-hip": 'S_CLASS',
     "/birth-injury": 'S_CLASS',
     "/black-lung": 'S_CLASS',
@@ -191,6 +194,19 @@ export const LAYOUT_CONFIG: Record<string, LayoutShellType> = {
     "/mirena": 'S_CLASS',
     "/mobile-home-insurance": 'S_CLASS',
     "/motorcycle-accident": 'S_CLASS',
+    "/ovulation": 'S_CLASS',
+    "/scientific": 'S_CLASS',
+    "/square-footage": 'S_CLASS',
+    "/percentage": 'S_CLASS',
+    "/gpa": 'S_CLASS',
+    "/age": 'S_CLASS',
+    "/loan": 'S_CLASS',
+    "/pregnancy": 'S_CLASS',
+    "/grade": 'S_CLASS',
+    "/compound-interest": 'S_CLASS',
+    "/due-date": 'S_CLASS',
+    "/salary": 'S_CLASS',
+    "/body-fat": 'S_CLASS'
 };
 
 /**

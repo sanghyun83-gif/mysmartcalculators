@@ -29,7 +29,7 @@ const FAQSection = ({ faqs }: { faqs: readonly any[] }) => (
 
 export default function AgeHubClient() {
     return (
-        <div className="min-h-screen bg-slate-950">
+        <div className="bg-slate-950">
             {/* S-Class Premium Hero */}
             <section className="relative py-24 md:py-40 overflow-hidden text-center">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.05)_0%,transparent_70%)]" />
@@ -122,7 +122,7 @@ export default function AgeHubClient() {
                     </div>
 
                     {/* Deep Analysis of Legal Age Protocols */}
-                    <div className="space-y-12">
+                    <div id="compliance" className="space-y-12">
                         <h2 className="text-4xl font-black text-white tracking-tighter leading-none italic uppercase">
                             Global <span className="text-blue-600">Legal Protocols.</span>
                         </h2>

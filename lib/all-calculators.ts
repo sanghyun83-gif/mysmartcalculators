@@ -126,6 +126,10 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
         "name": "Benzene Leukemia Calculator"
     },
     {
+        "id": "binary",
+        "name": "Binary Calculator"
+    },
+    {
         "id": "biomet-hip",
         "name": "Biomet Hip Lawsuit Calculator"
     },
@@ -148,6 +152,10 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     {
         "id": "boating-accident",
         "name": "Boating Accident Calculator"
+    },
+    {
+        "id": "body-fat",
+        "name": "Body Fat Calculator"
     },
     {
         "id": "bone-graft",
@@ -242,6 +250,10 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
         "name": "Commission Calculator"
     },
     {
+        "id": "compound-interest",
+        "name": "2026 Compound Interest Calculator | Wealth Accretion Engine"
+    },
+    {
         "id": "concert-injury",
         "name": "Concert Injury Calculator"
     },
@@ -256,6 +268,10 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     {
         "id": "contractor-insurance",
         "name": "Contractor Insurance Calculator"
+    },
+    {
+        "id": "conversion",
+        "name": "Unit Conversion Calculator"
     },
     {
         "id": "cpap",
@@ -284,6 +300,10 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     {
         "id": "cyber-insurance",
         "name": "Cyber Insurance Calculator"
+    },
+    {
+        "id": "date",
+        "name": "Date Calculator"
     },
     {
         "id": "daycare-injury",
@@ -348,6 +368,10 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     {
         "id": "dti",
         "name": "DTI Calculator"
+    },
+    {
+        "id": "due-date",
+        "name": "Due Date Auditor 2026"
     },
     {
         "id": "DUI",
@@ -754,6 +778,10 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
         "name": "Overtime Pay Calculator"
     },
     {
+        "id": "ovulation",
+        "name": "Ovulation Calculator"
+    },
+    {
         "id": "oxycontin",
         "name": "OxyContin Lawsuit Calculator"
     },
@@ -930,6 +958,10 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
         "name": "S Corp Tax Calculator"
     },
     {
+        "id": "salary",
+        "name": "Salary Calculator"
+    },
+    {
         "id": "salon-insurance",
         "name": "Salon Insurance Calculator"
     },
@@ -1016,6 +1048,10 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     {
         "id": "sports-injury",
         "name": "Sports Injury Calculator"
+    },
+    {
+        "id": "square-footage",
+        "name": "Square Footage Calculator"
     },
     {
         "id": "sr22",

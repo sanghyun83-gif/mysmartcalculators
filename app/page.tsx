@@ -1,5 +1,6 @@
 "use client";
-// Force HMR for Grade Calculator visibility
+// Force HMR for Grade and Body Fat Calculator visibility
+// Timestamp: 2026-02-12 22:27
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
@@ -16,6 +17,7 @@ const TRENDING_NICHES = [
   { id: "truck-accident", name: "Truck Accident", category: "legal", badge: "High Value", color: "amber" },
   { id: "ozempic", name: "Ozempic Settlement", category: "medical", badge: "Active MDL", color: "rose" },
   { id: "roundup", name: "Roundup Lawsuit", category: "medical", badge: "Mass Tort", color: "emerald" },
+  { id: "body-fat", name: "Body Fat Audit", category: "health", badge: "Global Health", color: "indigo" },
   { id: "401k-growth", name: "401k Growth", category: "finance", badge: "Pro 2026", color: "blue" },
   { id: "car-accident", name: "Car Accident", category: "legal", badge: "S-Class", color: "red" },
 ];
@@ -174,7 +176,7 @@ export default function HomePage() {
             medical: { icon: Stethoscope, name: "Medical Mass Tort" },
             insurance: { icon: Shield, name: "Risk & Insurance" },
             family: { icon: Heart, name: "Family & Property" },
-            health: { icon: Landmark, name: "Public Benefits" },
+            health: { icon: Landmark, name: "Health & Wellness" },
           }).map(([id, cat]) => (
             <div key={id} className="space-y-6">
               <div className="flex items-center gap-3 pb-4 border-b border-slate-800">

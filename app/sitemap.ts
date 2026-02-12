@@ -15,6 +15,7 @@ const CALCULATORS_WITH_SUBPAGES = [
     'auto-insurance', 'life-insurance', 'pet-insurance', 'bmi', 'calorie',
     'scientific', 'percentage', 'age', 'gpa', 'loan', 'tip', 'compound-interest',
     'child-support', 'alimony', 'divorce', 'retirement', 'roth-ira', 'fafsa',
+    'body-fat', 'salary', 'due-date', 'grade'
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -48,7 +49,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const tier2 = [
         'ozempic', 'camp-lejeune', 'roundup',
         'bmi', 'calorie', 'scientific', 'percentage', 'age', 'gpa',
-        'mortgage', 'loan', 'tip', 'compound-interest', 'grade'
+        'mortgage', 'loan', 'tip', 'compound-interest', 'grade',
+        'body-fat', 'salary', 'due-date'
     ]; // Priority 0.9 (Big Volume + Medical)
     const tier3: string[] = []; // Reserved for deprecated/low-value
 

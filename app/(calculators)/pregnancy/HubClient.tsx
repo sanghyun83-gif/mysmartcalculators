@@ -63,7 +63,7 @@ const FAQSection = ({ faqs }: { faqs: readonly any[] }) => (
 
 export default function PregnancyHubClient() {
     return (
-        <div className="min-h-screen bg-slate-950">
+        <div className="bg-slate-950">
             {/* Hero Section - The Biological Genesis */}
             <section className="relative py-24 md:py-40 overflow-hidden">
                 <div className="absolute inset-0">
@@ -105,7 +105,7 @@ export default function PregnancyHubClient() {
             </section>
 
             {/* Content Section Alpha: The Anatomy of Gestation */}
-            <section className="py-32 relative">
+            <section id="compliance" className="py-32 relative">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid lg:grid-cols-2 gap-24 items-center">
                         <div className="space-y-8">
@@ -171,7 +171,7 @@ export default function PregnancyHubClient() {
             </section>
 
             {/* Content Section Beta: The Trimester Dynamics */}
-            <section className="py-32 bg-slate-900/30">
+            <section id="stats" className="py-32 bg-slate-900/30">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="text-center mb-24">
                         <div className="inline-flex items-center gap-2 text-rose-500 font-black text-xs uppercase tracking-[0.4em] mb-6">

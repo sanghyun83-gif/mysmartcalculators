@@ -320,9 +320,11 @@ export const CATEGORY_MAP: Record<string, Category> = {
 
     // Health
     'bmi': 'health',
+    'body-fat': 'health',
     'pregnancy': 'health',
     'ideal-weight': 'health',
     'age': 'health',
+    'salary': 'finance',
     'percentage': 'finance',
 };
 
@@ -599,6 +601,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'dirt-bike-insurance': 'Dirt Bike Insurance',
     'golf-cart-insurance': 'Golf Cart Insurance',
     'gpa': 'GPA Calculator',
+    'salary': 'Salary Calculator',
     'wedding-insurance': 'Wedding Insurance',
     'event-insurance': 'Event Insurance',
     'travel-insurance': 'Travel Insurance',
@@ -642,6 +645,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'ssi': 'SSI Calculator',
     'era': 'Emergency Rental Assistance Calculator',
     'child-care-subsidy': 'Child Care Subsidy Calculator',
+    'body-fat': 'Body Fat Calculator',
 };
 
 /**

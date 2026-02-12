@@ -63,7 +63,7 @@ const FAQSection = ({ faqs }: { faqs: readonly any[] }) => (
 
 export default function LoanHubClient() {
     return (
-        <div className="min-h-screen bg-slate-950">
+        <div className="bg-slate-950">
             {/* Hero Section - The Financial Citadel */}
             <section className="relative py-24 md:py-40 overflow-hidden">
                 <div className="absolute inset-0">
@@ -105,7 +105,7 @@ export default function LoanHubClient() {
             </section>
 
             {/* Content Section Alpha: The Anatomy of Amortization */}
-            <section className="py-32 relative">
+            <section id="compliance" className="py-32 relative">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid lg:grid-cols-2 gap-24 items-center">
                         <div className="space-y-8">
@@ -217,7 +217,7 @@ export default function LoanHubClient() {
             </section>
 
             {/* Content Section Gamma: Deep Dive Scientific Content (Long Form) */}
-            <section className="py-32 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.03),transparent_40%)]">
+            <section id="stats" className="py-32 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.03),transparent_40%)]">
                 <div className="max-w-4xl mx-auto px-6">
                     <div className="prose prose-invert prose-slate max-w-none">
                         <div className="flex items-center gap-4 mb-12">

@@ -40,7 +40,7 @@ const FAQSection = ({ faqs }: { faqs: { question: string; answer: string }[] }) 
 
 export default function ScientificHubClient() {
     return (
-        <div className="min-h-screen bg-slate-950">
+        <div className="bg-slate-950">
             {/* S-Class Premium Hero: Math Engine AI */}
             <section className="relative py-24 md:py-40 overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.05)_0%,transparent_70%)]" />

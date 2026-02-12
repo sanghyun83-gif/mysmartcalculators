@@ -212,6 +212,15 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "color": "rose-500",
         "icon": "gavel"
     },
+    "binary": {
+        "id": "binary",
+        "name": "Binary Calculator | Bitwise Logic & Base Auditor 2026",
+        "description": "Execute precision bitwise operations and base conversions (Binary, Hex, Dec, Oct). Free S-Class auditor for computer architecture, 64-bit logic, and digital auditing.",
+        "category": "general",
+        "tier": 1,
+        "color": "emerald-500",
+        "icon": "binary"
+    },
     "baby-formula": {
         "id": "baby-formula",
         "name": "2026 NEC Baby Formula Settlement Calculator | Payout Negotiator",
@@ -309,6 +318,15 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "category": "health",
         "tier": 2,
         "color": "emerald-500",
+        "icon": "activity"
+    },
+    "body-fat": {
+        "id": "body-fat",
+        "name": "Body Fat Calculator",
+        "description": "Precision body fat estimation using US Navy and BMI-based standard regression models. Professional health audit for 2026.",
+        "category": "health",
+        "tier": 2,
+        "color": "indigo-500",
         "icon": "activity"
     },
     "boat-insurance": {
@@ -535,6 +553,15 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "tier": 2,
         "color": "slate-500",
         "icon": "calculator"
+    },
+    "compound-interest": {
+        "id": "compound-interest",
+        "name": "2026 Compound Interest Calculator | Wealth Accretion Engine",
+        "description": "Calculate exponential wealth growth with 2026 precision. Free financial negotiator with official inflation benchmarks, tax-advantaged compounding, and historical yield audits.",
+        "category": "finance",
+        "tier": 1,
+        "color": "emerald-500",
+        "icon": "trending-up"
     },
     "concert-injury": {
         "id": "concert-injury",
@@ -778,6 +805,24 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "tier": 2,
         "color": "blue-500",
         "icon": "landmark"
+    },
+    "due-date": {
+        "id": "due-date",
+        "name": "2026 Due Date Calculator | Pregnancy Progress Auditor",
+        "description": "Calculate your pregnancy due date with medical precision. Multi-method audit including LMP, Conception, and IVF transfer milestones for the 2026 maternity landscape.",
+        "category": "health",
+        "tier": 1,
+        "color": "indigo-500",
+        "icon": "baby"
+    },
+    "salary": {
+        "id": "salary",
+        "name": "2026 Salary Calculator | Precision Compensation Auditor",
+        "description": "Calculate annual, monthly, and hourly earnings with institutional precision. Free 2026 negotiator with official BLS wage benchmarks, tax-adjusted audits, and overtime multipliers.",
+        "category": "finance",
+        "tier": 1,
+        "color": "emerald-600",
+        "icon": "banknote"
     },
     "DUI": {
         "id": "DUI",

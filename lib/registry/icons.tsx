@@ -4,7 +4,7 @@ import {
     Calculator, DollarSign, Scale, Building, PiggyBank,
     Coins, FileCheck, Landmark, Briefcase, Syringe, Heart,
     Percent, PawPrint, Banknote, Leaf, Flame, LucideIcon,
-    Sparkles, CreditCard, Hotel, Caravan, Bike
+    Sparkles, CreditCard, Hotel, Caravan, Bike, Binary, Clock, Baby
 } from "lucide-react";
 
 /**
@@ -40,7 +40,10 @@ export const SCLASS_ICON_REGISTRY: Record<string, LucideIcon> = {
     creditcard: CreditCard,
     hotel: Hotel,
     caravan: Caravan,
-    bike: Bike
+    bike: Bike,
+    binary: Binary,
+    clock: Clock,
+    baby: Baby
 };
 
 /**

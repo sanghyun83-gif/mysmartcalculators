@@ -98,7 +98,7 @@ export function FlagshipLayout({
                 </div>
 
                 {/* 2. Persistent S-Class Header (Immortal Architecture) */}
-                <header className="fixed top-[30px] left-0 right-0 z-[150] bg-transparent backdrop-blur-md border-b border-white/5 py-4">
+                <header className="fixed top-[30px] left-0 right-0 z-[999] bg-transparent backdrop-blur-md border-b border-white/5 py-4">
                     <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
                         <div className="flex items-center gap-6">
                             <div className="flex items-center gap-3">
