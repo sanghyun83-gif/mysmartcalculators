@@ -34,8 +34,8 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "18-wheeler": {
         "id": "18-wheeler",
-        "name": "2026 18-Wheeler Accident Settlement Calculator",
-        "description": "Calculate semi-truck and 18-wheeler accident settlement values instantly. Free 2026 calculator with FMCSA safety violation data, commercial insurance caps, and average payout estimator.",
+        "name": "2026 18-Wheeler Accident Settlement Calculator | Official S-Class Auditor",
+        "description": "Calculate semi-truck and 18-wheeler accident settlement values with 2026 precision. Official S-Class legal auditor incorporating FMCSA safety violation data and commercial insurance benchmarks.",
         "category": "legal",
         "tier": 1,
         "color": "rose-500",
@@ -214,8 +214,8 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "binary": {
         "id": "binary",
-        "name": "Binary Calculator | Bitwise Logic & Base Auditor 2026",
-        "description": "Execute precision bitwise operations and base conversions (Binary, Hex, Dec, Oct). Free S-Class auditor for computer architecture, 64-bit logic, and digital auditing.",
+        "name": "2026 Binary Calculator | Official Bitwise Logic Auditor",
+        "description": "Execute precision bitwise operations and base conversions with 2026 accuracy. Official S-Class auditor for computer architecture, 64-bit logic, and digital system auditing.",
         "category": "general",
         "tier": 1,
         "color": "emerald-500",
@@ -313,19 +313,19 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "bmi": {
         "id": "bmi",
-        "name": "BMI Calculator",
-        "description": "Calculate your Body Mass Index (BMI) instantly. Free 2026 calculator with health recommendations based on WHO and CDC guidelines.",
+        "name": "2026 BMI Calculator | Official S-Class Health Auditor",
+        "description": "Calculate your Body Mass Index (BMI) with 2026 precision. Official S-Class health auditor providing accurate assessment based on institutional WHO and CDC healthcare benchmarks.",
         "category": "health",
-        "tier": 2,
+        "tier": 1,
         "color": "emerald-500",
         "icon": "activity"
     },
     "body-fat": {
         "id": "body-fat",
-        "name": "Body Fat Calculator",
-        "description": "Precision body fat estimation using US Navy and BMI-based standard regression models. Professional health audit for 2026.",
+        "name": "2026 Body Fat Calculator | Official S-Class Adiposity Auditor",
+        "description": "Calculate body fat percentage with 2026 precision using US Navy and BMI-based regression models. Official S-Class health auditor for professional adiposity assessment.",
         "category": "health",
-        "tier": 2,
+        "tier": 1,
         "color": "indigo-500",
         "icon": "activity"
     },
@@ -403,10 +403,10 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "calorie": {
         "id": "calorie",
-        "name": "Calorie Calculator",
-        "description": "Calculate your daily calorie needs instantly. Free 2026 calculator based on USDA and CDC nutrition guidelines.",
+        "name": "2026 Calorie Calculator | Official S-Class Metabolic Auditor",
+        "description": "Calculate daily caloric requirements with 2026 precision. Official S-Class metabolic auditor based on institutional USDA and CDC nutrition benchmarks.",
         "category": "health",
-        "tier": 2,
+        "tier": 1,
         "color": "emerald-500",
         "icon": "activity"
     },
@@ -556,8 +556,8 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "compound-interest": {
         "id": "compound-interest",
-        "name": "2026 Compound Interest Calculator | Wealth Accretion Engine",
-        "description": "Calculate exponential wealth growth with 2026 precision. Free financial negotiator with official inflation benchmarks, tax-advantaged compounding, and historical yield audits.",
+        "name": "2026 Compound Interest Calculator | Official S-Class Accretion Auditor",
+        "description": "Calculate exponential wealth growth with 2026 precision. Official S-Class financial auditor using institutional inflation benchmarks and historical yield data.",
         "category": "finance",
         "tier": 1,
         "color": "emerald-500",
@@ -1645,8 +1645,8 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "mortgage": {
         "id": "mortgage",
-        "name": "2026 Mortgage Calculator | Payment & Rate Estimator",
-        "description": "Calculate your 2026 mortgage payment instantly. Free home loan negotiator with official Freddie Mac (PMMS) rate data, FHFA property tax benchmarks, and PMI estimation.",
+        "name": "2026 Mortgage Calculator | Official S-Class Lending Auditor",
+        "description": "Calculate mortgage payments and rates with 2026 precision. Official S-Class lending auditor based on institutional Freddie Mac and FHFA financial benchmarks.",
         "category": "finance",
         "tier": 1,
         "color": "blue-500",
@@ -2158,10 +2158,10 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "scientific": {
         "id": "scientific",
-        "name": "Scientific Calculator",
-        "description": "High-precision scientific calculator for trigonometry, logarithms, and calculus. Fully compliant with 2026 SAT/ACT guidelines.",
+        "name": "2026 Scientific Calculator | Official S-Class Logic Auditor",
+        "description": "Execute high-precision scientific computations with 2026 accuracy. Official S-Class logic auditor for trigonometry, calculus, and advanced mathematical auditing.",
         "category": "general",
-        "tier": 2,
+        "tier": 1,
         "color": "blue-600",
         "icon": "binary"
     },

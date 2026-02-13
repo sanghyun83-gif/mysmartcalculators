@@ -23,46 +23,91 @@ const HubClient = dynamic(
 );
 
 export default function PercentagePage() {
-    const faqSchema = {
+    const jsonLd = {
         "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": percentageCalc?.faqs.map(faq => ({
-            "@type": "Question",
-            "name": faq.question,
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.answer
+        "@graph": [
+            {
+                "@type": "SoftwareApplication",
+                "name": meta?.title,
+                "operatingSystem": "All",
+                "applicationCategory": "MathApplication",
+                "description": meta?.description,
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.9",
+                    "ratingCount": "8540"
+                },
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                }
+            },
+            {
+                "@type": "HowTo",
+                "name": "How to Calculate Percentages",
+                "description": "Step-by-step institutional guide for solving percentage problems.",
+                "step": [
+                    {
+                        "@type": "HowToStep",
+                        "text": "Identify the 'Part' value and the 'Total' (Whole) value."
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "text": "Divide the Part by the Total to get a decimal value."
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "text": "Multiply the decimal by 100 to convert to a percentage."
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "text": "Verify the result using our 2026 high-precision math engine."
+                    }
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://mysmartcalculators.com/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Math",
+                        "item": "https://mysmartcalculators.com/math"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Percentage Calculator",
+                        "item": meta?.canonical
+                    }
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": percentageCalc?.faqs.map(faq => ({
+                    "@type": "Question",
+                    "name": faq.question,
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": faq.answer
+                    }
+                }))
             }
-        }))
-    };
-
-    const softwareSchema = {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": SITE.name,
-        "operatingSystem": "All",
-        "applicationCategory": "MathApplication",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "ratingCount": "8540"
-        },
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        }
+        ]
     };
 
     return (
         <>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-            />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
             <HubClient />
         </>

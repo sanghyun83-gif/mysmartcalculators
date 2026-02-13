@@ -50,21 +50,35 @@ export default function DueDateHubClient() {
                 </div>
             </section>
 
-            {/* Quick Stats Grid */}
-            <section className="max-w-6xl mx-auto px-4 py-12">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {[
-                        { label: "Audit Standard", val: "40 Weeks", sub: "280 Day Cycle" },
-                        { label: "Precision Rate", val: "± 7 Days", sub: "Clinical Median" },
-                        { label: "Pre-Term Threshold", val: "37 Weeks", sub: "Safety Benchmark" },
-                        { label: "Audit Tier", val: "S-Class", sub: "2026 Verified" }
-                    ].map((stat, i) => (
-                        <div key={i} className="bg-slate-900/50 border border-white/5 p-6 rounded-3xl backdrop-blur-xl group hover:border-indigo-500/30 transition-colors">
-                            <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">{stat.label}</p>
-                            <p className="text-2xl font-black text-white group-hover:text-indigo-400 transition-colors">{stat.val}</p>
-                            <p className="text-[10px] text-slate-600 font-bold italic">{stat.sub}</p>
-                        </div>
-                    ))}
+            <section id="gestational-benchmarks" className="max-w-6xl mx-auto px-4 py-12">
+                <div className="flex items-center gap-3 mb-8">
+                    <History className="w-5 h-5 text-indigo-500" />
+                    <h2 className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">Gestational Integrity Benchmarks (Full Term Standards)</h2>
+                </div>
+                <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-900/50 backdrop-blur-xl">
+                    <table className="w-full text-left border-collapse">
+                        <thead className="bg-white/5 border-b border-white/10 uppercase text-[10px] font-black tracking-[0.2em] text-indigo-400">
+                            <tr>
+                                <th className="px-8 py-6">Audit Category</th>
+                                <th className="px-8 py-6">Clinical Benchmark</th>
+                                <th className="px-8 py-6">Protocol Logic</th>
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
+                            {[
+                                { c: "Gestation Standard", b: "280 Days / 40 Weeks", l: "Naegele's Rule Baseline" },
+                                { c: "Precision Tolerance", b: "± 7 - 10 Days", l: "Median Delivery Variance" },
+                                { c: "Safety Threshold", b: "37 Weeks (Term)", l: "Respiratory Maturation Gate" },
+                                { c: "Audit Tier", b: "S-Class Precision", l: "2026 Clinical Sync" }
+                            ].map((row, i) => (
+                                <tr key={i} className="hover:bg-indigo-500/5 transition-colors group">
+                                    <td className="px-8 py-6 text-white group-hover:text-indigo-400">{row.c}</td>
+                                    <td className="px-8 py-6 text-xs text-slate-500">{row.b}</td>
+                                    <td className="px-8 py-6 text-[10px] text-indigo-400 font-mono uppercase tracking-widest">{row.l}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
             </section>
 

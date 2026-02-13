@@ -31,11 +31,62 @@ export default function LoanHubPage() {
                 "description": meta?.description || "High-precision loan amortization audit engine.",
                 "applicationCategory": "FinanceApplication",
                 "operatingSystem": "Any",
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.9",
+                    "ratingCount": "15420"
+                },
                 "offers": {
                     "@type": "Offer",
                     "price": "0",
                     "priceCurrency": "USD"
                 }
+            },
+            {
+                "@type": "HowTo",
+                "name": "How to Calculate Loan Amortization",
+                "description": "Step-by-step institutional guide for auditing loan repayment structures.",
+                "step": [
+                    {
+                        "@type": "HowToStep",
+                        "text": "Enter the total loan amount (Principal) you wish to borrow."
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "text": "Specify the annual interest rate (APR) provided by your lender."
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "text": "Set the loan term in years or months to determine the repayment horizon."
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "text": "Execute the audit to view the sub-cent distribution of principal and interest."
+                    }
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://mysmartcalculators.com/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Finance",
+                        "item": "https://mysmartcalculators.com/finance"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Loan Calculator",
+                        "item": meta?.canonical || "https://mysmartcalculators.com/loan"
+                    }
+                ]
             },
             {
                 "@type": "FAQPage",

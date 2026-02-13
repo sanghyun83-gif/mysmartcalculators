@@ -15,7 +15,8 @@ const CALCULATORS_WITH_SUBPAGES = [
     'auto-insurance', 'life-insurance', 'pet-insurance', 'bmi', 'calorie',
     'scientific', 'percentage', 'age', 'gpa', 'loan', 'tip', 'compound-interest',
     'child-support', 'alimony', 'divorce', 'retirement', 'roth-ira', 'fafsa',
-    'body-fat', 'salary', 'due-date', 'grade'
+    'body-fat', 'salary', 'due-date', 'grade', 'binary', 'date', 'conversion',
+    'square-footage', 'ovulation'
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -44,13 +45,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const calculators = Object.keys(CATEGORY_MAP);
 
     // High-ROI Segments
-    // High-ROI Segments
-    const tier1 = ['truck-accident']; // Priority 1.0 (Flagship)
+    const tier1 = [
+        'truck-accident', 'bmi', 'scientific', 'mortgage', 'percentage',
+        'gpa', 'age', 'loan', 'pregnancy', 'calorie', 'grade', 'tip',
+        'compound-interest', 'due-date', 'salary', 'body-fat', 'binary',
+        'date', 'conversion', 'square-footage', 'ovulation'
+    ]; // Priority 1.0 (Flagship Domain)
     const tier2 = [
-        'ozempic', 'camp-lejeune', 'roundup',
-        'bmi', 'calorie', 'scientific', 'percentage', 'age', 'gpa',
-        'mortgage', 'loan', 'tip', 'compound-interest', 'grade',
-        'body-fat', 'salary', 'due-date'
+        'ozempic', 'camp-lejeune', 'roundup'
     ]; // Priority 0.9 (Big Volume + Medical)
     const tier3: string[] = []; // Reserved for deprecated/low-value
 
@@ -58,7 +60,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         let priority = 0.7; // Standard
         let changeFreq: "monthly" | "weekly" | "daily" = 'monthly';
 
-        if (tier1.includes(calc)) priority = 1.0;
+        if (tier1.includes(calc)) {
+            priority = 1.0;
+            changeFreq = 'daily';
+        }
         else if (tier2.includes(calc)) priority = 0.9;
         else if (tier3.includes(calc)) priority = 0.5;
 

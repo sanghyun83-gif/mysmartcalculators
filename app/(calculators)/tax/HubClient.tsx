@@ -55,30 +55,34 @@ export default function HubClient() {
         </div>
       </section>
 
-      {/* Key Stats */}
-      <section className="bg-white border-b border-slate-200">
-        <div className="max-w-6xl mx-auto px-4 py-10">
-          <div className="grid md:grid-cols-4 gap-4">
-            <div className="text-center p-4 bg-emerald-50 rounded-xl border border-emerald-100">
-              <p className="text-sm text-slate-600 mb-1">Standard Deduction</p>
-              <p className="text-2xl font-bold text-emerald-700">{formatCurrency(standardDeduction.single)}</p>
-              <p className="text-xs text-emerald-600">Single</p>
-            </div>
-            <div className="text-center p-4 bg-emerald-50 rounded-xl border border-emerald-100">
-              <p className="text-sm text-slate-600 mb-1">Standard Deduction</p>
-              <p className="text-2xl font-bold text-emerald-700">{formatCurrency(standardDeduction.marriedFilingJointly)}</p>
-              <p className="text-xs text-emerald-600">Married Filing Jointly</p>
-            </div>
-            <div className="text-center p-4 bg-blue-50 rounded-xl border border-blue-100">
-              <p className="text-sm text-slate-600 mb-1">Top Tax Rate</p>
-              <p className="text-2xl font-bold text-blue-700">37%</p>
-              <p className="text-xs text-blue-600">Over $626,350 (Single)</p>
-            </div>
-            <div className="text-center p-4 bg-amber-50 rounded-xl border border-amber-100">
-              <p className="text-sm text-slate-600 mb-1">Child Tax Credit</p>
-              <p className="text-2xl font-bold text-amber-700">{formatCurrency(TAX_CONSTANTS.credits.childTaxCredit)}</p>
-              <p className="text-xs text-amber-600">Per qualifying child</p>
-            </div>
+      <section id="tax-benchmarks" className="bg-white border-b border-slate-200">
+        <div className="max-w-6xl mx-auto px-4 py-12">
+          <div className="overflow-x-auto rounded-3xl border border-slate-200 bg-slate-50/50 shadow-sm">
+            <table className="w-full text-left border-collapse">
+              <thead className="bg-slate-100 border-b border-slate-200 uppercase text-[10px] font-black tracking-[0.2em] text-emerald-700">
+                <tr>
+                  <th className="px-8 py-6">Audit Benchmark</th>
+                  <th className="px-8 py-6">2026 IRS Threshold</th>
+                  <th className="px-8 py-6">Statutory Logic</th>
+                  <th className="px-8 py-6">Authority Status</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 text-sm font-bold italic text-slate-500">
+                {[
+                  { b: "Standard Deduction (Single)", v: formatCurrency(standardDeduction.single), l: "Statutory Floor Allocation", s: "Fixed" },
+                  { b: "Standard Deduction (Joint)", v: formatCurrency(standardDeduction.marriedFilingJointly), l: "Spousal Revenue Aggregation", s: "Fixed" },
+                  { b: "Top Marginal Rate", v: "37%", l: "Upper-Tranche Accretion Tax", s: "Progressive" },
+                  { b: "Child Tax Credit", v: formatCurrency(TAX_CONSTANTS.credits.childTaxCredit), l: "Per-Dependent Liability Offset", s: "Verified" }
+                ].map((row, i) => (
+                  <tr key={i} className="hover:bg-emerald-50 transition-colors group">
+                    <td className="px-8 py-6 text-slate-900 group-hover:text-emerald-700">{row.b}</td>
+                    <td className="px-8 py-6 text-xs text-slate-600">{row.v}</td>
+                    <td className="px-8 py-6 text-xs text-slate-400">{row.l}</td>
+                    <td className="px-8 py-6 text-[10px] text-emerald-600 font-mono uppercase tracking-widest">{row.s}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
@@ -191,7 +195,7 @@ export default function HubClient() {
       </section>
 
       {/* Footer */}
-      
+
       {/* Related Calculators */}
       <section className="max-w-6xl mx-auto px-4 py-8">
         <div className="flex justify-center">

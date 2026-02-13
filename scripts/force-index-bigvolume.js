@@ -11,10 +11,12 @@ const path = require('path');
 const KEY_FILE = path.join(__dirname, '../../service-account-2.json');
 const BASE_URL = 'https://mysmartcalculators.com';
 
-// ===== 11 BIG VOLUME S-CLASS CALCULATORS =====
+// ===== 20 AUTHORITY S-CLASS CALCULATORS (PHASE 2) =====
 const bigVolumeCalcs = [
     'bmi', 'scientific', 'mortgage', 'percentage', 'gpa',
-    'age', 'loan', 'pregnancy', 'calorie', 'grade', 'tip'
+    'age', 'loan', 'pregnancy', 'calorie', 'grade',
+    'tip', 'compound-interest', 'due-date', 'salary', 'body-fat',
+    'binary', 'date', 'conversion', 'square-footage', 'ovulation'
 ];
 
 const subpages = ['calculator']; // Core subpage for all

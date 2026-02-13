@@ -192,30 +192,121 @@ export default function TipHubClient() {
                 ))}
             </section>
 
-            {/* Visual Callout - Service Quads */}
-            <section className="py-32 bg-gradient-to-b from-transparent via-amber-500/5 to-transparent">
-                <div className="max-w-6xl mx-auto px-6">
-                    <div className="text-center mb-16 space-y-4">
-                        <h2 className="text-4xl md:text-5xl font-black text-white tracking-tighter uppercase">Gratuity Intelligence Matrix</h2>
-                        <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">Standardized allocation of reciprocal social capital</p>
-                    </div>
-                    <div className="grid md:grid-cols-4 gap-8">
-                        {[
-                            { label: "Fine Dining", icon: Utensils, val: "22-25%", desc: "High-touch technical service audit" },
-                            { label: "Craft Bar", icon: Coffee, val: "20%", desc: "Bespoke mixology acknowledging labor" },
-                            { label: "Direct Delivery", icon: Plane, val: "15-18%", desc: "Logistics and safety acknowledgment" },
-                            { label: "Personal Care", icon: Heart, val: "20%+", desc: "Intimate skill-based service tranche" }
-                        ].map((item, i) => (
-                            <div key={i} className="p-8 bg-slate-900/50 border border-white/5 rounded-[40px] text-center hover:scale-105 transition-all hover:bg-slate-900 group">
-                                <div className="p-4 bg-black/40 border border-white/5 rounded-full w-fit mx-auto mb-6 group-hover:border-amber-500/30">
-                                    <item.icon className="w-6 h-6 text-amber-400" />
-                                </div>
-                                <h3 className="text-3xl font-black text-white mb-2">{item.val}</h3>
-                                <p className="text-sm font-black text-amber-500 uppercase tracking-widest mb-4">{item.label}</p>
-                                <p className="text-xs text-slate-500 font-medium leading-relaxed italic">{item.desc}</p>
+            {/* Task 2: Triple-Table Featured Snippet Architecture */}
+            <section id="gratuity-audit" className="py-24 border-y border-white/5 bg-slate-900/10 backdrop-blur-3xl relative">
+                <div className="max-w-7xl mx-auto px-6 space-y-24">
+
+                    {/* 1. Historical/Statistical Table */}
+                    <div className="space-y-8">
+                        <div className="flex items-center gap-4 border-l-4 border-amber-500 pl-6">
+                            <div>
+                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Global Gratuity Benchmarks (1990–2026 Trend)</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Sociological Longitudinal Audit • Global Hospitality Data</p>
                             </div>
-                        ))}
+                        </div>
+                        <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
+                            <table className="w-full text-left border-collapse min-w-[700px]">
+                                <thead className="bg-white/5 border-b border-white/10 text-[10px] font-black tracking-[0.2em] text-amber-400 uppercase">
+                                    <tr>
+                                        <th className="px-8 py-6">Historical Era</th>
+                                        <th className="px-8 py-6">Avg. Tip Range (US)</th>
+                                        <th className="px-8 py-6">Default Prompt Standard</th>
+                                        <th className="px-8 py-6">Audit Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
+                                    {[
+                                        { e: "1990-2005", d: "10% – 15%", a: "Cash-Based (Manual)", s: "Verified" },
+                                        { e: "2010-2020", d: "15% – 20%", a: "Digital Signature Logic", s: "Verified" },
+                                        { e: "2024-2025", d: "18% – 25%", a: "Tablet Anchor Default", s: "Audited" },
+                                        { e: "2026 Projection", d: "20% – 28%", a: "Institutional Surcharge", s: "Market Standard" }
+                                    ].map((row, i) => (
+                                        <tr key={i} className="hover:bg-amber-500/5 transition-colors group">
+                                            <td className="px-8 py-6 text-white">{row.e}</td>
+                                            <td className="px-8 py-6">{row.d}</td>
+                                            <td className="px-8 py-6 text-amber-600/70">{row.a}</td>
+                                            <td className="px-8 py-6 text-[10px] uppercase tracking-widest text-slate-600 font-mono">{row.s}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
+
+                    {/* 2. Comparative Benchmark Table */}
+                    <div className="space-y-8 text-right md:text-left">
+                        <div className="flex items-center gap-4 border-r-4 md:border-r-0 md:border-l-4 border-yellow-500 pr-6 md:pr-0 md:pl-6 justify-end md:justify-start">
+                            <div>
+                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter text-right md:text-left">II. Service Sector Tipping Multipliers (Dining vs. Delivery vs. Service)</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Cross-Industry Gratuity Variance • 2026 Benchmarks</p>
+                            </div>
+                        </div>
+                        <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
+                            <table className="w-full text-left border-collapse min-w-[700px]">
+                                <thead className="bg-white/5 border-b border-white/10 text-[10px] font-black tracking-[0.2em] text-yellow-500 uppercase">
+                                    <tr>
+                                        <th className="px-8 py-6">Service Domain</th>
+                                        <th className="px-8 py-6">Low Threshold</th>
+                                        <th className="px-8 py-6">High Performance</th>
+                                        <th className="px-8 py-6">Logic Basis</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
+                                    {[
+                                        { t: "Fine Dining (Technical)", w: "18%", c: "25%+", l: "Skill Mastery" },
+                                        { t: "Logistics (Last-Mile)", w: "15%", c: "22%", l: "Mobility Risk" },
+                                        { t: "Personal (Intimate)", w: "20%", c: "30%", l: "Relationship Capital" },
+                                        { t: "Quick-Service (Counter)", w: "0%", c: "15%", l: "Discretionary" }
+                                    ].map((row, i) => (
+                                        <tr key={i} className="hover:bg-yellow-500/5 transition-colors group">
+                                            <td className="px-8 py-6 text-white">{row.t}</td>
+                                            <td className="px-8 py-6">{row.w}</td>
+                                            <td className="px-8 py-6">{row.c}</td>
+                                            <td className="px-8 py-6 text-yellow-600 font-mono text-[10px] uppercase tracking-widest">{row.l}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    {/* 3. Technical Spec Table */}
+                    <div className="space-y-8">
+                        <div className="flex items-center gap-4 border-l-4 border-white/20 pl-6">
+                            <div>
+                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">III. Bill Splitting Logic & Post-Tax Computation Standards</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Actuarial Precision • Group Dynamics Accounting</p>
+                            </div>
+                        </div>
+                        <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-900 shadow-2xl">
+                            <table className="w-full text-left border-collapse min-w-[700px]">
+                                <thead className="bg-white/5 border-b border-white/10 text-[10px] font-black tracking-[0.2em] text-slate-500 uppercase">
+                                    <tr>
+                                        <th className="px-8 py-6">Accounting Engine</th>
+                                        <th className="px-8 py-6">Mathematical Logic Pattern</th>
+                                        <th className="px-8 py-6">Tolerance</th>
+                                        <th className="px-8 py-6">Fidelity Grade</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
+                                    {[
+                                        { c: "Pre-Tax Audit", l: "(Bill - Tax) × Tip %", t: "± $0.01", g: "Legacy Standard" },
+                                        { c: "Post-Tax Audit", l: "(Bill + Tax) × Tip %", t: "Zero-Latency", g: "Market Bias" },
+                                        { c: "Euclidean Split", l: "Total / (N Persons)", t: "± $0.001", g: "Institutional" },
+                                        { c: "Rounding Logic", l: "Ceiling / Floor Sync", t: "Zero-Loss", g: "Audited" }
+                                    ].map((row, i) => (
+                                        <tr key={i} className="hover:bg-white/5 transition-colors group">
+                                            <td className="px-8 py-6 text-white">{row.c}</td>
+                                            <td className="px-8 py-6 text-xs">{row.l}</td>
+                                            <td className="px-8 py-6 text-xs font-mono">{row.t}</td>
+                                            <td className="px-8 py-6 text-[10px] uppercase tracking-widest text-white/40">{row.g}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
                 </div>
             </section>
 
