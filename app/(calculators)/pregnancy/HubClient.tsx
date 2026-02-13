@@ -198,7 +198,14 @@ export default function PregnancyHubClient() {
                                         { e: "1950-1980", d: "280.8 Days", v: "± 11.5 Days", s: "Verified" },
                                         { e: "2000-2024", d: "279.2 Days", v: "± 9.8 Days", s: "Audited" },
                                         { e: "2026 Projection", d: "278.5 Days", v: "± 8.5 Days", s: "NIST Standard" }
-                                    ].map((row, i) => (Row(row, i)))}
+                                    ].map((row, i) => (
+                                        <tr key={i} className="hover:bg-rose-500/5 transition-colors group">
+                                            <td className="px-8 py-6 text-white">{row.e}</td>
+                                            <td className="px-8 py-6">{row.d}</td>
+                                            <td className="px-8 py-6 text-rose-600/70">{row.v}</td>
+                                            <td className="px-8 py-6 text-[10px] uppercase tracking-widest text-slate-600 font-mono">{row.s}</td>
+                                        </tr>
+                                    ))}
                                 </tbody>
                             </table>
                         </div>
