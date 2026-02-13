@@ -6,7 +6,7 @@ import {
     Baby, Calendar, Heart, Shield, Globe, Info,
     Zap, Brain, ChevronRight, ArrowRight, Star,
     Activity, Clock, Sparkles, Scale, Landmark,
-    CheckCircle2, Printer, Share2, Calculator
+    CheckCircle2, Printer, Share2, Calculator, History
 } from "lucide-react";
 import { SITE, DUE_DATE_2026, formatDisplayDate } from "@/lib/calculators/due-date";
 
