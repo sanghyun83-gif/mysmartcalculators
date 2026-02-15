@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
         rules: {
             userAgent: '*',
             allow: '/',
-            disallow: '/private/',
+            disallow: ['/_next/', '/api/', '/*?_next_data='],
         },
         sitemap: 'https://mysmartcalculators.com/sitemap.xml',
     }

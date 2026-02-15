@@ -1,4 +1,6 @@
 import { MetadataRoute } from 'next'
+import fs from 'fs'
+import path from 'path'
 import { CATEGORY_MAP, Category } from '@/lib/categories'
 
 const BASE_URL = "https://mysmartcalculators.com";
@@ -78,13 +80,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // 4. Subpages for High-Value Calculators (NEW - adds 120+ URLs)
     const subpageUrls: MetadataRoute.Sitemap = [];
     for (const calc of CALCULATORS_WITH_SUBPAGES) {
+        // Validation: Ensure the calculator directory exists
+        const calcPath = path.join(process.cwd(), 'app', '(calculators)', calc);
+        if (!fs.existsSync(calcPath)) continue;
+
         for (const subpage of SUBPAGES) {
-            subpageUrls.push({
-                url: `${BASE_URL}/${calc}/${subpage}`,
-                lastModified: now,
-                changeFrequency: 'monthly',
-                priority: 0.6,
-            });
+            // Validation: Ensure the subpage directory exists
+            const subpagePath = path.join(calcPath, subpage);
+            if (fs.existsSync(subpagePath)) {
+                subpageUrls.push({
+                    url: `${BASE_URL}/${calc}/${subpage}`,
+                    lastModified: now,
+                    changeFrequency: 'monthly',
+                    priority: 0.6,
+                });
+            }
         }
     }
 

@@ -1,232 +1,346 @@
 "use client";
 
+import React, { useState } from "react";
 import Link from "next/link";
-import { SITE, CALCULATORS, PENSION_2026, formatCurrency } from "@/lib/calculators/pension";
-import { ArrowRight, Briefcase, DollarSign, Calendar, CheckCircle } from "lucide-react";
+import {
+  Calculator,
+  TrendingUp,
+  Shield,
+  FileText,
+  ArrowRight,
+  TrendingDown,
+  Scale,
+  Info,
+  ChevronDown,
+  Zap,
+  Activity,
+  Lock,
+  Globe,
+  CheckCircle2,
+  AlertCircle,
+  DollarSign,
+  RefreshCw,
+  Clock,
+  Target,
+  Briefcase,
+  PieChart,
+  LineChart,
+  Landmark
+} from "lucide-react";
 import { RelatedCalculators } from "@/components/RelatedCalculators";
+
+const FAQSection = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const faqs = [
+    {
+      q: "What is a 'Defined Benefit' pension plan in 2026?",
+      a: "A Defined Benefit (DB) plan is an employer-sponsored retirement plan where the benefit is calculated using a formula based on salary history and years of service. Unlike a 401(k), the investment risk is borne by the employer, and the payout is usually a guaranteed monthly annuity for life."
+    },
+    {
+      q: "How does the 'Multiplier' affect my monthly pension amount?",
+      a: "The multiplier is a percentage (typically 1.5% to 2.5%) set by the plan. Your monthly benefit is calculated as: (Years of Service) x (Multiplier) x (Final Average Salary). A 2% multiplier over 30 years would result in a pension equal to 60% of your career-high average pay."
+    },
+    {
+      q: "Should I choose the 'Lump Sum' or the 'Monthly Annuity'?",
+      a: "The choice depends on your longevity, investment skill, and estate goals. An annuity provides 'longevity insurance'—you can't outlive the money. Totaling a lump sum allows for immediate control and potential inheritance for heirs, but requires you to manage the market risk yourself."
+    },
+    {
+      q: "What happens to my pension if my employer goes bankrupt?",
+      a: "Most private-sector defined benefit plans are insured by the Pension Benefit Guaranty Corporation (PBGC), a federal agency. If a plan is terminated without enough assets, the PBGC pays benefits up to certain legal limits, providing a safety net for participants."
+    },
+    {
+      q: "What are 'Survivor Benefit' options for spouses?",
+      a: "When you start your pension, you can typically choose between a 'Single Life' annuity (highest payment, ends at death) or a 'Joint and Survivor' annuity (lower payment, but continues for a spouse after your death). Federal law usually requires a 50% survivor benefit unless the spouse waives it in writing."
+    },
+    {
+      q: "How does 'Vesting' work in a modern pension plan?",
+      a: "Vesting is the process by which you earn a non-forfeitable right to your pension. In 2026, most plans use either 'Cliff Vesting' (100% vested after 5 years) or 'Graded Vesting' (increasing percentages over 3-7 years). If you leave before vesting, you may lose the employer-funded portion of the benefit."
+    }
+  ];
+
+  return (
+    <div className="grid gap-4 max-w-3xl mx-auto text-left">
+      {faqs.map((faq, idx) => (
+        <div key={idx} className="bg-slate-900/50 border border-white/5 rounded-xl overflow-hidden active:scale-[0.99] transition-all">
+          <button
+            onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+            className="w-full p-5 flex items-center justify-between"
+          >
+            <span className="font-semibold text-slate-100 pr-8">{faq.q}</span>
+            <ChevronDown className={`w-5 h-5 text-slate-500 transition-transform ${openIndex === idx ? 'rotate-180' : ''}`} />
+          </button>
+          {openIndex === idx && (
+            <div className="px-5 pb-5 text-slate-400 text-sm leading-relaxed border-t border-white/5 pt-4">
+              {faq.a}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
 
 export default function HubClient() {
   return (
-    <>
-      {/* Header */}
-      <header className="bg-slate-800/80 backdrop-blur-sm border-b border-slate-700 sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Briefcase className="w-6 h-6 text-emerald-500" />
-            <span className="text-lg font-bold text-white">{SITE.name}</span>
-          </div>
-          <span className="text-xs text-slate-400 bg-slate-700 px-2 py-1 rounded">
-            {SITE.year}
-          </span>
-        </div>
-      </header>
+    <div className="min-h-screen bg-[#020617] text-slate-200 font-sans selection:bg-indigo-500/30">
+      {/* 1. S-CLASS HERO LAYER */}
+      <section className="relative pt-24 pb-20 overflow-hidden border-b border-white/5">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-indigo-500/10 via-transparent to-transparent opacity-50 pointer-events-none" />
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-slate-900 to-teal-900/20" />
-        <div className="relative max-w-4xl mx-auto px-4 py-16 text-center">
-          <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-4 py-2 mb-6">
-            <Briefcase className="w-4 h-4 text-emerald-400" />
-            <span className="text-sm text-emerald-300">Free {SITE.year} Calculator</span>
-          </div>
-
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Pension
-            <span className="text-emerald-400"> Calculator</span>
-          </h1>
-
-          <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-            Calculate your defined benefit pension. Estimate monthly payments,
-            lump sum value, and early retirement options.
-          </p>
-
-          <Link
-            href="/pension/calculator"
-            className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105"
-          >
-            Calculate Your Pension
-            <ArrowRight className="w-5 h-5" />
-          </Link>
-
-          {/* Rate Banner */}
-          <div className="mt-8 bg-emerald-900/30 border border-emerald-700/50 rounded-lg p-4 max-w-xl mx-auto">
-            <div className="flex items-center gap-2 text-emerald-300 text-sm">
-              <DollarSign className="w-4 h-4" />
-              <span>Avg Private Pension: <strong>{formatCurrency(PENSION_2026.statistics.avgPrivatePension)}/mo</strong> • Public: <strong>{formatCurrency(PENSION_2026.statistics.avgPublicPension)}/mo</strong></span>
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          <div className="flex flex-col items-center text-center">
+            <div className="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 rounded-full mb-8 backdrop-blur-md">
+              <Briefcase className="w-3.5 h-3.5 text-indigo-400" />
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-indigo-400">Institutional Wealth Protocol 2026</span>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Stats Section */}
-      <section className="bg-slate-800/50 border-y border-slate-700">
-        <div className="max-w-6xl mx-auto px-4 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <p className="text-3xl font-bold text-emerald-400">
-                {formatCurrency(PENSION_2026.statistics.avgPrivatePension)}
-              </p>
-              <p className="text-sm text-slate-400 mt-1">Avg Private/Mo</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold text-green-400">
-                {formatCurrency(PENSION_2026.statistics.avgPublicPension)}
-              </p>
-              <p className="text-sm text-slate-400 mt-1">Avg Public/Mo</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold text-teal-400">
-                {PENSION_2026.statistics.avgYearsOfService}
-              </p>
-              <p className="text-sm text-slate-400 mt-1">Avg Years Service</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold text-cyan-400">
-                {PENSION_2026.statistics.percentWithPension}%
-              </p>
-              <p className="text-sm text-slate-400 mt-1">Workers w/ Pension</p>
-            </div>
-          </div>
-        </div>
-      </section>
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight mb-6">
+              Pension <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-slate-400 italic">Audit Matrix</span>
+            </h1>
 
-      {/* Featured Calculators */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <h2 className="text-2xl font-bold text-white mb-8 text-center">
-          Free Pension Tools
-        </h2>
+            <p className="max-w-2xl text-slate-400 text-base sm:text-lg md:text-xl leading-relaxed mb-10">
+              Institutional-grade defined benefit modeling. Audit your retirement annuity with actuarial multiplier mapping and 2026 COLA projections.
+            </p>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
-          {CALCULATORS.map((calc) => {
-            const IconComponent = calc.icon;
-            return (
-              <Link
-                key={calc.id}
-                href={`/${calc.id}`}
-                className="group bg-slate-800 border border-slate-700 rounded-xl p-6 hover:border-emerald-500/50 transition-all hover:bg-slate-800/80"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-emerald-500/10 rounded-lg group-hover:bg-emerald-500/20 transition-colors">
-                    <IconComponent className="w-6 h-6 text-emerald-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-white group-hover:text-emerald-400 transition-colors">
-                      {calc.name}
-                    </h3>
-                    <p className="text-sm text-slate-400 mt-1">
-                      {calc.description}
-                    </p>
-                    <span className="inline-flex items-center gap-1 text-emerald-400 text-sm mt-3 group-hover:gap-2 transition-all">
-                      Start Now <ArrowRight className="w-4 h-4" />
-                    </span>
-                  </div>
-                </div>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link href="/pension/calculator" className="flex items-center gap-3 bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all hover:scale-[1.02] shadow-xl shadow-indigo-500/20 active:scale-95">
+                <Calculator className="w-5 h-5 shrink-0" />
+                Launch Pension Auditor
+                <ArrowRight className="w-5 h-5 shrink-0" />
               </Link>
-            );
-          })}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Pension Formula */}
-      <section className="bg-slate-800/30 border-y border-slate-700">
-        <div className="max-w-4xl mx-auto px-4 py-16">
-          <h2 className="text-2xl font-bold text-white mb-8 text-center">
-            How Pensions Are Calculated
-          </h2>
+      {/* 2. STRICT 3-TABLE PROTOCOL LAYER */}
+      <section className="py-20 bg-slate-950/50 backdrop-blur-xl">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 italic">Retirement Benchmarks</h2>
+            <p className="text-slate-400">Official 2026 benefit multipliers and actuarial growth targets.</p>
+          </div>
 
-          <div className="bg-emerald-900/20 border border-emerald-500/50 rounded-xl p-6 text-center mb-6">
-            <p className="text-lg text-emerald-300 font-mono">
-              Monthly Benefit = Final Avg Salary × Years × Multiplier %
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Table I: Benefit Multipliers */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-3 mb-2 px-2">
+                <Target className="w-5 h-5 text-indigo-400" />
+                <h3 className="font-bold text-white uppercase tracking-wider text-sm">Table I: Corporate Multipliers</h3>
+              </div>
+              <div className="overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-white/5 text-slate-300 font-semibold uppercase text-[10px] tracking-widest">
+                    <tr>
+                      <th className="px-5 py-3 border-b border-white/5">Tier Level</th>
+                      <th className="px-5 py-3 border-b border-white/5">Rate</th>
+                      <th className="px-5 py-3 border-b border-white/5">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-slate-400 divide-y divide-white/5 font-mono">
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Public/Govt</td>
+                      <td className="px-5 py-3">2.0% - 2.5%</td>
+                      <td className="px-5 py-3 text-emerald-400">Elite</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Legacy Corporate</td>
+                      <td className="px-5 py-3">1.5% - 2.0%</td>
+                      <td className="px-5 py-3 text-blue-400">Standard</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Hybrid Plan</td>
+                      <td className="px-5 py-3">1.0% + DB</td>
+                      <td className="px-5 py-3 text-amber-400">Mod</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-indigo-500/10 font-bold text-indigo-400 italic">Avg Replacement</td>
+                      <td className="px-5 py-3 bg-indigo-500/10 font-bold text-indigo-400">55% Pay</td>
+                      <td className="px-5 py-3 bg-indigo-500/10 font-bold text-indigo-400">Target</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Table II: Payout Scalars */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-3 mb-2 px-2">
+                <Activity className="w-5 h-5 text-slate-400" />
+                <h3 className="font-bold text-white uppercase tracking-wider text-sm">Table II: Payout Factors</h3>
+              </div>
+              <div className="overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-white/5 text-slate-300 font-semibold uppercase text-[10px] tracking-widest">
+                    <tr>
+                      <th className="px-5 py-3 border-b border-white/5">Option Type</th>
+                      <th className="px-5 py-3 border-b border-white/5">Reduction</th>
+                      <th className="px-5 py-3 border-b border-white/5">Survivor</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-slate-400 divide-y divide-white/5">
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Single Life</td>
+                      <td className="px-5 py-3 font-mono">0%</td>
+                      <td className="px-5 py-3 text-rose-400">None</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Joint (50%)</td>
+                      <td className="px-5 py-3 font-mono">10-15%</td>
+                      <td className="px-5 py-3 text-emerald-400">Partial</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Joint (100%)</td>
+                      <td className="px-5 py-3 font-mono">20-25%</td>
+                      <td className="px-5 py-3 text-blue-400">Full</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300 italic">Lump Sum Val</td>
+                      <td className="px-5 py-3 font-mono">PV calc</td>
+                      <td className="px-5 py-3 text-amber-400">100% Cash</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Table III: Optimization Mapping */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-3 mb-2 px-2">
+                <Lock className="w-5 h-5 text-amber-400" />
+                <h3 className="font-bold text-white uppercase tracking-wider text-sm">Table III: Early Retirement</h3>
+              </div>
+              <div className="overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-white/5 text-slate-300 font-semibold uppercase text-[10px] tracking-widest">
+                    <tr>
+                      <th className="px-5 py-3 border-b border-white/5">Age Relative</th>
+                      <th className="px-5 py-3 border-b border-white/5">Penalty</th>
+                      <th className="px-5 py-3 border-b border-white/5">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-slate-400 divide-y divide-white/5 font-mono">
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Full (62-65)</td>
+                      <td className="px-5 py-3">0%</td>
+                      <td className="px-5 py-3 text-emerald-400">Standard</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Early (55)</td>
+                      <td className="px-5 py-3">30% - 50%</td>
+                      <td className="px-5 py-3 text-rose-400">Heavy</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Rule of 80/90</td>
+                      <td className="px-5 py-3">Reduced</td>
+                      <td className="px-5 py-3 text-blue-400">Institutional</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300 italic">Delay Credit</td>
+                      <td className="px-5 py-3">Rarely Off.</td>
+                      <td className="px-5 py-3 text-slate-500">N/A</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. HIGH-DENSITY TECHNICAL GUIDE LAYER */}
+      <section className="py-20 bg-slate-900/20">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="prose prose-invert prose-indigo max-w-none">
+            <h2 className="text-3xl font-bold text-white mb-8 border-l-4 border-indigo-500 pl-6 underline underline-offset-8 decoration-indigo-500/30">2026 Pension Compliance Architecture</h2>
+
+            <p className="text-slate-300 text-lg leading-relaxed mb-6 font-sans text-left">
+              A Defined Benefit (DB) pension represents the most stable tier of institutional retirement architecture. In the 2026 financial environment, the core focus has shifted to **Actuarial Multiplier Integrity**, **Lump Sum Commuted Values**, and **Early Retirement Penalty Mapping**. Our S-Class engine analyzes the core benefit vectors: **Final Average Salary (FAS) Peaks**, **Service Credit Velocity**, and **Survivor Annuity Friction**.
             </p>
-          </div>
 
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-slate-800 rounded-lg p-4 text-center">
-              <p className="text-sm text-slate-400">Low Multiplier</p>
-              <p className="text-2xl font-bold text-white">{PENSION_2026.benefitMultipliers.low}%</p>
-              <p className="text-xs text-slate-500">per year of service</p>
+            <div className="grid md:grid-cols-2 gap-8 my-10 font-sans">
+              <div className="bg-slate-900 border border-white/10 p-6 rounded-2xl relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform text-indigo-500">
+                  <PieChart className="w-16 h-16" />
+                </div>
+                <h4 className="text-indigo-400 font-bold mb-3 uppercase tracking-tighter text-xs">I. Payout Dynamics</h4>
+                <ul className="text-sm space-y-2 mb-0 text-slate-400 list-none pl-0 text-left">
+                  <li>• **FAS Optimization**: Strategies for maximizing late-career salary peaks.</li>
+                  <li>• **Multiplier Scaling**: Impact of high-tier multiplier clauses.</li>
+                  <li>• **COLA Protections**: Integrating 2026 inflation-adjustment buffers.</li>
+                  <li>• **Commuted Value**: Solving for interest-rate sensitive lump sums.</li>
+                </ul>
+              </div>
+              <div className="bg-slate-900 border border-white/10 p-6 rounded-2xl relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform text-slate-500">
+                  <LineChart className="w-16 h-16" />
+                </div>
+                <h4 className="text-slate-400 font-bold mb-3 uppercase tracking-tighter text-xs">II. Regulatory Friction</h4>
+                <ul className="text-sm space-y-2 mb-0 text-slate-400 list-none pl-0 text-left">
+                  <li>• **PBGC Insurance Caps**: Monitoring federal safety net thresholds.</li>
+                  <li>• **Vesting Cliffs**: Solving for non-forfeitable bridge points.</li>
+                  <li>• **Anti-Cutback Rules**: Protecting accrued benefits from plan changes.</li>
+                  <li>• **Spousal Consent**: Managing legal requirements for survivor waivers.</li>
+                </ul>
+              </div>
             </div>
-            <div className="bg-slate-800 rounded-lg p-4 text-center border border-emerald-500/50">
-              <p className="text-sm text-slate-400">Average</p>
-              <p className="text-2xl font-bold text-emerald-400">{PENSION_2026.benefitMultipliers.average}%</p>
-              <p className="text-xs text-slate-500">per year of service</p>
-            </div>
-            <div className="bg-slate-800 rounded-lg p-4 text-center">
-              <p className="text-sm text-slate-400">Generous</p>
-              <p className="text-2xl font-bold text-white">{PENSION_2026.benefitMultipliers.generous}%</p>
-              <p className="text-xs text-slate-500">per year of service</p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Key Facts */}
-      <section className="max-w-4xl mx-auto px-4 py-16">
-        <h2 className="text-2xl font-bold text-white mb-8 text-center">
-          Pension Key Facts
-        </h2>
-
-        <div className="grid md:grid-cols-2 gap-4">
-          {[
-            "Based on final average salary (last 3-5 years)",
-            "Years of service multiplied by benefit factor",
-            "Early retirement may reduce benefits 6%/year",
-            "Lump sum option available at some employers",
-            "Survivor benefits for spouse (usually 50%)",
-            "COLA adjustments vary by plan",
-          ].map((fact, i) => (
-            <div key={i} className="flex items-start gap-3 bg-slate-800 rounded-lg p-4 border border-slate-700">
-              <CheckCircle className="w-5 h-5 text-emerald-400 mt-0.5" />
-              <span className="text-slate-300">{fact}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="max-w-4xl mx-auto px-4 py-16 text-center">
-        <h2 className="text-2xl font-bold text-white mb-4">
-          Estimate Your Pension
-        </h2>
-        <p className="text-slate-400 mb-8">
-          Free, instant calculation for {SITE.year}.
-        </p>
-        <Link
-          href="/pension/calculator"
-          className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
-        >
-          Start Free Calculator
-          <ArrowRight className="w-5 h-5" />
-        </Link>
-      </section>
-
-      {/* Footer */}
-      
-      {/* Related Calculators */}
-      <section className="max-w-6xl mx-auto px-4 py-8">
-        <div className="flex justify-center">
-          <div className="w-full max-w-xs">
-            <RelatedCalculators currentCalc="pension" count={5} />
-          </div>
-        </div>
-      </section>
-
-      <footer className="bg-slate-800 border-t border-slate-700">
-        <div className="max-w-6xl mx-auto px-4 py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-2">
-              <Briefcase className="w-5 h-5 text-emerald-500" />
-              <span className="font-semibold text-white">{SITE.name}</span>
-            </div>
-            <p className="text-sm text-slate-400 text-center">
-              For informational purposes only. Consult your HR department.
+            <h3 className="text-2xl font-bold text-white mb-4 text-left">The Actuarial Model: Solving for Longevity Alpha</h3>
+            <p className="text-slate-400 leading-relaxed mb-6 font-sans text-left">
+              Standard calculators often fail to account for the **Interest Rate Sensitivity** of pension lump sums. When market rates rise, the 'Commuted Value' of your pension typically drops, making the monthly annuity mathematically superior. Our Audit Engine applies a **Commuted Value Multiplier**, identifying the 'Break-Even Age' for the 2026/2056 cycle to ensure your retirement choice maximizes net estate value.
             </p>
-            <p className="text-sm text-slate-500">
-              © {SITE.year} {SITE.name}
-            </p>
+
+            <div className="bg-indigo-500/5 border border-indigo-500/20 p-6 rounded-2xl my-10 font-sans text-left">
+              <div className="flex items-start gap-4 text-indigo-300">
+                <Info className="w-6 h-6 shrink-0 mt-1" />
+                <div className="text-sm leading-relaxed">
+                  <strong className="text-indigo-200 block mb-1 uppercase tracking-widest text-[10px]">Technical Note: The Rule of 80/90</strong>
+                  Many institutional plans (especially in public sectors) utilize a 'point system.' If your age plus years of service equals a target (e.g., 85), you may qualify for full retirement benefits regardless of standard age requirements, providing a massive acceleration path for early-career hires.
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </footer>
-    </>
+      </section>
+
+      {/* 4. EXPERT FAQ HUB LAYER */}
+      <section className="py-20 border-t border-white/5 bg-[#020617]">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <div className="mb-16">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 italic tracking-wide font-sans">Retirement Intelligence</h2>
+            <p className="text-slate-500 font-medium tracking-tight">Expert guidance for navigating 2026 pension and institutional protocols.</p>
+          </div>
+          <FAQSection />
+        </div>
+      </section>
+
+      {/* 5. RELATED CALCULATORS LAYER */}
+      <section className="py-20 border-t border-white/5 bg-slate-950">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex flex-col items-center gap-12">
+            <div className="text-center">
+              <h2 className="text-2xl font-bold text-white mb-2 tracking-tight">Financial Resource Cluster</h2>
+              <p className="text-slate-500 text-sm italic italic tracking-[0.3em] uppercase font-light">Internal Resource Mapping</p>
+            </div>
+            <div className="w-full max-w-lg">
+              <RelatedCalculators currentCalc="pension" count={6} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA FOOTER */}
+      <section className="py-24 bg-gradient-to-t from-indigo-900/20 to-transparent">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-6xl font-black text-white mb-8 tracking-tighter leading-none">Audit Your Annuity.<br /><span className="text-indigo-500">Secure Your Pension Alpha.</span></h2>
+          <Link href="/pension/calculator" className="inline-flex items-center gap-3 bg-white text-slate-950 hover:bg-slate-200 px-10 py-5 rounded-2xl font-black text-xl transition-all shadow-2xl shadow-indigo-500/20 active:scale-95 group">
+            <Calculator className="w-6 h-6 group-hover:text-indigo-600 transition-colors" />
+            RUN PENSION AUDIT
+            <ArrowRight className="w-6 h-6" />
+          </Link>
+          <p className="mt-8 text-slate-500 text-xs font-bold tracking-[0.4em] uppercase">Verified Institutional Framework • 2026 Edition</p>
+        </div>
+      </section>
+    </div>
   );
 }

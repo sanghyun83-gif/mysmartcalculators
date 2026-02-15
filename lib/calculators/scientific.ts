@@ -38,5 +38,5 @@ export const SCIENTIFIC_2026 = {
 export const SCIENTIFIC_META = {
     title: "Scientific Calculator 2026 | Professional Grade Math Logic",
     description: "High-precision scientific calculator for trigonometry, logarithms, and calculus. Fully compliant with 2026 SAT/ACT guidelines for engineering and physics students.",
-    canonical: "/scientific"
+    canonical: "https://mysmartcalculators.com/scientific"
 };

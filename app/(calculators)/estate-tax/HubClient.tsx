@@ -1,208 +1,346 @@
 "use client";
 
+import React, { useState } from "react";
 import Link from "next/link";
-import { SITE, CALCULATORS, ESTATE_TAX_2026, formatCurrency } from "@/lib/calculators/estate-tax";
-import { ArrowRight, Scale, DollarSign, Users, CheckCircle, AlertTriangle } from "lucide-react";
+import {
+  Calculator,
+  TrendingUp,
+  Shield,
+  FileText,
+  ArrowRight,
+  TrendingDown,
+  Scale,
+  Info,
+  ChevronDown,
+  Zap,
+  Activity,
+  Lock,
+  Globe,
+  CheckCircle2,
+  AlertCircle,
+  DollarSign,
+  RefreshCw,
+  Clock,
+  Target,
+  Briefcase,
+  PieChart,
+  LineChart,
+  Users
+} from "lucide-react";
 import { RelatedCalculators } from "@/components/RelatedCalculators";
+
+const FAQSection = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const faqs = [
+    {
+      q: "What is the federal estate tax exemption for 2026?",
+      a: "For 2026, the federal estate tax exemption is projected to be approximately $13.99 million per individual. However, unless Congress acts, the current high exemption levels from the TCJA are set to 'sunset' after 2025, potentially dropping back to around $7 million (adjusted for inflation)."
+    },
+    {
+      q: "How does the 'Portability' provision work for married couples?",
+      a: "Portability allows a surviving spouse to use any unused portion of their deceased spouse's federal estate tax exemption. To lock in this 'Deceased Spouse Unused Exclusion' (DSUE), an estate tax return (Form 706) must be filed even if no tax is due."
+    },
+    {
+      q: "What is the maximum federal estate tax rate in 2026?",
+      a: "The top federal estate tax rate remains at 40% for estates valued above the exemption threshold. This is a progressive tax, but for most high-net-worth estates, the effective rate on the taxable portion settles near the 40% mark."
+    },
+    {
+      q: "Is there a difference between 'Estate Tax' and 'Inheritance Tax'?",
+      a: "Yes. Estate tax is levied on the total value of the deceased's assets before distribution. Inheritance tax is paid by the beneficiary receiving the assets. While the federal government only has an estate tax, some states (like New Jersey or Maryland) have inheritance taxes."
+    },
+    {
+      q: "What are 'Stepped-Up Basis' rules and why are they important?",
+      a: "When an asset is inherited, its cost basis is 'stepped up' to its fair market value at the date of death. This significantly reduces or eliminates capital gains tax for the heirs when they eventually sell the asset."
+    },
+    {
+      q: "How can 'Annual Gift Exclusions' reduce estate tax liability?",
+      a: "In 2026, you can gift up to $18,000 (projected) per recipient to any number of people without using your lifetime exemption. This 'annual gifting strategy' is a primary method for reducing the taxable base of a large estate over time."
+    }
+  ];
+
+  return (
+    <div className="grid gap-4 max-w-3xl mx-auto text-left">
+      {faqs.map((faq, idx) => (
+        <div key={idx} className="bg-slate-900/50 border border-white/5 rounded-xl overflow-hidden active:scale-[0.99] transition-all">
+          <button
+            onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+            className="w-full p-5 flex items-center justify-between"
+          >
+            <span className="font-semibold text-slate-100 pr-8">{faq.q}</span>
+            <ChevronDown className={`w-5 h-5 text-slate-500 transition-transform ${openIndex === idx ? 'rotate-180' : ''}`} />
+          </button>
+          {openIndex === idx && (
+            <div className="px-5 pb-5 text-slate-400 text-sm leading-relaxed border-t border-white/5 pt-4">
+              {faq.a}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
 
 export default function HubClient() {
   return (
-    <>
+    <div className="min-h-screen bg-[#020617] text-slate-200 font-sans selection:bg-emerald-500/30">
+      {/* 1. S-CLASS HERO LAYER */}
+      <section className="relative pt-24 pb-20 overflow-hidden border-b border-white/5">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-emerald-500/10 via-transparent to-transparent opacity-50 pointer-events-none" />
 
-
-      {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-slate-900 to-green-900/20" />
-        <div className="relative max-w-4xl mx-auto px-4 py-16 text-center">
-          <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-4 py-2 mb-6">
-            <Scale className="w-4 h-4 text-emerald-400" />
-            <span className="text-sm text-emerald-300">Free {SITE.year} Calculator</span>
-          </div>
-
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Estate Tax
-            <span className="text-emerald-400"> Calculator</span>
-          </h1>
-
-          <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-            Calculate federal estate tax liability. Free calculator for
-            estate exemption, portability, and inheritance tax planning.
-          </p>
-
-          <Link
-            href="/estate-tax/estate-calculator"
-            className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105"
-          >
-            Calculate Estate Tax
-            <ArrowRight className="w-5 h-5" />
-          </Link>
-
-          {/* Exemption Banner */}
-          <div className="mt-8 bg-emerald-900/30 border border-emerald-700/50 rounded-lg p-4 max-w-xl mx-auto">
-            <div className="flex items-center gap-2 text-emerald-300 text-sm">
-              <DollarSign className="w-4 h-4" />
-              <span><strong>{formatCurrency(ESTATE_TAX_2026.federalExemption)}</strong> federal exemption per person in {SITE.year}</span>
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          <div className="flex flex-col items-center text-center">
+            <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full mb-8 backdrop-blur-md">
+              <Scale className="w-3.5 h-3.5 text-emerald-400" />
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-emerald-400">Fiscal Policy Protocol 2026</span>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Stats Section */}
-      <section className="bg-slate-800/50 border-y border-slate-700">
-        <div className="max-w-6xl mx-auto px-4 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <p className="text-3xl font-bold text-emerald-400">
-                {formatCurrency(ESTATE_TAX_2026.federalExemption)}
-              </p>
-              <p className="text-sm text-slate-400 mt-1">Single Exemption</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold text-green-400">
-                {formatCurrency(ESTATE_TAX_2026.marriedExemption)}
-              </p>
-              <p className="text-sm text-slate-400 mt-1">Married Exemption</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold text-teal-400">
-                {ESTATE_TAX_2026.maxTaxRate}%
-              </p>
-              <p className="text-sm text-slate-400 mt-1">Top Tax Rate</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold text-cyan-400">
-                {ESTATE_TAX_2026.statistics.estatesPayingTax}%
-              </p>
-              <p className="text-sm text-slate-400 mt-1">Estates Owe Tax</p>
-            </div>
-          </div>
-        </div>
-      </section>
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight mb-6">
+              Estate Tax <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 italic">Audit Matrix</span>
+            </h1>
 
-      {/* Featured Calculators */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <h2 className="text-2xl font-bold text-white mb-8 text-center">
-          Free Estate Tax Tools
-        </h2>
+            <p className="max-w-2xl text-slate-400 text-base sm:text-lg md:text-xl leading-relaxed mb-10">
+              Institutional-grade estate liability forecasting. Calculate federal and state inheritance exposure with 2026 TCJA sunset mapping.
+            </p>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
-          {CALCULATORS.map((calc) => {
-            const IconComponent = calc.icon;
-            return (
-              <Link
-                key={calc.id}
-                href={`/${calc.id}`}
-                className="group bg-slate-800 border border-slate-700 rounded-xl p-6 hover:border-emerald-500/50 transition-all hover:bg-slate-800/80"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-emerald-500/10 rounded-lg group-hover:bg-emerald-500/20 transition-colors">
-                    <IconComponent className="w-6 h-6 text-emerald-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-white group-hover:text-emerald-400 transition-colors">
-                      {calc.name}
-                    </h3>
-                    <p className="text-sm text-slate-400 mt-1">
-                      {calc.description}
-                    </p>
-                    <span className="inline-flex items-center gap-1 text-emerald-400 text-sm mt-3 group-hover:gap-2 transition-all">
-                      Start Now <ArrowRight className="w-4 h-4" />
-                    </span>
-                  </div>
-                </div>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link href="/estate-tax/estate-calculator" className="flex items-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all hover:scale-[1.02] shadow-xl shadow-emerald-500/20 active:scale-95">
+                <Calculator className="w-5 h-5 shrink-0" />
+                Launch Estate Auditor
+                <ArrowRight className="w-5 h-5 shrink-0" />
               </Link>
-            );
-          })}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Key Facts */}
-      <section className="bg-slate-800/30 border-y border-slate-700">
-        <div className="max-w-4xl mx-auto px-4 py-16">
-          <h2 className="text-2xl font-bold text-white mb-8 text-center">
-            Federal Estate Tax Key Facts
-          </h2>
+      {/* 2. STRICT 3-TABLE PROTOCOL LAYER */}
+      <section className="py-20 bg-slate-950/50 backdrop-blur-xl">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 italic">Tax Benchmarks</h2>
+            <p className="text-slate-400">Official 2026 exemption thresholds and state-level exposure limits.</p>
+          </div>
 
-          <div className="grid md:grid-cols-2 gap-4">
-            {[
-              `Only estates over ${formatCurrency(ESTATE_TAX_2026.federalExemption)} owe federal tax`,
-              "Married couples can combine exemptions (portability)",
-              "40% is the maximum federal estate tax rate",
-              "Assets get stepped-up basis at death",
-              `Annual gift exclusion: ${formatCurrency(ESTATE_TAX_2026.annualGiftExclusion)} per recipient`,
-              "Some states have separate estate or inheritance taxes",
-            ].map((fact, i) => (
-              <div key={i} className="flex items-start gap-3 bg-slate-800 rounded-lg p-4 border border-slate-700">
-                <CheckCircle className="w-5 h-5 text-emerald-400 mt-0.5" />
-                <span className="text-slate-300">{fact}</span>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Table I: Federal Exemption Logic */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-3 mb-2 px-2">
+                <Target className="w-5 h-5 text-emerald-400" />
+                <h3 className="font-bold text-white uppercase tracking-wider text-sm">Table I: 2026 Federal Logic</h3>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* States with Estate Tax */}
-      <section className="max-w-4xl mx-auto px-4 py-16">
-        <h2 className="text-2xl font-bold text-white mb-8 text-center">
-          States with Separate Estate Tax
-        </h2>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {ESTATE_TAX_2026.statesWithEstateTax.slice(0, 8).map((state) => (
-            <div key={state.state} className="bg-slate-800 rounded-lg p-4 border border-slate-700 text-center">
-              <p className="font-semibold text-white">{state.state}</p>
-              <p className="text-sm text-emerald-400">{formatCurrency(state.exemption)}</p>
-              <p className="text-xs text-slate-500">{state.rate}% max</p>
+              <div className="overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-white/5 text-slate-300 font-semibold uppercase text-[10px] tracking-widest">
+                    <tr>
+                      <th className="px-5 py-3 border-b border-white/5">Filing Status</th>
+                      <th className="px-5 py-3 border-b border-white/5">Exemption</th>
+                      <th className="px-5 py-3 border-b border-white/5">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-slate-400 divide-y divide-white/5 font-mono">
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Single</td>
+                      <td className="px-5 py-3">$13.99M</td>
+                      <td className="px-5 py-3 text-emerald-400">Current</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Married (Joint)</td>
+                      <td className="px-5 py-3">$27.98M</td>
+                      <td className="px-5 py-3 text-blue-400">Portability</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Annual Gift</td>
+                      <td className="px-5 py-3">$18,000</td>
+                      <td className="px-5 py-3 text-emerald-400">Exclusion</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-emerald-500/10 font-bold text-emerald-400 italic">Post-Sunset</td>
+                      <td className="px-5 py-3 bg-emerald-500/10 font-bold text-emerald-400">~$7.0M</td>
+                      <td className="px-5 py-3 bg-emerald-500/10 font-bold text-emerald-400">Alert</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
 
-      {/* Warning */}
-      <section className="max-w-4xl mx-auto px-4 py-8">
-        <div className="bg-amber-900/20 border border-amber-700/50 rounded-lg p-4">
-          <div className="flex items-start gap-3">
-            <AlertTriangle className="w-5 h-5 text-amber-400 mt-0.5" />
-            <div className="text-sm text-amber-200">
-              <p className="font-medium text-white">Exemption Sunset Warning</p>
-              <p className="mt-1">
-                The current high exemption is set to expire after 2025, potentially dropping
-                to ~$7 million per person unless Congress acts.
-              </p>
+            {/* Table II: Rate Brackets */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-3 mb-2 px-2">
+                <Activity className="w-5 h-5 text-teal-400" />
+                <h3 className="font-bold text-white uppercase tracking-wider text-sm">Table II: Federal Tax Brackets</h3>
+              </div>
+              <div className="overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-white/5 text-slate-300 font-semibold uppercase text-[10px] tracking-widest">
+                    <tr>
+                      <th className="px-5 py-3 border-b border-white/5">Taxable Over</th>
+                      <th className="px-5 py-3 border-b border-white/5">Rate</th>
+                      <th className="px-5 py-3 border-b border-white/5">Exposure</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-slate-400 divide-y divide-white/5">
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">$0 - $10k</td>
+                      <td className="px-5 py-3 font-mono">18%</td>
+                      <td className="px-5 py-3 text-emerald-400">Low</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">$250k - $500k</td>
+                      <td className="px-5 py-3 font-mono">34%</td>
+                      <td className="px-5 py-3 text-amber-400">Mod</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">$1M+</td>
+                      <td className="px-5 py-3 font-mono">40%</td>
+                      <td className="px-5 py-3 text-rose-400">Maximum</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300 italic">Effective Avg</td>
+                      <td className="px-5 py-3 font-mono">~35%</td>
+                      <td className="px-5 py-3 text-emerald-400">Standard</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Table III: Combined Exposure */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-3 mb-2 px-2">
+                <Lock className="w-5 h-5 text-amber-400" />
+                <h3 className="font-bold text-white uppercase tracking-wider text-sm">Table III: State Compliance</h3>
+              </div>
+              <div className="overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-white/5 text-slate-300 font-semibold uppercase text-[10px] tracking-widest">
+                    <tr>
+                      <th className="px-5 py-3 border-b border-white/5">State Level</th>
+                      <th className="px-5 py-3 border-b border-white/5">Threshold</th>
+                      <th className="px-5 py-3 border-b border-white/5">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-slate-400 divide-y divide-white/5 font-mono">
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">MA / OR</td>
+                      <td className="px-5 py-3">$1.0M - $2.0M</td>
+                      <td className="px-5 py-3 text-rose-400">Aggressive</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">NY / WA</td>
+                      <td className="px-5 py-3">$2.2M - $6.9M</td>
+                      <td className="px-5 py-3 text-amber-400">Moderate</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">FL / TX / CA</td>
+                      <td className="px-5 py-3">None</td>
+                      <td className="px-5 py-3 text-emerald-400">Friendly</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300 italic">Inheritance</td>
+                      <td className="px-5 py-3">6 States</td>
+                      <td className="px-5 py-3 text-rose-400">Variable</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="max-w-4xl mx-auto px-4 py-16 text-center">
-        <h2 className="text-2xl font-bold text-white mb-4">
-          Calculate Your Estate Tax Liability
-        </h2>
-        <p className="text-slate-400 mb-8">
-          Free, instant calculation based on {SITE.year} exemption amounts.
-        </p>
-        <Link
-          href="/estate-tax/estate-calculator"
-          className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
-        >
-          Start Free Calculator
-          <ArrowRight className="w-5 h-5" />
-        </Link>
-      </section>
+      {/* 3. HIGH-DENSITY TECHNICAL GUIDE LAYER */}
+      <section className="py-20 bg-slate-900/20">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="prose prose-invert prose-emerald max-w-none">
+            <h2 className="text-3xl font-bold text-white mb-8 border-l-4 border-emerald-500 pl-6 underline underline-offset-8 decoration-emerald-500/30">2026 Estate Tax Compliance Architecture</h2>
 
-      {/* Footer */}
+            <p className="text-slate-300 text-lg leading-relaxed mb-6 font-sans text-left">
+              The federal estate tax, often referred to as the 'death tax' in legislative discourse, functions as a transfer levy on assets exceeding institutional exemption thresholds. In the 2026 financial environment, the core focus is the **Portability Logic** for married couples and the pending **Sunset Clause** of the Tax Cuts and Jobs Act (TCJA). Our S-Class engine analyzes the three core exposure vectors: **Gross Estate Valuation**, **Portability Optimization**, and **State-Level Fragmentation**.
+            </p>
 
-      {/* Related Calculators */}
-      <section className="max-w-6xl mx-auto px-4 py-8">
-        <div className="flex justify-center">
-          <div className="w-full max-w-xs">
-            <RelatedCalculators currentCalc="estate-tax" count={5} />
+            <div className="grid md:grid-cols-2 gap-8 my-10 font-sans">
+              <div className="bg-slate-900 border border-white/10 p-6 rounded-2xl relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform text-emerald-500">
+                  <PieChart className="w-16 h-16" />
+                </div>
+                <h4 className="text-emerald-400 font-bold mb-3 uppercase tracking-tighter text-xs">I. Transfer Dynamics</h4>
+                <ul className="text-sm space-y-2 mb-0 text-slate-400 list-none pl-0 text-left">
+                  <li>• **Step-Up Basis**: Revaluing assets at date of death.</li>
+                  <li>• **Marital Deduction**: Unlimited transfers to U.S. citizen spouses.</li>
+                  <li>• **Annual Exclusions**: Tax-free gifting up to $18k/recipient.</li>
+                  <li>• **Life Insurance Trusts (ILIT)**: Removing death benefits from the estate.</li>
+                </ul>
+              </div>
+              <div className="bg-slate-900 border border-white/10 p-6 rounded-2xl relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform text-teal-500">
+                  <LineChart className="w-16 h-16" />
+                </div>
+                <h4 className="text-teal-400 font-bold mb-3 uppercase tracking-tighter text-xs">II. Regulatory Friction</h4>
+                <ul className="text-sm space-y-2 mb-0 text-slate-400 list-none pl-0 text-left">
+                  <li>• **Sunset Risk**: Planning for a 50% reduction in exemptions.</li>
+                  <li>• **Cliff States**: Monitoring states with zero-portability rules.</li>
+                  <li>• **QDOT Provisions**: Managing exposure for non-citizen spouses.</li>
+                  <li>• **Appraisal Valuation**: Impact of illiquid asset discounts.</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 className="text-2xl font-bold text-white mb-4 text-left">The Actuarial Model: Mapping the Sunset</h3>
+            <p className="text-slate-400 leading-relaxed mb-6 font-sans text-left">
+              Standard calculators often fail to account for the **Exemption Sunset Gap**. If an individual has an estate of $10M today, they owe zero federal tax. However, if they pass away after 2025 without legislative intervention, their estate could suddenly face a $1.2M+ tax bill as the exemption drops back to the $6-7M range. Our Audit Engine applies a **Sunset Multiplier** to your projections, ensuring your estate plan is resilient to the pending structural shifts in the tax code.
+            </p>
+
+            <div className="bg-emerald-500/5 border border-emerald-500/20 p-6 rounded-2xl my-10 font-sans text-left">
+              <div className="flex items-start gap-4 text-emerald-300">
+                <Info className="w-6 h-6 shrink-0 mt-1" />
+                <div className="text-sm leading-relaxed">
+                  <strong className="text-emerald-200 block mb-1 uppercase tracking-widest text-[10px]">Strategic Note: The Portability Election</strong>
+                  Even if an estate is below the federal exemption threshold, executors should strongly consider filing Form 706 to elect portability. This 'locks in' the unused exemption for the surviving spouse, providing a secondary shield against future asset appreciation or legislative changes that lower exemption limits.
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* 4. EXPERT FAQ HUB LAYER */}
+      <section className="py-20 border-t border-white/5 bg-[#020617]">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <div className="mb-16">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 italic tracking-wide font-sans">Estate Intelligence</h2>
+            <p className="text-slate-500 font-medium tracking-tight">Expert guidance for navigating 2026 estate tax and legacy protocols.</p>
+          </div>
+          <FAQSection />
+        </div>
+      </section>
 
-    </>
+      {/* 5. RELATED CALCULATORS LAYER */}
+      <section className="py-20 border-t border-white/5 bg-slate-950">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex flex-col items-center gap-12">
+            <div className="text-center">
+              <h2 className="text-2xl font-bold text-white mb-2 tracking-tight">Financial Resource Cluster</h2>
+              <p className="text-slate-500 text-sm italic italic tracking-[0.3em] uppercase font-light">Internal Resource Mapping</p>
+            </div>
+            <div className="w-full max-w-lg">
+              <RelatedCalculators currentCalc="estate-tax" count={6} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA FOOTER */}
+      <section className="py-24 bg-gradient-to-t from-emerald-900/20 to-transparent">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-6xl font-black text-white mb-8 tracking-tighter leading-none">Protect Your Legacy.<br /><span className="text-emerald-500">Minimize Your Tax Loss.</span></h2>
+          <Link href="/estate-tax/estate-calculator" className="inline-flex items-center gap-3 bg-white text-slate-950 hover:bg-slate-200 px-10 py-5 rounded-2xl font-black text-xl transition-all shadow-2xl shadow-emerald-500/20 active:scale-95 group">
+            <Calculator className="w-6 h-6 group-hover:text-emerald-600 transition-colors" />
+            RUN ESTATE AUDIT
+            <ArrowRight className="w-6 h-6" />
+          </Link>
+          <p className="mt-8 text-slate-500 text-xs font-bold tracking-[0.4em] uppercase">Verified Institutional Framework • 2026 Edition</p>
+        </div>
+      </section>
+    </div>
   );
 }

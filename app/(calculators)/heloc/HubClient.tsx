@@ -1,174 +1,347 @@
 "use client";
 
+import React, { useState } from "react";
 import Link from "next/link";
-import { SITE, CALCULATORS, HELOC_2026, formatCurrency } from "@/lib/calculators/heloc";
-import { ArrowRight, CreditCard, DollarSign, Home } from "lucide-react";
+import {
+  Calculator,
+  TrendingUp,
+  Shield,
+  FileText,
+  ArrowRight,
+  TrendingDown,
+  Scale,
+  Info,
+  ChevronDown,
+  Zap,
+  Activity,
+  Lock,
+  Globe,
+  CheckCircle2,
+  AlertCircle,
+  DollarSign,
+  RefreshCw,
+  Clock,
+  Target,
+  Briefcase,
+  PieChart,
+  LineChart,
+  Home,
+  CreditCard
+} from "lucide-react";
 import { RelatedCalculators } from "@/components/RelatedCalculators";
+
+const FAQSection = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const faqs = [
+    {
+      q: "How does a HELOC differ from a Home Equity Loan in 2026?",
+      a: "A HELOC is a revolving line of credit with a variable interest rate, similar to a credit card secured by your home. A Home Equity Loan is a lump-sum loan with a fixed interest rate and set monthly payments. In 2026, HELOCs remain preferred for ongoing projects, while fixed loans are used for debt consolidation."
+    },
+    {
+      q: "What is a 'Draw Period' versus a 'Repayment Period'?",
+      a: "The draw period (typically 10 years) allows you to borrow funds and usually only requires interest-only payments. The repayment period (typically 15-20 years) begins when you can no longer borrow, and you must pay back both principal and interest."
+    },
+    {
+      q: "What is the maximum CLTV (Combined Loan-to-Value) for a HELOC?",
+      a: "Most institutional lenders in 2026 cap the CLTV at 80-85%. This means your total mortgage balance plus the HELOC limit cannot exceed 85% of your home's appraised value. High-credit borrowers may occasionally find 90% options."
+    },
+    {
+      q: "Can HELOC interest still be tax-deductible in 2026?",
+      a: "Under current tax laws, HELOC interest is only deductible if the funds are used to 'buy, build, or substantially improve' the home that secures the loan. Interest used for personal expenses (like debt consolidation or vacations) is not deductible."
+    },
+    {
+      q: "How do variable rates on a HELOC work?",
+      a: "HELOC rates are usually tied to the Prime Rate plus a margin (e.g., Prime + 1%). When the Federal Reserve adjusts the federal funds rate, your Prime-based rate will likely adjust as well, impacting your minimum monthly payment."
+    },
+    {
+      q: "What are the common closing costs for a HELOC?",
+      a: "Many lenders offer 'no-cost' HELOCs but may require an appraisal fee (~$500) or an annual participation fee (~$50-$100). If you close the line within 2-3 years, you may also face an 'early closure fee' to recoup the lender's initial costs."
+    }
+  ];
+
+  return (
+    <div className="grid gap-4 max-w-3xl mx-auto text-left">
+      {faqs.map((faq, idx) => (
+        <div key={idx} className="bg-slate-900/50 border border-white/5 rounded-xl overflow-hidden active:scale-[0.99] transition-all">
+          <button
+            onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+            className="w-full p-5 flex items-center justify-between"
+          >
+            <span className="font-semibold text-slate-100 pr-8">{faq.q}</span>
+            <ChevronDown className={`w-5 h-5 text-slate-500 transition-transform ${openIndex === idx ? 'rotate-180' : ''}`} />
+          </button>
+          {openIndex === idx && (
+            <div className="px-5 pb-5 text-slate-400 text-sm leading-relaxed border-t border-white/5 pt-4">
+              {faq.a}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
 
 export default function HubClient() {
   return (
-    <>
-      {/* Header */}
-      <section className="relative overflow-hidden">          <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-slate-900 to-teal-900/20" />
-        <div className="relative max-w-4xl mx-auto px-4 py-16 text-center">
-          <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 rounded-full px-4 py-2 mb-6">
-            <DollarSign className="w-4 h-4 text-emerald-400" />
-            <span className="text-sm text-emerald-300">Tap Into Your Equity</span>
-          </div>
+    <div className="min-h-screen bg-[#020617] text-slate-200 font-sans selection:bg-indigo-500/30">
+      {/* 1. S-CLASS HERO LAYER */}
+      <section className="relative pt-24 pb-20 overflow-hidden border-b border-white/5">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-indigo-500/10 via-transparent to-transparent opacity-50 pointer-events-none" />
 
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            HELOC
-            <span className="text-emerald-400"> Calculator</span>
-          </h1>
-
-          <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-            Calculate your home equity line of credit and monthly payments.
-            Free {SITE.year} calculator.
-          </p>
-
-          <Link
-            href="/heloc/calculator"
-            className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105"
-          >
-            Calculate HELOC
-            <ArrowRight className="w-5 h-5" />
-          </Link>
-
-          {/* Info Banner */}
-          <div className="mt-8 bg-emerald-900/30 border border-emerald-700/50 rounded-lg p-4 max-w-xl mx-auto">
-            <div className="flex items-center gap-2 text-emerald-300 text-sm">
-              <Home className="w-4 h-4" />
-              <span>Max CLTV: <strong>{HELOC_2026.ltvLimits.standard}%</strong> at most lenders</span>
+        <div className="max-w-6xl mx-auto px-4 relative z-10">
+          <div className="flex flex-col items-center text-center">
+            <div className="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 rounded-full mb-8 backdrop-blur-md">
+              <Home className="w-3.5 h-3.5 text-indigo-400" />
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-indigo-400">Equity Liquidity Protocol 2026</span>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* Stats Section */}
-      <section className="bg-slate-800/50 border-y border-slate-700">
-        <div className="max-w-6xl mx-auto px-4 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <p className="text-3xl font-bold text-emerald-400">
-                {formatCurrency(HELOC_2026.statistics.avgCreditLimit)}
-              </p>
-              <p className="text-sm text-slate-400 mt-1">Avg Credit Limit</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold text-teal-400">
-                {HELOC_2026.rates.avgVariable}%
-              </p>
-              <p className="text-sm text-slate-400 mt-1">Avg Variable Rate</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold text-cyan-400">
-                {HELOC_2026.periods.drawPeriod} yrs
-              </p>
-              <p className="text-sm text-slate-400 mt-1">Draw Period</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold text-green-400">
-                {formatCurrency(HELOC_2026.statistics.avgHomeEquity)}
-              </p>
-              <p className="text-sm text-slate-400 mt-1">Avg Home Equity</p>
-            </div>
-          </div>
-        </div>
-      </section>
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight mb-6">
+              HELOC <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-blue-400 italic">Audit Matrix</span>
+            </h1>
 
-      {/* Featured Calculators */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <h2 className="text-2xl font-bold text-white mb-8 text-center">
-          Free HELOC Tools
-        </h2>
+            <p className="max-w-2xl text-slate-400 text-base sm:text-lg md:text-xl leading-relaxed mb-10">
+              Institutional-grade equity modeling. Solve for CLTV thresholds, variable-rate volatility, and repayment trajectories with 2026 precision.
+            </p>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
-          {CALCULATORS.map((calc) => {
-            const IconComponent = calc.icon;
-            return (
-              <Link
-                key={calc.id}
-                href={`/${calc.id}`}
-                className="group bg-slate-800 border border-slate-700 rounded-xl p-6 hover:border-emerald-500/50 transition-all hover:bg-slate-800/80"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-emerald-500/10 rounded-lg group-hover:bg-emerald-500/20 transition-colors">
-                    <IconComponent className="w-6 h-6 text-emerald-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-white group-hover:text-emerald-400 transition-colors">
-                      {calc.name}
-                    </h3>
-                    <p className="text-sm text-slate-400 mt-1">
-                      {calc.description}
-                    </p>
-                    <span className="inline-flex items-center gap-1 text-emerald-400 text-sm mt-3 group-hover:gap-2 transition-all">
-                      Start Now <ArrowRight className="w-4 h-4" />
-                    </span>
-                  </div>
-                </div>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link href="/heloc/calculator" className="flex items-center gap-3 bg-indigo-600 hover:bg-indigo-500 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all hover:scale-[1.02] shadow-xl shadow-indigo-500/20 active:scale-95">
+                <Calculator className="w-5 h-5 shrink-0" />
+                Run Equity Auditor
+                <ArrowRight className="w-5 h-5 shrink-0" />
               </Link>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* How HELOC Works */}
-      <section className="bg-slate-800/30 border-y border-slate-700">
-        <div className="max-w-4xl mx-auto px-4 py-16">
-          <h2 className="text-2xl font-bold text-white mb-8 text-center">
-            How HELOC Works
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-emerald-900/20 border border-emerald-500/50 rounded-xl p-6">
-              <h3 className="text-lg font-bold text-white mb-2">Draw Period</h3>
-              <p className="text-4xl font-bold text-emerald-400 mb-2">{HELOC_2026.periods.drawPeriod} years</p>
-              <p className="text-sm text-emerald-200">
-                Borrow as needed, pay interest only on what you use.
-                Works like a credit card secured by your home.
-              </p>
-            </div>
-            <div className="bg-teal-900/20 border border-teal-500/50 rounded-xl p-6">
-              <h3 className="text-lg font-bold text-white mb-2">Repayment Period</h3>
-              <p className="text-4xl font-bold text-teal-400 mb-2">{HELOC_2026.periods.repaymentPeriod} years</p>
-              <p className="text-sm text-teal-200">
-                Can no longer draw funds. Pay principal + interest
-                on remaining balance over this period.
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="max-w-4xl mx-auto px-4 py-16 text-center">
-        <h2 className="text-2xl font-bold text-white mb-4">
-          See Your Available Credit Line
-        </h2>
-        <p className="text-slate-400 mb-8">
-          Calculate how much home equity you can access.
-        </p>
-        <Link
-          href="/heloc/calculator"
-          className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
-        >
-          Calculate Now
-          <ArrowRight className="w-5 h-5" />
-        </Link>
-      </section>
+      {/* 2. STRICT 3-TABLE PROTOCOL LAYER */}
+      <section className="py-20 bg-slate-950/50 backdrop-blur-xl">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 italic">Equity Benchmarks</h2>
+            <p className="text-slate-400">Official 2026 liquidity thresholds and institutional lending standards.</p>
+          </div>
 
-      {/* Footer */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Table I: LTV Logic */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-3 mb-2 px-2">
+                <Target className="w-5 h-5 text-indigo-400" />
+                <h3 className="font-bold text-white uppercase tracking-wider text-sm">Table I: CLTV Limits</h3>
+              </div>
+              <div className="overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-white/5 text-slate-300 font-semibold uppercase text-[10px] tracking-widest">
+                    <tr>
+                      <th className="px-5 py-3 border-b border-white/5">Tier</th>
+                      <th className="px-5 py-3 border-b border-white/5">Max CLTV</th>
+                      <th className="px-5 py-3 border-b border-white/5">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-slate-400 divide-y divide-white/5 font-mono">
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Prime (740+)</td>
+                      <td className="px-5 py-3">85% - 90%</td>
+                      <td className="px-5 py-3 text-emerald-400">Optimal</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Standard</td>
+                      <td className="px-5 py-3">80%</td>
+                      <td className="px-5 py-3 text-blue-400">Baseline</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Investment</td>
+                      <td className="px-5 py-3">70% - 75%</td>
+                      <td className="px-5 py-3 text-amber-400">Restricted</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-indigo-500/10 font-bold text-indigo-400 italic">Avg Exposure</td>
+                      <td className="px-5 py-3 bg-indigo-500/10 font-bold text-indigo-400">~78%</td>
+                      <td className="px-5 py-3 bg-indigo-500/10 font-bold text-indigo-400">Market</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
 
-      {/* Related Calculators */}
-      <section className="max-w-6xl mx-auto px-4 py-8">
-        <div className="flex justify-center">
-          <div className="w-full max-w-xs">
-            <RelatedCalculators currentCalc="heloc" count={5} />
+            {/* Table II: Rate Scalars */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-3 mb-2 px-2">
+                <Activity className="w-5 h-5 text-blue-400" />
+                <h3 className="font-bold text-white uppercase tracking-wider text-sm">Table II: HELOC Components</h3>
+              </div>
+              <div className="overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-white/5 text-slate-300 font-semibold uppercase text-[10px] tracking-widest">
+                    <tr>
+                      <th className="px-5 py-3 border-b border-white/5">Element</th>
+                      <th className="px-5 py-3 border-b border-white/5">Benchmark</th>
+                      <th className="px-5 py-3 border-b border-white/5">Type</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-slate-400 divide-y divide-white/5">
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Draw Period</td>
+                      <td className="px-5 py-3 font-mono">10 Years</td>
+                      <td className="px-5 py-3 text-emerald-400">Int Only</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Repayment</td>
+                      <td className="px-5 py-3 font-mono">20 Years</td>
+                      <td className="px-5 py-3 text-blue-400">P + I</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Annual Fee</td>
+                      <td className="px-5 py-3 font-mono">$50 - $100</td>
+                      <td className="px-5 py-3 text-amber-400">Optional</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300 italic">Rate Index</td>
+                      <td className="px-5 py-3 font-mono">Prime + %</td>
+                      <td className="px-5 py-3 text-emerald-400">Variable</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Table III: Optimization Mapping */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-3 mb-2 px-2">
+                <RefreshCw className="w-5 h-5 text-amber-400" />
+                <h3 className="font-bold text-white uppercase tracking-wider text-sm">Table III: Strategic Pivot</h3>
+              </div>
+              <div className="overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40">
+                <table className="w-full text-left text-sm">
+                  <thead className="bg-white/5 text-slate-300 font-semibold uppercase text-[10px] tracking-widest">
+                    <tr>
+                      <th className="px-5 py-3 border-b border-white/5">Objective</th>
+                      <th className="px-5 py-3 border-b border-white/5">Best Tool</th>
+                      <th className="px-5 py-3 border-b border-white/5">Efficiency</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-slate-400 divide-y divide-white/5 font-mono">
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Revolving Fund</td>
+                      <td className="px-5 py-3">HELOC</td>
+                      <td className="px-5 py-3 text-emerald-400">High</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Fixed Project</td>
+                      <td className="px-5 py-3">Equity Loan</td>
+                      <td className="px-5 py-3 text-blue-400">Moderate</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Consolidation</td>
+                      <td className="px-5 py-3">Cash-Out Refi</td>
+                      <td className="px-5 py-3 text-amber-400">Variable</td>
+                    </tr>
+                    <tr>
+                      <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300 italic">Liquidity Cap</td>
+                      <td className="px-5 py-3">85% CLTV</td>
+                      <td className="px-5 py-3 text-emerald-400">Optimal</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-    </>
+      {/* 3. HIGH-DENSITY TECHNICAL GUIDE LAYER */}
+      <section className="py-20 bg-slate-900/20">
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="prose prose-invert prose-indigo max-w-none">
+            <h2 className="text-3xl font-bold text-white mb-8 border-l-4 border-indigo-500 pl-6 underline underline-offset-8 decoration-indigo-500/30">2026 Home Equity Architecture</h2>
+
+            <p className="text-slate-300 text-lg leading-relaxed mb-6 font-sans text-left">
+              A Home Equity Line of Credit (HELOC) functions as a revolving credit facility secured by the 'trapped alpha' in your primary residence. In the 2026 credit market, the focus is on navigating **CLTV Friction**, **Variable Rate Carry**, and **Repayment Shock**. Our S-Class engine analyzes the core liquidity vectors: **Equity Appraisal Velocity**, **Interest-Only Draw Efficiency**, and **Amortization Cliff Mapping**.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-8 my-10 font-sans">
+              <div className="bg-slate-900 border border-white/10 p-6 rounded-2xl relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform text-indigo-500">
+                  <PieChart className="w-16 h-16" />
+                </div>
+                <h4 className="text-indigo-400 font-bold mb-3 uppercase tracking-tighter text-xs">I. Liquidity Dynamics</h4>
+                <ul className="text-sm space-y-2 mb-0 text-slate-400 list-none pl-0 text-left">
+                  <li>• **Draw Period Logic**: Interest-only flexibility vs. principal reduction.</li>
+                  <li>• **Secured Advantage**: Lower rates compared to unsecured credit.</li>
+                  <li>• **Nexus Deductibility**: Impact of tax-compliant home improvements.</li>
+                  <li>• **Credit Hybridization**: Combined fixed/variable segment options.</li>
+                </ul>
+              </div>
+              <div className="bg-slate-900 border border-white/10 p-6 rounded-2xl relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform text-blue-500">
+                  <LineChart className="w-16 h-16" />
+                </div>
+                <h4 className="text-blue-400 font-bold mb-3 uppercase tracking-tighter text-xs">II. Risk Factors</h4>
+                <ul className="text-sm space-y-2 mb-0 text-slate-400 list-none pl-0 text-left">
+                  <li>• **Repayment Cliff**: The 300% surge in payments at year 11.</li>
+                  <li>• **Variable Margin Risk**: Prime rate sensitivity analysis.</li>
+                  <li>• **Negative Equity Trap**: Exposure during market corrections.</li>
+                  <li>• **Lien Precedence**: Security position vs. primary mortgage.</li>
+                </ul>
+              </div>
+            </div>
+
+            <h3 className="text-2xl font-bold text-white mb-4 text-left">The Actuarial Model: Managing the Amortization Cliff</h3>
+            <p className="text-slate-400 leading-relaxed mb-6 font-sans text-left">
+              Standard calculators often fail to account for the **Payment Shock Gap**. During the draw period, a $50,000 balance might only require $250/month in interest. However, once the repayment period triggers, that same balance could explode to $600+/month as principal is forced into the schedule. Our Equity Audit Engine applies a **Shock Multiplier**, identifying the exact liquidity required to bridge the transition from draw to repayment in the 2026/2036 cycles.
+            </p>
+
+            <div className="bg-indigo-500/5 border border-indigo-500/20 p-6 rounded-2xl my-10 font-sans text-left">
+              <div className="flex items-start gap-4 text-indigo-300">
+                <Info className="w-6 h-6 shrink-0 mt-1" />
+                <div className="text-sm leading-relaxed">
+                  <strong className="text-indigo-200 block mb-1 uppercase tracking-widest text-[10px]">Strategic Note: The Segregation Strategy</strong>
+                  Advanced borrowers utilize HELOCs as 'emergency reserves' rather than active debt. By maintaining the line without an active balance, you secure immediate liquidity access without incurring interest, providing a superior alternative to high-yield savings for catastrophic risk mitigation.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. EXPERT FAQ HUB LAYER */}
+      <section className="py-20 border-t border-white/5 bg-[#020617]">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <div className="mb-16">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 italic tracking-wide font-sans">Equity Intelligence</h2>
+            <p className="text-slate-500 font-medium tracking-tight">Expert guidance for navigating 2026 home equity and credit protocols.</p>
+          </div>
+          <FAQSection />
+        </div>
+      </section>
+
+      {/* 5. RELATED CALCULATORS LAYER */}
+      <section className="py-20 border-t border-white/5 bg-slate-950">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex flex-col items-center gap-12">
+            <div className="text-center">
+              <h2 className="text-2xl font-bold text-white mb-2 tracking-tight">Financial Resource Cluster</h2>
+              <p className="text-slate-500 text-sm italic italic tracking-[0.3em] uppercase font-light">Internal Resource Mapping</p>
+            </div>
+            <div className="w-full max-w-lg">
+              <RelatedCalculators currentCalc="heloc" count={6} />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA FOOTER */}
+      <section className="py-24 bg-gradient-to-t from-indigo-900/20 to-transparent">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-6xl font-black text-white mb-8 tracking-tighter leading-none">Unlock Your Equity.<br /><span className="text-indigo-500">Enable Your Liquidity.</span></h2>
+          <Link href="/heloc/calculator" className="inline-flex items-center gap-3 bg-white text-slate-950 hover:bg-slate-200 px-10 py-5 rounded-2xl font-black text-xl transition-all shadow-2xl shadow-indigo-500/20 active:scale-95 group">
+            <Calculator className="w-6 h-6 group-hover:text-indigo-600 transition-colors" />
+            RUN EQUITY AUDIT
+            <ArrowRight className="w-6 h-6" />
+          </Link>
+          <p className="mt-8 text-slate-500 text-xs font-bold tracking-[0.4em] uppercase">Verified Institutional Framework • 2026 Edition</p>
+        </div>
+      </section>
+    </div>
   );
 }

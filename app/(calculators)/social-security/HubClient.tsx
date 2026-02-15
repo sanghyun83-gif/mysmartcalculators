@@ -1,320 +1,346 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { SITE, CALCULATORS, SS_2026, formatCurrency } from "@/lib/calculators/social-security";
 import {
-    ArrowRight, Landmark, Users, Calculator, FileText,
-    ChevronDown, ChevronUp, CheckCircle, AlertTriangle, Info,
-    TrendingUp, Calendar, DollarSign, Clock
+    Calculator,
+    TrendingUp,
+    Shield,
+    FileText,
+    ArrowRight,
+    TrendingDown,
+    Scale,
+    Info,
+    ChevronDown,
+    Zap,
+    Activity,
+    Lock,
+    Globe,
+    CheckCircle2,
+    AlertCircle,
+    DollarSign,
+    RefreshCw,
+    Clock,
+    Target,
+    Briefcase,
+    PieChart,
+    LineChart,
+    Landmark,
+    Users
 } from "lucide-react";
 import { RelatedCalculators } from "@/components/RelatedCalculators";
 
-// ============================================
-// FAQ DATA - 15 Items for Advanced++ Standard
-// ============================================
-const FAQ_DATA = [
-    {
-        q: "What is Full Retirement Age (FRA) for Social Security?",
-        a: "Full Retirement Age is when you qualify for 100% of your calculated Social Security benefit. For those born in 1960 or later, FRA is 67. For those born between 1955-1959, it ranges from 66 years and 2 months to 66 years and 10 months. You can claim as early as 62 or as late as 70."
-    },
-    {
-        q: "How much will my Social Security benefit be reduced if I claim early?",
-        a: "Claiming at 62 (5 years before FRA of 67) reduces benefits by approximately 30%. The reduction is 5/9 of 1% per month for the first 36 months early, plus 5/12 of 1% for each additional month. For example, claiming at 64 results in about an 20% reduction."
-    },
-    {
-        q: "How much extra will I get if I delay claiming past my FRA?",
-        a: "For each year you delay past FRA (up to age 70), you earn 8% in delayed retirement credits. Delaying from 67 to 70 increases your benefit by 24%. After age 70, there's no additional increase, so there's no benefit to waiting beyond 70."
-    },
-    {
-        q: "What is PIA (Primary Insurance Amount)?",
-        a: "PIA is your calculated Social Security benefit at Full Retirement Age. It's based on your 35 highest-earning years (adjusted for inflation) and calculated using a formula with 'bend points.' The SSA uses your Average Indexed Monthly Earnings (AIME) to determine PIA."
-    },
-    {
-        q: "How is Social Security calculated?",
-        a: "Social Security uses your highest 35 years of earnings (adjusted for wage inflation), calculates your Average Indexed Monthly Earnings (AIME), then applies a formula: 90% of the first $1,226 of AIME + 32% of AIME between $1,226 and $7,391 + 15% of AIME above $7,391 (2026 bend points)."
-    },
-    {
-        q: "What is the maximum Social Security benefit in 2026?",
-        a: "The maximum Social Security benefit in 2026 depends on claiming age: approximately $2,710/month at age 62, $3,822/month at FRA (67), and $4,873/month at age 70. To receive the maximum, you need 35 years of earnings at or above the maximum taxable earnings limit."
-    },
-    {
-        q: "What is COLA and how does it affect my benefits?",
-        a: "COLA (Cost-of-Living Adjustment) is an annual increase to Social Security benefits to keep pace with inflation, based on the Consumer Price Index. The 2026 COLA is projected at 2.5%. COLA applies to all beneficiaries regardless of when they claimed."
-    },
-    {
-        q: "Can I work while receiving Social Security?",
-        a: "Yes, but if you're under FRA, there's an earnings test. In 2026, if you earn over $23,400 annually, $1 is withheld for every $2 earned above the limit. In the year you reach FRA, the limit is $62,160 with $1 withheld per $3 above. After reaching FRA, there's no limit."
-    },
-    {
-        q: "What are spousal benefits and who qualifies?",
-        a: "Spousal benefits allow a spouse to claim up to 50% of their partner's PIA at FRA, even with no work history. You must be married at least 1 year and your spouse must be receiving benefits (or eligible). Ex-spouses may qualify if married 10+ years and divorced for 2+ years."
-    },
-    {
-        q: "What happens to Social Security benefits when a spouse dies?",
-        a: "The surviving spouse can receive up to 100% of the deceased spouse's benefit (survivor benefits). The amount depends on the survivor's age when claiming. At FRA, you receive 100%; at 60, about 71.5%. You cannot collect both your own benefit and survivor benefits simultaneously—you get the higher of the two."
-    },
-    {
-        q: "Is Social Security taxable?",
-        a: "Up to 85% of Social Security benefits may be taxable depending on your 'combined income' (AGI + non-taxable interest + 50% of SS benefits). For individuals: income over $25,000 (50% taxed) or $34,000 (85% taxed). For couples: over $32,000 (50%) or $44,000 (85%)."
-    },
-    {
-        q: "What is the Social Security trust fund and is it running out?",
-        a: "The Social Security Trust Fund holds reserves to pay benefits. According to the 2024 Trustees Report, the fund is projected to be depleted by 2034. After depletion, ongoing payroll taxes would cover about 77% of scheduled benefits. Congress may act to address this before then."
-    },
-    {
-        q: "Should I claim Social Security early or wait?",
-        a: "It depends on your health, finances, and life expectancy. Claim early if: you need the income, have health concerns, or have shorter life expectancy. Wait if: you're healthy, can afford to wait, expect to live past 80, or want to maximize survivor benefits for your spouse. Break-even age is typically around 80."
-    },
-    {
-        q: "How do I apply for Social Security benefits?",
-        a: "Apply online at ssa.gov (easiest), by phone at 1-800-772-1213, or in person at a local SSA office. Apply 3-4 months before you want benefits to begin. You'll need your Social Security number, birth certificate, W-2s or tax returns, and bank information for direct deposit."
-    },
-    {
-        q: "Can I change my mind after claiming Social Security?",
-        a: "Yes, but there are rules. Within 12 months of first receiving benefits, you can withdraw your application, repay all benefits received, and reapply later at a higher rate. After 12 months, you can voluntarily suspend benefits at FRA (until 70) to earn delayed credits, but you cannot withdraw."
-    },
-];
-
-// FAQ Component
-function FAQSection() {
+const FAQSection = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
+    const faqs = [
+        {
+            q: "What is the projected 2026 Social Security COLA?",
+            a: "While the official Cost-of-Living Adjustment (COLA) for 2026 will be announced in October 2025, early projections based on recent CPI-W trends suggest an adjustment in the 2.5% to 3.0% range. This COLA is designed to ensure benefits keep pace with the rising costs of goods and services."
+        },
+        {
+            q: "What is Full Retirement Age (FRA) for those reaching it in 2026?",
+            a: "For individuals born in 1959, the Full Retirement Age is 66 years and 10 months. For those born in 1960 or later, the FRA is a flat 67 years. Reaching FRA allows you to receive 100% of your Primary Insurance Amount (PIA) without any age-based reductions."
+        },
+        {
+            q: "How much will my benefit increase if I wait until age 70?",
+            a: "For every year you delay claiming Social Security past your FRA (up to age 70), your benefit increases by 8% due to 'Delayed Retirement Credits.' If your FRA is 67 and you wait until 70, you will receive 124% of your base benefit amount permanently."
+        },
+        {
+            q: "What is the Social Security wage base for 2026?",
+            a: "The maximum amount of earnings subject to Social Security tax (FICA) is projected to rise to approximately $174,900 in 2026. Earnings above this threshold are not taxed for Social Security, nor are they used in the calculation of your future benefits."
+        },
+        {
+            q: "Can I collect Social Security and still work full-time in 2026?",
+            a: "Yes, but if you are under your Full Retirement Age, you are subject to the 'Earnings Test' limit (projected around $23,400 for 2026). If you exceed this limit, $1 will be withheld for every $2 earned above the threshold. Once you reach FRA, there is no limit on your earnings while collecting benefits."
+        },
+        {
+            q: "Are Social Security benefits taxable at the federal level?",
+            a: "Depending on your 'provisional income' (AGI + non-taxable interest + 50% of SS benefits), up to 85% of your benefits may be subject to federal income tax. Individuals earning over $34,000 and couples earning over $44,000 typically hit the 85% taxation tier."
+        }
+    ];
 
     return (
-        <section className="max-w-4xl mx-auto px-6 py-16">
-            <h2 className="text-2xl font-black text-white uppercase tracking-tight mb-8 text-center">
-                Frequently Asked Questions
-            </h2>
-            <div className="space-y-3">
-                {FAQ_DATA.map((faq, idx) => (
-                    <div
-                        key={idx}
-                        className="bg-slate-800/50 border border-slate-700/50 rounded-xl overflow-hidden"
+        <div className="grid gap-4 max-w-3xl mx-auto text-left">
+            {faqs.map((faq, idx) => (
+                <div key={idx} className="bg-slate-900/50 border border-white/5 rounded-xl overflow-hidden active:scale-[0.99] transition-all">
+                    <button
+                        onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+                        className="w-full p-5 flex items-center justify-between"
                     >
-                        <button
-                            onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                            className="w-full flex items-center justify-between p-4 text-left hover:bg-slate-700/30 transition-colors"
-                        >
-                            <span className="font-semibold text-white pr-4">{faq.q}</span>
-                            {openIndex === idx ? (
-                                <ChevronUp className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                            ) : (
-                                <ChevronDown className="w-5 h-5 text-slate-400 flex-shrink-0" />
-                            )}
-                        </button>
-                        {openIndex === idx && (
-                            <div className="px-4 pb-4 text-slate-300 text-sm leading-relaxed border-t border-slate-700/50 pt-3">
-                                {faq.a}
-                            </div>
-                        )}
-                    </div>
-                ))}
-            </div>
-        </section>
+                        <span className="font-semibold text-slate-100 pr-8">{faq.q}</span>
+                        <ChevronDown className={`w-5 h-5 text-slate-500 transition-transform ${openIndex === idx ? 'rotate-180' : ''}`} />
+                    </button>
+                    {openIndex === idx && (
+                        <div className="px-5 pb-5 text-slate-400 text-sm leading-relaxed border-t border-white/5 pt-4">
+                            {faq.a}
+                        </div>
+                    )}
+                </div>
+            ))}
+        </div>
     );
-}
+};
 
-export default function SocialSecurityHubClient() {
+export default function HubClient() {
     return (
-        <div className="min-h-screen">
-            {/* Hero Section */}
-            <section className="relative overflow-hidden py-20 bg-gradient-to-b from-[#0a0f1a] to-[#0d1320]">
-                <div className="max-w-4xl mx-auto px-6 text-center">
-                    <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 rounded-full px-4 py-2 mb-6">
-                        <Landmark className="w-4 h-4 text-blue-400" />
-                        <span className="text-sm text-blue-300 font-semibold">SSA 2026 Guidelines</span>
-                    </div>
+        <div className="min-h-screen bg-[#020617] text-slate-200 font-sans selection:bg-blue-500/30">
+            {/* 1. S-CLASS HERO LAYER */}
+            <section className="relative pt-24 pb-20 overflow-hidden border-b border-white/5">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent opacity-50 pointer-events-none" />
 
-                    <h1 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
-                        Social Security <span className="text-blue-400">Calculator</span>
-                    </h1>
-
-                    <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-                        Estimate your Social Security retirement benefits with our free {SITE.year} calculator.
-                        Compare claiming at 62, Full Retirement Age, or 70 to maximize your lifetime benefits.
-                    </p>
-
-                    <Link
-                        href="/social-security/ss-calculator"
-                        className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-blue-500/25"
-                    >
-                        <Calculator className="w-5 h-5" />
-                        Calculate My Benefits
-                        <ArrowRight className="w-5 h-5" />
-                    </Link>
-
-                    {/* Quick Stats */}
-                    <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-                        <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4 text-center">
-                            <p className="text-2xl font-black text-blue-400">{SS_2026.statistics.beneficiaries.toLocaleString()}</p>
-                            <p className="text-xs text-slate-400 mt-1">Total Beneficiaries</p>
+                <div className="max-w-6xl mx-auto px-4 relative z-10">
+                    <div className="flex flex-col items-center text-center">
+                        <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full mb-8 backdrop-blur-md">
+                            <Landmark className="w-3.5 h-3.5 text-blue-400" />
+                            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-blue-400">Retirement Entitlement Protocol 2026</span>
                         </div>
-                        <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4 text-center">
-                            <p className="text-2xl font-black text-green-400">{formatCurrency(SS_2026.statistics.avgMonthly)}</p>
-                            <p className="text-xs text-slate-400 mt-1">Avg Monthly</p>
-                        </div>
-                        <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4 text-center">
-                            <p className="text-2xl font-black text-amber-400">{formatCurrency(SS_2026.statistics.maxAt70)}</p>
-                            <p className="text-xs text-slate-400 mt-1">Max at Age 70</p>
-                        </div>
-                        <div className="bg-slate-800/50 border border-slate-700/50 rounded-xl p-4 text-center">
-                            <p className="text-2xl font-black text-red-400">{SS_2026.statistics.trustFundYear}</p>
-                            <p className="text-xs text-slate-400 mt-1">Trust Fund Year</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            {/* What is Social Security */}
-            <section className="max-w-4xl mx-auto px-6 py-16">
-                <h2 className="text-2xl font-black text-white uppercase tracking-tight mb-6">
-                    Understanding Social Security Retirement Benefits
-                </h2>
-                <div className="prose prose-invert max-w-none text-slate-300 space-y-4">
-                    <p>
-                        <strong className="text-white">Social Security</strong> is a federal program that provides retirement, disability, and survivor benefits to eligible Americans. Established in 1935 under the Social Security Act, it remains the largest source of retirement income for most Americans. According to the <strong className="text-white">Social Security Administration (SSA)</strong>, over 67 million people receive monthly benefits.
-                    </p>
-                    <p>
-                        Retirement benefits are funded through payroll taxes (FICA). In {SITE.year}, employees and employers each pay 6.2% of wages up to the taxable maximum ($168,600 projected for 2026). Your benefit amount is calculated based on your 35 highest-earning years, making consistent work history crucial for maximizing benefits.
-                    </p>
-                    <p>
-                        The timing of when you claim benefits significantly affects your monthly payment. While you can claim as early as age 62, each month before Full Retirement Age results in a permanent reduction. Conversely, delaying past FRA until age 70 earns you 8% more per year in delayed retirement credits—a guaranteed return unmatched by most investments.
-                    </p>
-                </div>
-            </section>
+                        <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight mb-6">
+                            Social Security <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400 italic">Audit Matrix</span>
+                        </h1>
 
-            {/* Claiming Ages */}
-            <section className="bg-slate-800/30 border-y border-slate-700/50 py-16">
-                <div className="max-w-4xl mx-auto px-6">
-                    <h2 className="text-2xl font-black text-white uppercase tracking-tight mb-8 text-center">
-                        Benefit Amounts by Claiming Age
-                    </h2>
-
-                    <div className="grid md:grid-cols-3 gap-6">
-                        <div className="bg-slate-800/80 rounded-xl p-6 border border-slate-700/50 text-center">
-                            <div className="inline-flex items-center justify-center w-12 h-12 bg-red-500/20 rounded-full mb-4">
-                                <Clock className="w-6 h-6 text-red-400" />
-                            </div>
-                            <p className="font-bold text-white text-lg">Age 62 (Early)</p>
-                            <p className="text-3xl font-black text-red-400 mt-2">-30%</p>
-                            <p className="text-xs text-slate-400 mt-2">Permanent reduction from FRA benefit</p>
-                        </div>
-                        <div className="bg-slate-800/80 rounded-xl p-6 border border-blue-500/30 text-center ring-2 ring-blue-500/30">
-                            <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-500/20 rounded-full mb-4">
-                                <CheckCircle className="w-6 h-6 text-blue-400" />
-                            </div>
-                            <p className="font-bold text-white text-lg">Age 67 (FRA)</p>
-                            <p className="text-3xl font-black text-blue-400 mt-2">100%</p>
-                            <p className="text-xs text-slate-400 mt-2">Full calculated benefit (PIA)</p>
-                        </div>
-                        <div className="bg-slate-800/80 rounded-xl p-6 border border-slate-700/50 text-center">
-                            <div className="inline-flex items-center justify-center w-12 h-12 bg-green-500/20 rounded-full mb-4">
-                                <TrendingUp className="w-6 h-6 text-green-400" />
-                            </div>
-                            <p className="font-bold text-white text-lg">Age 70 (Delayed)</p>
-                            <p className="text-3xl font-black text-green-400 mt-2">+24%</p>
-                            <p className="text-xs text-slate-400 mt-2">Maximum possible benefit</p>
-                        </div>
-                    </div>
-
-                    <div className="mt-8 bg-blue-500/10 border border-blue-500/30 rounded-xl p-4 flex items-center gap-3">
-                        <Info className="w-5 h-5 text-blue-400 flex-shrink-0" />
-                        <p className="text-blue-300 text-sm">
-                            <strong>Break-Even:</strong> If you live past age 80, delaying benefits typically results in higher lifetime income.
+                        <p className="max-w-2xl text-slate-400 text-base sm:text-lg md:text-xl leading-relaxed mb-10">
+                            Institutional-grade retirement benefit forecasting. Solve for PIA bend points, AIME indexing, and delayed credit optimization with 2026 precision.
                         </p>
-                    </div>
-                </div>
-            </section>
 
-            {/* Tools Section */}
-            <section className="max-w-4xl mx-auto px-6 py-16">
-                <h2 className="text-2xl font-black text-white uppercase tracking-tight mb-8 text-center">
-                    Free Social Security Tools
-                </h2>
-                <div className="grid md:grid-cols-2 gap-6">
-                    {CALCULATORS.map((calc) => {
-                        const IconComponent = calc.icon;
-                        return (
-                            <Link
-                                key={calc.id}
-                                href={`/${calc.id}`}
-                                className="group bg-slate-800/50 border border-slate-700/50 rounded-xl p-6 hover:border-blue-500/50 transition-all"
-                            >
-                                <div className="flex items-start gap-4">
-                                    <div className="p-3 bg-blue-500/10 rounded-lg group-hover:bg-blue-500/20 transition-colors">
-                                        <IconComponent className="w-6 h-6 text-blue-400" />
-                                    </div>
-                                    <div className="flex-1">
-                                        <h3 className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">
-                                            {calc.name}
-                                        </h3>
-                                        <p className="text-sm text-slate-400 mt-1">
-                                            {calc.longDescription}
-                                        </p>
-                                        <span className="inline-flex items-center gap-1 text-blue-400 text-sm mt-3 group-hover:gap-2 transition-all font-semibold">
-                                            Start Now <ArrowRight className="w-4 h-4" />
-                                        </span>
-                                    </div>
-                                </div>
+                        <div className="flex flex-wrap justify-center gap-4">
+                            <Link href="/social-security/ss-calculator" className="flex items-center gap-3 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all hover:scale-[1.02] shadow-xl shadow-blue-500/20 active:scale-95">
+                                <Calculator className="w-5 h-5 shrink-0" />
+                                Run Social Security Auditor
+                                <ArrowRight className="w-5 h-5 shrink-0" />
                             </Link>
-                        );
-                    })}
-                </div>
-            </section>
-
-            {/* FAQ Section */}
-            <FAQSection />
-
-            {/* Trust Fund Warning */}
-            <section className="max-w-4xl mx-auto px-6 py-8">
-                <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-6">
-                    <div className="flex items-start gap-4">
-                        <AlertTriangle className="w-6 h-6 text-amber-400 flex-shrink-0 mt-1" />
-                        <div>
-                            <h3 className="font-bold text-amber-400 mb-2">Trust Fund Outlook</h3>
-                            <p className="text-sm text-slate-300">
-                                The 2024 Social Security Trustees Report projects the combined trust funds will be depleted by 2034. After that point, continuing payroll tax revenue would cover approximately 77% of scheduled benefits. Congress may enact reforms—such as raising the retirement age, increasing payroll taxes, or adjusting benefit formulas—before this occurs.
-                            </p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Citations */}
-            <section className="max-w-4xl mx-auto px-6 py-8 border-t border-slate-700/50">
-                <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">
-                    Data Sources & Citations
-                </h3>
-                <ul className="text-xs text-slate-500 space-y-2">
-                    <li>• Social Security Administration. "Benefit Calculators." SSA.gov, 2026.</li>
-                    <li>• Social Security Administration. "2024 Annual Report of the Board of Trustees." SSA OASDI Trustees Report, 2024.</li>
-                    <li>• Social Security Administration. "Cost-of-Living Adjustments (COLA)." SSA.gov, 2026.</li>
-                    <li>• Congressional Research Service. "Social Security: What Would Happen If the Trust Funds Ran Out?" CRS Report RL33514, 2024.</li>
-                    <li>• AARP. "Social Security Resource Center." AARP.org, 2026.</li>
-                </ul>
+            {/* 2. STRICT 3-TABLE PROTOCOL LAYER */}
+            <section className="py-20 bg-slate-950/50 backdrop-blur-xl">
+                <div className="max-w-6xl mx-auto px-4">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 italic">Retirement Benchmarks</h2>
+                        <p className="text-slate-400">Official 2026 benefit thresholds and claiming age targets.</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        {/* Table I: Claiming Logic */}
+                        <div className="space-y-4">
+                            <div className="flex items-center gap-3 mb-2 px-2">
+                                <Target className="w-5 h-5 text-blue-400" />
+                                <h3 className="font-bold text-white uppercase tracking-wider text-sm">Table I: 2026 Ages</h3>
+                            </div>
+                            <div className="overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40">
+                                <table className="w-full text-left text-sm">
+                                    <thead className="bg-white/5 text-slate-300 font-semibold uppercase text-[10px] tracking-widest">
+                                        <tr>
+                                            <th className="px-5 py-3 border-b border-white/5">Age Tier</th>
+                                            <th className="px-5 py-3 border-b border-white/5">Benefit Yield</th>
+                                            <th className="px-5 py-3 border-b border-white/5">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="text-slate-400 divide-y divide-white/5 font-mono">
+                                        <tr>
+                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Age 62</td>
+                                            <td className="px-5 py-3">70% - 75%</td>
+                                            <td className="px-5 py-3 text-rose-400">Reduced</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Age 67 (FRA)</td>
+                                            <td className="px-5 py-3">100%</td>
+                                            <td className="px-5 py-3 text-emerald-400">Baseline</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Age 70</td>
+                                            <td className="px-5 py-3">124%</td>
+                                            <td className="px-5 py-3 text-blue-400">Maximum</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="px-5 py-3 bg-blue-500/10 font-bold text-blue-400 italic">2026 COLA</td>
+                                            <td className="px-5 py-3 bg-blue-500/10 font-bold text-blue-400">~2.7%</td>
+                                            <td className="px-5 py-3 bg-blue-500/10 font-bold text-blue-400">Projected</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        {/* Table II: Payout Scalars */}
+                        <div className="space-y-4">
+                            <div className="flex items-center gap-3 mb-2 px-2">
+                                <Activity className="w-5 h-5 text-indigo-400" />
+                                <h3 className="font-bold text-white uppercase tracking-wider text-sm">Table II: Limits</h3>
+                            </div>
+                            <div className="overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40">
+                                <table className="w-full text-left text-sm">
+                                    <thead className="bg-white/5 text-slate-300 font-semibold uppercase text-[10px] tracking-widest">
+                                        <tr>
+                                            <th className="px-5 py-3 border-b border-white/5">Limit Type</th>
+                                            <th className="px-5 py-3 border-b border-white/5">2026 Figure</th>
+                                            <th className="px-5 py-3 border-b border-white/5">Condition</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="text-slate-400 divide-y divide-white/5">
+                                        <tr>
+                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Wage Base</td>
+                                            <td className="px-5 py-3 font-mono">~$174,900</td>
+                                            <td className="px-5 py-3 text-emerald-400">Max Tax</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Earnings Test</td>
+                                            <td className="px-5 py-3 font-mono">$23,400</td>
+                                            <td className="px-5 py-3 text-amber-400">Under FRA</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Max Monthly</td>
+                                            <td className="px-5 py-3 font-mono">$5,000+</td>
+                                            <td className="px-5 py-3 text-blue-400">Age 70</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300 italic">PIA Bend Pt 1</td>
+                                            <td className="px-5 py-3 font-mono">$1,226</td>
+                                            <td className="px-5 py-3 text-teal-400">90% Rate</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        {/* Table III: Optimization Mapping */}
+                        <div className="space-y-4">
+                            <div className="flex items-center gap-3 mb-2 px-2">
+                                <RefreshCw className="w-5 h-5 text-amber-400" />
+                                <h3 className="font-bold text-white uppercase tracking-wider text-sm">Table III: Strategic Pivot</h3>
+                            </div>
+                            <div className="overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40">
+                                <table className="w-full text-left text-sm">
+                                    <thead className="bg-white/5 text-slate-300 font-semibold uppercase text-[10px] tracking-widest">
+                                        <tr>
+                                            <th className="px-5 py-3 border-b border-white/5">Objective</th>
+                                            <th className="px-5 py-3 border-b border-white/5">Primary Factor</th>
+                                            <th className="px-5 py-3 border-b border-white/5">Outcome</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="text-slate-400 divide-y divide-white/5 font-mono">
+                                        <tr>
+                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Max Lifetime</td>
+                                            <td className="px-5 py-3">Break-even (80)</td>
+                                            <td className="px-5 py-3 text-emerald-400">Delayed</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Liquidity Need</td>
+                                            <td className="px-5 py-3">Early Access</td>
+                                            <td className="px-5 py-3 text-rose-400">Claim at 62</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Spousal Sync</td>
+                                            <td className="px-5 py-3">High-Earner FRA</td>
+                                            <td className="px-5 py-3 text-indigo-400">Optimized</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300 italic">Survivor Prot</td>
+                                            <td className="px-5 py-3">Delayed Credits</td>
+                                            <td className="px-5 py-3 text-teal-400">Legacy</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            {/* CTA */}
-            <section className="max-w-4xl mx-auto px-6 py-16 text-center">
-                <h2 className="text-2xl font-black text-white mb-4">
-                    Plan Your Retirement Today
-                </h2>
-                <p className="text-slate-400 mb-8 max-w-xl mx-auto">
-                    Estimate your Social Security benefits and make informed decisions about when to claim.
-                </p>
-                <Link
-                    href="/social-security/ss-calculator"
-                    className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-bold transition-colors shadow-lg shadow-blue-500/25"
-                >
-                    <Calculator className="w-5 h-5" />
-                    Calculate Benefits
-                    <ArrowRight className="w-5 h-5" />
-                </Link>
+            {/* 3. HIGH-DENSITY TECHNICAL GUIDE LAYER */}
+            <section className="py-20 bg-slate-900/20">
+                <div className="max-w-4xl mx-auto px-4">
+                    <div className="prose prose-invert prose-blue max-w-none">
+                        <h2 className="text-3xl font-bold text-white mb-8 border-l-4 border-blue-500 pl-6 underline underline-offset-8 decoration-blue-500/30">2026 Social Security Architecture</h2>
+
+                        <p className="text-slate-300 text-lg leading-relaxed mb-6 font-sans text-left">
+                            Social Security represents the primary retirement insurance infrastructure for over 180 million American workers. In the 2026 fiscal cycle, the focus is on navigating **AIME Indexing Dynamics**, **The Cost-of-Living Pivot (COLA)**, and **Delayed Retirement Credit Arbitrage**. Our S-Class engine analyzes the core benefit vectors: **PIA Bend Point Compression**, **The 35-Year Career Normalization**, and **Actuarial Reduction Velocity**.
+                        </p>
+
+                        <div className="grid md:grid-cols-2 gap-8 my-10 font-sans">
+                            <div className="bg-slate-900 border border-white/10 p-6 rounded-2xl relative overflow-hidden group">
+                                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform text-blue-500">
+                                    <PieChart className="w-16 h-16" />
+                                </div>
+                                <h4 className="text-blue-400 font-bold mb-3 uppercase tracking-tighter text-xs">I. Expenditure Dynamics</h4>
+                                <ul className="text-sm space-y-2 mb-0 text-slate-400 list-none pl-0 text-left">
+                                    <li>• **AIME Normalization**: Solving for the Average Indexed Monthly Earnings using the top 35 years of work history.</li>
+                                    <li>• **Bend Point Optimization**: Mapping the transition from the 90% replacement rate to the 32% and 15% tiers.</li>
+                                    <li>• **COLA Momentum**: Tracking the interaction between the '2026 COLA' and existing base benefit amounts.</li>
+                                    <li>• **Taxation Gaps**: Strategic audits for the 50% and 85% benefit-taxability thresholds.</li>
+                                </ul>
+                            </div>
+                            <div className="bg-slate-900 border border-white/10 p-6 rounded-2xl relative overflow-hidden group">
+                                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform text-indigo-500">
+                                    <LineChart className="w-16 h-16" />
+                                </div>
+                                <h4 className="text-indigo-400 font-bold mb-3 uppercase tracking-tighter text-xs">II. Regulatory Friction</h4>
+                                <ul className="text-sm space-y-2 mb-0 text-slate-400 list-none pl-0 text-left">
+                                    <li>• **Full Retirement Age (FRA) Shift**: Managing the final phase of the age 67 baseline implementation.</li>
+                                    <li>• **The Earnings Test Limitation**: Identifying the $23,400+ 'clawback' triggers for working beneficiaries.</li>
+                                    <li>• **Trust Fund Liquidity**: Monitoring the 2034 depletion projection and its impact on 2026 planning.</li>
+                                    <li>• **Survivor Indemnity**: Managing the 'Higher-of-Two' benefit logic for widowed spouses.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3 className="text-2xl font-bold text-white mb-4 text-left">The Actuarial Model: Solving for the Claiming Alpha</h3>
+                        <p className="text-slate-400 leading-relaxed mb-6 font-sans text-left">
+                            Standard calculators often fail to account for **Spousal Arbitrage**. By strategically timing the 'Higher-Earner' claim to age 70, a couple can maximize not only the monthly lifetime check but also the survivor benefit floor. Our Social Security Audit Engine applies a **Cumulative-Life-Yield (CLY)** co-efficient, identifying the exact cross-over age where waiting past FRA provides a 100% ROI compared to claiming at 62 in the 2026 market.
+                        </p>
+
+                        <div className="bg-blue-500/5 border border-blue-500/20 p-6 rounded-2xl my-10 font-sans text-left">
+                            <div className="flex items-start gap-4 text-blue-300">
+                                <Info className="w-6 h-6 shrink-0 mt-1" />
+                                <div className="text-sm leading-relaxed">
+                                    <strong className="text-blue-200 block mb-1 uppercase tracking-widest text-[10px]">Strategic Note: The 12-Month Do-Over</strong>
+                                    If you claim benefits and then change your mind, you have a one-time opportunity to 'withdraw' your application within the first 12 months. You must repay all benefits received to date, but this allows you to 'reset' your claiming age and earn higher credits later.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
-            {/* Related */}
-            <section className="max-w-4xl mx-auto px-6 py-8">
-                <RelatedCalculators currentCalc="social-security" count={5} />
+            {/* 4. EXPERT FAQ HUB LAYER */}
+            <section className="py-20 border-t border-white/5 bg-[#020617]">
+                <div className="max-w-6xl mx-auto px-4 text-center">
+                    <div className="mb-16">
+                        <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 italic tracking-wide font-sans">Retirement Intelligence</h2>
+                        <p className="text-slate-500 font-medium tracking-tight">Expert guidance for navigating 2026 SSA retirement and claiming protocols.</p>
+                    </div>
+                    <FAQSection />
+                </div>
+            </section>
+
+            {/* 5. RELATED CALCULATORS LAYER */}
+            <section className="py-20 border-t border-white/5 bg-slate-950">
+                <div className="max-w-6xl mx-auto px-4">
+                    <div className="flex flex-col items-center gap-12">
+                        <div className="text-center">
+                            <h2 className="text-2xl font-bold text-white mb-2 tracking-tight">Retirement Resource Cluster</h2>
+                            <p className="text-slate-500 text-sm italic italic tracking-[0.3em] uppercase font-light">Internal Resource Mapping</p>
+                        </div>
+                        <div className="w-full max-w-lg">
+                            <RelatedCalculators currentCalc="social-security" count={6} />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* CTA FOOTER */}
+            <section className="py-24 bg-gradient-to-t from-blue-900/20 to-transparent">
+                <div className="max-w-4xl mx-auto px-4 text-center">
+                    <h2 className="text-3xl md:text-6xl font-black text-white mb-8 tracking-tighter leading-none">Optimize Your Retirement.<br /><span className="text-blue-500">Secure Your Claiming Alpha.</span></h2>
+                    <Link href="/social-security/ss-calculator" className="inline-flex items-center gap-3 bg-white text-slate-950 hover:bg-slate-200 px-10 py-5 rounded-2xl font-black text-xl transition-all shadow-2xl shadow-blue-500/20 active:scale-95 group">
+                        <Calculator className="w-6 h-6 group-hover:text-blue-600 transition-colors" />
+                        RUN RETIREMENT AUDIT
+                        <ArrowRight className="w-6 h-6" />
+                    </Link>
+                    <p className="mt-8 text-slate-500 text-xs font-bold tracking-[0.4em] uppercase">Verified Institutional Framework • 2026 Edition</p>
+                </div>
             </section>
         </div>
     );
