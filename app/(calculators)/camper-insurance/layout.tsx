@@ -9,14 +9,14 @@ export default function CamperInsuranceFlagshipLayout({
 }) {
     return (
         <FlagshipLayout
-            brandName="TaxAudit AI"
-            brandIcon="truck"
+            brandName="Camper Insurance Auditor"
+            brandIcon="compass"
             hubPath="/camper-insurance"
-            accentColorRgb="37, 99, 235"
-            accentSelectionClass="selection:bg-blue-500/30"
+            accentColorRgb="16, 185, 129"
+            accentSelectionClass="selection:bg-emerald-500/30"
             navLinks={[
                 { label: "PREMIUM CALC", href: "/camper-insurance/calculator" },
-                { label: "COVERAGE GUIDE", href: "/camper-insurance/guide" },
+                { label: "INSURANCE GUIDE", href: "/camper-insurance/guide" },
             ]}
         >
             {children}

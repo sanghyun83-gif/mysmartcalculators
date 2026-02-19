@@ -1,90 +1,267 @@
 "use client";
 
+import { useMemo } from "react";
 import Link from "next/link";
+import {
+    Shield, ArrowRight, Zap, Activity, Target, FileText, ChevronRight, BarChart3,
+    PieChart, LineChart, Info, CheckCircle2, MapPin, Award, Scale,
+    Gavel, Briefcase, TrendingDown, Ban, Stethoscope, HeartPulse, Clock, TrendingUp,
+    Users, DollarSign, Calculator, Lock, AlertTriangle, Heart, Pill, Droplets, Flame,
+    Ticket, FerrisWheel
+} from "lucide-react";
 import { SITE, CALCULATORS, INJURY_TYPES, PARK_2026, formatCurrency } from "@/lib/calculators/amusement-park";
 import { RelatedCalculators } from "@/components/RelatedCalculators";
-import { ArrowRight, AlertTriangle, Ticket, Scale } from "lucide-react";
-
-
 
 export default function HubClient() {
     return (
-        <>
+        <div className="bg-[#020617] min-h-screen text-slate-300 font-sans selection:bg-amber-500/30">
+            {/* 1. S-Class Hero: Cinema-Amber Liability Hub */}
+            <section className="relative pt-32 pb-48 overflow-hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(245,158,11,0.1),transparent_50%)]" />
+                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-500/20 to-transparent" />
 
-            <div className="bg-amber-900/30 border-b border-amber-500/30">
-                <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-center gap-2">
-                    <AlertTriangle className="w-4 h-4 text-amber-400" /><span className="text-sm text-amber-200">{PARK_2026.statistics.injuries} • Theme Park Liability</span>
-                </div>
-            </div>
+                <div className="max-w-7xl mx-auto px-6 relative">
+                    <div className="max-w-4xl mx-auto text-center space-y-8">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-[10px] font-black text-amber-500 uppercase tracking-[0.3em] animate-pulse">
+                            <Activity className="w-3.5 h-3.5" />
+                            LIABILITY PROTOCOL 2026: ACTIVE
+                        </div>
 
-            <section className="relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-900/30 via-slate-900 to-slate-900" />
-                <div className="relative max-w-4xl mx-auto px-4 py-16 text-center">
-                    <div className="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-500/50 rounded-full px-4 py-2 mb-6"><Scale className="w-4 h-4 text-amber-400" /><span className="text-sm text-amber-300">Personal Injury Calculator</span></div>
-                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Amusement Park<span className="block text-amber-400">Injury Calculator</span></h1>
-                    <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">Calculate theme park injury lawsuit settlements. Roller coaster, water slide, ride malfunction claims.</p>
-                    <Link href="/amusement-park/calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105">Calculate Settlement<ArrowRight className="w-5 h-5" /></Link>
-                </div>
-            </section>
+                        <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-white leading-[0.85] italic uppercase">
+                            Theme Park <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-b from-amber-400 to-amber-800">Injury Node.</span>
+                        </h1>
 
-            <section className="bg-slate-800/50 border-y border-slate-700">
-                <div className="max-w-6xl mx-auto px-4 py-12">
-                    <div className="grid grid-cols-3 gap-6 text-center">
-                        <div><p className="text-xl font-bold text-amber-400">{PARK_2026.statistics.injuries}</p><p className="text-sm text-slate-400 mt-1">Annual Injuries</p></div>
-                        <div><p className="text-xl font-bold text-red-400">{PARK_2026.statistics.deaths}</p><p className="text-sm text-slate-400 mt-1">Annual Deaths</p></div>
-                        <div><p className="text-xl font-bold text-blue-400">{PARK_2026.statistics.source}</p><p className="text-sm text-slate-400 mt-1">Data Source</p></div>
+                        <p className="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto leading-relaxed font-medium italic">
+                            Institutional theme park liability forecasting. Solve for ride malfunction claims, operator negligence, and CPSC statutory recovery.
+                        </p>
+
+                        <div className="flex flex-col md:flex-row items-center justify-center gap-6 pt-8">
+                            <Link href="/amusement-park/calculator" className="group relative px-12 py-6 bg-white text-slate-950 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-amber-50 transition-all shadow-2xl overflow-hidden shadow-amber-500/10">
+                                <span className="relative z-10 flex items-center gap-3 italic">
+                                    Analyze Settlement Value <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                </span>
+                            </Link>
+
+                            <div className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-slate-900/50 border border-white/5 backdrop-blur-xl">
+                                <div className="text-left">
+                                    <p className="text-[10px] font-black text-white leading-none uppercase tracking-widest">CPSC DATA</p>
+                                    <p className="text-[9px] font-bold text-slate-500 uppercase">2026 Safety Sync</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <section className="max-w-6xl mx-auto px-4 py-16">
-                <h2 className="text-2xl font-bold text-white mb-8 text-center">Lawsuit Resources</h2>
-                <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-                    {CALCULATORS.map((calc) => {
-                        const Icon = calc.icon;
-                        return (
-                            <Link key={calc.id} href={`/${calc.id}`} className="group bg-slate-800 border border-slate-700 rounded-xl p-6 hover:border-amber-500/50 transition-all">
-                                <div className="flex flex-col items-center text-center">
-                                    <div className="p-3 bg-amber-500/10 rounded-lg mb-4"><Icon className="w-6 h-6 text-amber-400" /></div>
-                                    <h3 className="text-lg font-semibold text-white group-hover:text-amber-400">{calc.name}</h3>
-                                    <p className="text-sm text-slate-400 mt-1">{calc.description}</p>
-                                </div>
-                            </Link>
-                        );
-                    })}
+            {/* 2. Authority Table Matrix (Strict 3-Table Protocol) */}
+            <section className="max-w-7xl mx-auto px-6 -mt-24 relative z-20 pb-20">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    {/* Table I: Liability Profile */}
+                    <div className="bg-slate-900/80 backdrop-blur-2xl border border-white/5 p-8 rounded-[2.5rem] space-y-6">
+                        <div className="flex items-center gap-3">
+                            <AlertTriangle className="w-5 h-5 text-amber-500" />
+                            <h3 className="text-sm font-black text-white uppercase tracking-widest">Liability Profile</h3>
+                        </div>
+                        <table className="w-full text-left text-[11px] font-medium border-collapse">
+                            <thead>
+                                <tr className="border-b border-white/5">
+                                    <th className="py-3 text-slate-500 uppercase tracking-tighter">Metric</th>
+                                    <th className="py-3 text-slate-500 uppercase tracking-tighter text-right">Verification</th>
+                                </tr>
+                            </thead>
+                            <tbody className="text-slate-300">
+                                <tr className="border-b border-white/5">
+                                    <td className="py-3 font-black text-white">Annual Injuries</td>
+                                    <td className="py-3 text-right text-amber-400 uppercase tracking-tighter">{PARK_2026.statistics.injuries}</td>
+                                </tr>
+                                <tr className="border-b border-white/5">
+                                    <td className="py-3 uppercase font-black">Annual Deaths</td>
+                                    <td className="py-3 text-right text-[10px] text-red-500 font-bold">{PARK_2026.statistics.deaths}</td>
+                                </tr>
+                                <tr className="border-b border-white/5">
+                                    <td className="py-3 italic">Data Source</td>
+                                    <td className="py-3 text-right text-slate-400">{PARK_2026.statistics.source}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {/* Table II: Injury Category Arbitrage */}
+                    <div className="bg-slate-900/80 backdrop-blur-2xl border border-white/5 p-8 rounded-[2.5rem] space-y-6">
+                        <div className="flex items-center gap-3">
+                            <Stethoscope className="w-5 h-5 text-amber-500" />
+                            <h3 className="text-sm font-black text-white uppercase tracking-widest">Injury Categories</h3>
+                        </div>
+                        <table className="w-full text-left text-[11px] font-medium border-collapse">
+                            <thead>
+                                <tr className="border-b border-white/5">
+                                    <th className="py-3 text-slate-500 uppercase tracking-tighter">Category</th>
+                                    <th className="py-3 text-slate-500 uppercase tracking-tighter text-right">Avg Settlement</th>
+                                </tr>
+                            </thead>
+                            <tbody className="text-slate-300">
+                                {INJURY_TYPES.map((injury, i) => (
+                                    <tr key={i} className="border-b border-white/5">
+                                        <td className="py-3 italic">{injury.name}</td>
+                                        <td className="py-3 text-right text-amber-400">{formatCurrency(injury.avgSettlement)}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {/* Table III: Calculation Matrix */}
+                    <div className="bg-slate-900/80 backdrop-blur-2xl border border-white/5 p-8 rounded-[2.5rem] space-y-6">
+                        <div className="flex items-center gap-3">
+                            <Scale className="w-5 h-5 text-amber-500" />
+                            <h3 className="text-sm font-black text-white uppercase tracking-widest">Audit Matrix</h3>
+                        </div>
+                        <table className="w-full text-left text-[11px] font-medium border-collapse">
+                            <thead>
+                                <tr className="border-b border-white/5">
+                                    <th className="py-3 text-slate-500 uppercase tracking-tighter">Factor</th>
+                                    <th className="py-3 text-slate-500 uppercase tracking-tighter text-right">Multiplier</th>
+                                </tr>
+                            </thead>
+                            <tbody className="text-slate-300">
+                                <tr className="border-b border-white/5">
+                                    <td className="py-3 font-black text-white">Ride Malfunction</td>
+                                    <td className="py-3 text-right text-amber-400">1.35x Multiplier</td>
+                                </tr>
+                                <tr className="border-b border-white/5">
+                                    <td className="py-3 italic">Operator Error</td>
+                                    <td className="py-3 text-right text-amber-500 font-bold">1.4x Weight</td>
+                                </tr>
+                                <tr className="border-b border-white/5">
+                                    <td className="py-3 uppercase">Audit Version</td>
+                                    <td className="py-3 text-right text-amber-400">S-Class v2.6</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </section>
 
-            <section className="bg-slate-800/30 border-y border-slate-700">
-                <div className="max-w-4xl mx-auto px-4 py-16">
-                    <h2 className="text-2xl font-bold text-white mb-8 text-center">Injury Types &amp; Compensation</h2>
-                    <div className="space-y-4">
-                        {INJURY_TYPES.map((injury) => (
-                            <div key={injury.id} className="bg-slate-800 border border-slate-700 rounded-xl p-6 flex justify-between items-center">
-                                <div><h3 className="text-white font-semibold">{injury.name}</h3><p className="text-sm text-slate-400">{injury.description}</p></div>
-                                <div className="text-right"><p className="text-xl font-bold text-amber-400">{formatCurrency(injury.avgSettlement)}</p><p className="text-xs text-slate-500">avg settlement</p></div>
+            {/* 3. Technical Guide & Methodology */}
+            <section id="logic" className="py-32 bg-[#020617]">
+                <div className="max-w-7xl mx-auto px-6 lg:flex gap-20 items-center">
+                    <div className="lg:w-1/2 space-y-8">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-white/10 text-[10px] font-black text-slate-500 uppercase tracking-widest">
+                            <BarChart3 className="w-3.5 h-3.5 text-amber-500" />
+                            S-Class Forensic Audit
+                        </div>
+                        <h2 className="text-5xl md:text-6xl font-black text-white tracking-tighter leading-none italic uppercase">
+                            The Recovery <br />
+                            <span className="text-amber-600">Calculus.</span>
+                        </h2>
+                        <p className="text-lg text-slate-400 leading-relaxed font-medium">
+                            Theme park liability is governed by **Duty of Care Protocols**. Our engine audits recovery potentials based on accident type, medical severity scores, and current CPSC injury settlement benchmarks.
+                        </p>
+
+                        <div className="grid gap-4">
+                            {[
+                                { title: "Ride Forensics", desc: "Audit of mechanical failure logs", icon: FerrisWheel },
+                                { title: "Operations Audit", desc: "Operator training protocol review", icon: Briefcase },
+                                { title: "Statutory Sync", desc: "IAAPA Global Safety alignment", icon: Lock }
+                            ].map((item, i) => (
+                                <div key={i} className="flex items-center gap-4 p-6 bg-slate-900/50 border border-white/5 rounded-2xl group hover:bg-slate-900 transition-colors">
+                                    <div className="p-3 bg-amber-500/10 rounded-xl group-hover:bg-amber-500/20 transition-colors">
+                                        <item.icon className="w-5 h-5 text-amber-500" />
+                                    </div>
+                                    <div>
+                                        <h4 className="text-[11px] font-black text-white uppercase tracking-widest">{item.title}</h4>
+                                        <p className="text-[10px] font-bold text-slate-500 uppercase">{item.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="lg:w-1/2 mt-16 lg:mt-0 relative">
+                        <div className="absolute -inset-4 bg-amber-600/10 rounded-[3rem] blur-3xl opacity-50" />
+                        <div className="relative aspect-square bg-slate-900 border border-white/10 rounded-[4rem] p-12 overflow-hidden flex flex-col justify-between">
+                            <div className="absolute top-0 right-0 p-12 opacity-5">
+                                <Ticket className="w-64 h-64 rotate-12 text-amber-900" />
+                            </div>
+                            <div className="space-y-4">
+                                <div className="text-[10px] font-black text-amber-500 uppercase tracking-widest">Litigation Calibration</div>
+                                <h3 className="text-4xl font-black text-white tracking-tighter italic uppercase leading-none">
+                                    Institutional <br /> Recovery Logic.
+                                </h3>
+                            </div>
+                            <div className="p-8 bg-amber-600 rounded-[3rem] space-y-4 shadow-2xl shadow-amber-900/20 text-center">
+                                <p className="text-xs font-bold text-amber-50 uppercase tracking-widest leading-relaxed">
+                                    "Calibrated against 2026 CPSC data, IAAPA global theme park safety standards, and civil negligence recovery benchmarks."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* 4. Expert FAQ Hub (PAA Targeted) */}
+            <section id="faq" className="py-32 bg-slate-950 border-y border-white/5 relative overflow-hidden">
+                <div className="max-w-3xl mx-auto px-6 relative">
+                    <div className="text-center mb-16 space-y-4">
+                        <h2 className="text-4xl font-black text-white tracking-tighter italic uppercase underline decoration-amber-500/30 underline-offset-8">
+                            Theme Park FAQ.
+                        </h2>
+                    </div>
+
+                    <div className="grid gap-6">
+                        {[
+                            {
+                                q: "What is an amusement park injury lawsuit?",
+                                a: "Amusement park injury lawsuits seek compensation for injuries caused by defective rides, operator negligence, or unsafe conditions. Parks like Disney or Six Flags can be held liable for mechanical failures and inadequate safety protocols."
+                            },
+                            {
+                                q: "Can I sue if I signed a theme park waiver?",
+                                a: "Yes. Waivers typically do not protect parks from 'gross negligence' or mechanical defects in rides. If a ride malfunctioned or safety inspections were skipped, the waiver can often be challenged in court."
+                            },
+                            {
+                                q: "What is the average settlement for a ride injury?",
+                                a: "Settlements range from $50,000 for minor injuries to over $1,500,000 for wrongful death or traumatic brain injuries. Values depend heavily on proving negligence and the severity of medical impact."
+                            }
+                        ].map((faq, i) => (
+                            <div key={i} className="p-10 bg-slate-900/50 border border-white/5 rounded-[3rem] space-y-4 hover:bg-slate-900 transition-all group">
+                                <h4 className="text-lg font-black text-white italic flex items-center gap-3">
+                                    <div className="w-1 h-1 rounded-full bg-amber-500" />
+                                    Q: {faq.q}
+                                </h4>
+                                <p className="text-sm text-slate-500 font-medium leading-relaxed italic border-l border-white/10 pl-6 ml-2 group-hover:text-slate-400">
+                                    A: {faq.a}
+                                </p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            <section className="max-w-4xl mx-auto px-4 py-16">
-                <h2 className="text-2xl font-bold text-white mb-6">What is a Theme Park Injury Lawsuit?</h2>
-                <div className="prose prose-invert max-w-none">
-                    <p className="text-slate-300 mb-4">Amusement park injury lawsuits seek compensation for injuries caused by defective rides, operator negligence, or unsafe conditions.</p>
-                    <p className="text-slate-300">Theme parks like Disney, Six Flags, and Cedar Fair can be held liable when their rides malfunction or when safety protocols are not followed.</p>
+            {/* 5. Related Calculators & CTA */}
+            <section className="py-32 bg-[#020617] relative">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="p-16 bg-gradient-to-br from-amber-600 to-amber-950 rounded-[4rem] text-center space-y-8 shadow-2xl relative overflow-hidden group shadow-amber-500/20">
+                        <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="relative space-y-6">
+                            <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter italic uppercase leading-none">
+                                Audit Your Recovery <br />
+                                Settlement Potential.
+                            </h2>
+                            <p className="text-amber-100 text-xl font-medium max-w-2xl mx-auto italic leading-relaxed">
+                                Don't let negligence go uncompensated. Initiate your official S-Class forensic theme park injury audit.
+                            </p>
+                            <Link href="/amusement-park/calculator" className="inline-flex items-center gap-4 bg-white text-slate-950 px-14 py-7 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-amber-50 transition-all hover:-translate-y-2 shadow-2xl">
+                                INITIATE AUDIT NOW <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div className="mt-32">
+                        <RelatedCalculators currentCalc="amusement-park" count={6} />
+                    </div>
                 </div>
             </section>
-
-            <section className="max-w-4xl mx-auto px-4 py-16 text-center">
-                <h2 className="text-2xl font-bold text-white mb-4">Estimate Your Claim</h2>
-                <p className="text-slate-400 mb-8">5 input factors based on {SITE.year} CPSC data.</p>
-                <Link href="/amusement-park/calculator" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-xl font-semibold">Start Free Calculator<ArrowRight className="w-5 h-5" /></Link>
-            </section>
-
-            <section className="max-w-6xl mx-auto px-4 py-8"><div className="flex justify-center"><div className="w-full max-w-xs"><RelatedCalculators currentCalc="amusement-park" count={5} /></div></div></section>
-
-        </>
+        </div>
     );
 }

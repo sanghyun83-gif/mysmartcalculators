@@ -9,14 +9,14 @@ export default function CharitableDonationFlagshipLayout({
 }) {
     return (
         <FlagshipLayout
-            brandName="TaxAudit AI"
-            brandIcon="heart"
+            brandName="Donation Auditor"
+            brandIcon="gift"
             hubPath="/charitable-donation"
-            accentColorRgb="16, 185, 129"
-            accentSelectionClass="selection:bg-emerald-500/30"
+            accentColorRgb="244, 63, 94"
+            accentSelectionClass="selection:bg-rose-500/30"
             navLinks={[
                 { label: "DEDUCTION CALC", href: "/charitable-donation/calculator" },
-                { label: "AGI LIMITS", href: "/charitable-donation/guide" },
+                { label: "TAX GUIDE", href: "/charitable-donation/guide" },
             ]}
         >
             {children}

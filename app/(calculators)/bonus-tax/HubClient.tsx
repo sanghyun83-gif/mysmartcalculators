@@ -1,344 +1,256 @@
 "use client";
 
-import React, { useState } from "react";
 import Link from "next/link";
 import {
-    Calculator,
-    TrendingUp,
-    Shield,
-    FileText,
-    ArrowRight,
-    TrendingDown,
-    Scale,
-    Info,
-    ChevronDown,
-    Zap,
-    Activity,
-    Lock,
-    Globe,
-    CheckCircle2,
-    AlertCircle,
-    DollarSign,
-    RefreshCw,
-    Clock,
-    Target,
-    Briefcase,
-    PieChart,
-    LineChart,
-    Receipt
+    Calculator, TrendingUp, Shield, ArrowRight, Zap, Activity,
+    DollarSign, RefreshCw, Target, FileText, ChevronRight, BarChart3,
+    PieChart, LineChart, Info, CheckCircle2, MapPin, Award, Scale,
+    Receipt, Gavel, Briefcase, TrendingDown
 } from "lucide-react";
+import { SITE, STATISTICS, FAQS, RELATED_CALCULATORS } from "@/lib/calculators/bonus-tax";
 import { RelatedCalculators } from "@/components/RelatedCalculators";
-
-const FAQSection = () => {
-    const [openIndex, setOpenIndex] = useState<number | null>(null);
-    const faqs = [
-        {
-            q: "What is the flat federal withholding rate for bonuses in 2026?",
-            a: "For 2026, the IRS flat withholding rate for supplemental wages (bonuses) up to $1 million is 22%. If your total supplemental wages for the year exceed $1 million, the excess is taxed at the highest individual tax rate (currently 37%)."
-        },
-        {
-            q: "Does my state tax my bonus differently than my regular salary?",
-            a: "Many states follow the federal model and use a flat withholding rate for bonuses, while others treat them as regular income. For example, California uses a supplemental rate of 10.23% for most bonuses, which is often higher than the employee's effective tax rate."
-        },
-        {
-            q: "What is the 'Aggregate Method' of bonus taxation?",
-            a: "Under the aggregate method, your employer adds your bonus to your regular pay for that period and calculates withholding as if it were one large paycheck. This often results in a higher tax bracket for that specific check, leading to 'over-withholding' which you eventually reclaim as a tax refund."
-        },
-        {
-            q: "Are Social Security and Medicare taxes (FICA) taken out of bonuses?",
-            a: "Yes. Bonuses are subject to the same FICA taxes as regular wages: 6.2% for Social Security (up to the annual wage limit) and 1.45% for Medicare. Higher earners may also be subject to the 0.9% Additional Medicare Tax."
-        },
-        {
-            q: "Can I avoid high bonus taxes by contributing to my 401(k)?",
-            a: "Yes. Most employers allow you to divert a percentage of your bonus into your traditional 401(k). This reduces your taxable income for the year, effectively lowering the amount of federal and state income tax withheld from the bonus (though FICA taxes still apply)."
-        },
-        {
-            q: "Why did I get a large tax refund after receiving a bonus?",
-            a: "If your employer used the aggregate method or if you are in a low tax bracket (below 22%), the IRS likely withheld more than you actually owe. The difference between the 22% flat withholding and your true effective tax rate is returned to you when you file your annual tax return."
-        }
-    ];
-
-    return (
-        <div className="grid gap-4 max-w-3xl mx-auto text-left">
-            {faqs.map((faq, idx) => (
-                <div key={idx} className="bg-slate-900/50 border border-white/5 rounded-xl overflow-hidden active:scale-[0.99] transition-all">
-                    <button
-                        onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                        className="w-full p-5 flex items-center justify-between"
-                    >
-                        <span className="font-semibold text-slate-100 pr-8">{faq.q}</span>
-                        <ChevronDown className={`w-5 h-5 text-slate-500 transition-transform ${openIndex === idx ? 'rotate-180' : ''}`} />
-                    </button>
-                    {openIndex === idx && (
-                        <div className="px-5 pb-5 text-slate-400 text-sm leading-relaxed border-t border-white/5 pt-4">
-                            {faq.a}
-                        </div>
-                    )}
-                </div>
-            ))}
-        </div>
-    );
-};
 
 export default function HubClient() {
     return (
-        <div className="min-h-screen bg-[#020617] text-slate-200 font-sans selection:bg-emerald-500/30">
-            {/* 1. S-CLASS HERO LAYER */}
-            <section className="relative pt-24 pb-20 overflow-hidden border-b border-white/5">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-emerald-500/10 via-transparent to-transparent opacity-50 pointer-events-none" />
+        <div className="bg-[#020617] min-h-screen text-slate-300 font-sans selection:bg-emerald-500/30">
+            {/* 1. S-Class Hero: Cinema-Emerald Royale */}
+            <section className="relative pt-32 pb-48 overflow-hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(16,185,129,0.1),transparent_50%)]" />
+                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent" />
 
-                <div className="max-w-6xl mx-auto px-4 relative z-10">
-                    <div className="flex flex-col items-center text-center">
-                        <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full mb-8 backdrop-blur-md">
-                            <Receipt className="w-3.5 h-3.5 text-emerald-400" />
-                            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-emerald-400">Supplemental Wage Protocol 2026</span>
+                <div className="max-w-7xl mx-auto px-6 relative">
+                    <div className="max-w-4xl mx-auto text-center space-y-8">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-black text-emerald-400 uppercase tracking-[0.3em] animate-pulse">
+                            <Activity className="w-3.5 h-3.5" />
+                            SUPPLEMENTAL WAGE PROTOCOL 2026: ACTIVE
                         </div>
 
-                        <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight mb-6">
-                            Bonus Tax <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 italic">Audit Matrix</span>
+                        <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-white leading-[0.85] italic uppercase">
+                            Bonus Tax <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-b from-emerald-400 to-emerald-700">Audit Matrix.</span>
                         </h1>
 
-                        <p className="max-w-2xl text-slate-400 text-base sm:text-lg md:text-xl leading-relaxed mb-10">
-                            Institutional-grade supplemental wage forecasting. Solve for flat rates, aggregate withholding, and net-payout logic with 2026 precision.
+                        <p className="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto leading-relaxed font-medium italic">
+                            Institutional-grade supplemental wage forecasting. Solve for flat rates, aggregate withholding, and net-payout logic.
                         </p>
 
-                        <div className="flex flex-wrap justify-center gap-4">
-                            <Link href="/bonus-tax/calculator" className="flex items-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all hover:scale-[1.02] shadow-xl shadow-emerald-500/20 active:scale-95">
-                                <Calculator className="w-5 h-5 shrink-0" />
-                                Run Bonus Auditor
-                                <ArrowRight className="w-5 h-5 shrink-0" />
+                        <div className="flex flex-col md:flex-row items-center justify-center gap-6 pt-8">
+                            <Link href="/bonus-tax/calculator" className="group relative px-12 py-6 bg-white text-slate-950 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-emerald-50 transition-all shadow-2xl overflow-hidden shadow-emerald-500/10">
+                                <span className="relative z-10 flex items-center gap-3 italic">
+                                    Analyze Bonus Value <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                </span>
+                            </Link>
+
+                            <div className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-slate-900/50 border border-white/5 backdrop-blur-xl">
+                                <div className="text-left">
+                                    <p className="text-[10px] font-black text-white leading-none uppercase tracking-widest">IRS PUB 15</p>
+                                    <p className="text-[9px] font-bold text-slate-500 uppercase">2026 Withholding Sync</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* 2. Authority Table Matrix (Strict 3-Table Protocol) */}
+            <section className="max-w-7xl mx-auto px-6 -mt-24 relative z-20 pb-20">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    {/* Table I: Federal Rates */}
+                    <div className="bg-slate-900/80 backdrop-blur-2xl border border-white/5 p-8 rounded-[2.5rem] space-y-6">
+                        <div className="flex items-center gap-3">
+                            <Target className="w-5 h-5 text-emerald-500" />
+                            <h3 className="text-sm font-black text-white uppercase tracking-widest">Federal Logic</h3>
+                        </div>
+                        <table className="w-full text-left text-[11px] font-medium border-collapse">
+                            <thead>
+                                <tr className="border-b border-white/5">
+                                    <th className="py-3 text-slate-500 uppercase tracking-tighter">Tier</th>
+                                    <th className="py-3 text-slate-500 uppercase tracking-tighter text-right">Flat Rate</th>
+                                </tr>
+                            </thead>
+                            <tbody className="text-slate-300">
+                                <tr className="border-b border-white/5">
+                                    <td className="py-3">Under $1 Million</td>
+                                    <td className="py-3 text-right text-emerald-400">22.0%</td>
+                                </tr>
+                                <tr className="border-b border-white/5">
+                                    <td className="py-3">Over $1 Million</td>
+                                    <td className="py-3 text-right">37.0%</td>
+                                </tr>
+                                <tr className="border-b border-white/5">
+                                    <td className="py-3">Aggregate Method</td>
+                                    <td className="py-3 text-right">Bracketed</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {/* Table II: FICA Burdens */}
+                    <div className="bg-slate-900/80 backdrop-blur-2xl border border-white/5 p-8 rounded-[2.5rem] space-y-6">
+                        <div className="flex items-center gap-3">
+                            <Activity className="w-5 h-5 text-emerald-500" />
+                            <h3 className="text-sm font-black text-white uppercase tracking-widest">FICA Burdens</h3>
+                        </div>
+                        <table className="w-full text-left text-[11px] font-medium border-collapse">
+                            <thead>
+                                <tr className="border-b border-white/5">
+                                    <th className="py-3 text-slate-500 uppercase tracking-tighter">Tax Type</th>
+                                    <th className="py-3 text-slate-500 uppercase tracking-tighter text-right">Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody className="text-slate-300">
+                                <tr className="border-b border-white/5">
+                                    <td className="py-3">Social Security</td>
+                                    <td className="py-3 text-right">6.2%</td>
+                                </tr>
+                                <tr className="border-b border-white/5">
+                                    <td className="py-3">Medicare</td>
+                                    <td className="py-3 text-right">1.45%</td>
+                                </tr>
+                                <tr className="border-b border-white/5">
+                                    <td className="py-3">Add. Medicare</td>
+                                    <td className="py-3 text-right">0.9%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {/* Table III: Optimization Mapping */}
+                    <div className="bg-slate-900/80 backdrop-blur-2xl border border-white/5 p-8 rounded-[2.5rem] space-y-6">
+                        <div className="flex items-center gap-3">
+                            <RefreshCw className="w-5 h-5 text-emerald-500" />
+                            <h3 className="text-sm font-black text-white uppercase tracking-widest">Strategic Pivot</h3>
+                        </div>
+                        <table className="w-full text-left text-[11px] font-medium border-collapse">
+                            <thead>
+                                <tr className="border-b border-white/5">
+                                    <th className="py-3 text-slate-500 uppercase tracking-tighter">Objective</th>
+                                    <th className="py-3 text-slate-500 uppercase tracking-tighter text-right">Outcome</th>
+                                </tr>
+                            </thead>
+                            <tbody className="text-slate-300">
+                                <tr className="border-b border-white/5">
+                                    <td className="py-3">Max Net Payout</td>
+                                    <td className="py-3 text-right text-emerald-400">Flat Method</td>
+                                </tr>
+                                <tr className="border-b border-white/5">
+                                    <td className="py-3">Tax Shielding</td>
+                                    <td className="py-3 text-right">401k Divert</td>
+                                </tr>
+                                <tr className="border-b border-white/5">
+                                    <td className="py-3">S-Class v2.6</td>
+                                    <td className="py-3 text-right text-emerald-400">Precise</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            {/* 3. Technical Guide & Clinical Methodology */}
+            <section id="logic" className="py-32 bg-[#020617]">
+                <div className="max-w-7xl mx-auto px-6 lg:flex gap-20 items-center">
+                    <div className="lg:w-1/2 space-y-8">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-white/10 text-[10px] font-black text-slate-500 uppercase tracking-widest">
+                            <BarChart3 className="w-3.5 h-3.5 text-emerald-500" />
+                            S-Class Supplemental Logic
+                        </div>
+                        <h2 className="text-5xl md:text-6xl font-black text-white tracking-tighter leading-none italic uppercase">
+                            The Payout <br />
+                            <span className="text-emerald-500">Forensic Audit.</span>
+                        </h2>
+                        <p className="text-lg text-slate-400 leading-relaxed font-medium">
+                            Bonus taxation represents a distinct fiscal layer within the U.S. tax code. In the 2026 economic landscape, the focus is on navigating **Flat vs. Aggregate Withholding Friction**.
+                        </p>
+
+                        <div className="grid gap-4">
+                            {[
+                                { title: "Withholding Alpha Audit", desc: "Solving for effective tax liability", icon: PieChart },
+                                { title: "Aggregate Friction Matrix", desc: "Tracking liquidity impact tiers", icon: LineChart },
+                                { title: "IRS Pub 15 Compliance", desc: "Publication 15-T modifications 2026", icon: FileText }
+                            ].map((item, i) => (
+                                <div key={i} className="flex items-center gap-4 p-6 bg-slate-900/50 border border-white/5 rounded-2xl group hover:bg-slate-900 transition-colors">
+                                    <div className="p-3 bg-emerald-500/10 rounded-xl group-hover:bg-emerald-500/20 transition-colors">
+                                        <item.icon className="w-5 h-5 text-emerald-500" />
+                                    </div>
+                                    <div>
+                                        <h4 className="text-[11px] font-black text-white uppercase tracking-widest">{item.title}</h4>
+                                        <p className="text-[10px] font-bold text-slate-500 uppercase">{item.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="lg:w-1/2 mt-16 lg:mt-0 relative">
+                        <div className="absolute -inset-4 bg-emerald-600/10 rounded-[3rem] blur-3xl opacity-50" />
+                        <div className="relative aspect-square bg-slate-900 border border-white/10 rounded-[4rem] p-12 overflow-hidden flex flex-col justify-between">
+                            <div className="absolute top-0 right-0 p-12 opacity-5">
+                                <Receipt className="w-64 h-64 rotate-12" />
+                            </div>
+                            <div className="space-y-4">
+                                <div className="text-[10px] font-black text-emerald-500 uppercase tracking-widest">Supplemental Calibration</div>
+                                <h3 className="text-4xl font-black text-white tracking-tighter italic uppercase leading-none">
+                                    Institutional <br /> Payout Precision.
+                                </h3>
+                            </div>
+                            <div className="p-8 bg-emerald-600 rounded-[3rem] space-y-4 shadow-2xl shadow-emerald-900/20 text-center">
+                                <p className="text-xs font-bold text-emerald-50 uppercase tracking-widest leading-relaxed">
+                                    "Calibrated against 2026 IRS withholding modifications and supplemental wage protocols for high-intent fiscal transparency."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* 4. Expert FAQ Hub (PAA Targeted) */}
+            <section id="faq" className="py-32 bg-slate-950 border-y border-white/5 relative overflow-hidden">
+                <div className="max-w-3xl mx-auto px-6 relative">
+                    <div className="text-center mb-16 space-y-4">
+                        <h2 className="text-4xl font-black text-white tracking-tighter italic uppercase underline decoration-emerald-500/30 underline-offset-8">
+                            Bonus Taxation FAQ.
+                        </h2>
+                    </div>
+
+                    <div className="grid gap-6">
+                        {FAQS.map((faq, i) => (
+                            <div key={i} className="p-10 bg-slate-900/50 border border-white/5 rounded-[3rem] space-y-4 hover:bg-slate-900 transition-all group">
+                                <h4 className="text-lg font-black text-white italic flex items-center gap-3">
+                                    <div className="w-1 h-1 rounded-full bg-emerald-500" />
+                                    Q: {faq.question}
+                                </h4>
+                                <p className="text-sm text-slate-500 font-medium leading-relaxed italic border-l border-white/10 pl-6 ml-2 group-hover:text-slate-400">
+                                    A: {faq.answer}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* 5. Related Calculators & CTA */}
+            <section className="py-32 bg-[#020617] relative">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="p-16 bg-gradient-to-br from-emerald-600 to-emerald-950 rounded-[4rem] text-center space-y-8 shadow-2xl relative overflow-hidden group shadow-emerald-500/20">
+                        <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="relative space-y-6">
+                            <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter italic uppercase leading-none">
+                                Audit Your Bonus <br />
+                                Net Take-Home.
+                            </h2>
+                            <p className="text-emerald-100 text-xl font-medium max-w-2xl mx-auto italic leading-relaxed">
+                                Don't let withholding friction erode your supplemental income. Initiate your institutional-grade bonus audit.
+                            </p>
+                            <Link href="/bonus-tax/calculator" className="inline-flex items-center gap-4 bg-white text-slate-950 px-14 py-7 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-emerald-50 transition-all hover:-translate-y-2 shadow-2xl">
+                                INITIATE AUDIT NOW <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </div>
                     </div>
-                </div>
-            </section>
 
-            {/* 2. STRICT 3-TABLE PROTOCOL LAYER */}
-            <section className="py-20 bg-slate-950/50 backdrop-blur-xl">
-                <div className="max-w-6xl mx-auto px-4">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 italic">Withholding Benchmarks</h2>
-                        <p className="text-slate-400">Official 2026 IRS supplemental wage tiers and withholding targets.</p>
+                    <div className="mt-32">
+                        <RelatedCalculators currentCalc="bonus-tax" count={6} />
                     </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                        {/* Table I: Federal Logic */}
-                        <div className="space-y-4">
-                            <div className="flex items-center gap-3 mb-2 px-2">
-                                <Target className="w-5 h-5 text-emerald-400" />
-                                <h3 className="font-bold text-white uppercase tracking-wider text-sm">Table I: 2026 Federal</h3>
-                            </div>
-                            <div className="overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40">
-                                <table className="w-full text-left text-sm">
-                                    <thead className="bg-white/5 text-slate-300 font-semibold uppercase text-[10px] tracking-widest">
-                                        <tr>
-                                            <th className="px-5 py-3 border-b border-white/5">Tier</th>
-                                            <th className="px-5 py-3 border-b border-white/5">Flat Rate</th>
-                                            <th className="px-5 py-3 border-b border-white/5">Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="text-slate-400 divide-y divide-white/5 font-mono">
-                                        <tr>
-                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Under $1 Million</td>
-                                            <td className="px-5 py-3">22.0%</td>
-                                            <td className="px-5 py-3 text-emerald-400">Standard</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Over $1 Million</td>
-                                            <td className="px-5 py-3">37.0%</td>
-                                            <td className="px-5 py-3 text-rose-400">High-Base</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Aggregate Method</td>
-                                            <td className="px-5 py-3">Bracketed</td>
-                                            <td className="px-5 py-3 text-blue-400">Variable</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="px-5 py-3 bg-emerald-500/10 font-bold text-emerald-400 italic">Effective Cap</td>
-                                            <td className="px-5 py-3 bg-emerald-500/10 font-bold text-emerald-400">37.0%</td>
-                                            <td className="px-5 py-3 bg-emerald-500/10 font-bold text-emerald-400">IRS Max</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        {/* Table II: Payout Scalars */}
-                        <div className="space-y-4">
-                            <div className="flex items-center gap-3 mb-2 px-2">
-                                <Activity className="w-5 h-5 text-teal-400" />
-                                <h3 className="font-bold text-white uppercase tracking-wider text-sm">Table II: FICA Burdens</h3>
-                            </div>
-                            <div className="overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40">
-                                <table className="w-full text-left text-sm">
-                                    <thead className="bg-white/5 text-slate-300 font-semibold uppercase text-[10px] tracking-widest">
-                                        <tr>
-                                            <th className="px-5 py-3 border-b border-white/5">Tax Type</th>
-                                            <th className="px-5 py-3 border-b border-white/5">Percentage</th>
-                                            <th className="px-5 py-3 border-b border-white/5">Cap Root</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="text-slate-400 divide-y divide-white/5">
-                                        <tr>
-                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Social Security</td>
-                                            <td className="px-5 py-3 font-mono">6.2%</td>
-                                            <td className="px-5 py-3 text-emerald-400">Annual Wage</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Medicare</td>
-                                            <td className="px-5 py-3 font-mono">1.45%</td>
-                                            <td className="px-5 py-3 text-teal-400">No Cap</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Add. Medicare</td>
-                                            <td className="px-5 py-3 font-mono">0.9%</td>
-                                            <td className="px-5 py-3 text-amber-400">$200k+ Tier</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300 italic">Total Mandatory</td>
-                                            <td className="px-5 py-3 font-mono">7.65%</td>
-                                            <td className="px-5 py-3 text-emerald-400">Standard</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        {/* Table III: Optimization Mapping */}
-                        <div className="space-y-4">
-                            <div className="flex items-center gap-3 mb-2 px-2">
-                                <RefreshCw className="w-5 h-5 text-amber-400" />
-                                <h3 className="font-bold text-white uppercase tracking-wider text-sm">Table III: Strategic Pivot</h3>
-                            </div>
-                            <div className="overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40">
-                                <table className="w-full text-left text-sm">
-                                    <thead className="bg-white/5 text-slate-300 font-semibold uppercase text-[10px] tracking-widest">
-                                        <tr>
-                                            <th className="px-5 py-3 border-b border-white/5">Objective</th>
-                                            <th className="px-5 py-3 border-b border-white/5">Primary Factor</th>
-                                            <th className="px-5 py-3 border-b border-white/5">Outcome</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="text-slate-400 divide-y divide-white/5 font-mono">
-                                        <tr>
-                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Max Net Payout</td>
-                                            <td className="px-5 py-3">Flat Method</td>
-                                            <td className="px-5 py-3 text-emerald-400">Precise</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Tax Shielding</td>
-                                            <td className="px-5 py-3">401k Divert</td>
-                                            <td className="px-5 py-3 text-blue-400">Efficiency</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300">Refund Avoid.</td>
-                                            <td className="px-5 py-3">W-4 Adjust</td>
-                                            <td className="px-5 py-3 text-amber-400">Balanced</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="px-5 py-3 bg-white/[0.02] font-medium text-slate-300 italic">State Variance</td>
-                                            <td className="px-5 py-3">Loc. Multiplier</td>
-                                            <td className="px-5 py-3 text-emerald-400">Variable</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* 3. HIGH-DENSITY TECHNICAL GUIDE LAYER */}
-            <section className="py-20 bg-slate-900/20">
-                <div className="max-w-4xl mx-auto px-4">
-                    <div className="prose prose-invert prose-emerald max-w-none">
-                        <h2 className="text-3xl font-bold text-white mb-8 border-l-4 border-emerald-500 pl-6 underline underline-offset-8 decoration-emerald-500/30">2026 Bonus Taxation Architecture</h2>
-
-                        <p className="text-slate-300 text-lg leading-relaxed mb-6 font-sans text-left">
-                            Bonus taxation represents a distinct fiscal layer within the U.S. tax code, categorized as 'Supplemental Wages.' In the 2026 economic landscape, the focus is on navigating **Flat vs. Aggregate Withholding Friction**, **FICA Ceiling Arbitrage**, and **Tax-Shield Divergence**. Our S-Class engine analyzes the core withholding vectors: **The Percentage Method**, **Bracket Over-Allocation**, and **Net-to-Gross Reconciliation**.
-                        </p>
-
-                        <div className="grid md:grid-cols-2 gap-8 my-10 font-sans">
-                            <div className="bg-slate-900 border border-white/10 p-6 rounded-2xl relative overflow-hidden group">
-                                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform text-emerald-500">
-                                    <PieChart className="w-16 h-16" />
-                                </div>
-                                <h4 className="text-emerald-400 font-bold mb-3 uppercase tracking-tighter text-xs">I. Expenditure Dynamics</h4>
-                                <ul className="text-sm space-y-2 mb-0 text-slate-400 list-none pl-0 text-left">
-                                    <li>• **Withholding Alpha**: Solving for the difference between the 22% flat rate and true effective tax liability.</li>
-                                    <li>• **Aggregate Friction**: Tracking the liquidity impact of being 'pushed' into a higher bracket for a single period.</li>
-                                    <li>• **FICA Reset Analysis**: Identifying bonus timing relative to the annual Social Security wage cap.</li>
-                                    <li>• **Deferred Compensation Shields**: Strategic audits for 401(k) and HSA bonus diversions.</li>
-                                </ul>
-                            </div>
-                            <div className="bg-slate-900 border border-white/10 p-6 rounded-2xl relative overflow-hidden group">
-                                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform text-teal-500">
-                                    <LineChart className="w-16 h-16" />
-                                </div>
-                                <h4 className="text-teal-400 font-bold mb-3 uppercase tracking-tighter text-xs">II. Regulatory Friction</h4>
-                                <ul className="text-sm space-y-2 mb-0 text-slate-400 list-none pl-0 text-left">
-                                    <li>• **IRS Publication 15-T**: Standardizing against the latest withholding table modifications.</li>
-                                    <li>• **Supplemental Rate Ceiling**: Managing the mandatory 37% shift for $1M+ bonuses.</li>
-                                    <li>• **Cross-State Nexus**: Identifying state-specific supplemental rates (e.g., California’s 10.23% fixed rate).</li>
-                                    <li>• **Additional Medicare (0.9%)**: Solving for the threshold triggers in high-earner bonus payouts.</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <h3 className="text-2xl font-bold text-white mb-4 text-left">The Actuarial Model: Solving for the Net-Payout Alpha</h3>
-                        <p className="text-slate-400 leading-relaxed mb-6 font-sans text-left">
-                            Standard calculators often fail to account for the **Bracket Latency**. When receiving a bonus via the aggregate method, payroll systems assume your annual income is equal to that specific paycheck multiplied by the number of pay periods in the year. This 'Inflationary Projection' leads to massive over-withholding. Our Bonus Audit Engine applies a **Normalized-Annual-Yield (NAY)** co-efficient, identifying the exact tax refund delta you can expect in the following spring.
-                        </p>
-
-                        <div className="bg-emerald-500/5 border border-emerald-500/20 p-6 rounded-2xl my-10 font-sans text-left">
-                            <div className="flex items-start gap-4 text-emerald-300">
-                                <Info className="w-6 h-6 shrink-0 mt-1" />
-                                <div className="text-sm leading-relaxed">
-                                    <strong className="text-emerald-200 block mb-1 uppercase tracking-widest text-[10px]">Strategic Note: The $1 Million Mark</strong>
-                                    If your employer pays you more than $1,000,000 in supplemental wages during a calendar year, they MUST use the 37% flat rate for any amount exceeding that threshold. There is no discretion or alternative method allowed by the IRS for these high-value transfers in 2026.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* 4. EXPERT FAQ HUB LAYER */}
-            <section className="py-20 border-t border-white/5 bg-[#020617]">
-                <div className="max-w-6xl mx-auto px-4 text-center">
-                    <div className="mb-16">
-                        <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 italic tracking-wide font-sans">Bonus Intelligence</h2>
-                        <p className="text-slate-500 font-medium tracking-tight">Expert guidance for navigating 2026 IRS bonus and supplemental wage protocols.</p>
-                    </div>
-                    <FAQSection />
-                </div>
-            </section>
-
-            {/* 5. RELATED CALCULATORS LAYER */}
-            <section className="py-20 border-t border-white/5 bg-slate-950">
-                <div className="max-w-6xl mx-auto px-4">
-                    <div className="flex flex-col items-center gap-12">
-                        <div className="text-center">
-                            <h2 className="text-2xl font-bold text-white mb-2 tracking-tight">Financial Resource Cluster</h2>
-                            <p className="text-slate-500 text-sm italic italic tracking-[0.3em] uppercase font-light">Internal Resource Mapping</p>
-                        </div>
-                        <div className="w-full max-w-lg">
-                            <RelatedCalculators currentCalc="bonus-tax" count={6} />
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* CTA FOOTER */}
-            <section className="py-24 bg-gradient-to-t from-emerald-900/20 to-transparent">
-                <div className="max-w-4xl mx-auto px-4 text-center">
-                    <h2 className="text-3xl md:text-6xl font-black text-white mb-8 tracking-tighter leading-none">Optimize Your Payout.<br /><span className="text-emerald-500">Secure Your Bonus Alpha.</span></h2>
-                    <Link href="/bonus-tax/calculator" className="inline-flex items-center gap-3 bg-white text-slate-950 hover:bg-slate-200 px-10 py-5 rounded-2xl font-black text-xl transition-all shadow-2xl shadow-emerald-500/20 active:scale-95 group">
-                        <Calculator className="w-6 h-6 group-hover:text-emerald-600 transition-colors" />
-                        RUN BONUS AUDIT
-                        <ArrowRight className="w-6 h-6" />
-                    </Link>
-                    <p className="mt-8 text-slate-500 text-xs font-bold tracking-[0.4em] uppercase">Verified Institutional Framework • 2026 Edition</p>
                 </div>
             </section>
         </div>

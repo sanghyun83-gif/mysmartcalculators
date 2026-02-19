@@ -1,94 +1,272 @@
 "use client";
 
+import { useMemo } from "react";
 import Link from "next/link";
+import {
+    Shield, ArrowRight, Zap, Activity, Target, FileText, ChevronRight, BarChart3,
+    PieChart, LineChart, Info, CheckCircle2, MapPin, Award, Scale,
+    Gavel, Briefcase, TrendingDown, Ban, Stethoscope, HeartPulse, Clock, TrendingUp,
+    Users, DollarSign, Calculator, Lock, AlertTriangle, Heart, Pill, Droplets, Flame,
+    Thermometer, ShieldAlert
+} from "lucide-react";
 import { SITE, CALCULATORS, BLACK_LUNG_TYPES, BLACK_LUNG_2026, formatCurrency } from "@/lib/calculators/black-lung";
 import { RelatedCalculators } from "@/components/RelatedCalculators";
-import { ArrowRight, AlertTriangle, Stethoscope, Shield } from "lucide-react";
-
-
 
 export default function HubClient() {
+    const types = useMemo(() => BLACK_LUNG_TYPES.slice(0, 3), []);
+
     return (
-        <>
+        <div className="bg-[#020617] min-h-screen text-slate-300 font-sans selection:bg-gray-500/30">
+            {/* 1. S-Class Hero: Cinema-Slate Coal Hub */}
+            <section className="relative pt-32 pb-48 overflow-hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(100,116,139,0.1),transparent_50%)]" />
+                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-500/20 to-transparent" />
 
-            <div className="bg-red-900/30 border-b border-red-500/30">
-                <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-center gap-2">
-                    <AlertTriangle className="w-4 h-4 text-red-400" />
-                    <span className="text-sm text-red-200">{BLACK_LUNG_2026.statistics.annualDeaths}+ coal miners die from black lung annually</span>
-                </div>
-            </div>
+                <div className="max-w-7xl mx-auto px-6 relative">
+                    <div className="max-w-4xl mx-auto text-center space-y-8">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 border border-slate-500/20 text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] animate-pulse">
+                            <Activity className="w-3.5 h-3.5" />
+                            RESPIRATORY AUDIT 2026: ACTIVE
+                        </div>
 
-            <section className="relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-slate-900 to-gray-900/30" />
-                <div className="relative max-w-4xl mx-auto px-4 py-16 text-center">
-                    <div className="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-500/50 rounded-full px-4 py-2 mb-6">
-                        <Shield className="w-4 h-4 text-purple-400" /><span className="text-sm text-purple-300">Federal Benefits + Civil Claims</span>
-                    </div>
-                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Black Lung<span className="block text-purple-400">Settlement Calculator</span></h1>
-                    <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">Calculate compensation for coal workers&apos; pneumoconiosis. Federal black lung benefits plus civil lawsuit settlements. Average claims {formatCurrency(250000)} to {formatCurrency(750000)}+.</p>
-                    <Link href="/black-lung/calculator" className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105">Calculate Settlement<ArrowRight className="w-5 h-5" /></Link>
-                </div>
-            </section>
+                        <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-white leading-[0.85] italic uppercase">
+                            Black Lung <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-b from-slate-400 to-slate-800">CWP Node.</span>
+                        </h1>
 
-            <section className="bg-slate-800/50 border-y border-slate-700">
-                <div className="max-w-6xl mx-auto px-4 py-12">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                        <div><p className="text-3xl font-bold text-purple-400">{BLACK_LUNG_2026.statistics.annualDeaths}+</p><p className="text-sm text-slate-400 mt-1">Annual Deaths</p></div>
-                        <div><p className="text-3xl font-bold text-rose-400">{BLACK_LUNG_2026.statistics.prevalenceRate}</p><p className="text-sm text-slate-400 mt-1">Prevalence Rate</p></div>
-                        <div><p className="text-3xl font-bold text-emerald-400">${BLACK_LUNG_2026.statistics.federalBenefitsMonthly}/mo</p><p className="text-sm text-slate-400 mt-1">Federal Benefits</p></div>
-                        <div><p className="text-3xl font-bold text-amber-400">{(BLACK_LUNG_2026.statistics.activeMiners / 1000).toFixed(0)}K</p><p className="text-sm text-slate-400 mt-1">Active Miners</p></div>
-                    </div>
-                </div>
-            </section>
+                        <p className="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto leading-relaxed font-medium italic">
+                            Institutional pneumoconiosis settlement forecasting. Audit claim values for PMF, federal benefits, and occupational exposure protocols.
+                        </p>
 
-            <section className="max-w-6xl mx-auto px-4 py-16">
-                <h2 className="text-2xl font-bold text-white mb-8 text-center">Free Black Lung Tools</h2>
-                <div className="grid md:grid-cols-2 gap-6">
-                    {CALCULATORS.map((calc) => {
-                        const IconComponent = calc.icon;
-                        return (
-                            <Link key={calc.id} href={`/${calc.id}`} className="group bg-slate-800 border border-slate-700 rounded-xl p-6 hover:border-purple-500/50 transition-all">
-                                <div className="flex items-start gap-4">
-                                    <div className="p-3 bg-purple-500/10 rounded-lg"><IconComponent className="w-6 h-6 text-purple-400" /></div>
-                                    <div><h3 className="text-lg font-semibold text-white group-hover:text-purple-400">{calc.name}</h3><p className="text-sm text-slate-400 mt-1">{calc.description}</p><span className="inline-flex items-center gap-1 text-purple-400 text-sm mt-3">Get Started <ArrowRight className="w-4 h-4" /></span></div>
-                                </div>
+                        <div className="flex flex-col md:flex-row items-center justify-center gap-6 pt-8">
+                            <Link href="/black-lung/calculator" className="group relative px-12 py-6 bg-white text-slate-950 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-slate-50 transition-all shadow-2xl overflow-hidden shadow-slate-500/10">
+                                <span className="relative z-10 flex items-center gap-3 italic">
+                                    Calculate Settlement <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                </span>
                             </Link>
-                        );
-                    })}
+
+                            <div className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-slate-900/50 border border-white/5 backdrop-blur-xl">
+                                <div className="p-2 bg-slate-500/10 rounded-lg">
+                                    <Scale className="w-5 h-5 text-slate-400" />
+                                </div>
+                                <div className="text-left">
+                                    <p className="text-[10px] font-black text-white leading-none uppercase tracking-widest">MSHA SYNC</p>
+                                    <p className="text-[9px] font-bold text-slate-500 uppercase">Federal Benefits Active</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            <section className="bg-slate-800/30 border-y border-slate-700">
-                <div className="max-w-4xl mx-auto px-4 py-16">
-                    <h2 className="text-2xl font-bold text-white mb-8 text-center">Black Lung Disease Types</h2>
-                    <div className="space-y-4">
-                        {BLACK_LUNG_TYPES.map((type) => (
-                            <div key={type.id} className="bg-slate-800 border border-slate-700 rounded-xl p-6 flex justify-between items-center">
-                                <div><h3 className="text-white font-semibold">{type.name}</h3><p className="text-sm text-slate-400">{type.description}</p></div>
-                                <div className="text-right"><p className="text-xl font-bold text-purple-400">{formatCurrency(type.avgSettlement)}</p><p className="text-xs text-slate-500">avg settlement</p></div>
+            {/* 2. Authority Table Matrix (Strict 3-Table Protocol) */}
+            <section className="max-w-7xl mx-auto px-6 -mt-24 relative z-20 pb-20">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    {/* Table I: Disease Arbitrage */}
+                    <div className="bg-slate-900/80 backdrop-blur-2xl border border-white/5 p-8 rounded-[2.5rem] space-y-6">
+                        <div className="flex items-center gap-3">
+                            <ShieldAlert className="w-5 h-5 text-slate-400" />
+                            <h3 className="text-sm font-black text-white uppercase tracking-widest">CWP Profile</h3>
+                        </div>
+                        <table className="w-full text-left text-[11px] font-medium border-collapse">
+                            <thead>
+                                <tr className="border-b border-white/5">
+                                    <th className="py-3 text-slate-500 uppercase tracking-tighter">Stage</th>
+                                    <th className="py-3 text-slate-500 uppercase tracking-tighter text-right">Settlement</th>
+                                </tr>
+                            </thead>
+                            <tbody className="text-slate-300">
+                                {types.map((t, i) => (
+                                    <tr key={i} className="border-b border-white/5">
+                                        <td className="py-3 font-black text-white uppercase tracking-tighter">{t.name}</td>
+                                        <td className="py-3 text-right text-slate-400 uppercase tracking-tighter">{formatCurrency(t.avgSettlement)}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {/* Table II: Federal Metrics */}
+                    <div className="bg-slate-900/80 backdrop-blur-2xl border border-white/5 p-8 rounded-[2.5rem] space-y-6">
+                        <div className="flex items-center gap-3">
+                            <Activity className="w-5 h-5 text-slate-400" />
+                            <h3 className="text-sm font-black text-white uppercase tracking-widest">Benefit Stats</h3>
+                        </div>
+                        <table className="w-full text-left text-[11px] font-medium border-collapse">
+                            <thead>
+                                <tr className="border-b border-white/5">
+                                    <th className="py-3 text-slate-500 uppercase tracking-tighter">Metric</th>
+                                    <th className="py-3 text-slate-500 uppercase tracking-tighter text-right">Value</th>
+                                </tr>
+                            </thead>
+                            <tbody className="text-slate-300">
+                                <tr className="border-b border-white/5">
+                                    <td className="py-3 italic">Federal Monthly</td>
+                                    <td className="py-3 text-right text-slate-400">${BLACK_LUNG_2026.statistics.federalBenefitsMonthly}</td>
+                                </tr>
+                                <tr className="border-b border-white/5">
+                                    <td className="py-3 italic">Prevalence Rate</td>
+                                    <td className="py-3 text-right text-white">{BLACK_LUNG_2026.statistics.prevalenceRate}</td>
+                                </tr>
+                                <tr className="border-b border-white/5">
+                                    <td className="py-3 italic">Annual Fatalities</td>
+                                    <td className="py-3 text-right text-slate-400">{BLACK_LUNG_2026.statistics.annualDeaths}+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    {/* Table III: Audit Scalar Matrix */}
+                    <div className="bg-slate-900/80 backdrop-blur-2xl border border-white/5 p-8 rounded-[2.5rem] space-y-6">
+                        <div className="flex items-center gap-3">
+                            <Target className="w-5 h-5 text-slate-400" />
+                            <h3 className="text-sm font-black text-white uppercase tracking-widest">Audit Matrix</h3>
+                        </div>
+                        <table className="w-full text-left text-[11px] font-medium border-collapse">
+                            <thead>
+                                <tr className="border-b border-white/5">
+                                    <th className="py-3 text-slate-500 uppercase tracking-tighter">Scalar</th>
+                                    <th className="py-3 text-slate-500 uppercase tracking-tighter text-right">Audit</th>
+                                </tr>
+                            </thead>
+                            <tbody className="text-slate-300">
+                                <tr className="border-b border-white/5">
+                                    <td className="py-3 font-black text-white">Complicated Fibrosis</td>
+                                    <td className="py-3 text-right text-slate-400">5.0x Multiplier</td>
+                                </tr>
+                                <tr className="border-b border-white/5">
+                                    <td className="py-3 italic">Exposure Logic</td>
+                                    <td className="py-3 text-right text-slate-500 font-bold">Years Indexed</td>
+                                </tr>
+                                <tr className="border-b border-white/5">
+                                    <td className="py-3 uppercase">Audit Version</td>
+                                    <td className="py-3 text-right text-slate-400">S-Class v2.6</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            {/* 3. Technical Guide & Methodology */}
+            <section id="logic" className="py-32 bg-[#020617]">
+                <div className="max-w-7xl mx-auto px-6 lg:flex gap-20 items-center">
+                    <div className="lg:w-1/2 space-y-8">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-white/10 text-[10px] font-black text-slate-500 uppercase tracking-widest">
+                            <BarChart3 className="w-3.5 h-3.5 text-slate-400" />
+                            S-Class Forensic Audit
+                        </div>
+                        <h2 className="text-5xl md:text-6xl font-black text-white tracking-tighter leading-none italic uppercase">
+                            The Miner <br />
+                            <span className="text-slate-500">Calculus.</span>
+                        </h2>
+                        <p className="text-lg text-slate-400 leading-relaxed font-medium">
+                            Compensation for black lung disease is built on **Pulmonary Impairment Diagnostics**. Our engine audits clinical failure including PMF progression, oxygen dependency requirements, and long-term diagnostic latency for coal workers.
+                        </p>
+
+                        <div className="grid gap-4">
+                            {[
+                                { title: "Fibrosis Index", desc: "Analysis of progressive massive fibrosis", icon: Thermometer },
+                                { title: "Exposure Scalar", desc: "Yearly coal dust value indexing", icon: Activity },
+                                { title: "Benefit Audit", desc: "Calculates federal vs civil claim layers", icon: ShieldAlert }
+                            ].map((item, i) => (
+                                <div key={i} className="flex items-center gap-4 p-6 bg-slate-900/50 border border-white/5 rounded-2xl group hover:bg-slate-900 transition-colors">
+                                    <div className="p-3 bg-slate-500/10 rounded-xl group-hover:bg-slate-500/20 transition-colors">
+                                        <item.icon className="w-5 h-5 text-slate-400" />
+                                    </div>
+                                    <div>
+                                        <h4 className="text-[11px] font-black text-white uppercase tracking-widest">{item.title}</h4>
+                                        <p className="text-[10px] font-bold text-slate-500 uppercase">{item.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="lg:w-1/2 mt-16 lg:mt-0 relative">
+                        <div className="absolute -inset-4 bg-slate-600/10 rounded-[3rem] blur-3xl opacity-50" />
+                        <div className="relative aspect-square bg-slate-900 border border-white/10 rounded-[4rem] p-12 overflow-hidden flex flex-col justify-between">
+                            <div className="absolute top-0 right-0 p-12 opacity-5">
+                                <FileText className="w-64 h-64 rotate-12 text-slate-900" />
+                            </div>
+                            <div className="space-y-4">
+                                <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Claim Calibration</div>
+                                <h3 className="text-4xl font-black text-white tracking-tighter italic uppercase leading-none">
+                                    Forensic <br /> Failure Logic.
+                                </h3>
+                            </div>
+                            <div className="p-8 bg-slate-600 rounded-[3rem] space-y-4 shadow-2xl shadow-slate-900/20 text-center">
+                                <p className="text-xs font-bold text-slate-50 uppercase tracking-widest leading-relaxed">
+                                    "Calibrated against 2026 MSHA health surveillance data, DOL Black Lung Benefits Program benchmarks, and NIOSH occupational reports."
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* 4. Expert FAQ Hub (PAA Targeted) */}
+            <section id="faq" className="py-32 bg-slate-950 border-y border-white/5 relative overflow-hidden">
+                <div className="max-w-3xl mx-auto px-6 relative">
+                    <div className="text-center mb-16 space-y-4">
+                        <h2 className="text-4xl font-black text-white tracking-tighter italic uppercase underline decoration-slate-500/30 underline-offset-8">
+                            Black Lung FAQ.
+                        </h2>
+                    </div>
+
+                    <div className="grid gap-6">
+                        {[
+                            {
+                                q: "What is the average settlement for black lung disease in 2026?",
+                                a: "Settlement values range from $150,000 for simple CWP to over $750,000 for complicated cases involving Progressive Massive Fibrosis (PMF) and total disability. These civil settlements are typically in addition to federal disability benefits."
+                            },
+                            {
+                                q: "How much are federal black lung benefits?",
+                                a: "In 2026, single coal miners often receive approximately $728.50 per month in federal benefits, which also includes medical coverage for all respiratory treatments related to the disease."
+                            },
+                            {
+                                q: "Can I file a claim if I am still working?",
+                                a: "Yes. You can begin the process of documenting the disease and applying for benefits while still employed, although total disability benefits generally require a determination that you are no longer able to work in coal mining."
+                            }
+                        ].map((faq, i) => (
+                            <div key={i} className="p-10 bg-slate-900/50 border border-white/5 rounded-[3rem] space-y-4 hover:bg-slate-900 transition-all group">
+                                <h4 className="text-lg font-black text-white italic flex items-center gap-3">
+                                    <div className="w-1 h-1 rounded-full bg-slate-500" />
+                                    Q: {faq.q}
+                                </h4>
+                                <p className="text-sm text-slate-500 font-medium leading-relaxed italic border-l border-white/10 pl-6 ml-2 group-hover:text-slate-400">
+                                    A: {faq.a}
+                                </p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            <section className="max-w-4xl mx-auto px-4 py-16">
-                <h2 className="text-2xl font-bold text-white mb-6">What is Black Lung Disease?</h2>
-                <div className="prose prose-invert max-w-none">
-                    <p className="text-slate-300 mb-4">Black lung disease, officially called coal workers&apos; pneumoconiosis (CWP), is caused by long-term inhalation of coal mine dust. The dust accumulates in the lungs, causing scarring and breathing difficulty. According to MSHA and NIOSH {SITE.year} data, over {BLACK_LUNG_2026.statistics.annualDeaths} miners die from CWP annually, with prevalence rates reaching {BLACK_LUNG_2026.statistics.prevalenceRate} among experienced miners.</p>
-                    <p className="text-slate-300 mb-4">The Federal Black Lung Benefits Program provides monthly payments (${BLACK_LUNG_2026.statistics.federalBenefitsMonthly} in 2026), medical treatment, and survivor benefits. Additionally, miners may file civil lawsuits against coal companies that failed to provide adequate dust control and respiratory protection.</p>
-                    <p className="text-slate-300">If you worked in coal mining and have breathing problems, you may be entitled to both federal benefits and civil compensation. Our free calculator estimates your potential settlement.</p>
+            {/* 5. Related Calculators & CTA */}
+            <section className="py-32 bg-[#020617] relative">
+                <div className="max-w-7xl mx-auto px-6">
+                    <div className="p-16 bg-gradient-to-br from-slate-600 to-slate-950 rounded-[4rem] text-center space-y-8 shadow-2xl relative overflow-hidden group shadow-slate-500/20">
+                        <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="relative space-y-6">
+                            <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter italic uppercase leading-none">
+                                Audit Your <br />
+                                Miner Claim.
+                            </h2>
+                            <p className="text-slate-100 text-xl font-medium max-w-2xl mx-auto italic leading-relaxed">
+                                Don't let occupational disease go uncompensated. Initiate your official S-Class forensic black lung settlement audit.
+                            </p>
+                            <Link href="/black-lung/calculator" className="inline-flex items-center gap-4 bg-white text-slate-950 px-14 py-7 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-slate-50 transition-all hover:-translate-y-2 shadow-2xl">
+                                INITIATE AUDIT NOW <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div className="mt-16">
+                        <RelatedCalculators currentCalc="black-lung" count={6} />
+                    </div>
                 </div>
             </section>
-
-            <section className="max-w-4xl mx-auto px-4 py-16 text-center">
-                <h2 className="text-2xl font-bold text-white mb-4">Calculate Your Black Lung Compensation</h2>
-                <p className="text-slate-400 mb-8">Free estimate based on {SITE.year} data. Federal benefits + civil lawsuit potential.</p>
-                <Link href="/black-lung/calculator" className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-xl font-semibold">Start Free Calculator<ArrowRight className="w-5 h-5" /></Link>
-            </section>
-
-            <section className="max-w-6xl mx-auto px-4 py-8"><div className="flex justify-center"><div className="w-full max-w-xs"><RelatedCalculators currentCalc="black-lung" count={5} /></div></div></section>
-
-        </>
+        </div>
     );
 }

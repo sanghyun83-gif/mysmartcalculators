@@ -9,11 +9,11 @@ export default function CasinoInjuryFlagshipLayout({
 }) {
     return (
         <FlagshipLayout
-            brandName="InjuryAudit AI"
-            brandIcon="dice"
+            brandName="Casino Injury Auditor"
+            brandIcon="sparkles"
             hubPath="/casino-injury"
-            accentColorRgb="245, 158, 11"
-            accentSelectionClass="selection:bg-amber-500/30"
+            accentColorRgb="168, 85, 247"
+            accentSelectionClass="selection:bg-purple-500/30"
             navLinks={[
                 { label: "SETTLEMENT CALC", href: "/casino-injury/calculator" },
                 { label: "CLAIMS GUIDE", href: "/casino-injury/guide" },

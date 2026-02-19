@@ -9,11 +9,11 @@ export default function BoneGraftFlagshipLayout({
 }) {
     return (
         <FlagshipLayout
-            brandName="InjuryAudit AI"
-            brandIcon="heart"
+            brandName="Bone Graft Auditor"
+            brandIcon="microscope"
             hubPath="/bone-graft"
-            accentColorRgb="168, 85, 247"
-            accentSelectionClass="selection:bg-purple-500/30"
+            accentColorRgb="20, 184, 166"
+            accentSelectionClass="selection:bg-teal-500/30"
             navLinks={[
                 { label: "SETTLEMENT CALC", href: "/bone-graft/calculator" },
                 { label: "CLAIMS GUIDE", href: "/bone-graft/guide" },

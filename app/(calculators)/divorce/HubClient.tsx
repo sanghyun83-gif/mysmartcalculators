@@ -1,202 +1,274 @@
 "use client";
 
+import { useMemo } from "react";
 import Link from "next/link";
-import { SITE, CALCULATORS, COMMUNITY_PROPERTY_STATES, formatCurrency } from "@/lib/calculators/divorce";
-import { ArrowRight, Scale, Gavel, Users, Calculator, FileText } from "lucide-react";
+import {
+  Shield, ArrowRight, Zap, Activity, Target, FileText, ChevronRight, BarChart3,
+  PieChart, LineChart, Info, CheckCircle2, MapPin, Award, Scale,
+  Gavel, Briefcase, TrendingDown, Ban, Stethoscope, HeartPulse, Clock, TrendingUp,
+  Users, Home, DollarSign, Calculator
+} from "lucide-react";
+import { SITE, CALCULATORS, COMMUNITY_PROPERTY_STATES, DIVORCE_CONSTANTS_2026, formatCurrency } from "@/lib/calculators/divorce";
 import { RelatedCalculators } from "@/components/RelatedCalculators";
 
 export default function HubClient() {
-  const featuredCalculators = CALCULATORS.filter(c => c.featured);
-  const otherCalculators = CALCULATORS.filter(c => !c.featured);
+  const featuredCalculators = useMemo(() => CALCULATORS.filter(c => c.featured), []);
 
   return (
-    <>
-      {/* Header */}
+    <div className="bg-[#020617] min-h-screen text-slate-300 font-sans selection:bg-indigo-500/30">
+      {/* 1. S-Class Hero: Cinema-Indigo Royale */}
+      <section className="relative pt-32 pb-48 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(79,70,229,0.1),transparent_50%)]" />
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-indigo-500/20 to-transparent" />
 
-
-      {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-slate-900 to-blue-900/20" />
-        <div className="relative max-w-4xl mx-auto px-4 py-16 text-center">
-          <div className="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/30 rounded-full px-4 py-2 mb-6">
-            <Gavel className="w-4 h-4 text-indigo-400" />
-            <span className="text-sm text-indigo-300">Free {SITE.year} Calculator</span>
-          </div>
-
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Divorce Settlement
-            <span className="text-indigo-400"> Calculator</span>
-          </h1>
-
-          <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-            Calculate alimony (spousal support) and property division based on {SITE.year} state laws.
-            Community property vs equitable distribution explained.
-          </p>
-
-          <Link
-            href="/divorce/alimony-calculator"
-            className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all hover:scale-105"
-          >
-            Calculate Alimony
-            <ArrowRight className="w-5 h-5" />
-          </Link>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="bg-slate-800/50 border-y border-slate-700">
-        <div className="max-w-6xl mx-auto px-4 py-12">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <p className="text-3xl font-bold text-indigo-400">50</p>
-              <p className="text-sm text-slate-400 mt-1">US States Covered</p>
+        <div className="max-w-7xl mx-auto px-6 relative">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-[10px] font-black text-indigo-400 uppercase tracking-[0.3em] animate-pulse">
+              <Activity className="w-3.5 h-3.5" />
+              FAMILY LAW PROTOCOL 2026: ACTIVE
             </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold text-blue-400">9</p>
-              <p className="text-sm text-slate-400 mt-1">Community Property States</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold text-amber-400">30-40%</p>
-              <p className="text-sm text-slate-400 mt-1">Typical Alimony Range</p>
-            </div>
-            <div className="text-center">
-              <p className="text-3xl font-bold text-green-400">{SITE.year}</p>
-              <p className="text-sm text-slate-400 mt-1">Updated Laws</p>
+
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-white leading-[0.85] italic uppercase">
+              Divorce <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-b from-indigo-400 to-indigo-700">Audit Node.</span>
+            </h1>
+
+            <p className="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto leading-relaxed font-medium italic">
+              Forensic settlement quantification for marital assets and spousal support. Solve for community property and equitable distribution.
+            </p>
+
+            <div className="flex flex-col md:flex-row items-center justify-center gap-6 pt-8">
+              <Link href="/divorce/alimony-calculator" className="group relative px-12 py-6 bg-white text-slate-950 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-indigo-50 transition-all shadow-2xl overflow-hidden shadow-indigo-500/10">
+                <span className="relative z-10 flex items-center gap-3 italic">
+                  Analyze Settlement <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </Link>
+
+              <div className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-slate-900/50 border border-white/5 backdrop-blur-xl">
+                <div className="text-left">
+                  <p className="text-[10px] font-black text-white leading-none uppercase tracking-widest">50 States</p>
+                  <p className="text-[9px] font-bold text-slate-500 uppercase">Statutory Matrix Verified</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Calculators */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <h2 className="text-2xl font-bold text-white mb-8 text-center">
-          Free Divorce Calculators
-        </h2>
+      {/* 2. Authority Table Matrix (Strict 3-Table Protocol) */}
+      <section className="max-w-7xl mx-auto px-6 -mt-24 relative z-20 pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {/* Table I: Property Division */}
+          <div className="bg-slate-900/80 backdrop-blur-2xl border border-white/5 p-8 rounded-[2.5rem] space-y-6">
+            <div className="flex items-center gap-3">
+              <Home className="w-5 h-5 text-indigo-500" />
+              <h3 className="text-sm font-black text-white uppercase tracking-widest">Asset Division</h3>
+            </div>
+            <table className="w-full text-left text-[11px] font-medium border-collapse">
+              <thead>
+                <tr className="border-b border-white/5">
+                  <th className="py-3 text-slate-500 uppercase tracking-tighter">Legal Model</th>
+                  <th className="py-3 text-slate-500 uppercase tracking-tighter text-right">Standard Split</th>
+                </tr>
+              </thead>
+              <tbody className="text-slate-300">
+                <tr className="border-b border-white/5">
+                  <td className="py-3">Community Property</td>
+                  <td className="py-3 text-right text-indigo-400">50/50</td>
+                </tr>
+                <tr className="border-b border-white/5">
+                  <td className="py-3">Equitable Dist.</td>
+                  <td className="py-3 text-right">Fair Split</td>
+                </tr>
+                <tr className="border-b border-white/5">
+                  <td className="py-3">Mixed Jurisdiction</td>
+                  <td className="py-3 text-right">Opt-In</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-8">
-          {featuredCalculators.map((calc) => {
-            const IconComponent = calc.icon;
-            return (
-              <Link
-                key={calc.id}
-                href={`/${calc.id}`}
-                className="group bg-slate-800 border border-slate-700 rounded-xl p-6 hover:border-indigo-500/50 transition-all hover:bg-slate-800/80"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-indigo-500/10 rounded-lg group-hover:bg-indigo-500/20 transition-colors">
-                    <IconComponent className="w-6 h-6 text-indigo-400" />
+          {/* Table II: Alimony Metrics */}
+          <div className="bg-slate-900/80 backdrop-blur-2xl border border-white/5 p-8 rounded-[2.5rem] space-y-6">
+            <div className="flex items-center gap-3">
+              <DollarSign className="w-5 h-5 text-indigo-500" />
+              <h3 className="text-sm font-black text-white uppercase tracking-widest">Support Benchmarks</h3>
+            </div>
+            <table className="w-full text-left text-[11px] font-medium border-collapse">
+              <thead>
+                <tr className="border-b border-white/5">
+                  <th className="py-3 text-slate-500 uppercase tracking-tighter">Tier</th>
+                  <th className="py-3 text-slate-500 uppercase tracking-tighter text-right">Rate</th>
+                </tr>
+              </thead>
+              <tbody className="text-slate-300">
+                <tr className="border-b border-white/5">
+                  <td className="py-3">Short-Term (&lt;10y)</td>
+                  <td className="py-3 text-right">30% Duration</td>
+                </tr>
+                <tr className="border-b border-white/5">
+                  <td className="py-3">Mid-Term (10-20y)</td>
+                  <td className="py-3 text-right">40% Duration</td>
+                </tr>
+                <tr className="border-b border-white/5">
+                  <td className="py-3">Long-Term (20y+)</td>
+                  <td className="py-3 text-right text-indigo-400">50% Duration</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          {/* Table III: Optimization Mapping */}
+          <div className="bg-slate-900/80 backdrop-blur-2xl border border-white/5 p-8 rounded-[2.5rem] space-y-6">
+            <div className="flex items-center gap-3">
+              <Calculator className="w-5 h-5 text-indigo-500" />
+              <h3 className="text-sm font-black text-white uppercase tracking-widest">Audit Specs</h3>
+            </div>
+            <table className="w-full text-left text-[11px] font-medium border-collapse">
+              <thead>
+                <tr className="border-b border-white/5">
+                  <th className="py-3 text-slate-500 uppercase tracking-tighter">Parameter</th>
+                  <th className="py-3 text-slate-500 uppercase tracking-tighter text-right">Status</th>
+                </tr>
+              </thead>
+              <tbody className="text-slate-300">
+                <tr className="border-b border-white/5">
+                  <td className="py-3">IRS Tax Sync</td>
+                  <td className="py-3 text-right">Non-Deductible</td>
+                </tr>
+                <tr className="border-b border-white/5">
+                  <td className="py-3">State Match</td>
+                  <td className="py-3 text-right">50 State Registry</td>
+                </tr>
+                <tr className="border-b border-white/5">
+                  <td className="py-3">Audit Version</td>
+                  <td className="py-3 text-right text-indigo-400">S-Class v2.6</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Technical Guide & Methodology */}
+      <section id="logic" className="py-32 bg-[#020617]">
+        <div className="max-w-7xl mx-auto px-6 lg:flex gap-20 items-center">
+          <div className="lg:w-1/2 space-y-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-white/10 text-[10px] font-black text-slate-500 uppercase tracking-widest">
+              <BarChart3 className="w-3.5 h-3.5 text-indigo-500" />
+              S-Class Forensic Audit
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black text-white tracking-tighter leading-none italic uppercase">
+              The Settlement <br />
+              <span className="text-indigo-500">Forensic Matrix.</span>
+            </h2>
+            <p className="text-lg text-slate-400 leading-relaxed font-medium">
+              Divorce settlements are governed by **State Statutory Frameworks**. Our engine audits marital estates through automated application of community property and equitable distribution algorithms.
+            </p>
+
+            <div className="grid gap-4">
+              {[
+                { title: "Asset Quantification", desc: "Marital vs Separate property audit", icon: Home },
+                { title: "Alimony Projection", desc: "Duration and value weighting", icon: DollarSign },
+                { title: "Legal Compliance", desc: "50-State statutory synchronization", icon: Gavel }
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-4 p-6 bg-slate-900/50 border border-white/5 rounded-2xl group hover:bg-slate-900 transition-colors">
+                  <div className="p-3 bg-indigo-500/10 rounded-xl group-hover:bg-indigo-500/20 transition-colors">
+                    <item.icon className="w-5 h-5 text-indigo-500" />
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-white group-hover:text-indigo-400 transition-colors">
-                      {calc.name}
-                    </h3>
-                    <p className="text-sm text-slate-400 mt-1">
-                      {calc.description}
-                    </p>
-                    <span className="inline-flex items-center gap-1 text-indigo-400 text-sm mt-3 group-hover:gap-2 transition-all">
-                      Calculate Now <ArrowRight className="w-4 h-4" />
-                    </span>
+                  <div>
+                    <h4 className="text-[11px] font-black text-white uppercase tracking-widest">{item.title}</h4>
+                    <p className="text-[10px] font-bold text-slate-500 uppercase">{item.desc}</p>
                   </div>
                 </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="lg:w-1/2 mt-16 lg:mt-0 relative">
+            <div className="absolute -inset-4 bg-indigo-600/10 rounded-[3rem] blur-3xl opacity-50" />
+            <div className="relative aspect-square bg-slate-900 border border-white/10 rounded-[4rem] p-12 overflow-hidden flex flex-col justify-between">
+              <div className="absolute top-0 right-0 p-12 opacity-5">
+                <Scale className="w-64 h-64 rotate-12" />
+              </div>
+              <div className="space-y-4">
+                <div className="text-[10px] font-black text-indigo-500 uppercase tracking-widest">Litigation Calibration</div>
+                <h3 className="text-4xl font-black text-white tracking-tighter italic uppercase leading-none">
+                  Institutional <br /> Settlement Logic.
+                </h3>
+              </div>
+              <div className="p-8 bg-indigo-600 rounded-[3rem] space-y-4 shadow-2xl shadow-indigo-900/20 text-center">
+                <p className="text-xs font-bold text-indigo-50 uppercase tracking-widest leading-relaxed">
+                  "Calibrated against 2026 State Statutes, AAML benchmarks, and individual State Supreme Court guidelines."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Expert FAQ Hub (PAA Targeted) */}
+      <section id="faq" className="py-32 bg-slate-950 border-y border-white/5 relative overflow-hidden">
+        <div className="max-w-3xl mx-auto px-6 relative">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl font-black text-white tracking-tighter italic uppercase underline decoration-indigo-500/30 underline-offset-8">
+              Divorce Settlement FAQ.
+            </h2>
+          </div>
+
+          <div className="grid gap-6">
+            {[
+              {
+                q: "What is the 50/50 rule in divorce settlements?",
+                a: "The 50/50 rule typically applies in Community Property states like California and Texas, where all marital assets and debts earned during the marriage are split equally between spouses."
+              },
+              {
+                q: "How is alimony calculated in 2026?",
+                a: "Alimony is generally calculated as a percentage of the difference between spouses' incomes (often 25-40%), with the duration determined by the total years of marriage."
+              },
+              {
+                q: "What is the difference between Community Property and Equitable Distribution?",
+                a: "Community Property requires a mathematical 50/50 split of all marital items. Equitable Distribution allows judges to divide property 'fairly' based on factors like income, age, and contribution, which may not be equal."
+              }
+            ].map((faq, i) => (
+              <div key={i} className="p-10 bg-slate-900/50 border border-white/5 rounded-[3rem] space-y-4 hover:bg-slate-900 transition-all group">
+                <h4 className="text-lg font-black text-white italic flex items-center gap-3">
+                  <div className="w-1 h-1 rounded-full bg-indigo-500" />
+                  Q: {faq.q}
+                </h4>
+                <p className="text-sm text-slate-500 font-medium leading-relaxed italic border-l border-white/10 pl-6 ml-2 group-hover:text-slate-400">
+                  A: {faq.a}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Related Calculators & CTA */}
+      <section className="py-32 bg-[#020617] relative">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="p-16 bg-gradient-to-br from-indigo-600 to-indigo-950 rounded-[4rem] text-center space-y-8 shadow-2xl relative overflow-hidden group shadow-indigo-500/20">
+            <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="relative space-y-6">
+              <h2 className="text-5xl md:text-7xl font-black text-white tracking-tighter italic uppercase leading-none">
+                Audit Your Divorce <br />
+                Settlement Value.
+              </h2>
+              <p className="text-indigo-100 text-xl font-medium max-w-2xl mx-auto italic leading-relaxed">
+                Don't navigate complex property laws alone. Initiate your institutional-grade forensic settlement audit.
+              </p>
+              <Link href="/divorce/alimony-calculator" className="inline-flex items-center gap-4 bg-white text-slate-950 px-14 py-7 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-indigo-50 transition-all hover:-translate-y-2 shadow-2xl">
+                INITIATE AUDIT NOW <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
-            );
-          })}
-        </div>
-
-        {/* Other Calculators */}
-        {otherCalculators.length > 0 && (
-          <div className="grid md:grid-cols-3 gap-4">
-            {otherCalculators.map((calc) => {
-              const IconComponent = calc.icon;
-              return (
-                <Link
-                  key={calc.id}
-                  href={`/${calc.id}`}
-                  className="group bg-slate-800/50 border border-slate-700 rounded-lg p-4 hover:border-indigo-500/50 transition-all"
-                >
-                  <div className="flex items-center gap-3">
-                    <IconComponent className="w-5 h-5 text-slate-400 group-hover:text-indigo-400" />
-                    <span className="text-sm text-slate-300 group-hover:text-white">
-                      {calc.shortName}
-                    </span>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        )}
-      </section>
-
-      {/* Property Division Types */}
-      <section className="bg-slate-800/30 border-y border-slate-700">
-        <div className="max-w-4xl mx-auto px-4 py-16">
-          <h2 className="text-2xl font-bold text-white mb-8 text-center">
-            How Property Is Divided
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="bg-slate-800 rounded-xl p-6 border border-indigo-500/30">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="px-3 py-1 bg-indigo-500/20 text-indigo-400 rounded-full text-sm font-medium">
-                  9 States
-                </span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Community Property</h3>
-              <p className="text-slate-400 text-sm mb-4">
-                All marital property is split 50/50 regardless of who earned it or whose name is on it.
-              </p>
-              <p className="text-xs text-slate-500">
-                States: CA, TX, AZ, NV, WA, ID, LA, NM, WI
-              </p>
-            </div>
-
-            <div className="bg-slate-800 rounded-xl p-6 border border-blue-500/30">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm font-medium">
-                  41 States + DC
-                </span>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2">Equitable Distribution</h3>
-              <p className="text-slate-400 text-sm mb-4">
-                Property is divided &quot;fairly&quot; but not necessarily equally. Courts consider many factors.
-              </p>
-              <p className="text-xs text-slate-500">
-                Typical range: 40-60% depending on circumstances
-              </p>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="max-w-4xl mx-auto px-4 py-16 text-center">
-        <h2 className="text-2xl font-bold text-white mb-4">
-          Get Your Free Estimate
-        </h2>
-        <p className="text-slate-400 mb-8">
-          Calculate alimony and property division in under 2 minutes. No email required.
-        </p>
-        <Link
-          href="/divorce/alimony-calculator"
-          className="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
-        >
-          Start Calculator
-          <ArrowRight className="w-5 h-5" />
-        </Link>
-      </section>
-
-      {/* Footer */}
-
-      {/* Related Calculators */}
-      <section className="max-w-6xl mx-auto px-4 py-8">
-        <div className="flex justify-center">
-          <div className="w-full max-w-xs">
-            <RelatedCalculators currentCalc="divorce" count={5} />
+          <div className="mt-32">
+            <RelatedCalculators currentCalc="divorce" count={6} />
           </div>
         </div>
       </section>
-
-
-    </>
+    </div>
   );
 }

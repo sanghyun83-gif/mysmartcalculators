@@ -9,7 +9,7 @@ export default function BurnInjuryFlagshipLayout({
 }) {
     return (
         <FlagshipLayout
-            brandName="InjuryAudit AI"
+            brandName="Burn Injury Auditor"
             brandIcon="flame"
             hubPath="/burn-injury"
             accentColorRgb="249, 115, 22"

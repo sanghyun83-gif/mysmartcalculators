@@ -9,7 +9,7 @@ export default function BoatInsuranceFlagshipLayout({
 }) {
     return (
         <FlagshipLayout
-            brandName="InjuryAudit AI"
+            brandName="Boat Insurance Auditor"
             brandIcon="anchor"
             hubPath="/boat-insurance"
             accentColorRgb="59, 130, 246"

@@ -116,16 +116,16 @@ export default function CoverageGuidePage() {
                             <p className="text-xl font-bold text-blue-400">{formatCurrency(BOAT_2026.avgPremiums.pwc)}</p>
                         </div>
                         <div className="text-center p-3 bg-slate-700/50 rounded-lg">
-                            <p className="text-sm text-slate-400">Small (&lt;26ft)</p>
-                            <p className="text-xl font-bold text-blue-400">{formatCurrency(BOAT_2026.avgPremiums.small)}</p>
+                            <p className="text-sm text-slate-400">Sailboat</p>
+                            <p className="text-xl font-bold text-blue-400">{formatCurrency(BOAT_2026.avgPremiums.sailboat)}</p>
                         </div>
                         <div className="text-center p-3 bg-slate-700/50 rounded-lg">
-                            <p className="text-sm text-slate-400">Medium</p>
-                            <p className="text-xl font-bold text-blue-400">{formatCurrency(BOAT_2026.avgPremiums.medium)}</p>
+                            <p className="text-sm text-slate-400">Powerboat</p>
+                            <p className="text-xl font-bold text-blue-400">{formatCurrency(BOAT_2026.avgPremiums.powerboat)}</p>
                         </div>
                         <div className="text-center p-3 bg-slate-700/50 rounded-lg">
-                            <p className="text-sm text-slate-400">Large (40ft+)</p>
-                            <p className="text-xl font-bold text-blue-400">{formatCurrency(BOAT_2026.avgPremiums.large)}</p>
+                            <p className="text-sm text-slate-400">Yacht</p>
+                            <p className="text-xl font-bold text-blue-400">{formatCurrency(BOAT_2026.avgPremiums.yacht)}</p>
                         </div>
                     </div>
                 </div>

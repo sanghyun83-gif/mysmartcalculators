@@ -9,11 +9,11 @@ export default function BoatingAccidentFlagshipLayout({
 }) {
     return (
         <FlagshipLayout
-            brandName="InjuryAudit AI"
+            brandName="Boating Accident Auditor"
             brandIcon="anchor"
             hubPath="/boating-accident"
-            accentColorRgb="245, 158, 11"
-            accentSelectionClass="selection:bg-amber-500/30"
+            accentColorRgb="239, 68, 68"
+            accentSelectionClass="selection:bg-red-500/30"
             navLinks={[
                 { label: "SETTLEMENT CALC", href: "/boating-accident/calculator" },
                 { label: "CLAIMS GUIDE", href: "/boating-accident/guide" },
