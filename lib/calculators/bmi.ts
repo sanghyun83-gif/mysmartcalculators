@@ -49,17 +49,17 @@ export const BMI_2026 = {
 
     // FAQ Content - 15 Items for DEEP HYBRID Standard
     faqs: [
-        { "question": "What is Body Mass Index (BMI)?", "answer": "BMI is a mathematical ratio used to categorize weight relative to height. It is calculated as kg/m² and remains the global standard for screening population health risks." },
-        { "question": "How accurate is BMI for athletes?", "answer": "For highly muscular individuals, BMI tends to overestimate risk. Muscle is significantly denser than fat, leading to higher results despite low body fat percentages." },
+        { "question": "What is Body Mass Index (BMI)?", "answer": "BMI is a mathematical ratio used to categorize weight relative to height. It is the gold standard for clinical-grade population health screening." },
+        { "question": "How accurate is BMI for athletes?", "answer": "For highly muscular individuals, BMI tends to overestimate risk due to muscle mass factors." },
         { "question": "Is BMI different for men and women?", "answer": "No, the core formula is identical. However, biological women typically carrier a higher body fat percentage at the same BMI compared to men." },
         { "question": "What are the new 2026 guidelines for obesity?", "answer": "The 2026 Lancet Commission recommends classifying obesity based on health complications (metabolic, mechanical, psychological) rather than just a BMI threshold of 30." },
         { "question": "What is the Quetelet Scale?", "answer": "Named after Adolphe Quetelet, the mathematician who created the BMI formula in 1832. It was originally designed to describe the 'Average Man' in statistical sociology." },
         { "question": "Does ethnicity affect BMI interpretation?", "answer": "Yes. Clinical data suggests that individuals of South Asian descent face higher metabolic risks at lower BMI levels (starting at 23.0) compared to Caucasian populations." },
         { "question": "Can children use this BMI calculator?", "answer": "Children and teens (2-19) use the same formula but the results are plotted on age-and-sex specific percentile charts rather than fixed categories." },
         { "question": "What is the difference between BMI and Body Fat %?", "answer": "BMI measures total weight relative to height. Body Fat % measures the actual percentage of fat tissue. One can have a high BMI with low body fat (muscular) or vice versa (skinny fat)." },
-        { "question": "What health risks are linked to a high BMI?", "answer": "Type 2 diabetes, cardiovascular decay, hypertension, sleep apnea, and certain musculoskeletal loads like osteoarthritis are directly correlated with persistent high BMI." },
+        { "question": "What health risks are linked to a high BMI?", "answer": "Type 2 diabetes, cardiovascular disease, hypertension, sleep apnea, and certain musculoskeletal loads like osteoarthritis are directly correlated with persistent high BMI." },
         { "question": "Is falling below 18.5 BMI dangerous?", "answer": "Yes. An underweight classification can indicate nutritional deficiencies, weakened immune function, or underlying endocrine issues requiring clinical intervention." },
-        { "question": "How often should I audit my BMI?", "answer": "Standard clinical advice suggests checking every 3-6 months to monitor weight trends, unless you are actively participating in a medical weight management program." },
+        { "question": "How often should I check my BMI?", "answer": "Standard clinical advice suggests checking every 3-6 months to monitor weight trends, unless you are actively participating in a medical weight management program." },
         { "question": "What is Visceral Fat vs. Subcutaneous Fat?", "answer": "Subcutaneous fat lives under the skin. Visceral fat surrounds organs and is highly metabolically active, posing a much greater risk even if BMI appears normal." },
         { "question": "How do 2026 standards view waist-to-height ratio?", "answer": "Many clinical boards now favor waist-to-height ratio (optimal < 0.5) as a superior indicator of abdominal fat risk compared to BMI alone." },
         { "question": "Can BMI predict mortality?", "answer": "Population studies show a J-shaped curve: both very low and very high BMI levels are associated with increased all-cause mortality across global cohorts." },
@@ -72,7 +72,7 @@ export const BMI_2026 = {
 // ============================================
 export const CALCULATORS = [
     {
-        id: "bmi/calculator",
+        id: "bmi",
         name: "BMI Calculator",
         shortName: "Calculator",
         description: "Calculate your Body Mass Index",
@@ -81,18 +81,7 @@ export const CALCULATORS = [
         category: "health",
         keywords: ["bmi calculator", "body mass index calculator", "bmi check"],
         featured: true,
-    },
-    {
-        id: "bmi/health-guide",
-        name: "BMI Health Guide",
-        shortName: "Guide",
-        description: "Understanding BMI categories",
-        longDescription: "Learn what your BMI means and healthy weight tips.",
-        icon: FileText,
-        category: "health",
-        keywords: ["bmi chart", "healthy bmi range", "bmi categories"],
-        featured: true,
-    },
+    }
 ] as const;
 
 // ============================================
@@ -102,19 +91,30 @@ export interface BMIResult {
     bmi: number;
     category: string;
     categoryColor: string;
-    healthyWeightRange: { min: number; max: number };
+    healthyWeightRange: { min: number; max: number }; // In the current system units
     weightToHealthy: number;
     isHealthy: boolean;
+    unitType: "US" | "Metric";
 }
 
 export function calculateBMI(
-    heightFeet: number,
-    heightInches: number,
-    weightLbs: number
+    heightPrimary: number,   // Feet or Centimeters
+    heightSecondary: number, // Inches (only for US)
+    weightInput: number,     // Lbs or Kg
+    unitType: "US" | "Metric" = "US"
 ): BMIResult {
-    const totalInches = heightFeet * 12 + heightInches;
-    const heightMeters = totalInches * 0.0254;
-    const weightKg = weightLbs * 0.453592;
+    let heightMeters: number;
+    let weightKg: number;
+    let weightInNativeUnits: number = weightInput;
+
+    if (unitType === "US") {
+        const totalInches = heightPrimary * 12 + heightSecondary;
+        heightMeters = totalInches * 0.0254;
+        weightKg = weightInput * 0.453592;
+    } else {
+        heightMeters = heightPrimary / 100;
+        weightKg = weightInput;
+    }
 
     const bmi = weightKg / (heightMeters * heightMeters);
 
@@ -130,14 +130,23 @@ export function calculateBMI(
 
     const healthyWeightMinKg = BMI_2026.healthyRange.min * heightMeters * heightMeters;
     const healthyWeightMaxKg = BMI_2026.healthyRange.max * heightMeters * heightMeters;
-    const healthyWeightMin = Math.round(healthyWeightMinKg / 0.453592);
-    const healthyWeightMax = Math.round(healthyWeightMaxKg / 0.453592);
+
+    let nativeMin: number;
+    let nativeMax: number;
+
+    if (unitType === "US") {
+        nativeMin = Math.round(healthyWeightMinKg / 0.453592);
+        nativeMax = Math.round(healthyWeightMaxKg / 0.453592);
+    } else {
+        nativeMin = Math.round(healthyWeightMinKg * 10) / 10;
+        nativeMax = Math.round(healthyWeightMaxKg * 10) / 10;
+    }
 
     let weightToHealthy = 0;
-    if (weightLbs > healthyWeightMax) {
-        weightToHealthy = weightLbs - healthyWeightMax;
-    } else if (weightLbs < healthyWeightMin) {
-        weightToHealthy = weightLbs - healthyWeightMin;
+    if (weightInNativeUnits > nativeMax) {
+        weightToHealthy = weightInNativeUnits - nativeMax;
+    } else if (weightInNativeUnits < nativeMin) {
+        weightToHealthy = weightInNativeUnits - nativeMin;
     }
 
     const isHealthy = bmi >= BMI_2026.healthyRange.min && bmi < BMI_2026.healthyRange.max;
@@ -146,9 +155,10 @@ export function calculateBMI(
         bmi: Math.round(bmi * 10) / 10,
         category,
         categoryColor,
-        healthyWeightRange: { min: healthyWeightMin, max: healthyWeightMax },
-        weightToHealthy: Math.round(weightToHealthy),
+        healthyWeightRange: { min: nativeMin, max: nativeMax },
+        weightToHealthy: Math.round(weightToHealthy * 10) / 10,
         isHealthy,
+        unitType
     };
 }
 

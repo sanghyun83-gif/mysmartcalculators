@@ -90,7 +90,7 @@ export function FlagshipLayout({
                             <span>Legal Division</span>
                         </div>
                         <div className="hidden md:flex items-center gap-4">
-                            <span>Data-Driven Audits</span>
+                            <span>Data-Driven Insights</span>
                             <span className="opacity-30">•</span>
                             <span>Expert Analysis</span>
                         </div>
@@ -121,7 +121,7 @@ export function FlagshipLayout({
                                                 <>
                                                     <span className="opacity-40">&gt;</span>
                                                     <span className="text-white italic">
-                                                        {isCalculator ? "Auditor" : "Archive"}
+                                                        {isCalculator ? "Analyzer" : "Archive"}
                                                     </span>
                                                 </>
                                             )}

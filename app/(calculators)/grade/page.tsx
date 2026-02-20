@@ -3,13 +3,13 @@ import { SITE, GRADE_2026 } from "@/lib/calculators/grade";
 import GradeHubClient from "./HubClient";
 
 export const metadata: Metadata = {
-    title: `${SITE.name} | 2026 Institutional Academic Audit`,
+    title: `${SITE.name} | 2026 Grade Calculator & GPA Converter`,
     description: SITE.description,
     alternates: {
         canonical: SITE.baseUrl,
     },
     openGraph: {
-        title: `${SITE.name} | 2026 Precision Grade & Performance Auditor`,
+        title: `${SITE.name} | Grade & Performance Calculator`,
         description: SITE.description,
         url: SITE.baseUrl,
         type: "website",
@@ -22,7 +22,7 @@ export default function GradeHubPage() {
         "@graph": [
             {
                 "@type": "SoftwareApplication",
-                "name": "S-Class Grade Auditor",
+                "name": "Standard Grade Calculator",
                 "description": SITE.description,
                 "applicationCategory": "EducationApplication",
                 "operatingSystem": "Any",
@@ -40,7 +40,7 @@ export default function GradeHubPage() {
             {
                 "@type": "HowTo",
                 "name": "How to Calculate Your Academic Grade",
-                "description": "Step-by-step institutional guide for auditing course grades and weighted averages.",
+                "description": "Step-by-step guide for calculating course grades and weighted averages.",
                 "step": [
                     {
                         "@type": "HowToStep",
@@ -48,15 +48,15 @@ export default function GradeHubPage() {
                     },
                     {
                         "@type": "HowToStep",
-                        "text": "Input the data into the S-Class Grade Auditor for a precision weighted average calculation."
+                        "text": "Input the data into the Grade Calculator for a precise weighted average calculation."
                     },
                     {
                         "@type": "HowToStep",
-                        "text": "Identify your current letter grade based on institutional scale benchmarks (e.g., 4.0 or ECTS)."
+                        "text": "Identify your current letter grade based on academic scale benchmarks (e.g., 4.0 or ECTS)."
                     },
                     {
                         "@type": "HowToStep",
-                        "text": "Use the 'What-If' auditor to determine the final exam score needed for your target grade."
+                        "text": "Use the 'Final Grade' calculator to determine the final exam score needed for your target grade."
                     }
                 ]
             },

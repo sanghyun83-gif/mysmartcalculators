@@ -7,15 +7,15 @@ export default function GradeLayout({
 }) {
     return (
         <FlagshipLayout
-            brandName="GradeMaster AI"
+            brandName="Grade Calculator"
             brandIcon="graduation-cap"
             hubPath="/grade"
             accentColorRgb="16, 185, 129" // emerald-500
             accentSelectionClass="selection:bg-emerald-500/30"
             navLinks={[
-                { label: "CALCULATOR", href: "/grade/calculator" },
-                { label: "GRADE SCALES", href: "/grade/scales" },
-                { label: "ACADEMIC HUB", href: "/grade" },
+                { label: "Calculator", href: "/grade/calculator" },
+                { label: "Grade Scales", href: "/grade/scales" },
+                { label: "Summary", href: "/grade" },
             ]}
         >
             {children}

@@ -13,13 +13,7 @@ export const metadata = {
   }
 };
 
-const HubClient = dynamic(
-  () => import("./HubClient"),
-  {
-    ssr: true,
-    loading: () => <div className="min-h-screen bg-slate-950" />
-  }
-);
+import CalorieClient from "./CalorieClient"; // Changed from HubClient
 
 export default function CalcCaloriePage() {
   const jsonLd = {
@@ -45,23 +39,23 @@ export default function CalcCaloriePage() {
       {
         "@type": "HowTo",
         "name": "How to Calculate Daily Calorie Needs",
-        "description": "Step-by-step institutional guide for auditing TDEE and metabolic energy flux.",
+        "description": "Step-by-step guide for calculating TDEE and daily calorie requirements.",
         "step": [
           {
             "@type": "HowToStep",
-            "text": "Input your current weight, height, age, and biological sex into the S-Class auditor."
+            "text": "Input your current weight, height, age, and gender into the calculator."
           },
           {
             "@type": "HowToStep",
-            "text": "Select your activity multiplier to define the NEAT and EAT delta."
+            "text": "Select your activity level to determine your TDEE (Total Daily Energy Expenditure)."
           },
           {
             "@type": "HowToStep",
-            "text": "Identify your primary goal (Maintenance, Deficit, or Surplus Architecture)."
+            "text": "Identify your primary goal (Maintenance, Deficit, or Surplus)."
           },
           {
             "@type": "HowToStep",
-            "text": "Execute the audit to view the full thermodynamic breakdown and macro-targets."
+            "text": "Review the results to view your custom calorie and macro-targets."
           }
         ]
       },
@@ -107,8 +101,9 @@ export default function CalcCaloriePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        suppressHydrationWarning
       />
-      <HubClient />
+      <CalorieClient />
     </>
   );
 }

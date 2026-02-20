@@ -3,13 +3,13 @@ import { SITE } from "@/lib/calculators/grade";
 import CalculatorClient from "./CalculatorClient";
 
 export const metadata: Metadata = {
-    title: `${SITE.name} | S-Class Academic Audit 2026`,
+    title: `${SITE.name} | 2026 Grade Calculator`,
     description: SITE.description,
     alternates: {
         canonical: SITE.baseUrl + "/calculator",
     },
     openGraph: {
-        title: `${SITE.name} | Precision Grade & Performance Audit Internal Engine`,
+        title: `${SITE.name} | Grade & Performance Calculator Engine`,
         description: SITE.description,
         url: SITE.baseUrl + "/calculator",
         type: "website",

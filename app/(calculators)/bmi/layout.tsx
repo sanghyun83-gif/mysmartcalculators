@@ -10,15 +10,12 @@ export default function BMIFlagshipLayout({
 }) {
     return (
         <FlagshipLayout
-            brandName="BMIMaster AI"
+            brandName="BMI Calculator"
             brandIcon="activity"
             hubPath="/bmi"
-            accentColorRgb="34, 197, 94" // green-500
-            accentSelectionClass="selection:bg-green-500/30"
-            navLinks={[
-                { label: "CALCULATOR", href: "/bmi/calculator" },
-                { label: "HEALTH GUIDE", href: "/bmi/health-guide" },
-            ]}
+            accentColorRgb="22, 163, 74" // green-600
+            accentSelectionClass="selection:bg-green-600/30"
+            navLinks={[]}
             trustScore="4.9/5 TrustScore"
         >
             {children}

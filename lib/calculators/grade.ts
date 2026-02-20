@@ -1,6 +1,6 @@
 /**
  * GRADE-CALC SITE CONFIGURATION
- * 2026 Academic Precision Engine (S-Class)
+ * 2026 Academic Precision Engine
  */
 
 import { GraduationCap, Award, BookOpen, Calculator, BarChart3, School, Microscope, Target, TrendingUp } from 'lucide-react';
@@ -10,8 +10,8 @@ import { GraduationCap, Award, BookOpen, Calculator, BarChart3, School, Microsco
 // ============================================
 export const SITE = {
     name: "Grade Calculator",
-    tagline: "2026 Institutional Academic Audit Engine",
-    description: "Calculate your course grades, weighted averages, and final exam targets with 2026 academic precision. Expert guide for university grading scales and GPA conversion.",
+    tagline: "2026 Academic Grade Calculator & Estimator",
+    description: "Calculate your course grades, weighted averages, and final exam targets instantly. Free expert guide for university grading scales and GPA conversion.",
     year: 2026,
     baseUrl: "https://mysmartcalculators.com/grade",
 };
@@ -61,7 +61,7 @@ export const GRADE_2026 = {
         },
         {
             question: "How do I calculate what I need on my final exam?",
-            answer: "To find the final grade needed: Final % = (Target Grade % - (Current Grade % * (1 - Final Weight %))) / Final Weight %. Our calculator automates this calculation for precision auditing."
+            answer: "To find the final grade needed: Final % = (Target Grade % - (Current Grade % * (1 - Final Weight %))) / Final Weight %. Our calculator automates this calculation for you."
         },
         {
             question: "What is the difference between a Grade Point and a Grade?",
@@ -97,7 +97,7 @@ export const GRADE_2026 = {
         },
         {
             question: "Are lab grades usually weighted differently?",
-            answer: "In sciences, labs often carry a separate weight (e.g., 25% of the total course grade). Our weighted average tool allows you to input these specific subsets for a precise audit."
+            answer: "In sciences, labs often carry a separate weight (e.g., 25% of the total course grade). Our weighted average tool allows you to input these specific subsets for a precise calculation."
         },
         {
             question: "Does an A- count the same as an A in GPA?",
@@ -108,8 +108,8 @@ export const GRADE_2026 = {
             answer: "Admissions councils often prefer a 'B' in a more rigorous course (AP/IB/Honors) over an 'A' in a standard course, as it demonstrates academic resilience and intellectual risk-taking."
         },
         {
-            question: "How often should I audit my grades?",
-            answer: "A bi-weekly audit is recommended to identify downward trends early, allowing for strategic interventions and targeted studying before high-weight exams."
+            question: "How often should I check my grades?",
+            answer: "A regular check is recommended to identify downward trends early, allowing for strategic study sessions before final exams."
         }
     ]
 };

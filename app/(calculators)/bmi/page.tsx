@@ -1,6 +1,6 @@
 import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { BMI_2026 } from "@/lib/calculators/bmi";
-import dynamic from "next/dynamic";
+import BMIClient from "./BMIClient";
 
 const id = "bmi";
 const meta = getCalculatorMeta(id);
@@ -12,14 +12,6 @@ export const metadata = {
     canonical: meta?.canonical,
   }
 };
-
-const HubClient = dynamic(
-  () => import("./HubClient"),
-  {
-    ssr: true,
-    loading: () => <div className="min-h-screen bg-slate-950" />
-  }
-);
 
 export default function CalcBmiPage() {
   const jsonLd = {
@@ -45,23 +37,23 @@ export default function CalcBmiPage() {
       {
         "@type": "HowTo",
         "name": "How to Calculate BMI (Body Mass Index)",
-        "description": "Step-by-step guide to calculating your clinical BMI using our institutional-grade logic.",
+        "description": "Step-by-step guide to calculating your BMI using WHO and CDC standards.",
         "step": [
           {
             "@type": "HowToStep",
-            "text": "Identify your current height in centimeters or inches."
+            "text": "Identify your height in centimeters or inches."
           },
           {
             "@type": "HowToStep",
-            "text": "Identify your current weight in kilograms or pounds."
+            "text": "Identify your weight in kilograms or pounds."
           },
           {
             "@type": "HowToStep",
-            "text": "Input the data into our 2026 Biometric AI engine."
+            "text": "Input the data into the 2026 BMI engine."
           },
           {
             "@type": "HowToStep",
-            "text": "Audit the result against WHO clinical weight classifications."
+            "text": "Review your classification against WHO clinical standards."
           }
         ]
       },
@@ -107,8 +99,9 @@ export default function CalcBmiPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        suppressHydrationWarning
       />
-      <HubClient />
+      <BMIClient />
     </>
   );
 }

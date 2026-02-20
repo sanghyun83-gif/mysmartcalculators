@@ -75,15 +75,15 @@ export default function GradeCalculatorClient() {
                     <div className="space-y-2">
                         <Link
                             href="/grade"
-                            className="inline-flex items-center gap-2 text-slate-500 hover:text-emerald-500 transition-colors font-black uppercase tracking-widest text-[10px]"
+                            className="inline-flex items-center gap-2 text-slate-500 hover:text-emerald-500 transition-colors font-bold tracking-wide text-[11px]"
                         >
-                            <ArrowLeft className="w-3 h-3" /> Academic Hub
+                            <ArrowLeft className="w-3 h-3" /> Grade Summary
                         </Link>
-                        <h1 className="text-4xl md:text-6xl font-black text-white tracking-tighter">
-                            Academic <span className="text-emerald-500 italic">Audit</span>.
+                        <h1 className="text-3xl md:text-4xl font-black text-white tracking-tight">
+                            Grade <span className="text-emerald-500">Calculator</span>
                         </h1>
-                        <p className="text-slate-500 font-bold text-sm tracking-tight italic">
-                            Institutional grade auditing via 2026 scholarship-grade precision.
+                        <p className="text-slate-500 font-medium text-sm tracking-tight">
+                            Free academic tool for grades and performance estimates.
                         </p>
                     </div>
                     <div className="flex items-center gap-4 bg-white/5 border border-white/10 p-4 rounded-3xl backdrop-blur-xl">
@@ -91,8 +91,8 @@ export default function GradeCalculatorClient() {
                             <Shield className="w-6 h-6 text-emerald-500" />
                         </div>
                         <div>
-                            <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest leading-none">Audit Integrity</p>
-                            <p className="text-sm font-black text-white uppercase tracking-tighter">NCES 2026 SECURE</p>
+                            <p className="text-[10px] font-bold text-slate-500 tracking-wider leading-none">Reliability Score</p>
+                            <p className="text-sm font-black text-white tracking-tight">Verified 2026</p>
                         </div>
                     </div>
                 </div>
@@ -102,13 +102,13 @@ export default function GradeCalculatorClient() {
                     <div className="bg-slate-900 border border-white/5 p-1 rounded-2xl flex gap-1">
                         <button
                             onClick={() => setMode("weighted")}
-                            className={`px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${mode === "weighted" ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/20' : 'text-slate-500 hover:text-slate-300'}`}
+                            className={`px-8 py-3 rounded-xl text-xs font-bold transition-all ${mode === "weighted" ? 'bg-emerald-600 text-white' : 'text-slate-500 hover:text-slate-300'}`}
                         >
                             Weighted Average
                         </button>
                         <button
                             onClick={() => setMode("final")}
-                            className={`px-8 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all ${mode === "final" ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/20' : 'text-slate-500 hover:text-slate-300'}`}
+                            className={`px-8 py-3 rounded-xl text-xs font-bold transition-all ${mode === "final" ? 'bg-emerald-600 text-white' : 'text-slate-500 hover:text-slate-300'}`}
                         >
                             Final Exam Target
                         </button>
@@ -127,8 +127,8 @@ export default function GradeCalculatorClient() {
                                 {mode === "weighted" ? (
                                     <div className="space-y-6">
                                         <div className="flex items-center justify-between mb-2">
-                                            <h2 className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">Assignment Tranches</h2>
-                                            <div className={`text-[10px] font-black uppercase px-2 py-1 rounded ${totalWeight > 100 ? 'bg-red-500/20 text-red-500' : 'bg-emerald-500/20 text-emerald-500'}`}>
+                                            <h2 className="text-[10px] font-bold text-slate-500 tracking-wider">Course Assignments</h2>
+                                            <div className={`text-[10px] font-bold px-2 py-1 rounded ${totalWeight > 100 ? 'bg-red-500/20 text-red-500' : 'bg-emerald-500/20 text-emerald-500'}`}>
                                                 Total Weight: {totalWeight}%
                                             </div>
                                         </div>
@@ -172,7 +172,7 @@ export default function GradeCalculatorClient() {
                                         </div>
                                         <button
                                             onClick={addAssignment}
-                                            className="w-full py-4 border border-dashed border-white/10 rounded-2xl text-slate-500 hover:text-emerald-500 hover:border-emerald-500/30 transition-all flex items-center justify-center gap-2 text-xs font-black uppercase tracking-widest"
+                                            className="w-full py-4 border border-dashed border-white/10 rounded-2xl text-slate-500 hover:text-emerald-500 hover:border-emerald-500/30 transition-all flex items-center justify-center gap-2 text-xs font-bold"
                                         >
                                             <Plus className="w-4 h-4" /> Add Assignment
                                         </button>
@@ -180,7 +180,7 @@ export default function GradeCalculatorClient() {
                                 ) : (
                                     <div className="space-y-8">
                                         <div className="space-y-3">
-                                            <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-2">Current Class Grade (%)</label>
+                                            <label className="text-[10px] font-bold text-slate-500 tracking-wider ml-2">Current Class Grade (%)</label>
                                             <input
                                                 type="number"
                                                 value={currentGrade}
@@ -189,7 +189,7 @@ export default function GradeCalculatorClient() {
                                             />
                                         </div>
                                         <div className="space-y-3">
-                                            <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-2">Target Final Grade (%)</label>
+                                            <label className="text-[10px] font-bold text-slate-500 tracking-wider ml-2">Target Final Grade (%)</label>
                                             <input
                                                 type="number"
                                                 value={targetGrade}
@@ -198,7 +198,7 @@ export default function GradeCalculatorClient() {
                                             />
                                         </div>
                                         <div className="space-y-3">
-                                            <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-2">Final Exam Weight (%)</label>
+                                            <label className="text-[10px] font-bold text-slate-500 tracking-wider ml-2">Final Exam Weight (%)</label>
                                             <input
                                                 type="number"
                                                 value={finalWeight}
@@ -211,15 +211,15 @@ export default function GradeCalculatorClient() {
                             </div>
                         </div>
 
-                        {/* Audit Verification */}
+                        {/* Calculation Verification */}
                         <div className="p-8 bg-black/40 border border-white/5 rounded-[2.5rem] flex items-center justify-between group">
                             <div className="flex items-center gap-4">
                                 <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl">
                                     <Dna className="w-5 h-5 text-emerald-500" />
                                 </div>
                                 <div className="text-left">
-                                    <div className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter">Academic Kernal</div>
-                                    <div className="text-sm font-black text-white uppercase tracking-widest leading-none">PEDAGOGY v2.4</div>
+                                    <div className="text-[10px] font-bold text-slate-500 tracking-tight">Grade Engine</div>
+                                    <div className="text-sm font-black text-white tracking-widest leading-none">Active v2.4</div>
                                 </div>
                             </div>
                             <CheckCircle2 className="w-5 h-5 text-emerald-500" />
@@ -234,18 +234,18 @@ export default function GradeCalculatorClient() {
                                 <div className="absolute top-0 right-0 p-8 opacity-20 group-hover:scale-110 transition-transform duration-700">
                                     <Award className="w-20 h-20 text-white" />
                                 </div>
-                                <div className="text-white/60 text-[10px] font-black uppercase tracking-[0.4em] mb-4">
+                                <div className="text-white/60 text-[10px] font-bold tracking-wider mb-4">
                                     {mode === "weighted" ? "Course Average" : "Exam Score Needed"}
                                 </div>
                                 <div className="flex items-baseline gap-2 mb-6">
                                     <span className="text-7xl font-black text-white tracking-tighter">
                                         {mode === "weighted" ? formatValue(weightedResult || 0) : formatValue(finalNeeded || 0)}
                                     </span>
-                                    <span className="text-lg font-black text-white/50 uppercase italic">%</span>
+                                    <span className="text-lg font-bold text-white/50">%</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-black/20 w-fit px-5 py-3 rounded-2xl backdrop-blur-md border border-white/10 text-white">
                                     <TrendingUp className="w-4 h-4" />
-                                    <span className="text-xs font-black uppercase tracking-widest">
+                                    <span className="text-xs font-bold tracking-wide">
                                         Grade Level: {getGradeFromPercentage(mode === "weighted" ? (weightedResult || 0) : (finalNeeded || 0)).label}
                                     </span>
                                 </div>
@@ -256,12 +256,12 @@ export default function GradeCalculatorClient() {
                                 <div className="absolute -bottom-4 -right-4 opacity-5">
                                     <Microscope className="w-48 h-48 text-emerald-500" />
                                 </div>
-                                <div className="text-slate-500 text-[10px] font-black uppercase tracking-[0.4em] mb-8">Academic Blueprint</div>
+                                <div className="text-slate-500 text-[10px] font-bold tracking-wider mb-8">Academic Summary</div>
                                 <div className="space-y-6 relative z-10">
                                     <div className="flex justify-between items-center border-b border-white/5 pb-4">
                                         <div className="flex items-center gap-3">
                                             <Target className="w-4 h-4 text-emerald-500" />
-                                            <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">GPA Points</span>
+                                            <span className="text-xs font-bold text-slate-400 tracking-wide">GPA Points</span>
                                         </div>
                                         <span className="text-xl font-black text-white">
                                             {getGradeFromPercentage(mode === "weighted" ? (weightedResult || 0) : (finalNeeded || 0)).gpa.toFixed(1)}
@@ -270,12 +270,12 @@ export default function GradeCalculatorClient() {
                                     <div className="flex justify-between items-center border-b border-white/5 pb-4">
                                         <div className="flex items-center gap-3">
                                             <GraduationCap className="w-4 h-4 text-emerald-500" />
-                                            <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Scale Mapping</span>
+                                            <span className="text-xs font-bold text-slate-400 tracking-wide">Scale Mapping</span>
                                         </div>
                                         <span className="text-xl font-black text-white">4.0 <span className="text-[10px] opacity-30">STD</span></span>
                                     </div>
-                                    <div className="flex items-center gap-2 pt-2 text-emerald-500/80 italic font-medium text-[11px]">
-                                        <Info className="w-3 h-3" /> 2026 Institutional Calibration Active
+                                    <div className="flex items-center gap-2 pt-2 text-emerald-500/80 font-medium text-[11px]">
+                                        <Info className="w-3 h-3" /> Updated for 2026 Standards
                                     </div>
                                 </div>
                             </div>
@@ -288,14 +288,14 @@ export default function GradeCalculatorClient() {
                             </div>
                             <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
                                 <div className="space-y-6">
-                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 text-[10px] font-black uppercase tracking-widest">
-                                        Pedagogical Forecast
+                                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 text-[10px] font-bold tracking-wide">
+                                        Performance Forecast
                                     </div>
                                     <h3 className="text-3xl font-black text-white leading-tight">
-                                        Institutional <br /> <span className="text-emerald-500">Stability Window.</span>
+                                        Projected <br /> <span className="text-emerald-500">Stability Range</span>
                                     </h3>
-                                    <p className="text-slate-400 text-sm leading-relaxed font-medium italic">
-                                        "Based on your current audit, attaining a {mode === "weighted" ? "GPA points delta" : "Final grade target"} requires a strategic cognitive focus on {mode === "weighted" ? "high-impact tranches" : "the peak energy segment (Final Exam)"}."
+                                    <p className="text-slate-400 text-sm leading-relaxed font-medium">
+                                        "Based on your current data, attaining a {mode === "weighted" ? "GPA points goal" : "Final grade target"} requires a strategic focus on {mode === "weighted" ? "high-impact assignments" : "the Final Exam segment"}."
                                     </p>
                                 </div>
                                 <div className="grid gap-3">
@@ -316,16 +316,16 @@ export default function GradeCalculatorClient() {
                         {/* Academic Excellence Cards */}
                         <div className="grid md:grid-cols-3 gap-6">
                             {[
-                                { title: "Study ROI", desc: "Allocate hours to credits with weights >20% for maximum efficiency.", icon: Zap },
-                                { title: "Curve Offset", desc: "Monitor class average tranches to anticipate relative audit shifts.", icon: Activity },
-                                { title: "Burnout Guard", desc: "Sync study cycles with high-stake metabolic activity periods.", icon: Heart }
+                                { title: "Study ROI", desc: "Focus your energy on assignments with weights higher than 20%.", icon: Zap },
+                                { title: "Grade Trends", desc: "Monitor your average scores to anticipate changes in your final result.", icon: Activity },
+                                { title: "Well-being", desc: "Balance intense study sessions with periods of rest for best results.", icon: Heart }
                             ].map((card, i) => (
                                 <div key={i} className="bg-slate-900 border border-white/5 rounded-3xl p-8 hover:bg-slate-900/80 transition-all group">
                                     <div className="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center mb-6 group-hover:border-emerald-500/30 border border-transparent transition-all">
                                         <card.icon className="w-6 h-6 text-slate-600 group-hover:text-emerald-500" />
                                     </div>
-                                    <h3 className="text-lg font-black text-white mb-3 tracking-tight uppercase">{card.title}</h3>
-                                    <p className="text-xs text-slate-500 font-medium leading-relaxed italic">{card.desc}</p>
+                                    <h3 className="text-lg font-black text-white mb-3 tracking-tight">{card.title}</h3>
+                                    <p className="text-xs text-slate-500 font-medium leading-relaxed">{card.desc}</p>
                                 </div>
                             ))}
                         </div>
@@ -340,7 +340,7 @@ export default function GradeCalculatorClient() {
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "SoftwareApplication",
-                        "name": "Precision Grade Audit Engine",
+                        "name": "Grade Calculator",
                         "operatingSystem": "Web",
                         "applicationCategory": "EducationalApplication",
                         "offers": {
