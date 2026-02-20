@@ -15,8 +15,8 @@ export default function DrunkDrivingFlagshipLayout({
             accentColorRgb="220, 38, 38"
             accentSelectionClass="selection:bg-red-500/30"
             navLinks={[
-                { label: "SETTLEMENT CALC", href: "/drunk-driving/dui-calculator" },
-                { label: "DUI GUIDE", href: "/drunk-driving/dui-guide" },
+                { label: "SETTLEMENT CALC", href: "/drunk-driving/calculator" },
+                { label: "DUI GUIDE", href: "/drunk-driving/guide" },
             ]}
         >
             {children}

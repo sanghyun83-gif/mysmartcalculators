@@ -493,12 +493,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "classic-car-insurance": {
         "id": "classic-car-insurance",
-        "name": "Classic Car Insurance Calculator",
-        "description": "Calculate classic car insurance costs. Agreed-value coverage for antique, vintage, and muscle cars. Based on 2026 insurance data.",
+        "name": "2026 Classic Car Insurance Calculator | Official S-Class Auditor",
+        "description": "Calculate classic car insurance premiums with 2026 precision. Official S-Class auditor for antique, vintage, and modern collector vehicles with agreed-value precision.",
         "category": "general",
-        "tier": 2,
-        "color": "slate-500",
-        "icon": "calculator"
+        "tier": 1,
+        "color": "blue-600",
+        "icon": "car"
     },
     "closing-cost": {
         "id": "closing-cost",
@@ -547,11 +547,11 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "commission": {
         "id": "commission",
-        "name": "Commission Calculator",
-        "description": "Calculate sales commissions, tiered rates, and earnings projections. Based on standard commission structures.",
+        "name": "2026 Commission Calculator | Official S-Class Auditor",
+        "description": "Calculate sales and real estate commissions with 2026 precision. Official S-Class auditor for SaaS tiers, real estate splits, and industry-specific payout models.",
         "category": "tax",
-        "tier": 2,
-        "color": "slate-500",
+        "tier": 1,
+        "color": "emerald-600",
         "icon": "calculator"
     },
     "compound-interest": {
@@ -691,12 +691,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "dental-insurance": {
         "id": "dental-insurance",
-        "name": "Dental Insurance Calculator",
-        "description": "Calculate dental insurance costs. Coverage for cleanings, fillings, crowns, and orthodontics. Based on 2026 insurance data.",
-        "category": "health",
-        "tier": 2,
-        "color": "emerald-500",
-        "icon": "activity"
+        "name": "2026 Dental Insurance Calculator | Official S-Class Auditor",
+        "description": "Calculate individual and family dental premiums with 2026 precision. Official S-Class auditor for PPO/DHMO tiers and institutional procedure cost benchmarks.",
+        "category": "tax",
+        "tier": 1,
+        "color": "sky-600",
+        "icon": "calculator"
     },
     "depo-provera": {
         "id": "depo-provera",
@@ -790,12 +790,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "drunk-driving": {
         "id": "drunk-driving",
-        "name": "Drunk Driving Accident Calculator",
-        "description": "Calculate drunk driving accident settlement value instantly. Free 2026 calculator with punitive damages and BAC levels based on NHTSA data.",
-        "category": "legal",
-        "tier": 2,
-        "color": "rose-500",
-        "icon": "gavel"
+        "name": "2026 DUI Calculator | Official S-Class Auditor",
+        "description": "Calculate 2026 DUI penalties, BAC metabolism, and hidden legal costs instantly. Official S-Class auditor for state-level fines and SR-22 insurance forecasting.",
+        "category": "tax",
+        "tier": 1,
+        "color": "rose-600",
+        "icon": "calculator"
     },
     "dti": {
         "id": "dti",
