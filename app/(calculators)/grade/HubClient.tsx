@@ -324,7 +324,7 @@ export default function GradeHubClient() {
                         <div className="w-12 h-1 w-20 bg-emerald-500 rounded-full" />
                         <h2 className="text-2xl font-black text-white tracking-tight">Compare Grade Tools</h2>
                     </div>
-                    <RelatedCalculators currentPath="/grade" />
+                    <RelatedCalculators currentCalc="grade" />
                 </div>
             </section>
         </div>
