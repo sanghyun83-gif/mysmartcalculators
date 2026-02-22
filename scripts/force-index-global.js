@@ -5,9 +5,8 @@ const path = require('path');
 const KEY_FILE = path.join(__dirname, '../../service-account-2.json');
 const BASE_URL = 'https://mysmartcalculators.com';
 
-// BATCH 7: Today's Supreme Targets (Critical Priority)
 const batch7IDs = [
-    "classic-car-insurance", "commission", "dental-insurance", "drunk-driving"
+    "bmi", "calorie", "classic-car-insurance", "commission", "dental-insurance", "drunk-driving"
 ];
 
 // BATCH 6: Managed Nodes

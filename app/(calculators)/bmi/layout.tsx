@@ -13,10 +13,11 @@ export default function BMIFlagshipLayout({
             brandName="BMI Calculator"
             brandIcon="activity"
             hubPath="/bmi"
-            accentColorRgb="22, 163, 74" // green-600
-            accentSelectionClass="selection:bg-green-600/30"
+            accentColorRgb="5, 150, 105" // emerald-600
+            accentSelectionClass="selection:bg-green-100"
             navLinks={[]}
-            trustScore="4.9/5 TrustScore"
+            trustScore="2026 Health Standards Certified"
+            lightMode={true}
         >
             {children}
         </FlagshipLayout>

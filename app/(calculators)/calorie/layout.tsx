@@ -13,10 +13,11 @@ export default function CalorieFlagshipLayout({
             brandName="Calorie Calculator"
             brandIcon="flame"
             hubPath="/calorie"
-            accentColorRgb="249, 115, 22" // orange-500
-            accentSelectionClass="selection:bg-orange-500/30"
+            accentColorRgb="5, 150, 105" // emerald-600
+            accentSelectionClass="selection:bg-emerald-100"
             navLinks={[]}
-            trustScore="4.9/5 TrustScore"
+            trustScore="2026 Metabolic Audit Certified"
+            lightMode={true}
         >
             {children}
         </FlagshipLayout>

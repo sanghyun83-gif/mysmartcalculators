@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import {
     Activity, ArrowRight, Shield, Heart, Scale,
-    CheckCircle, AlertTriangle
+    CheckCircle, AlertTriangle, ShieldCheck
 } from "lucide-react";
 import {
     calculateBMI,
@@ -15,27 +15,40 @@ import {
 
 const BMI_CATEGORIES = [
     { name: "Underweight", min: 0, max: 18.5, color: "bg-blue-400" },
-    { name: "Normal", min: 18.5, max: 25, color: "bg-green-400" },
-    { name: "Overweight", min: 25, max: 30, color: "bg-yellow-400" },
+    { name: "Normal", min: 18.5, max: 25, color: "bg-emerald-400" },
+    { name: "Overweight", min: 25, max: 30, color: "bg-amber-400" },
     { name: "Obese I", min: 30, max: 35, color: "bg-orange-400" },
-    { name: "Obese II", min: 35, max: 40, color: "bg-red-400" },
-    { name: "Obese III", min: 40, max: 60, color: "bg-red-600" },
+    { name: "Obese II", min: 35, max: 40, color: "bg-rose-400" },
+    { name: "Obese III", min: 40, max: 60, color: "bg-rose-600" },
 ];
 
 function BMIGauge({ bmi }: { bmi: number }) {
-    // Calculate percentage based on 10-45 range for visualization
     const percentage = Math.min(Math.max(((bmi - 10) / (45 - 10)) * 100, 0), 100);
 
+    const getStatusStyles = (val: number) => {
+        if (val < 18.5) return "text-blue-800 bg-blue-50 border-blue-200";
+        if (val < 25) return "text-emerald-800 bg-emerald-50 border-emerald-200";
+        if (val < 30) return "text-amber-800 bg-amber-50 border-amber-200";
+        return "text-rose-800 bg-rose-50 border-rose-200";
+    };
+
+    const getStatusText = (val: number) => {
+        if (val < 18.5) return "Underweight";
+        if (val < 25) return "Normal Weight";
+        if (val < 30) return "Overweight";
+        return "Obese";
+    };
+
     return (
-        <div className="space-y-4 pt-6" aria-hidden="true">
-            <div className="flex justify-between text-[10px] font-bold text-slate-400 uppercase tracking-widest px-1">
-                <span>Underweight</span>
+        <div className="space-y-2 pt-2" aria-hidden="true">
+            <div className="flex justify-between text-[10px] font-bold text-slate-400 uppercase tracking-wider px-1">
+                <span>Under</span>
                 <span>Normal</span>
                 <span>Obese</span>
             </div>
-            <div className="relative h-4 bg-white/5 rounded-full overflow-hidden flex border border-white/10">
+            <div className="relative h-2 bg-slate-100 rounded-full overflow-hidden flex border border-slate-200">
                 {BMI_CATEGORIES.map((cat, i) => {
-                    const width = ((cat.max - cat.min) / 50) * 100 * 1.5; // Scaled for visualization
+                    const width = ((cat.max - cat.min) / 50) * 100 * 1.5;
                     return (
                         <div
                             key={i}
@@ -44,41 +57,40 @@ function BMIGauge({ bmi }: { bmi: number }) {
                         />
                     );
                 })}
-                {/* Active Marker - Sharp Dashboard Needle */}
                 <div
-                    className="absolute top-0 bottom-0 w-1 bg-white shadow-[0_0_15px_rgba(255,255,255,0.8)] z-10 transition-all duration-1000 ease-out"
+                    className="absolute top-0 bottom-0 w-1 bg-slate-900 z-10 transition-all duration-1000 ease-out"
                     style={{ left: `${percentage}%` }}
                 >
-                    <div className="absolute top-[-4px] left-1/2 -translate-x-1/2 w-1 h-6 bg-white rounded-sm" />
+                    <div className="absolute top-[-2px] left-1/2 -translate-x-1/2 w-1 h-3 bg-slate-900 rounded-sm" />
                 </div>
             </div>
-            <div className="flex justify-between items-center bg-white/5 p-4 rounded-2xl border border-white/5">
-                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">Status</p>
-                <p className="text-sm font-black text-white uppercase tracking-tight">Your Status</p>
+            <div className={`flex justify-between items-center p-2 rounded-md border ${getStatusStyles(bmi)}`}>
+                <p className="text-[10px] font-bold uppercase tracking-widest">Status</p>
+                <p className="text-xs font-black uppercase">
+                    {getStatusText(bmi)}
+                </p>
             </div>
         </div>
     );
 }
 
 const FAQSection = ({ faqs }: { faqs: readonly any[] }) => (
-    <div className="max-w-4xl mx-auto px-6 relative space-y-4">
+    <div className="max-w-3xl mx-auto px-4 space-y-2">
         {faqs.map((faq, i) => (
-            <details key={i} className="group bg-slate-900/50 border border-white/5 rounded-[2.5rem] hover:border-green-500/30 transition-all cursor-pointer">
-                <summary className="p-8 list-none flex items-center justify-between [&::-webkit-details-marker]:hidden">
-                    <h3 className="text-lg font-black text-white flex items-center gap-4 group-hover:text-green-500 transition-colors">
-                        <span className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center text-[10px] text-white not-italic">{i + 1}</span>
+            <details key={i} className="group bg-white border border-slate-200 rounded-md hover:border-slate-300 transition-all cursor-pointer">
+                <summary className="p-3 list-none flex items-center justify-between [&::-webkit-details-marker]:hidden">
+                    <h3 className="text-sm font-semibold text-slate-800 flex items-center gap-3">
+                        <span className="text-xs text-slate-400 font-mono">{(i + 1).toString().padStart(2, '0')}</span>
                         {faq.question}
                     </h3>
-                    <span className="text-slate-500 group-open:rotate-180 transition-transform duration-300">
-                        <svg fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
+                    <span className="text-slate-400 group-open:rotate-180 transition-transform duration-200">
+                        <svg fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-3.5 h-3.5">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                         </svg>
                     </span>
                 </summary>
-                <div className="px-8 pb-8 text-slate-400 leading-relaxed font-medium">
-                    <p className="pt-4 border-t border-white/5">
-                        {faq.answer}
-                    </p>
+                <div className="px-3 pb-3 text-sm text-slate-600 leading-relaxed border-t border-slate-50 pt-2">
+                    {faq.answer}
                 </div>
             </details>
         ))}
@@ -86,21 +98,15 @@ const FAQSection = ({ faqs }: { faqs: readonly any[] }) => (
 );
 
 export default function BMIClient() {
-    // State for Unit Toggle
     const [unitType, setUnitType] = useState<"US" | "Metric">("US");
-
-    // US State
     const [heightFeet, setHeightFeet] = useState(5);
     const [heightInches, setHeightInches] = useState(9);
     const [weightLbs, setWeightLbs] = useState("160");
-
-    // Metric State
     const [heightCm, setHeightCm] = useState("175");
     const [weightKg, setWeightKg] = useState("72");
 
     const calculatorRef = useRef<HTMLDivElement>(null);
 
-    // Expert View: Derived State Optimization
     const result: BMIResult = (() => {
         if (unitType === "US") {
             const w = parseFloat(weightLbs) || 0;
@@ -112,209 +118,194 @@ export default function BMIClient() {
         }
     })();
 
-    const scrollToCalculator = () => {
-        calculatorRef.current?.scrollIntoView({ behavior: "smooth" });
+    const getCategoryStyles = (cat: string) => {
+        const c = cat.toLowerCase();
+        if (c.includes('normal') || c.includes('healthy')) return "text-emerald-800 bg-emerald-50 border-emerald-200";
+        if (c.includes('overweight') || c.includes('warning')) return "text-amber-800 bg-amber-50 border-amber-200";
+        return "text-rose-800 bg-rose-50 border-rose-200";
     };
 
     return (
-        <main className="min-h-screen bg-[#020617] text-slate-300">
-            {/* --- Hero / Header Section --- */}
-            <header className="relative py-16 md:py-24 overflow-hidden px-6">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(22,163,74,0.05),transparent_70%)]" />
-                <div className="max-w-7xl mx-auto relative z-10">
-                    <div className="flex flex-col items-center text-center space-y-10">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-[10px] font-black text-green-500 uppercase tracking-widest animate-pulse">
-                            <Heart className="w-3 h-3" /> Health Status Engine Active
-                        </div>
-
-                        <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-8 leading-none text-white max-w-4xl">
-                            BMI <span className="text-green-500">Calculator</span> & Health Summary.
+        <main className="min-h-screen bg-slate-50 text-slate-900 font-sans">
+            {/* --- Compact Header --- */}
+            <header className="pt-6 pb-2 px-6 max-w-7xl mx-auto">
+                <div className="flex flex-col items-start">
+                    <div className="flex items-center gap-2 mb-1">
+                        <Activity className="w-4 h-4 text-emerald-600" />
+                        <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+                            BMI <span className="text-emerald-600">Calculator</span>
                         </h1>
-
-                        <p className="max-w-2xl text-lg md:text-xl text-slate-400 font-medium leading-relaxed">
-                            Calculate your BMI instantly using 2026 WHO and CDC benchmarks. Get clinical weight classifications and healthy range estimates.
-                        </p>
-
-                        <button
-                            onClick={scrollToCalculator}
-                            className="inline-flex items-center gap-4 bg-green-600 hover:bg-green-500 text-white px-12 py-6 rounded-[2rem] font-black text-base uppercase tracking-widest transition-all shadow-2xl shadow-green-600/30 group active:scale-95"
-                        >
-                            <Scale className="w-6 h-6 group-hover:rotate-12 transition-transform" />
-                            Calculate BMI
-                            <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
-                        </button>
+                    </div>
+                    <div className="flex items-center gap-1 text-[11px] text-slate-500 font-mono uppercase tracking-wider">
+                        <ShieldCheck size={14} className="text-emerald-600" />
+                        Verified by WHO & Clinical Standards
                     </div>
                 </div>
             </header>
 
-            {/* --- Calculator Functional Area --- */}
-            <section aria-label="BMI Calculator Engine" ref={calculatorRef} id="calculator" className="py-24 max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 border-t border-white/5 scroll-mt-24">
-                {/* Input Panel */}
-                <div className="lg:col-span-7 space-y-8">
-                    <div className="p-8 md:p-12 bg-slate-900/50 border border-white/10 rounded-[4rem] space-y-10 shadow-2xl backdrop-blur-3xl">
-                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-                            <div className="space-y-2">
-                                <h2 className="text-2xl font-black text-white tracking-tight">Enter Your Metrics</h2>
-                                <p className="text-slate-400 text-xs font-bold tracking-tight">Accurate height and weight are required for a precise summary.</p>
-                            </div>
-
-                            {/* Unit Toggle */}
-                            <div className="flex bg-black p-1 rounded-xl border border-white/10">
-                                <button
-                                    onClick={() => setUnitType("US")}
-                                    className={`px-4 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${unitType === "US" ? "bg-green-600 text-white" : "text-slate-500 hover:text-slate-400"}`}
-                                >
-                                    US Units
-                                </button>
-                                <button
-                                    onClick={() => setUnitType("Metric")}
-                                    className={`px-4 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${unitType === "Metric" ? "bg-green-600 text-white" : "text-slate-500 hover:text-slate-400"}`}
-                                >
-                                    Metric
-                                </button>
-                            </div>
-                        </div>
-
-                        <div className="grid md:grid-cols-2 gap-10">
-                            {unitType === "US" ? (
-                                <>
-                                    {/* Height Section (US) */}
-                                    <div className="space-y-4">
-                                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Height (Feet/Inches)</label>
-                                        <div className="grid grid-cols-2 gap-4">
-                                            <select
-                                                value={heightFeet}
-                                                onChange={(e) => setHeightFeet(parseInt(e.target.value))}
-                                                className="w-full bg-black border border-white/10 rounded-2xl p-4 text-sm font-black text-white focus:border-green-500 outline-none transition-all appearance-none"
-                                            >
-                                                {[4, 5, 6, 7].map((ft) => (
-                                                    <option key={ft} value={ft}>{ft} ft</option>
-                                                ))}
-                                            </select>
-                                            <select
-                                                value={heightInches}
-                                                onChange={(e) => setHeightInches(parseInt(e.target.value))}
-                                                className="w-full bg-black border border-white/10 rounded-2xl p-4 text-sm font-black text-white focus:border-green-500 outline-none transition-all appearance-none"
-                                            >
-                                                {Array.from({ length: 12 }, (_, i) => (
-                                                    <option key={i} value={i}>{i} in</option>
-                                                ))}
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    {/* Weight Section (US) */}
-                                    <div className="space-y-4">
-                                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Weight (Lbs)</label>
-                                        <div className="relative">
-                                            <input
-                                                type="text"
-                                                inputMode="decimal"
-                                                pattern="[0-9]*"
-                                                value={weightLbs}
-                                                onChange={(e) => setWeightLbs(e.target.value.replace(/[^0-9.]/g, ""))}
-                                                placeholder="160"
-                                                className="w-full px-6 py-4 bg-black border border-white/10 rounded-2xl text-xl font-black text-white focus:border-green-500 outline-none transition-all"
-                                            />
-                                            <span className="absolute right-6 top-1/2 -translate-y-1/2 text-slate-600 font-black uppercase text-[10px] tracking-widest">lbs</span>
-                                        </div>
-                                    </div>
-                                </>
-                            ) : (
-                                <>
-                                    {/* Height Section (Metric) */}
-                                    <div className="space-y-4">
-                                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Height (cm)</label>
-                                        <div className="relative">
-                                            <input
-                                                type="text"
-                                                inputMode="decimal"
-                                                pattern="[0-9]*"
-                                                value={heightCm}
-                                                onChange={(e) => setHeightCm(e.target.value.replace(/[^0-9.]/g, ""))}
-                                                placeholder="175"
-                                                className="w-full px-6 py-4 bg-black border border-white/10 rounded-2xl text-xl font-black text-white focus:border-green-500 outline-none transition-all"
-                                            />
-                                            <span className="absolute right-6 top-1/2 -translate-y-1/2 text-slate-600 font-black uppercase text-[10px] tracking-widest">cm</span>
-                                        </div>
-                                    </div>
-
-                                    {/* Weight Section (Metric) */}
-                                    <div className="space-y-4">
-                                        <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Weight (kg)</label>
-                                        <div className="relative">
-                                            <input
-                                                type="text"
-                                                inputMode="decimal"
-                                                pattern="[0-9]*"
-                                                value={weightKg}
-                                                onChange={(e) => setWeightKg(e.target.value.replace(/[^0-9.]/g, ""))}
-                                                placeholder="72"
-                                                className="w-full px-6 py-4 bg-black border border-white/10 rounded-2xl text-xl font-black text-white focus:border-green-500 outline-none transition-all"
-                                            />
-                                            <span className="absolute right-6 top-1/2 -translate-y-1/2 text-slate-600 font-black uppercase text-[10px] tracking-widest">kg</span>
-                                        </div>
-                                    </div>
-                                </>
-                            )}
-                        </div>
-                    </div>
-
-                    {/* Quick Stats Grid */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        {[
-                            { label: "US Avg BMI", val: BMI_2026.statistics.avgBmiUS },
-                            { label: "Obesity Rate", val: `${BMI_2026.statistics.obesityRate}%` },
-                            { label: unitType === "US" ? "Min Lbs" : "Min Kg", val: unitType === "US" ? BMI_2026.healthyRange.min : result.healthyWeightRange.min },
-                            { label: unitType === "US" ? "Max Lbs" : "Max Kg", val: unitType === "US" ? BMI_2026.healthyRange.max : result.healthyWeightRange.max },
-                        ].map((stat, i) => (
-                            <div key={i} className="bg-slate-950 p-6 rounded-3xl border border-white/5 space-y-1">
-                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">{stat.label}</p>
-                                <p className="text-xl font-black text-white">{stat.val}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Output Panel (Gauge) */}
-                <div className="lg:col-span-5 relative self-start">
-                    <div className="lg:sticky lg:top-24">
-                        <div className="p-10 md:p-12 bg-white/5 border border-white/10 rounded-[4rem] shadow-2xl space-y-10 relative overflow-hidden backdrop-blur-3xl group">
-                            <div className="absolute top-0 right-0 p-12 opacity-5 scale-150 rotate-12 group-hover:rotate-0 transition-transform duration-700">
-                                <Scale className="w-32 h-32 text-green-500" />
+            {/* --- Hyper-Dense 2-Column Grid --- */}
+            <section ref={calculatorRef} id="calculator" className="py-4 max-w-7xl mx-auto px-6">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                    {/* Left Column: Input Form (Col span 5) */}
+                    <div className="lg:col-span-5 space-y-4">
+                        <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+                            <div className="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
+                                <h2 className="text-sm font-bold text-slate-800 uppercase tracking-tight">Parameters</h2>
+                                <div className="flex bg-slate-100 p-0.5 rounded-md border border-slate-200">
+                                    <button
+                                        onClick={() => setUnitType("US")}
+                                        className={`px-3 py-1 rounded-md text-[10px] font-bold uppercase transition-all ${unitType === "US" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
+                                    >
+                                        US
+                                    </button>
+                                    <button
+                                        onClick={() => setUnitType("Metric")}
+                                        className={`px-3 py-1 rounded-md text-[10px] font-bold uppercase transition-all ${unitType === "Metric" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
+                                    >
+                                        Metric
+                                    </button>
+                                </div>
                             </div>
 
                             <div className="space-y-4">
-                                <div className="text-[10px] font-black text-green-500 uppercase tracking-[0.4em] p-1.5 bg-green-500/10 w-fit rounded">Current Result</div>
-                                <div className="text-6xl md:text-8xl font-black text-white tracking-tighter tabular-nums leading-none">
-                                    {result.bmi}
+                                {unitType === "US" ? (
+                                    <>
+                                        <div className="space-y-1.5">
+                                            <label className="text-xs font-semibold text-slate-700 ml-0.5">Height</label>
+                                            <div className="flex flex-row items-center gap-2">
+                                                <div className="relative w-20">
+                                                    <input
+                                                        type="number"
+                                                        value={heightFeet}
+                                                        onChange={(e) => setHeightFeet(parseInt(e.target.value) || 0)}
+                                                        className="w-full h-9 px-2 bg-white border border-slate-300 rounded-md text-sm font-bold text-slate-900 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
+                                                    />
+                                                    <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400 font-bold uppercase pointer-events-none">ft</span>
+                                                </div>
+                                                <div className="relative w-20">
+                                                    <input
+                                                        type="number"
+                                                        value={heightInches}
+                                                        onChange={(e) => setHeightInches(parseInt(e.target.value) || 0)}
+                                                        className="w-full h-9 px-2 bg-white border border-slate-300 rounded-md text-sm font-bold text-slate-900 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
+                                                    />
+                                                    <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400 font-bold uppercase pointer-events-none">in</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="space-y-1.5">
+                                            <label className="text-xs font-semibold text-slate-700 ml-0.5">Weight</label>
+                                            <div className="relative">
+                                                <input
+                                                    type="text"
+                                                    inputMode="decimal"
+                                                    value={weightLbs}
+                                                    onChange={(e) => setWeightLbs(e.target.value.replace(/[^0-9.]/g, ""))}
+                                                    className="w-full h-9 px-2 bg-white border border-slate-300 rounded-md text-sm font-bold text-slate-900 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
+                                                />
+                                                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-[10px] uppercase">lbs</span>
+                                            </div>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <>
+                                        <div className="space-y-1.5">
+                                            <label className="text-xs font-semibold text-slate-700 ml-0.5">Height</label>
+                                            <div className="relative">
+                                                <input
+                                                    type="text"
+                                                    inputMode="decimal"
+                                                    value={heightCm}
+                                                    onChange={(e) => setHeightCm(e.target.value.replace(/[^0-9.]/g, ""))}
+                                                    className="w-full h-10 px-3 bg-white border border-slate-300 rounded-md text-sm font-bold text-slate-900 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
+                                                />
+                                                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-[10px] uppercase pointer-events-none">cm</span>
+                                            </div>
+                                        </div>
+                                        <div className="space-y-1.5">
+                                            <label className="text-xs font-semibold text-slate-700 ml-0.5">Weight</label>
+                                            <div className="relative">
+                                                <input
+                                                    type="text"
+                                                    inputMode="decimal"
+                                                    value={weightKg}
+                                                    onChange={(e) => setWeightKg(e.target.value.replace(/[^0-9.]/g, ""))}
+                                                    className="w-full h-10 px-3 bg-white border border-slate-300 rounded-md text-sm font-bold text-slate-900 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
+                                                />
+                                                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-[10px] uppercase pointer-events-none">kg</span>
+                                            </div>
+                                        </div>
+                                    </>
+                                )}
+                                <button
+                                    className="w-full h-10 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-md shadow-sm transition-colors text-sm uppercase tracking-wide"
+                                >
+                                    Calculate Body Mass Index
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Fast Stats */}
+                        <div className="grid grid-cols-2 gap-2">
+                            {[
+                                { label: "US Avg BMI", val: BMI_2026.statistics.avgBmiUS },
+                                { label: "Obesity Rate", val: `${BMI_2026.statistics.obesityRate}%` },
+                                { label: unitType === "US" ? "Healthy Min" : "Ideal Min", val: unitType === "US" ? `${BMI_2026.healthyRange.min} lbs` : `${result.healthyWeightRange.min} kg` },
+                                { label: unitType === "US" ? "Healthy Max" : "Ideal Max", val: unitType === "US" ? `${BMI_2026.healthyRange.max} lbs` : `${result.healthyWeightRange.max} kg` },
+                            ].map((stat, i) => (
+                                <div key={i} className="bg-white border border-slate-200 p-2.5 rounded-md text-center">
+                                    <p className="text-[10px] text-slate-400 font-bold uppercase tracking-tight">{stat.label}</p>
+                                    <p className="text-sm font-black text-slate-800">{stat.val}</p>
                                 </div>
-                                <div className={`text-sm font-black uppercase tracking-widest px-4 py-2 rounded-xl bg-white/5 border border-white/10 w-fit ${result.categoryColor}`}>
-                                    {result.category}
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Right Column: Results (Col span 7, Sticky) */}
+                    <div className="lg:col-span-7 lg:sticky lg:top-8">
+                        <div className="bg-white border border-slate-200 shadow-md rounded-md overflow-hidden">
+                            <div className="bg-slate-50 border-b border-slate-200 p-4">
+                                <div className="flex items-center justify-between">
+                                    <h2 className="text-xs font-bold text-slate-500 uppercase tracking-widest">Calculated Results</h2>
+                                    <div className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase border ${result.isHealthy ? 'text-emerald-800 bg-emerald-50 border-emerald-200' : 'text-amber-800 bg-amber-50 border-amber-200'}`}>
+                                        {result.category}
+                                    </div>
                                 </div>
                             </div>
 
-                            {/* VISUAL GAUGE AREA */}
-                            <BMIGauge bmi={result.bmi} />
-
-                            <div className="pt-8 border-t border-white/10 space-y-6">
-                                <div className="flex justify-between items-center text-xs">
-                                    <span className="text-slate-400 font-black uppercase tracking-widest">Healthy Mass Target</span>
-                                    <span className="text-green-400 font-black">{result.healthyWeightRange.min} - {result.healthyWeightRange.max} {unitType === "US" ? 'lbs' : 'kg'}</span>
+                            <div className="p-5 space-y-5">
+                                <div className="flex items-baseline gap-4">
+                                    <div className="text-7xl font-black text-slate-900 tracking-tighter tabular-nums leading-none">
+                                        {result.bmi}
+                                    </div>
+                                    <div className="space-y-1">
+                                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">BMI Status</p>
+                                        <div className="h-1 w-12 bg-emerald-600 rounded-full" />
+                                    </div>
                                 </div>
 
-                                <div className={`p-6 rounded-3xl border ${result.isHealthy ? 'bg-green-500/5 border-green-500/10' : 'bg-amber-500/5 border-amber-500/10'}`}>
-                                    <div className="flex items-center gap-2 mb-2">
-                                        {result.isHealthy ? <CheckCircle className="w-4 h-4 text-green-500" /> : <AlertTriangle className="w-4 h-4 text-amber-500" />}
-                                        <span className={`text-[10px] font-black uppercase ${result.isHealthy ? 'text-green-500' : 'text-amber-500'}`}>
-                                            {result.isHealthy ? 'Optimal Classification' : 'Correction Advised'}
-                                        </span>
+                                <BMIGauge bmi={result.bmi} />
+
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2">
+                                    <div className={`p-3 rounded-md border ${result.isHealthy ? 'bg-emerald-50 border-emerald-200' : 'bg-amber-50 border-amber-200'}`}>
+                                        <div className="flex items-center gap-2 mb-1">
+                                            {result.isHealthy ? <CheckCircle className="w-3.5 h-3.5 text-emerald-700" /> : <AlertTriangle className="w-3.5 h-3.5 text-amber-700" />}
+                                            <span className="text-[10px] font-bold uppercase tracking-tight text-slate-800">
+                                                {result.isHealthy ? 'Healthy Status' : 'Attention Needed'}
+                                            </span>
+                                        </div>
+                                        <p className="text-xs text-slate-700 leading-tight">
+                                            {result.isHealthy
+                                                ? 'You are within the optimal clinical range.'
+                                                : `Adjust weight by ${Math.abs(result.weightToHealthy)} ${unitType === "US" ? 'lbs' : 'kg'} for health.`}
+                                        </p>
                                     </div>
-                                    <p className="text-xs font-bold text-white leading-relaxed">
-                                        {result.isHealthy
-                                            ? 'Your BMI currently aligns with global health benchmarks for your height.'
-                                            : `Based on your result, a weight shift of ${Math.abs(result.weightToHealthy)} ${unitType === "US" ? 'lbs' : 'kg'} could move you toward a normal classification.`}
-                                    </p>
+                                    <div className="bg-slate-50 border border-slate-200 p-3 rounded-md flex flex-col justify-center">
+                                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1 text-center">Target Weight Range</p>
+                                        <p className="text-sm font-black text-emerald-700 text-center">
+                                            {result.healthyWeightRange.min} - {result.healthyWeightRange.max} <span className="text-[10px]">{unitType === "US" ? 'lbs' : 'kg'}</span>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -322,143 +313,84 @@ export default function BMIClient() {
                 </div>
             </section>
 
-            {/* --- Authority Content (Encyclopedia) --- */}
-            <article className="py-24 space-y-32 max-w-5xl mx-auto">
-                <div className="px-6 space-y-24">
-                    {/* WHO Classification Table */}
-                    <section className="space-y-8" aria-labelledby="who-standards">
-                        <div className="flex items-center gap-4 border-l-4 border-green-500 pl-6">
-                            <div>
-                                <h2 id="who-standards" className="text-2xl font-black text-white tracking-tight">Standard Weight Classifications (WHO)</h2>
-                                <p className="text-slate-400 text-[10px] font-bold uppercase tracking-widest">Global Clinical Thresholds</p>
-                            </div>
-                        </div>
-                        <div className="overflow-x-auto rounded-[3rem] border border-white/5 bg-slate-900 shadow-2xl">
-                            <table className="w-full text-left border-collapse min-w-[600px]">
-                                <caption className="sr-only">2026 WHO Standard Weight Classifications and Health Risks</caption>
-                                <thead className="bg-white/5 border-b border-white/10 text-xs font-black tracking-widest text-green-500 uppercase">
-                                    <tr>
-                                        <th scope="col" className="px-8 py-6">BMI Range</th>
-                                        <th scope="col" className="px-8 py-6">Classification</th>
-                                        <th scope="col" className="px-8 py-6">Health Risk Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody className="divide-y divide-white/5 text-sm font-bold text-slate-400">
-                                    {[
-                                        { range: "< 18.5", cat: "Underweight", risk: "Nutritional Deficiency Risk" },
-                                        { range: "18.5 – 24.9", cat: "Normal Weight", risk: "Optimal Health" },
-                                        { range: "25.0 – 29.9", cat: "Overweight", risk: "Increased Metabolic Risk" },
-                                        { range: "30.0 – 34.9", cat: "Obese (Class I)", risk: "High Clinical Risk" },
-                                        { range: "35.0 – 39.9", cat: "Obese (Class II)", risk: "Very High Risk" },
-                                        { range: "≥ 40.0", cat: "Obese (Class III)", risk: "Severely Elevated Risk" },
-                                    ].map((row, i) => (
-                                        <tr key={i} className="hover:bg-green-500/5 transition-colors">
-                                            <th scope="row" className="px-8 py-6 text-white font-mono font-normal whitespace-nowrap">{row.range}</th>
-                                            <td className="px-8 py-6">{row.cat}</td>
-                                            <td className={`px-8 py-6 text-[10px] uppercase tracking-wider ${i === 1 ? 'text-green-500' : 'text-slate-500'}`}>{row.risk}</td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
-                    </section>
-
-                    {/* Expert Analysis: Benefits & Risks */}
-                    <div className="grid md:grid-cols-2 gap-8">
-                        {/* Benefits */}
-                        <div className="p-10 md:p-12 bg-green-500/5 border border-green-500/10 rounded-[4rem] space-y-8 relative overflow-hidden group">
-                            <div className="absolute -right-8 -top-8 p-12 opacity-5">
-                                <CheckCircle className="w-48 h-48 text-green-500" />
-                            </div>
-                            <h3 className="text-3xl font-black text-white italic">Health Benefits</h3>
-                            <div className="grid gap-6">
-                                {[
-                                    { t: "Vascular Health", d: "Reduced heart stress and arterial plaque accumulation." },
-                                    { t: "Insulin Sensitivity", d: "Better management of glucose and metabolic flow." },
-                                    { t: "Joint Longevity", d: "Minimizing pressure on skeletal structures and spine." },
-                                    { t: "Restorative Sleep", d: "Lower risk of sleep apnea and hypoxic stress." }
-                                ].map((item, i) => (
-                                    <div key={i} className="space-y-1">
-                                        <div className="text-green-500 font-black text-xs uppercase tracking-widest leading-none">{item.t}</div>
-                                        <p className="text-sm text-slate-400 font-medium">{item.d}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Risk Matrix */}
-                        <div className="grid gap-8">
-                            <div className="p-10 bg-red-500/5 border border-red-500/10 rounded-[3rem] space-y-4">
-                                <div className="flex items-center gap-3 text-red-500">
-                                    <AlertTriangle className="w-5 h-5" />
-                                    <h4 className="text-xl font-black italic">Major Health Risks</h4>
-                                </div>
-                                <p className="text-sm text-slate-400 font-medium leading-relaxed">
-                                    Cardiovascular disease, Type 2 diabetes, and specific inflammatory risks correlated to visceral fat.
-                                </p>
-                            </div>
-                            <div className="p-10 bg-blue-500/5 border border-blue-500/10 rounded-[3rem] space-y-4">
-                                <div className="flex items-center gap-3 text-blue-500">
-                                    <Activity className="w-5 h-5" />
-                                    <h4 className="text-xl font-black italic">Other Health Risks</h4>
-                                </div>
-                                <p className="text-sm text-slate-400 font-medium leading-relaxed">
-                                    Weakened bone density, immune system vulnerability, and nutritional absorption deficiencies.
-                                </p>
-                            </div>
-                        </div>
+            {/* --- Dense Authority Encyclopedia (Absolute Light Theme) --- */}
+            <article className="py-12 max-w-5xl mx-auto px-6 space-y-12">
+                <div className="border-t border-slate-200 pt-10">
+                    <div className="flex items-center gap-2 mb-6">
+                        <div className="w-1.5 h-6 bg-emerald-600 rounded-sm" />
+                        <h2 className="text-xl font-bold text-slate-900 tracking-tight uppercase">BMI Weight Categories</h2>
                     </div>
 
-                    {/* Meta-Analysis Data */}
-                    <div className="grid md:grid-cols-2 gap-12 pt-12">
-                        <div className="space-y-6">
-                            <h3 className="text-xl font-black text-white italic flex items-center gap-2">
-                                <span className="w-2 h-8 bg-green-500 rounded-full" />
-                                Why BMI Matters in 2026
-                            </h3>
-                            <p className="text-slate-400 leading-[1.8] font-medium">
-                                While Body Mass Index (BMI) does not directly differentiate between lean muscle mass and adipose tissue, it remains the gold standard for clinical-grade population health screening. Results that deviate into extreme categories are statistically correlated with heightened risk for cardiovascular events and metabolic dysfunction.
-                            </p>
-                        </div>
-                        <div className="space-y-6">
-                            <h3 className="text-xl font-black text-white italic flex items-center gap-2">
-                                <span className="w-2 h-8 bg-blue-500 rounded-full" />
-                                Limitations & Muscle Mass Factors
-                            </h3>
-                            <p className="text-slate-400 leading-[1.8] font-medium">
-                                Elite athletes and strength practitioners often present with an "Obese" BMI due to high muscle density. Current 2026 clinical guidelines recommend augmenting BMI data with waist-to-height ratios and bioelectrical impedance analysis (BIA) to differentiate performance-driven mass from pathological weight.
-                            </p>
-                        </div>
+                    <div className="overflow-x-auto rounded-md border border-slate-200 shadow-sm">
+                        <table className="w-full text-left border-collapse text-sm">
+                            <thead className="bg-slate-100 border-b border-slate-300">
+                                <tr>
+                                    <th className="px-4 py-2 font-bold text-slate-700 uppercase tracking-tighter text-xs">BMI Range</th>
+                                    <th className="px-4 py-2 font-bold text-slate-700 uppercase tracking-tighter text-xs">Weight Category</th>
+                                    <th className="px-4 py-2 font-bold text-slate-700 uppercase tracking-tighter text-xs">Health Status</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-200 text-slate-600">
+                                {[
+                                    { range: "< 18.5", cat: "Underweight", risk: "Deficiency Risk", bg: "bg-white" },
+                                    { range: "18.5 – 24.9", cat: "Normal Weight", risk: "Optimal Range", bg: "bg-slate-50" },
+                                    { range: "25.0 – 29.9", cat: "Overweight", risk: "Elevated Risk", bg: "bg-white" },
+                                    { range: "30.0 – 34.9", cat: "Obesity Class I", risk: "High Risk", bg: "bg-slate-50" },
+                                    { range: "35.0+", cat: "Obesity Class II+", risk: "Critical Alert", bg: "bg-white" },
+                                ].map((row, i) => (
+                                    <tr key={i} className={`${row.bg} hover:bg-slate-100 transition-colors`}>
+                                        <td className="px-4 py-2 font-mono font-medium">{row.range}</td>
+                                        <td className="px-4 py-2 font-bold">{row.cat}</td>
+                                        <td className="px-4 py-2 text-xs font-bold uppercase">{row.risk}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8 py-10 border-t border-slate-200">
+                    <div className="space-y-4">
+                        <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2 uppercase">
+                            <span className="w-1 h-3 bg-emerald-600" />
+                            General Context
+                        </h3>
+                        <p className="text-sm text-slate-600 leading-relaxed">
+                            BMI is a screening tool, not a diagnostic. It estimates body fat based on weight-to-height ratio but does not factor in bone density or muscle volume. For athletes, additional body fat measurements are recommended.
+                        </p>
+                    </div>
+                    <div className="space-y-4">
+                        <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2 uppercase">
+                            <span className="w-1 h-3 bg-emerald-600" />
+                            Health Optimization
+                        </h3>
+                        <p className="text-sm text-slate-600 leading-relaxed">
+                            Maintaining a BMI between 18.5 and 24.9 is associated with lower risks of heart disease, type 2 diabetes, and various metabolic disorders. Consistency in activity and nutrition is the primary driver of index stability.
+                        </p>
                     </div>
                 </div>
             </article>
 
-            {/* Citations */}
-            <section className="py-24 border-y border-white/5 bg-slate-950/50" aria-label="Clinical Sources">
+            {/* Sources Registry */}
+            <section className="py-12 border-t border-slate-200 bg-slate-100" aria-label="Sources">
                 <div className="max-w-4xl mx-auto px-6">
-                    <h2 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mb-12 text-center">Standardized Clinical Sources</h2>
-                    <div className="grid md:grid-cols-2 gap-8">
-                        {[
-                            { s: "WHO", t: "Global Nutrition Report 2026", d: "Global classification atlas for biometric variance." },
-                            { s: "CDC", t: "Adult BMI Interpretations (2025 Update)", d: "Guidelines for longitudinal weight management." },
-                            { s: "The Lancet", t: "The Metabolic Dilemma: Beyond BMI", d: "Clinical research on adipose tissue and health." },
-                            { s: "NIH", t: "National Health Database v5.2", d: "Aggregated biometric data for demographic benchmarks." }
-                        ].map((cite, i) => (
-                            <div key={i} className="p-6 bg-black/40 border border-white/5 rounded-3xl group">
-                                <div className="text-[9px] font-black text-green-500 uppercase mb-1">{cite.s}</div>
-                                <h4 className="text-sm font-black text-white group-hover:text-green-500 transition-colors mb-2">{cite.t}</h4>
-                                <p className="text-[11px] text-slate-400 font-bold">{cite.d}</p>
+                    <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em] mb-6 text-center">Data Sources & Standards</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {["WHO Registry", "CDC Guidelines", "NIH Biometrics", "Lancet Medical"].map((source, i) => (
+                            <div key={i} className="text-center p-2 border-r border-slate-200 last:border-0">
+                                <p className="text-xs font-bold text-slate-700 uppercase tracking-tighter">{source}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* FAQ Section */}
-            <section aria-labelledby="faq-title" className="py-24">
-                <h2 id="faq-title" className="sr-only">Frequently Asked Questions</h2>
-                <h3 className="text-3xl font-black text-white mb-16 text-center italic">Body Mass Index <span className="text-green-500">FAQ</span>.</h3>
-                <FAQSection faqs={BMI_2026.faqs} />
+            {/* Tight FAQ Section (Absolute Light Theme) */}
+            <section className="bg-slate-50 pb-16 border-y border-slate-200">
+                <div className="max-w-7xl mx-auto px-6">
+                    <h3 className="text-lg font-bold text-slate-900 pt-12 mb-8 text-center uppercase tracking-tight">Expert FAQ & Guidelines</h3>
+                    <FAQSection faqs={BMI_2026.faqs} />
+                </div>
             </section>
         </main>
     );

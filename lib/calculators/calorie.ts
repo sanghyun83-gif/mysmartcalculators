@@ -10,8 +10,8 @@ import { Calculator, FileText, Flame, Apple, Activity, Heart, Target, Users } fr
 // ============================================
 export const SITE = {
     name: "Calorie Calculator",
-    tagline: "S-Class Metabolic Audit 2026",
-    description: "Execute a precision biological audit of your daily energy expenditure. Professional-grade TDEE, BMR, and macronutrient analysis based on 2026 institutional guidelines.",
+    tagline: "Total Daily Energy Expenditure 2026",
+    description: "Calculate your daily energy expenditure with precision. Professional-grade TDEE, BMR, and macronutrient analysis based on 2026 standard guidelines.",
     year: 2026,
     baseUrl: "https://mysmartcalculators.com/calorie",
 };
@@ -41,9 +41,9 @@ export const CALORIE_2026 = {
 
     // Institutional Macro Blueprints
     macroBlueprints: {
-        balanced: { p: 0.30, c: 0.40, f: 0.30, label: "Balanced Audit" },
-        low_carb: { p: 0.40, c: 0.20, f: 0.40, label: "Low Carb / Ketogenic Delta" },
-        high_protein: { p: 0.45, c: 0.35, f: 0.20, label: "High Protein Maturation" }
+        balanced: { p: 0.30, c: 0.40, f: 0.30, label: "Balanced Diet" },
+        low_carb: { p: 0.40, c: 0.20, f: 0.40, label: "Low Carb Plan" },
+        high_protein: { p: 0.45, c: 0.35, f: 0.20, label: "High Protein Focus" }
     },
 
     // 2026 Global benchmarks
@@ -66,20 +66,20 @@ export const CALORIE_2026 = {
     // Premium FAQ Dataset (15+ Items)
     faqs: [
         {
-            question: "How is the S-Class Calorie Audit calculated?",
-            answer: "Our engine utilizes the Mifflin-St Jeor equation, currently recognized as the global clinical standard for estimating Basal Metabolic Rate (BMR) with 90%+ accuracy in over 3,000 biological samples. We then apply TDEE multipliers synchronized with 2026 activity benchmarks."
+            question: "How is my calorie requirement calculated?",
+            answer: "Our engine utilizes the Mifflin-St Jeor equation, currently recognized as the global standard for estimating Basal Metabolic Rate (BMR) with high accuracy. We apply TDEE multipliers synchronized with standard activity benchmarks."
         },
         {
             question: "What is the difference between BMR and TDEE?",
-            answer: "BMR (Basal Metabolic Rate) is the energy your body consumes to maintain life at absolute rest. TDEE (Total Daily Energy Expenditure) is your BMR multiplied by your Activity Factor. TDEE is the 'Maintenance' number required to keep your weight biological stable."
+            answer: "BMR (Basal Metabolic Rate) is the energy your body consumes to maintain life at absolute rest. TDEE (Total Daily Energy Expenditure) is your BMR multiplied by your Activity Factor. TDEE is the 'Maintenance' number required to keep your weight stable."
         },
         {
             question: "Can I target extreme weight loss safely?",
-            answer: "Institutional guidelines (CDC 2026) recommend a deficit not exceeding 1,000 calories/day. For sustainable biological health, a 500-calorie deficit (tracking for 1lb loss per week) is the optimal architectural target for long-term thermodynamic success."
+            answer: "Standard guidelines recommend a deficit not exceeding 1,000 calories/day. For sustainable health, a 500-calorie deficit (tracking for 1lb loss per week) is the optimal target for long-term success."
         },
         {
             question: "How do macros impact my body composition?",
-            answer: "Calorie quantity dictates weight, while macronutrient quality dictates body composition. Higher protein ratios stabilize blood sugar and preserve lean muscle mass during deficits, while healthy fats regulate hormonal equilibrium."
+            answer: "Calorie quantity dictates weight, while macronutrient quality dictates body composition. Higher protein ratios help preserve lean muscle mass during deficits, while healthy fats regulate hormonal balance."
         },
         {
             question: "What is Metabolic Adaptation?",
@@ -99,7 +99,7 @@ export const CALORIE_2026 = {
         },
         {
             question: "What is the Thermic Effect of Food (TEF)?",
-            answer: "TEF represents the energy required for digestion. Protein has the highest TEF (20-30%), meaning your body 'burns' nearly 30% of the protein energy simply by processing it—making high-protein audits highly effective for fat loss."
+            answer: "TEF represents the energy required for digestion. Protein has the highest TEF (20-30%), meaning your body 'burns' nearly 30% of the protein energy simply by processing it—making high-protein diets highly effective for fat loss."
         },
         {
             question: "Does meal timing matter for calorie efficiency?",
@@ -134,24 +134,24 @@ export const CALORIE_2026 = {
 export const CALCULATORS = [
     {
         id: "calorie/calculator",
-        name: "Precision Calorie Audit",
+        name: "Calorie Calculator",
         shortName: "Calculator",
         description: "Calculate daily energy expenditure",
-        longDescription: "High-precision calorie audit engine using Mifflin-St Jeor benchmarks and USDA 2026 guidelines.",
+        longDescription: "High-precision calorie calculator using Mifflin-St Jeor benchmarks and standard guidelines.",
         icon: Calculator,
         category: "health",
-        keywords: ["calorie calculator", "tdee audit", "bmr engine", "weight loss calculator"],
+        keywords: ["calorie calculator", "tdee calculator", "bmr calculator", "weight loss calculator"],
         featured: true,
     },
     {
         id: "calorie/nutrition-guide",
-        name: "Metabolic Guide 2026",
+        name: "Nutrition Guide 2026",
         shortName: "Guide",
-        description: "Thermodynamic principles",
-        longDescription: "Deep-dive into metabolic pathways, macro-composition, and sustainable fat-loss architectures.",
+        description: "Energy balance principles",
+        longDescription: "Deep-dive into metabolic pathways, macro-composition, and sustainable fat-loss plans.",
         icon: FileText,
         category: "health",
-        keywords: ["nutrition guide", "metabolism audit", "weight loss science"],
+        keywords: ["nutrition guide", "metabolism guide", "weight loss science"],
         featured: true,
     },
 ] as const;
@@ -223,9 +223,9 @@ export function calculateCalories(
     const activity = CALORIE_2026.activityLevels.find(a => a.multiplier === activityMultiplier);
     const activityLevel = activity?.name || "Sedentary Audit";
 
-    let goal = "Thermodynamic Maintenance";
-    if (goalAdjustment < 0) goal = "Weight Loss Delta";
-    if (goalAdjustment > 0) goal = "Hypertrophic Gain";
+    let goal = "Maintenance";
+    if (goalAdjustment < 0) goal = "Weight Loss";
+    if (goalAdjustment > 0) goal = "Weight Gain";
 
     return {
         bmr: Math.round(bmr),

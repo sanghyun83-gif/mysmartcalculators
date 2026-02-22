@@ -28,6 +28,7 @@ interface FlagshipLayoutProps {
     accentSelectionClass: string; // e.g. "selection:bg-red-500/30"
     navLinks: NavLink[];
     trustScore?: string;
+    lightMode?: boolean;
 }
 
 export function FlagshipLayout({
@@ -38,7 +39,8 @@ export function FlagshipLayout({
     accentColorRgb,
     accentSelectionClass,
     navLinks,
-    trustScore = "4.9/5 TrustScore"
+    trustScore = "4.9/5 TrustScore",
+    lightMode = false
 }: FlagshipLayoutProps) {
     const pathname = usePathname();
 
@@ -73,17 +75,19 @@ export function FlagshipLayout({
     return (
         <Suspense fallback={null}>
             <div
-                className={`min-h-screen bg-slate-950 text-white ${accentSelectionClass} relative overflow-hidden`}
+                className={`min-h-screen ${lightMode ? 'bg-slate-50 text-slate-900' : 'bg-slate-950 text-white'} ${accentSelectionClass} relative overflow-hidden`}
                 style={themeStyles}
             >
                 {/* S-Class Premium Glow */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,var(--accent-glow),transparent_50%)] pointer-events-none" />
+                {!lightMode && (
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,var(--accent-glow),transparent_50%)] pointer-events-none" />
+                )}
 
                 {/* 1. Global Mini-Bar (AdSense Compliance) */}
-                <div className="fixed top-0 left-0 right-0 z-[120] bg-black text-white/40 h-[30px] border-b border-white/5 overflow-hidden">
-                    <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between text-[9px] font-black uppercase tracking-widest">
+                <div className={`fixed top-0 left-0 right-0 z-[120] ${lightMode ? 'bg-slate-100 text-slate-500' : 'bg-black text-white/40'} h-[30px] border-b ${lightMode ? 'border-slate-200' : 'border-white/5'} overflow-hidden`}>
+                    <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between text-[9px] font-black uppercase tracking-widest text-inherit">
                         <div className="flex items-center gap-4">
-                            <Link href="/" className="hover:text-white transition-colors flex items-center gap-1">
+                            <Link href="/" className="hover:text-emerald-600 transition-colors flex items-center gap-1">
                                 Home <ChevronRight className="w-2 h-2" />
                             </Link>
                             <span className="opacity-30">|</span>
@@ -98,7 +102,7 @@ export function FlagshipLayout({
                 </div>
 
                 {/* 2. Persistent S-Class Header (Immortal Architecture) */}
-                <header className="fixed top-[30px] left-0 right-0 z-[999] bg-transparent backdrop-blur-md border-b border-white/5 py-4">
+                <header className={`fixed top-[30px] left-0 right-0 z-[999] bg-transparent backdrop-blur-md border-b ${lightMode ? 'border-slate-200' : 'border-white/5'} py-4`}>
                     <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
                         <div className="flex items-center gap-6">
                             <div className="flex items-center gap-3">
@@ -110,17 +114,17 @@ export function FlagshipLayout({
                                         {brandName}
                                     </Link>
                                     <div className="flex items-center gap-2 mt-1">
-                                        <span className="text-[7px] font-bold text-slate-500 uppercase tracking-widest leading-none">Intelligence Unit</span>
-                                        <div className="text-[7px] font-black text-slate-600 uppercase tracking-widest opacity-40 hidden sm:flex items-center gap-1">
+                                        <span className="text-[7px] font-bold text-slate-500 uppercase tracking-widest leading-none">Smart Analysis</span>
+                                        <div className="text-[7px] font-black text-slate-400 uppercase tracking-widest hidden sm:flex items-center gap-1">
                                             <span>Home</span>
                                             <span className="opacity-40">&gt;</span>
-                                            <span className={isHub ? "text-white" : "hover:text-white transition-colors"}>
+                                            <span className={isHub ? (lightMode ? "text-slate-900" : "text-white") : (lightMode ? "hover:text-slate-900 transition-colors" : "hover:text-white transition-colors")}>
                                                 <Link href={hubPath}>Hub</Link>
                                             </span>
                                             {!isHub && (
                                                 <>
                                                     <span className="opacity-40">&gt;</span>
-                                                    <span className="text-white italic">
+                                                    <span className={`${lightMode ? 'text-slate-900' : 'text-white'} italic`}>
                                                         {isCalculator ? "Analyzer" : "Archive"}
                                                     </span>
                                                 </>
@@ -141,12 +145,12 @@ export function FlagshipLayout({
                         </div>
 
                         <div className="flex items-center gap-6">
-                            <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/50 border border-amber-500/20 text-[10px] font-black text-amber-500 uppercase tracking-widest shadow-[0_0_158px_rgba(245,158,11,0.1)]">
-                                <Star className="w-3 h-3 fill-current" />
+                            <div className={`hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full ${lightMode ? 'bg-white border-slate-200 text-slate-600' : 'bg-slate-800/50 border-amber-500/20 text-amber-500'} border text-[10px] font-black uppercase tracking-widest`}>
+                                <Star className={`w-3 h-3 ${lightMode ? 'text-amber-500' : 'fill-current'}`} />
                                 <span>{trustScore}</span>
                             </div>
                             {!isHub && (
-                                <Link href={hubPath} className="flex items-center gap-2 text-[10px] font-black text-white px-4 py-2 bg-white/5 rounded-xl hover:bg-white/10 transition-all uppercase tracking-widest border border-white/10">
+                                <Link href={hubPath} className={`flex items-center gap-2 text-[10px] font-black ${lightMode ? 'text-slate-900 bg-slate-100 hover:bg-slate-200 border-slate-200' : 'text-white bg-white/5 hover:bg-white/10 border-white/10'} px-4 py-2 rounded-xl transition-all uppercase tracking-widest border`}>
                                     <ArrowLeft className="w-3 h-3" /> Back
                                 </Link>
                             )}
@@ -161,27 +165,27 @@ export function FlagshipLayout({
                     </main>
 
                     {/* Unified Flagship Footer with Mandatory Jurisdiction */}
-                    <footer className="pt-20 pb-10 bg-black border-t border-white/5 relative z-[100]">
+                    <footer className={`pt-20 pb-10 ${lightMode ? 'bg-slate-100 border-slate-200' : 'bg-black border-white/5'} border-t relative z-[100]`}>
                         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
                             <div className="space-y-6">
                                 <div className="flex items-center gap-3">
-                                    <div className="p-2 bg-slate-800 rounded-lg">
+                                    <div className={`p-2 ${lightMode ? 'bg-white shadow-sm' : 'bg-slate-800'} rounded-lg`}>
                                         <SClassIcon className="w-4 h-4" style={{ color: `rgb(${accentColorRgb})` }} />
                                     </div>
-                                    <span className="text-sm font-black tracking-tighter uppercase">{brandName}</span>
+                                    <span className={`text-sm font-black tracking-tighter uppercase ${lightMode ? 'text-slate-900' : 'text-white'}`}>{brandName}</span>
                                 </div>
                                 <div className="flex -space-x-3">
                                     {[1, 2, 3].map(i => (
-                                        <div key={i} className="w-8 h-8 rounded-full border-2 border-black bg-slate-800 flex items-center justify-center text-[8px] font-black uppercase" style={{ color: `rgb(${accentColorRgb})` }}>DA</div>
+                                        <div key={i} className={`w-8 h-8 rounded-full border-2 ${lightMode ? 'border-white bg-slate-50' : 'border-black bg-slate-800'} flex items-center justify-center text-[8px] font-black uppercase`} style={{ color: `rgb(${accentColorRgb})` }}>DA</div>
                                     ))}
                                 </div>
-                                <p className="text-[10px] text-slate-500 font-black uppercase tracking-[0.2em]">Verified by Data Analyst Expert Team</p>
+                                <p className={`text-[10px] ${lightMode ? 'text-slate-400' : 'text-slate-500'} font-black uppercase tracking-[0.2em]`}>Verified by Data Analyst Expert Team</p>
                             </div>
                             <div className="md:text-right">
                                 <p className="text-[10px] text-slate-600 uppercase tracking-[0.2em] font-bold italic mb-4">
                                     Strict Compliance with Legal Disclaimer Guidelines 2026
                                 </p>
-                                <div className="text-[10px] text-slate-400 font-black uppercase tracking-widest leading-relaxed">
+                                <div className={`text-[10px] ${lightMode ? 'text-slate-500' : 'text-slate-400'} font-black uppercase tracking-widest leading-relaxed`}>
                                     Managed under the Laws of the {SITE_CONFIG.jurisdiction.laws}.
                                     <br />
                                     Exclusive Jurisdiction: {SITE_CONFIG.jurisdiction.shortCourt}.
