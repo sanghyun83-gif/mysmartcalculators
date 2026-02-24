@@ -9,17 +9,14 @@ export default function BodyFatLayout({
 }) {
     return (
         <FlagshipLayout
-            brandName="Adipose Auditor"
+            brandName="Body Fat Calculator"
             brandIcon="activity"
             hubPath="/body-fat"
-            accentColorRgb="99, 102, 241" // indigo-500
-            accentSelectionClass="selection:bg-indigo-500/30"
-            navLinks={[
-                { label: "AUDIT ENGINE", href: "/body-fat/calculator" },
-                { label: "HEALTH GUIDE", href: "/body-fat/health-guide" },
-                { label: "FAQ", href: "/body-fat#faq" },
-            ]}
+            accentColorRgb="5, 150, 105" // emerald-600
+            accentSelectionClass="selection:bg-emerald-600/30"
+            navLinks={[]}
             trustScore="4.9/5 TrustScore"
+            lightMode={true}
         >
             {children}
         </FlagshipLayout>

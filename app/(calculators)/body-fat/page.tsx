@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import HubClient from "./HubClient";
+import BodyFatClient from "./BodyFatClient";
 import { BODY_FAT_2026 } from "@/lib/calculators/body-fat";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function BodyFatPage() {
         "@graph": [
             {
                 "@type": "SoftwareApplication",
-                "name": "S-Class Body Fat Auditor",
+                "name": "Body Fat Calculator Supreme",
                 "operatingSystem": "All",
                 "applicationCategory": "HealthApplication",
                 "description": BODY_FAT_2026.metadata.description,
@@ -35,23 +35,23 @@ export default function BodyFatPage() {
             {
                 "@type": "HowTo",
                 "name": "How to Calculate Body Fat Percentage",
-                "description": "Step-by-step institutional guide for measuring body composition using Navy Seal and BMI methods.",
+                "description": "Professional guide for measuring body composition using standard circumference methods.",
                 "step": [
                     {
                         "@type": "HowToStep",
-                        "text": "Identify your gender and input your current age and weight."
+                        "text": "Identify your gender and input your current height."
                     },
                     {
                         "@type": "HowToStep",
-                        "text": "Measure your height, neck, and waist circumference (and hips for females)."
+                        "text": "Measure your neck and waist circumference accurately (and hips for females)."
                     },
                     {
                         "@type": "HowToStep",
-                        "text": "Input these dimensions into the S-Class auditor for localized fat analysis."
+                        "text": "Input these dimensions into the professional calculator."
                     },
                     {
                         "@type": "HowToStep",
-                        "text": "Review your classification against 2026 ACE and WHO health benchmarks."
+                        "text": "Review your results against 2026 health and fitness benchmarks."
                     }
                 ]
             },
@@ -98,7 +98,7 @@ export default function BodyFatPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
-            <HubClient />
+            <BodyFatClient />
         </>
     );
 }
