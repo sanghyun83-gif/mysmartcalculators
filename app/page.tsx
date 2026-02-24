@@ -106,6 +106,44 @@ export default function HomePage() {
       </section>
 
 
+      {/* Featured High-Volume Engines (Fast-Track Indexing Section) */}
+      <section className="max-w-7xl mx-auto px-4 py-8">
+        <div className="bg-slate-900/40 border border-slate-800 rounded-3xl p-8 backdrop-blur-sm">
+          <div className="flex items-center gap-2 text-amber-500 font-bold text-xs uppercase tracking-[0.3em] mb-6">
+            <Zap className="w-4 h-4" />
+            <span>High-Priority Industrial Engines</span>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {[
+              { id: 'bmi', name: 'BMI Calculator' },
+              { id: 'calorie', name: 'Calorie Calculator' },
+              { id: 'body-fat', name: 'Body Fat Calculator' },
+              { id: 'percentage', name: 'Percentage' },
+              { id: 'scientific', name: 'Scientific' },
+              { id: 'mortgage', name: 'Mortgage' },
+              { id: 'loan', name: 'Loan Engine' },
+              { id: 'gpa', name: 'GPA Calculator' },
+              { id: 'age', name: 'Age Calculator' },
+              { id: 'pregnancy', name: 'Pregnancy' },
+              { id: 'tip', name: 'Tip Calculator' },
+              { id: 'compound-interest', name: 'Compound' },
+              { id: 'due-date', name: 'Due Date' },
+              { id: 'salary', name: 'Salary Audit' },
+              { id: 'date', name: 'Date Engine' }
+            ].map(feat => (
+              <Link
+                key={feat.id}
+                href={`/${feat.id}`}
+                className="group p-4 bg-slate-800/50 border border-slate-700/50 rounded-2xl hover:border-amber-500/50 hover:bg-amber-500/5 transition-all"
+              >
+                <div className="text-white font-bold text-sm mb-1 group-hover:text-amber-400 transition-colors uppercase tracking-tight">{feat.name}</div>
+                <div className="text-[10px] text-slate-500 font-black uppercase tracking-widest">S-Class 1.0</div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Global Directory Grid (SEO Powerhouse) */}
       <section className="max-w-7xl mx-auto px-4 py-20 border-t border-slate-800/50">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
