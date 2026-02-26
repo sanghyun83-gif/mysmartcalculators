@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { Home, ShieldCheck } from "lucide-react";
@@ -10,10 +10,7 @@ import {
   generateAmortizationSchedule,
 } from "@/lib/calculators/mortgage";
 
-type FAQItem = {
-  question: string;
-  answer: string;
-};
+type FAQItem = Readonly<{ question: string; answer: string }>;
 
 function getLtvStyles(downPaymentPercent: number) {
   if (downPaymentPercent >= 20) {
@@ -25,7 +22,7 @@ function getLtvStyles(downPaymentPercent: number) {
   return "text-rose-800 bg-rose-50 border-rose-200";
 }
 
-function FAQSection({ faqs }: { faqs: FAQItem[] }) {
+function FAQSection({ faqs }: { faqs: readonly FAQItem[] }) {
   return (
     <div className="max-w-4xl mx-auto px-4 space-y-2">
       {faqs.map((faq, index) => (
@@ -67,7 +64,7 @@ export default function MortgageClient() {
   const [homeInsuranceYear, setHomeInsuranceYear] = useState(String(MORTGAGE_CONSTANTS.defaults.homeInsuranceYear));
 
   const calculatorFaqs =
-    (CALCULATORS.find((c) => c.id === "mortgage/calculator")?.faqs as FAQItem[] | undefined) ?? [];
+    (CALCULATORS.find((c) => c.id === "mortgage/calculator")?.faqs as readonly FAQItem[] | undefined) ?? [];
 
   const result = (() => {
     const price = Math.max(0, Number(homePrice) || MORTGAGE_CONSTANTS.defaults.homePrice);
@@ -347,3 +344,5 @@ export default function MortgageClient() {
     </main>
   );
 }
+
+

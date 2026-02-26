@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useMemo } from "react";
 import Link from "next/link";
@@ -114,7 +114,7 @@ export default function HubClient() {
                                     <td className="py-3 text-right">$600K - $1.2M</td>
                                 </tr>
                                 <tr className="border-b border-white/5">
-                                    <td className="py-3">{INJURY_SEVERITY[4].name}</td>
+                                    <td className="py-3">{INJURY_SEVERITY[INJURY_SEVERITY.length - 1]?.name || "Severe NEC"}</td>
                                     <td className="py-3 text-right text-rose-500">$2.5M+</td>
                                 </tr>
                             </tbody>
@@ -275,3 +275,4 @@ export default function HubClient() {
         </div>
     );
 }
+

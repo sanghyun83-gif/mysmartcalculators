@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { GraduationCap, ShieldCheck } from "lucide-react";
@@ -10,9 +10,9 @@ import {
   CourseData,
 } from "@/lib/calculators/gpa";
 
-type FAQItem = { question: string; answer: string };
+type FAQItem = Readonly<{ question: string; answer: string }>;
 
-function FAQSection({ faqs }: { faqs: FAQItem[] }) {
+function FAQSection({ faqs }: { faqs: readonly FAQItem[] }) {
   return (
     <div className="max-w-4xl mx-auto px-4 space-y-2">
       {faqs.map((faq, index) => (
@@ -41,7 +41,7 @@ const initialCourses: CourseData[] = [
 
 export default function GpaClient() {
   const [courses, setCourses] = useState<CourseData[]>(initialCourses);
-  const faqs = (CALCULATORS[0]?.faqs as FAQItem[] | undefined) ?? [];
+  const faqs = (CALCULATORS[0]?.faqs as readonly FAQItem[] | undefined) ?? [];
 
   const result = (() => calculateGPA(courses))();
 
@@ -211,4 +211,5 @@ export default function GpaClient() {
     </main>
   );
 }
+
 

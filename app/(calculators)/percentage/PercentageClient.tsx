@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { Percent, ShieldCheck } from "lucide-react";
@@ -11,9 +11,9 @@ import {
 } from "@/lib/calculators/percentage";
 
 type Mode = "percentOf" | "whatPercent" | "change" | "difference";
-type FAQItem = { question: string; answer: string };
+type FAQItem = Readonly<{ question: string; answer: string }>;
 
-function FAQSection({ faqs }: { faqs: FAQItem[] }) {
+function FAQSection({ faqs }: { faqs: readonly FAQItem[] }) {
   return (
     <div className="max-w-4xl mx-auto px-4 space-y-2">
       {faqs.map((faq, index) => (
@@ -38,7 +38,7 @@ export default function PercentageClient() {
   const [valueA, setValueA] = useState("20");
   const [valueB, setValueB] = useState("150");
 
-  const faqs = (CALCULATORS.find((c) => c.id === "percentage/calculator")?.faqs as FAQItem[] | undefined) ?? [];
+  const faqs = (CALCULATORS.find((c) => c.id === "percentage/calculator")?.faqs as readonly FAQItem[] | undefined) ?? [];
 
   const result = (() => {
     const a = Number(valueA) || 0;
@@ -233,4 +233,5 @@ export default function PercentageClient() {
     </main>
   );
 }
+
 
