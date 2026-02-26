@@ -31,7 +31,7 @@ export default function CalcOzempicPage() {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Ozempic Settlement Auditor 2026",
-    "applicationCategory": "HealthApplication",
+    "applicationCategory": "LegalApplication",
     "operatingSystem": "Any",
     "description": "2026 Expert settlement calculator for Ozempic MDL 3094 litigation.",
     "offers": {

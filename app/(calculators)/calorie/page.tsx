@@ -1,4 +1,4 @@
-import { getCalculatorMeta } from "@/lib/registry/calculators";
+﻿import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { CALORIE_2026 } from "@/lib/calculators/calorie";
 import dynamic from "next/dynamic";
 
@@ -25,11 +25,6 @@ export default function CalcCaloriePage() {
         "description": meta?.description || "High-precision metabolic audit engine for TDEE and BMR calculation.",
         "applicationCategory": "HealthApplication",
         "operatingSystem": "Any",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "21840"
-        },
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -107,3 +102,4 @@ export default function CalcCaloriePage() {
     </>
   );
 }
+

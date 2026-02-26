@@ -31,7 +31,7 @@ export default function SocialMediaPage() {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Social Media Settlement Auditor 2026",
-    "applicationCategory": "HealthApplication",
+    "applicationCategory": "LegalApplication",
     "operatingSystem": "Any",
     "description": "2026 Expert forensic calculator for Social Media MDL 3047 litigation.",
     "offers": {

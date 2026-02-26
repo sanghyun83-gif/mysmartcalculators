@@ -28,12 +28,7 @@ export default function CalcBiometHipPage() {
         "@type": "SoftwareApplication",
         "name": "2026 Biomet Hip Settlement Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "MedicalCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "840"
-        },
+        "applicationCategory": "LegalApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcBiometHipPage() {
     </>
   );
 }
+

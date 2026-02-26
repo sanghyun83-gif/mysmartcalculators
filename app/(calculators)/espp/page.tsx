@@ -28,12 +28,7 @@ export default function CalcEsppPage() {
         "@type": "SoftwareApplication",
         "name": "2026 ESPP Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "FinanceCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "12400"
-        },
+        "applicationCategory": "FinanceApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcEsppPage() {
     </>
   );
 }
+

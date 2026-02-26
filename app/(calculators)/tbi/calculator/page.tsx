@@ -24,7 +24,7 @@ export default function TBICalculatorPage() {
     const [medicalBills, setMedicalBills] = useState("120,000");
     const [hasPermanentDisability, setHasPermanentDisability] = useState(false);
 
-    // Expert Audit Toggles (+α)
+    // Expert Audit Toggles (+慣)
     const [applyGCSAudit, setApplyGCSAudit] = useState(false);
     const [applyDAIPivot, setApplyDAIPivot] = useState(false);
     const [applyFutureCare, setApplyFutureCare] = useState(false);
@@ -167,10 +167,10 @@ export default function TBICalculatorPage() {
                                 </div>
                             </div>
 
-                            {/* Expert Audit Toggles (+α) */}
+                            {/* Expert Audit Toggles (+慣) */}
                             <div className="space-y-4 pt-4 border-t border-white/5">
                                 <label className="flex items-center gap-2 text-[10px] font-black text-amber-500 uppercase tracking-widest mb-4">
-                                    <Zap className="w-3 h-3" /> Expert Audit Toggles (+α)
+                                    <Zap className="w-3 h-3" /> Expert Audit Toggles (+慣)
                                 </label>
 
                                 {[
@@ -263,7 +263,7 @@ export default function TBICalculatorPage() {
                                                 { label: "Lifelong Care Projections", val: result.lifetimeCare, icon: CheckCircle2 },
                                                 { label: "Lost Vocational Earning", val: result.lostWages, icon: CheckCircle2 },
                                                 { label: "Non-Economic Audit (Pain)", val: result.painSuffering, icon: TrendingUp },
-                                                { label: "Expert Delta (+α)", val: result.expertDelta, icon: Zap, gold: true }
+                                                { label: "Expert Delta (+慣)", val: result.expertDelta, icon: Zap, gold: true }
                                             ].map((row, i) => (
                                                 <div key={i} className={`flex justify-between items-center p-4 rounded-2xl ${row.gold ? "bg-amber-500/5 border border-amber-500/10" : "bg-black/20"}`}>
                                                     <div className="flex items-center gap-3">
@@ -322,12 +322,7 @@ export default function TBICalculatorPage() {
                         "@type": "SoftwareApplication",
                         "name": "TBI Settlement Auditor",
                         "operatingSystem": "All",
-                        "applicationCategory": "Professional/Legal",
-                        "aggregateRating": {
-                            "@type": "AggregateRating",
-                            "ratingValue": "4.9",
-                            "reviewCount": "2441"
-                        },
+                        "applicationCategory": "LegalApplication",
                         "offers": {
                             "@type": "Offer",
                             "price": "0",
@@ -339,3 +334,4 @@ export default function TBICalculatorPage() {
         </div>
     );
 }
+

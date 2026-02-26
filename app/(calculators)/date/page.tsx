@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import HubClient from "./HubClient";
 import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { DATE_2026 } from "@/lib/calculators/date";
@@ -24,11 +24,6 @@ export default function DatePage() {
                 "description": metadata.description,
                 "applicationCategory": "UtilitiesApplication",
                 "operatingSystem": "Any",
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.9",
-                    "ratingCount": "9120"
-                },
                 "offers": {
                     "@type": "Offer",
                     "price": "0",
@@ -105,3 +100,4 @@ export default function DatePage() {
         </>
     );
 }
+

@@ -1,18 +1,16 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
-    Calculator, Search, Menu, X, Zap,
-    ChevronRight, ChevronDown, Github, Star, Info, LayoutGrid,
+    Menu, X, Zap,
+    ChevronRight, ChevronDown, Info,
     Scale, DollarSign, Shield, Heart, Landmark
 } from "lucide-react";
-import { useHasMounted } from "@/lib/hooks/useHasMounted";
 
 export default function GlobalHeader() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const hasMounted = useHasMounted();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -22,9 +20,6 @@ export default function GlobalHeader() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Prevent rendering on server to avoid hydration mismatch with scroll-state or window metrics
-    if (!hasMounted) return null;
-
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${isScrolled
@@ -33,7 +28,6 @@ export default function GlobalHeader() {
                 }`}
         >
             <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
-                {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 group">
                     <div className="p-2 rounded-xl bg-amber-500 text-black group-hover:scale-110 transition-transform">
                         <Zap className="w-5 h-5 fill-current" />
@@ -43,19 +37,17 @@ export default function GlobalHeader() {
                             MySmart<span className="text-amber-500">Calculators</span>
                         </span>
                         <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-none mt-1">
-                            AI-Powered Analytics
+                            Free Online Calculators
                         </span>
                     </div>
                 </Link>
 
-                {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center gap-8">
-                    <Link href="/category/legal" className="text-sm font-bold text-slate-400 hover:text-white transition-colors tracking-wide">LEGAL</Link>
+                    <Link href="/calculators" className="text-sm font-bold text-slate-400 hover:text-white transition-colors tracking-wide">LEGAL</Link>
                     <Link href="/category/finance" className="text-sm font-bold text-slate-400 hover:text-white transition-colors tracking-wide">FINANCE</Link>
                     <Link href="/category/insurance" className="text-sm font-bold text-slate-400 hover:text-white transition-colors tracking-wide">INSURANCE</Link>
                     <Link href="/category/medical" className="text-sm font-bold text-slate-400 hover:text-white transition-colors tracking-wide">MEDICAL</Link>
 
-                    {/* More Dropdown */}
                     <div className="relative group/more">
                         <button className="flex items-center gap-1 text-sm font-bold text-slate-400 hover:text-white transition-colors tracking-wide">
                             <span>MORE</span>
@@ -74,32 +66,14 @@ export default function GlobalHeader() {
                                 <div className="h-px bg-slate-800 my-2" />
                                 <Link href="/about" className="flex items-center gap-3 p-3 text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-800 rounded-xl transition-all" onClick={() => { }}>
                                     <Info className="w-4 h-4" />
-                                    <span>About Our AI</span>
+                                    <span>About Our Methodology</span>
                                 </Link>
                             </div>
                         </div>
                     </div>
                 </nav>
 
-                {/* Action Buttons */}
                 <div className="flex items-center gap-4">
-                    {/* Social Proof Badge (Desktop Only) */}
-                    <div className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-[11px] font-bold text-slate-400">
-                        <Star className="w-3 h-3 text-amber-500 fill-amber-500" />
-                        <span>4.9/5 TrustScore</span>
-                    </div>
-
-                    <button
-                        onClick={() => {
-                            const searchInput = document.querySelector('input[type="text"]') as HTMLInputElement;
-                            if (searchInput) searchInput.focus();
-                            else window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }}
-                        className="p-2 text-slate-400 hover:text-white transition-colors"
-                    >
-                        <Search className="w-5 h-5" />
-                    </button>
-
                     <button
                         className="md:hidden p-2 text-slate-400 hover:text-white transition-colors"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -108,16 +82,15 @@ export default function GlobalHeader() {
                     </button>
 
                     <Link
-                        href="/category/legal"
+                        href="/calculators"
                         className="hidden md:flex items-center gap-2 bg-white hover:bg-slate-200 text-black px-5 py-2.5 rounded-xl font-bold text-sm transition-all"
                     >
-                        <span>Get Started</span>
+                        <span>Browse Calculators</span>
                         <ChevronRight className="w-4 h-4" />
                     </Link>
                 </div>
             </div>
 
-            {/* Mobile Menu Backdrop */}
             {isMobileMenuOpen && (
                 <div
                     className="fixed inset-0 bg-slate-950/90 backdrop-blur-xl z-[90] md:hidden animate-in fade-in duration-300"
@@ -125,8 +98,8 @@ export default function GlobalHeader() {
                 >
                     <div className="flex flex-col p-8 pt-24 gap-4 overflow-y-auto h-full">
                         <div className="text-[10px] font-bold text-slate-600 uppercase tracking-[0.2em] mb-2">Category Portals</div>
-                        <Link href="/category/legal" className="text-2xl font-bold flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded-2xl" onClick={() => setIsMobileMenuOpen(false)}>
-                            <span>Legal AI</span> <Scale className="w-6 h-6 text-amber-500" />
+                        <Link href="/calculators" className="text-2xl font-bold flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded-2xl" onClick={() => setIsMobileMenuOpen(false)}>
+                            <span>Legal Calculators</span> <Scale className="w-6 h-6 text-amber-500" />
                         </Link>
                         <Link href="/category/finance" className="text-2xl font-bold flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded-2xl" onClick={() => setIsMobileMenuOpen(false)}>
                             <span>Finance</span> <DollarSign className="w-6 h-6 text-emerald-500" />
@@ -149,7 +122,7 @@ export default function GlobalHeader() {
                         </div>
                         <div className="h-px bg-slate-800 my-6" />
                         <Link href="/about" className="text-lg text-slate-400 font-bold flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)}>
-                            <Info className="w-5 h-5" /> <span>About Our Vision</span>
+                            <Info className="w-5 h-5" /> <span>About</span>
                         </Link>
                     </div>
                 </div>
@@ -157,3 +130,4 @@ export default function GlobalHeader() {
         </header>
     );
 }
+

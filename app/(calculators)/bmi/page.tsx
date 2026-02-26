@@ -1,4 +1,4 @@
-import { getCalculatorMeta } from "@/lib/registry/calculators";
+﻿import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { BMI_2026 } from "@/lib/calculators/bmi";
 import BMIClient from "./BMIClient";
 
@@ -27,13 +27,7 @@ export default function CalcBmiPage() {
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "USD"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "1250"
-        }
-      },
+        },},
       {
         "@type": "HowTo",
         "name": "How to Calculate BMI (Body Mass Index)",
@@ -105,3 +99,4 @@ export default function CalcBmiPage() {
     </>
   );
 }
+

@@ -27,19 +27,13 @@ export default function CalcMalpracticePage() {
     "@type": "SoftwareApplication",
     "name": SITE.name,
     "operatingSystem": "All",
-    "applicationCategory": "FinancialApplication",
+    "applicationCategory": "LegalApplication",
     "offers": {
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD"
     },
-    "description": SITE.description,
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "1284"
-    }
-  };
+    "description": SITE.description,};
 
   const faqLd = {
     "@context": "https://schema.org",
@@ -86,3 +80,4 @@ export default function CalcMalpracticePage() {
     </>
   );
 }
+

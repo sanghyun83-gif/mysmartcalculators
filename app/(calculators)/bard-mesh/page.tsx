@@ -28,12 +28,7 @@ export default function CalcBardMeshPage() {
         "@type": "SoftwareApplication",
         "name": "2026 Bard Mesh Settlement Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "MedicalCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.7",
-          "ratingCount": "890"
-        },
+        "applicationCategory": "LegalApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcBardMeshPage() {
     </>
   );
 }
+

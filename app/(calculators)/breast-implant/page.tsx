@@ -28,12 +28,7 @@ export default function CalcBreastImplantPage() {
         "@type": "SoftwareApplication",
         "name": "2026 Breast Implant Illness Settlement Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "HealthCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "950"
-        },
+        "applicationCategory": "LegalApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcBreastImplantPage() {
     </>
   );
 }
+

@@ -21,12 +21,7 @@ export default function CalcTruckaccidentPage() {
     "@type": "SoftwareApplication",
     "name": "2026 Truck Accident Settlement Calculator",
     "operatingSystem": "All",
-    "applicationCategory": "FinancialValueCalculator",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "ratingCount": "1204"
-    },
+    "applicationCategory": "LegalApplication",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -73,3 +68,4 @@ export default function CalcTruckaccidentPage() {
     </>
   );
 }
+

@@ -1,6 +1,5 @@
 "use client";
 
-import { Percent } from "lucide-react";
 import { FlagshipLayout } from "@/components/v3/FlagshipLayout";
 
 export default function PercentageLayout({
@@ -10,16 +9,14 @@ export default function PercentageLayout({
 }) {
     return (
         <FlagshipLayout
-            brandName="PercentMaster"
+            brandName="Percentage Calculator"
             brandIcon="percent"
             hubPath="/percentage"
-            accentColorRgb="59, 130, 246" // blue-500
-            accentSelectionClass="selection:bg-blue-500/30"
-            navLinks={[
-                { label: "ENGINE", href: "/percentage/calculator" },
-                { label: "HUB", href: "/percentage" },
-            ]}
-            trustScore="4.9/5 Precision Rating"
+            accentColorRgb="59, 130, 246"
+            accentSelectionClass="selection:bg-blue-100"
+            navLinks={[]}
+            trustScore="Verified by NIST + BLS 2026"
+            lightMode={true}
         >
             {children}
         </FlagshipLayout>

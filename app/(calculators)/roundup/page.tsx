@@ -31,7 +31,7 @@ export default function CalcRoundupPage() {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Roundup Settlement Auditor 2026",
-    "applicationCategory": "HealthApplication",
+    "applicationCategory": "LegalApplication",
     "operatingSystem": "Any",
     "description": "2026 expert actuarial calculator for Roundup MDL 2741 litigation.",
     "offers": {

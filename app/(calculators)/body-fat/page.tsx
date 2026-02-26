@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+﻿import { Metadata } from "next";
 import BodyFatClient from "./BodyFatClient";
 import { BODY_FAT_2026 } from "@/lib/calculators/body-fat";
 
@@ -21,11 +21,6 @@ export default function BodyFatPage() {
                 "operatingSystem": "All",
                 "applicationCategory": "HealthApplication",
                 "description": BODY_FAT_2026.metadata.description,
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.9",
-                    "ratingCount": "12840"
-                },
                 "offers": {
                     "@type": "Offer",
                     "price": "0",
@@ -102,3 +97,4 @@ export default function BodyFatPage() {
         </>
     );
 }
+

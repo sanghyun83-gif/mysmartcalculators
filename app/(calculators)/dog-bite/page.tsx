@@ -1,4 +1,4 @@
-import { getCalculatorMeta } from "@/lib/registry/calculators";
+﻿import { getCalculatorMeta } from "@/lib/registry/calculators";
 import dynamic from "next/dynamic";
 
 const id = "dog-bite";
@@ -30,7 +30,6 @@ export default function CalcDogbitePage() {
           "name": "2026 Dog Bite Settlement Calculator",
           "operatingSystem": "All", "applicationCategory": "LegalApplication",
           "description": "2026 expert dog bite settlement auditor with III liability data, breed-specific propensity analysis, and 50-state strict liability rules.",
-          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "1120" },
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
         })
       }} />
@@ -46,3 +45,4 @@ export default function CalcDogbitePage() {
     </>
   );
 }
+

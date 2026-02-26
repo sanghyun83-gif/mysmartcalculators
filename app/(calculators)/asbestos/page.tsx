@@ -28,12 +28,7 @@ export default function CalcAsbestosPage() {
         "@type": "SoftwareApplication",
         "name": "2026 Asbestos Exposure Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "LegalCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "15400"
-        },
+        "applicationCategory": "LegalApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcAsbestosPage() {
     </>
   );
 }
+

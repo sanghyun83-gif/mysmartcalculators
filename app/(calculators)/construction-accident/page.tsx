@@ -1,4 +1,4 @@
-import { getCalculatorMeta } from "@/lib/registry/calculators";
+﻿import { getCalculatorMeta } from "@/lib/registry/calculators";
 import React, { lazy, Suspense } from "react";
 import { ClientOnly } from "@/components/ClientOnly";
 
@@ -24,7 +24,6 @@ export default function CalcConstructionaccidentPage() {
           "name": "2026 Construction Accident Settlement Calculator",
           "operatingSystem": "All", "applicationCategory": "LegalApplication",
           "description": "2026 expert construction injury settlement auditor with OSHA Fatal Four data, BLS injury rates, and workers' comp integration.",
-          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "1340" },
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
         })
       }} />
@@ -43,3 +42,4 @@ export default function CalcConstructionaccidentPage() {
     </>
   );
 }
+

@@ -1,4 +1,4 @@
-import HubClient from "./HubClient";
+﻿import HubClient from "./HubClient";
 import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { SQUARE_FOOTAGE_2026 } from "@/lib/calculators/square-footage";
 
@@ -23,11 +23,6 @@ export default function SquareFootagePage() {
                 "description": metadata.description,
                 "applicationCategory": "UtilitiesApplication",
                 "operatingSystem": "Any",
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.9",
-                    "ratingCount": "12450"
-                },
                 "offers": {
                     "@type": "Offer",
                     "price": "0",
@@ -104,3 +99,4 @@ export default function SquareFootagePage() {
         </>
     );
 }
+

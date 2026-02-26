@@ -28,12 +28,7 @@ export default function CalcBonustaxPage() {
         "@type": "SoftwareApplication",
         "name": "2026 Bonus Tax Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "FinanceCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "8430"
-        },
+        "applicationCategory": "FinanceApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcBonustaxPage() {
     </>
   );
 }
+

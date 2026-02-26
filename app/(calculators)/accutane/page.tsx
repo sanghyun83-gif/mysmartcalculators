@@ -28,12 +28,7 @@ export default function CalcAccutanePage() {
         "@type": "SoftwareApplication",
         "name": "2026 Accutane Lawsuit Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "MedicalCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "9200"
-        },
+        "applicationCategory": "LegalApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcAccutanePage() {
     </>
   );
 }
+

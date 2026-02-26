@@ -21,13 +21,8 @@ export default function OvulationPage() {
                 "@type": "SoftwareApplication",
                 "name": "S-Class Ovulation Auditor",
                 "description": metadata.description,
-                "applicationCategory": "HealthApplication",
+                "applicationCategory": "UtilitiesApplication",
                 "operatingSystem": "Any",
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.9",
-                    "ratingCount": "12450"
-                },
                 "offers": {
                     "@type": "Offer",
                     "price": "0",
@@ -104,3 +99,4 @@ export default function OvulationPage() {
         </>
     );
 }
+

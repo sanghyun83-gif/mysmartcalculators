@@ -1,4 +1,4 @@
-/**
+﻿/**
  * V5.0 Layout Ownership Registry
  * Centralized source of truth to determine which shell owns a specific route.
  * This prevents multiple layouts from rendering global elements (headers/footers) simultaneously.
@@ -234,3 +234,7 @@ export function getLayoutShellType(pathname: string | null): LayoutShellType {
 
     return 'LEGACY';
 }
+
+
+
+

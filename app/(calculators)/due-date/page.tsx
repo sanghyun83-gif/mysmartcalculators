@@ -1,4 +1,4 @@
-import { getCalculatorMeta } from "@/lib/registry/calculators";
+﻿import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { DUE_DATE_2026 } from "@/lib/calculators/due-date";
 import DueDateHubClient from "./HubClient";
 
@@ -23,11 +23,6 @@ export default function DueDatePage() {
                 "description": metadata.description,
                 "applicationCategory": "HealthApplication",
                 "operatingSystem": "Any",
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.9",
-                    "ratingCount": "18630"
-                },
                 "offers": {
                     "@type": "Offer",
                     "price": "0",
@@ -104,3 +99,4 @@ export default function DueDatePage() {
         </>
     );
 }
+

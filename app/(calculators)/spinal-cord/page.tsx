@@ -35,12 +35,7 @@ export default function CalcSpinalcordPage() {
               "@type": "SoftwareApplication",
               "name": "Spinal Cord Injury (SCI) Auditor v2.1",
               "operatingSystem": "All",
-              "applicationCategory": "FinanceApplication",
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "ratingCount": "158"
-              },
+              "applicationCategory": "LegalApplication",
               "offers": {
                 "@type": "Offer",
                 "price": "0",
@@ -75,3 +70,4 @@ export default function CalcSpinalcordPage() {
     </>
   );
 }
+

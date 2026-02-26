@@ -36,7 +36,7 @@ export default function CalcBoatinsurancePage() {
                 "@type": "SoftwareApplication",
                 "name": "2026 Boat Insurance Audit Engine",
                 "operatingSystem": "All",
-                "applicationCategory": "FinanceApplication",
+                "applicationCategory": "UtilitiesApplication",
                 "description": "Calculate boat insurance premiums based on 2026 maritime insurance benchmarks and state-level indices.",
                 "offers": {
                   "@type": "Offer",

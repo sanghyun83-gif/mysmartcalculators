@@ -28,12 +28,7 @@ export default function CalcEpliPage() {
         "@type": "SoftwareApplication",
         "name": "2026 EPLI Premium Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "FinanceCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "7200"
-        },
+        "applicationCategory": "LegalApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcEpliPage() {
     </>
   );
 }
+

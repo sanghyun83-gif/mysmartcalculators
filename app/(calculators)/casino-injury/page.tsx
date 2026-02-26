@@ -36,7 +36,7 @@ export default function CalcCasinoinjuryPage() {
                 "@type": "SoftwareApplication",
                 "name": "2026 Casino Claim Auditor",
                 "operatingSystem": "All",
-                "applicationCategory": "HealthApplication",
+                "applicationCategory": "LegalApplication",
                 "description": "Professional tool for auditing casino injury settlement values using 2026 gaming commission and Dram Shop benchmarks.",
                 "offers": {
                   "@type": "Offer",

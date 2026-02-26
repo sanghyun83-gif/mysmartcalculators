@@ -228,7 +228,7 @@ export function LejeuneAuditEngineComponent() {
                                         <div className="text-6xl font-black tracking-tighter italic mb-4">{formatCurrency(result.totalMid)}</div>
                                         <div className="flex items-center gap-2 mb-8">
                                             <TrendingUp className="w-4 h-4" />
-                                            <span className="text-[10px] font-black uppercase tracking-widest">Range: {formatCurrency(result.totalLow)} — {formatCurrency(result.totalHigh)}</span>
+                                            <span className="text-[10px] font-black uppercase tracking-widest">Range: {formatCurrency(result.totalLow)} ??{formatCurrency(result.totalHigh)}</span>
                                         </div>
 
                                         {result.expertDelta > 0 && (
@@ -297,20 +297,15 @@ export function LejeuneAuditEngineComponent() {
                         "@type": "SoftwareApplication",
                         "name": "Camp Lejeune v2.1 Recovery Auditor",
                         "operatingSystem": "All",
-                        "applicationCategory": "FinancingApplication",
+                        "applicationCategory": "FinanceApplication",
                         "offers": {
                             "@type": "Offer",
                             "price": "0",
                             "priceCurrency": "USD"
-                        },
-                        "aggregateRating": {
-                            "@type": "AggregateRating",
-                            "ratingValue": "4.9",
-                            "ratingCount": "3412"
-                        }
-                    })
+                        },})
                 }}
             />
         </div>
     );
 }
+

@@ -36,7 +36,7 @@ export default function CalcCamperinsurancePage() {
                 "@type": "SoftwareApplication",
                 "name": "2026 Camper Insurance Audit Engine",
                 "operatingSystem": "All",
-                "applicationCategory": "FinanceApplication",
+                "applicationCategory": "UtilitiesApplication",
                 "description": "Professional tool for auditing camper insurance premiums using 2026 regional risk and RVIA benchmarks.",
                 "offers": {
                   "@type": "Offer",

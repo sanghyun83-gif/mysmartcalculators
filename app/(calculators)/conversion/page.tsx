@@ -1,4 +1,4 @@
-import HubClient from "./HubClient";
+﻿import HubClient from "./HubClient";
 import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { CONVERSION_2026 } from "@/lib/calculators/conversion";
 
@@ -23,11 +23,6 @@ export default function ConversionPage() {
                 "description": metadata.description,
                 "applicationCategory": "UtilitiesApplication",
                 "operatingSystem": "Any",
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.9",
-                    "ratingCount": "12840"
-                },
                 "offers": {
                     "@type": "Offer",
                     "price": "0",
@@ -104,3 +99,4 @@ export default function ConversionPage() {
         </>
     );
 }
+

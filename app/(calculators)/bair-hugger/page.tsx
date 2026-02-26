@@ -28,12 +28,7 @@ export default function CalcBairHuggerPage() {
         "@type": "SoftwareApplication",
         "name": "2026 Bair Hugger Settlement Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "MedicalCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "940"
-        },
+        "applicationCategory": "LegalApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcBairHuggerPage() {
     </>
   );
 }
+

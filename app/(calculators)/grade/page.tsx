@@ -24,13 +24,8 @@ export default function GradeHubPage() {
                 "@type": "SoftwareApplication",
                 "name": "Standard Grade Calculator",
                 "description": SITE.description,
-                "applicationCategory": "EducationApplication",
+                "applicationCategory": "EducationalApplication",
                 "operatingSystem": "Any",
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.9",
-                    "ratingCount": "15420"
-                },
                 "offers": {
                     "@type": "Offer",
                     "price": "0",
@@ -107,3 +102,4 @@ export default function GradeHubPage() {
         </>
     );
 }
+

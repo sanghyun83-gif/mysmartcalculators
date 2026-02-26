@@ -28,12 +28,7 @@ export default function CalcArtInsurancePage() {
         "@type": "SoftwareApplication",
         "name": "2026 Art Insurance Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "FinanceCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "1800"
-        },
+        "applicationCategory": "UtilitiesApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcArtInsurancePage() {
     </>
   );
 }
+

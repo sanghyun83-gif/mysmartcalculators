@@ -28,12 +28,7 @@ export default function CalcDepuykneePage() {
         "@type": "SoftwareApplication",
         "name": "2026 DePuy Knee Lawsuit Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "HealthCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "9120"
-        },
+        "applicationCategory": "LegalApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcDepuykneePage() {
     </>
   );
 }
+

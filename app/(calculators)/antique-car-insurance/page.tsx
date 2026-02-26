@@ -28,12 +28,7 @@ export default function CalcAntiqueCarInsurancePage() {
         "@type": "SoftwareApplication",
         "name": "2026 Antique Car Insurance Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "FinanceCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "3200"
-        },
+        "applicationCategory": "UtilitiesApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcAntiqueCarInsurancePage() {
     </>
   );
 }
+

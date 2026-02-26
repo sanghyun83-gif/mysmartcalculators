@@ -28,12 +28,7 @@ export default function CalcAmusementParkPage() {
         "@type": "SoftwareApplication",
         "name": "2026 Amusement Park Injury Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "LegalCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "8900"
-        },
+        "applicationCategory": "LegalApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcAmusementParkPage() {
     </>
   );
 }
+

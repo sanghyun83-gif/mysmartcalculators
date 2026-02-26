@@ -3,7 +3,7 @@
 // 2025-2026 Percentage Engine
 // ============================================
 
-import { Percent, TrendingUp, TrendingDown, Scale, Calculator, CalculatorIcon } from 'lucide-react';
+import { Percent, TrendingUp, Scale } from 'lucide-react';
 
 // ============================================
 // SITE METADATA
@@ -11,7 +11,7 @@ import { Percent, TrendingUp, TrendingDown, Scale, Calculator, CalculatorIcon } 
 export const SITE = {
     name: "Percentage Calculator",
     tagline: "Free 2026 Precision Percentage & Growth Estimator",
-    description: "Calculate percentages instantly with our 2026 math engine. Free negotiator for percentage increase, decrease, difference, and common business metrics with NIST precision.",
+    description: "Calculate percentages instantly with our 2026 math engine. Analyze percentage increase, decrease, reverse percentage, and relative difference using NIST-aligned methods.",
     year: 2026,
     baseUrl: "https://mysmartcalculators.com/percentage",
 };
@@ -24,7 +24,7 @@ export const PERCENT_CONSTANTS = {
         value1: 100,
         value2: 20,
     },
-    citation: "Based on NIST Mathematical Standards, ISO 80000-1 quantities and units, and industry-standard business accounting benchmarks (GAAP)."
+    citation: "Based on NIST mathematical methods, ISO 80000-1 quantities and units, and standard business accounting benchmarks."
 };
 
 // ============================================

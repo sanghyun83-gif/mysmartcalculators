@@ -10,8 +10,8 @@ import { Calculator, Home, DollarSign, TrendingDown, PiggyBank, Scale, Building 
 // ============================================
 export const SITE = {
     name: "Mortgage Calculator",
-    tagline: "Free 2026 Mortgage Payment & Rate Estimator",
-    description: "Calculate your 2026 mortgage payment instantly. Free home loan negotiator with official Freddie Mac (PMMS) rate data, FHFA property tax benchmarks, and PMI estimation.",
+    tagline: "Free 2026 Mortgage Payment, PMI & Amortization Estimator",
+    description: "Calculate your 2026 mortgage payment instantly. Analyze principal, interest, taxes, insurance, and PMI with Freddie Mac PMMS and FHFA benchmark context.",
     year: 2026,
     baseUrl: "https://mysmartcalculators.com/mortgage",
 };
@@ -24,11 +24,11 @@ export const MORTGAGE_CONSTANTS = {
     defaults: {
         homePrice: 400000,
         downPaymentPercent: 20,
-        interestRate: 6.5, // 2025 average
+        interestRate: 6.25, // 2026 baseline reference
         loanTermYears: 30,
-        propertyTaxRate: 1.2, // percent of home value per year
-        homeInsuranceYear: 1800, // yearly
-        pmiRate: 0.5, // percent of loan per year if down < 20%
+        propertyTaxRate: 1.1, // percent of home value per year
+        homeInsuranceYear: 1700, // yearly
+        pmiRate: 0.55, // percent of loan per year if down < 20%
     },
 
     // Loan term options
@@ -49,8 +49,8 @@ export const MORTGAGE_CONSTANTS = {
 
     // Average home prices by state (for reference)
     avgHomePriceUS: 450000,
-    avgInterestRate2026: 7.0,
-    citation: "Based on 2026 Freddie Mac Primary Mortgage Market Survey (PMMS) data, FHFA House Price Index (HPI), and industry-standard PITI calculation benchmarks."
+    avgInterestRate2026: 6.25,
+    citation: "Based on Freddie Mac PMMS, FHFA house price benchmarks, and CFPB/TILA mortgage disclosure standards (2026 model assumptions)."
 };
 
 // ============================================

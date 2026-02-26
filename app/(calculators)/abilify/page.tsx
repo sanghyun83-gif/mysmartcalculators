@@ -28,12 +28,7 @@ export default function CalcAbilifyPage() {
         "@type": "SoftwareApplication",
         "name": "2026 Abilify Lawsuit Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "MedicalCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "7800"
-        },
+        "applicationCategory": "LegalApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcAbilifyPage() {
     </>
   );
 }
+

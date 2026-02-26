@@ -28,12 +28,7 @@ export default function Calc529Page() {
         "@type": "SoftwareApplication",
         "name": "2026 529 Plan Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "FinanceCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "8400"
-        },
+        "applicationCategory": "FinanceApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function Calc529Page() {
     </>
   );
 }
+

@@ -28,12 +28,7 @@ export default function CalcAtvInsurancePage() {
         "@type": "SoftwareApplication",
         "name": "2026 ATV Insurance Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "FinanceApplication",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "980"
-        },
+        "applicationCategory": "HealthApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcAtvInsurancePage() {
     </>
   );
 }
+

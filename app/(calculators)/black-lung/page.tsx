@@ -28,12 +28,7 @@ export default function CalcBlackLungPage() {
         "@type": "SoftwareApplication",
         "name": "2026 Black Lung Settlement Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "HealthCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.7",
-          "ratingCount": "620"
-        },
+        "applicationCategory": "LegalApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcBlackLungPage() {
     </>
   );
 }
+

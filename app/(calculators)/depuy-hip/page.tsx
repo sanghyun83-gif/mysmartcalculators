@@ -28,12 +28,7 @@ export default function CalcDepuyhipPage() {
         "@type": "SoftwareApplication",
         "name": "2026 DePuy Hip Lawsuit Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "HealthCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "12450"
-        },
+        "applicationCategory": "LegalApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcDepuyhipPage() {
     </>
   );
 }
+

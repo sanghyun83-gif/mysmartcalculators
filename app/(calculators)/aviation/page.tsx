@@ -28,12 +28,7 @@ export default function CalcAviationPage() {
         "@type": "SoftwareApplication",
         "name": "2026 Aviation Accident Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "LegalCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "1550"
-        },
+        "applicationCategory": "LegalApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcAviationPage() {
     </>
   );
 }
+

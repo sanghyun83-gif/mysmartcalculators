@@ -31,7 +31,7 @@ export default function CalcTalcumpowderPage() {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Talcum Powder Settlement Auditor 2026",
-    "applicationCategory": "HealthApplication",
+    "applicationCategory": "LegalApplication",
     "operatingSystem": "Any",
     "description": "2026 expert actuarial calculator for Talc MDL 2738 ovarian cancer litigation.",
     "offers": {

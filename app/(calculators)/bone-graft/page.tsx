@@ -36,7 +36,7 @@ export default function CalcBonegraftPage() {
                 "@type": "SoftwareApplication",
                 "name": "2026 bone-graft Claim Auditor",
                 "operatingSystem": "All",
-                "applicationCategory": "HealthApplication",
+                "applicationCategory": "LegalApplication",
                 "description": "Professional tool for auditing bone graft failure settlement values using 2026 surgical and infection benchmarks.",
                 "offers": {
                   "@type": "Offer",

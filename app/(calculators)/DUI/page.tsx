@@ -28,12 +28,7 @@ export default function CalcDUIPage() {
         "@type": "SoftwareApplication",
         "name": "2026 DUI Cost Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "LegalCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "12500"
-        },
+        "applicationCategory": "LegalApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcDUIPage() {
     </>
   );
 }
+

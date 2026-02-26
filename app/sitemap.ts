@@ -21,6 +21,34 @@ const CALCULATORS_WITH_SUBPAGES = [
     'square-footage', 'ovulation'
 ];
 
+function getFileMtime(filePath: string): Date | null {
+    try {
+        return fs.statSync(filePath).mtime;
+    } catch {
+        return null;
+    }
+}
+
+function resolveRootPageLastmod(now: Date): Date {
+    const rootPagePath = path.join(process.cwd(), 'app', 'page.tsx');
+    return getFileMtime(rootPagePath) ?? now;
+}
+
+function resolveCategoryLastmod(category: Category, now: Date): Date {
+    const categoryPagePath = path.join(process.cwd(), 'app', '(calculators)', 'category', '[slug]', 'page.tsx');
+    return getFileMtime(categoryPagePath) ?? now;
+}
+
+function resolveCalculatorLastmod(calculatorId: string, now: Date): Date {
+    const calcPagePath = path.join(process.cwd(), 'app', '(calculators)', calculatorId, 'page.tsx');
+    return getFileMtime(calcPagePath) ?? now;
+}
+
+function resolveSubpageLastmod(calculatorId: string, subpage: string, now: Date): Date {
+    const subpageFilePath = path.join(process.cwd(), 'app', '(calculators)', calculatorId, subpage, 'page.tsx');
+    return getFileMtime(subpageFilePath) ?? now;
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
     const now = new Date();
 
@@ -28,7 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const corePages: MetadataRoute.Sitemap = [
         {
             url: BASE_URL,
-            lastModified: now,
+            lastModified: resolveRootPageLastmod(now),
             changeFrequency: 'daily',
             priority: 1,
         },
@@ -38,7 +66,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const categories: Category[] = ['legal', 'finance', 'insurance', 'medical', 'family', 'health'];
     const hubPages: MetadataRoute.Sitemap = categories.map(cat => ({
         url: `${BASE_URL}/category/${cat}`,
-        lastModified: now,
+        lastModified: resolveCategoryLastmod(cat, now),
         changeFrequency: 'daily',
         priority: 0.9,
     }));
@@ -71,7 +99,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
         return {
             url: `${BASE_URL}/${calc}`,
-            lastModified: now,
+            lastModified: resolveCalculatorLastmod(calc, now),
             changeFrequency: changeFreq,
             priority: priority,
         };
@@ -90,7 +118,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             if (fs.existsSync(subpagePath)) {
                 subpageUrls.push({
                     url: `${BASE_URL}/${calc}/${subpage}`,
-                    lastModified: now,
+                    lastModified: resolveSubpageLastmod(calc, subpage, now),
                     changeFrequency: 'monthly',
                     priority: 0.6,
                 });
@@ -100,4 +128,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     return [...corePages, ...hubPages, ...calculatorPages, ...subpageUrls];
 }
-

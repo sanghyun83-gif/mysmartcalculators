@@ -1,4 +1,4 @@
-import { getCalculatorMeta } from "@/lib/registry/calculators";
+﻿import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { SALARY_2026 } from "@/lib/calculators/salary";
 import dynamic from "next/dynamic";
 
@@ -31,11 +31,6 @@ export default function SalaryPage() {
                 "description": meta?.description || "Institutional-grade salary and compensation auditor.",
                 "applicationCategory": "FinanceApplication",
                 "operatingSystem": "Any",
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.9",
-                    "ratingCount": "12840"
-                },
                 "offers": {
                     "@type": "Offer",
                     "price": "0",
@@ -112,3 +107,4 @@ export default function SalaryPage() {
         </>
     );
 }
+

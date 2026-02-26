@@ -1,6 +1,5 @@
 "use client";
 
-import { GraduationCap } from "lucide-react";
 import { FlagshipLayout } from "@/components/v3/FlagshipLayout";
 
 export default function GPALayout({
@@ -10,16 +9,14 @@ export default function GPALayout({
 }) {
     return (
         <FlagshipLayout
-            brandName="GPAMaster AI"
+            brandName="GPA Calculator"
             brandIcon="graduation-cap"
             hubPath="/gpa"
-            accentColorRgb="79, 70, 229" // indigo-600
-            accentSelectionClass="selection:bg-indigo-500/30"
-            navLinks={[
-                { label: "GPA ENGINE", href: "/gpa/calculator" },
-                { label: "ACADEMY HUB", href: "/gpa" },
-            ]}
-            trustScore="4.9/5 Scholar Rating"
+            accentColorRgb="59, 130, 246"
+            accentSelectionClass="selection:bg-blue-100"
+            navLinks={[]}
+            trustScore="Verified by NCES + College Board 2026"
+            lightMode={true}
         >
             {children}
         </FlagshipLayout>

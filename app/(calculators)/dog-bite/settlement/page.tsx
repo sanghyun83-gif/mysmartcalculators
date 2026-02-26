@@ -21,7 +21,7 @@ export default function DogBiteSettlementPage() {
     const [hasAttorney, setHasAttorney] = useState(true);
     const [isChild, setIsChild] = useState(false);
 
-    // Expert Toggles (+α Step 1)
+    // Expert Toggles (+慣 Step 1)
     const [hasGeneticPropensity, setHasGeneticPropensity] = useState(false);
     const [hasNerveDamage, setHasNerveDamage] = useState(false);
     const [hasFacialDisfigurement, setHasFacialDisfigurement] = useState(false);
@@ -223,7 +223,7 @@ export default function DogBiteSettlementPage() {
                                     <div className="mb-2">
                                         <div className="text-[10px] font-black uppercase tracking-widest text-slate-950/70 mb-1">Expected Recovery Range</div>
                                         <div className="text-4xl font-black text-slate-950 italic tracking-tighter">
-                                            {formatCurrency(result.settlementRange.min)} — {formatCurrency(result.settlementRange.max)}
+                                            {formatCurrency(result.settlementRange.min)} ??{formatCurrency(result.settlementRange.max)}
                                         </div>
                                     </div>
                                 </div>
@@ -323,12 +323,7 @@ export default function DogBiteSettlementPage() {
                         "@type": "SoftwareApplication",
                         name: "Dog Bite Settlement Auditor v2.1",
                         operatingSystem: "Web",
-                        applicationCategory: "FinancialApplication",
-                        aggregateRating: {
-                            "@type": "AggregateRating",
-                            ratingValue: "4.9",
-                            ratingCount: "3480",
-                        },
+                        applicationCategory: "LegalApplication",
                         offers: {
                             "@type": "Offer",
                             price: "0",
@@ -413,3 +408,4 @@ function SourceItem({ icon: Icon, label, value }: { icon: any, label: string, va
         </div>
     );
 }
+

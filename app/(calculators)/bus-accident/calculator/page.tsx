@@ -22,7 +22,7 @@ export default function CalculatorPage() {
     const [governmentBus, setGovernmentBus] = useState(false);
     const [hasDocumentation, setHasDocumentation] = useState(true);
 
-    // Expert Toggles (+α Step 3)
+    // Expert Toggles (+慣 Step 3)
     const [hasCommonCarrier, setHasCommonCarrier] = useState(true);
     const [hasFmcsaBreach, setHasFmcsaBreach] = useState(false);
 
@@ -186,7 +186,9 @@ export default function CalculatorPage() {
                                     <div className="space-y-1">
                                         <p className="text-[10px] font-black uppercase tracking-widest text-slate-950/60 italic">Expected Payout Range</p>
                                         <div className="text-5xl font-black text-slate-950 italic tracking-tighter leading-none shrink-0">
-                                            {formatCurrency(result.settlementRange.min)} <span className="text-slate-950/30 font-light">—</span> {formatCurrency(result.settlementRange.max)}
+                                            {formatCurrency(result.settlementRange.min)}{" "}
+                                            <span className="text-slate-950/30 font-light">to</span>{" "}
+                                            {formatCurrency(result.settlementRange.max)}
                                         </div>
                                     </div>
                                 </div>
@@ -288,12 +290,7 @@ export default function CalculatorPage() {
                         "@type": "SoftwareApplication",
                         name: "Bus Accident Settlement Auditor v2.1",
                         operatingSystem: "Web",
-                        applicationCategory: "FinancialApplication",
-                        aggregateRating: {
-                            "@type": "AggregateRating",
-                            ratingValue: "4.9",
-                            ratingCount: "2840",
-                        },
+                        applicationCategory: "LegalApplication",
                         offers: {
                             "@type": "Offer",
                             price: "0",
@@ -352,3 +349,4 @@ function SourceItem({ icon: Icon, label, value }: { icon: any, label: string, va
         </div>
     );
 }
+

@@ -1,4 +1,4 @@
-import { getCalculatorMeta } from "@/lib/registry/calculators";
+﻿import { getCalculatorMeta } from "@/lib/registry/calculators";
 import dynamic from "next/dynamic";
 
 const id = "nursing-home";
@@ -30,7 +30,6 @@ export default function CalcNursinghomePage() {
           "name": "2026 Nursing Home Abuse Settlement Calculator",
           "operatingSystem": "All", "applicationCategory": "LegalApplication",
           "description": "2026 expert nursing home abuse auditor with CMS Star Rating impact analysis and CDC elder abuse statistics.",
-          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "980" },
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
         })
       }} />
@@ -46,3 +45,4 @@ export default function CalcNursinghomePage() {
     </>
   );
 }
+

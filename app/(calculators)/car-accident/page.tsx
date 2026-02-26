@@ -1,4 +1,4 @@
-import { getCalculatorMeta } from "@/lib/registry/calculators";
+﻿import { getCalculatorMeta } from "@/lib/registry/calculators";
 import dynamic from "next/dynamic";
 
 const id = "car-accident";
@@ -31,13 +31,7 @@ export default function CalcCaraccidentPage() {
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "1250"
-    }
-  };
+    },};
 
   const faqSchema = {
     "@context": "https://schema.org",
@@ -76,3 +70,4 @@ export default function CalcCaraccidentPage() {
     </>
   );
 }
+

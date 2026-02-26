@@ -1,4 +1,4 @@
-import { getCalculatorMeta } from "@/lib/registry/calculators";
+﻿import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { LOAN_2026 } from "@/lib/calculators/loan";
 import dynamic from "next/dynamic";
 
@@ -31,11 +31,6 @@ export default function LoanHubPage() {
                 "description": meta?.description || "High-precision loan amortization audit engine.",
                 "applicationCategory": "FinanceApplication",
                 "operatingSystem": "Any",
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.9",
-                    "ratingCount": "15420"
-                },
                 "offers": {
                     "@type": "Offer",
                     "price": "0",
@@ -112,3 +107,4 @@ export default function LoanHubPage() {
         </>
     );
 }
+

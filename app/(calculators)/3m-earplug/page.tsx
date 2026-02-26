@@ -1,4 +1,4 @@
-import { getCalculatorMeta } from "@/lib/registry/calculators";
+﻿import { getCalculatorMeta } from "@/lib/registry/calculators";
 import dynamic from "next/dynamic";
 
 const id = "3m-earplug";
@@ -30,7 +30,6 @@ export default function Calc3mearplugPage() {
           "name": "2026 3M Earplug Settlement Calculator",
           "operatingSystem": "All", "applicationCategory": "LegalApplication",
           "description": "2026 expert 3M Combat Arms earplug settlement auditor with MDL 2885 data, VA audiology benchmarks, and tiered payout records.",
-          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "1920" },
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
         })
       }} />
@@ -46,3 +45,4 @@ export default function Calc3mearplugPage() {
     </>
   );
 }
+

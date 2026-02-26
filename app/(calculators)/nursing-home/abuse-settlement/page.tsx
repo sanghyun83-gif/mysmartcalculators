@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
@@ -33,7 +33,7 @@ export default function AbuseSettlementPage() {
     const [hasPriorViolations, setHasPriorViolations] = useState(false);
     const [hasAttorney, setHasAttorney] = useState(true);
 
-    // Expert Toggles (+α Step 4)
+    // Expert Toggles (+慣 Step 4)
     const [hasCmsPenalty, setHasCmsPenalty] = useState(false);
     const [hasStaffingBreach, setHasStaffingBreach] = useState(false);
     const [hasChronicViolation, setHasChronicViolation] = useState(false);
@@ -135,7 +135,7 @@ export default function AbuseSettlementPage() {
                                 </div>
                             </div>
 
-                            {/* Expert Toggles (+α Step 4) */}
+                            {/* Expert Toggles (+慣 Step 4) */}
                             <div className="space-y-4 pt-4 border-t border-white/5">
                                 <label className="text-[10px] uppercase tracking-[0.2em] text-amber-500 font-black italic">Expert Liability Multipliers</label>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -294,11 +294,6 @@ export default function AbuseSettlementPage() {
                         "name": "Nursing Home Abuse Settlement Auditor v2.1",
                         "operatingSystem": "All",
                         "applicationCategory": "LegalApplication",
-                        "aggregateRating": {
-                            "@type": "AggregateRating",
-                            "ratingValue": "4.9",
-                            "ratingCount": "840"
-                        },
                         "offers": {
                             "@type": "Offer",
                             "price": "0",
@@ -337,3 +332,4 @@ export default function AbuseSettlementPage() {
         </div>
     );
 }
+

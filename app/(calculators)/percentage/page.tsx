@@ -1,6 +1,6 @@
 import { getCalculatorMeta } from "@/lib/registry/calculators";
-import { SITE, CALCULATORS } from "@/lib/calculators/percentage";
-import dynamic from "next/dynamic";
+import { CALCULATORS } from "@/lib/calculators/percentage";
+import PercentageClient from "./PercentageClient";
 
 const id = "percentage";
 const meta = getCalculatorMeta(id);
@@ -14,14 +14,6 @@ export const metadata = {
     }
 };
 
-const HubClient = dynamic(
-    () => import("./HubClient"),
-    {
-        ssr: true,
-        loading: () => <div className="min-h-screen bg-slate-950" />
-    }
-);
-
 export default function PercentagePage() {
     const jsonLd = {
         "@context": "https://schema.org",
@@ -30,13 +22,8 @@ export default function PercentagePage() {
                 "@type": "SoftwareApplication",
                 "name": meta?.title,
                 "operatingSystem": "All",
-                "applicationCategory": "MathApplication",
+                "applicationCategory": "UtilitiesApplication",
                 "description": meta?.description,
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.9",
-                    "ratingCount": "8540"
-                },
                 "offers": {
                     "@type": "Offer",
                     "price": "0",
@@ -108,8 +95,10 @@ export default function PercentagePage() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                suppressHydrationWarning
             />
-            <HubClient />
+            <PercentageClient />
         </>
     );
 }
+

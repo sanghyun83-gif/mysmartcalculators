@@ -1,4 +1,4 @@
-import { getCalculatorMeta } from "@/lib/registry/calculators";
+﻿import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { TAX_CONSTANTS } from "@/lib/calculators/tax";
 import dynamic from "next/dynamic";
 
@@ -31,11 +31,6 @@ export default function CalcTaxPage() {
         "description": metadata.description,
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "15420"
-        },
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -122,3 +117,4 @@ export default function CalcTaxPage() {
     </>
   );
 }
+

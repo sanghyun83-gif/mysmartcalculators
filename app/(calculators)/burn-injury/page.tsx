@@ -36,7 +36,7 @@ export default function CalcBurninjuryPage() {
                 "@type": "SoftwareApplication",
                 "name": "2026 Burn Claim Auditor",
                 "operatingSystem": "All",
-                "applicationCategory": "HealthApplication",
+                "applicationCategory": "LegalApplication",
                 "description": "Professional tool for auditing burn injury settlement values using 2026 ABA and forensic disfigurement benchmarks.",
                 "offers": {
                   "@type": "Offer",

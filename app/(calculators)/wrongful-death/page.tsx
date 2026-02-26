@@ -34,14 +34,8 @@ export default function CalcWrongfuldeathPage() {
             "@type": "SoftwareApplication",
             "name": "2026 Wrongful Death Settlement Auditor",
             "operatingSystem": "All",
-            "applicationCategory": "FinancialApplication",
-            "description": "Expert-grade wrongful death settlement calculator injecting Survival Action and Hedonic damage multipliers.",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "ratingCount": "1840"
-            }
-          }),
+            "applicationCategory": "LegalApplication",
+            "description": "Expert-grade wrongful death settlement calculator injecting Survival Action and Hedonic damage multipliers.",}),
         }}
       />
 
@@ -83,3 +77,4 @@ export default function CalcWrongfuldeathPage() {
     </>
   );
 }
+

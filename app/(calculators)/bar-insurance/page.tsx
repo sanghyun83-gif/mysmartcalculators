@@ -28,12 +28,7 @@ export default function CalcBarInsurancePage() {
         "@type": "SoftwareApplication",
         "name": "2026 Bar Insurance Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "BusinessCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.6",
-          "ratingCount": "1120"
-        },
+        "applicationCategory": "LegalApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcBarInsurancePage() {
     </>
   );
 }
+

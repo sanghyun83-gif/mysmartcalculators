@@ -114,3 +114,7 @@ The following units have been successfully evolved to the **One-Page Supreme (v5
 | :--- | :--- | :--- | :--- |
 | `bmi` | 2026-02-23 | v5.0 | Clinical Light Theme, Hyper-Density (5:7 Grid), Emerald Sync |
 | `calorie` | 2026-02-23 | v5.0 | Zero Dark Cohesion, Terminology Purge, Emerald Sync |
+| `body-fat` | 2026-02-25 | v5.0 | Absolute Light Cohesion, Legacy Purge, Jargon Cleanse |
+| `mortgage` | 2026-02-26 | v5.0 | One-Page Consolidation, Zero-Subpage Redirect, Clinical Light Cohesion |
+| `percentage` | 2026-02-26 | v5.0 | One-Page Engine Consolidation, Light Theme Cohesion, Finance Schema Alignment |
+| `gpa` | 2026-02-26 | v5.0 | One-Page Academic Engine, Zero-Subpage Redirect, Clinical Light Cohesion |

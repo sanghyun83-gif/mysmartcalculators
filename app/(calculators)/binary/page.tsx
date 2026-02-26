@@ -19,13 +19,8 @@ export default function BinaryHubPage() {
                 "@type": "SoftwareApplication",
                 "name": "S-Class Binary Auditor",
                 "description": BINARY_2026.metadata.description,
-                "applicationCategory": "DeveloperApplication",
+                "applicationCategory": "UtilitiesApplication",
                 "operatingSystem": "Any",
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.9",
-                    "ratingCount": "6240"
-                },
                 "offers": {
                     "@type": "Offer",
                     "price": "0",
@@ -102,3 +97,4 @@ export default function BinaryHubPage() {
         </>
     );
 }
+

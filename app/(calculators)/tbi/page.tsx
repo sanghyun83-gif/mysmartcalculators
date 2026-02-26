@@ -1,4 +1,4 @@
-import { getCalculatorMeta } from "@/lib/registry/calculators";
+﻿import { getCalculatorMeta } from "@/lib/registry/calculators";
 import dynamic from "next/dynamic";
 
 const id = "tbi";
@@ -30,7 +30,6 @@ export default function CalcTbiPage() {
           "name": "2026 Traumatic Brain Injury Settlement Calculator",
           "operatingSystem": "All", "applicationCategory": "LegalApplication",
           "description": "2026 expert TBI settlement auditor with GCS severity scoring and neuro-psychological care cost projections.",
-          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "1560" },
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
         })
       }} />
@@ -46,3 +45,4 @@ export default function CalcTbiPage() {
     </>
   );
 }
+

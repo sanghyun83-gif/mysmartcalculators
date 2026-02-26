@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -300,7 +300,7 @@ export default function GradeCalculatorClient() {
                                 </div>
                                 <div className="grid gap-3">
                                     {[
-                                        { label: "Predictive Confidence", val: "±0.5% Delta" },
+                                        { label: "Predictive Confidence", val: "짹0.5% Delta" },
                                         { label: "Grade Inflation Factor", val: "Controlled" },
                                         { label: "Class Ranking Delta", val: "Top 15%" }
                                     ].map((pred, i) => (
@@ -347,15 +347,10 @@ export default function GradeCalculatorClient() {
                             "@type": "Offer",
                             "price": "0",
                             "priceCurrency": "USD"
-                        },
-                        "aggregateRating": {
-                            "@type": "AggregateRating",
-                            "ratingValue": "4.9",
-                            "ratingCount": "92150"
-                        }
-                    })
+                        },})
                 }}
             />
         </main>
     );
 }
+

@@ -36,7 +36,7 @@ export default function CalcBoatingaccidentPage() {
                 "@type": "SoftwareApplication",
                 "name": "2026 Maritime Claim Auditor",
                 "operatingSystem": "All",
-                "applicationCategory": "BusinessApplication",
+                "applicationCategory": "LegalApplication",
                 "description": "Professional tool for auditing boating accident settlement values using 2026 maritime injury benchmarks.",
                 "offers": {
                   "@type": "Offer",

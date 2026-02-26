@@ -1,4 +1,4 @@
-import { getCalculatorMeta } from "@/lib/registry/calculators";
+﻿import { getCalculatorMeta } from "@/lib/registry/calculators";
 import dynamic from "next/dynamic";
 
 const id = "camp-lejeune";
@@ -30,7 +30,6 @@ export default function CalcCamplejeunePage() {
           "name": "2026 Camp Lejeune Settlement Calculator",
           "operatingSystem": "All", "applicationCategory": "LegalApplication",
           "description": "2026 expert Camp Lejeune toxic water settlement auditor with PACT Act (CLJA) guidelines, DOJ settlement benchmarks, and VA health data.",
-          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "1780" },
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
         })
       }} />
@@ -46,3 +45,4 @@ export default function CalcCamplejeunePage() {
     </>
   );
 }
+

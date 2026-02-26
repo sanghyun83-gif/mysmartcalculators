@@ -1,6 +1,6 @@
-import { getCalculatorMeta } from "@/lib/registry/calculators";
-import { SITE, CALCULATORS } from "@/lib/calculators/mortgage";
-import dynamic from "next/dynamic";
+﻿import { getCalculatorMeta } from "@/lib/registry/calculators";
+import { CALCULATORS } from "@/lib/calculators/mortgage";
+import MortgageClient from "./MortgageClient";
 
 const id = "mortgage";
 const meta = getCalculatorMeta(id);
@@ -14,14 +14,6 @@ export const metadata = {
   }
 };
 
-const HubClient = dynamic(
-  () => import("./HubClient"),
-  {
-    ssr: true,
-    loading: () => <div className="min-h-screen bg-slate-950" />
-  }
-);
-
 export default function CalcMortgagePage() {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -32,11 +24,6 @@ export default function CalcMortgagePage() {
         "operatingSystem": "All",
         "applicationCategory": "FinanceApplication",
         "description": meta?.description,
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "12450"
-        },
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -108,8 +95,10 @@ export default function CalcMortgagePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        suppressHydrationWarning
       />
-      <HubClient />
+      <MortgageClient />
     </>
   );
 }
+

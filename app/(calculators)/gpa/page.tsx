@@ -1,9 +1,5 @@
-import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { SITE, CALCULATORS } from "@/lib/calculators/gpa";
-import dynamic from "next/dynamic";
-
-// Dynamic import for client components to optimize performance
-const HubClient = dynamic(() => import("./HubClient"), { ssr: true });
+import GpaClient from "./GpaClient";
 
 export const metadata = {
     title: "2026 GPA Calculator | Weighted & Unweighted Precision Engine",
@@ -21,11 +17,6 @@ export default function GPAPage() {
                 "operatingSystem": "All",
                 "applicationCategory": "EducationalApplication",
                 "description": "High-precision academic auditor for weighted and unweighted GPA calculations.",
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.9",
-                    "ratingCount": "19540"
-                },
                 "offers": {
                     "@type": "Offer",
                     "price": "0",
@@ -103,8 +94,10 @@ export default function GPAPage() {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                suppressHydrationWarning
             />
-            <HubClient />
+            <GpaClient />
         </>
     );
 }
+

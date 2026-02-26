@@ -29,13 +29,8 @@ export default function AgeHubPage() {
                 "@type": "SoftwareApplication",
                 "name": "S-Class Age Auditor",
                 "description": meta?.description || "High-precision temporal audit engine for age and life milestone calculation.",
-                "applicationCategory": "HealthApplication",
+                "applicationCategory": "UtilitiesApplication",
                 "operatingSystem": "Any",
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.9",
-                    "ratingCount": "15280"
-                },
                 "offers": {
                     "@type": "Offer",
                     "price": "0",
@@ -112,3 +107,4 @@ export default function AgeHubPage() {
         </>
     );
 }
+

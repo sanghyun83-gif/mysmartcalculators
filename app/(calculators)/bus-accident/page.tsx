@@ -1,4 +1,4 @@
-import { getCalculatorMeta } from "@/lib/registry/calculators";
+﻿import { getCalculatorMeta } from "@/lib/registry/calculators";
 import dynamic from "next/dynamic";
 
 const id = "bus-accident";
@@ -30,7 +30,6 @@ export default function CalcBusaccidentPage() {
           "name": "2026 Bus Accident Settlement Calculator",
           "operatingSystem": "All", "applicationCategory": "LegalApplication",
           "description": "2026 expert bus accident settlement auditor with common carrier liability standards, mass transit injury benchmarks, and NHTSA data.",
-          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "890" },
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
         })
       }} />
@@ -46,3 +45,4 @@ export default function CalcBusaccidentPage() {
     </>
   );
 }
+

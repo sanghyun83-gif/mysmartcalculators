@@ -25,19 +25,13 @@ export default function CalcScientificPage() {
                 "@type": "SoftwareApplication",
                 "name": SCIENTIFIC_META.title,
                 "description": SCIENTIFIC_META.description,
-                "applicationCategory": "EducationalApplication",
+                "applicationCategory": "UtilitiesApplication",
                 "operatingSystem": "Any",
                 "offers": {
                     "@type": "Offer",
                     "price": "0",
                     "priceCurrency": "USD"
-                },
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.9",
-                    "reviewCount": "2840"
-                }
-            },
+                },},
             {
                 "@type": "HowTo",
                 "name": "How to Use Our Scientific Calculator",
@@ -108,3 +102,4 @@ export default function CalcScientificPage() {
         </>
     );
 }
+

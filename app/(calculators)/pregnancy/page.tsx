@@ -1,4 +1,4 @@
-import { getCalculatorMeta } from "@/lib/registry/calculators";
+﻿import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { PREGNANCY_2026 } from "@/lib/calculators/pregnancy";
 import dynamic from "next/dynamic";
 
@@ -31,11 +31,6 @@ export default function PregnancyHubPage() {
                 "description": meta?.description || "High-precision pregnancy tracking and EDD calculation engine based on 2026 medical standards.",
                 "applicationCategory": "HealthApplication",
                 "operatingSystem": "Any",
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.9",
-                    "ratingCount": "24820"
-                },
                 "offers": {
                     "@type": "Offer",
                     "price": "0",
@@ -112,3 +107,4 @@ export default function PregnancyHubPage() {
         </>
     );
 }
+

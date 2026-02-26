@@ -28,12 +28,7 @@ export default function CalcBardPowerPortPage() {
         "@type": "SoftwareApplication",
         "name": "2026 Bard PowerPort Settlement Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "MedicalCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "720"
-        },
+        "applicationCategory": "LegalApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcBardPowerPortPage() {
     </>
   );
 }
+

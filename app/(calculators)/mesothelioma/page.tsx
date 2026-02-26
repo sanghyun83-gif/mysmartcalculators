@@ -1,4 +1,4 @@
-import { getCalculatorMeta } from "@/lib/registry/calculators";
+﻿import { getCalculatorMeta } from "@/lib/registry/calculators";
 import dynamic from "next/dynamic";
 
 const id = "mesothelioma";
@@ -30,7 +30,6 @@ export default function CalcMesotheliomaPage() {
           "name": "2026 Mesothelioma Settlement Calculator",
           "operatingSystem": "All", "applicationCategory": "LegalApplication",
           "description": "2026 expert mesothelioma settlement auditor with Bankruptcy Trust Fund data, VA benefit benchmarks, and asbestos litigation payout records.",
-          "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "2140" },
           "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
         })
       }} />
@@ -46,3 +45,4 @@ export default function CalcMesotheliomaPage() {
     </>
   );
 }
+

@@ -28,12 +28,7 @@ export default function CalcAirbnbincomePage() {
         "@type": "SoftwareApplication",
         "name": "2026 Airbnb Income Calculator",
         "operatingSystem": "All",
-        "applicationCategory": "FinanceCalculator",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "2156"
-        },
+        "applicationCategory": "FinanceApplication",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,3 +91,4 @@ export default function CalcAirbnbincomePage() {
     </>
   );
 }
+
