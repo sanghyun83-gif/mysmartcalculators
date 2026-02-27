@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -169,8 +169,8 @@ export default function ScientificHubClient() {
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
                                         { m: "Significant Digits", r: "16-Digit Precision", l: "Mantissa Normalization", s: "IEEE-754" },
-                                        { m: "Exponent Boundary", r: "10?뼘년겙??to 10?봔년겙??, l: "Double-Float Overflow", s: "64-Bit" },
-                                        { m: "Transcendental Error", r: "< 10?뼘뮤?Gap", l: "Taylor Series Recon", s: "S-Class" }
+                                        { m: "Exponent Boundary", r: "10^-308 to 10^308", l: "Double-Float Overflow", s: "64-Bit" },
+                                        { m: "Transcendental Error", r: "< 10^-15 Gap", l: "Taylor Series Recon", s: "S-Class" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-white/5 transition-colors group">
                                             <td className="px-8 py-6 text-white">{row.m}</td>
