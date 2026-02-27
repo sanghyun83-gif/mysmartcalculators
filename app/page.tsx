@@ -183,11 +183,7 @@ export default function HomePage({
           {stats.map((stat, i) => (
             <div key={i} className="min-h-[132px] flex flex-col justify-start text-center md:text-left">
               <div className="min-h-[88px] mb-2 flex flex-col justify-start items-center md:items-start">
-                <span
-                  className={`text-4xl font-extrabold text-white leading-[0.95] ${
-                    stat.noWrapDesktop ? "md:whitespace-nowrap" : ""
-                  } ${stat.valueClassName || ""}`}
-                >
+                <span className="text-4xl font-extrabold text-white leading-[0.95]">
                   {stat.value}
                 </span>
                 <div className="h-4 mt-1">
