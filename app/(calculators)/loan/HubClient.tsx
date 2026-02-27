@@ -112,8 +112,8 @@ export default function LoanHubClient() {
                     <div className="space-y-8">
                         <div className="flex items-center gap-4 border-l-4 border-blue-500 pl-6">
                             <div>
-                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Average Global Interest Rates (2010–2026)</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Macro-Economic Actuarial Data • Central Bank Benchmarks</p>
+                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Average Global Interest Rates (2010??026)</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Macro-Economic Actuarial Data ??Central Bank Benchmarks</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
@@ -128,10 +128,10 @@ export default function LoanHubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { e: "2010-2015", a: "3.25% – 4.50%", v: "Stable Baseline", s: "Verified" },
-                                        { e: "2020-2023", a: "0.25% – 7.50%", v: "Critical Surge", s: "Verified" },
-                                        { e: "2024-2025", a: "5.25% – 6.75%", v: "Stabilization", s: "Audited" },
-                                        { e: "2026 Projection", a: "4.50% – 5.50%", v: "Institutional Normal", s: "NIST Standard" }
+                                        { e: "2010-2015", a: "3.25% ??4.50%", v: "Stable Baseline", s: "Verified" },
+                                        { e: "2020-2023", a: "0.25% ??7.50%", v: "Critical Surge", s: "Verified" },
+                                        { e: "2024-2025", a: "5.25% ??6.75%", v: "Stabilization", s: "Audited" },
+                                        { e: "2026 Projection", a: "4.50% ??5.50%", v: "Institutional Normal", s: "NIST Standard" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-blue-500/5 transition-colors group">
                                             <td className="px-8 py-6 text-white">{row.e}</td>
@@ -150,7 +150,7 @@ export default function LoanHubClient() {
                         <div className="flex items-center gap-4 border-r-4 md:border-r-0 md:border-l-4 border-indigo-500 pr-6 md:pr-0 md:pl-6 justify-end md:justify-start">
                             <div>
                                 <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter text-right md:text-left">II. Repayment Multipliers by Loan Term & Tier</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Global Marketplace Norms • Institutional Debt Efficiency</p>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Global Marketplace Norms ??Institutional Debt Efficiency</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
@@ -165,10 +165,10 @@ export default function LoanHubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { t: "Short-Term Micro", d: "1 – 3 Years", p: "1.05x – 1.15x", r: "High Velocity" },
-                                        { t: "Standard Consumer", d: "5 – 7 Years", p: "1.25x – 1.40x", r: "Moderate" },
-                                        { t: "Institutional Bridge", d: "10 – 15 Years", p: "1.50x – 1.85x", r: "Strategic" },
-                                        { t: "Long-Term Legacy", d: "20 – 30 Years", p: "2.10x – 2.80x", r: "Capital Intensive" }
+                                        { t: "Short-Term Micro", d: "1 ??3 Years", p: "1.05x ??1.15x", r: "High Velocity" },
+                                        { t: "Standard Consumer", d: "5 ??7 Years", p: "1.25x ??1.40x", r: "Moderate" },
+                                        { t: "Institutional Bridge", d: "10 ??15 Years", p: "1.50x ??1.85x", r: "Strategic" },
+                                        { t: "Long-Term Legacy", d: "20 ??30 Years", p: "2.10x ??2.80x", r: "Capital Intensive" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-indigo-500/5 transition-colors group">
                                             <td className="px-8 py-6 text-white">{row.t}</td>
@@ -187,7 +187,7 @@ export default function LoanHubClient() {
                         <div className="flex items-center gap-4 border-l-4 border-white/20 pl-6">
                             <div>
                                 <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">III. Amortization Algorithm Specification (Reducing Balance)</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">IEEE-754 Precision Benchmarks • GAAP Compliance</p>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">IEEE-754 Precision Benchmarks ??GAAP Compliance</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-900 shadow-2xl">
@@ -202,8 +202,8 @@ export default function LoanHubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { c: "Principal Decay", l: "M = P [ i(1 + i)^n ] / [ (1 + i)^n – 1 ]", t: "± 0.00001%", g: "ISO-2026" },
-                                        { c: "Daily Interest Accrual", l: "Balance × (Rate/365)", t: "Zero-Latency", g: "Actuarial" },
+                                        { c: "Principal Decay", l: "M = P [ i(1 + i)^n ] / [ (1 + i)^n ??1 ]", t: "짹 0.00001%", g: "ISO-2026" },
+                                        { c: "Daily Interest Accrual", l: "Balance 횞 (Rate/365)", t: "Zero-Latency", g: "Actuarial" },
                                         { c: "Floating-Point Sync", l: "64-Bit Biased Rounding", t: "Zero-Loss Truncation", g: "IEEE-S" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-white/5 transition-colors group">
@@ -236,7 +236,7 @@ export default function LoanHubClient() {
                             </p>
 
                             <blockquote className="border-l-4 border-blue-500 bg-blue-500/5 p-8 rounded-2xl italic text-white/90">
-                                "Compound interest is the eighth wonder of the world. He who understands it, earns it... he who doesn't... pays it." — Albert Einstein (Attributed)
+                                "Compound interest is the eighth wonder of the world. He who understands it, earns it... he who doesn't... pays it." ??Albert Einstein (Attributed)
                             </blockquote>
 
                             <h3 className="text-3xl font-black text-white tracking-tight uppercase italic border-b border-white/10 pb-4">Early Repayment Mechanics</h3>

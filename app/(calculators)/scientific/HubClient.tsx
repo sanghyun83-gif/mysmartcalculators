@@ -79,7 +79,7 @@ export default function ScientificHubClient() {
                         <div className="flex items-center gap-4 border-l-4 border-blue-500 pl-6">
                             <div>
                                 <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Evolution of Handheld Computational Hardware</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Historical Milestones • NASA & R&D Benchmarks</p>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Historical Milestones ??NASA & R&D Benchmarks</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2rem] border border-white/5 bg-slate-900 shadow-2xl">
@@ -116,7 +116,7 @@ export default function ScientificHubClient() {
                         <div className="flex items-center gap-4 border-r-4 md:border-r-0 md:border-l-4 border-indigo-500 pr-6 md:pr-0 md:pl-6 justify-end md:justify-start">
                             <div>
                                 <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter text-right md:text-left">II. Global Examination Board Compliance (2026)</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Regulatory Standards Matrix • SAT/ACT/IB/AP</p>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Regulatory Standards Matrix ??SAT/ACT/IB/AP</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2rem] border border-white/5 bg-slate-900 shadow-2xl">
@@ -153,7 +153,7 @@ export default function ScientificHubClient() {
                         <div className="flex items-center gap-4 border-l-4 border-white/20 pl-6">
                             <div>
                                 <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">III. Computational Engine Specification</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Floating-Point Benchmarks • IEEE 754 Integrity</p>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Floating-Point Benchmarks ??IEEE 754 Integrity</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2rem] border border-white/5 bg-slate-950 shadow-2xl">
@@ -169,8 +169,8 @@ export default function ScientificHubClient() {
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
                                         { m: "Significant Digits", r: "16-Digit Precision", l: "Mantissa Normalization", s: "IEEE-754" },
-                                        { m: "Exponent Boundary", r: "10⁻³⁰⁸ to 10⁺³⁰⁸", l: "Double-Float Overflow", s: "64-Bit" },
-                                        { m: "Transcendental Error", r: "< 10⁻¹² Gap", l: "Taylor Series Recon", s: "S-Class" }
+                                        { m: "Exponent Boundary", r: "10?뼘년겙??to 10?봔년겙??, l: "Double-Float Overflow", s: "64-Bit" },
+                                        { m: "Transcendental Error", r: "< 10?뼘뮤?Gap", l: "Taylor Series Recon", s: "S-Class" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-white/5 transition-colors group">
                                             <td className="px-8 py-6 text-white">{row.m}</td>

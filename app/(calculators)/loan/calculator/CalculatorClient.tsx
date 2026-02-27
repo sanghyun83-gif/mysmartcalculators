@@ -270,7 +270,7 @@ export function CalculatorClient() {
                                                                     return (
                                                                         <tr key="spacer">
                                                                             <td colSpan={5} className="px-6 py-3 text-center text-slate-600 text-[10px] font-black tracking-widest bg-slate-950/30 italic">
-                                                                                ••• STEADY STATE REPAYMENT PHASE (MONTHS 13 - {totalM - 12}) •••
+                                                                                ?™™?STEADY STATE REPAYMENT PHASE (MONTHS 13 - {totalM - 12}) ?™™?
                                                                             </td>
                                                                         </tr>
                                                                     );

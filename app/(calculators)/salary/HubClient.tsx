@@ -151,8 +151,8 @@ export default function HubClient() {
                                 <div className="space-y-8">
                                     <div className="flex items-center gap-4 border-l-4 border-emerald-500 pl-6">
                                         <div>
-                                            <h2 className="text-xl font-black text-white italic uppercase tracking-tighter">I. Global Nominal Salary Growth Velocity (2018–2026)</h2>
-                                            <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">OECD Macro-Economic Audit • BLS Standards</p>
+                                            <h2 className="text-xl font-black text-white italic uppercase tracking-tighter">I. Global Nominal Salary Growth Velocity (2018??026)</h2>
+                                            <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">OECD Macro-Economic Audit ??BLS Standards</p>
                                         </div>
                                     </div>
                                     <div className="overflow-x-auto rounded-[2rem] border border-white/5 bg-slate-950">
@@ -167,10 +167,10 @@ export default function HubClient() {
                                             </thead>
                                             <tbody className="divide-y divide-white/5 text-xs font-bold italic text-slate-400">
                                                 {[
-                                                    { e: "2018-2021", a: "2.8% – 3.2%", t: "4.5% – 6.2%", s: "Verified" },
-                                                    { e: "2022-2024", a: "4.1% – 5.5%", t: "7.8% – 9.1%", s: "Verified" },
-                                                    { e: "2025 Actuarial", a: "3.7% – 4.2%", t: "5.5% – 7.0%", s: "Audited" },
-                                                    { e: "2026 Projection", a: "3.5% – 4.0%", t: "6.0% – 8.0%", s: "Standard" }
+                                                    { e: "2018-2021", a: "2.8% ??3.2%", t: "4.5% ??6.2%", s: "Verified" },
+                                                    { e: "2022-2024", a: "4.1% ??5.5%", t: "7.8% ??9.1%", s: "Verified" },
+                                                    { e: "2025 Actuarial", a: "3.7% ??4.2%", t: "5.5% ??7.0%", s: "Audited" },
+                                                    { e: "2026 Projection", a: "3.5% ??4.0%", t: "6.0% ??8.0%", s: "Standard" }
                                                 ].map((row, i) => (
                                                     <tr key={i} className="hover:bg-emerald-500/5 transition-colors group">
                                                         <td className="px-6 py-4 text-white">{row.e}</td>
@@ -189,7 +189,7 @@ export default function HubClient() {
                                     <div className="flex items-center gap-4 border-l-4 border-emerald-500 pl-6">
                                         <div>
                                             <h2 className="text-xl font-black text-white italic uppercase tracking-tighter">II. Net Take-Home Pay Multipliers by Jurisdiction</h2>
-                                            <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Global Jurisdictional Tax Gap • Net Liquidity</p>
+                                            <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Global Jurisdictional Tax Gap ??Net Liquidity</p>
                                         </div>
                                     </div>
                                     <div className="overflow-x-auto rounded-[2rem] border border-white/5 bg-slate-950">
@@ -204,10 +204,10 @@ export default function HubClient() {
                                             </thead>
                                             <tbody className="divide-y divide-white/5 text-xs font-bold italic text-slate-400">
                                                 {[
-                                                    { t: "Tier 1 (Zero State)", r: "18% – 22%", m: "0.78x – 0.82x", v: "Max" },
-                                                    { t: "Tier 2 (Moderate)", r: "24% – 28%", m: "0.72x – 0.76x", v: "High" },
-                                                    { t: "Tier 3 (High Tax)", r: "34% – 38%", m: "0.62x – 0.66x", v: "Mod" },
-                                                    { t: "Tier 4 (Premium)", r: "42% – 52%", m: "0.48x – 0.58x", v: "Social" }
+                                                    { t: "Tier 1 (Zero State)", r: "18% ??22%", m: "0.78x ??0.82x", v: "Max" },
+                                                    { t: "Tier 2 (Moderate)", r: "24% ??28%", m: "0.72x ??0.76x", v: "High" },
+                                                    { t: "Tier 3 (High Tax)", r: "34% ??38%", m: "0.62x ??0.66x", v: "Mod" },
+                                                    { t: "Tier 4 (Premium)", r: "42% ??52%", m: "0.48x ??0.58x", v: "Social" }
                                                 ].map((row, i) => (
                                                     <tr key={i} className="hover:bg-emerald-500/5 transition-colors group">
                                                         <td className="px-6 py-4 text-white">{row.t}</td>
@@ -226,7 +226,7 @@ export default function HubClient() {
                                     <div className="flex items-center gap-4 border-l-4 border-emerald-500 pl-6">
                                         <div>
                                             <h2 className="text-xl font-black text-white italic uppercase tracking-tighter">III. Precision Pro-Rata Computation Specs</h2>
-                                            <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">GAAP Standard 101 • Payroll Accuracy Norms</p>
+                                            <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">GAAP Standard 101 ??Payroll Accuracy Norms</p>
                                         </div>
                                     </div>
                                     <div className="overflow-x-auto rounded-[2rem] border border-white/5 bg-slate-950">
@@ -241,7 +241,7 @@ export default function HubClient() {
                                             </thead>
                                             <tbody className="divide-y divide-white/5 text-xs font-bold italic text-slate-400">
                                                 {[
-                                                    { c: "Hourly Basis", l: "Annual / 2,080h", t: "± $0.0001", g: "FLSA-2026" },
+                                                    { c: "Hourly Basis", l: "Annual / 2,080h", t: "짹 $0.0001", g: "FLSA-2026" },
                                                     { c: "Daily Rate", l: "Weekly / 5.0", t: "Zero-Latency", g: "Inst." },
                                                     { c: "Truncation", l: "64-Bit Financial", t: "Zero-Loss", g: "IEEE-S" }
                                                 ].map((row, i) => (
@@ -285,7 +285,7 @@ export default function HubClient() {
                                 3. The FLSA Audit: Exempt vs. Non-Exempt Protocols
                             </h3>
                             <p className="text-slate-400 leading-relaxed">
-                                Under current 2026 Department of Labor guidelines, the classification of your salary dictates your overtime eligibility. An "Exempt" salary means your compensation is fixed regardless of hours worked—often a disadvantage in high-pressure industries. Conversely, "Non-Exempt" status ensures that any hour worked beyond 40 is compensated at 1.5x.
+                                Under current 2026 Department of Labor guidelines, the classification of your salary dictates your overtime eligibility. An "Exempt" salary means your compensation is fixed regardless of hours worked?봮ften a disadvantage in high-pressure industries. Conversely, "Non-Exempt" status ensures that any hour worked beyond 40 is compensated at 1.5x.
                             </p>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
                                 <div className="p-8 rounded-3xl bg-slate-900 border border-slate-800">
@@ -333,7 +333,7 @@ export default function HubClient() {
                                     </div>
                                     <div className="p-6 bg-slate-900 rounded-2xl border border-slate-800">
                                         <h4 className="text-emerald-400 font-bold mb-2">Insurance Premiums</h4>
-                                        <p className="text-xs m-0 text-slate-500">Employer-paid health premiums can save a family $20,000+ in post-tax spending annually—effectively a $30k gross increase.</p>
+                                        <p className="text-xs m-0 text-slate-500">Employer-paid health premiums can save a family $20,000+ in post-tax spending annually?봢ffectively a $30k gross increase.</p>
                                     </div>
                                 </div>
                                 <p>
@@ -389,7 +389,7 @@ export default function HubClient() {
                                     As we look toward the 2027 cycle, salary structures are undergoing a radical transformation driven by <strong>AI productivity gains</strong> and <strong>global remote parity</strong>. The traditional "geographic adjustment" is dying; companies are moving toward a single "Value Base" irrespective of where the human sits.
                                 </p>
                                 <p>
-                                    The "AI Multiplier" is the newest audit layer. If your use of generative agents increases your output by 300%, your salary audit should reflect this efficiency dividend. We anticipate 2026 will be the first year where "Output-Based Salary"—a hybrid of fixed pay and frequent performance bonuses—becomes the standard for white-collar professional audits.
+                                    The "AI Multiplier" is the newest audit layer. If your use of generative agents increases your output by 300%, your salary audit should reflect this efficiency dividend. We anticipate 2026 will be the first year where "Output-Based Salary"?봞 hybrid of fixed pay and frequent performance bonuses?봟ecomes the standard for white-collar professional audits.
                                 </p>
                                 <div className="p-8 bg-slate-900 border border-slate-800 rounded-3xl relative">
                                     <div className="absolute -top-4 -right-4 w-12 h-12 bg-emerald-500 rounded-2xl flex items-center justify-center rotate-12 shadow-lg">

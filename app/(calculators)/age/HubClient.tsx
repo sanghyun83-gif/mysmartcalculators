@@ -67,8 +67,8 @@ export default function AgeHubClient() {
                     <div className="space-y-8">
                         <div className="flex items-center gap-4 border-l-4 border-blue-500 pl-6">
                             <div>
-                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Average Life Expectancy Trends (1950–2026)</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Global Actuarial Standards • WHO Statistical Audit</p>
+                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Average Life Expectancy Trends (1950??026)</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Global Actuarial Standards ??WHO Statistical Audit</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
@@ -105,7 +105,7 @@ export default function AgeHubClient() {
                         <div className="flex items-center gap-4 border-r-4 md:border-r-0 md:border-l-4 border-indigo-500 pr-6 md:pr-0 md:pl-6 justify-end md:justify-start">
                             <div>
                                 <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter text-right md:text-left">II. Developmental Milestone Benchmarks (Pediatric to Geriatric)</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Temporal Growth Norms • CDC & International Health Standards</p>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Temporal Growth Norms ??CDC & International Health Standards</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
@@ -120,10 +120,10 @@ export default function AgeHubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { s: "Infancy", r: "0 – 2 Years", b: "Neural Proliferation", d: "High Velocity" },
-                                        { s: "Adolescence", r: "12 – 18 Years", b: "Hormonal Synthesis", d: "Peak Variability" },
-                                        { s: "Early Adulthood", r: "20 – 35 Years", b: "Peak Bone Density", d: "Steady State" },
-                                        { s: "Middle Age", r: "45 – 65 Years", b: "Metabolic Transition", d: "Auditable Decay" }
+                                        { s: "Infancy", r: "0 ??2 Years", b: "Neural Proliferation", d: "High Velocity" },
+                                        { s: "Adolescence", r: "12 ??18 Years", b: "Hormonal Synthesis", d: "Peak Variability" },
+                                        { s: "Early Adulthood", r: "20 ??35 Years", b: "Peak Bone Density", d: "Steady State" },
+                                        { s: "Middle Age", r: "45 ??65 Years", b: "Metabolic Transition", d: "Auditable Decay" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-indigo-500/5 transition-colors group">
                                             <td className="px-8 py-6 text-white">{row.s}</td>
@@ -142,7 +142,7 @@ export default function AgeHubClient() {
                         <div className="flex items-center gap-4 border-l-4 border-white/20 pl-6">
                             <div>
                                 <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">III. Precision Age Computational Specification (ISO-8601)</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">NIST Temporal Accuracy • Atomic Clock Sync Standards</p>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">NIST Temporal Accuracy ??Atomic Clock Sync Standards</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-900 shadow-2xl">
@@ -157,7 +157,7 @@ export default function AgeHubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { c: "Leap Year Delta", t: "± 0.00s", l: "Greogrian Adjustment", g: "ISO-2026" },
+                                        { c: "Leap Year Delta", t: "짹 0.00s", l: "Greogrian Adjustment", g: "ISO-2026" },
                                         { c: "Month Duration", t: "28/30/31 Days", l: "Dynamic Iteration", g: "IEEE-754" },
                                         { c: "Millisecond Sync", t: "10^-6 s", l: "Unix Epoch Mapping", g: "Atomic-S" },
                                         { c: "Timezone Offset", v: "UTC Reference", l: "Geographical Sync", g: "Statutory" }
@@ -188,7 +188,7 @@ export default function AgeHubClient() {
                         </h2>
                         <div className="prose prose-invert prose-blue max-w-none text-slate-400 text-lg leading-relaxed font-bold italic space-y-8">
                             <p>
-                                Age calculation is fundamentally an exercise in <span className="text-white">temporal auditing</span>. While it appears simple—subtracting one date from another—the biological, legal, and astronomical variables involved require a high-precision engine. In 2026, the definition of age has expanded beyond the annual birthday to encompass high-resolution metrics such as total weeks lived, hours sustained, and metabolic duration.
+                                Age calculation is fundamentally an exercise in <span className="text-white">temporal auditing</span>. While it appears simple?봲ubtracting one date from another?봳he biological, legal, and astronomical variables involved require a high-precision engine. In 2026, the definition of age has expanded beyond the annual birthday to encompass high-resolution metrics such as total weeks lived, hours sustained, and metabolic duration.
                             </p>
                             <p>
                                 Our Age Calculator S-Class engine utilizes the <span className="text-blue-500">ISO-8601 standard</span> for date-time representation, ensuring that every leap year, every month-end transition, and every daylight savings shift is accounted for with scientific rigour. This level of precision is critical for legal verification, medical research, and biological age optimization.

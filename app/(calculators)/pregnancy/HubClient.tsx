@@ -178,8 +178,8 @@ export default function PregnancyHubClient() {
                     <div className="space-y-8">
                         <div className="flex items-center gap-4 border-l-4 border-rose-500 pl-6">
                             <div>
-                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Average Gestational Duration Trends (1850–2026)</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Historical Obstetrical Analysis • Clinical Longitudinal Data</p>
+                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Average Gestational Duration Trends (1850??026)</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Historical Obstetrical Analysis ??Clinical Longitudinal Data</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
@@ -194,10 +194,10 @@ export default function PregnancyHubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { e: "1850-1900", d: "282.4 Days", v: "± 14.2 Days", s: "Verified" },
-                                        { e: "1950-1980", d: "280.8 Days", v: "± 11.5 Days", s: "Verified" },
-                                        { e: "2000-2024", d: "279.2 Days", v: "± 9.8 Days", s: "Audited" },
-                                        { e: "2026 Projection", d: "278.5 Days", v: "± 8.5 Days", s: "NIST Standard" }
+                                        { e: "1850-1900", d: "282.4 Days", v: "짹 14.2 Days", s: "Verified" },
+                                        { e: "1950-1980", d: "280.8 Days", v: "짹 11.5 Days", s: "Verified" },
+                                        { e: "2000-2024", d: "279.2 Days", v: "짹 9.8 Days", s: "Audited" },
+                                        { e: "2026 Projection", d: "278.5 Days", v: "짹 8.5 Days", s: "NIST Standard" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-rose-500/5 transition-colors group">
                                             <td className="px-8 py-6 text-white">{row.e}</td>
@@ -216,7 +216,7 @@ export default function PregnancyHubClient() {
                         <div className="flex items-center gap-4 border-r-4 md:border-r-0 md:border-l-4 border-pink-500 pr-6 md:pr-0 md:pl-6 justify-end md:justify-start">
                             <div>
                                 <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter text-right md:text-left">II. Fetal Growth Velocity Standards (Trimester-by-Trimester)</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">WHO Anthrometric Standards • 2026 Clinical Benchmarks</p>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">WHO Anthrometric Standards ??2026 Clinical Benchmarks</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
@@ -231,9 +231,9 @@ export default function PregnancyHubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { t: "Trimester 1 (Organogenesis)", w: "1 – 45g", l: "Growth Hub: Neural", p: "Folic Acid Audit" },
-                                        { t: "Trimester 2 (Expansion)", w: "50 – 900g", l: "10 – 25cm Linear", p: "Anatomical Sync" },
-                                        { t: "Trimester 3 (Maturation)", w: "1.0 – 3.8kg", l: "Pulmonary Load", p: "Lungs/Brain Alpha" },
+                                        { t: "Trimester 1 (Organogenesis)", w: "1 ??45g", l: "Growth Hub: Neural", p: "Folic Acid Audit" },
+                                        { t: "Trimester 2 (Expansion)", w: "50 ??900g", l: "10 ??25cm Linear", p: "Anatomical Sync" },
+                                        { t: "Trimester 3 (Maturation)", w: "1.0 ??3.8kg", l: "Pulmonary Load", p: "Lungs/Brain Alpha" },
                                         { t: "Post-Term (Safety Tranche)", w: "Static/Slow", l: "Placental Audit", p: "Induction Logic" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-pink-500/5 transition-colors group">
@@ -253,7 +253,7 @@ export default function PregnancyHubClient() {
                         <div className="flex items-center gap-4 border-l-4 border-white/20 pl-6">
                             <div>
                                 <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">III. Precision Naegele's Rule & Mittendorf-Williams Specs</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">ACOG Practice Bulletin 175 • Computational Sync</p>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">ACOG Practice Bulletin 175 ??Computational Sync</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-900 shadow-2xl">
@@ -268,9 +268,9 @@ export default function PregnancyHubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { c: "Standard Naegele", l: "LMP + 7 Days - 3 Months + 1 Year", t: "± 3.5 Days", g: "Legacy" },
-                                        { c: "Mittendorf-Williams", l: "LMP + 15 Days (Primipara) Logic", t: "± 2.1 Days", g: "Institutional" },
-                                        { c: "Ultrasound CRL Sync", l: "Euclidean Pixel Distance Mapping", t: "± 1.0 Day", v: "Clinical-Grade" }
+                                        { c: "Standard Naegele", l: "LMP + 7 Days - 3 Months + 1 Year", t: "짹 3.5 Days", g: "Legacy" },
+                                        { c: "Mittendorf-Williams", l: "LMP + 15 Days (Primipara) Logic", t: "짹 2.1 Days", g: "Institutional" },
+                                        { c: "Ultrasound CRL Sync", l: "Euclidean Pixel Distance Mapping", t: "짹 1.0 Day", v: "Clinical-Grade" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-white/5 transition-colors group">
                                             <td className="px-8 py-6 text-white">{row.c}</td>
@@ -298,11 +298,11 @@ export default function PregnancyHubClient() {
 
                         <div className="space-y-12 text-slate-300 text-xl leading-[1.8] font-medium">
                             <p>
-                                At the sub-cellular level, gestation is an intricate exchange of genetic and immunological signals. The **Placenta**, a transient organ of institutional importance, acts as the primary interface between maternal and fetal biology. In 2026, our understanding of placental efficiency—regulating the transfer of oxygen and nutrients while filtering potential toxins—is the cornerstone of precision prenatal monitoring.
+                                At the sub-cellular level, gestation is an intricate exchange of genetic and immunological signals. The **Placenta**, a transient organ of institutional importance, acts as the primary interface between maternal and fetal biology. In 2026, our understanding of placental efficiency?봱egulating the transfer of oxygen and nutrients while filtering potential toxins?봧s the cornerstone of precision prenatal monitoring.
                             </p>
 
                             <blockquote className="border-l-4 border-pink-500 bg-pink-500/5 p-8 rounded-2xl italic text-white/90">
-                                "The womb is the first environment to shape the potential of a human being. Precision during these 280 days sets the stage for a lifetime of development." — Institutional Maternal Health Guideline
+                                "The womb is the first environment to shape the potential of a human being. Precision during these 280 days sets the stage for a lifetime of development." ??Institutional Maternal Health Guideline
                             </blockquote>
 
                             <h3 className="text-3xl font-black text-white tracking-tight uppercase italic border-b border-white/10 pb-4">Naegele's Rule vs. Modern Dating</h3>

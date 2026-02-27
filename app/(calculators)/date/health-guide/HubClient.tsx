@@ -63,7 +63,7 @@ export default function HubClient() {
                         </h2>
                         <div className="prose prose-invert prose-blue max-w-none text-slate-400 text-lg leading-relaxed font-bold italic space-y-8 text-justify">
                             <p>
-                                Chronology is the industrial foundation of human civilization. Before the digital epoch, time was audited through observational astronomy—tracking the alignment of the Earth, Moon, and Sun to regulate agricultural and social rhythms. However, as global commerce expanded, the inherent drift between lunar and solar cycles created 'Temporal Scarcity', leading to the radical Gregorian reform of 1582.
+                                Chronology is the industrial foundation of human civilization. Before the digital epoch, time was audited through observational astronomy?봳racking the alignment of the Earth, Moon, and Sun to regulate agricultural and social rhythms. However, as global commerce expanded, the inherent drift between lunar and solar cycles created 'Temporal Scarcity', leading to the radical Gregorian reform of 1582.
                             </p>
                             <p>
                                 In 2026, date calculation has moved from paper scrolls to **64-bit Boolean logic**. Every calculation performed by our engine is a mini-simulation of the Gregorian algorithm, accounting for the 97 leap years that occur every 400 years to maintain a mean year length of 365.2425 days. This precision is what separates a standard calendar from an **Institutional Temporal Auditor**.
@@ -86,7 +86,7 @@ export default function HubClient() {
                         </h2>
                         <div className="prose prose-invert prose-indigo max-w-none text-slate-400 text-lg leading-relaxed font-bold italic space-y-8 text-justify">
                             <p>
-                                The **ISO 8601** standard is the 'Universal Grammar' of date and time. It established the `YYYY-MM-DD` sequence to solve the 'Endian Problem'—the chaos caused by regional preferences for day-first or month-first notation. By utilizing Big-Endian sorting, ISO 8601 allows computers to sort dates as raw strings, significantly reducing compute overhead in large-scale temporal audits.
+                                The **ISO 8601** standard is the 'Universal Grammar' of date and time. It established the `YYYY-MM-DD` sequence to solve the 'Endian Problem'?봳he chaos caused by regional preferences for day-first or month-first notation. By utilizing Big-Endian sorting, ISO 8601 allows computers to sort dates as raw strings, significantly reducing compute overhead in large-scale temporal audits.
                             </p>
                             <p>
                                 Our auditor strictly adheres to **ISO 8601:2019**, the latest iteration of the standard. This includes precise handling of 'Week 01' (the week with the first Thursday of the year) and UTC offsets. For global logistics and financial markets, failing to use ISO normalization can lead to 'Buffer Overflows' in time-sensitive contract executions. We treat every date as a standardized data element, not just a label on a calendar.
@@ -149,7 +149,7 @@ export default function HubClient() {
                             </div>
                             <p className="text-blue-500 bg-white px-4 py-1 rounded-full w-fit text-[10px] font-black uppercase tracking-widest">Crucial System Audit</p>
                             <p className="text-blue-50 text-xl font-bold italic leading-relaxed text-justify">
-                                On January 19, 2038, billions of 32-bit Unix systems will experience a catastrophic 'Integer Overflow'. The timestamp, which counts seconds since 1970, will exceed its 2,147,483,647 limit and wrap around to a negative value—resetting the clock to 1901.
+                                On January 19, 2038, billions of 32-bit Unix systems will experience a catastrophic 'Integer Overflow'. The timestamp, which counts seconds since 1970, will exceed its 2,147,483,647 limit and wrap around to a negative value?봱esetting the clock to 1901.
                             </p>
                             <p className="text-blue-100 text-base font-bold italic leading-relaxed opacity-80">
                                 Our S-Class Auditor uses **64-bit BigInt** architecture. Our limit extends to 292 billion years, making this engine future-proof against the next several cosmic cycles. We are currently auditing dates for the post-2038 era already.
@@ -167,7 +167,7 @@ export default function HubClient() {
                         </h2>
                         <div className="prose prose-invert prose-slate max-w-none text-slate-400 text-lg leading-relaxed font-bold italic space-y-8 text-justify">
                             <p>
-                                At **mysmartcalculators.com**, we treat your temporal data as a clinical biometric. Every audit is performed locally in your browser environment, ensuring that your sensitive dates—birthdays, project windows, or legal deadlines—are never transmitted across an unencrypted network. We provide the logic; you maintain the data sovereignty.
+                                At **mysmartcalculators.com**, we treat your temporal data as a clinical biometric. Every audit is performed locally in your browser environment, ensuring that your sensitive dates?봟irthdays, project windows, or legal deadlines?봞re never transmitted across an unencrypted network. We provide the logic; you maintain the data sovereignty.
                             </p>
                             <p>
                                 By utilizing standardized JavaScript `Date` and `Intl` objects, we ensure that the results you see are consistently reproducible across all 2026-compliant browsers. Our 'Temporal Audit' is your benchmark for chronological truth in an era of digital misinformation.

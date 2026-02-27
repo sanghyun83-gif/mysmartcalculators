@@ -43,7 +43,7 @@ export default function GlobalHeader() {
                 </Link>
 
                 <nav className="hidden md:flex items-center gap-8">
-                    <Link href="/calculators" className="text-sm font-bold text-slate-400 hover:text-white transition-colors tracking-wide">LEGAL</Link>
+                    <Link href="/category/legal" className="text-sm font-bold text-slate-400 hover:text-white transition-colors tracking-wide">LEGAL</Link>
                     <Link href="/category/finance" className="text-sm font-bold text-slate-400 hover:text-white transition-colors tracking-wide">FINANCE</Link>
                     <Link href="/category/insurance" className="text-sm font-bold text-slate-400 hover:text-white transition-colors tracking-wide">INSURANCE</Link>
                     <Link href="/category/medical" className="text-sm font-bold text-slate-400 hover:text-white transition-colors tracking-wide">MEDICAL</Link>
@@ -98,7 +98,7 @@ export default function GlobalHeader() {
                 >
                     <div className="flex flex-col p-8 pt-24 gap-4 overflow-y-auto h-full">
                         <div className="text-[10px] font-bold text-slate-600 uppercase tracking-[0.2em] mb-2">Category Portals</div>
-                        <Link href="/calculators" className="text-2xl font-bold flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded-2xl" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link href="/category/legal" className="text-2xl font-bold flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded-2xl" onClick={() => setIsMobileMenuOpen(false)}>
                             <span>Legal Calculators</span> <Scale className="w-6 h-6 text-amber-500" />
                         </Link>
                         <Link href="/category/finance" className="text-2xl font-bold flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded-2xl" onClick={() => setIsMobileMenuOpen(false)}>

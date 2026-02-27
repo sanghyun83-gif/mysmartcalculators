@@ -157,7 +157,7 @@ export default function TipCalculatorClient() {
                                                 onClick={() => setSplitCount(Math.max(1, splitCount - 1))}
                                                 className="w-12 h-12 flex items-center justify-center bg-white/5 hover:bg-white/10 rounded-xl text-white transition-all active:scale-95"
                                             >
-                                                −
+                                                ??
                                             </button>
                                             <div className="text-center">
                                                 <div className="text-2xl font-black text-white leading-none">{splitCount}</div>

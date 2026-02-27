@@ -51,7 +51,7 @@ export default function ScalesClient() {
                             {STANDARD_SCALE.map((item, i) => (
                                 <tr key={i} className="hover:bg-emerald-500/5 transition-colors">
                                     <td className="px-8 py-5 text-white">{item.label}</td>
-                                    <td className="px-8 py-5">{item.min}% – {item.max}%</td>
+                                    <td className="px-8 py-5">{item.min}% ??{item.max}%</td>
                                     <td className="px-8 py-5 text-emerald-500 font-mono">{item.gpa.toFixed(1)}</td>
                                 </tr>
                             ))}
@@ -77,19 +77,19 @@ export default function ScalesClient() {
                         <ul className="space-y-3 text-sm text-slate-400 font-medium">
                             <li className="flex justify-between border-b border-white/5 pb-2">
                                 <span>First-Class (1st)</span>
-                                <span className="text-white">70% – 100%</span>
+                                <span className="text-white">70% ??100%</span>
                             </li>
                             <li className="flex justify-between border-b border-white/5 pb-2">
                                 <span>Upper Second (2:1)</span>
-                                <span className="text-white">60% – 69%</span>
+                                <span className="text-white">60% ??69%</span>
                             </li>
                             <li className="flex justify-between border-b border-white/5 pb-2">
                                 <span>Lower Second (2:2)</span>
-                                <span className="text-white">50% – 59%</span>
+                                <span className="text-white">50% ??59%</span>
                             </li>
                             <li className="flex justify-between">
                                 <span>Third-Class (3rd)</span>
-                                <span className="text-white">40% – 49%</span>
+                                <span className="text-white">40% ??49%</span>
                             </li>
                         </ul>
                     </div>

@@ -108,8 +108,8 @@ export default function HubClient() {
                     <div className="space-y-8">
                         <div className="flex items-center gap-4 border-l-4 border-indigo-500 pl-6">
                             <div>
-                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Metrology Epochs & Legislative Evolution (1795–2026)</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Global Measurement Reform Audit • Treaty of the Meter to NIST 2026</p>
+                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Metrology Epochs & Legislative Evolution (1795??026)</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Global Measurement Reform Audit ??Treaty of the Meter to NIST 2026</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
@@ -146,7 +146,7 @@ export default function HubClient() {
                         <div className="flex items-center gap-4 border-r-4 md:border-r-0 md:border-l-4 border-blue-500 pr-6 md:pr-0 md:pl-6 justify-end md:justify-start">
                             <div>
                                 <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter text-right md:text-left">II. Precision Requirements by Operational Domain</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Cross-Industry Metrology Benchmarks • Accuracy Thresholds</p>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Cross-Industry Metrology Benchmarks ??Accuracy Thresholds</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
@@ -161,10 +161,10 @@ export default function HubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { b: "Aviation/Space", d: "10⁻⁸ Clinical", h: "Zero-Loss Float", e: "Maximum" },
-                                        { b: "Pharmaceutical", d: "10⁻⁶ Accuracy", h: "ISO-80000 Norms", e: "Institutional" },
-                                        { b: "Engineering", d: "10⁻⁴ Baseline", h: "Significant Digit", e: "Professional" },
-                                        { b: "DIY/Consumer", d: "10⁻² Standard", h: "Visual Utility", e: "Baseline" }
+                                        { b: "Aviation/Space", d: "10?삘겦 Clinical", h: "Zero-Loss Float", e: "Maximum" },
+                                        { b: "Pharmaceutical", d: "10?삘겤 Accuracy", h: "ISO-80000 Norms", e: "Institutional" },
+                                        { b: "Engineering", d: "10?삘겢 Baseline", h: "Significant Digit", e: "Professional" },
+                                        { b: "DIY/Consumer", d: "10?뼘?Standard", h: "Visual Utility", e: "Baseline" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-blue-500/5 transition-colors group">
                                             <td className="px-8 py-6 text-white">{row.b}</td>
@@ -183,7 +183,7 @@ export default function HubClient() {
                         <div className="flex items-center gap-4 border-l-4 border-white/20 pl-6">
                             <div>
                                 <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">III. Unit Conversion Engine Core Specification</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Constant Matrix Mastery • IEEE 754-2026 Standard</p>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Constant Matrix Mastery ??IEEE 754-2026 Standard</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-900 shadow-2xl">
@@ -198,7 +198,7 @@ export default function HubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { m: "Radix Synchronizer", l: "1/Ratio Logic", t: "10⁻¹⁹ Double-Precision", g: "NIST-A" },
+                                        { m: "Radix Synchronizer", l: "1/Ratio Logic", t: "10?뼘밟겧 Double-Precision", g: "NIST-A" },
                                         { m: "Imperial Relay", l: "25.4mm Pivot", t: "Zero-Latency", g: "Hard-Metric" },
                                         { m: "Floating Engine", l: "IEEE 754 Sync", t: "Truncation-Proof", g: "Institutional" }
                                     ].map((row, i) => (
@@ -226,7 +226,7 @@ export default function HubClient() {
                         </h2>
                         <div className="prose prose-invert prose-blue max-w-none text-slate-400 text-lg leading-relaxed font-bold italic space-y-8">
                             <p>
-                                Metrology—the science of measurement—is the silent infrastructure of modern civilization. Without a shared, high-precision framework for quantifying the physical world, global trade would collapse, scientific discovery would stall, and industrial manufacturing would be impossible. In 2026, unit conversion is no longer a matter of simple multiplication; it is a clinical audit of data parity across diverse institutional standards.
+                                Metrology?봳he science of measurement?봧s the silent infrastructure of modern civilization. Without a shared, high-precision framework for quantifying the physical world, global trade would collapse, scientific discovery would stall, and industrial manufacturing would be impossible. In 2026, unit conversion is no longer a matter of simple multiplication; it is a clinical audit of data parity across diverse institutional standards.
                             </p>
                             <p>
                                 At the core of our **Metrology Auditor** is the International System of Units (SI). Established by the Treaty of the Meter in 1875, the SI system has evolved from physical artifacts (like the prototype 'Le Grand K' kilogram) to a system based entirely on fundamental physical constants. By anchoring our conversion engine to the speed of light, the Planck constant, and the Boltzmann constant, we ensure that your data is mathematically immortal.
@@ -239,7 +239,7 @@ export default function HubClient() {
                         <div className="space-y-8 relative z-10">
                             <h3 className="text-2xl font-black text-white italic uppercase tracking-tighter">1. From Artifacts to Constants: Metrology 2.0</h3>
                             <p className="text-slate-500 text-base font-bold leading-relaxed italic">
-                                Until 2019, the definition of a kilogram relied on a single cylinder of platinum-iridium kept in a vault in Sèvres, France. Today, we utilize the Kibble Balance—a mechanism that reconciles mechanical and electromagnetic power. Our 2026 engine reflects this shift by incorporating zero-loss conversion factors. Whether you are converting milligrams for pharmaceutical compounding or tons for heavy logistics, our logic paths execute with the administrative precision required by NIST SP 811 protocols.
+                                Until 2019, the definition of a kilogram relied on a single cylinder of platinum-iridium kept in a vault in S챔vres, France. Today, we utilize the Kibble Balance?봞 mechanism that reconciles mechanical and electromagnetic power. Our 2026 engine reflects this shift by incorporating zero-loss conversion factors. Whether you are converting milligrams for pharmaceutical compounding or tons for heavy logistics, our logic paths execute with the administrative precision required by NIST SP 811 protocols.
                             </p>
                         </div>
                     </div>
@@ -264,7 +264,7 @@ export default function HubClient() {
                     <div className="space-y-12">
                         <h3 className="text-2xl font-black text-white italic uppercase tracking-tighter">3. Computational Integrity & IEEE 754 Auditing</h3>
                         <p className="text-slate-500 text-base font-bold leading-relaxed italic">
-                            Standard calculators often suffer from 'floating-point entropy'—small errors that accumulate when numbers are converted to binary. Our Metrology Auditor implements specialized rounding logic to ensure that 1 inch + 1 inch mathematically reconciles to 2 inches, and $25.4mm \times 2$ reconciles to 50.8mm without the common $0.000000000000001$ noise. This is the difference between an estimation tool and an institutional audit engine. We utilize 64-bit precision to maintain the significant figure integrity required by ISO 80000-1:2022.
+                            Standard calculators often suffer from 'floating-point entropy'?봲mall errors that accumulate when numbers are converted to binary. Our Metrology Auditor implements specialized rounding logic to ensure that 1 inch + 1 inch mathematically reconciles to 2 inches, and $25.4mm \times 2$ reconciles to 50.8mm without the common $0.000000000000001$ noise. This is the difference between an estimation tool and an institutional audit engine. We utilize 64-bit precision to maintain the significant figure integrity required by ISO 80000-1:2022.
                         </p>
                     </div>
 

@@ -1,6 +1,5 @@
-import React from "react";
-import HubClient from "./HubClient";
+import { redirect } from "next/navigation";
 
-export default function DateGuidePage() {
-    return <HubClient />;
+export default function DateGuideLegacyPage() {
+  redirect("/date");
 }

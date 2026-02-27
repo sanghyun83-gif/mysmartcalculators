@@ -274,7 +274,7 @@ export default function ConversionCalculatorClient() {
                                         <div className="space-y-4 relative z-10">
                                             <div className="flex justify-between items-center text-[11px]">
                                                 <span className="text-slate-500 uppercase font-bold tracking-widest">Standard Deviance</span>
-                                                <span className="text-emerald-500 font-black">±0.00%</span>
+                                                <span className="text-emerald-500 font-black">짹0.00%</span>
                                             </div>
                                             <div className="flex justify-between items-center text-[11px]">
                                                 <span className="text-slate-500 uppercase font-bold tracking-widest">Rounding Logic</span>

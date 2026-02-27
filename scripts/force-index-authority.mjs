@@ -20,7 +20,7 @@ const tier1 = [
     '/mortgage', '/loan', '/salary', '/compound-interest', '/pmi', '/dti',
     '/down-payment', '/alimony', '/roth-ira', '/fafsa', '/loan-payoff',
     '/scientific', '/percentage', '/gpa', '/age', '/grade', '/tip',
-    '/binary', '/date', '/conversion', '/square-footage',
+    '/binary', '/date', '/conversion', '/square-footage', '/time-calculator',
     '/ssdi', '/va-disability', '/unemployment',
     '/car-accident', '/truck-accident', '/wrongful-death', '/malpractice',
     '/slip-and-fall', '/construction-accident', '/bus-accident', '/dog-bite',
@@ -37,15 +37,20 @@ const tier2 = [
     '/renters-insurance', '/home-afford', '/closing-cost', '/refinance',
     '/401k-growth', '/annuity', '/estate-tax', '/estimated-tax',
     '/freelance-tax', '/gift-tax', '/heloc', '/hsa', '/pension', '/student-loan',
-    '/afff', '/atrazine', '/benzone', '/depo-provera', '/firefighting-foam',
-    '/hernia-mesh', '/nec', '/suboxone', '/trazadone', '/weight-loss-drugs',
-    '/auto-loan', '/boat-loan', '/business-loan', '/cd', '/credit-card',
-    '/interest', '/personal-loan', '/mortgage-payoff', '/savings', '/salary-hourly',
+    '/afff', '/depo-provera', '/hernia-mesh', '/suboxone',
     '/category/legal', '/category/finance', '/category/insurance',
     '/category/medical', '/category/family', '/category/health'
 ];
 
 const corePages = ['/', '/about', '/contact', '/privacy', '/terms'];
+const categoryPages = ['/category/legal', '/category/finance', '/category/insurance', '/category/medical', '/category/family', '/category/health'];
+const calculatorsDir = path.join(__dirname, '../lib/calculators');
+const validCalculatorIds = new Set(
+    fs.readdirSync(calculatorsDir)
+        .filter(name => name.endsWith('.ts'))
+        .map(name => name.replace(/\.ts$/, ''))
+);
+const validStaticPaths = new Set([...corePages, ...categoryPages]);
 
 // Combine for the daily quota (max 200)
 const priorityBatch = [
@@ -56,11 +61,23 @@ const priorityBatch = [
 
 const DRY_RUN = process.env.DRY_RUN === 'true';
 
-const urlsToIndex = [...new Set(priorityBatch)].slice(0, 200).map(p => `${BASE_URL}${p}`);
+function isValidPath(pathname) {
+    if (validStaticPaths.has(pathname)) return true;
+    if (!pathname.startsWith('/')) return false;
+    return validCalculatorIds.has(pathname.slice(1));
+}
+
+const invalidPaths = [...new Set(priorityBatch.filter(pathname => !isValidPath(pathname)))];
+const validPriorityBatch = [...new Set(priorityBatch.filter(pathname => isValidPath(pathname)))];
+const urlsToIndex = validPriorityBatch.slice(0, 200).map(p => `${BASE_URL}${p}`);
 
 async function forceIndex() {
     console.log(`🚀 Starting Force-Push: ${urlsToIndex.length} Institutional URLs...`);
     if (DRY_RUN) console.log('🧪 [DRY RUN MODE] No actual API calls will be made.');
+
+    if (invalidPaths.length > 0) {
+        console.warn(`?? Skipping ${invalidPaths.length} invalid paths: ${invalidPaths.join(', ')}`);
+    }
 
     if (!fs.existsSync(KEY_FILE)) {
         console.error(`❌ Error: Service account file not found at ${KEY_FILE}`);

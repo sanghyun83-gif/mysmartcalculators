@@ -105,7 +105,7 @@ export function CalculatorClient() {
                                     </div>
                                     <div className="flex gap-4 text-slate-400 font-bold text-lg">
                                         <span>{result.chronological.months} Months</span>
-                                        <span>•</span>
+                                        <span>??/span>
                                         <span>{result.chronological.days} Days</span>
                                     </div>
                                 </div>

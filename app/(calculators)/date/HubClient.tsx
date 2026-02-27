@@ -107,8 +107,8 @@ export default function HubClient() {
                     <div className="space-y-8">
                         <div className="flex items-center gap-4 border-l-4 border-blue-500 pl-6">
                             <div>
-                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Global Calendar System Milestones (1582–2026)</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Temporal Architecture Audit • NIST & ISO Standard Benchmarks</p>
+                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Global Calendar System Milestones (1582??026)</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Temporal Architecture Audit ??NIST & ISO Standard Benchmarks</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
@@ -125,7 +125,7 @@ export default function HubClient() {
                                     {[
                                         { e: "1582-1752", a: "Julian to Gregorian", l: "11 Days Latency", s: "Verified" },
                                         { e: "1970-1988", a: "Unix Epoch / ISO 8601", l: "Sub-Second Sync", s: "Verified" },
-                                        { e: "2020-2024", a: "UTC Precision Drift", l: "± 0.001s / Year", s: "Verified" },
+                                        { e: "2020-2024", a: "UTC Precision Drift", l: "짹 0.001s / Year", s: "Verified" },
                                         { e: "2026 Cycle", a: "ISO-2026 Standard", l: "Zero-Latency Parity", s: "Baseline" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-blue-500/5 transition-colors group">
@@ -145,7 +145,7 @@ export default function HubClient() {
                         <div className="flex items-center gap-4 border-r-4 md:border-r-0 md:border-l-4 border-indigo-500 pr-6 md:pr-0 md:pl-6 justify-end md:justify-start">
                             <div>
                                 <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter text-right md:text-left">II. Date Arithmetic Comparative Precision Benchmarks</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Sidereal Year vs. Civil Calendar • Leap Cycle Analysis</p>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Sidereal Year vs. Civil Calendar ??Leap Cycle Analysis</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
@@ -163,7 +163,7 @@ export default function HubClient() {
                                         { b: "Standard Year", d: "365.0 Days", h: "365.256 Days", e: "Baseline" },
                                         { b: "Leap Cycle", d: "4-Year Buffer", h: "Century Protocol", e: "Institutional" },
                                         { b: "Business Interval", d: "Excl. Weekends", h: "Net Duration", e: "S-Class" },
-                                        { b: "Month Delta", d: "28 – 31 Days", h: "Astronomical Loop", e: "Verified" }
+                                        { b: "Month Delta", d: "28 ??31 Days", h: "Astronomical Loop", e: "Verified" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-indigo-500/5 transition-colors group">
                                             <td className="px-8 py-6 text-white">{row.b}</td>
@@ -182,7 +182,7 @@ export default function HubClient() {
                         <div className="flex items-center gap-4 border-l-4 border-white/20 pl-6">
                             <div>
                                 <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">III. Temporal Logic Engine Mathematical Specification</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Unix Epoch Mastery • Y2K38 Defense Protocols</p>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Unix Epoch Mastery ??Y2K38 Defense Protocols</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-900 shadow-2xl">
@@ -197,7 +197,7 @@ export default function HubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { m: "Interval Resolver", l: "Math.abs(t2 - t1)", t: "± 1.0 Millisecond", g: "Clinical" },
+                                        { m: "Interval Resolver", l: "Math.abs(t2 - t1)", t: "짹 1.0 Millisecond", g: "Clinical" },
                                         { m: "Radix Epoch", l: "64-Bit Unsigned", t: "292B Year Depth", g: "Next-Gen" },
                                         { m: "TZ Reconciliation", l: "UTC-0 Normalization", t: "Zero-Latency", g: "Institutional" }
                                     ].map((row, i) => (
@@ -225,7 +225,7 @@ export default function HubClient() {
                         </h2>
                         <div className="prose prose-invert prose-blue max-w-none text-slate-400 text-lg leading-relaxed font-bold italic space-y-8">
                             <p>
-                                Time, in its rawest form, is a continuous flow of entropy. To harness this flow for industrial and social coordination, humans developed the **Gregorian Calendar**—a structural masterpiece of mathematical auditing. Modern date calculation is not merely counting days; it is an institutional reconciliation of solar cycles, administrative boundaries, and computational limitations.
+                                Time, in its rawest form, is a continuous flow of entropy. To harness this flow for industrial and social coordination, humans developed the **Gregorian Calendar**?봞 structural masterpiece of mathematical auditing. Modern date calculation is not merely counting days; it is an institutional reconciliation of solar cycles, administrative boundaries, and computational limitations.
                             </p>
                             <p>
                                 At the heart of our **Temporal Auditor** is the ISO 8601 standard. This protocol eliminates the ambiguity of regional notation (DD/MM/YYYY vs MM/DD/YYYY) by establishing the Big-Endian sequence: Year-Month-Day. This is the 'source of truth' for global data interchanges, ensuring that a financial contract in New York and a logistic manifest in Seoul remain in perfect temporal synchronization.
@@ -263,7 +263,7 @@ export default function HubClient() {
                     <div className="space-y-12">
                         <h3 className="text-2xl font-black text-white italic uppercase tracking-tighter">3. Epoch Parity & Digital Longevity</h3>
                         <p className="text-slate-500 text-base font-bold leading-relaxed italic">
-                            Computers do not understand 'April 5th'. They understand the **Unix Epoch**—the number of seconds since January 1, 1970. A professional temporal auditor bridges these planes. We utilize 64-bit integer frameworks to prevent the 'Year 2038' overflow (Y2K38), where 32-bit systems will fail as their temporal registers exhaust their bit-depth. By auditing your dates in our S-Class environment, you are ensuring that your data remains valid across the next 292 billion years of computational history.
+                            Computers do not understand 'April 5th'. They understand the **Unix Epoch**?봳he number of seconds since January 1, 1970. A professional temporal auditor bridges these planes. We utilize 64-bit integer frameworks to prevent the 'Year 2038' overflow (Y2K38), where 32-bit systems will fail as their temporal registers exhaust their bit-depth. By auditing your dates in our S-Class environment, you are ensuring that your data remains valid across the next 292 billion years of computational history.
                         </p>
                     </div>
 

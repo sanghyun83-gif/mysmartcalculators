@@ -57,8 +57,8 @@ export default function CompoundInterestHubClient() {
                     <div className="space-y-8">
                         <div className="flex items-center gap-4 border-l-4 border-emerald-500 pl-6">
                             <div>
-                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Wealth Accumulation Benchmarks (1980–2026 Projection)</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Macro-Economic Longitudinal Audit • SEC Standard Data</p>
+                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Wealth Accumulation Benchmarks (1980??026 Projection)</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Macro-Economic Longitudinal Audit ??SEC Standard Data</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
@@ -73,10 +73,10 @@ export default function CompoundInterestHubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { e: "1980-2000", d: "12.4% – 14.2%", a: "+85% Retention", s: "Verified" },
-                                        { e: "2000-2020", d: "7.8% – 9.1%", a: "+62% Retention", s: "Verified" },
-                                        { e: "2024-2025", d: "10.2% – 11.5%", a: "+48% Retention", s: "Audited" },
-                                        { e: "2026 Projection", d: "9.5% – 10.8%", a: "Tax-Shielded Bias", s: "Market Standard" }
+                                        { e: "1980-2000", d: "12.4% ??14.2%", a: "+85% Retention", s: "Verified" },
+                                        { e: "2000-2020", d: "7.8% ??9.1%", a: "+62% Retention", s: "Verified" },
+                                        { e: "2024-2025", d: "10.2% ??11.5%", a: "+48% Retention", s: "Audited" },
+                                        { e: "2026 Projection", d: "9.5% ??10.8%", a: "Tax-Shielded Bias", s: "Market Standard" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-emerald-500/5 transition-colors group">
                                             <td className="px-8 py-6 text-white">{row.e}</td>
@@ -95,7 +95,7 @@ export default function CompoundInterestHubClient() {
                         <div className="flex items-center gap-4 border-r-4 md:border-r-0 md:border-l-4 border-cyan-500 pr-6 md:pr-0 md:pl-6 justify-end md:justify-start">
                             <div>
                                 <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter text-right md:text-left">II. Asset Class Growth Multipliers (Equities vs. Real Estate vs. HYSA)</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Cross-Asset Yield Variance • 2026 Benchmarks</p>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Cross-Asset Yield Variance ??2026 Benchmarks</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
@@ -132,7 +132,7 @@ export default function CompoundInterestHubClient() {
                         <div className="flex items-center gap-4 border-l-4 border-white/20 pl-6">
                             <div>
                                 <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">III. Compound Frequency Logic & Inflation-Adjusted Precision Specs</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Actuarial Precision • 2026 Audit Standards</p>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Actuarial Precision ??2026 Audit Standards</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-900 shadow-2xl">
@@ -147,10 +147,10 @@ export default function CompoundInterestHubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { c: "Standard Compound", l: "A = P(1 + r/n)^(nt)", t: "± $0.001", g: "Legacy Audit" },
+                                        { c: "Standard Compound", l: "A = P(1 + r/n)^(nt)", t: "짹 $0.001", g: "Legacy Audit" },
                                         { c: "Continuous Accretion", l: "A = Pe^(rt)", t: "Zero-Latency", g: "Institutional" },
-                                        { c: "Inflation Adjusted", l: "R = (1+i)/(1+inf) - 1", t: "± $0.01", g: "Real Wealth Spec" },
-                                        { c: "Tax-Drag Sync", l: "Σ(Yield - Tax Liability)", t: "Zero-Loss", g: "S-Class Standard" }
+                                        { c: "Inflation Adjusted", l: "R = (1+i)/(1+inf) - 1", t: "짹 $0.01", g: "Real Wealth Spec" },
+                                        { c: "Tax-Drag Sync", l: "誇(Yield - Tax Liability)", t: "Zero-Loss", g: "S-Class Standard" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-white/5 transition-colors group">
                                             <td className="px-8 py-6 text-white">{row.c}</td>
@@ -196,7 +196,7 @@ export default function CompoundInterestHubClient() {
                         </h2>
                         <div className="space-y-6 text-slate-400 font-medium leading-relaxed text-lg">
                             <p>
-                                Compound interest is not merely a mathematical formula; it is the fundamental operative principle of wealth creation in the 2026 global economy. Often attributed to Albert Einstein as the "Eighth Wonder of the World," compound interest leverages the time value of money to generate returns not only on initial principal but on the accumulated interest of all prior periods. This creates a self-reinforcing reciprocity loop—a wealth engine that gains technical momentum over time.
+                                Compound interest is not merely a mathematical formula; it is the fundamental operative principle of wealth creation in the 2026 global economy. Often attributed to Albert Einstein as the "Eighth Wonder of the World," compound interest leverages the time value of money to generate returns not only on initial principal but on the accumulated interest of all prior periods. This creates a self-reinforcing reciprocity loop?봞 wealth engine that gains technical momentum over time.
                             </p>
                             <p>
                                 In an era defined by high-frequency digital finance, the distinction between simple growth and exponential accretion determines institutional viability. While simple interest remains linear and predictable, compound interest operates within non-linear geometric progressions. By the year 2026, the velocity of compounding has been further catalyzed by digital asset platforms, real-time yield harvesting, and tax-advantaged automated reinvestment protocols.
@@ -254,10 +254,10 @@ export default function CompoundInterestHubClient() {
                         </h2>
                         <div className="space-y-6 text-slate-400 font-medium leading-relaxed">
                             <p>
-                                A common failure in financial modeling is the ignorement of "Purchasing Power Parity" (PPP). In 2026, nominal growth is a vanity metric; Real Yield is the sanity metric. Our S-Class engine incorporates 2026 inflation projections—averaging 2.8% to 3.2%—to provide a transparent view of how much your future millions will actually buy.
+                                A common failure in financial modeling is the ignorement of "Purchasing Power Parity" (PPP). In 2026, nominal growth is a vanity metric; Real Yield is the sanity metric. Our S-Class engine incorporates 2026 inflation projections?봞veraging 2.8% to 3.2%?봳o provide a transparent view of how much your future millions will actually buy.
                             </p>
                             <p>
-                                When the cost of core commodities (housing, energy, healthcare) increases, the compounded value of your savings must outpace these benchmarks to ensure true prosperity. This is why "High-Yield" savings accounts, which often mirror CPI (Consumer Price Index) increases, are technically wealth preservation tools rather than wealth creation engines. To achieve genuine accretion, your portfolio must audit for "Alpha"—returns exceeding the foundational inflation rate.
+                                When the cost of core commodities (housing, energy, healthcare) increases, the compounded value of your savings must outpace these benchmarks to ensure true prosperity. This is why "High-Yield" savings accounts, which often mirror CPI (Consumer Price Index) increases, are technically wealth preservation tools rather than wealth creation engines. To achieve genuine accretion, your portfolio must audit for "Alpha"?봱eturns exceeding the foundational inflation rate.
                             </p>
                             <div className="grid md:grid-cols-3 gap-6 my-12 not-prose">
                                 {[

@@ -106,8 +106,8 @@ export default function HubClient() {
                     <div className="space-y-8">
                         <div className="flex items-center gap-4 border-l-4 border-emerald-500 pl-6">
                             <div>
-                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Computational Logic Evolution (1945–2026)</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Architectural Epoch Audit • ENIAC to Quantum-Edge 2026</p>
+                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Computational Logic Evolution (1945??026)</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Architectural Epoch Audit ??ENIAC to Quantum-Edge 2026</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
@@ -122,10 +122,10 @@ export default function HubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { e: "1945-1955", a: "Vacuum Tube / ENIAC", l: "10⁻³ s (ms)", s: "Verified" },
-                                        { e: "1980-2000", a: "VLSI / Silicon CMOS", l: "10⁻⁹ s (ns)", s: "Verified" },
-                                        { e: "2020-2024", a: "Tensor Core / GPU", l: "10⁻¹² s (ps)", s: "Verified" },
-                                        { e: "2026 Cycle", a: "High-NA EUV / AI Engine", l: "< 10⁻¹² s", s: "Baseline" }
+                                        { e: "1945-1955", a: "Vacuum Tube / ENIAC", l: "10?뼘?s (ms)", s: "Verified" },
+                                        { e: "1980-2000", a: "VLSI / Silicon CMOS", l: "10?삘겧 s (ns)", s: "Verified" },
+                                        { e: "2020-2024", a: "Tensor Core / GPU", l: "10?뼘뮤?s (ps)", s: "Verified" },
+                                        { e: "2026 Cycle", a: "High-NA EUV / AI Engine", l: "< 10?뼘뮤?s", s: "Baseline" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-emerald-500/5 transition-colors group">
                                             <td className="px-8 py-6 text-white">{row.e}</td>
@@ -144,7 +144,7 @@ export default function HubClient() {
                         <div className="flex items-center gap-4 border-r-4 md:border-r-0 md:border-l-4 border-teal-500 pr-6 md:pr-0 md:pl-6 justify-end md:justify-start">
                             <div>
                                 <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter text-right md:text-left">II. Radix Density & Multi-Base Comparative Analysis</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Base-n Structural Efficiency • 64-Bit Word Comparison</p>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Base-n Structural Efficiency ??64-Bit Word Comparison</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
@@ -181,7 +181,7 @@ export default function HubClient() {
                         <div className="flex items-center gap-4 border-l-4 border-white/20 pl-6">
                             <div>
                                 <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">III. Logic Auditor Mathematical Specification</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Boolean Algebra Core • IEEE 754-2026 Standard</p>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Boolean Algebra Core ??IEEE 754-2026 Standard</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-900 shadow-2xl">
@@ -198,7 +198,7 @@ export default function HubClient() {
                                     {[
                                         { m: "Radix Converter", l: "BigInt Precision", t: "Infinity (Dynamic)", g: "Institutional" },
                                         { m: "Bitwise Engine", l: "(x & y) ^ z", t: "Zero-Latency", g: "Hardware-S" },
-                                        { m: "Float Parity", l: "IEEE 754 Sync", t: "10⁻¹⁹ Tolerance", g: "Certified" }
+                                        { m: "Float Parity", l: "IEEE 754 Sync", t: "10?뼘밟겧 Tolerance", g: "Certified" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-white/5 transition-colors group">
                                             <td className="px-8 py-6 text-white">{row.m}</td>
@@ -224,7 +224,7 @@ export default function HubClient() {
                         </h2>
                         <div className="prose prose-invert prose-emerald max-w-none text-slate-400 text-lg leading-relaxed font-bold italic space-y-12 text-justify">
                             <p>
-                                At its core, every digital interaction is a series of state changes—from zero to one. Our **Binary Logic Auditor** provides the specialized environment required to analyze these transitions with institutional fidelity. By utilizing high-bandwidth conversion algorithms, we ensure that your radix transitions (Hex, Oct, Dec) maintain absolute data parity across 8, 16, 32, and 64-bit architectures. Proactive logic auditing is the foundation of robust software architecture and cryptographic security.
+                                At its core, every digital interaction is a series of state changes?봣rom zero to one. Our **Binary Logic Auditor** provides the specialized environment required to analyze these transitions with institutional fidelity. By utilizing high-bandwidth conversion algorithms, we ensure that your radix transitions (Hex, Oct, Dec) maintain absolute data parity across 8, 16, 32, and 64-bit architectures. Proactive logic auditing is the foundation of robust software architecture and cryptographic security.
                             </p>
 
                             <div className="space-y-8 text-left not-prose">
@@ -254,7 +254,7 @@ export default function HubClient() {
                             <div className="space-y-8 text-left not-prose">
                                 <h3 className="text-2xl font-black text-white uppercase italic tracking-tighter">3. Application in 2026 Cryptography</h3>
                                 <p className="text-slate-500 text-base leading-relaxed">
-                                    As we move into the era of quantum-resistant cryptography, the fundamental bitwise XOR operation remains at the center of the world's most secure protocols. Hashing algorithms like SHA-256 and encryption standards like AES rely on a sequence of complex bitwise transformations—rotations, shifts, and logic gate applications. A binary auditor allows security analysts to perform manual verification of these 'rounds.' By isolating a single bit-flip, an analyst can observe the avalanche effect, where a tiny change in input catastrophic changes the entire output hash. This mathematical unpredictability is what secures global finance and private communication.
+                                    As we move into the era of quantum-resistant cryptography, the fundamental bitwise XOR operation remains at the center of the world's most secure protocols. Hashing algorithms like SHA-256 and encryption standards like AES rely on a sequence of complex bitwise transformations?봱otations, shifts, and logic gate applications. A binary auditor allows security analysts to perform manual verification of these 'rounds.' By isolating a single bit-flip, an analyst can observe the avalanche effect, where a tiny change in input catastrophic changes the entire output hash. This mathematical unpredictability is what secures global finance and private communication.
                                 </p>
                             </div>
 

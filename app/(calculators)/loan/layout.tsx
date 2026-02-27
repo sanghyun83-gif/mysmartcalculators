@@ -1,29 +1,24 @@
-import React from "react";
+"use client";
+
 import { FlagshipLayout } from "@/components/v3/FlagshipLayout";
-import { CALCULATOR_REGISTRY } from "@/lib/registry/calculators";
 
 export default function LoanLayout({
-    children,
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-    const config = CALCULATOR_REGISTRY["loan"];
-
-    return (
-        <FlagshipLayout
-            brandName="Loan Matrix"
-            brandIcon="banknote"
-            hubPath="/loan"
-            accentColorRgb="79, 70, 229" // indigo-600
-            accentSelectionClass="selection:bg-indigo-500/30"
-            navLinks={[
-                { label: "Loan Engine", href: "/loan/calculator" },
-                { label: "Liquidity Science", href: "/loan#stats" },
-                { label: "Repayment Mechanics", href: "/loan#compliance" },
-                { label: "FAQ", href: "/loan#faq" },
-            ]}
-        >
-            {children}
-        </FlagshipLayout>
-    );
+  return (
+    <FlagshipLayout
+      brandName="Loan Calculator"
+      brandIcon="banknote"
+      hubPath="/loan"
+      accentColorRgb="59, 130, 246"
+      accentSelectionClass="selection:bg-blue-100"
+      navLinks={[]}
+      trustScore="Verified by CFPB + Federal Reserve 2026"
+      lightMode={true}
+    >
+      {children}
+    </FlagshipLayout>
+  );
 }

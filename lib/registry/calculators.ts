@@ -599,6 +599,15 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "color": "rose-500",
         "icon": "gavel"
     },
+    "conversion": {
+        "id": "conversion",
+        "name": "2026 Unit Conversion Calculator | S-Class Precision Converter",
+        "description": "Convert units instantly with 2026 precision across length, weight, volume, temperature, and speed. Official S-Class converter with standards-aligned factors and real-time output validation.",
+        "category": "general",
+        "tier": 1,
+        "color": "emerald-500",
+        "icon": "ruler"
+    },
     "cpap": {
         "id": "cpap",
         "name": "CPAP Recall Lawsuit Calculator",
@@ -652,6 +661,15 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "tier": 1,
         "color": "slate-500",
         "icon": "coins"
+    },
+    "date": {
+        "id": "date",
+        "name": "2026 Date Calculator | Calendar Interval Audit Engine",
+        "description": "Calculate exact date differences and add or subtract days, weeks, months, and years with 2026 precision. Official S-Class calendar audit engine for scheduling, planning, and compliance workflows.",
+        "category": "general",
+        "tier": 1,
+        "color": "emerald-500",
+        "icon": "calendar-days"
     },
     "cyber-insurance": {
         "id": "cyber-insurance",
@@ -1742,6 +1760,15 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "color": "blue-500",
         "icon": "landmark"
     },
+    "ovulation": {
+        "id": "ovulation",
+        "name": "2026 Ovulation Calculator | Fertility Window Estimator",
+        "description": "Estimate ovulation date and fertile window using cycle length and last period data with 2026 clinical precision. Official S-Class fertility estimator for planning and cycle tracking.",
+        "category": "health",
+        "tier": 1,
+        "color": "emerald-500",
+        "icon": "baby"
+    },
     "oxycontin": {
         "id": "oxycontin",
         "name": "OxyContin Lawsuit Calculator",
@@ -2327,6 +2354,15 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "color": "rose-500",
         "icon": "gavel"
     },
+    "square-footage": {
+        "id": "square-footage",
+        "name": "2026 Square Footage Calculator | Area Measurement Auditor",
+        "description": "Calculate area for rooms, homes, lots, and custom shapes with 2026 precision. Official S-Class area auditor for flooring, paint, and real-estate measurement workflows.",
+        "category": "general",
+        "tier": 1,
+        "color": "emerald-500",
+        "icon": "ruler"
+    },
     "sr22": {
         "id": "sr22",
         "name": "2026 SR-22 Insurance Calculator | High-Risk DUI Rates",
@@ -2515,6 +2551,15 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "tier": 2,
         "color": "blue-500",
         "icon": "landmark"
+    },
+    "time-calculator": {
+        "id": "time-calculator",
+        "name": "2026 Time Calculator | Duration and Hours Audit Engine",
+        "description": "Calculate time differences, add or subtract H:M:S values, and convert between time units with 2026 precision.",
+        "category": "general",
+        "tier": 1,
+        "color": "blue-500",
+        "icon": "clock"
     },
     "townhouse-insurance": {
         "id": "townhouse-insurance",

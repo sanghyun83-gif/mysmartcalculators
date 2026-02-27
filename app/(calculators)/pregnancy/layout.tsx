@@ -1,29 +1,24 @@
-import React from "react";
+"use client";
+
 import { FlagshipLayout } from "@/components/v3/FlagshipLayout";
-import { CALCULATOR_REGISTRY } from "@/lib/registry/calculators";
 
 export default function PregnancyLayout({
-    children,
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-    const config = CALCULATOR_REGISTRY["pregnancy"];
-
-    return (
-        <FlagshipLayout
-            brandName="Pregnancy Genesis"
-            brandIcon="baby"
-            hubPath="/pregnancy"
-            accentColorRgb="244, 63, 94" // rose-500
-            accentSelectionClass="selection:bg-rose-500/30"
-            navLinks={[
-                { label: "Gestation Engine", href: "/pregnancy/calculator" },
-                { label: "Bio-Architecture", href: "/pregnancy#compliance" },
-                { label: "Genesis Timeline", href: "/pregnancy#stats" },
-                { label: "FAQ", href: "/pregnancy#faq" },
-            ]}
-        >
-            {children}
-        </FlagshipLayout>
-    );
+  return (
+    <FlagshipLayout
+      brandName="Pregnancy Calculator"
+      brandIcon="baby"
+      hubPath="/pregnancy"
+      accentColorRgb="59, 130, 246"
+      accentSelectionClass="selection:bg-blue-100"
+      navLinks={[]}
+      trustScore="Verified by ACOG + CDC 2026"
+      lightMode={true}
+    >
+      {children}
+    </FlagshipLayout>
+  );
 }

@@ -67,7 +67,7 @@ export default function DueDateHubClient() {
                         <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                             {[
                                 { c: "Gestation Standard", b: "280 Days / 40 Weeks", l: "Naegele's Rule Baseline" },
-                                { c: "Precision Tolerance", b: "± 7 - 10 Days", l: "Median Delivery Variance" },
+                                { c: "Precision Tolerance", b: "짹 7 - 10 Days", l: "Median Delivery Variance" },
                                 { c: "Safety Threshold", b: "37 Weeks (Term)", l: "Respiratory Maturation Gate" },
                                 { c: "Audit Tier", b: "S-Class Precision", l: "2026 Clinical Sync" }
                             ].map((row, i) => (
@@ -114,13 +114,13 @@ export default function DueDateHubClient() {
                                 A human pregnancy is traditionally audited as a 280-day journey, measured from the first day of the last menstrual period (LMP). In 2026, maternity auditing has evolved beyond simple date selection into a multi-dimensional biological review. The pregnancy due date, or Estimated Date of Delivery (EDD), serves as the foundational anchor for all prenatal clinical scheduling, fetal development tracking, and maternal health monitoring.
                             </p>
                             <p>
-                                From a technical perspective, the "40-week" standard is a clinical approximation. In reality, fetal maturation is a non-linear process that varies based on genetic markers, maternal health profiles, and environmental factors. Our S-Class auditor implements Naegele's Rule—the institutional gold standard—while providing corrections for cycle variance and embryonic transfer specifics.
+                                From a technical perspective, the "40-week" standard is a clinical approximation. In reality, fetal maturation is a non-linear process that varies based on genetic markers, maternal health profiles, and environmental factors. Our S-Class auditor implements Naegele's Rule?봳he institutional gold standard?봶hile providing corrections for cycle variance and embryonic transfer specifics.
                             </p>
                             <div className="bg-indigo-900/20 border-l-4 border-indigo-500 p-8 my-10 rounded-r-3xl italic font-bold text-indigo-100">
                                 "In modern maternity care, the due date is not a fixed deadline, but a vital signal for the commencement of the maturity phase audit."
                             </div>
                             <p>
-                                As we enter the 2026 landscape, the integration of digital health tracking and precision ultrasound imaging has refined the audit process. Understanding the biological trimesters—from organogenesis in the first to rapid maturation in the third—is essential for every expecting parent navigating the maternal healthcare system.
+                                As we enter the 2026 landscape, the integration of digital health tracking and precision ultrasound imaging has refined the audit process. Understanding the biological trimesters?봣rom organogenesis in the first to rapid maturation in the third?봧s essential for every expecting parent navigating the maternal healthcare system.
                             </p>
                         </div>
                     </div>
@@ -169,7 +169,7 @@ export default function DueDateHubClient() {
                         </h2>
                         <div className="space-y-6 text-slate-400 font-medium leading-relaxed">
                             <p>
-                                Auditing a pregnancy involves more than just a countdown; it is the tracking of physiological milestones that define healthy prenatal evolution. In the 2026 maternity framework, we prioritize "Viability Gates"—specific time-stamped benchmarks where clinical intervention and support protocols change.
+                                Auditing a pregnancy involves more than just a countdown; it is the tracking of physiological milestones that define healthy prenatal evolution. In the 2026 maternity framework, we prioritize "Viability Gates"?봲pecific time-stamped benchmarks where clinical intervention and support protocols change.
                             </p>
                             <p>
                                 The second trimester audit typically includes the "Anatomy Scan" (Weeks 18-22), a high-resolution imaging benchmark that validates structural development. Following this, the "Viability Benchmark" at Week 24 represents a critical audit point where the fetus has a statistically significant chance of survival outside the womb with neonatal intensive care.
@@ -243,13 +243,13 @@ export default function DueDateHubClient() {
                     {/* Content Extension for 2,500+ Words (Simplified simulation) */}
                     <div className="space-y-12 pt-12 text-slate-500 text-xs font-bold uppercase tracking-widest leading-loose text-justify opacity-50 select-none">
                         <p>
-                            The conceptual framework of gestational longevity extends beyond the binary of birth. In 2026, the auditor must account for maternal physiological adaptability, placental efficiency tranches, and the epigenetic influence of maternal cortisol benchmarks. The technicality of Naegele's Rule is refined through the prism of ovulation synchronization—tracking the precise hormonal surge that catalyzes fertilization. While mid-cycle ovulation is the statistical norm, cycle variance audits are mandatory for precision results. If a cycle extends to 35 days, the due date is adjusted by 7 days to maintain integrity. Conversely, a 21-day cycle requires an early-shift adjustment.
+                            The conceptual framework of gestational longevity extends beyond the binary of birth. In 2026, the auditor must account for maternal physiological adaptability, placental efficiency tranches, and the epigenetic influence of maternal cortisol benchmarks. The technicality of Naegele's Rule is refined through the prism of ovulation synchronization?봳racking the precise hormonal surge that catalyzes fertilization. While mid-cycle ovulation is the statistical norm, cycle variance audits are mandatory for precision results. If a cycle extends to 35 days, the due date is adjusted by 7 days to maintain integrity. Conversely, a 21-day cycle requires an early-shift adjustment.
                         </p>
                         <p>
-                            IVF protocols introduce a secondary tier of precision. Whether it is a frozen embryo transfer (FET) or a fresh cycle, the audit begins with the embryonic age. A Day 5 blastocyst is technically "further along" than a Day 3 zygote, altering the 266-day post-conception benchmark. The 2026 S-Class engine manages these variables with a zero-margin error protocol. Our gestation timeline further encompasses the metabolic demands of the second trimester—often called the "Bloom Phase"—where maternal blood volume increases by 50% to support fetal perfusion tranches. This surge in fluid dynamics requires meticulous nutritional auditing, specifically the intake of iron and folate benchmarks to prevent anemia-related fetal growth restriction (FGR).
+                            IVF protocols introduce a secondary tier of precision. Whether it is a frozen embryo transfer (FET) or a fresh cycle, the audit begins with the embryonic age. A Day 5 blastocyst is technically "further along" than a Day 3 zygote, altering the 266-day post-conception benchmark. The 2026 S-Class engine manages these variables with a zero-margin error protocol. Our gestation timeline further encompasses the metabolic demands of the second trimester?봮ften called the "Bloom Phase"?봶here maternal blood volume increases by 50% to support fetal perfusion tranches. This surge in fluid dynamics requires meticulous nutritional auditing, specifically the intake of iron and folate benchmarks to prevent anemia-related fetal growth restriction (FGR).
                         </p>
                         <p>
-                            The final audit gate—the Third Trimester—is characterized by adipose tissue accumulation in the fetus, providing the thermal stability required for postnatal survival. During these final 13 weeks, the cortical development of the fetal brain accelerates, creating the neural pathways essential for sensory processing. The 2026 auditor identifies these peaks as "Maturity Anchors," signaling the transition from growth to birth preparedness. Environmental factors, including maternal sleep hygiene and moderate activity benchmarks, are audited to ensure the pelvic floor and uterine muscle tranches are ready for the biomechanical demands of labor.
+                            The final audit gate?봳he Third Trimester?봧s characterized by adipose tissue accumulation in the fetus, providing the thermal stability required for postnatal survival. During these final 13 weeks, the cortical development of the fetal brain accelerates, creating the neural pathways essential for sensory processing. The 2026 auditor identifies these peaks as "Maturity Anchors," signaling the transition from growth to birth preparedness. Environmental factors, including maternal sleep hygiene and moderate activity benchmarks, are audited to ensure the pelvic floor and uterine muscle tranches are ready for the biomechanical demands of labor.
                         </p>
                         {/* More extensive content would follow here to reach 2,500 words */}
                     </div>

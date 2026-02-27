@@ -363,7 +363,7 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     },
     {
         "id": "drunk-driving",
-        "name": "Drunk Driving Accident Calculator"
+        "name": "DUI Calculator"
     },
     {
         "id": "dti",
@@ -1132,6 +1132,10 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
     {
         "id": "theme-park",
         "name": "Theme Park Injury Calculator"
+    },
+    {
+        "id": "time-calculator",
+        "name": "Time Calculator"
     },
     {
         "id": "tip",

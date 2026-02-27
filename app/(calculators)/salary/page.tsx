@@ -1,110 +1,100 @@
-﻿import { getCalculatorMeta } from "@/lib/registry/calculators";
+import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { SALARY_2026 } from "@/lib/calculators/salary";
-import dynamic from "next/dynamic";
+import SalaryClient from "./SalaryClient";
 
 const id = "salary";
 const meta = getCalculatorMeta(id);
 
 export const metadata = {
-    title: meta?.title || "Salary Calculator | Precision Compensation Auditor 2026",
-    description: meta?.description || "Institutional-grade salary calculator for annual, monthly, and hourly audits. Analyze real earnings with 2026 financial standards.",
-    alternates: {
-        canonical: `https://mysmartcalculators.com/${id}`,
-    }
+  title: meta?.title || "Salary Calculator",
+  description:
+    meta?.description ||
+    "Convert salary across annual, monthly, bi-weekly, weekly, daily, and hourly pay periods.",
+  alternates: {
+    canonical: meta?.canonical || "https://mysmartcalculators.com/salary",
+  },
 };
 
-const HubClient = dynamic(
-    () => import("./HubClient"),
-    {
-        ssr: true,
-        loading: () => <div className="min-h-screen bg-slate-950" />
-    }
-);
-
 export default function SalaryPage() {
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "SoftwareApplication",
-                "name": meta?.title || "Salary Calculator",
-                "description": meta?.description || "Institutional-grade salary and compensation auditor.",
-                "applicationCategory": "FinanceApplication",
-                "operatingSystem": "Any",
-                "offers": {
-                    "@type": "Offer",
-                    "price": "0",
-                    "priceCurrency": "USD"
-                }
-            },
-            {
-                "@type": "HowTo",
-                "name": "How to Calculate Real Salary Earnings",
-                "description": "Step-by-step institutional guide for auditing annual, monthly, and hourly compensation.",
-                "step": [
-                    {
-                        "@type": "HowToStep",
-                        "text": "Input your gross annual salary or base hourly rate into the auditor."
-                    },
-                    {
-                        "@type": "HowToStep",
-                        "text": "Specify the work-week duration (standard 40h or custom) to determine hourly density."
-                    },
-                    {
-                        "@type": "HowToStep",
-                        "text": "Factor in PTO and seasonal bonuses for a 'Real Value' audit of your time."
-                    },
-                    {
-                        "@type": "HowToStep",
-                        "text": "Run the 2026 engine to view the full breakdown across all time-horizons."
-                    }
-                ]
-            },
-            {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Home",
-                        "item": "https://mysmartcalculators.com/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Career",
-                        "item": "https://mysmartcalculators.com/career"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "name": "Salary Calculator",
-                        "item": meta?.canonical || "https://mysmartcalculators.com/salary"
-                    }
-                ]
-            },
-            {
-                "@type": "FAQPage",
-                "mainEntity": SALARY_2026.faqs.map(faq => ({
-                    "@type": "Question",
-                    "name": faq.question,
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": faq.answer
-                    }
-                }))
-            }
-        ]
-    };
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        name: "Salary Calculator",
+        description: meta?.description,
+        applicationCategory: "FinanceApplication",
+        operatingSystem: "All",
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+        },
+      },
+      {
+        "@type": "HowTo",
+        name: "How to Convert Salary Across Pay Periods",
+        description: "Normalize compensation to annual value and convert across monthly, weekly, and hourly amounts.",
+        step: [
+          {
+            "@type": "HowToStep",
+            text: "Enter pay amount and its original pay period.",
+          },
+          {
+            "@type": "HowToStep",
+            text: "Set hours and days per week for hourly and daily normalization.",
+          },
+          {
+            "@type": "HowToStep",
+            text: "Click Calculate Salary to view period-by-period conversions.",
+          },
+        ],
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://mysmartcalculators.com/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Finance",
+            item: "https://mysmartcalculators.com/calculators",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Salary Calculator",
+            item: meta?.canonical || "https://mysmartcalculators.com/salary",
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: SALARY_2026.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  };
 
-    return (
-        <>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
-            <HubClient />
-        </>
-    );
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        suppressHydrationWarning
+      />
+      <SalaryClient />
+    </>
+  );
 }
-

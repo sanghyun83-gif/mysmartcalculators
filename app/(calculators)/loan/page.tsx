@@ -1,110 +1,98 @@
-﻿import { getCalculatorMeta } from "@/lib/registry/calculators";
+import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { LOAN_2026 } from "@/lib/calculators/loan";
-import dynamic from "next/dynamic";
+import LoanClient from "./LoanClient";
 
 const id = "loan";
 const meta = getCalculatorMeta(id);
 
 export const metadata = {
-    title: meta?.title || "Loan Calculator & Amortization Audit | 2026 Financial AI",
-    description: meta?.description || "Professional-grade loan calculator with full amortization schedules. Analyze interest decay and repayment structures using 2026 financial standards.",
-    alternates: {
-        canonical: meta?.canonical || "/loan",
-    }
+  title: meta?.title || "Loan Calculator & Amortization",
+  description: meta?.description || "Calculate monthly payment, total interest, and payoff date with an amortized loan model.",
+  alternates: {
+    canonical: meta?.canonical || "https://mysmartcalculators.com/loan",
+  },
 };
 
-const HubClient = dynamic(
-    () => import("./HubClient"),
-    {
-        ssr: true,
-        loading: () => <div className="min-h-screen bg-slate-950" />
-    }
-);
+export default function LoanPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        name: "Loan Calculator",
+        description: meta?.description,
+        applicationCategory: "FinanceApplication",
+        operatingSystem: "All",
+        offers: {
+          "@type": "Offer",
+          price: "0",
+          priceCurrency: "USD",
+        },
+      },
+      {
+        "@type": "HowTo",
+        name: "How to Calculate Loan Payments",
+        description: "Estimate monthly payments and interest using amount, APR, and term.",
+        step: [
+          {
+            "@type": "HowToStep",
+            text: "Enter loan amount.",
+          },
+          {
+            "@type": "HowToStep",
+            text: "Enter APR and loan term in years.",
+          },
+          {
+            "@type": "HowToStep",
+            text: "Click Calculate Loan and review payment, interest, and payoff metrics.",
+          },
+        ],
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://mysmartcalculators.com/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Finance",
+            item: "https://mysmartcalculators.com/calculators",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Loan Calculator",
+            item: meta?.canonical || "https://mysmartcalculators.com/loan",
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: LOAN_2026.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
+  };
 
-export default function LoanHubPage() {
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "SoftwareApplication",
-                "name": meta?.title || "Loan Calculator",
-                "description": meta?.description || "High-precision loan amortization audit engine.",
-                "applicationCategory": "FinanceApplication",
-                "operatingSystem": "Any",
-                "offers": {
-                    "@type": "Offer",
-                    "price": "0",
-                    "priceCurrency": "USD"
-                }
-            },
-            {
-                "@type": "HowTo",
-                "name": "How to Calculate Loan Amortization",
-                "description": "Step-by-step institutional guide for auditing loan repayment structures.",
-                "step": [
-                    {
-                        "@type": "HowToStep",
-                        "text": "Enter the total loan amount (Principal) you wish to borrow."
-                    },
-                    {
-                        "@type": "HowToStep",
-                        "text": "Specify the annual interest rate (APR) provided by your lender."
-                    },
-                    {
-                        "@type": "HowToStep",
-                        "text": "Set the loan term in years or months to determine the repayment horizon."
-                    },
-                    {
-                        "@type": "HowToStep",
-                        "text": "Execute the audit to view the sub-cent distribution of principal and interest."
-                    }
-                ]
-            },
-            {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {
-                        "@type": "ListItem",
-                        "position": 1,
-                        "name": "Home",
-                        "item": "https://mysmartcalculators.com/"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 2,
-                        "name": "Finance",
-                        "item": "https://mysmartcalculators.com/finance"
-                    },
-                    {
-                        "@type": "ListItem",
-                        "position": 3,
-                        "name": "Loan Calculator",
-                        "item": meta?.canonical || "https://mysmartcalculators.com/loan"
-                    }
-                ]
-            },
-            {
-                "@type": "FAQPage",
-                "mainEntity": LOAN_2026.faqs.map(faq => ({
-                    "@type": "Question",
-                    "name": faq.question,
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": faq.answer
-                    }
-                }))
-            }
-        ]
-    };
-
-    return (
-        <>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
-            <HubClient />
-        </>
-    );
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        suppressHydrationWarning
+      />
+      <LoanClient />
+    </>
+  );
 }
-

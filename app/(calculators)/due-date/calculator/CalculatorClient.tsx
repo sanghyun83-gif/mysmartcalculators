@@ -123,7 +123,7 @@ export default function DueDateCalculatorClient() {
                             <div className="space-y-2">
                                 <h4 className="text-xs font-black text-indigo-300 uppercase tracking-widest">Medical Protocol Audit</h4>
                                 <p className="text-[10px] text-indigo-100/60 font-medium leading-relaxed italic">
-                                    Our Gestation engine implements the 2026 Naegele standard corrected for {cycleLength}-day cycle variance. Accuracy is clinically audited at ±3 days in the first trimester.
+                                    Our Gestation engine implements the 2026 Naegele standard corrected for {cycleLength}-day cycle variance. Accuracy is clinically audited at 짹3 days in the first trimester.
                                 </p>
                             </div>
                         </div>

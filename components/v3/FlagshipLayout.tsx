@@ -135,9 +135,9 @@ export function FlagshipLayout({
                             </div>
 
                             {/* Desktop Nav Links */}
-                            <div className="hidden lg:flex items-center gap-6 text-[10px] font-black text-slate-500 uppercase tracking-widest border-l border-white/10 pl-6 h-8">
+                            <div className={`hidden lg:flex items-center gap-6 text-[10px] font-black uppercase tracking-widest pl-6 h-8 border-l ${lightMode ? 'text-slate-500 border-slate-200' : 'text-slate-500 border-white/10'}`}>
                                 {navLinks.map((link) => (
-                                    <Link key={link.href} href={link.href} className="hover:text-white transition-colors uppercase">
+                                    <Link key={link.href} href={link.href} className={`${lightMode ? 'hover:text-slate-900' : 'hover:text-white'} transition-colors uppercase`}>
                                         {link.label}
                                     </Link>
                                 ))}

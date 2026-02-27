@@ -19,7 +19,7 @@ const CONTENT_SECTIONS = [
         title: "The Archaeology of Gratuity: A Global History of Tipping",
         icon: History,
         color: "text-amber-500",
-        content: `The concept of tipping, or 'gratuity,' is one of the most complex sociological constructs in the modern service economy. Its origins are often traced back to 17th-century Tudor England, where guests at private estates would leave small sums for the host's servants. This practice, known as 'vails,' was an acknowledgment of the extra effort required to accommodate travelers. By the 18th century, 'T.I.P.'—purportedly an acronym for 'To Insure Promptness'—became a common fixture in British coffee houses.
+        content: `The concept of tipping, or 'gratuity,' is one of the most complex sociological constructs in the modern service economy. Its origins are often traced back to 17th-century Tudor England, where guests at private estates would leave small sums for the host's servants. This practice, known as 'vails,' was an acknowledgment of the extra effort required to accommodate travelers. By the 18th century, 'T.I.P.'?봯urportedly an acronym for 'To Insure Promptness'?봟ecame a common fixture in British coffee houses.
 
 In the United States, however, the trajectory of tipping was deeply intertwined with post-Civil War socio-economics. Following the abolition of slavery, many employers in the service sector (restaurants, railroads, and hotels) sought ways to avoid paying direct wages. This led to a system where the customer, rather than the employer, became the primary source of income for service workers. In 2026, we see the culmination of this history in a sophisticated 'Service Arbitrage' model that powers the global hospitality industry.
 
@@ -30,13 +30,13 @@ From a purely neoclassical economic perspective, tipping is an anomaly. Why do r
         title: "The Psychology of the Prompt: Digital Tipping in 2026",
         icon: Brain,
         color: "text-yellow-500",
-        content: `As we navigate the mid-2020s, the physical tip jar has been largely replaced by the 'Digital Prompt'—the ubiquitous tablet screen that invites customers to select 18%, 20%, or 25% before they have even tasted their latte. This phenomenon, often referred to as 'Prompt Fatigue' or 'Tip Inflation,' has fundamentally altered the psychological relationship between service and reward.
+        content: `As we navigate the mid-2020s, the physical tip jar has been largely replaced by the 'Digital Prompt'?봳he ubiquitous tablet screen that invites customers to select 18%, 20%, or 25% before they have even tasted their latte. This phenomenon, often referred to as 'Prompt Fatigue' or 'Tip Inflation,' has fundamentally altered the psychological relationship between service and reward.
 
 **Nudge Theory & Default Anchoring**
 Software designers utilize behavioral economics principles like 'Default Anchoring' to influence tipping behavior. By presenting higher percentages as the default, institutions can effectively 'nudge' the average gratuity upwards. In 2026, data suggests that digital prompts have increased average tip values by 12.4% compared to cash-based transactions.
 
 **The Empathy Delta**
-However, there is a risk of 'Transactional Friction.' When tipping becomes an automated hurdle rather than a genuine gesture of gratitude, the empathy delta narrows. Our S-Class Hub encourages users to remain 'Gratuity Sovereign'—using data rather than social pressure to determine the appropriate reward. Understanding the difference between a mandated service charge and a voluntary tip is the first step toward reclaiming financial agency in the digital marketplace.`
+However, there is a risk of 'Transactional Friction.' When tipping becomes an automated hurdle rather than a genuine gesture of gratitude, the empathy delta narrows. Our S-Class Hub encourages users to remain 'Gratuity Sovereign'?봴sing data rather than social pressure to determine the appropriate reward. Understanding the difference between a mandated service charge and a voluntary tip is the first step toward reclaiming financial agency in the digital marketplace.`
     },
     {
         title: "Global Tipping Architectures: An Institutional Audit",
@@ -45,13 +45,13 @@ However, there is a risk of 'Transactional Friction.' When tipping becomes an au
         content: `Tipping is not a universal constant; it is a localized cultural protocol that varies wildly across borders. For the international traveler in 2026, failing to audit local tipping standards can lead to significant social faux pas or unnecessary financial leakage.
 
 **The American Exceptionalism Model**
-In the United States, tipping is an integral part of the compensation structure. With the 'Tip Credit' still active in many jurisdictions, base wages for servers can be as low as $2.13 per hour. In this environment, a 20% tip is not a bonus—it is the baseline for a living wage.
+In the United States, tipping is an integral part of the compensation structure. With the 'Tip Credit' still active in many jurisdictions, base wages for servers can be as low as $2.13 per hour. In this environment, a 20% tip is not a bonus?봧t is the baseline for a living wage.
 
 **The European Service Compris**
 Across much of the European Union, the menu price is the final price. Service is legally 'included' (service compris). While it is common to leave a small 'round-up' (a few Euros) for exceptional service at a high-end bistro, the 20% standard would be seen as eccentric.
 
 **The East Asian Honor Protocol**
-In Japan and South Korea, the philosophy of 'Omotenashi'—wholehearted hospitality—means that service is perceived as an inherent part of the experience, not an additive to be purchased. Attempting to tip in a traditional ryokan or a Tokyo sushi bar is often politely refused, as it can imply that the standard service provided was somehow insufficient without extra payment.`
+In Japan and South Korea, the philosophy of 'Omotenashi'?봶holehearted hospitality?봫eans that service is perceived as an inherent part of the experience, not an additive to be purchased. Attempting to tip in a traditional ryokan or a Tokyo sushi bar is often politely refused, as it can imply that the standard service provided was somehow insufficient without extra payment.`
     },
     {
         title: "The Ethics of the Service Economy: 2026 Legislative Shifts",
@@ -63,7 +63,7 @@ In Japan and South Korea, the philosophy of 'Omotenashi'—wholehearted hospital
 Some restaurants are opting for a mandatory 20% 'Service Charge' or 'Hospitality Fee' that is distributed among both front-of-house and back-of-house (kitchen) staff. This ensures pay equity across the institution but removes the customer's ability to reward individual performance.
 
 **Scenario B: The Non-Tipping Model**
-A growing number of avant-garde establishments are adopting a 'No Tipping' policy, raising menu prices to reflect the true cost of labor. While this provides wage stability for workers, it requires a significant cultural shift for diners accustomed to the traditional gratuity model. Our Tip Calculator provides the audit tools to compare these various models, helping you understand exactly where your money is going—whether to the server, the chef, or the business owner.`
+A growing number of avant-garde establishments are adopting a 'No Tipping' policy, raising menu prices to reflect the true cost of labor. While this provides wage stability for workers, it requires a significant cultural shift for diners accustomed to the traditional gratuity model. Our Tip Calculator provides the audit tools to compare these various models, helping you understand exactly where your money is going?봶hether to the server, the chef, or the business owner.`
     },
     {
         title: "Advanced Tipping Scenarios: The Specialist's Guide",
@@ -72,10 +72,10 @@ A growing number of avant-garde establishments are adopting a 'No Tipping' polic
         content: `Beyond the restaurant table, tipping becomes even more nuanced. How do you audit gratuity for a high-stakes corporate concierge, an international tour guide, or a specialized medical transport?
 
 **The Corporate Concierge Audit**
-At the highest levels of luxury service, tipping is about relationship management. A concierge who secures a table at a Michelin-star restaurant on peak-night is not just 'doing their job'—they are leveraging social capital. In 2026, a $20-50 'Service Acknowledgment' is the institutional standard for such interventions.
+At the highest levels of luxury service, tipping is about relationship management. A concierge who secures a table at a Michelin-star restaurant on peak-night is not just 'doing their job'?봳hey are leveraging social capital. In 2026, a $20-50 'Service Acknowledgment' is the institutional standard for such interventions.
 
 **The Wellness & Personal Care Tranche**
-For barbers, stylists, and massage therapists, the relationship is intimate and recurring. The standard 20% applies, but the 'Holiday Bonus'—typically equivalent to the cost of one session—is the mark of a sophisticated patron who values long-term service continuity. Our Gratuity Gold engine helps you track these annual outlays to ensure you stay within your 'Social Maintenance' budget without compromising your reputation as a generous and knowledgeable client.`
+For barbers, stylists, and massage therapists, the relationship is intimate and recurring. The standard 20% applies, but the 'Holiday Bonus'?봳ypically equivalent to the cost of one session?봧s the mark of a sophisticated patron who values long-term service continuity. Our Gratuity Gold engine helps you track these annual outlays to ensure you stay within your 'Social Maintenance' budget without compromising your reputation as a generous and knowledgeable client.`
     }
 ];
 
@@ -159,7 +159,7 @@ export default function TipHubClient() {
                             { val: `${TIP_2026.statistics.avgTipPercent}%`, label: "Avg US Tip" },
                             { val: `${TIP_2026.statistics.tippedWorkers}M`, label: "Tipped Workers" },
                             { val: "2026 SECURE", label: "Logic Source" },
-                            { val: "±$0.01", label: "Math Variance" }
+                            { val: "짹$0.01", label: "Math Variance" }
                         ].map((stat, i) => (
                             <div key={i} className="bg-black/40 border border-white/5 rounded-3xl p-6 backdrop-blur-xl group hover:border-amber-500/30 transition-all">
                                 <p className="text-2xl font-black text-white mb-1 group-hover:text-amber-400 transition-colors uppercase">{stat.val}</p>
@@ -200,8 +200,8 @@ export default function TipHubClient() {
                     <div className="space-y-8">
                         <div className="flex items-center gap-4 border-l-4 border-amber-500 pl-6">
                             <div>
-                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Global Gratuity Benchmarks (1990–2026 Trend)</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Sociological Longitudinal Audit • Global Hospitality Data</p>
+                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Global Gratuity Benchmarks (1990??026 Trend)</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Sociological Longitudinal Audit ??Global Hospitality Data</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
@@ -216,10 +216,10 @@ export default function TipHubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { e: "1990-2005", d: "10% – 15%", a: "Cash-Based (Manual)", s: "Verified" },
-                                        { e: "2010-2020", d: "15% – 20%", a: "Digital Signature Logic", s: "Verified" },
-                                        { e: "2024-2025", d: "18% – 25%", a: "Tablet Anchor Default", s: "Audited" },
-                                        { e: "2026 Projection", d: "20% – 28%", a: "Institutional Surcharge", s: "Market Standard" }
+                                        { e: "1990-2005", d: "10% ??15%", a: "Cash-Based (Manual)", s: "Verified" },
+                                        { e: "2010-2020", d: "15% ??20%", a: "Digital Signature Logic", s: "Verified" },
+                                        { e: "2024-2025", d: "18% ??25%", a: "Tablet Anchor Default", s: "Audited" },
+                                        { e: "2026 Projection", d: "20% ??28%", a: "Institutional Surcharge", s: "Market Standard" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-amber-500/5 transition-colors group">
                                             <td className="px-8 py-6 text-white">{row.e}</td>
@@ -238,7 +238,7 @@ export default function TipHubClient() {
                         <div className="flex items-center gap-4 border-r-4 md:border-r-0 md:border-l-4 border-yellow-500 pr-6 md:pr-0 md:pl-6 justify-end md:justify-start">
                             <div>
                                 <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter text-right md:text-left">II. Service Sector Tipping Multipliers (Dining vs. Delivery vs. Service)</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Cross-Industry Gratuity Variance • 2026 Benchmarks</p>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Cross-Industry Gratuity Variance ??2026 Benchmarks</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
@@ -275,7 +275,7 @@ export default function TipHubClient() {
                         <div className="flex items-center gap-4 border-l-4 border-white/20 pl-6">
                             <div>
                                 <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">III. Bill Splitting Logic & Post-Tax Computation Standards</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Actuarial Precision • Group Dynamics Accounting</p>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Actuarial Precision ??Group Dynamics Accounting</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-900 shadow-2xl">
@@ -290,9 +290,9 @@ export default function TipHubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { c: "Pre-Tax Audit", l: "(Bill - Tax) × Tip %", t: "± $0.01", g: "Legacy Standard" },
-                                        { c: "Post-Tax Audit", l: "(Bill + Tax) × Tip %", t: "Zero-Latency", g: "Market Bias" },
-                                        { c: "Euclidean Split", l: "Total / (N Persons)", t: "± $0.001", g: "Institutional" },
+                                        { c: "Pre-Tax Audit", l: "(Bill - Tax) 횞 Tip %", t: "짹 $0.01", g: "Legacy Standard" },
+                                        { c: "Post-Tax Audit", l: "(Bill + Tax) 횞 Tip %", t: "Zero-Latency", g: "Market Bias" },
+                                        { c: "Euclidean Split", l: "Total / (N Persons)", t: "짹 $0.001", g: "Institutional" },
                                         { c: "Rounding Logic", l: "Ceiling / Floor Sync", t: "Zero-Loss", g: "Audited" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-white/5 transition-colors group">
@@ -357,7 +357,7 @@ export default function TipHubClient() {
                             Execute Precision Audit
                         </Link>
                         <div className="flex items-center gap-4 text-slate-500 text-[10px] font-black uppercase tracking-[0.3em]">
-                            <Shield className="w-3 h-3" /> 2026 COMPLIANT • <Users className="w-3 h-3" /> 8.4M+ SERVICE AUDITS • <CheckCircle className="w-3 h-3" /> GLOBAL STANDARDS
+                            <Shield className="w-3 h-3" /> 2026 COMPLIANT ??<Users className="w-3 h-3" /> 8.4M+ SERVICE AUDITS ??<CheckCircle className="w-3 h-3" /> GLOBAL STANDARDS
                         </div>
                     </div>
                 </div>

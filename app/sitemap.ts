@@ -79,7 +79,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         'truck-accident', 'bmi', 'scientific', 'mortgage', 'percentage',
         'gpa', 'age', 'loan', 'pregnancy', 'calorie', 'grade', 'tip',
         'compound-interest', 'due-date', 'salary', 'body-fat', 'binary',
-        'date', 'conversion', 'square-footage', 'ovulation'
+        'date', 'conversion', 'square-footage', 'ovulation', 'time-calculator'
     ]; // Priority 1.0 (Flagship Domain)
     const tier2 = [
         'ozempic', 'camp-lejeune', 'roundup'

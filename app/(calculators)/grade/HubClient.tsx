@@ -19,24 +19,24 @@ const CONTENT_SECTIONS = [
         title: "The Pedagogy of Assessment: Evolution of Grading Systems",
         icon: History,
         color: "text-emerald-500",
-        content: `In the academic landscape of 2026, grading is far more than a numerical representation of effort—it is a sophisticated analysis of intellectual progress and academic efficiency. The history of grading systems dates back to late 18th-century Cambridge, but it was the 1897 implementation at Mount Holyoke College that birthed the standard A-F scale we recognize today. This shift from descriptive evaluation to quantitative metrics allowed for the industrialization of education, enabling global comparisons between disparate institutions.
+        content: `In the academic landscape of 2026, grading is far more than a numerical representation of effort?봧t is a sophisticated analysis of intellectual progress and academic efficiency. The history of grading systems dates back to late 18th-century Cambridge, but it was the 1897 implementation at Mount Holyoke College that birthed the standard A-F scale we recognize today. This shift from descriptive evaluation to quantitative metrics allowed for the industrialization of education, enabling global comparisons between disparate institutions.
 
 Our GradeMaster engine acknowledges this historical lineage while looking forward toward 'Precision Learning'. We utilize standardized metrics to ensure that whether you are calculating a high school algebra quiz or a graduate-level neurobiology thesis, your progress is measured against the most rigorous academic benchmarks. Grading is the 'Record' of your academic career, and just like a financial statement, it requires absolute mathematical integrity and transparency.
 
 **The Socio-Economic Impact of Grades**
-Grades serve as the primary conduit for social mobility. In 2026, data suggests that a 0.5 GPA delta correlates to a 12.7% difference in localized lifetime earnings. This is why a precise calculation is mission-critical. Understanding where you stand in the 'weighted average' flux allows for strategic pivots—allocating more study hours to important segments (like final exams and capstone projects). Our calculator acts as your private academic assistant, providing the data necessary to optimize your intellectual growth.`
+Grades serve as the primary conduit for social mobility. In 2026, data suggests that a 0.5 GPA delta correlates to a 12.7% difference in localized lifetime earnings. This is why a precise calculation is mission-critical. Understanding where you stand in the 'weighted average' flux allows for strategic pivots?봞llocating more study hours to important segments (like final exams and capstone projects). Our calculator acts as your private academic assistant, providing the data necessary to optimize your intellectual growth.`
     },
     {
         title: "The Mathematics of Weighted Averages: GPA Flux",
         icon: Scale,
         color: "text-teal-500",
-        content: `Many students misunderstand the dynamics of grading—they treat all assignments as equal units of energy. In reality, modern curricula are designed with a weighted infrastructure. This means that a single 2-hour final exam might carry more weight than 15 weeks of homework. 
+        content: `Many students misunderstand the dynamics of grading?봳hey treat all assignments as equal units of energy. In reality, modern curricula are designed with a weighted infrastructure. This means that a single 2-hour final exam might carry more weight than 15 weeks of homework. 
 
 **Category 1: Formative Assessments (Low Weight 10-20%)**
 These include homework, quizzes, and class participation. They are designed to signal to the instructor the current state of knowledge acquisition. While they have low individual weight, their cumulative effect creates the foundation of your course grade.
 
 **Category 2: Summative Assessments (Medium Weight 30-50%)**
-Mid-terms, unit tests, and lab reports. These are the core structural pillars of your grade. Failure in this segment often requires a strong final exam performance to reach a target grade. Our calculator tracks these segments with ±0.1% precision.
+Mid-terms, unit tests, and lab reports. These are the core structural pillars of your grade. Failure in this segment often requires a strong final exam performance to reach a target grade. Our calculator tracks these segments with 짹0.1% precision.
 
 **Category 3: High-Stake Results (High Weight 40-60%)**
 Final exams and Capstone projects. This is where the calculation becomes critical. A single point difference in this segment can move your final letter grade by an entire category (e.g., B+ to A-). Our 'Final Grade Needed' engine is calibrated to manage the stress of this period by providing hard, objective data on exactly what score is required to achieve your goal.`
@@ -63,10 +63,10 @@ First-Class Honours (70%+), Upper Second (2.1), and Lower Second (2.2). Despite 
         content: `The 'Grading Curve' is perhaps the most debated architecture in modern pedagogy. Strictly speaking, a curve is a normalization protocol designed to fit class performance into a standard distribution (Bell Curve). 
 
 **The Survival Mechanics of Curving**
-In highly competitive environments—Pre-Med, Law, and Advanced Engineering—the curve ensures that the academic value of an A remains scarce. If a class average is 45%, the professor may 'shift' the curve so that 45% becomes a C+. This creates a high-stakes environment where the focus is not just on the material, but on class performance. 
+In highly competitive environments?봒re-Med, Law, and Advanced Engineering?봳he curve ensures that the academic value of an A remains scarce. If a class average is 45%, the professor may 'shift' the curve so that 45% becomes a C+. This creates a high-stakes environment where the focus is not just on the material, but on class performance. 
 
 **Grade Anxiety & The Plateau Effect**
-Research highlights 'The Plateau Effect'. This occurs when a student reaches a specific grade category (e.g., consistent 85% scores) and cannot break into the 'Excellence Tier' (95%+). This is often due to a failure in nuance capture—the ability to go beyond rote memorization to synergistic application. Our Grade Hub encourages students to use our 'Weighted Calculator' to identify which specific modules could be improved.`
+Research highlights 'The Plateau Effect'. This occurs when a student reaches a specific grade category (e.g., consistent 85% scores) and cannot break into the 'Excellence Tier' (95%+). This is often due to a failure in nuance capture?봳he ability to go beyond rote memorization to synergistic application. Our Grade Hub encourages students to use our 'Weighted Calculator' to identify which specific modules could be improved.`
     },
     {
         title: "Academic Standards 2026: Transparency",
@@ -87,10 +87,10 @@ Ultimately, grades are your academic currency. Managing them requires the same l
         content: `As we cross into the 2026-2027 academic cycle, the integration of Large Language Models and Generative AI into the classroom has necessitated a paradigm shift in how grades are calculated. No longer is effort measured simply by 'Time on Task'. Instead, institutions are moving toward original integrity checks.
 
 **The Rise of Process-Based Grading**
-In many universities, the final result of an essay or code block now counts for a portion of the grade. The remaining weight is derived from the progress record—the recorded development of ideas and the demonstrable synthesis of original thought. Our GradeMaster AI includes the parameters to track these new Process-Based segments, offering a future-proof record for the next generation of scholars.
+In many universities, the final result of an essay or code block now counts for a portion of the grade. The remaining weight is derived from the progress record?봳he recorded development of ideas and the demonstrable synthesis of original thought. Our GradeMaster AI includes the parameters to track these new Process-Based segments, offering a future-proof record for the next generation of scholars.
 
 **Enhanced Peer Review**
-We are also witnessing the emergence of peer review, where AI agents provide a foundational baseline for grading before a human instructor conducts the final review. This reduces instructor fatigue and stabilizes the grading curve, but it requires students to be more precise than ever with their calculations. Understanding your performance metrics is no longer optional—it is the baseline for academic success in the age of AI.`
+We are also witnessing the emergence of peer review, where AI agents provide a foundational baseline for grading before a human instructor conducts the final review. This reduces instructor fatigue and stabilizes the grading curve, but it requires students to be more precise than ever with their calculations. Understanding your performance metrics is no longer optional?봧t is the baseline for academic success in the age of AI.`
     }
 ];
 
@@ -174,7 +174,7 @@ export default function GradeHubClient() {
                             { val: GRADE_2026.statistics.avgCollegeGpa, label: "Avg College GPA" },
                             { val: GRADE_2026.statistics.highSchoolGraduationRate, label: "Graduation Rate" },
                             { val: "NCES 2026", label: "Logic Source" },
-                            { val: "±0.1%", label: "Math Variance" }
+                            { val: "짹0.1%", label: "Math Variance" }
                         ].map((stat, i) => (
                             <div key={i} className="bg-black/40 border border-white/5 rounded-2xl p-6 backdrop-blur-xl group hover:border-emerald-500/30 transition-all">
                                 <p className="text-2xl font-black text-white mb-1 group-hover:text-emerald-400 transition-colors">{stat.val}</p>
@@ -215,8 +215,8 @@ export default function GradeHubClient() {
                     <div className="space-y-8">
                         <div className="flex items-center gap-4 border-l-4 border-emerald-500 pl-6">
                             <div>
-                                <h2 className="text-2xl font-black text-white tracking-tight">I. Grading Scale Evolution (1900–2026)</h2>
-                                <p className="text-slate-500 text-[10px] font-bold tracking-wider">Academic Data • NCES Standard</p>
+                                <h2 className="text-2xl font-black text-white tracking-tight">I. Grading Scale Evolution (1900??026)</h2>
+                                <p className="text-slate-500 text-[10px] font-bold tracking-wider">Academic Data ??NCES Standard</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
@@ -253,7 +253,7 @@ export default function GradeHubClient() {
                         <div className="flex items-center gap-4 border-l-4 border-blue-500 pl-6">
                             <div>
                                 <h2 className="text-2xl font-black text-white tracking-tight">II. Course Component Weighting Spectrum</h2>
-                                <p className="text-slate-500 text-[10px] font-bold tracking-wider">Standard Syllabus Logic • Global Benchmark</p>
+                                <p className="text-slate-500 text-[10px] font-bold tracking-wider">Standard Syllabus Logic ??Global Benchmark</p>
                             </div>
                         </div>
                         <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">

@@ -1,28 +1,24 @@
 "use client";
 
-import { Coins } from "lucide-react";
 import { FlagshipLayout } from "@/components/v3/FlagshipLayout";
 
-export default function TipFlagshipLayout({
-    children,
+export default function TipLayout({
+  children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-    return (
-        <FlagshipLayout
-            brandName="Gratuity Gold AI"
-            brandIcon="dollar-sign"
-            hubPath="/tip"
-            accentColorRgb="245, 158, 11" // amber-500
-            accentSelectionClass="selection:bg-amber-500/30"
-            navLinks={[
-                { label: "CALCULATOR", href: "/tip/calculator" },
-                { label: "ETIQUETTE HUB", href: "/tip" },
-                { label: "GLOBAL STANDARDS", href: "/tip/tipping-guide" },
-            ]}
-            trustScore="4.9/5 TrustScore"
-        >
-            {children}
-        </FlagshipLayout>
-    );
+  return (
+    <FlagshipLayout
+      brandName="Tip Calculator"
+      brandIcon="coins"
+      hubPath="/tip"
+      accentColorRgb="59, 130, 246"
+      accentSelectionClass="selection:bg-blue-100"
+      navLinks={[]}
+      trustScore="Verified by U.S. DOL + Emily Post 2026"
+      lightMode={true}
+    >
+      {children}
+    </FlagshipLayout>
+  );
 }

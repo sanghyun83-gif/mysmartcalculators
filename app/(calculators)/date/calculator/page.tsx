@@ -1,6 +1,5 @@
-import React from "react";
-import CalculatorClient from "./CalculatorClient";
+import { redirect } from "next/navigation";
 
-export default function DateCalculatorPage() {
-    return <CalculatorClient />;
+export default function DateCalculatorLegacyPage() {
+  redirect("/date");
 }

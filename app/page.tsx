@@ -1,6 +1,7 @@
 ﻿import Link from "next/link";
 import { Cpu, Zap } from "lucide-react";
 import { ALL_CALCULATORS } from "@/lib/all-calculators";
+import { CALCULATOR_REGISTRY } from "@/lib/registry/calculators";
 import { HomeSearch } from "@/components/home/HomeSearch";
 
 const BASE_URL = "https://mysmartcalculators.com";
@@ -35,6 +36,16 @@ export default function HomePage({
     id: calc.id,
     name: normalizeHomeLabel(calc.id, calc.name),
   }));
+  const totalCalculators = displayCalculators.length;
+  const displayNameById = new Map(displayCalculators.map((calc) => [calc.id, calc.name]));
+  const featuredCalculators = Object.values(CALCULATOR_REGISTRY)
+    .filter((calc) => calc.tier === 1 && displayNameById.has(calc.id))
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .slice(0, 20)
+    .map((calc) => ({
+      id: calc.id,
+      name: displayNameById.get(calc.id) || normalizeHomeLabel(calc.id, calc.name),
+    }));
 
   const query = initialQuery.trim().toLowerCase();
   const searchResults = query
@@ -74,12 +85,12 @@ export default function HomePage({
     },
     {
       label: "Active Calculators",
-      value: "316+",
+      value: `${totalCalculators}+`,
       detail: "Live calculator pages",
     },
     {
       label: "Coverage",
-      value: "Core Categories",
+      value: "Categories",
       detail: "Legal, Finance, Insurance, Health",
     },
     {
@@ -118,7 +129,7 @@ export default function HomePage({
 
           <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
             Practical calculators for legal, finance, insurance, and health decisions.
-            316+ tools with clear estimates and result-focused workflows for 2026.
+            {` ${totalCalculators}+ tools with clear estimates and result-focused workflows for 2026.`}
           </p>
 
           <HomeSearch initialQuery={initialQuery} calculators={displayCalculators} />
@@ -132,23 +143,7 @@ export default function HomePage({
             <span>Featured Calculators</span>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {[
-              { id: "bmi", name: "BMI Calculator" },
-              { id: "calorie", name: "Calorie Calculator" },
-              { id: "body-fat", name: "Body Fat Calculator" },
-              { id: "percentage", name: "Percentage Calculator" },
-              { id: "scientific", name: "Scientific Calculator" },
-              { id: "mortgage", name: "Mortgage Calculator" },
-              { id: "loan", name: "Loan Calculator" },
-              { id: "gpa", name: "GPA Calculator" },
-              { id: "age", name: "Age Calculator" },
-              { id: "pregnancy", name: "Pregnancy Calculator" },
-              { id: "tip", name: "Tip Calculator" },
-              { id: "compound-interest", name: "Compound Interest Calculator" },
-              { id: "due-date", name: "Due Date Calculator" },
-              { id: "salary", name: "Salary Calculator" },
-              { id: "date", name: "Date Calculator" },
-            ].map((feat) => (
+            {featuredCalculators.map((feat) => (
               <Link
                 key={feat.id}
                 href={`/${feat.id}`}
@@ -187,16 +182,26 @@ export default function HomePage({
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
           {stats.map((stat, i) => (
             <div key={i} className="min-h-[132px] flex flex-col justify-start text-center md:text-left">
-              <div className="mb-2 inline-flex items-baseline justify-center md:justify-start gap-2">
-                <span className="text-4xl font-extrabold text-white leading-none">{stat.value}</span>
-                {stat.link && (
-                  <Link
-                    href={stat.link}
-                    className="text-[10px] font-bold text-amber-400 underline underline-offset-2 hover:text-amber-300"
-                  >
-                    source
-                  </Link>
-                )}
+              <div className="min-h-[88px] mb-2 flex flex-col justify-start items-center md:items-start">
+                <span
+                  className={`text-4xl font-extrabold text-white leading-[0.95] ${
+                    stat.noWrapDesktop ? "md:whitespace-nowrap" : ""
+                  } ${stat.valueClassName || ""}`}
+                >
+                  {stat.value}
+                </span>
+                <div className="h-4 mt-1">
+                  {stat.link ? (
+                    <Link
+                      href={stat.link}
+                      className="text-[10px] font-bold text-amber-400 underline underline-offset-2 hover:text-amber-300"
+                    >
+                      source
+                    </Link>
+                  ) : (
+                    <span className="invisible text-[10px]">source</span>
+                  )}
+                </div>
               </div>
               <div className="text-amber-500 font-bold text-sm uppercase tracking-widest mb-1">{stat.label}</div>
               <div className="text-slate-500 text-xs">{stat.detail}</div>

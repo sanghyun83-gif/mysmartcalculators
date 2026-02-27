@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Calculator, Scale, Shield, Users } from "lucide-react";
+import { Scale, Shield, Users, Cpu } from "lucide-react";
 
 export const metadata = {
     title: "About Us | MySmartCalculators",
@@ -8,24 +8,19 @@ export const metadata = {
 
 export default function AboutPage() {
     return (
-        <div className="min-h-screen bg-slate-900">
-            <header className="bg-slate-800/80 backdrop-blur-sm border-b border-slate-700 sticky top-0 z-50">
-                <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-                    <Link href="/" className="flex items-center gap-2 hover:opacity-80">
-                        <Calculator className="w-6 h-6 text-amber-500" />
-                        <span className="text-lg font-bold text-white">MySmartCalculators</span>
-                    </Link>
-                </div>
-            </header>
-
-            <main className="max-w-4xl mx-auto px-4 py-16">
+        <div className="min-h-screen bg-[#020617] text-slate-200">
+            <main className="max-w-5xl mx-auto px-4 py-16">
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl font-bold text-white mb-4">About MySmartCalculators</h1>
-                    <p className="text-xl text-slate-400">Empowering informed decisions with free calculators</p>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold mb-6 uppercase tracking-widest">
+                        <Cpu className="w-3 h-3" />
+                        <span>About & Methodology</span>
+                    </div>
+                    <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">About MySmartCalculators</h1>
+                    <p className="text-slate-400 text-lg">Empowering informed decisions with free calculators.</p>
                 </div>
 
-                <div className="prose prose-invert max-w-none">
-                    <section className="mb-12">
+                <div className="space-y-8">
+                    <section className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7">
                         <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
                             <Scale className="w-6 h-6 text-amber-400" />
                             Our Mission
@@ -37,7 +32,7 @@ export default function AboutPage() {
                         </p>
                     </section>
 
-                    <section id="methodology" className="mb-12 scroll-mt-24">
+                    <section id="methodology" className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7 scroll-mt-24">
                         <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
                             <Shield className="w-6 h-6 text-amber-400" />
                             Methodology
@@ -51,11 +46,26 @@ export default function AboutPage() {
                             Model and benchmark figures shown on the site are informational indicators and should be interpreted alongside
                             the calculator inputs and the stated assumptions on each page.
                         </p>
+                        <div className="mt-5 space-y-3 text-slate-300 text-sm">
+                            <p>
+                                <strong className="text-white">Data source types:</strong> federal/state agency publications, public court and
+                                regulatory documents, insurer/public plan documentation, and standardized reference datasets where available.
+                            </p>
+                            <p>
+                                <strong className="text-white">Validation cycle:</strong> core formulas are reviewed on a scheduled monthly pass,
+                                with ad-hoc updates when major legal, policy, or rate changes are identified.
+                            </p>
+                            <p>
+                                <strong className="text-white">Known limitations:</strong> outputs are modeled estimates, not professional advice
+                                or guaranteed outcomes; real case facts, jurisdictional rules, provider terms, and filing timelines can materially
+                                change results.
+                            </p>
+                        </div>
                     </section>
 
-                    <section className="mb-12">
+                    <section className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7">
                         <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-                            <Calculator className="w-6 h-6 text-amber-400" />
+                            <Cpu className="w-6 h-6 text-amber-400" />
                             What We Offer
                         </h2>
                         <ul className="space-y-3 text-slate-300">
@@ -66,7 +76,7 @@ export default function AboutPage() {
                         </ul>
                     </section>
 
-                    <section className="mb-12">
+                    <section className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7">
                         <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
                             <Users className="w-6 h-6 text-amber-400" />
                             Our Team
@@ -77,17 +87,22 @@ export default function AboutPage() {
                         </p>
                     </section>
 
-                    <section id="update-log" className="mb-12 scroll-mt-24">
+                    <section id="update-log" className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7 scroll-mt-24">
                         <h2 className="text-2xl font-bold text-white mb-4">Update Log</h2>
                         <ul className="space-y-2 text-slate-300">
+                            <li><strong>2026-02-27:</strong> Trust and policy pages refreshed for consistency across About, Terms, Privacy, Contact, and Accessibility.</li>
+                            <li><strong>2026-02-27:</strong> Methodology section expanded with source categories, validation cadence, and limitation disclosures.</li>
                             <li><strong>2026-02-26:</strong> Home search accessibility, structured data, and metadata consistency updates.</li>
                             <li><strong>2026-02-26:</strong> Calculator taxonomy and schema alignment refresh.</li>
                             <li><strong>2026-02-25:</strong> Core calculator modernization batches (BMI, body-fat, related hubs).</li>
+                            <li><strong>2026-02-24:</strong> Category routing standardization for legal, finance, insurance, medical, family, and health portals.</li>
+                            <li><strong>2026-02-24:</strong> Directory search/sort/card rendering unified through shared components.</li>
+                            <li><strong>2026-02-23:</strong> Registry and sitemap synchronization pass to align calculator slugs and category coverage.</li>
                         </ul>
                     </section>
                 </div>
 
-                <div className="mt-12 p-6 bg-amber-900/20 border border-amber-500/30 rounded-xl">
+                <div className="mt-8 p-6 bg-amber-900/20 border border-amber-500/30 rounded-xl">
                     <h3 className="text-lg font-semibold text-amber-300 mb-3">Important Disclaimer</h3>
                     <p className="text-sm text-amber-200/80">
                         The information and calculators provided on this website are for general informational purposes only.
@@ -95,7 +110,7 @@ export default function AboutPage() {
                     </p>
                 </div>
 
-                <div className="mt-8 flex flex-wrap gap-4 justify-center">
+                <div className="mt-8 flex flex-wrap gap-4 justify-center text-sm">
                     <Link href="/privacy" className="text-amber-400 hover:underline">Privacy Policy</Link>
                     <span className="text-slate-600">|</span>
                     <Link href="/contact" className="text-amber-400 hover:underline">Contact Us</Link>
@@ -103,12 +118,6 @@ export default function AboutPage() {
                     <Link href="/" className="text-amber-400 hover:underline">All Calculators</Link>
                 </div>
             </main>
-
-            <footer className="bg-slate-800 border-t border-slate-700 mt-16">
-                <div className="max-w-6xl mx-auto px-4 py-8 text-center">
-                    <p className="text-sm text-slate-500">&copy; 2026 MySmartCalculators. All rights reserved.</p>
-                </div>
-            </footer>
         </div>
     );
 }

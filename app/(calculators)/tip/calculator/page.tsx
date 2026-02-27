@@ -1,7 +1,5 @@
-"use client";
+import { redirect } from "next/navigation";
 
-import TipCalculatorClient from "./CalculatorClient";
-
-export default function TipCalculatorPage() {
-    return <TipCalculatorClient />;
+export default function TipCalculatorLegacyPage() {
+  redirect("/tip");
 }
