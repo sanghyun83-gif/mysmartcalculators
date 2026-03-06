@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import LayoutWrapper from "@/components/LayoutWrapper";
+import FoundationEventTracker from "@/components/analytics/FoundationEventTracker";
 import "./globals.css";
 
 const GA_MEASUREMENT_ID = "G-CLQYC4HRE3";
@@ -85,6 +86,7 @@ export default function RootLayout({
         <LayoutWrapper>
           {children}
         </LayoutWrapper>
+        <FoundationEventTracker />
         <Analytics />
       </body>
     </html>
