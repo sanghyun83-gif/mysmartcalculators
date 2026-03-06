@@ -54,6 +54,7 @@ function FAQSection({ faqs }: { faqs: readonly FAQItem[] }) {
 }
 
 export default function MortgageClient() {
+  const [advancedMode, setAdvancedMode] = useState(false);
   const [homePrice, setHomePrice] = useState(String(MORTGAGE_CONSTANTS.defaults.homePrice));
   const [downPaymentPercent, setDownPaymentPercent] = useState(
     String(MORTGAGE_CONSTANTS.defaults.downPaymentPercent)
@@ -62,6 +63,8 @@ export default function MortgageClient() {
   const [loanTermYears, setLoanTermYears] = useState(String(MORTGAGE_CONSTANTS.defaults.loanTermYears));
   const [propertyTaxRate, setPropertyTaxRate] = useState(String(MORTGAGE_CONSTANTS.defaults.propertyTaxRate));
   const [homeInsuranceYear, setHomeInsuranceYear] = useState(String(MORTGAGE_CONSTANTS.defaults.homeInsuranceYear));
+  const [hoaMonthly, setHoaMonthly] = useState("0");
+  const [otherMonthlyCosts, setOtherMonthlyCosts] = useState("0");
 
   const calculatorFaqs =
     (CALCULATORS.find((c) => c.id === "mortgage/calculator")?.faqs as readonly FAQItem[] | undefined) ?? [];
@@ -88,6 +91,82 @@ export default function MortgageClient() {
   const insuranceShare =
     result.totalMonthlyPayment > 0 ? (result.monthlyInsurance / result.totalMonthlyPayment) * 100 : 0;
   const pmiShare = result.totalMonthlyPayment > 0 ? (result.monthlyPMI / result.totalMonthlyPayment) * 100 : 0;
+  const hoaMonthlyValue = Math.max(0, Number(hoaMonthly) || 0);
+  const otherMonthlyValue = Math.max(0, Number(otherMonthlyCosts) || 0);
+  const allInMonthlyPayment = result.totalMonthlyPayment + hoaMonthlyValue + otherMonthlyValue;
+
+  const sensitivity = (() => {
+    const price = Math.max(0, Number(homePrice) || MORTGAGE_CONSTANTS.defaults.homePrice);
+    const dpPercent = Math.max(0, Math.min(100, Number(downPaymentPercent) || MORTGAGE_CONSTANTS.defaults.downPaymentPercent));
+    const years = Math.max(1, Number(loanTermYears) || MORTGAGE_CONSTANTS.defaults.loanTermYears);
+    const taxRate = Math.max(0, Number(propertyTaxRate) || MORTGAGE_CONSTANTS.defaults.propertyTaxRate);
+    const insurance = Math.max(0, Number(homeInsuranceYear) || MORTGAGE_CONSTANTS.defaults.homeInsuranceYear);
+    const downPayment = price * (dpPercent / 100);
+    const currentRate = Math.max(0, Number(interestRate) || MORTGAGE_CONSTANTS.defaults.interestRate);
+    const low = calculateMortgage(price, downPayment, Math.max(0, currentRate - 1), years, taxRate, insurance);
+    const high = calculateMortgage(price, downPayment, currentRate + 1, years, taxRate, insurance);
+    return {
+      currentRate,
+      lowPayment: low.totalMonthlyPayment,
+      highPayment: high.totalMonthlyPayment,
+      lowDelta: low.totalMonthlyPayment - result.totalMonthlyPayment,
+      highDelta: high.totalMonthlyPayment - result.totalMonthlyPayment,
+    };
+  })();
+
+  const scenarioRows = (() => {
+    const price = Math.max(0, Number(homePrice) || MORTGAGE_CONSTANTS.defaults.homePrice);
+    const baseDpPercent = Math.max(0, Math.min(100, Number(downPaymentPercent) || MORTGAGE_CONSTANTS.defaults.downPaymentPercent));
+    const baseRate = Math.max(0, Number(interestRate) || MORTGAGE_CONSTANTS.defaults.interestRate);
+    const years = Math.max(1, Number(loanTermYears) || MORTGAGE_CONSTANTS.defaults.loanTermYears);
+    const baseTax = Math.max(0, Number(propertyTaxRate) || MORTGAGE_CONSTANTS.defaults.propertyTaxRate);
+    const baseIns = Math.max(0, Number(homeInsuranceYear) || MORTGAGE_CONSTANTS.defaults.homeInsuranceYear);
+    const baseDownPayment = price * (baseDpPercent / 100);
+
+    const baseline = calculateMortgage(price, baseDownPayment, baseRate, years, baseTax, baseIns);
+    const conservative = calculateMortgage(
+      price,
+      price * (Math.max(0, baseDpPercent - 5) / 100),
+      baseRate + 0.75,
+      years,
+      baseTax + 0.2,
+      baseIns + 300
+    );
+    const aggressive = calculateMortgage(
+      price,
+      price * (Math.min(100, baseDpPercent + 5) / 100),
+      Math.max(0, baseRate - 0.75),
+      years,
+      Math.max(0, baseTax - 0.1),
+      Math.max(0, baseIns - 150)
+    );
+
+    const withAllIn = (x: number) => x + hoaMonthlyValue + otherMonthlyValue;
+
+    return [
+      {
+        name: "Baseline",
+        inputs: `DP ${baseDpPercent.toFixed(1)}% / APR ${baseRate.toFixed(2)}%`,
+        payment: withAllIn(baseline.totalMonthlyPayment),
+        delta: 0,
+        note: "Reference case for comparison",
+      },
+      {
+        name: "Conservative",
+        inputs: `DP ${(Math.max(0, baseDpPercent - 5)).toFixed(1)}% / APR ${(baseRate + 0.75).toFixed(2)}%`,
+        payment: withAllIn(conservative.totalMonthlyPayment),
+        delta: withAllIn(conservative.totalMonthlyPayment) - withAllIn(baseline.totalMonthlyPayment),
+        note: "Stress-test payment resilience",
+      },
+      {
+        name: "Aggressive",
+        inputs: `DP ${(Math.min(100, baseDpPercent + 5)).toFixed(1)}% / APR ${Math.max(0, baseRate - 0.75).toFixed(2)}%`,
+        payment: withAllIn(aggressive.totalMonthlyPayment),
+        delta: withAllIn(aggressive.totalMonthlyPayment) - withAllIn(baseline.totalMonthlyPayment),
+        note: "Lower payment through stronger terms",
+      },
+    ];
+  })();
 
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
@@ -186,6 +265,43 @@ export default function MortgageClient() {
                   </div>
                 </div>
 
+                <div className="space-y-2">
+                  <button
+                    type="button"
+                    onClick={() => setAdvancedMode((prev) => !prev)}
+                    className="text-xs px-2 py-1 rounded border border-slate-300 bg-slate-100 hover:bg-slate-200 text-slate-700"
+                  >
+                    {advancedMode ? "Hide Advanced Inputs" : "Show Advanced Inputs"}
+                  </button>
+                  {advancedMode && (
+                    <div className="space-y-1">
+                      <label className="text-sm font-semibold text-slate-700">HOA and Other Monthly Costs</label>
+                      <div className="flex flex-row items-center gap-2">
+                        <div className="relative w-full">
+                          <input
+                            type="text"
+                            inputMode="decimal"
+                            value={hoaMonthly}
+                            onChange={(e) => setHoaMonthly(e.target.value.replace(/[^0-9.]/g, ""))}
+                            className="w-full h-9 px-2 bg-white border border-slate-300 text-sm text-slate-900 rounded-md shadow-sm"
+                          />
+                          <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400">HOA $/mo</span>
+                        </div>
+                        <div className="relative w-full">
+                          <input
+                            type="text"
+                            inputMode="decimal"
+                            value={otherMonthlyCosts}
+                            onChange={(e) => setOtherMonthlyCosts(e.target.value.replace(/[^0-9.]/g, ""))}
+                            className="w-full h-9 px-2 bg-white border border-slate-300 text-sm text-slate-900 rounded-md shadow-sm"
+                          />
+                          <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400">Other $/mo</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+
                 <button
                   type="button"
                   className="w-full h-10 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-md text-sm"
@@ -224,6 +340,12 @@ export default function MortgageClient() {
                   <div className="text-[10px] uppercase">PMI</div>
                   <div>{formatCurrency(result.monthlyPMI)}</div>
                 </div>
+                {advancedMode && (
+                  <div className="p-2 rounded-md border border-slate-200 bg-slate-50">
+                    <div className="text-[10px] text-slate-500 uppercase">All-in Monthly (Incl. HOA/Other)</div>
+                    <div className="font-bold text-slate-900">{formatCurrency(allInMonthlyPayment)}</div>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -278,11 +400,76 @@ export default function MortgageClient() {
                 </table>
               </div>
             </div>
+
+            <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+              <h3 className="text-sm font-bold text-slate-800 uppercase tracking-tight mb-3">Scenario Delta Table</h3>
+              <div className="overflow-x-auto mb-4">
+                <table className="w-full text-sm border-collapse">
+                  <thead className="bg-slate-100 border-b border-slate-300">
+                    <tr>
+                      <th className="text-left py-1.5 px-2 text-xs text-slate-700">Scenario</th>
+                      <th className="text-left py-1.5 px-2 text-xs text-slate-700">Inputs</th>
+                      <th className="text-left py-1.5 px-2 text-xs text-slate-700">Primary Result</th>
+                      <th className="text-left py-1.5 px-2 text-xs text-slate-700">Delta vs Baseline</th>
+                      <th className="text-left py-1.5 px-2 text-xs text-slate-700">Decision Note</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-200">
+                    {scenarioRows.map((row) => (
+                      <tr key={row.name} className="even:bg-slate-50">
+                        <td className="py-1.5 px-2 text-slate-700 font-semibold">{row.name}</td>
+                        <td className="py-1.5 px-2 text-slate-700">{row.inputs}</td>
+                        <td className="py-1.5 px-2 text-slate-700">{formatCurrency(row.payment)} /mo</td>
+                        <td className={`py-1.5 px-2 ${row.delta > 0 ? "text-rose-700" : row.delta < 0 ? "text-emerald-700" : "text-slate-700"}`}>
+                          {row.delta > 0 ? "+" : ""}{formatCurrency(row.delta)}
+                        </td>
+                        <td className="py-1.5 px-2 text-slate-700">{row.note}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <h3 className="text-sm font-bold text-slate-800 uppercase tracking-tight mb-3">Rate Sensitivity Snapshot</h3>
+              <div className="grid md:grid-cols-3 gap-2 text-sm">
+                <div className="p-2 rounded-md border border-slate-200 bg-slate-50">
+                  <div className="text-[10px] text-slate-500 uppercase">APR -1.0%</div>
+                  <div className="font-bold text-emerald-700">{formatCurrency(sensitivity.lowPayment)}</div>
+                  <div className="text-[11px] text-emerald-700">{formatCurrency(sensitivity.lowDelta)} vs current</div>
+                </div>
+                <div className="p-2 rounded-md border border-slate-200 bg-slate-50">
+                  <div className="text-[10px] text-slate-500 uppercase">Current APR</div>
+                  <div className="font-bold text-slate-900">{sensitivity.currentRate.toFixed(2)}%</div>
+                  <div className="text-[11px] text-slate-600">{formatCurrency(result.totalMonthlyPayment)} / month</div>
+                </div>
+                <div className="p-2 rounded-md border border-slate-200 bg-slate-50">
+                  <div className="text-[10px] text-slate-500 uppercase">APR +1.0%</div>
+                  <div className="font-bold text-rose-700">{formatCurrency(sensitivity.highPayment)}</div>
+                  <div className="text-[11px] text-rose-700">+{formatCurrency(sensitivity.highDelta)} vs current</div>
+                </div>
+              </div>
+              <p className="text-xs text-slate-700 mt-3">
+                Decision hint: if the stressed payment at APR +1.0% is uncomfortable, reduce price target or increase down payment.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       <article className="py-10 max-w-5xl mx-auto px-6 space-y-8">
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h2 className="text-base font-bold text-slate-900 mb-2">Intent and Decision Guide</h2>
+          <p className="text-sm leading-relaxed text-slate-700">
+            Use this page to decide whether your target home price fits monthly cash-flow constraints, how sensitive your payment is
+            to rate changes, and when refinancing or extra principal payments meaningfully improve long-term cost.
+          </p>
+          <ul className="text-sm text-slate-700 space-y-1 list-disc pl-5 mt-3">
+            <li>If all-in monthly exceeds comfort range, reduce price target or increase down payment first.</li>
+            <li>If APR +1.0% stress case breaks budget, avoid aggressive borrowing assumptions.</li>
+            <li>If conservative scenario is still affordable, your financing plan has stronger downside resilience.</li>
+          </ul>
+        </section>
+
         <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
           <h2 className="text-base font-bold text-slate-900 mb-2">Mortgage Reference Guide</h2>
           <p className="text-sm leading-relaxed text-slate-700">
@@ -330,6 +517,101 @@ export default function MortgageClient() {
             Refinance decisions usually depend on rate delta, remaining loan term, and closing cost break-even.
             A common first-pass benchmark is whether a lower APR can offset closing costs within your expected hold period.
           </p>
+        </section>
+
+        <section id="extra-payments" className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Extra Payments Strategy</h3>
+          <p className="text-sm leading-relaxed text-slate-700 mb-2">
+            Extra principal payments reduce interest-heavy early-year balance faster than waiting for scheduled amortization.
+            Even small recurring prepayments can materially shorten payoff time.
+          </p>
+          <ul className="text-sm text-slate-700 space-y-1 list-disc pl-5">
+            <li>Monthly extra payment: stable and easy to automate.</li>
+            <li>Annual lump-sum: useful after bonus/tax refund cycles.</li>
+            <li>Check lender servicing rules to ensure payment is applied to principal.</li>
+          </ul>
+        </section>
+
+        <section id="rent-vs-buy" className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Rent vs Buy Decision Frame</h3>
+          <p className="text-sm leading-relaxed text-slate-700 mb-2">
+            The monthly payment itself is only one part of ownership cost. Compare time horizon, mobility needs, closing costs,
+            maintenance, and expected hold period before deciding.
+          </p>
+          <ul className="text-sm text-slate-700 space-y-1 list-disc pl-5">
+            <li>Short hold period often favors renting due to transaction costs.</li>
+            <li>Longer hold period can favor buying if payment stability and equity growth matter.</li>
+            <li>Run both scenarios with conservative assumptions, not best-case assumptions.</li>
+          </ul>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Scenario Stress Test (Example Cases)</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead className="bg-slate-100 border-b border-slate-300">
+                <tr>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Scenario</th>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Inputs</th>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">What to Watch</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200">
+                <tr className="even:bg-slate-50">
+                  <td className="py-1.5 px-2 text-slate-700">Starter buyer</td>
+                  <td className="py-1.5 px-2 text-slate-700">$350k, 10% down, 30y, 6.5%</td>
+                  <td className="py-1.5 px-2 text-slate-700">PMI impact and tax share of payment</td>
+                </tr>
+                <tr className="even:bg-slate-50">
+                  <td className="py-1.5 px-2 text-slate-700">Rate-sensitive buyer</td>
+                  <td className="py-1.5 px-2 text-slate-700">$500k, 20% down, 30y, 5.9% vs 6.7%</td>
+                  <td className="py-1.5 px-2 text-slate-700">Monthly delta and long-term interest spread</td>
+                </tr>
+                <tr className="even:bg-slate-50">
+                  <td className="py-1.5 px-2 text-slate-700">Equity-first strategy</td>
+                  <td className="py-1.5 px-2 text-slate-700">$450k, 25% down, 15y, 6.0%</td>
+                  <td className="py-1.5 px-2 text-slate-700">Higher monthly payment vs lower total interest</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Assumptions and Limits</h3>
+          <ul className="text-sm text-slate-700 space-y-1 list-disc pl-5">
+            <li>Model assumes a fixed-rate loan with constant monthly payments.</li>
+            <li>Tax, insurance, and PMI are estimated averages, not lender quotes.</li>
+            <li>Closing costs, HOA, escrow adjustments, and local fees are not included in the main payment line.</li>
+            <li>Use lender Loan Estimate (LE) and Closing Disclosure (CD) for final underwriting decisions.</li>
+          </ul>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Sources and Review</h3>
+          <div className="text-sm leading-relaxed text-slate-700 space-y-1">
+            <p>Sources: Freddie Mac PMMS, FHFA housing data, CFPB mortgage disclosure guidance.</p>
+            <p>Model Basis: 2026 fixed-rate baseline assumptions in project constants.</p>
+            <p>Last reviewed: 2026-03-06 (Asia/Seoul).</p>
+          </div>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Who / How / Why</h3>
+          <ul className="text-sm text-slate-700 space-y-1 list-disc pl-5">
+            <li>
+              <span className="font-semibold text-slate-900">Who:</span> Internal calculator standard review based on
+              Freddie Mac PMMS, FHFA, and CFPB-aligned assumptions.
+            </li>
+            <li>
+              <span className="font-semibold text-slate-900">How:</span> Monthly principal and interest uses fixed-rate
+              amortization; taxes, insurance, and PMI are added as monthly practical estimates.
+            </li>
+            <li>
+              <span className="font-semibold text-slate-900">Why:</span> Help users compare payment burden, PMI effects,
+              and long-term interest trade-offs before lender-level underwriting.
+            </li>
+          </ul>
         </section>
       </article>
 

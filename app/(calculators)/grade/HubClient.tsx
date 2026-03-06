@@ -36,7 +36,7 @@ Grades serve as the primary conduit for social mobility. In 2026, data suggests 
 These include homework, quizzes, and class participation. They are designed to signal to the instructor the current state of knowledge acquisition. While they have low individual weight, their cumulative effect creates the foundation of your course grade.
 
 **Category 2: Summative Assessments (Medium Weight 30-50%)**
-Mid-terms, unit tests, and lab reports. These are the core structural pillars of your grade. Failure in this segment often requires a strong final exam performance to reach a target grade. Our calculator tracks these segments with ьз╣0.1% precision.
+Mid-terms, unit tests, and lab reports. These are the core structural pillars of your grade. Failure in this segment often requires a strong final exam performance to reach a target grade. Our calculator tracks these segments with ьз?.1% precision.
 
 **Category 3: High-Stake Results (High Weight 40-60%)**
 Final exams and Capstone projects. This is where the calculation becomes critical. A single point difference in this segment can move your final letter grade by an entire category (e.g., B+ to A-). Our 'Final Grade Needed' engine is calibrated to manage the stress of this period by providing hard, objective data on exactly what score is required to achieve your goal.`
@@ -99,8 +99,8 @@ function FAQSection() {
     const [openIndex, setOpenIndex] = useState<number | null>(null);
 
     return (
-        <section className="max-w-4xl mx-auto px-6 py-24 border-t border-white/5">
-            <h2 className="text-2xl font-black text-white tracking-tight mb-12 text-center flex items-center justify-center gap-4">
+        <section className="max-w-4xl mx-auto px-6 py-24 border-t border-slate-200">
+            <h2 className="text-2xl font-black text-slate-900 tracking-tight mb-12 text-center flex items-center justify-center gap-4">
                 <Library className="w-8 h-8 text-emerald-500" />
                 Frequently Asked Questions
             </h2>
@@ -108,19 +108,19 @@ function FAQSection() {
                 {GRADE_2026.faqs.map((faq, idx) => (
                     <div
                         key={idx}
-                        className="group bg-slate-900/50 border border-white/5 rounded-2xl overflow-hidden transition-all hover:border-emerald-500/30"
+                        className="group bg-white border border-slate-200 rounded-2xl overflow-hidden transition-all hover:border-emerald-500/30"
                     >
                         <button
                             onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                             className="w-full flex items-center justify-between p-6 text-left"
                         >
-                            <span className="font-bold text-white group-hover:text-emerald-400 transition-colors pr-8">{faq.question}</span>
-                            <div className={`p-2 rounded-full bg-white/5 transition-transform duration-300 ${openIndex === idx ? "rotate-180 bg-emerald-500/20" : ""}`}>
+                            <span className="font-bold text-slate-900 group-hover:text-emerald-400 transition-colors pr-8">{faq.question}</span>
+                            <div className={`p-2 rounded-full bg-slate-100 transition-transform duration-300 ${openIndex === idx ? "rotate-180 bg-emerald-500/20" : ""}`}>
                                 <ChevronDown className={`w-4 h-4 ${openIndex === idx ? "text-emerald-400" : "text-slate-500"}`} />
                             </div>
                         </button>
                         {openIndex === idx && (
-                            <div className="px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-white/5 pt-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                            <div className="px-6 pb-6 text-slate-400 text-sm leading-relaxed border-t border-slate-200 pt-4 animate-in fade-in slide-in-from-top-2 duration-300">
                                 {faq.answer}
                             </div>
                         )}
@@ -143,7 +143,7 @@ export default function GradeHubClient() {
                         <span className="text-[10px] text-emerald-300 font-bold tracking-wide">Premium Grade Tool 2026</span>
                     </div>
 
-                    <h1 className="text-3xl md:text-4xl font-black text-white mb-6 tracking-tight leading-tight px-4">
+                    <h1 className="text-3xl md:text-4xl font-black text-slate-900 mb-6 tracking-tight leading-tight px-4">
                         Grade Calculator & <span className="text-emerald-500">Performance Estimator</span>
                     </h1>
 
@@ -154,14 +154,14 @@ export default function GradeHubClient() {
                     <div className="flex flex-col md:flex-row items-center justify-center gap-6 px-4">
                         <Link
                             href="/grade/calculator"
-                            className="w-full md:w-auto bg-emerald-600 hover:bg-emerald-500 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all flex items-center justify-center gap-3 active:scale-95 shadow-lg"
+                            className="w-full md:w-auto bg-emerald-600 hover:bg-emerald-500 text-slate-900 px-10 py-5 rounded-2xl font-bold text-lg transition-all flex items-center justify-center gap-3 active:scale-95 shadow-lg"
                         >
                             <Calculator className="w-6 h-6" />
                             Calculate My Grade
                         </Link>
                         <Link
                             href="/grade/scales"
-                            className="w-full md:w-auto bg-white/5 hover:bg-white/10 border border-white/10 text-white px-10 py-5 rounded-2xl font-bold text-lg transition-all flex items-center justify-center gap-3"
+                            className="w-full md:w-auto bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-900 px-10 py-5 rounded-2xl font-bold text-lg transition-all flex items-center justify-center gap-3"
                         >
                             <Scale className="w-6 h-6 text-emerald-400" />
                             Grading Scales
@@ -174,10 +174,10 @@ export default function GradeHubClient() {
                             { val: GRADE_2026.statistics.avgCollegeGpa, label: "Avg College GPA" },
                             { val: GRADE_2026.statistics.highSchoolGraduationRate, label: "Graduation Rate" },
                             { val: "NCES 2026", label: "Logic Source" },
-                            { val: "ьз╣0.1%", label: "Math Variance" }
+                            { val: "ьз?.1%", label: "Math Variance" }
                         ].map((stat, i) => (
-                            <div key={i} className="bg-black/40 border border-white/5 rounded-2xl p-6 backdrop-blur-xl group hover:border-emerald-500/30 transition-all">
-                                <p className="text-2xl font-black text-white mb-1 group-hover:text-emerald-400 transition-colors">{stat.val}</p>
+                            <div key={i} className="bg-slate-100 border border-slate-200 rounded-2xl p-6 backdrop-blur-xl group hover:border-emerald-500/30 transition-all">
+                                <p className="text-2xl font-black text-slate-900 mb-1 group-hover:text-emerald-400 transition-colors">{stat.val}</p>
                                 <p className="text-[10px] text-slate-500 font-bold tracking-wider">{stat.label}</p>
                             </div>
                         ))}
@@ -188,18 +188,18 @@ export default function GradeHubClient() {
             {/* Core Pedagogy Sections */}
             <section id="academic-science" className="max-w-5xl mx-auto px-6 py-24 space-y-32">
                 {CONTENT_SECTIONS.map((section, idx) => (
-                    <div key={idx} className={`grid md:grid-cols-12 gap-12 items-start ${idx % 2 === 1 ? "md:bg-slate-900/20 p-8 rounded-[3rem]" : ""}`}>
+                    <div key={idx} className={`grid md:grid-cols-12 gap-12 items-start ${idx % 2 === 1 ? "md:bg-slate-50 p-8 rounded-[3rem]" : ""}`}>
                         <div className="md:col-span-5 space-y-6">
-                            <div className={`p-4 bg-slate-900 border border-white/5 rounded-3xl w-fit ${section.color}`}>
+                            <div className={`p-4 bg-white border border-slate-200 rounded-3xl w-fit ${section.color}`}>
                                 <section.icon className="w-8 h-8" />
                             </div>
-                            <h2 className="text-3xl font-black text-white tracking-tight leading-none">
+                            <h2 className="text-3xl font-black text-slate-900 tracking-tight leading-none">
                                 {section.title}
                             </h2>
                             <div className="h-1 w-20 bg-emerald-500 rounded-full" />
                         </div>
                         <div className="md:col-span-7">
-                            <p className="text-lg text-slate-400 font-medium leading-[2] first-letter:text-5xl first-letter:font-black first-letter:text-white first-letter:mr-3 first-letter:float-left whitespace-pre-wrap">
+                            <p className="text-lg text-slate-400 font-medium leading-[2] first-letter:text-5xl first-letter:font-black first-letter:text-slate-900 first-letter:mr-3 first-letter:float-left whitespace-pre-wrap">
                                 {section.content}
                             </p>
                         </div>
@@ -208,20 +208,20 @@ export default function GradeHubClient() {
             </section>
 
             {/* Triple-Table Featured Snippet Architecture */}
-            <section id="academic-summary" className="py-24 border-y border-white/5 bg-slate-900/10 backdrop-blur-3xl relative">
+            <section id="academic-summary" className="py-24 border-y border-slate-200 bg-slate-50 backdrop-blur-3xl relative">
                 <div className="max-w-7xl mx-auto px-6 space-y-24">
 
                     {/* 1. Historical/Statistical Table */}
                     <div className="space-y-8">
                         <div className="flex items-center gap-4 border-l-4 border-emerald-500 pl-6">
                             <div>
-                                <h2 className="text-2xl font-black text-white tracking-tight">I. Grading Scale Evolution (1900??026)</h2>
-                                <p className="text-slate-500 text-[10px] font-bold tracking-wider">Academic Data ??NCES Standard</p>
+                                <h2 className="text-2xl font-black text-slate-900 tracking-tight">I. Grading Scale Evolution (1900-2026)</h2>
+                                <p className="text-slate-500 text-[10px] font-bold tracking-wider">Academic Data  - NCES Standard</p>
                             </div>
                         </div>
-                        <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
+                        <div className="overflow-x-auto rounded-[2.5rem] border border-slate-200 bg-slate-50 shadow-2xl">
                             <table className="w-full text-left border-collapse min-w-[700px]">
-                                <thead className="bg-white/5 border-b border-white/10 text-[10px] font-bold tracking-wider text-emerald-400">
+                                <thead className="bg-slate-100 border-b border-slate-200 text-[10px] font-bold tracking-wider text-emerald-400">
                                     <tr>
                                         <th className="px-8 py-6">Historical Era</th>
                                         <th className="px-8 py-6">Predominant Scale</th>
@@ -237,7 +237,7 @@ export default function GradeHubClient() {
                                         { e: "2026 Projection", s: "Cognitive Integrity", w: "Process-Based Weighting", a: "NCES Standard" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-emerald-500/5 transition-colors group">
-                                            <td className="px-8 py-6 text-white">{row.e}</td>
+                                            <td className="px-8 py-6 text-slate-900">{row.e}</td>
                                             <td className="px-8 py-6">{row.s}</td>
                                             <td className="px-8 py-6 text-emerald-600/70">{row.w}</td>
                                             <td className="px-8 py-6 text-[10px] tracking-wider text-slate-600 font-mono">{row.a}</td>
@@ -252,13 +252,13 @@ export default function GradeHubClient() {
                     <div className="space-y-8">
                         <div className="flex items-center gap-4 border-l-4 border-blue-500 pl-6">
                             <div>
-                                <h2 className="text-2xl font-black text-white tracking-tight">II. Course Component Weighting Spectrum</h2>
-                                <p className="text-slate-500 text-[10px] font-bold tracking-wider">Standard Syllabus Logic ??Global Benchmark</p>
+                                <h2 className="text-2xl font-black text-slate-900 tracking-tight">II. Course Component Weighting Spectrum</h2>
+                                <p className="text-slate-500 text-[10px] font-bold tracking-wider">Standard Syllabus Logic  - Global Benchmark</p>
                             </div>
                         </div>
-                        <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
+                        <div className="overflow-x-auto rounded-[2.5rem] border border-slate-200 bg-slate-50 shadow-2xl">
                             <table className="w-full text-left border-collapse min-w-[700px]">
-                                <thead className="bg-white/5 border-b border-white/10 text-[10px] font-bold tracking-wider text-blue-400">
+                                <thead className="bg-slate-100 border-b border-slate-200 text-[10px] font-bold tracking-wider text-blue-400">
                                     <tr>
                                         <th className="px-8 py-6">Assignment Type</th>
                                         <th className="px-8 py-6">Typical Weight</th>
@@ -274,7 +274,7 @@ export default function GradeHubClient() {
                                         { type: "Homework/Participation", weight: "5-15%", impact: "Low", focus: "Process" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-blue-500/5 transition-colors group">
-                                            <td className="px-8 py-6 text-white">{row.type}</td>
+                                            <td className="px-8 py-6 text-slate-900">{row.type}</td>
                                             <td className="px-8 py-6">{row.weight}</td>
                                             <td className="px-8 py-6">
                                                 <span className={`px-3 py-1 rounded-full text-[10px] tracking-tighter ${row.impact === "Critical" ? "bg-red-500/20 text-red-400" :
@@ -299,7 +299,7 @@ export default function GradeHubClient() {
 
             <section className="py-24 px-6 bg-emerald-600">
                 <div className="max-w-4xl mx-auto text-center space-y-8">
-                    <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight">
+                    <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
                         Ready to Calculate Your <br /> Performance?
                     </h2>
                     <p className="text-emerald-100 text-lg font-medium opacity-90">
@@ -318,11 +318,11 @@ export default function GradeHubClient() {
             </section>
 
             {/* Related Calculators */}
-            <section className="py-24 px-6 bg-slate-950">
+            <section className="py-24 px-6 bg-slate-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="flex items-center gap-4 mb-12">
                         <div className="w-12 h-1 w-20 bg-emerald-500 rounded-full" />
-                        <h2 className="text-2xl font-black text-white tracking-tight">Compare Grade Tools</h2>
+                        <h2 className="text-2xl font-black text-slate-900 tracking-tight">Compare Grade Tools</h2>
                     </div>
                     <RelatedCalculators currentCalc="grade" />
                 </div>
@@ -330,3 +330,6 @@ export default function GradeHubClient() {
         </div>
     );
 }
+
+
+

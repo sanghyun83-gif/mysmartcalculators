@@ -26,7 +26,7 @@ export default function GPAHubClient() {
     ];
 
     return (
-        <div className="min-h-screen bg-slate-950 text-slate-300 font-sans selection:bg-indigo-500/30">
+        <div className="min-h-screen bg-slate-50 text-slate-300 font-sans selection:bg-indigo-500/30">
             {/* Nav Progress Overlay */}
             <div className={`fixed top-0 inset-x-0 h-1 z-50 transition-transform duration-300 ${scrolled ? 'scale-x-100' : 'scale-x-0'} bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500`} />
 
@@ -39,18 +39,18 @@ export default function GPAHubClient() {
                             <Sparkles className="w-3 h-3" />
                             <span>S-Class Academic Engine</span>
                         </div>
-                        <h1 className="text-6xl md:text-8xl font-black text-white tracking-tighter leading-tight italic">
+                        <h1 className="text-6xl md:text-8xl font-black text-slate-900 tracking-tighter leading-tight italic">
                             GPA <span className="text-indigo-500">Master</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-slate-400 max-w-3xl leading-relaxed">
                             The definitive neural-grade GPA engine for 2026. Precision tracking for unweighted averages, weighted honors, and cumulative academic forecasting.
                         </p>
                         <div className="flex flex-wrap justify-center gap-6 pt-8">
-                            <Link href="/gpa/calculator" className="px-10 py-5 bg-indigo-600 hover:bg-indigo-500 text-white font-black rounded-2xl transition-all hover:scale-105 hover:shadow-[0_0_40px_-10px_rgba(99,102,241,0.5)] flex items-center gap-3 group">
+                            <Link href="/gpa/calculator" className="px-10 py-5 bg-indigo-600 hover:bg-indigo-500 text-slate-900 font-black rounded-2xl transition-all hover:scale-105 hover:shadow-[0_0_40px_-10px_rgba(99,102,241,0.5)] flex items-center gap-3 group">
                                 <Calculator className="w-6 h-6 group-hover:rotate-12 transition-transform" />
                                 LAUNCH ENGINE
                             </Link>
-                            <a href="#basics" className="px-10 py-5 bg-white/5 hover:bg-white/10 text-white font-bold rounded-2xl border border-white/10 transition-all flex items-center gap-3">
+                            <a href="#basics" className="px-10 py-5 bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold rounded-2xl border border-slate-200 transition-all flex items-center gap-3">
                                 <Library className="w-6 h-6" />
                                 ACADEMIC GUIDE
                             </a>
@@ -60,20 +60,20 @@ export default function GPAHubClient() {
             </section>
 
             {/* Task 2: Triple-Table Featured Snippet Architecture */}
-            <section id="institutional-audit" className="py-24 border-y border-white/5 bg-slate-900/10 backdrop-blur-3xl relative">
+            <section id="institutional-audit" className="py-24 border-y border-slate-200 bg-slate-50 backdrop-blur-3xl relative">
                 <div className="max-w-7xl mx-auto px-6 space-y-24">
 
                     {/* 1. Historical/Statistical Table */}
                     <div className="space-y-8">
                         <div className="flex items-center gap-4 border-l-4 border-indigo-500 pl-6">
                             <div>
-                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Average GPA Trends (2018–2026) by Degree Level</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">National Academic Statistical Audit • Secondary & Tertiary Evolution</p>
+                                <h2 className="text-2xl font-black text-slate-900 italic uppercase tracking-tighter">I. Average GPA Trends (2018 - 026) by Degree Level</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">National Academic Statistical Audit  - Secondary & Tertiary Evolution</p>
                             </div>
                         </div>
-                        <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
+                        <div className="overflow-x-auto rounded-[2.5rem] border border-slate-200 bg-slate-50 shadow-2xl">
                             <table className="w-full text-left border-collapse min-w-[700px]">
-                                <thead className="bg-white/5 border-b border-white/10 text-[10px] font-black tracking-[0.2em] text-indigo-400 uppercase">
+                                <thead className="bg-slate-100 border-b border-slate-200 text-[10px] font-black tracking-[0.2em] text-indigo-400 uppercase">
                                     <tr>
                                         <th className="px-8 py-6">Fiscal Cycle</th>
                                         <th className="px-8 py-6">High School Avg (W)</th>
@@ -89,7 +89,7 @@ export default function GPAHubClient() {
                                         { c: "2026 Projection", h: "3.45", u: "3.34", s: "Institutional Normal" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-indigo-500/5 transition-colors group">
-                                            <td className="px-8 py-6 text-white">{row.c}</td>
+                                            <td className="px-8 py-6 text-slate-900">{row.c}</td>
                                             <td className="px-8 py-6">{row.h}</td>
                                             <td className="px-8 py-6 text-indigo-600/70">{row.u}</td>
                                             <td className="px-8 py-6 text-[10px] uppercase tracking-widest text-slate-600 font-mono">{row.s}</td>
@@ -104,13 +104,13 @@ export default function GPAHubClient() {
                     <div className="space-y-8 text-right md:text-left">
                         <div className="flex items-center gap-4 border-r-4 md:border-r-0 md:border-l-4 border-purple-500 pr-6 md:pr-0 md:pl-6 justify-end md:justify-start">
                             <div>
-                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter text-right md:text-left">II. Percentage to 4.0 Scale Conversion Matrix</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Global Grade Parity Standard • Ivy League Admissions Equivalence</p>
+                                <h2 className="text-2xl font-black text-slate-900 italic uppercase tracking-tighter text-right md:text-left">II. Percentage to 4.0 Scale Conversion Matrix</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Global Grade Parity Standard  - Ivy League Admissions Equivalence</p>
                             </div>
                         </div>
-                        <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
+                        <div className="overflow-x-auto rounded-[2.5rem] border border-slate-200 bg-slate-50 shadow-2xl">
                             <table className="w-full text-left border-collapse min-w-[700px]">
-                                <thead className="bg-white/5 border-b border-white/10 text-[10px] font-black tracking-[0.2em] text-purple-400 uppercase">
+                                <thead className="bg-slate-100 border-b border-slate-200 text-[10px] font-black tracking-[0.2em] text-purple-400 uppercase">
                                     <tr>
                                         <th className="px-8 py-6">Letter Grade</th>
                                         <th className="px-8 py-6">Percentage Range</th>
@@ -120,13 +120,13 @@ export default function GPAHubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { l: "A+", p: "97% – 100%", g: "4.0", s: "Highest Academic Distinction" },
-                                        { l: "A", p: "93% – 100%", g: "4.0", s: "Superior Achievement" },
-                                        { l: "B", p: "83% – 86%", g: "3.0", s: "Proficient" },
-                                        { l: "C", p: "73% – 76%", g: "2.0", s: "Standard Baseline" }
+                                        { l: "A+", p: "97%  - 100%", g: "4.0", s: "Highest Academic Distinction" },
+                                        { l: "A", p: "93%  - 100%", g: "4.0", s: "Superior Achievement" },
+                                        { l: "B", p: "83%  - 86%", g: "3.0", s: "Proficient" },
+                                        { l: "C", p: "73%  - 76%", g: "2.0", s: "Standard Baseline" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-purple-500/5 transition-colors group">
-                                            <td className="px-8 py-6 text-white">{row.l}</td>
+                                            <td className="px-8 py-6 text-slate-900">{row.l}</td>
                                             <td className="px-8 py-6">{row.p}</td>
                                             <td className="px-8 py-6">{row.g}</td>
                                             <td className="px-8 py-6 text-purple-600 font-mono text-[10px] uppercase tracking-widest">{row.s}</td>
@@ -141,13 +141,13 @@ export default function GPAHubClient() {
                     <div className="space-y-8">
                         <div className="flex items-center gap-4 border-l-4 border-white/20 pl-6">
                             <div>
-                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">III. Grade Weighting Logic & AP/IB Scaling Protocols</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Actuarial Weighting Vectors • Credit-Hour Normalization</p>
+                                <h2 className="text-2xl font-black text-slate-900 italic uppercase tracking-tighter">III. Grade Weighting Logic & AP/IB Scaling Protocols</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Actuarial Weighting Vectors  - Credit-Hour Normalization</p>
                             </div>
                         </div>
-                        <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-900 shadow-2xl">
+                        <div className="overflow-x-auto rounded-[2.5rem] border border-slate-200 bg-white shadow-2xl">
                             <table className="w-full text-left border-collapse min-w-[700px]">
-                                <thead className="bg-white/5 border-b border-white/10 text-[10px] font-black tracking-[0.2em] text-slate-500 uppercase">
+                                <thead className="bg-slate-100 border-b border-slate-200 text-[10px] font-black tracking-[0.2em] text-slate-500 uppercase">
                                     <tr>
                                         <th className="px-8 py-6">Course Density</th>
                                         <th className="px-8 py-6">Weighting Delta</th>
@@ -162,11 +162,11 @@ export default function GPAHubClient() {
                                         { d: "Honors Level", w: "+0.5 Quality Points", c: "4.5 Scale", s: "Sub-Standard" },
                                         { d: "Standard Elective", w: "+0.0 Quality Points", c: "4.0 Scale", s: "Base Reference" }
                                     ].map((row, i) => (
-                                        <tr key={i} className="hover:bg-white/5 transition-colors group">
-                                            <td className="px-8 py-6 text-white">{row.d}</td>
+                                        <tr key={i} className="hover:bg-slate-100 transition-colors group">
+                                            <td className="px-8 py-6 text-slate-900">{row.d}</td>
                                             <td className="px-8 py-6 text-xs">{row.w}</td>
                                             <td className="px-8 py-6 text-xs font-mono">{row.c}</td>
-                                            <td className="px-8 py-6 text-[10px] uppercase tracking-widest text-white/40">{row.s}</td>
+                                            <td className="px-8 py-6 text-[10px] uppercase tracking-widest text-slate-500">{row.s}</td>
                                         </tr>
                                     ))}
                                 </tbody>
@@ -184,7 +184,7 @@ export default function GPAHubClient() {
                 <section id="basics" className="space-y-12">
                     <div className="flex items-center gap-4">
                         <div className="h-px flex-1 bg-gradient-to-r from-transparent to-indigo-500/50" />
-                        <h2 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter uppercase font-serif">
+                        <h2 className="text-4xl md:text-5xl font-black text-slate-900 italic tracking-tighter uppercase font-serif">
                             GPA <span className="text-indigo-500">Fundamentals</span>
                         </h2>
                         <div className="h-px flex-1 bg-gradient-to-l from-transparent to-indigo-500/50" />
@@ -196,7 +196,7 @@ export default function GPAHubClient() {
                         </p>
                         <div className="grid md:grid-cols-2 gap-8 not-prose py-8">
                             <div className="p-8 bg-indigo-500/5 border border-indigo-500/10 rounded-3xl space-y-4">
-                                <h3 className="text-white font-black flex items-center gap-2 uppercase tracking-wider text-sm">
+                                <h3 className="text-slate-900 font-black flex items-center gap-2 uppercase tracking-wider text-sm">
                                     <Binary className="w-5 h-5 text-indigo-400" />
                                     The Core Formula
                                 </h3>
@@ -205,7 +205,7 @@ export default function GPAHubClient() {
                                 </p>
                             </div>
                             <div className="p-8 bg-purple-500/5 border border-purple-500/10 rounded-3xl space-y-4">
-                                <h3 className="text-white font-black flex items-center gap-2 uppercase tracking-wider text-sm">
+                                <h3 className="text-slate-900 font-black flex items-center gap-2 uppercase tracking-wider text-sm">
                                     <Award className="w-5 h-5 text-purple-400" />
                                     Quality Points
                                 </h3>
@@ -224,7 +224,7 @@ export default function GPAHubClient() {
                 <section id="scales" className="space-y-16">
                     <div className="flex items-center gap-4">
                         <div className="h-px flex-1 bg-gradient-to-r from-transparent to-purple-500/50" />
-                        <h2 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter uppercase font-serif text-right">
+                        <h2 className="text-4xl md:text-5xl font-black text-slate-900 italic tracking-tighter uppercase font-serif text-right">
                             Scale <span className="text-purple-500">Differentiation</span>
                         </h2>
                         <div className="h-px flex-1 bg-gradient-to-l from-transparent to-purple-500/50" />
@@ -239,10 +239,10 @@ export default function GPAHubClient() {
                                 Conversely, <strong>Weighted GPAs</strong> acknowledge the difficulty of the curriculum. Most institutional scales award a 0.5 bonus for Honors courses and a 1.0 bonus for Advanced Placement (AP) or International Baccalaureate (IB) courses. This allows students taking the most rigorous paths to achieve averages of 4.5, 4.8, or even 5.0.
                             </p>
                         </div>
-                        <div className="overflow-x-auto rounded-[3.5rem] border border-white/5 bg-slate-900 shadow-2xl relative group">
+                        <div className="overflow-x-auto rounded-[3.5rem] border border-slate-200 bg-white shadow-2xl relative group">
                             <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 blur-[60px] rounded-full group-hover:bg-purple-500/20 transition-all pointer-events-none" />
                             <table className="w-full text-left border-collapse relative z-10">
-                                <thead className="bg-white/5 border-b border-white/10 uppercase text-[10px] font-black tracking-[0.2em] text-purple-500">
+                                <thead className="bg-slate-100 border-b border-slate-200 uppercase text-[10px] font-black tracking-[0.2em] text-purple-500">
                                     <tr>
                                         <th className="px-8 py-6">Grade Tier</th>
                                         <th className="px-8 py-6">Audit Points</th>
@@ -257,7 +257,7 @@ export default function GPAHubClient() {
                                         { g: "Dual Enrollment (A)", p: "5.0 Points", d: "Collegiate Parity Standard" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-purple-500/5 transition-colors group">
-                                            <td className="px-8 py-6 text-white group-hover:text-purple-400">{row.g}</td>
+                                            <td className="px-8 py-6 text-slate-900 group-hover:text-purple-400">{row.g}</td>
                                             <td className="px-8 py-6 text-xs text-slate-500">{row.p}</td>
                                             <td className="px-8 py-6 text-[10px] text-purple-400 font-mono uppercase tracking-widest">{row.d}</td>
                                         </tr>
@@ -267,7 +267,7 @@ export default function GPAHubClient() {
                         </div>
                     </div>
                     <p className="text-xl text-slate-400 leading-relaxed text-center italic max-w-3xl mx-auto">
-                        "Numerical value is meaningful only when compared against the context of educational rigor." — Global Academic Standards Institute
+                        "Numerical value is meaningful only when compared against the context of educational rigor."  - Global Academic Standards Institute
                     </p>
                 </section>
 
@@ -275,7 +275,7 @@ export default function GPAHubClient() {
                 <section id="admissions" className="space-y-12">
                     <div className="flex items-center gap-4">
                         <div className="h-px flex-1 bg-gradient-to-r from-transparent to-indigo-500/50" />
-                        <h2 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter uppercase font-serif">
+                        <h2 className="text-4xl md:text-5xl font-black text-slate-900 italic tracking-tighter uppercase font-serif">
                             Admissions <span className="text-indigo-500">Reality</span>
                         </h2>
                         <div className="h-px flex-1 bg-gradient-to-l from-transparent to-indigo-500/50" />
@@ -285,9 +285,9 @@ export default function GPAHubClient() {
                         <p>
                             In the current 2026 admissions cycle, the <strong>"Holistic Review"</strong> process remains the gold standard for elite universities (Ivy League, Stanford, MIT). However, your GPA acts as the initial "academic threshold." If your GPA does not fall within the middle 50% range of the admitted class, your extracurriculars or essays may never be read.
                         </p>
-                        <div className="overflow-x-auto rounded-[3.5rem] border border-white/5 bg-slate-900 shadow-2xl relative group not-prose">
+                        <div className="overflow-x-auto rounded-[3.5rem] border border-slate-200 bg-white shadow-2xl relative group not-prose">
                             <table className="w-full text-left border-collapse">
-                                <thead className="bg-white/5 border-b border-white/10 uppercase text-[10px] font-black tracking-[0.2em] text-indigo-500">
+                                <thead className="bg-slate-100 border-b border-slate-200 uppercase text-[10px] font-black tracking-[0.2em] text-indigo-500">
                                     <tr>
                                         <th className="px-8 py-6">Academic Segment</th>
                                         <th className="px-8 py-6">Admitted GPA Range (W)</th>
@@ -302,7 +302,7 @@ export default function GPAHubClient() {
                                         { s: "Liberal Arts Colleges", r: "3.8 - 4.3", p: "Broad Curricular Integrity" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-indigo-500/5 transition-colors group">
-                                            <td className="px-8 py-6 text-white group-hover:text-indigo-400">{row.s}</td>
+                                            <td className="px-8 py-6 text-slate-900 group-hover:text-indigo-400">{row.s}</td>
                                             <td className="px-8 py-6 text-xs text-slate-500">{row.r}</td>
                                             <td className="px-8 py-6 text-[10px] text-indigo-400 font-mono uppercase tracking-widest">{row.p}</td>
                                         </tr>
@@ -317,11 +317,11 @@ export default function GPAHubClient() {
                 </section>
 
                 {/* Citations Section (Institutional Credibility) */}
-                <section className="py-24 border-y border-white/5 bg-slate-900/5 rounded-[4rem]">
+                <section className="py-24 border-y border-slate-200 bg-slate-50 rounded-[4rem]">
                     <div className="max-w-4xl mx-auto space-y-12">
                         <div className="text-center space-y-4">
                             <h3 className="text-sm font-black text-indigo-500 uppercase tracking-[0.3em]">Verified Sources</h3>
-                            <p className="text-2xl font-bold text-white">Trust In Academic Precision</p>
+                            <p className="text-2xl font-bold text-slate-900">Trust In Academic Precision</p>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-6">
                             {[
@@ -331,12 +331,12 @@ export default function GPAHubClient() {
                                 { source: "DOE Office of Education", range: "Standardized National Credit Guidelines", link: "https://ed.gov" },
                                 { source: "Wolfram Academic Stats", range: "Advanced Algorithm for Cumulative Forecasting", link: "https://wolfram.com" },
                             ].map((cite, i) => (
-                                <div key={i} className="flex gap-4 p-6 bg-slate-900/30 rounded-3xl border border-white/5 hover:border-indigo-500/30 transition-all">
+                                <div key={i} className="flex gap-4 p-6 bg-slate-50 rounded-3xl border border-slate-200 hover:border-indigo-500/30 transition-all">
                                     <div className="h-10 w-10 shrink-0 rounded-full bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20">
                                         <Shield className="w-5 h-5 text-indigo-400" />
                                     </div>
                                     <div className="space-y-1">
-                                        <div className="text-white font-bold">{cite.source}</div>
+                                        <div className="text-slate-900 font-bold">{cite.source}</div>
                                         <div className="text-xs text-slate-500 leading-relaxed">{cite.reason}</div>
                                     </div>
                                 </div>
@@ -346,11 +346,11 @@ export default function GPAHubClient() {
                 </section>
 
                 {/* Expert FAQ Section */}
-                <section id="faq" className="py-24 bg-slate-900/50 rounded-[4rem] overflow-hidden relative">
+                <section id="faq" className="py-24 bg-white rounded-[4rem] overflow-hidden relative">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_0%,rgba(99,102,241,0.05),transparent)]" />
                     <div className="max-w-4xl mx-auto px-6 relative z-10 space-y-16">
                         <div className="text-center space-y-4">
-                            <h2 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter uppercase font-serif">
+                            <h2 className="text-4xl md:text-5xl font-black text-slate-900 italic tracking-tighter uppercase font-serif">
                                 Expert <span className="text-indigo-500">FAQ</span>
                             </h2>
                             <p className="text-slate-500 uppercase tracking-widest text-xs font-bold">Answers from Academic Counselors</p>
@@ -358,8 +358,8 @@ export default function GPAHubClient() {
 
                         <div className="space-y-8">
                             {CALCULATORS[0].faqs.map((faq, i) => (
-                                <div key={i} className="p-10 bg-slate-950 border border-white/5 rounded-3xl hover:border-indigo-500/30 transition-all group">
-                                    <h3 className="text-xl font-bold text-white mb-4 flex items-start gap-4">
+                                <div key={i} className="p-10 bg-slate-50 border border-slate-200 rounded-3xl hover:border-indigo-500/30 transition-all group">
+                                    <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-start gap-4">
                                         <span className="text-indigo-500 font-serif">Q.</span>
                                         {faq.question}
                                     </h3>
@@ -376,12 +376,12 @@ export default function GPAHubClient() {
                 {/* Final CTA */}
                 <section className="text-center py-24 space-y-12">
                     <div className="space-y-6">
-                        <h2 className="text-5xl md:text-7xl font-black text-white leading-tight">Ready to Audit Your Academy?</h2>
+                        <h2 className="text-5xl md:text-7xl font-black text-slate-900 leading-tight">Ready to Audit Your Academy?</h2>
                         <p className="text-xl text-slate-400 max-w-2xl mx-auto">
                             Stop guessing. Use the neural-grade GPA engine built for the 2026 academic standards.
                         </p>
                     </div>
-                    <Link href="/gpa/calculator" className="inline-flex px-12 py-6 bg-indigo-600 hover:bg-indigo-500 text-white font-black rounded-full transition-all hover:scale-105 hover:shadow-2xl gap-3 text-lg group">
+                    <Link href="/gpa/calculator" className="inline-flex px-12 py-6 bg-indigo-600 hover:bg-indigo-500 text-slate-900 font-black rounded-full transition-all hover:scale-105 hover:shadow-2xl gap-3 text-lg group">
                         <Calculator className="w-6 h-6 group-hover:rotate-12 transition-transform" />
                         ACCESS PRECISION ENGINE
                     </Link>
@@ -390,7 +390,7 @@ export default function GPAHubClient() {
             </main>
 
             {/* Footer Minimal Citation */}
-            <footer className="py-12 border-t border-white/5 text-center px-6">
+            <footer className="py-12 border-t border-slate-200 text-center px-6">
                 <p className="text-xs text-slate-600 uppercase tracking-widest">
                     Data Compliance: NIST Mathematical Standards & Global High School Accreditation Protocols.
                     <br />
@@ -400,3 +400,4 @@ export default function GPAHubClient() {
         </div>
     );
 }
+

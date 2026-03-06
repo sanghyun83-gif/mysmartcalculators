@@ -9,14 +9,14 @@ const SITE = {
 };
 
 const FAQSection = ({ faqs }: { faqs: readonly any[] }) => (
-    <section id="faq" className="py-24 bg-slate-900/50 overflow-hidden relative">
+    <section id="faq" className="py-24 bg-white overflow-hidden relative">
         <div className="max-w-4xl mx-auto px-6 relative">
-            <h2 className="text-3xl font-black text-white mb-16 text-center italic uppercase tracking-tighter">The Chronological <span className="text-blue-500">FAQ</span>.</h2>
+            <h2 className="text-3xl font-black text-slate-900 mb-16 text-center italic uppercase tracking-tighter">The Chronological <span className="text-blue-500">FAQ</span>.</h2>
             <div className="space-y-6">
                 {faqs.map((faq, i) => (
-                    <div key={i} className="p-8 bg-slate-900 border border-white/5 rounded-[2.5rem] hover:border-blue-500/30 transition-all group">
-                        <h3 className="text-lg font-black text-white mb-4 flex items-center gap-4 italic group-hover:text-blue-500 transition-colors">
-                            <span className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-[10px] text-white not-italic">{i + 1}</span>
+                    <div key={i} className="p-8 bg-white border border-slate-200 rounded-[2.5rem] hover:border-blue-500/30 transition-all group">
+                        <h3 className="text-lg font-black text-slate-900 mb-4 flex items-center gap-4 italic group-hover:text-blue-500 transition-colors">
+                            <span className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-[10px] text-slate-900 not-italic">{i + 1}</span>
                             {faq.question}
                         </h3>
                         <p className="text-slate-400 leading-relaxed font-bold italic">{faq.answer}</p>
@@ -29,7 +29,7 @@ const FAQSection = ({ faqs }: { faqs: readonly any[] }) => (
 
 export default function AgeHubClient() {
     return (
-        <div className="bg-slate-950">
+        <div className="bg-slate-50">
             {/* S-Class Premium Hero */}
             <section className="relative py-24 md:py-40 overflow-hidden text-center">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.05)_0%,transparent_70%)]" />
@@ -39,17 +39,17 @@ export default function AgeHubClient() {
                             <Clock className="w-3 h-3" /> Temporal Integrity Audit Active
                         </div>
 
-                        <h1 className="text-7xl md:text-9xl font-black tracking-tighter mb-8 leading-[0.85] text-white">
+                        <h1 className="text-7xl md:text-9xl font-black tracking-tighter mb-8 leading-[0.85] text-slate-900">
                             Age <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 italic underline decoration-white/10 underline-offset-[12px]">Auditor.</span>
                         </h1>
 
                         <p className="max-w-3xl text-xl md:text-3xl text-slate-400 font-bold leading-tight italic">
-                            Decoding the Chronological Timeline for 2026. Audit your age, life milestones, and celestial markers with <span className="text-white">atomic precision.</span>
+                            Decoding the Chronological Timeline for 2026. Audit your age, life milestones, and celestial markers with <span className="text-slate-900">atomic precision.</span>
                         </p>
 
                         <Link
                             href="/age/calculator"
-                            className="inline-flex items-center gap-4 bg-blue-600 hover:bg-blue-500 text-white px-12 py-6 rounded-[2rem] font-black text-base uppercase tracking-widest transition-all shadow-2xl shadow-blue-600/30 group active:scale-95"
+                            className="inline-flex items-center gap-4 bg-blue-600 hover:bg-blue-500 text-slate-900 px-12 py-6 rounded-[2rem] font-black text-base uppercase tracking-widest transition-all shadow-2xl shadow-blue-600/30 group active:scale-95"
                         >
                             <Calendar className="w-6 h-6 group-hover:rotate-12 transition-transform" />
                             Run Chrono-Audit
@@ -60,20 +60,20 @@ export default function AgeHubClient() {
             </section>
 
             {/* Task 2: Triple-Table Featured Snippet Architecture */}
-            <section id="institutional-audit" className="py-24 border-y border-white/5 bg-slate-900/10 backdrop-blur-3xl relative">
+            <section id="institutional-audit" className="py-24 border-y border-slate-200 bg-slate-50 backdrop-blur-3xl relative">
                 <div className="max-w-7xl mx-auto px-6 space-y-24">
 
                     {/* 1. Historical/Statistical Table */}
                     <div className="space-y-8">
                         <div className="flex items-center gap-4 border-l-4 border-blue-500 pl-6">
                             <div>
-                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Average Life Expectancy Trends (1950??026)</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Global Actuarial Standards ??WHO Statistical Audit</p>
+                                <h2 className="text-2xl font-black text-slate-900 italic uppercase tracking-tighter">I. Average Life Expectancy Trends (1950-2026)</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Global Actuarial Standards - WHO Statistical Audit</p>
                             </div>
                         </div>
-                        <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
+                        <div className="overflow-x-auto rounded-[2.5rem] border border-slate-200 bg-slate-50 shadow-2xl">
                             <table className="w-full text-left border-collapse min-w-[700px]">
-                                <thead className="bg-white/5 border-b border-white/10 text-[10px] font-black tracking-[0.2em] text-blue-400 uppercase">
+                                <thead className="bg-slate-100 border-b border-slate-200 text-[10px] font-black tracking-[0.2em] text-blue-400 uppercase">
                                     <tr>
                                         <th className="px-8 py-6">Epoch Cycle</th>
                                         <th className="px-8 py-6">Global Average</th>
@@ -89,7 +89,7 @@ export default function AgeHubClient() {
                                         { e: "2026 Projection", a: "74.1 Years", h: "82.5 Years", s: "NIST Standard" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-blue-500/5 transition-colors group">
-                                            <td className="px-8 py-6 text-white">{row.e}</td>
+                                            <td className="px-8 py-6 text-slate-900">{row.e}</td>
                                             <td className="px-8 py-6">{row.a}</td>
                                             <td className="px-8 py-6 text-blue-600/70">{row.h}</td>
                                             <td className="px-8 py-6 text-[10px] uppercase tracking-widest text-slate-600 font-mono">{row.s}</td>
@@ -104,13 +104,13 @@ export default function AgeHubClient() {
                     <div className="space-y-8 text-right md:text-left">
                         <div className="flex items-center gap-4 border-r-4 md:border-r-0 md:border-l-4 border-indigo-500 pr-6 md:pr-0 md:pl-6 justify-end md:justify-start">
                             <div>
-                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter text-right md:text-left">II. Developmental Milestone Benchmarks (Pediatric to Geriatric)</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Temporal Growth Norms ??CDC & International Health Standards</p>
+                                <h2 className="text-2xl font-black text-slate-900 italic uppercase tracking-tighter text-right md:text-left">II. Developmental Milestone Benchmarks (Pediatric to Geriatric)</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Temporal Growth Norms - CDC & International Health Standards</p>
                             </div>
                         </div>
-                        <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
+                        <div className="overflow-x-auto rounded-[2.5rem] border border-slate-200 bg-slate-50 shadow-2xl">
                             <table className="w-full text-left border-collapse min-w-[700px]">
-                                <thead className="bg-white/5 border-b border-white/10 text-[10px] font-black tracking-[0.2em] text-indigo-400 uppercase">
+                                <thead className="bg-slate-100 border-b border-slate-200 text-[10px] font-black tracking-[0.2em] text-indigo-400 uppercase">
                                     <tr>
                                         <th className="px-8 py-6">Age Segment</th>
                                         <th className="px-8 py-6">Duration Range</th>
@@ -120,13 +120,13 @@ export default function AgeHubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { s: "Infancy", r: "0 ??2 Years", b: "Neural Proliferation", d: "High Velocity" },
-                                        { s: "Adolescence", r: "12 ??18 Years", b: "Hormonal Synthesis", d: "Peak Variability" },
-                                        { s: "Early Adulthood", r: "20 ??35 Years", b: "Peak Bone Density", d: "Steady State" },
-                                        { s: "Middle Age", r: "45 ??65 Years", b: "Metabolic Transition", d: "Auditable Decay" }
+                                        { s: "Infancy", r: "0-2 Years", b: "Neural Proliferation", d: "High Velocity" },
+                                        { s: "Adolescence", r: "12-18 Years", b: "Hormonal Synthesis", d: "Peak Variability" },
+                                        { s: "Early Adulthood", r: "20-35 Years", b: "Peak Bone Density", d: "Steady State" },
+                                        { s: "Middle Age", r: "45-65 Years", b: "Metabolic Transition", d: "Auditable Decay" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-indigo-500/5 transition-colors group">
-                                            <td className="px-8 py-6 text-white">{row.s}</td>
+                                            <td className="px-8 py-6 text-slate-900">{row.s}</td>
                                             <td className="px-8 py-6">{row.r}</td>
                                             <td className="px-8 py-6">{row.b}</td>
                                             <td className="px-8 py-6 text-indigo-600 font-mono text-[10px] uppercase tracking-widest">{row.d}</td>
@@ -141,13 +141,13 @@ export default function AgeHubClient() {
                     <div className="space-y-8">
                         <div className="flex items-center gap-4 border-l-4 border-white/20 pl-6">
                             <div>
-                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">III. Precision Age Computational Specification (ISO-8601)</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">NIST Temporal Accuracy ??Atomic Clock Sync Standards</p>
+                                <h2 className="text-2xl font-black text-slate-900 italic uppercase tracking-tighter">III. Precision Age Computational Specification (ISO-8601)</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">NIST Temporal Accuracy - Atomic Clock Sync Standards</p>
                             </div>
                         </div>
-                        <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-900 shadow-2xl">
+                        <div className="overflow-x-auto rounded-[2.5rem] border border-slate-200 bg-white shadow-2xl">
                             <table className="w-full text-left border-collapse min-w-[700px]">
-                                <thead className="bg-white/5 border-b border-white/10 text-[10px] font-black tracking-[0.2em] text-slate-500 uppercase">
+                                <thead className="bg-slate-100 border-b border-slate-200 text-[10px] font-black tracking-[0.2em] text-slate-500 uppercase">
                                     <tr>
                                         <th className="px-8 py-6">Audit Component</th>
                                         <th className="px-8 py-6">Tolerance Threshold</th>
@@ -157,16 +157,16 @@ export default function AgeHubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { c: "Leap Year Delta", t: "짹 0.00s", l: "Greogrian Adjustment", g: "ISO-2026" },
+                                        { c: "Leap Year Delta", t: "�?0.00s", l: "Greogrian Adjustment", g: "ISO-2026" },
                                         { c: "Month Duration", t: "28/30/31 Days", l: "Dynamic Iteration", g: "IEEE-754" },
                                         { c: "Millisecond Sync", t: "10^-6 s", l: "Unix Epoch Mapping", g: "Atomic-S" },
                                         { c: "Timezone Offset", v: "UTC Reference", l: "Geographical Sync", g: "Statutory" }
                                     ].map((row, i) => (
-                                        <tr key={i} className="hover:bg-white/5 transition-colors group">
-                                            <td className="px-8 py-6 text-white">{row.c}</td>
+                                        <tr key={i} className="hover:bg-slate-100 transition-colors group">
+                                            <td className="px-8 py-6 text-slate-900">{row.c}</td>
                                             <td className="px-8 py-6 text-xs">{row.t}</td>
                                             <td className="px-8 py-6 text-xs font-mono">{row.l}</td>
-                                            <td className="px-8 py-6 text-[10px] uppercase tracking-widest text-white/40">{row.g}</td>
+                                            <td className="px-8 py-6 text-[10px] uppercase tracking-widest text-slate-500">{row.g}</td>
                                         </tr>
                                     ))}
                                 </tbody>
@@ -183,12 +183,12 @@ export default function AgeHubClient() {
 
                     {/* Chapter 1: The Physics of Age */}
                     <div className="space-y-12">
-                        <h2 className="text-5xl font-black text-white tracking-tighter leading-none italic uppercase">
+                        <h2 className="text-5xl font-black text-slate-900 tracking-tighter leading-none italic uppercase">
                             The Science of <span className="text-blue-600">Chronology.</span>
                         </h2>
                         <div className="prose prose-invert prose-blue max-w-none text-slate-400 text-lg leading-relaxed font-bold italic space-y-8">
                             <p>
-                                Age calculation is fundamentally an exercise in <span className="text-white">temporal auditing</span>. While it appears simple?봲ubtracting one date from another?봳he biological, legal, and astronomical variables involved require a high-precision engine. In 2026, the definition of age has expanded beyond the annual birthday to encompass high-resolution metrics such as total weeks lived, hours sustained, and metabolic duration.
+                                Age calculation is fundamentally an exercise in <span className="text-slate-900">temporal auditing</span>. While it appears simple?봲ubtracting one date from another?봳he biological, legal, and astronomical variables involved require a high-precision engine. In 2026, the definition of age has expanded beyond the annual birthday to encompass high-resolution metrics such as total weeks lived, hours sustained, and metabolic duration.
                             </p>
                             <p>
                                 Our Age Calculator S-Class engine utilizes the <span className="text-blue-500">ISO-8601 standard</span> for date-time representation, ensuring that every leap year, every month-end transition, and every daylight savings shift is accounted for with scientific rigour. This level of precision is critical for legal verification, medical research, and biological age optimization.
@@ -197,20 +197,20 @@ export default function AgeHubClient() {
                     </div>
 
                     {/* Milestone Integration Plate */}
-                    <div className="p-12 bg-slate-900 border border-white/5 rounded-[4rem] space-y-12 shadow-2xl relative overflow-hidden group">
-                        <div className="absolute top-0 right-0 p-12 opacity-5 group-hover:opacity-10 transition-opacity"><Milestone className="w-48 h-48 text-white" /></div>
-                        <h3 className="text-3xl font-black text-white italic uppercase tracking-tighter">Biological vs. <span className="text-blue-600">Chronological.</span></h3>
+                    <div className="p-12 bg-white border border-slate-200 rounded-[4rem] space-y-12 shadow-2xl relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 p-12 opacity-5 group-hover:opacity-10 transition-opacity"><Milestone className="w-48 h-48 text-slate-900" /></div>
+                        <h3 className="text-3xl font-black text-slate-900 italic uppercase tracking-tighter">Biological vs. <span className="text-blue-600">Chronological.</span></h3>
                         <p className="text-slate-400 font-bold italic text-lg relative z-10">
                             Understanding that your calendar age is just one layer of your temporal audit. In 2026, the &quot;Double Age&quot; audit is the new gold standard for health tracking:
                         </p>
                         <div className="grid md:grid-cols-2 gap-8 relative z-10">
-                            <div className="space-y-4 p-6 bg-white/5 rounded-3xl border border-white/5 hover:border-blue-500/20 transition-all">
+                            <div className="space-y-4 p-6 bg-slate-100 rounded-3xl border border-slate-200 hover:border-blue-500/20 transition-all">
                                 <h4 className="text-xs font-black text-blue-500 uppercase tracking-widest flex items-center gap-2">
                                     <Clock className="w-3 h-3" /> Chronological (The Anchor)
                                 </h4>
                                 <p className="text-slate-500 text-sm font-bold italic leading-relaxed">The absolute measure of time since birth. Fixed, unchangeable, and regulated by the Earth&apos;s rotation and legal statutes.</p>
                             </div>
-                            <div className="space-y-4 p-6 bg-white/5 rounded-3xl border border-white/5 hover:border-blue-500/20 transition-all">
+                            <div className="space-y-4 p-6 bg-slate-100 rounded-3xl border border-slate-200 hover:border-blue-500/20 transition-all">
                                 <h4 className="text-xs font-black text-blue-500 uppercase tracking-widest flex items-center gap-2">
                                     <Star className="w-3 h-3" /> Biological (The Variable)
                                 </h4>
@@ -221,12 +221,12 @@ export default function AgeHubClient() {
 
                     {/* Deep Analysis of Legal Age Protocols */}
                     <div id="compliance" className="space-y-12">
-                        <h2 className="text-4xl font-black text-white tracking-tighter leading-none italic uppercase">
+                        <h2 className="text-4xl font-black text-slate-900 tracking-tighter leading-none italic uppercase">
                             Global <span className="text-blue-600">Legal Protocols.</span>
                         </h2>
                         <div className="prose prose-invert prose-blue max-w-none text-slate-400 text-lg leading-relaxed font-bold italic space-y-8">
                             <p>
-                                The legal landscape for age shifted dramatically in mid-2023 when South Korea abandoned its traditional age counting system (where individuals were one at birth and aged on New Year&apos;s) in favor of the international standard. This emphasizes the global movement toward a <span className="text-white italic underline">unified chronological audit system</span>.
+                                The legal landscape for age shifted dramatically in mid-2023 when South Korea abandoned its traditional age counting system (where individuals were one at birth and aged on New Year&apos;s) in favor of the international standard. This emphasizes the global movement toward a <span className="text-slate-900 italic underline">unified chronological audit system</span>.
                             </p>
                             <p>
                                 Whether you are auditing for retirement eligibility, verifying legal consent, or tracking pediatric development milestones in weeks, the accuracy of the underlying engine is non-negotiable. Our 2026 audit framework ensures that individuals born on February 29th (Leap Year babies) and those born on the 31st of months are handled with 100% legal compliance across 195 nations.
@@ -242,9 +242,9 @@ export default function AgeHubClient() {
                             { t: "Zodiac Mapping", d: "High-accuracy astronomical zodiac mapping including both Western and Chinese celestial markers.", i: Star },
                             { t: "Birthday Pulse", d: "Precision countdown to the next annual increment with 'age turning' projection data.", i: Calendar }
                         ].map((feat, i) => (
-                            <div key={i} className="p-8 bg-white/5 border border-white/5 rounded-[2.5rem] space-y-4 hover:bg-blue-500/5 hover:border-blue-500/20 transition-all group">
+                            <div key={i} className="p-8 bg-slate-100 border border-slate-200 rounded-[2.5rem] space-y-4 hover:bg-blue-500/5 hover:border-blue-500/20 transition-all group">
                                 <feat.i className="w-8 h-8 text-blue-500 group-hover:scale-110 transition-transform" />
-                                <h3 className="text-xl font-black text-white italic uppercase">{feat.t}</h3>
+                                <h3 className="text-xl font-black text-slate-900 italic uppercase">{feat.t}</h3>
                                 <p className="text-slate-500 text-sm font-bold italic leading-relaxed">{feat.d}</p>
                             </div>
                         ))}
@@ -252,7 +252,7 @@ export default function AgeHubClient() {
 
                     {/* Cultural Significance & Zodiacs */}
                     <div className="space-y-12">
-                        <h2 className="text-3xl font-black text-white tracking-tighter uppercase italic">
+                        <h2 className="text-3xl font-black text-slate-900 tracking-tighter uppercase italic">
                             Celestial <span className="text-blue-600">Markers & Identity.</span>
                         </h2>
                         <p className="text-slate-400 font-bold italic text-lg leading-relaxed">
@@ -272,14 +272,14 @@ export default function AgeHubClient() {
             </section>
 
             {/* Citations Section */}
-            <section className="py-24 border-y border-white/5 bg-slate-900/10">
+            <section className="py-24 border-y border-slate-200 bg-slate-50">
                 <div className="max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em] mb-12">Institutional Citations & Scientific Source Integrity</h2>
                     <div className="grid md:grid-cols-2 gap-12 text-left">
                         {AGE_2026.citations.map((cite, i) => (
                             <div key={i} className="space-y-2 first:col-span-2 group">
                                 <div className="text-[9px] font-black text-blue-600 uppercase tracking-widest">{cite.s}</div>
-                                <h4 className="text-sm font-black text-white group-hover:text-blue-500 transition-colors">{cite.t}</h4>
+                                <h4 className="text-sm font-black text-slate-900 group-hover:text-blue-500 transition-colors">{cite.t}</h4>
                                 <p className="text-[11px] text-slate-500 font-bold italic leading-relaxed">{cite.d}</p>
                             </div>
                         ))}
@@ -291,7 +291,7 @@ export default function AgeHubClient() {
             <section className="py-32 bg-blue-600 relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
                 <div className="max-w-4xl mx-auto px-6 text-center space-y-10 relative z-10">
-                    <h2 className="text-5xl md:text-7xl font-black text-white italic tracking-tighter uppercase leading-none">
+                    <h2 className="text-5xl md:text-7xl font-black text-slate-900 italic tracking-tighter uppercase leading-none">
                         Audit Your <span className="underline decoration-white/20 underline-offset-8">Chronology Now.</span>
                     </h2>
                     <p className="text-blue-100 text-xl font-bold italic">Calculate precise age metrics with 2026 temporal benchmarks.</p>
@@ -309,3 +309,4 @@ export default function AgeHubClient() {
         </div>
     );
 }
+

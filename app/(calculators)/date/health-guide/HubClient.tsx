@@ -18,7 +18,7 @@ import {
 
 export default function HubClient() {
     return (
-        <div className="min-h-screen bg-slate-950 text-slate-300 selection:bg-blue-500/30">
+        <div className="min-h-screen bg-slate-50 text-slate-300 selection:bg-blue-500/30">
             <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-12 gap-16">
 
                 {/* Sticky Sidebar Navigation */}
@@ -40,7 +40,7 @@ export default function HubClient() {
                                 <a
                                     key={item.id}
                                     href={`#${item.id}`}
-                                    className="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-white/5 hover:text-blue-400 transition-all font-bold italic text-sm group"
+                                    className="flex items-center gap-3 px-4 py-3 rounded-2xl hover:bg-slate-100 hover:text-blue-400 transition-all font-bold italic text-sm group"
                                 >
                                     <item.icon className="w-4 h-4 text-slate-500 group-hover:text-blue-500 transition-colors" />
                                     {item.label}
@@ -58,7 +58,7 @@ export default function HubClient() {
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[10px] font-black text-blue-500 uppercase tracking-widest">
                             <History className="w-3 h-3" /> Section 01: Temporal Genesis
                         </div>
-                        <h2 className="text-5xl font-black text-white tracking-tighter leading-none italic uppercase">
+                        <h2 className="text-5xl font-black text-slate-900 tracking-tighter leading-none italic uppercase">
                             The Evolution of <span className="text-blue-600">Chronological Logic.</span>
                         </h2>
                         <div className="prose prose-invert prose-blue max-w-none text-slate-400 text-lg leading-relaxed font-bold italic space-y-8 text-justify">
@@ -69,7 +69,7 @@ export default function HubClient() {
                                 In 2026, date calculation has moved from paper scrolls to **64-bit Boolean logic**. Every calculation performed by our engine is a mini-simulation of the Gregorian algorithm, accounting for the 97 leap years that occur every 400 years to maintain a mean year length of 365.2425 days. This precision is what separates a standard calendar from an **Institutional Temporal Auditor**.
                             </p>
                             <blockquote className="border-l-4 border-blue-500 pl-8 py-4 bg-blue-500/5 rounded-r-3xl my-12 not-prose">
-                                <p className="text-xl text-white font-black italic tracking-tight leading-relaxed">
+                                <p className="text-xl text-slate-900 font-black italic tracking-tight leading-relaxed">
                                     "To audit time is to audit the primary resource of the universe. Accuracy isn't a feature; it's a structural requirement for 2026 systems."
                                 </p>
                             </blockquote>
@@ -81,7 +81,7 @@ export default function HubClient() {
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-[10px] font-black text-indigo-500 uppercase tracking-widest">
                             <Globe className="w-3 h-3" /> Section 02: ISO 8601 Standards
                         </div>
-                        <h2 className="text-5xl font-black text-white tracking-tighter leading-none italic uppercase">
+                        <h2 className="text-5xl font-black text-slate-900 tracking-tighter leading-none italic uppercase">
                             Linear Data <span className="text-indigo-600">Normalization.</span>
                         </h2>
                         <div className="prose prose-invert prose-indigo max-w-none text-slate-400 text-lg leading-relaxed font-bold italic space-y-8 text-justify">
@@ -95,24 +95,24 @@ export default function HubClient() {
                     </section>
 
                     {/* Leap Year Logic */}
-                    <section id="leap" className="space-y-12 bg-slate-900/40 p-12 rounded-[4rem] border border-white/5 relative overflow-hidden">
+                    <section id="leap" className="space-y-12 bg-slate-50 p-12 rounded-[4rem] border border-slate-200 relative overflow-hidden">
                         <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none"><Settings className="w-48 h-48 text-blue-500" /></div>
                         <div className="relative z-10 space-y-8">
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[10px] font-black text-blue-500 uppercase tracking-widest">
                                 <Cpu className="w-3 h-3" /> Section 03: Leap Year Correction
                             </div>
-                            <h3 className="text-4xl font-black text-white italic tracking-tighter uppercase">The 0.002% <span className="text-blue-600">Correction Audit.</span></h3>
+                            <h3 className="text-4xl font-black text-slate-900 italic tracking-tighter uppercase">The 0.002% <span className="text-blue-600">Correction Audit.</span></h3>
                             <p className="text-slate-400 text-lg font-bold italic leading-relaxed text-justify">
                                 Why do we subtract or add days every four years? The Earth's orbit around the sun takes approximately 365.2422 days. Without correction, our seasons would drift by nearly 25 days every century. The Gregorian algorithm provides a 'Temporal Stabilizer' using a nested logic gate:
                             </p>
                             <div className="grid md:grid-cols-2 gap-8 my-8">
-                                <div className="space-y-2 p-6 bg-black/40 rounded-3xl border border-white/5">
+                                <div className="space-y-2 p-6 bg-slate-100 rounded-3xl border border-slate-200">
                                     <div className="text-[10px] font-black text-blue-500 uppercase italic">Condition A</div>
-                                    <p className="text-sm font-bold text-white italic">Year must be divisible by 4.</p>
+                                    <p className="text-sm font-bold text-slate-900 italic">Year must be divisible by 4.</p>
                                 </div>
-                                <div className="space-y-2 p-6 bg-black/40 rounded-3xl border border-white/5">
+                                <div className="space-y-2 p-6 bg-slate-100 rounded-3xl border border-slate-200">
                                     <div className="text-[10px] font-black text-rose-500 uppercase italic">Condition B (Exception)</div>
-                                    <p className="text-sm font-bold text-white italic">If divisible by 100, must also be divisible by 400.</p>
+                                    <p className="text-sm font-bold text-slate-900 italic">If divisible by 100, must also be divisible by 400.</p>
                                 </div>
                             </div>
                             <p className="text-slate-500 text-sm font-bold italic leading-relaxed">
@@ -126,7 +126,7 @@ export default function HubClient() {
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-black text-emerald-500 uppercase tracking-widest">
                             <Terminal className="w-3 h-3" /> Section 04: Business Day Audit
                         </div>
-                        <h2 className="text-5xl font-black text-white tracking-tighter leading-none italic uppercase">
+                        <h2 className="text-5xl font-black text-slate-900 tracking-tighter leading-none italic uppercase">
                             Operational <span className="text-emerald-600">Velocity.</span>
                         </h2>
                         <div className="prose prose-invert prose-emerald max-w-none text-slate-400 text-lg leading-relaxed font-bold italic space-y-8 text-justify">
@@ -140,7 +140,7 @@ export default function HubClient() {
                     </section>
 
                     {/* Y2K38 Section */}
-                    <section id="y2k38" className="space-y-12 p-12 bg-blue-600 rounded-[4rem] text-white overflow-hidden relative group">
+                    <section id="y2k38" className="space-y-12 p-12 bg-blue-600 rounded-[4rem] text-slate-900 overflow-hidden relative group">
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0%,transparent_70%)]" />
                         <div className="relative z-10 space-y-6">
                             <div className="flex items-center gap-4">
@@ -162,7 +162,7 @@ export default function HubClient() {
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-500/10 border border-slate-500/20 text-[10px] font-black text-slate-500 uppercase tracking-widest">
                             <Lock className="w-3 h-3" /> Section 06: Data Integrity
                         </div>
-                        <h2 className="text-5xl font-black text-white tracking-tighter leading-none italic uppercase">
+                        <h2 className="text-5xl font-black text-slate-900 tracking-tighter leading-none italic uppercase">
                             Institutional <span className="opacity-50">Reliability.</span>
                         </h2>
                         <div className="prose prose-invert prose-slate max-w-none text-slate-400 text-lg leading-relaxed font-bold italic space-y-8 text-justify">
@@ -176,7 +176,7 @@ export default function HubClient() {
                     </section>
 
                     {/* Institutional Citations Preview */}
-                    <section className="py-24 border-t border-white/5">
+                    <section className="py-24 border-t border-slate-200">
                         <h2 className="text-xs font-black text-slate-500 uppercase tracking-[0.2em] mb-12 text-center italic">Verified Data Citations</h2>
                         <div className="grid md:grid-cols-3 gap-8">
                             {[
@@ -184,7 +184,7 @@ export default function HubClient() {
                                 { n: "IEEE", l: "64-bit Standards" },
                                 { n: "ISO", l: "8601 Certification" }
                             ].map((cite, i) => (
-                                <div key={i} className="text-center p-8 bg-white/5 border border-white/5 rounded-3xl group hover:border-blue-500/30 transition-all">
+                                <div key={i} className="text-center p-8 bg-slate-100 border border-slate-200 rounded-3xl group hover:border-blue-500/30 transition-all">
                                     <div className="text-blue-500 font-black text-2xl italic tracking-tighter mb-1 lowercase">{cite.n}</div>
                                     <div className="text-[10px] text-slate-600 font-bold uppercase tracking-widest italic">{cite.l}</div>
                                 </div>
@@ -197,3 +197,4 @@ export default function HubClient() {
         </div>
     );
 }
+

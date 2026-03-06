@@ -1,6 +1,5 @@
 import { permanentRedirect } from "next/navigation";
 
 export default function MortgageExtraPaymentsRedirectPage() {
-  permanentRedirect("/mortgage#calculator");
+  permanentRedirect("/mortgage#extra-payments");
 }
-

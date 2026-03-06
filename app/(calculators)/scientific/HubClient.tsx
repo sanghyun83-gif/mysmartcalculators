@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import Link from "next/link";
@@ -12,19 +12,19 @@ import { SCIENTIFIC_2026 } from "@/lib/calculators/scientific";
 
 const FAQSection = ({ faqs }: { faqs: { question: string; answer: string }[] }) => {
     return (
-        <section id="faq" className="py-32 bg-slate-950">
+        <section id="faq" className="py-32 bg-slate-50">
             <div className="max-w-4xl mx-auto px-6">
                 <div className="text-center mb-20 space-y-4">
-                    <h2 className="text-4xl md:text-6xl font-black text-white italic tracking-tighter uppercase">
+                    <h2 className="text-4xl md:text-6xl font-black text-slate-900 italic tracking-tighter uppercase">
                         Precision <span className="text-blue-600">Intelligence.</span>
                     </h2>
                     <p className="text-slate-500 font-bold italic tracking-widest text-xs uppercase">15 Expert Clarifications on Computational Logic</p>
                 </div>
                 <div className="grid gap-4">
                     {faqs.map((faq, i) => (
-                        <details key={i} className="group bg-white/5 border border-white/5 rounded-[2rem] overflow-hidden transition-all hover:bg-white/10">
+                        <details key={i} className="group bg-slate-100 border border-slate-200 rounded-[2rem] overflow-hidden transition-all hover:bg-slate-200">
                             <summary className="flex items-center justify-between p-8 cursor-pointer list-none">
-                                <span className="text-lg font-black text-white italic group-open:text-blue-500 transition-colors uppercase tracking-tight">{faq.question}</span>
+                                <span className="text-lg font-black text-slate-900 italic group-open:text-blue-500 transition-colors uppercase tracking-tight">{faq.question}</span>
                                 <ChevronDown className="w-6 h-6 text-slate-500 group-open:rotate-180 transition-transform" />
                             </summary>
                             <div className="px-8 pb-8 text-slate-400 font-bold italic leading-relaxed">
@@ -40,7 +40,7 @@ const FAQSection = ({ faqs }: { faqs: { question: string; answer: string }[] }) 
 
 export default function ScientificHubClient() {
     return (
-        <div className="bg-slate-950">
+        <div className="bg-slate-50">
             {/* S-Class Premium Hero: Math Engine AI */}
             <section className="relative py-24 md:py-40 overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.05)_0%,transparent_70%)]" />
@@ -50,17 +50,17 @@ export default function ScientificHubClient() {
                             <Cpu className="w-3 h-3" /> Math Engine 2026 Core Active
                         </div>
 
-                        <h1 className="text-7xl md:text-9xl font-black tracking-tighter mb-8 leading-[0.85] text-white">
+                        <h1 className="text-7xl md:text-9xl font-black tracking-tighter mb-8 leading-[0.85] text-slate-900">
                             Scientific <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 italic underline decoration-white/10 underline-offset-[12px]">Logic.</span>
                         </h1>
 
                         <p className="max-w-3xl text-xl md:text-3xl text-slate-400 font-bold leading-tight italic">
-                            Absolute floating-point precision for 2026. Execute complex trig, log, and algebraic functions with <span className="text-white">computational integrity.</span>
+                            Absolute floating-point precision for 2026. Execute complex trig, log, and algebraic functions with <span className="text-slate-900">computational integrity.</span>
                         </p>
 
                         <Link
                             href="/scientific/calculator"
-                            className="inline-flex items-center gap-4 bg-blue-600 hover:bg-blue-500 text-white px-12 py-6 rounded-[2rem] font-black text-base uppercase tracking-widest transition-all shadow-2xl shadow-blue-600/30 group active:scale-95"
+                            className="inline-flex items-center gap-4 bg-blue-600 hover:bg-blue-500 text-slate-900 px-12 py-6 rounded-[2rem] font-black text-base uppercase tracking-widest transition-all shadow-2xl shadow-blue-600/30 group active:scale-95"
                         >
                             <Binary className="w-6 h-6 group-hover:rotate-12 transition-transform" />
                             Launch Math Engine
@@ -78,13 +78,13 @@ export default function ScientificHubClient() {
                     <div className="space-y-8">
                         <div className="flex items-center gap-4 border-l-4 border-blue-500 pl-6">
                             <div>
-                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Evolution of Handheld Computational Hardware</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Historical Milestones ??NASA & R&D Benchmarks</p>
+                                <h2 className="text-2xl font-black text-slate-900 italic uppercase tracking-tighter">I. Evolution of Handheld Computational Hardware</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Historical Milestones  - NASA & R&D Benchmarks</p>
                             </div>
                         </div>
-                        <div className="overflow-x-auto rounded-[2rem] border border-white/5 bg-slate-900 shadow-2xl">
+                        <div className="overflow-x-auto rounded-[2rem] border border-slate-200 bg-white shadow-2xl">
                             <table className="w-full text-left border-collapse min-w-[600px]">
-                                <thead className="bg-white/5 border-b border-white/10 text-[10px] font-black tracking-[0.2em] text-blue-500 uppercase">
+                                <thead className="bg-slate-100 border-b border-slate-200 text-[10px] font-black tracking-[0.2em] text-blue-500 uppercase">
                                     <tr>
                                         <th className="px-8 py-6">Era Milestone</th>
                                         <th className="px-8 py-6">Hardware Anchor</th>
@@ -100,7 +100,7 @@ export default function ScientificHubClient() {
                                         { e: "2026 (P)", m: "AI-Integrated Logic", i: "Neural-Grade Floating Point", s: "Institutional Target" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-blue-500/5 transition-colors group">
-                                            <td className="px-8 py-6 text-white">{row.e}</td>
+                                            <td className="px-8 py-6 text-slate-900">{row.e}</td>
                                             <td className="px-8 py-6">{row.m}</td>
                                             <td className="px-8 py-6 text-blue-600/70">{row.i}</td>
                                             <td className="px-8 py-6 text-[10px] uppercase tracking-widest text-slate-600 font-mono">{row.s}</td>
@@ -115,13 +115,13 @@ export default function ScientificHubClient() {
                     <div className="space-y-8 text-right md:text-left">
                         <div className="flex items-center gap-4 border-r-4 md:border-r-0 md:border-l-4 border-indigo-500 pr-6 md:pr-0 md:pl-6 justify-end md:justify-start">
                             <div>
-                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter text-right md:text-left">II. Global Examination Board Compliance (2026)</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Regulatory Standards Matrix ??SAT/ACT/IB/AP</p>
+                                <h2 className="text-2xl font-black text-slate-900 italic uppercase tracking-tighter text-right md:text-left">II. Global Examination Board Compliance (2026)</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Regulatory Standards Matrix  - SAT/ACT/IB/AP</p>
                             </div>
                         </div>
-                        <div className="overflow-x-auto rounded-[2rem] border border-white/5 bg-slate-900 shadow-2xl">
+                        <div className="overflow-x-auto rounded-[2rem] border border-slate-200 bg-white shadow-2xl">
                             <table className="w-full text-left border-collapse min-w-[600px]">
-                                <thead className="bg-white/5 border-b border-white/10 text-[10px] font-black tracking-[0.2em] text-indigo-500 uppercase">
+                                <thead className="bg-slate-100 border-b border-slate-200 text-[10px] font-black tracking-[0.2em] text-indigo-500 uppercase">
                                     <tr>
                                         <th className="px-8 py-6">Examination Authority</th>
                                         <th className="px-8 py-6">Compliance Status</th>
@@ -137,7 +137,7 @@ export default function ScientificHubClient() {
                                         { a: "IB Diploma", c: "Certified", p: "GDC Functions", r: "Strict Firmware" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-indigo-500/5 transition-colors group">
-                                            <td className="px-8 py-6 text-white">{row.a}</td>
+                                            <td className="px-8 py-6 text-slate-900">{row.a}</td>
                                             <td className="px-8 py-6">{row.c}</td>
                                             <td className="px-8 py-6">{row.p}</td>
                                             <td className="px-8 py-6 text-indigo-600 font-mono text-[10px] uppercase tracking-widest">{row.r}</td>
@@ -152,13 +152,13 @@ export default function ScientificHubClient() {
                     <div className="space-y-8">
                         <div className="flex items-center gap-4 border-l-4 border-white/20 pl-6">
                             <div>
-                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">III. Computational Engine Specification</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Floating-Point Benchmarks ??IEEE 754 Integrity</p>
+                                <h2 className="text-2xl font-black text-slate-900 italic uppercase tracking-tighter">III. Computational Engine Specification</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Floating-Point Benchmarks  - IEEE 754 Integrity</p>
                             </div>
                         </div>
-                        <div className="overflow-x-auto rounded-[2rem] border border-white/5 bg-slate-950 shadow-2xl">
+                        <div className="overflow-x-auto rounded-[2rem] border border-slate-200 bg-slate-50 shadow-2xl">
                             <table className="w-full text-left border-collapse min-w-[600px]">
-                                <thead className="bg-white/5 border-b border-white/10 text-[10px] font-black tracking-[0.2em] text-slate-500 uppercase">
+                                <thead className="bg-slate-100 border-b border-slate-200 text-[10px] font-black tracking-[0.2em] text-slate-500 uppercase">
                                     <tr>
                                         <th className="px-8 py-6">Precision Metadata</th>
                                         <th className="px-8 py-6">Mathematical Range</th>
@@ -172,11 +172,11 @@ export default function ScientificHubClient() {
                                         { m: "Exponent Boundary", r: "10^-308 to 10^308", l: "Double-Float Overflow", s: "64-Bit" },
                                         { m: "Transcendental Error", r: "< 10^-15 Gap", l: "Taylor Series Recon", s: "S-Class" }
                                     ].map((row, i) => (
-                                        <tr key={i} className="hover:bg-white/5 transition-colors group">
-                                            <td className="px-8 py-6 text-white">{row.m}</td>
+                                        <tr key={i} className="hover:bg-slate-100 transition-colors group">
+                                            <td className="px-8 py-6 text-slate-900">{row.m}</td>
                                             <td className="px-8 py-6 text-xs">{row.r}</td>
                                             <td className="px-8 py-6 text-xs font-mono">{row.l}</td>
-                                            <td className="px-8 py-6 text-[10px] uppercase tracking-widest text-white/40">{row.s}</td>
+                                            <td className="px-8 py-6 text-[10px] uppercase tracking-widest text-slate-500">{row.s}</td>
                                         </tr>
                                     ))}
                                 </tbody>
@@ -188,19 +188,19 @@ export default function ScientificHubClient() {
             </section>
 
             {/* Expert Analysis Section - Secondary Links */}
-            <section className="py-24 border-t border-white/5 bg-slate-900/10">
+            <section className="py-24 border-t border-slate-200 bg-slate-50">
                 <div className="max-w-5xl mx-auto px-6">
                     <div className="grid md:grid-cols-3 gap-8">
-                        <a href="#functions" className="p-10 bg-white/5 border border-white/10 rounded-[3rem] hover:bg-white/10 transition-all group relative overflow-hidden">
-                            <h3 className="text-xl font-black text-white italic mb-2 group-hover:text-blue-500 transition-colors">Function List</h3>
+                        <a href="#functions" className="p-10 bg-slate-100 border border-slate-200 rounded-[3rem] hover:bg-slate-200 transition-all group relative overflow-hidden">
+                            <h3 className="text-xl font-black text-slate-900 italic mb-2 group-hover:text-blue-500 transition-colors">Function List</h3>
                             <p className="text-slate-500 text-xs font-bold italic">Detailed guide to all math operators.</p>
                         </a>
-                        <a href="#compliance" className="p-10 bg-white/5 border border-white/10 rounded-[3rem] hover:bg-white/10 transition-all group relative overflow-hidden">
-                            <h3 className="text-xl font-black text-white italic mb-2 group-hover:text-blue-500 transition-colors">Test Guides</h3>
+                        <a href="#compliance" className="p-10 bg-slate-100 border border-slate-200 rounded-[3rem] hover:bg-slate-200 transition-all group relative overflow-hidden">
+                            <h3 className="text-xl font-black text-slate-900 italic mb-2 group-hover:text-blue-500 transition-colors">Test Guides</h3>
                             <p className="text-slate-500 text-xs font-bold italic">Calculator rules for SAT/ACT 2026.</p>
                         </a>
-                        <a href="#physics" className="p-10 bg-white/5 border border-white/10 rounded-[3rem] hover:bg-white/10 transition-all group relative overflow-hidden">
-                            <h3 className="text-xl font-black text-white italic mb-2 group-hover:text-blue-500 transition-colors">Physics Toolkit</h3>
+                        <a href="#physics" className="p-10 bg-slate-100 border border-slate-200 rounded-[3rem] hover:bg-slate-200 transition-all group relative overflow-hidden">
+                            <h3 className="text-xl font-black text-slate-900 italic mb-2 group-hover:text-blue-500 transition-colors">Physics Toolkit</h3>
                             <p className="text-slate-500 text-xs font-bold italic">Core constants and unit conversions.</p>
                         </a>
                     </div>
@@ -208,7 +208,7 @@ export default function ScientificHubClient() {
             </section>
 
             {/* Citations: Institutional Credibility 5+ Sources */}
-            <section className="py-24 border-y border-white/5 bg-slate-900/5">
+            <section className="py-24 border-y border-slate-200 bg-slate-50">
                 <div className="max-w-4xl mx-auto px-6">
                     <h2 className="text-xs font-black text-slate-500 uppercase tracking-[0.2em] mb-12 text-center">Institutional Citations & Scientific Source Integrity</h2>
                     <div className="grid md:grid-cols-2 gap-12">
@@ -221,7 +221,7 @@ export default function ScientificHubClient() {
                         ].map((cite, i) => (
                             <a key={i} href={cite.l} target="_blank" rel="noopener noreferrer" className="space-y-2 first:col-span-2 group block">
                                 <div className="text-[9px] font-black text-blue-600 uppercase tracking-widest">{cite.s}</div>
-                                <h4 className="text-sm font-black text-white group-hover:text-blue-500 transition-colors underline decoration-white/5 underline-offset-4">{cite.t}</h4>
+                                <h4 className="text-sm font-black text-slate-900 group-hover:text-blue-500 transition-colors underline decoration-white/5 underline-offset-4">{cite.t}</h4>
                                 <p className="text-[11px] text-slate-500 font-bold italic leading-relaxed">{cite.d}</p>
                             </a>
                         ))}
@@ -232,7 +232,7 @@ export default function ScientificHubClient() {
             {/* Bottom CTA */}
             <section className="py-24 bg-blue-600">
                 <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
-                    <h2 className="text-4xl md:text-6xl font-black text-white italic tracking-tighter uppercase leading-none">
+                    <h2 className="text-4xl md:text-6xl font-black text-slate-900 italic tracking-tighter uppercase leading-none">
                         Execute Precision <span className="underline decoration-white/20 underline-offset-8">Math Now.</span>
                     </h2>
                     <p className="text-blue-100 text-lg md:text-xl font-bold italic">Free professional-grade scientific engine for all computational needs.</p>
@@ -250,3 +250,6 @@ export default function ScientificHubClient() {
         </div>
     );
 }
+
+
+

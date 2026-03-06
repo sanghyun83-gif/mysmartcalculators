@@ -4,7 +4,7 @@ import MortgageClient from "./MortgageClient";
 
 const id = "mortgage";
 const meta = getCalculatorMeta(id);
-const mortgageCalc = CALCULATORS.find(c => c.id === "mortgage/calculator");
+const mortgageCalc = CALCULATORS.find((c) => c.id === "mortgage/calculator");
 
 export const metadata = {
   title: meta?.title,
@@ -19,6 +19,14 @@ export default function CalcMortgagePage() {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebPage",
+        "name": meta?.title,
+        "description": meta?.description,
+        "url": meta?.canonical,
+        "inLanguage": "en-US",
+        "dateModified": "2026-03-06",
+      },
+      {
         "@type": "SoftwareApplication",
         "name": meta?.title,
         "operatingSystem": "All",
@@ -29,29 +37,6 @@ export default function CalcMortgagePage() {
           "price": "0",
           "priceCurrency": "USD"
         }
-      },
-      {
-        "@type": "HowTo",
-        "name": "How to Calculate Mortgage Payments",
-        "description": "Step-by-step institutional audit of your monthly mortgage obligations.",
-        "step": [
-          {
-            "@type": "HowToStep",
-            "text": "Specify the total home purchase price and down payment percentage."
-          },
-          {
-            "@type": "HowToStep",
-            "text": "Select the institutional interest rate and loan term duration."
-          },
-          {
-            "@type": "HowToStep",
-            "text": "Audit additional monthly costs including property tax and PMI."
-          },
-          {
-            "@type": "HowToStep",
-            "text": "Execute the calculation engine to generate the full amortization schedule."
-          }
-        ]
       },
       {
         "@type": "BreadcrumbList",
@@ -78,16 +63,16 @@ export default function CalcMortgagePage() {
       },
       {
         "@type": "FAQPage",
-        "mainEntity": mortgageCalc?.faqs.map(faq => ({
+        "mainEntity": mortgageCalc?.faqs.map((faq) => ({
           "@type": "Question",
           "name": faq.question,
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": faq.answer
-          }
-        }))
-      }
-    ]
+            "text": faq.answer,
+          },
+        })),
+      },
+    ],
   };
 
   return (

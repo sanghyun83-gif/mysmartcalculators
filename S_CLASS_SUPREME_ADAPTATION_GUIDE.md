@@ -1,120 +1,446 @@
-# S-CLASS SUPREME: General Standardization & Adaptation Prompt (v5.0 - Calculator.net Paradigm / Clinical Light Theme)
+﻿# S-CLASS SUPREME ADAPTATION GUIDE (v6.1)
+## Google-Compliant Thick Content Framework for 2026
 
-Use this prompt to generate or refactor ANY calculator to the 2026 "One-Page Supreme" standard. This standard abandons dark mode entirely. It is strictly modeled after Calculator.net's maximum utility, extreme information density, tight spacing, and clinical Light Theme, combined with elite E-E-A-T (Trust) signals and modern Tailwind aesthetics.
-
----
-
-## 🎯 The Objective
-Convert any existing calculator or create a new one using the **High-Intensity One-Page Architecture**. Zero subpages, 0ms LCP, perfect Google Authority Semantics, and an Above-the-Fold hyper-compact 2-column UI with a stark, highly readable Light Theme.
+Last Updated: 2026-03-06
+Status: Active Standard
 
 ---
 
-## 🛠️ Step 1: Mapping the Variables
-Before writing code, identify these variables for your target calculator:
+## 0) Scope and Positioning
+This document is an internal production standard.
+It is NOT a search landing page itself.
 
-- **`[ID]`**: The registry ID (e.g., `mortgage`, `loan`, `dti`, `bmr`).
-- **`[TITLE]`**: Functional name (e.g., "Mortgage Calculator", "BMR Engine").
-- **`[ICON]`**: Lucide-react icon name (e.g., `Home`, `DollarSign`, `Activity`, `Flame`).
-- **`[TAILWIND_COLOR]`**: The base Tailwind color name for primary UI actions (e.g., `blue`, `indigo`, `teal`).
-- **`[SCHEMA_CATEGORY]`**: `InvestmentApplication`, `FinanceApplication`, or `HealthApplication`.
-- **`[AUTHORITY_SOURCE]`**: The primary data source for E-E-A-T (e.g., "WHO 2026 Guidelines", "Federal Reserve Data").
+- Purpose: define how to build calculator pages that are useful, trustworthy, and policy-safe.
+- Non-purpose: mass-produce templated pages for index inflation.
 
----
-
-## 🏗️ Step 2: The Four-File Architecture Generation
-
-### 📁 File 1: `lib/calculators/[id].ts` (Core Logic & Data)
-**TEMPLATE**:
-1. Write the mathematical calculation logic.
-2. Provide precise 2026 standardized data/constants.
-3. Generate exactly 15 highly professional, intent-driven FAQs for the Schema.
-
-### 📁 File 2: `app/(calculators)/[id]/page.tsx` (Server SEO)
-**TEMPLATE**:
-1. Swap `const id = "bmi"` with **`[ID]`**.
-2. Dynamically import **`[ID]Client`** (or Static Import if preferred).
-3. Map `jsonLd` fields to match the specific logic.
-
-### 📁 File 3: `app/(calculators)/[id]/layout.tsx` (Wrapper)
-**TEMPLATE**:
-1. Swap `brandName` with **`[TITLE]`**.
-2. Swap `brandIcon` with **`[ICON]`**.
-3. **Base Background (CRITICAL)**: Ensure the main layout background uses strict Light Mode: `bg-slate-50` or `bg-white`. **DO NOT** use any dark mode classes (no `slate-900`, no `zinc-950`). Text must be `text-slate-900`.
-
-### 📁 File 4: `app/(calculators)/[id]/[ID]Client.tsx` (Interactive Engine)
-**TEMPLATE - CRITICAL UI/UX RULES (HYPER-DENSITY & CLINICAL LIGHT THEME)**:
-
-1. **KILL THE GIANT HERO (Zero-Scroll Visibility)**: Remove massive header texts and huge paddings. The top `<header>` should only contain a compact title (`text-2xl font-bold text-slate-900`) and the Trust Badge. Use `pt-4` or `pt-6` max.
-2. **E-E-A-T TRUST SIGNALS**: Right below the H1 title, insert a compact badge:
-   - `<div className="flex items-center gap-1 text-[11px] text-slate-500 font-mono mb-4 uppercase tracking-wider"><ShieldCheck size={14} className="text-[TAILWIND_COLOR]-600"/> Verified by [AUTHORITY_SOURCE]</div>`
-3. **2-COLUMN DESKTOP GRID (MANDATORY)**: Wrap the main calculator section in a strict 2-column grid to ensure "At a glance" utility:
-   - `<div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">`
-   - **Left Column (Col span 5)**: The Input Form. Make it narrow and tight.
-   - **Right Column (Col span 7)**: The Results, dynamic visuals (Gauge/Chart), and real-time summaries. Make this column sticky `top-8` if possible.
-4. **HYPER-COMPACT DENSITY (CALCULATOR.NET STYLE)**:
-   - **DO NOT** use airy padding. Use `p-3` or `p-4` max inside form cards.
-   - Reduce form gaps to `gap-2` or `gap-3`.
-   - **Font Sizes**: Base text should be `text-sm`. Labels should be `text-sm font-semibold text-slate-700`.
-   - **Terminology (CRITICAL)**: Use professional, standard terminology. **AVOID** overly clinical or sci-fi labels.
-      - **YES**: Height, Weight, Age, Activity, Goal, Gender, Result, Daily Target, Maintenance, Weight Loss, Diet Plan.
-      - **NO**: Stature, Current Mass, Biological Age, Activity Tier, Target Transformation, Biological Audit, Thermodynamic Maintenance, Metabolic Audit, Hypertrophic Gain, Intake Flux, Energy Delta.
-   - **Inputs**: Tightly packed `h-9` or `h-10` inputs. `bg-white border border-slate-300 text-slate-900 shadow-sm`.
-4-1. **MICRO-LAYOUT FOR MULTI-PART INPUTS (CRITICAL FOR DENSITY)**:
-   - For inputs that require multiple fields (e.g., "Feet" and "Inches", or "Years" and "Months"), **NEVER stack them vertically or use massive dropdowns.**
-   - Place them horizontally in a single tight row: `<div className="flex flex-row items-center gap-2">`.
-   - Use small, inline input fields: `<input className="w-full h-9 text-sm px-2...">`.
-   - Append the unit directly inside or tightly next to the input to save space. Zero wasted vertical real estate.
-5. **CLINICAL LIGHT MODE & SEMANTIC COLORS (MANDATORY)**:
-   - **Base cards**: `bg-white border border-slate-200 shadow-sm rounded-md`.
-   - **Semantic Results (High Contrast)**: **DO NOT** use dark mode opacities. Use highly legible solid colors for results to give instant feedback:
-     - **Normal/Good/Healthy**: `text-emerald-800 bg-emerald-50 border border-emerald-200 font-bold`
-     - **Warning/Overweight**: `text-amber-800 bg-amber-50 border border-amber-200 font-bold`
-     - **Danger/Obese/Loss**: `text-rose-800 bg-rose-50 border border-rose-200 font-bold`
-    - **Calculate button**: Use **Emerald-600** (`bg-emerald-600 hover:bg-emerald-700`) as the global S-Class action standard for maximum clinical trust.
-6. **Derived State Engine**: **DO NOT** use `useEffect` to set results. Calculate inside a `const result = (() => { ... })();` closure.
-7. **Mobile UX**: Stack columns (`grid-cols-1`). Use `inputMode="decimal"`.
-8. **Dense Authority Encyclopedia**: Below the calculator, provide a tightly packed text section.
-   - Use `text-sm leading-relaxed text-slate-700`.
-    - **Tables**: Extremely compact (`text-xs` or `text-sm`, `py-1.5 px-2`), alternating row colors (`even:bg-slate-50`), with a solid gray header (`bg-slate-100 border-b border-slate-300`).
-9. **ABSOLUTE FULL-PAGE LIGHT THEME (NO DARK SECTIONS ALLOWED)**:
-    - **Top Mini-Bar**: Must be **Slate-100** or lighter. Zero dark headers.
-    - The ENTIRE page from top to bottom (including the encyclopedia, FAQs, and Footer) MUST share the same light background.
-    - **DO NOT under any circumstances use dark backgrounds (`bg-slate-900`, `bg-slate-800`, `bg-black`) for any section, including the lower half or the footer.**
-    - The FAQ section must have a white or very light gray background (`bg-slate-50`).
-    - **Footer**: The Footer must be a soft light gray (**bg-slate-100** or `bg-slate-50`) with `text-slate-900` or `text-slate-500` and a subtle `border-t border-slate-200`. **ZERO** dark contrast. Maintain a 100% cohesive clinical document feel.
-
-10. **INPUT COMPACTION**:
-   - For multi-part inputs like ft/in, use text inputs instead of bulky select dropdowns if possible, to make it even more compact. Example: `<input type="number" className="w-16 h-9..." /> ft`
+If this document is publicly reachable, keep it out of search index (`noindex`) or move it to internal docs.
 
 ---
 
-## 📋 Step 3: Final Refactoring Checklist
-Ensure the generated code passes these rigid tests:
+## 0.5) Strategic Lock (Mandatory)
+This strategy is locked and non-optional:
 
-- [ ] **Clinical Light Theme**: Is there absolutely ZERO black/dark mode background? Is the text stark black/dark gray (`text-slate-900`) on white backgrounds?
-- [ ] **Hyper-Density**: Are the input fields, buttons, and tables tightly packed with minimal padding (`p-2`, `gap-2`, `text-sm`) like Calculator.net?
-- [ ] **Zero-Scroll Visibility**: Can the user see the inputs AND the calculate button immediately upon page load without scrolling?
-- [ ] **2-Column Verification**: Is the grid applied so inputs (left) and results (right) sit side-by-side perfectly on desktop?
-- [ ] **Semantic Color Check**: Did you use pastel backgrounds (`emerald-50`) with dark text (`emerald-800`) for highly readable result states?
-- [ ] **E-E-A-T Visibility**: Is the `[AUTHORITY_SOURCE]` badge clearly visible at the top, and are citations present at the bottom?
-- [ ] **Inline Input Check**: Are multi-part inputs (like ft/in) placed perfectly side-by-side in a single row without wasting vertical space?
-- [ ] **Footer Cohesion**: Did you remove the jarring pitch-black background from the footer and replace it with a cohesive `slate-800` or `slate-100`?
+1. Keep single-page architecture by default.
+2. Intensify E-E-A-T and thick content inside that page.
+3. Treat rich result as a bonus, not the product goal.
 
----
-
-**REFERENCE ARCHITECTURE (BMI)**:
-Use `S_CLASS_SUPREME_SOURCE_CODE_STANDARD.md` as the raw logic/schema baseline, but **COMPLETELY OVERRIDE** its layout, padding, and color scheme with the Hyper-Dense 2-Column Grid and Clinical Light Theme rules defined in Step 2. Generate the full, production-ready code for all 4 files.
+Why this is the safest path:
+- Single page reduces duplication and maintenance drift.
+- Thick content improves trust and practical usefulness.
+- Rich result depends on policy and eligibility, so it cannot be the core KPI.
 
 ---
 
-## 🏆 S-Class Standardized Registry
-The following units have been successfully evolved to the **One-Page Supreme (v5.0)** standard. **DO NOT** revert these to legacy architectures.
+## 1) Hard Truth (Policy Baseline)
+Do not treat "rich results" as the primary goal.
 
-| Unit ID | Standardization Date | Paradigm | Key Features |
-| :--- | :--- | :--- | :--- |
-| `bmi` | 2026-02-23 | v5.0 | Clinical Light Theme, Hyper-Density (5:7 Grid), Emerald Sync |
-| `calorie` | 2026-02-23 | v5.0 | Zero Dark Cohesion, Terminology Purge, Emerald Sync |
-| `body-fat` | 2026-02-25 | v5.0 | Absolute Light Cohesion, Legacy Purge, Jargon Cleanse |
-| `mortgage` | 2026-02-26 | v5.0 | One-Page Consolidation, Zero-Subpage Redirect, Clinical Light Cohesion |
-| `percentage` | 2026-02-26 | v5.0 | One-Page Engine Consolidation, Light Theme Cohesion, Finance Schema Alignment |
-| `gpa` | 2026-02-26 | v5.0 | One-Page Academic Engine, Zero-Subpage Redirect, Clinical Light Cohesion |
+Primary goal:
+- People-first, useful, accurate calculator pages.
+
+Secondary goal:
+- Structured data hygiene for eligibility (not guaranteed visibility).
+
+Google policy-aligned facts:
+1. Structured data does not guarantee rich result display.
+2. Markup must match visible on-page content.
+3. FAQ rich results are heavily limited and should not be your main strategy.
+4. Scaled/templated low-value production is a ranking and spam risk.
+
+References:
+- SD policies: https://developers.google.com/search/docs/appearance/structured-data/sd-policies
+- FAQPage: https://developers.google.com/search/docs/appearance/structured-data/faqpage
+- FAQ/HowTo changes: https://developers.google.com/search/blog/2023/08/howto-faq-changes
+- Helpful content: https://developers.google.com/search/docs/fundamentals/creating-helpful-content
+- GenAI content guidance: https://developers.google.com/search/docs/fundamentals/using-gen-ai-content
+- Spam/auto-generated abuse context: https://developers.google.com/search/docs/advanced/guidelines/auto-gen-content
+
+---
+
+## 2) Strategy Shift (Thin -> Thick)
+Do not ship 100 thin calculators.
+Ship fewer pages with deeper utility and stronger trust signals.
+
+### Thick Content Definition (Required)
+A calculator page is "thick" only when ALL are true:
+1. Strong primary intent match (user can complete a real decision).
+2. Correct and testable formula logic.
+3. Practical interpretation section ("what this number means").
+4. Scenario examples (at least 3 realistic cases).
+5. Clear assumptions and limits.
+6. Source-backed references (official/legal/medical/standards where relevant).
+7. Update/freshness metadata (last reviewed date and basis).
+8. Clean readability (no encoding corruption, no jargon clutter, no template noise).
+
+If any item is missing, page is not thick yet.
+
+---
+
+## 3) Rich Result Reality for Calculator Sites
+For this project, rich result should be treated as a bonus layer.
+
+### Use structured data for correctness, not gimmicks
+Recommended baseline:
+- `WebPage`
+- `BreadcrumbList`
+- `SoftwareApplication` (calculator as tool)
+- `FAQPage` only when genuinely useful and policy-safe (do not depend on it)
+
+Do not:
+- Stuff FAQ only for SERP decoration.
+- Add markup not reflected in visible content.
+- Generate near-duplicate Q&A blocks across many pages.
+
+### Conservative schema stack (default)
+Use this by default on calculator pages:
+1. `WebPage`
+2. `SoftwareApplication`
+3. `BreadcrumbList`
+
+Use conditionally:
+- `FAQPage` only when the FAQ is truly user-facing, non-duplicative, and fully visible on page.
+
+---
+
+## 4) Production Architecture Standard
+Maintain one-page utility-first architecture by default.
+
+### Core files
+1. `lib/calculators/[id].ts`
+2. `app/(calculators)/[id]/page.tsx`
+3. `app/(calculators)/[id]/layout.tsx`
+4. `app/(calculators)/[id]/[ID]Client.tsx`
+
+### UI baseline
+- Clinical light theme only.
+- Compact and readable form layout.
+- Immediate above-the-fold utility.
+- Mobile-first interaction quality.
+
+### Subpage policy (locked)
+- New calculators: zero subpages by default.
+- Existing legacy subpages: temporary allowance only for backward compatibility.
+- Any new subpage requires explicit policy override in `FOUNDATION_FIRST_IMPLEMENTATION_PLAN.md`.
+
+### Single-page reinforcement
+- One calculator = one primary intent.
+- Absorb secondary content into the same page using anchored sections/toggles before creating new URLs.
+- If a subpage is unavoidable, document intent separation and canonical strategy first.
+
+---
+
+## 5) Priority Model (What to build next)
+Use weighted prioritization, not random expansion.
+
+### Scoring
+Score each candidate 1-5 on:
+1. User demand intent
+2. Decision value (money/health/legal impact)
+3. Differentiation potential (not commodity copy)
+4. Data reliability and citation strength
+5. Production cost vs quality payoff
+
+Priority score = (1+2+3+4+5)
+
+### Current top thick-upgrade priority (from standardized set)
+1. `mortgage`
+2. `loan`
+3. `salary`
+4. `age`
+5. `due-date`
+
+Why:
+- High recurring demand and practical decision context.
+- Clear room for scenario depth and trustworthy interpretation.
+- Strong potential to improve user satisfaction signals.
+
+---
+
+## 6) Quality Gate Before Publish (Mandatory)
+A page cannot ship unless all checks pass.
+
+### Content gate
+- No encoding corruption characters.
+- No placeholder/template residue.
+- No contradictory claims.
+- No pseudo-authority wording without evidence.
+
+### Utility gate
+- User can complete core calculation in under 30 seconds.
+- Result includes actionable explanation.
+- At least 3 scenario examples provided.
+
+### Trust gate
+- Formula or logic explained at user level.
+- Citations present where claims depend on external standards.
+- Last reviewed date present.
+- "Who/How/Why" block present:
+  - Who reviewed this page.
+  - How the model computes and rounds values.
+  - Why this page exists and what decision it helps.
+
+### Markup gate
+- Structured data matches visible content.
+- No unsupported/deceptive schema usage.
+
+### Thick depth gate
+- Interpretation section included ("what the result means in practice").
+- Scenario set included (3 or more realistic user cases).
+- Assumptions and limits clearly listed.
+- Sources section and freshness timestamp included.
+
+---
+
+## 7) Anti-Patterns (Do Not Do)
+1. Mass cloning with only keyword swaps.
+2. Overloaded jargon pretending expertise.
+3. FAQ inflation for rich result bait.
+4. Hidden or mismatched structured data.
+5. Shipping pages with broken text/encoding artifacts.
+
+---
+
+## 8) Execution Rhythm
+- Weekly: 3-5 pages max for true thick upgrade.
+- Each page gets: logic QA + content QA + schema QA.
+- Monthly: prune or merge low-value pages.
+
+Success metric set:
+1. Reduced thin/duplicate footprint.
+2. Improved engagement on upgraded pages.
+3. Stable indexing quality (fewer low-value URLs crawled).
+4. Higher trust and usability indicators.
+
+---
+
+## 9) Registry of Standardized Units (Current)
+Already standardized units:
+- bmi
+- calorie
+- body-fat
+- mortgage
+- percentage
+- gpa
+- scientific
+- age
+- loan
+- pregnancy
+- grade
+- tip
+- compound-interest
+- due-date
+- salary
+- binary
+- date
+- conversion
+- square-footage
+- ovulation
+- time-calculator
+
+Note:
+"Standardized" means architecture baseline is applied.
+It does NOT automatically mean "thick content complete."
+
+---
+
+## 10) Next Batch Candidate Pool (Traffic-First)
+1. dice-roller
+2. sales-tax
+3. margin
+4. p-value
+5. confidence-interval
+6. scientific-notation
+7. sig-fig
+8. square-root
+9. slope
+10. circumference
+11. exponent
+12. pythagorean-theorem
+13. day-counter
+14. time-zone
+15. hours-calculator
+16. concrete
+17. sleep
+18. pace
+19. height-calculator
+
+Rule:
+Do not execute this list as mass generation.
+Pull only the highest thick-potential items per sprint.
+
+---
+
+## 11) Definition of Done (Page-Level)
+A calculator page is done only when:
+1. Functional correctness verified.
+2. Thick content criteria all satisfied.
+3. Structured data policy-safe and content-matched.
+4. Readability and UX pass on desktop/mobile.
+5. No critical quality debt left open.
+6. Single-page intent integrity is preserved (or approved exception documented).
+
+---
+
+## 12) v6.2 Universal Addendum (All Calculator Topics)
+This addendum applies to every calculator domain: finance, health, legal, tax, and general.
+Use it as a universal quality layer, not a topic-specific option.
+
+### 12.1 Universal Required Blocks
+Every production calculator page must include:
+1. Intent and Decision Block
+2. Result Interpretation Block
+3. Scenario Comparison Block (3 or more)
+4. Assumptions and Limits Block
+5. Sources and Last Reviewed Block
+6. Who / How / Why Block
+
+### 12.2 Universal Input Depth Standard
+Input design must follow 3 levels:
+1. Core inputs (mandatory)
+2. Context inputs (recommended)
+3. Advanced inputs (topic-conditional)
+
+If advanced inputs are excluded, explain why and list impact on accuracy.
+
+### 12.3 Universal Output Depth Standard
+Output must provide:
+1. Primary result
+2. Secondary result(s)
+3. Sensitivity insight (how key variable changes affect output)
+4. Action statement ("what to do next")
+
+Use both:
+- Quick summary cards
+- Detailed table or breakdown
+
+### 12.4 Universal Scenario Rules
+Minimum 3 scenarios are mandatory.
+- Baseline
+- Conservative
+- Aggressive (or equivalent low/mid/high set)
+
+Each scenario must include:
+1. Inputs
+2. Result
+3. Interpretation
+4. Delta vs baseline
+
+### 12.5 Universal E-E-A-T Evidence Rules
+1. Prefer primary sources (official standards, government, institution, peer-reviewed where applicable).
+2. Do not make authority claims without source mapping.
+3. Show review freshness:
+   - Last reviewed date
+   - Review basis
+   - Update cadence target
+4. Ban pseudo-authority copy and unverifiable superlatives.
+
+### 12.6 Universal Structured Data Policy
+Default stack:
+1. `WebPage`
+2. `SoftwareApplication`
+3. `BreadcrumbList`
+
+Conditional stack:
+- `FAQPage` only when questions are genuinely user-facing, fully visible, and non-duplicative.
+
+Rules:
+1. Structured data must match visible content exactly.
+2. No unsupported/deceptive markup.
+3. Rich result is treated as a bonus KPI, never the primary KPI.
+
+### 12.7 Universal Single-Page Intent Rule
+Default:
+- One calculator page for one primary intent.
+
+Exception:
+- Multi-page separation is allowed only with documented intent separation, canonical plan, and internal link rationale.
+
+### 12.8 Universal Anti-Thin Controls
+Do not ship:
+1. Keyword-swap clones
+2. Near-duplicate FAQ blocks at scale
+3. Placeholder/template residue
+4. Broken encoding or unreadable copy
+5. High-volume pages with no unique decision value
+
+### 12.9 Universal Pre-Publish Quality Gates
+All pages must pass:
+1. Content gate
+2. Utility gate
+3. Trust gate
+4. Markup gate
+5. Thin-risk gate
+
+Failing any gate blocks release.
+
+### 12.10 Universal Done Definition Update
+"Standardized" and "Thick-complete" are different states.
+
+- Standardized: architecture and baseline UI rules applied.
+- Thick-complete: universal required blocks + evidence + interpretation depth all satisfied.
+
+### 12.11 Universal Metrics
+Track per page:
+1. Thick score (0-100)
+2. Scenario completeness
+3. Source quality coverage
+4. Freshness status
+5. Thin-risk status
+
+Use these metrics for merge, prune, merge-into-hub, or redirect decisions.
+
+---
+
+## 13) v6.3 Universal Gap Patch (Depth + Decision + Delta)
+This section patches the remaining top-tier gaps found in production audits.
+Apply to all calculator topics.
+
+### 13.1 Calculation Depth Upgrade (Universal)
+Each calculator must support:
+1. Core mode (simple inputs)
+2. Advanced mode (decision-critical variables)
+
+Advanced mode requirements:
+- At least 2 additional variables that materially change outcomes
+- Sensitivity output for those variables
+- Clear note when advanced mode is unavailable and why
+
+Examples of advanced variables (topic-adapted):
+- Finance: payment frequency, start date, recurring/one-time extra payments, fee/tax assumptions
+- Health: activity level variants, threshold model version, edge-case flags
+- Legal: state/jurisdiction modifier, liability ratio, fee/cost assumptions
+- Tax: filing status variants, deduction mode, state/local overlays
+- General: unit system, precision mode, rounding standard
+
+### 13.2 Decision Completeness Upgrade (Universal)
+Each page must include a conditional action guide:
+1. If result is low / mid / high, what action is preferred
+2. If key variable changes beyond threshold, what to re-check
+3. What external document or expert check is needed before final decision
+
+Mandatory output sentence format:
+- "If [condition], do [action], because [impact]."
+
+### 13.3 Delta Comparison Upgrade (Universal)
+Scenario output must be visible as a first-class block, not buried.
+
+Minimum comparison table columns:
+1. Scenario name
+2. Inputs summary
+3. Primary result
+4. Delta vs baseline
+5. Decision note
+
+Minimum rows:
+- Baseline
+- Conservative
+- Aggressive (or equivalent low/mid/high)
+
+### 13.4 Release Gate Additions
+Add these release blockers:
+1. No advanced-mode effect: fail
+2. No conditional action guide: fail
+3. No scenario delta table: fail
+
+### 13.5 Universal Implementation Rule
+Do not inflate content length for appearance.
+Only add sections that improve decision quality, variable transparency, and scenario comparability.

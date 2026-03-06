@@ -6,14 +6,14 @@ import { ArrowRight, Home, CheckCircle, TrendingDown, PiggyBank, Calculator, Shi
 
 
 const FAQSection = ({ faqs }: { faqs: readonly any[] }) => (
-  <section id="faq" className="py-24 bg-slate-900/50 overflow-hidden relative">
+  <section id="faq" className="py-24 bg-white overflow-hidden relative">
     <div className="max-w-4xl mx-auto px-6 relative">
-      <h2 className="text-3xl font-black text-white mb-16 text-center italic">Mortgage <span className="text-blue-500">FAQ</span>.</h2>
+      <h2 className="text-3xl font-black text-slate-900 mb-16 text-center italic">Mortgage <span className="text-blue-500">FAQ</span>.</h2>
       <div className="space-y-6">
         {faqs.map((faq, i) => (
-          <div key={i} className="p-8 bg-slate-900 border border-white/5 rounded-[2.5rem] hover:border-blue-500/30 transition-all group shadow-2xl">
-            <h3 className="text-lg font-black text-white mb-4 flex items-center gap-4 italic group-hover:text-blue-500">
-              <span className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-[10px] text-white not-italic">{i + 1}</span>
+          <div key={i} className="p-8 bg-white border border-slate-200 rounded-[2.5rem] hover:border-blue-500/30 transition-all group shadow-2xl">
+            <h3 className="text-lg font-black text-slate-900 mb-4 flex items-center gap-4 italic group-hover:text-blue-500">
+              <span className="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-[10px] text-slate-900 not-italic">{i + 1}</span>
               {faq.question}
             </h3>
             <p className="text-slate-400 leading-relaxed font-bold italic">{faq.answer}</p>
@@ -35,20 +35,20 @@ export default function HubClient() {
         <div className="max-w-7xl mx-auto px-6 relative text-center">
           <div className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-400/20 rounded-full px-4 py-2 mb-10 animate-pulse shadow-2xl shadow-blue-500/10">
             <CheckCircle className="w-4 h-4 text-blue-400" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-blue-300">{SITE.year} Market Rates • Verified Auditor</span>
+            <span className="text-[10px] font-black uppercase tracking-widest text-blue-300">{SITE.year} Market Rates  - Verified Auditor</span>
           </div>
 
-          <h1 className="text-6xl md:text-9xl font-black tracking-tighter mb-10 leading-[0.85] text-white">
+          <h1 className="text-6xl md:text-9xl font-black tracking-tighter mb-10 leading-[0.85] text-slate-900">
             Mortgage <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-400 to-indigo-600 italic underline decoration-white/10 underline-offset-[16px]">Logic.</span>
           </h1>
 
           <p className="max-w-3xl mx-auto text-xl md:text-2xl text-slate-400 font-bold mb-12 italic leading-relaxed">
-            Professional amortized payment simulation. Secure your financial future with <span className="text-white">actuarial-grade precision.</span>
+            Professional amortized payment simulation. Secure your financial future with <span className="text-slate-900">actuarial-grade precision.</span>
           </p>
 
           <Link
             href="/mortgage/calculator"
-            className="inline-flex items-center gap-4 bg-blue-600 hover:bg-blue-500 text-white px-12 py-6 rounded-[2.5rem] font-black text-sm uppercase tracking-[0.2em] transition-all hover:scale-105 shadow-2xl shadow-blue-600/30 group"
+            className="inline-flex items-center gap-4 bg-blue-600 hover:bg-blue-500 text-slate-900 px-12 py-6 rounded-[2.5rem] font-black text-sm uppercase tracking-[0.2em] transition-all hover:scale-105 shadow-2xl shadow-blue-600/30 group"
           >
             <Calculator className="w-5 h-5 group-hover:rotate-12 transition-transform" />
             Launch Calculator
@@ -58,20 +58,20 @@ export default function HubClient() {
       </section>
 
       {/* Task 2: Triple-Table Featured Snippet Architecture */}
-      <section id="institutional-audit" className="py-24 border-y border-white/5 bg-slate-900/10 backdrop-blur-3xl relative">
+      <section id="institutional-audit" className="py-24 border-y border-slate-200 bg-slate-50 backdrop-blur-3xl relative">
         <div className="max-w-7xl mx-auto px-6 space-y-24">
 
           {/* 1. Historical/Statistical Table */}
           <div className="space-y-8">
             <div className="flex items-center gap-4 border-l-4 border-blue-500 pl-6">
               <div>
-                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. 30-Year Fixed Mortgage Rate Evolution (2018–2026)</h2>
-                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Freddie Mac PMMS Historical Benchmarks • Market Cycles</p>
+                <h2 className="text-2xl font-black text-slate-900 italic uppercase tracking-tighter">I. 30-Year Fixed Mortgage Rate Evolution (2018 - 026)</h2>
+                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Freddie Mac PMMS Historical Benchmarks  - Market Cycles</p>
               </div>
             </div>
-            <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
+            <div className="overflow-x-auto rounded-[2.5rem] border border-slate-200 bg-slate-50 shadow-2xl">
               <table className="w-full text-left border-collapse min-w-[700px]">
-                <thead className="bg-white/5 border-b border-white/10 text-[10px] font-black tracking-[0.2em] text-blue-400 uppercase">
+                <thead className="bg-slate-100 border-b border-slate-200 text-[10px] font-black tracking-[0.2em] text-blue-400 uppercase">
                   <tr>
                     <th className="px-8 py-6">Fiscal Year</th>
                     <th className="px-8 py-6">Avg. Interest Rate</th>
@@ -87,7 +87,7 @@ export default function HubClient() {
                     { y: "2026 (P)", r: "6.12%", s: "+1.9%", e: "Institutional Plateau" }
                   ].map((row, i) => (
                     <tr key={i} className="hover:bg-blue-500/5 transition-colors group">
-                      <td className="px-8 py-6 text-white">{row.y}</td>
+                      <td className="px-8 py-6 text-slate-900">{row.y}</td>
                       <td className="px-8 py-6">{row.r}</td>
                       <td className="px-8 py-6 text-blue-500/70">{row.s}</td>
                       <td className="px-8 py-6 text-[10px] uppercase tracking-widest text-slate-600 font-mono">{row.e}</td>
@@ -102,13 +102,13 @@ export default function HubClient() {
           <div className="space-y-8 text-right md:text-left">
             <div className="flex items-center gap-4 border-r-4 md:border-r-0 md:border-l-4 border-indigo-500 pr-6 md:pr-0 md:pl-6 justify-end md:justify-start">
               <div>
-                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter text-right md:text-left">II. Loan-to-Value (LTV) Risk & Rate Premium Matrix</h2>
-                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Fannie Mae LLPA Benchmarks • Credit Tiers</p>
+                <h2 className="text-2xl font-black text-slate-900 italic uppercase tracking-tighter text-right md:text-left">II. Loan-to-Value (LTV) Risk & Rate Premium Matrix</h2>
+                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Fannie Mae LLPA Benchmarks  - Credit Tiers</p>
               </div>
             </div>
-            <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
+            <div className="overflow-x-auto rounded-[2.5rem] border border-slate-200 bg-slate-50 shadow-2xl">
               <table className="w-full text-left border-collapse min-w-[700px]">
-                <thead className="bg-white/5 border-b border-white/10 text-[10px] font-black tracking-[0.2em] text-indigo-400 uppercase">
+                <thead className="bg-slate-100 border-b border-slate-200 text-[10px] font-black tracking-[0.2em] text-indigo-400 uppercase">
                   <tr>
                     <th className="px-8 py-6">Equity Position (LTV)</th>
                     <th className="px-8 py-6">Institutional Rate Adj.</th>
@@ -118,13 +118,13 @@ export default function HubClient() {
                 </thead>
                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                   {[
-                    { l: "≤ 60% LTV", a: "Base Rate - 0.25%", p: "N/A", f: "Low Risk Tier" },
-                    { l: "70% – 80% LTV", a: "Base Rate + 0.125%", p: "N/A", f: "Standard Market" },
-                    { l: "85% – 95% LTV", a: "Base Rate + 0.50%", p: "MANDATORY", f: "High Leverage" },
+                    { l: " - 60% LTV", a: "Base Rate - 0.25%", p: "N/A", f: "Low Risk Tier" },
+                    { l: "70%  - 80% LTV", a: "Base Rate + 0.125%", p: "N/A", f: "Standard Market" },
+                    { l: "85%  - 95% LTV", a: "Base Rate + 0.50%", p: "MANDATORY", f: "High Leverage" },
                     { l: "> 95% LTV", a: "Base Rate + 0.85%", p: "MANDATORY", f: "Critical Tier" }
                   ].map((row, i) => (
                     <tr key={i} className="hover:bg-indigo-500/5 transition-colors group">
-                      <td className="px-8 py-6 text-white">{row.l}</td>
+                      <td className="px-8 py-6 text-slate-900">{row.l}</td>
                       <td className="px-8 py-6">{row.a}</td>
                       <td className="px-8 py-6 text-xs">{row.p}</td>
                       <td className="px-8 py-6 text-indigo-400 font-mono text-[10px] uppercase tracking-widest">{row.f}</td>
@@ -139,13 +139,13 @@ export default function HubClient() {
           <div className="space-y-8">
             <div className="flex items-center gap-4 border-l-4 border-white/20 pl-6">
               <div>
-                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">III. Amortization Engine Specification</h2>
-                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Mathematical Constants • CFPB TILA Logic</p>
+                <h2 className="text-2xl font-black text-slate-900 italic uppercase tracking-tighter">III. Amortization Engine Specification</h2>
+                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Mathematical Constants  - CFPB TILA Logic</p>
               </div>
             </div>
-            <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
+            <div className="overflow-x-auto rounded-[2.5rem] border border-slate-200 bg-slate-50 shadow-2xl">
               <table className="w-full text-left border-collapse min-w-[700px]">
-                <thead className="bg-white/5 border-b border-white/10 text-[10px] font-black tracking-[0.2em] text-slate-500 uppercase">
+                <thead className="bg-slate-100 border-b border-slate-200 text-[10px] font-black tracking-[0.2em] text-slate-500 uppercase">
                   <tr>
                     <th className="px-8 py-6">Computational Unit</th>
                     <th className="px-8 py-6">Formula Logic (P+I)</th>
@@ -155,15 +155,15 @@ export default function HubClient() {
                 </thead>
                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                   {[
-                    { u: "Constant Payment", l: "P × [r(1+r)ⁿ] / [(1+r)ⁿ - 1]", r: "Half-Up (Scale 4)", s: "Actuarial Grade" },
+                    { u: "Constant Payment", l: "P × [r(1+r) -  / [(1+r) - - 1]", r: "Half-Up (Scale 4)", s: "Actuarial Grade" },
                     { u: "Daily Int. Accrual", l: "(r / 360) × Bal", r: "8-Decimal Float", s: "Bank-Grade" },
                     { u: "Tax Reconciliation", l: "Annual millage / 12", r: "Truncated Delta", s: "Verified" }
                   ].map((row, i) => (
-                    <tr key={i} className="hover:bg-white/5 transition-colors group">
-                      <td className="px-8 py-6 text-white">{row.u}</td>
+                    <tr key={i} className="hover:bg-slate-100 transition-colors group">
+                      <td className="px-8 py-6 text-slate-900">{row.u}</td>
                       <td className="px-8 py-6 text-xs">{row.l}</td>
                       <td className="px-8 py-6 text-xs font-mono">{row.r}</td>
-                      <td className="px-8 py-6 text-[10px] uppercase tracking-widest text-white/40">{row.s}</td>
+                      <td className="px-8 py-6 text-[10px] uppercase tracking-widest text-slate-500">{row.s}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -184,15 +184,15 @@ export default function HubClient() {
                 <Link
                   key={calc.id}
                   href={`/${calc.id}`}
-                  className="group bg-slate-900 border border-white/5 rounded-[3.5rem] p-10 hover:border-blue-500/40 hover:-translate-y-2 transition-all shadow-2xl relative overflow-hidden"
+                  className="group bg-white border border-slate-200 rounded-[3.5rem] p-10 hover:border-blue-500/40 hover:-translate-y-2 transition-all shadow-2xl relative overflow-hidden"
                 >
                   <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:opacity-10 transition-opacity">
-                    <IconComponent className="w-24 h-24 text-white" />
+                    <IconComponent className="w-24 h-24 text-slate-900" />
                   </div>
                   <div className="p-4 bg-blue-500/10 rounded-2xl w-fit mb-8 group-hover:bg-blue-600 transition-colors">
-                    <IconComponent className="w-8 h-8 text-blue-500 group-hover:text-white" />
+                    <IconComponent className="w-8 h-8 text-blue-500 group-hover:text-slate-900" />
                   </div>
-                  <h3 className="text-2xl font-black text-white italic mb-4 uppercase tracking-tighter">
+                  <h3 className="text-2xl font-black text-slate-900 italic mb-4 uppercase tracking-tighter">
                     {calc.name}
                   </h3>
                   <p className="text-slate-400 font-bold mb-8 italic leading-relaxed text-sm">
@@ -209,16 +209,16 @@ export default function HubClient() {
       </section>
 
       {/* S-Class Deep Content: Mortgage Mastery Guide */}
-      <section className="py-32 bg-slate-900/20 relative overflow-hidden">
+      <section className="py-32 bg-slate-50 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-6 space-y-32">
 
           {/* Section 1: Mortgage Basics */}
           <div id="basics" className="space-y-12 scroll-mt-24">
-            <h2 className="text-5xl font-black text-white tracking-tighter leading-[0.9] italic uppercase">The PITI <span className="text-blue-500 underline decoration-white/10 underline-offset-8">Audit Framework.</span></h2>
+            <h2 className="text-5xl font-black text-slate-900 tracking-tighter leading-[0.9] italic uppercase">The PITI <span className="text-blue-500 underline decoration-white/10 underline-offset-8">Audit Framework.</span></h2>
 
-            <div className="overflow-x-auto rounded-[3.5rem] border border-white/5 bg-slate-900 shadow-2xl">
+            <div className="overflow-x-auto rounded-[3.5rem] border border-slate-200 bg-white shadow-2xl">
               <table className="w-full text-left border-collapse">
-                <thead className="bg-white/5 border-b border-white/10 uppercase text-[10px] font-black tracking-[0.2em] text-blue-500">
+                <thead className="bg-slate-100 border-b border-slate-200 uppercase text-[10px] font-black tracking-[0.2em] text-blue-500">
                   <tr>
                     <th className="px-8 py-6">Audit Component</th>
                     <th className="px-8 py-6">Institutional Definition</th>
@@ -233,7 +233,7 @@ export default function HubClient() {
                     { c: "Insurance", d: "Homeowners & Private Mortgage Insurance (PMI).", r: "Statutory Risk Mitigation" }
                   ].map((row, i) => (
                     <tr key={i} className="hover:bg-blue-500/5 transition-colors group">
-                      <td className="px-8 py-6 text-white group-hover:text-blue-500">{row.c}</td>
+                      <td className="px-8 py-6 text-slate-900 group-hover:text-blue-500">{row.c}</td>
                       <td className="px-8 py-6 text-xs text-slate-500">{row.d}</td>
                       <td className="px-8 py-6 text-[10px] text-blue-400 font-mono uppercase tracking-widest">{row.r}</td>
                     </tr>
@@ -245,9 +245,9 @@ export default function HubClient() {
 
           {/* Section 2: Interest Rates & Points */}
           <div id="rates" className="grid md:grid-cols-2 gap-24 items-center scroll-mt-24">
-            <div className="order-2 md:order-1 p-12 bg-white/5 border border-white/5 rounded-[4rem] space-y-8">
+            <div className="order-2 md:order-1 p-12 bg-slate-100 border border-slate-200 rounded-[4rem] space-y-8">
               <div className="bg-blue-600/20 rounded-3xl p-8 border border-blue-500/20">
-                <h4 className="text-lg font-black text-white italic mb-4">Rate vs. Point Analysis</h4>
+                <h4 className="text-lg font-black text-slate-900 italic mb-4">Rate vs. Point Analysis</h4>
                 <p className="text-sm text-blue-200/60 font-medium italic">Buying down your rate by 0.25% through 1 discount point can save $28,000+ on a $400k loan over 30 years. The break-even point is typically 5-7 years.</p>
               </div>
               <div className="space-y-4">
@@ -258,16 +258,16 @@ export default function HubClient() {
                 ].map((item, i) => (
                   <div key={i} className="flex justify-between items-center px-4">
                     <span className="text-xs font-black text-slate-500 uppercase italic">{item.l}</span>
-                    <span className="text-[10px] font-bold text-white italic">{item.d}</span>
+                    <span className="text-[10px] font-bold text-slate-900 italic">{item.d}</span>
                   </div>
                 ))}
               </div>
             </div>
             <div className="order-1 md:order-2 space-y-8">
-              <h2 className="text-5xl font-black text-white tracking-tighter italic uppercase">Yield <span className="text-blue-500 underline decoration-white/10 underline-offset-8">Optimization.</span></h2>
+              <h2 className="text-5xl font-black text-slate-900 tracking-tighter italic uppercase">Yield <span className="text-blue-500 underline decoration-white/10 underline-offset-8">Optimization.</span></h2>
               <div className="prose prose-invert prose-blue max-w-none text-slate-400 text-lg leading-relaxed font-bold italic space-y-6">
                 <p>
-                  Mortgage interest is calculated monthly, not annually, meaning your balance dictates the interest charge every 30 days. By utilizing <span className="text-white">discount points</span>, you are essentially pre-paying interest to secure a lower rate during the high-interest years of the loan.
+                  Mortgage interest is calculated monthly, not annually, meaning your balance dictates the interest charge every 30 days. By utilizing <span className="text-slate-900">discount points</span>, you are essentially pre-paying interest to secure a lower rate during the high-interest years of the loan.
                 </p>
                 <p>
                   Our simulator audits the <span className="text-blue-400">Freddie Mac PMMS</span> index to provide real-time benchmarks. Whether you are choosing between a 15-year fixed or a 5-year ARM, the goal is always to minimize the Total Interest Paid (TIP).
@@ -279,7 +279,7 @@ export default function HubClient() {
           {/* Section 3: PMI Guide */}
           <div id="pmi" className="space-y-16 scroll-mt-24">
             <div className="text-center space-y-6">
-              <h2 className="text-5xl font-black text-white tracking-tighter italic uppercase underline decoration-blue-600 decoration-8 underline-offset-[12px]">PMI Termination <span className="text-blue-500">Playbook.</span></h2>
+              <h2 className="text-5xl font-black text-slate-900 tracking-tighter italic uppercase underline decoration-blue-600 decoration-8 underline-offset-[12px]">PMI Termination <span className="text-blue-500">Playbook.</span></h2>
               <p className="max-w-3xl mx-auto text-slate-400 font-bold italic text-lg">Private Mortgage Insurance is a wealth-eater. Our guide focuses on the 80% LTV threshold required by federal law for automatic removal.</p>
             </div>
             <div className="grid md:grid-cols-3 gap-8">
@@ -288,8 +288,8 @@ export default function HubClient() {
                 { t: "Automated Exit", d: "Lenders MUST terminate PMI when you hit 78% LTV, provided you are current on all payments." },
                 { t: "Re-Appraisal Exit", d: "In rising markets, an appraisal showing 20% equity can bypass years of scheduled payments." }
               ].map((card, i) => (
-                <div key={i} className="p-10 bg-slate-900 border border-white/5 rounded-[3rem] space-y-4 hover:border-blue-500/20 transition-all">
-                  <h4 className="text-sm font-black text-white uppercase italic tracking-widest">{card.t}</h4>
+                <div key={i} className="p-10 bg-white border border-slate-200 rounded-[3rem] space-y-4 hover:border-blue-500/20 transition-all">
+                  <h4 className="text-sm font-black text-slate-900 uppercase italic tracking-widest">{card.t}</h4>
                   <p className="text-xs text-slate-500 font-bold italic leading-loose">{card.d}</p>
                 </div>
               ))}
@@ -299,13 +299,13 @@ export default function HubClient() {
           {/* Section 4: Taxes & Escrow */}
           <div id="tax" className="grid md:grid-cols-2 gap-24 items-center mb-32 scroll-mt-24">
             <div className="space-y-8">
-              <h2 className="text-5xl font-black text-white tracking-tighter italic uppercase leading-none">The Escrow <span className="text-blue-500 italic block">Surplus Audit.</span></h2>
+              <h2 className="text-5xl font-black text-slate-900 tracking-tighter italic uppercase leading-none">The Escrow <span className="text-blue-500 italic block">Surplus Audit.</span></h2>
               <div className="prose prose-invert prose-blue max-w-none text-slate-400 text-lg leading-relaxed font-bold italic">
                 <p>
-                  Property taxes and homeowners insurance are volatile components of your PITI payment. Escrow analysis happens annually, often resulting in <span className="text-white underline decoration-white/10 underline-offset-4">&quot;Surplus&quot; or &quot;Shortfall&quot;</span> adjustments that can swing your monthly payment by hundreds of dollars.
+                  Property taxes and homeowners insurance are volatile components of your PITI payment. Escrow analysis happens annually, often resulting in <span className="text-slate-900 underline decoration-white/10 underline-offset-4">&quot;Surplus&quot; or &quot;Shortfall&quot;</span> adjustments that can swing your monthly payment by hundreds of dollars.
                 </p>
               </div>
-              <div className="bg-slate-950/50 p-8 rounded-[2rem] border border-white/5 space-y-4">
+              <div className="bg-slate-50/50 p-8 rounded-[2rem] border border-slate-200 space-y-4">
                 <div className="flex items-center gap-4 text-xs font-black text-blue-400 uppercase tracking-widest">
                   <Calculator className="w-5 h-5 text-blue-500" /> FHFA Reliability Standards
                 </div>
@@ -319,9 +319,9 @@ export default function HubClient() {
                 { l: "HELOC", d: "Secondary lien equity." },
                 { l: "P&I Calc", d: "Constant amort logic." }
               ].map((item, i) => (
-                <div key={i} className="p-8 bg-slate-900/50 border border-white/5 rounded-3xl text-center space-y-2 group hover:bg-white/5 transition-all">
+                <div key={i} className="p-8 bg-white border border-slate-200 rounded-3xl text-center space-y-2 group hover:bg-slate-100 transition-all">
                   <div className="text-[10px] font-black text-slate-500 uppercase tracking-widest underline decoration-blue-500/20 underline-offset-4">{item.l}</div>
-                  <div className="text-xs font-black text-white italic">{item.d}</div>
+                  <div className="text-xs font-black text-slate-900 italic">{item.d}</div>
                 </div>
               ))}
             </div>
@@ -330,7 +330,7 @@ export default function HubClient() {
       </section>
 
       {/* Citations: Institutional Credibility 5+ Sources (E-E-A-T) */}
-      <section className="py-24 border-y border-white/5 bg-slate-900/5 backdrop-blur-3xl">
+      <section className="py-24 border-y border-slate-200 bg-slate-50 backdrop-blur-3xl">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-xs font-black text-slate-500 uppercase tracking-[0.2em] mb-12 text-center underline decoration-blue-600 decoration-1 underline-offset-[12px]">Institutional Citations & Real Estate Source Integrity</h2>
           <div className="grid md:grid-cols-2 gap-12">
@@ -341,20 +341,20 @@ export default function HubClient() {
               { s: "CFPB", t: "TILA-RESPA Integrated Disclosure (TRID) Compliance", d: "Ensuring maximum transparency in consumer home loan logic.", l: "https://www.consumerfinance.gov/" },
               { s: "IRS", t: "Publication 936: Home Mortgage Interest Deduction", d: "Official tax implications for property owners.", l: "https://www.irs.gov/publications/p936" }
             ].map((cite, i) => (
-              <a key={cite.s} href={cite.l} target="_blank" rel="noopener noreferrer" className="space-y-2 first:col-span-2 group pt-6 border-t border-white/5">
+              <a key={cite.s} href={cite.l} target="_blank" rel="noopener noreferrer" className="space-y-2 first:col-span-2 group pt-6 border-t border-slate-200">
                 <div className="text-[9px] font-black text-blue-600 uppercase tracking-widest">{cite.s}</div>
-                <h4 className="text-sm font-black text-white group-hover:text-blue-500 transition-colors underline decoration-white/5 underline-offset-4">{cite.t}</h4>
+                <h4 className="text-sm font-black text-slate-900 group-hover:text-blue-500 transition-colors underline decoration-white/5 underline-offset-4">{cite.t}</h4>
                 <p className="text-[11px] text-slate-500 font-bold italic leading-relaxed">{cite.d}</p>
               </a>
             ))}
           </div>
           {/* Section 5: Market Cycles & Refinancing Strategy */}
           <div id="refinance" className="space-y-12 scroll-mt-24 pb-20">
-            <h2 className="text-5xl font-black text-white tracking-tighter italic uppercase underline decoration-blue-600 decoration-4 underline-offset-8">Refinance <span className="text-blue-500">Arbitrage Metrics.</span></h2>
+            <h2 className="text-5xl font-black text-slate-900 tracking-tighter italic uppercase underline decoration-blue-600 decoration-4 underline-offset-8">Refinance <span className="text-blue-500">Arbitrage Metrics.</span></h2>
 
-            <div className="overflow-x-auto rounded-[3.5rem] border border-white/5 bg-slate-900 shadow-2xl">
+            <div className="overflow-x-auto rounded-[3.5rem] border border-slate-200 bg-white shadow-2xl">
               <table className="w-full text-left border-collapse">
-                <thead className="bg-white/5 border-b border-white/10 uppercase text-[10px] font-black tracking-[0.2em] text-blue-500">
+                <thead className="bg-slate-100 border-b border-slate-200 uppercase text-[10px] font-black tracking-[0.2em] text-blue-500">
                   <tr>
                     <th className="px-8 py-6">Refi Strategy</th>
                     <th className="px-8 py-6">Arbitrage Objective</th>
@@ -369,7 +369,7 @@ export default function HubClient() {
                     { s: "Streamline Refi", o: "FHA/VA rapid rate drops (no appraisal).", t: "12 Months" }
                   ].map((row, i) => (
                     <tr key={i} className="hover:bg-blue-500/5 transition-colors group">
-                      <td className="px-8 py-6 text-white group-hover:text-blue-500">{row.s}</td>
+                      <td className="px-8 py-6 text-slate-900 group-hover:text-blue-500">{row.s}</td>
                       <td className="px-8 py-6 text-xs text-slate-500">{row.o}</td>
                       <td className="px-8 py-6 text-[10px] text-emerald-400 font-mono uppercase tracking-widest">{row.t}</td>
                     </tr>
@@ -385,15 +385,15 @@ export default function HubClient() {
       <FAQSection faqs={CALCULATORS.find(c => c.id === "mortgage/calculator")?.faqs || []} />
 
       {/* Final CTA / EEAT Wall */}
-      <section className="py-32 border-t border-white/5 overflow-hidden">
+      <section className="py-32 border-t border-slate-200 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center space-y-16">
           <div className="flex -space-x-4">
             {[1, 2, 3, 4, 5].map(i => (
-              <div key={i} className="w-16 h-16 rounded-full border-4 border-slate-950 bg-slate-900 flex items-center justify-center text-[10px] font-black text-blue-500 shadow-2xl">HM</div>
+              <div key={i} className="w-16 h-16 rounded-full border-4 border-slate-950 bg-white flex items-center justify-center text-[10px] font-black text-blue-500 shadow-2xl">HM</div>
             ))}
           </div>
           <div className="space-y-4">
-            <h2 className="text-4xl font-black text-white italic tracking-tighter uppercase">Verified Actuarial Intelligence.</h2>
+            <h2 className="text-4xl font-black text-slate-900 italic tracking-tighter uppercase">Verified Actuarial Intelligence.</h2>
             <p className="text-slate-500 font-bold uppercase tracking-[0.4em] text-[10px] italic underline decoration-blue-600 decoration-2 underline-offset-8">Housing Markets Audit Division 2026</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-[10px] font-black text-slate-700 uppercase tracking-[0.2em] italic">
@@ -407,3 +407,4 @@ export default function HubClient() {
     </>
   );
 }
+

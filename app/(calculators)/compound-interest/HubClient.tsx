@@ -22,7 +22,7 @@ export default function CompoundInterestHubClient() {
                         <span className="text-xs text-emerald-400 font-black uppercase tracking-[0.2em]">Institutional Wealth Audit 2026</span>
                     </div>
 
-                    <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter uppercase leading-[0.9] mb-8">
+                    <h1 className="text-5xl md:text-8xl font-black text-slate-900 tracking-tighter uppercase leading-[0.9] mb-8">
                         The Eighth <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-500">Wonder</span>
                     </h1>
 
@@ -33,14 +33,14 @@ export default function CompoundInterestHubClient() {
                     <div className="flex flex-wrap justify-center gap-4">
                         <Link
                             href="/compound-interest/calculator"
-                            className="bg-emerald-600 hover:bg-emerald-500 text-white px-10 py-5 rounded-2xl font-black text-lg transition-all hover:scale-105 shadow-2xl shadow-emerald-600/20 flex items-center gap-3 uppercase tracking-tighter"
+                            className="bg-emerald-600 hover:bg-emerald-500 text-slate-900 px-10 py-5 rounded-2xl font-black text-lg transition-all hover:scale-105 shadow-2xl shadow-emerald-600/20 flex items-center gap-3 uppercase tracking-tighter"
                         >
                             Initialize Growth Engine
                             <TrendingUp className="w-6 h-6" />
                         </Link>
                         <Link
                             href="#module-5"
-                            className="bg-white/5 hover:bg-white/10 border border-white/10 text-white px-10 py-5 rounded-2xl font-black text-lg transition-all flex items-center gap-3 uppercase tracking-tighter"
+                            className="bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-900 px-10 py-5 rounded-2xl font-black text-lg transition-all flex items-center gap-3 uppercase tracking-tighter"
                         >
                             Financial Audit Guide
                             <Info className="w-6 h-6" />
@@ -50,20 +50,20 @@ export default function CompoundInterestHubClient() {
             </section>
 
             {/* Task 2: Triple-Table Featured Snippet Architecture */}
-            <section id="wealth-audit" className="py-24 border-y border-white/5 bg-slate-900/10 backdrop-blur-3xl relative">
+            <section id="wealth-audit" className="py-24 border-y border-slate-200 bg-slate-50 backdrop-blur-3xl relative">
                 <div className="max-w-7xl mx-auto px-6 space-y-24">
 
                     {/* 1. Historical/Statistical Table */}
                     <div className="space-y-8">
                         <div className="flex items-center gap-4 border-l-4 border-emerald-500 pl-6">
                             <div>
-                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">I. Wealth Accumulation Benchmarks (1980??026 Projection)</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Macro-Economic Longitudinal Audit ??SEC Standard Data</p>
+                                <h2 className="text-2xl font-black text-slate-900 italic uppercase tracking-tighter">I. Wealth Accumulation Benchmarks (1980-2026 Projection)</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Macro-Economic Longitudinal Audit  - SEC Standard Data</p>
                             </div>
                         </div>
-                        <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
+                        <div className="overflow-x-auto rounded-[2.5rem] border border-slate-200 bg-slate-50 shadow-2xl">
                             <table className="w-full text-left border-collapse min-w-[700px]">
-                                <thead className="bg-white/5 border-b border-white/10 text-[10px] font-black tracking-[0.2em] text-emerald-400 uppercase">
+                                <thead className="bg-slate-100 border-b border-slate-200 text-[10px] font-black tracking-[0.2em] text-emerald-400 uppercase">
                                     <tr>
                                         <th className="px-8 py-6">Historical Era</th>
                                         <th className="px-8 py-6">Avg. Market Yield (Nominal)</th>
@@ -73,13 +73,13 @@ export default function CompoundInterestHubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { e: "1980-2000", d: "12.4% ??14.2%", a: "+85% Retention", s: "Verified" },
-                                        { e: "2000-2020", d: "7.8% ??9.1%", a: "+62% Retention", s: "Verified" },
-                                        { e: "2024-2025", d: "10.2% ??11.5%", a: "+48% Retention", s: "Audited" },
-                                        { e: "2026 Projection", d: "9.5% ??10.8%", a: "Tax-Shielded Bias", s: "Market Standard" }
+                                        { e: "1980-2000", d: "12.4%  - 14.2%", a: "+85% Retention", s: "Verified" },
+                                        { e: "2000-2020", d: "7.8%  - 9.1%", a: "+62% Retention", s: "Verified" },
+                                        { e: "2024-2025", d: "10.2%  - 11.5%", a: "+48% Retention", s: "Audited" },
+                                        { e: "2026 Projection", d: "9.5%  - 10.8%", a: "Tax-Shielded Bias", s: "Market Standard" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-emerald-500/5 transition-colors group">
-                                            <td className="px-8 py-6 text-white">{row.e}</td>
+                                            <td className="px-8 py-6 text-slate-900">{row.e}</td>
                                             <td className="px-8 py-6">{row.d}</td>
                                             <td className="px-8 py-6 text-emerald-600/70">{row.a}</td>
                                             <td className="px-8 py-6 text-[10px] uppercase tracking-widest text-slate-600 font-mono">{row.s}</td>
@@ -94,13 +94,13 @@ export default function CompoundInterestHubClient() {
                     <div className="space-y-8 text-right md:text-left">
                         <div className="flex items-center gap-4 border-r-4 md:border-r-0 md:border-l-4 border-cyan-500 pr-6 md:pr-0 md:pl-6 justify-end md:justify-start">
                             <div>
-                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter text-right md:text-left">II. Asset Class Growth Multipliers (Equities vs. Real Estate vs. HYSA)</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Cross-Asset Yield Variance ??2026 Benchmarks</p>
+                                <h2 className="text-2xl font-black text-slate-900 italic uppercase tracking-tighter text-right md:text-left">II. Asset Class Growth Multipliers (Equities vs. Real Estate vs. HYSA)</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Cross-Asset Yield Variance  - 2026 Benchmarks</p>
                             </div>
                         </div>
-                        <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-950 shadow-2xl">
+                        <div className="overflow-x-auto rounded-[2.5rem] border border-slate-200 bg-slate-50 shadow-2xl">
                             <table className="w-full text-left border-collapse min-w-[700px]">
-                                <thead className="bg-white/5 border-b border-white/10 text-[10px] font-black tracking-[0.2em] text-cyan-500 uppercase">
+                                <thead className="bg-slate-100 border-b border-slate-200 text-[10px] font-black tracking-[0.2em] text-cyan-500 uppercase">
                                     <tr>
                                         <th className="px-8 py-6">Asset Category</th>
                                         <th className="px-8 py-6">Compound Alpha</th>
@@ -116,7 +116,7 @@ export default function CompoundInterestHubClient() {
                                         { t: "Digital Yield (Blue Chip)", w: "15%+", c: "Variable", l: "Emerging Standard" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-cyan-500/5 transition-colors group">
-                                            <td className="px-8 py-6 text-white">{row.t}</td>
+                                            <td className="px-8 py-6 text-slate-900">{row.t}</td>
                                             <td className="px-8 py-6">{row.w}</td>
                                             <td className="px-8 py-6">{row.c}</td>
                                             <td className="px-8 py-6 text-cyan-600 font-mono text-[10px] uppercase tracking-widest">{row.l}</td>
@@ -131,13 +131,13 @@ export default function CompoundInterestHubClient() {
                     <div className="space-y-8">
                         <div className="flex items-center gap-4 border-l-4 border-white/20 pl-6">
                             <div>
-                                <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">III. Compound Frequency Logic & Inflation-Adjusted Precision Specs</h2>
-                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Actuarial Precision ??2026 Audit Standards</p>
+                                <h2 className="text-2xl font-black text-slate-900 italic uppercase tracking-tighter">III. Compound Frequency Logic & Inflation-Adjusted Precision Specs</h2>
+                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Actuarial Precision  - 2026 Audit Standards</p>
                             </div>
                         </div>
-                        <div className="overflow-x-auto rounded-[2.5rem] border border-white/5 bg-slate-900 shadow-2xl">
+                        <div className="overflow-x-auto rounded-[2.5rem] border border-slate-200 bg-white shadow-2xl">
                             <table className="w-full text-left border-collapse min-w-[700px]">
-                                <thead className="bg-white/5 border-b border-white/10 text-[10px] font-black tracking-[0.2em] text-slate-500 uppercase">
+                                <thead className="bg-slate-100 border-b border-slate-200 text-[10px] font-black tracking-[0.2em] text-slate-500 uppercase">
                                     <tr>
                                         <th className="px-8 py-6">Calculation Engine</th>
                                         <th className="px-8 py-6">Mathematical Logic Pattern</th>
@@ -147,16 +147,16 @@ export default function CompoundInterestHubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { c: "Standard Compound", l: "A = P(1 + r/n)^(nt)", t: "ì§¹ $0.001", g: "Legacy Audit" },
+                                        { c: "Standard Compound", l: "A = P(1 + r/n)^(nt)", t: "ì§?$0.001", g: "Legacy Audit" },
                                         { c: "Continuous Accretion", l: "A = Pe^(rt)", t: "Zero-Latency", g: "Institutional" },
-                                        { c: "Inflation Adjusted", l: "R = (1+i)/(1+inf) - 1", t: "ì§¹ $0.01", g: "Real Wealth Spec" },
-                                        { c: "Tax-Drag Sync", l: "èª‡(Yield - Tax Liability)", t: "Zero-Loss", g: "S-Class Standard" }
+                                        { c: "Inflation Adjusted", l: "R = (1+i)/(1+inf) - 1", t: "ì§?$0.01", g: "Real Wealth Spec" },
+                                        { c: "Tax-Drag Sync", l: "èª?Yield - Tax Liability)", t: "Zero-Loss", g: "S-Class Standard" }
                                     ].map((row, i) => (
-                                        <tr key={i} className="hover:bg-white/5 transition-colors group">
-                                            <td className="px-8 py-6 text-white">{row.c}</td>
+                                        <tr key={i} className="hover:bg-slate-100 transition-colors group">
+                                            <td className="px-8 py-6 text-slate-900">{row.c}</td>
                                             <td className="px-8 py-6 text-xs">{row.l}</td>
                                             <td className="px-8 py-6 text-xs font-mono">{row.t}</td>
-                                            <td className="px-8 py-6 text-[10px] uppercase tracking-widest text-white/40">{row.g}</td>
+                                            <td className="px-8 py-6 text-[10px] uppercase tracking-widest text-slate-500">{row.g}</td>
                                         </tr>
                                     ))}
                                 </tbody>
@@ -171,8 +171,8 @@ export default function CompoundInterestHubClient() {
             <main className="max-w-6xl mx-auto px-4 py-20 flex flex-col lg:flex-row gap-16">
                 {/* TOC Sidebar */}
                 <aside className="lg:w-1/4 hidden lg:block sticky top-32 h-fit space-y-8">
-                    <div className="p-8 bg-slate-900/50 border border-white/5 rounded-[2rem]">
-                        <h3 className="text-sm font-black text-white uppercase tracking-widest mb-6">Audit Modules</h3>
+                    <div className="p-8 bg-white border border-slate-200 rounded-[2rem]">
+                        <h3 className="text-sm font-black text-slate-900 uppercase tracking-widest mb-6">Audit Modules</h3>
                         <nav className="space-y-4">
                             {["The Mechanics", "Growth Tranches", "Inflation Audit", "Tax Shelters", "Digital Asset Yields", "Institutional FAQ"].map((item, i) => (
                                 <Link
@@ -191,12 +191,12 @@ export default function CompoundInterestHubClient() {
                 <article className="lg:w-3/4 space-y-24">
                     {/* Intro Section */}
                     <div id="module-0" className="prose prose-invert prose-emerald max-w-none">
-                        <h2 className="text-4xl font-black text-white uppercase tracking-tighter mb-8 leading-none">
+                        <h2 className="text-4xl font-black text-slate-900 uppercase tracking-tighter mb-8 leading-none">
                             1. The <span className="text-emerald-500 text-6xl">Mechanics</span> of Exponential Accretion
                         </h2>
                         <div className="space-y-6 text-slate-400 font-medium leading-relaxed text-lg">
                             <p>
-                                Compound interest is not merely a mathematical formula; it is the fundamental operative principle of wealth creation in the 2026 global economy. Often attributed to Albert Einstein as the "Eighth Wonder of the World," compound interest leverages the time value of money to generate returns not only on initial principal but on the accumulated interest of all prior periods. This creates a self-reinforcing reciprocity loop?ë´ž wealth engine that gains technical momentum over time.
+                                Compound interest is not merely a mathematical formula; it is the fundamental operative principle of wealth creation in the 2026 global economy. Often attributed to Albert Einstein as the "Eighth Wonder of the World," compound interest leverages the time value of money to generate returns not only on initial principal but on the accumulated interest of all prior periods. This creates a self-reinforcing reciprocity loop?ë´?wealth engine that gains technical momentum over time.
                             </p>
                             <p>
                                 In an era defined by high-frequency digital finance, the distinction between simple growth and exponential accretion determines institutional viability. While simple interest remains linear and predictable, compound interest operates within non-linear geometric progressions. By the year 2026, the velocity of compounding has been further catalyzed by digital asset platforms, real-time yield harvesting, and tax-advantaged automated reinvestment protocols.
@@ -211,11 +211,11 @@ export default function CompoundInterestHubClient() {
                     </div>
 
                     {/* Growth Matrix Component */}
-                    <div id="module-1" className="bg-slate-950 border border-white/5 rounded-[3rem] p-8 md:p-12 relative overflow-hidden group">
+                    <div id="module-1" className="bg-slate-50 border border-slate-200 rounded-[3rem] p-8 md:p-12 relative overflow-hidden group">
                         <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none group-hover:opacity-10 transition-opacity">
                             <Zap className="w-64 h-64 text-emerald-500" />
                         </div>
-                        <h2 className="text-3xl font-black text-white uppercase tracking-tighter mb-10 flex items-center gap-3">
+                        <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter mb-10 flex items-center gap-3">
                             <Clock className="w-8 h-8 text-emerald-500" /> Wealth Accretion Matrix (2026)
                         </h2>
                         <div className="grid md:grid-cols-2 gap-12 relative z-10">
@@ -230,7 +230,7 @@ export default function CompoundInterestHubClient() {
                                         "Phase 2: Mathematical Parity (Years 10-15)",
                                         "Phase 3: Exponential Dominance (Years 15+)"
                                     ].map((phase, i) => (
-                                        <div key={i} className="flex items-center gap-3 p-4 bg-white/5 rounded-2xl border border-white/5">
+                                        <div key={i} className="flex items-center gap-3 p-4 bg-slate-100 rounded-2xl border border-slate-200">
                                             <div className="w-2 h-2 bg-emerald-500 rounded-full" />
                                             <span className="text-[10px] font-black uppercase tracking-widest">{phase}</span>
                                         </div>
@@ -249,7 +249,7 @@ export default function CompoundInterestHubClient() {
 
                     {/* Inflation & Real Yield Module */}
                     <div id="module-2" className="prose prose-invert prose-emerald max-w-none">
-                        <h2 className="text-4xl font-black text-white uppercase tracking-tighter mb-8 leading-none">
+                        <h2 className="text-4xl font-black text-slate-900 uppercase tracking-tighter mb-8 leading-none">
                             2. The <span className="text-emerald-500 text-6xl">Inflation</span> Audit
                         </h2>
                         <div className="space-y-6 text-slate-400 font-medium leading-relaxed">
@@ -265,7 +265,7 @@ export default function CompoundInterestHubClient() {
                                     { label: "Inflation Leak", desc: "Purchasing power decline", color: "rose-500" },
                                     { label: "Real Yield", desc: "Actual wealth accretion", color: "emerald-500" }
                                 ].map((box, i) => (
-                                    <div key={i} className="p-6 bg-slate-900 border border-white/5 rounded-3xl text-center space-y-2">
+                                    <div key={i} className="p-6 bg-white border border-slate-200 rounded-3xl text-center space-y-2">
                                         <p className={`text-xs font-black uppercase tracking-widest text-${box.color}`}>{box.label}</p>
                                         <p className="text-[10px] text-slate-500 font-bold italic">{box.desc}</p>
                                     </div>
@@ -275,21 +275,21 @@ export default function CompoundInterestHubClient() {
                     </div>
 
                     {/* FAQ Engine */}
-                    <div id="module-5" className="bg-slate-900/50 border border-white/10 rounded-[3rem] p-10 md:p-16">
+                    <div id="module-5" className="bg-white border border-slate-200 rounded-[3rem] p-10 md:p-16">
                         <div className="text-center mb-16 space-y-4">
-                            <h2 className="text-4xl font-black text-white uppercase tracking-tighter">Institutional <span className="text-emerald-500">FAQ</span></h2>
+                            <h2 className="text-4xl font-black text-slate-900 uppercase tracking-tighter">Institutional <span className="text-emerald-500">FAQ</span></h2>
                             <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">Compound Interest Intelligence Matrix 2026</p>
                         </div>
 
                         <div className="grid gap-6">
                             {COMPOUND_2026.faqs.map((faq, i) => (
-                                <div key={i} className="group bg-black/40 border border-white/5 rounded-3xl p-8 hover:border-emerald-500/30 transition-all hover:translate-x-1">
+                                <div key={i} className="group bg-slate-100 border border-slate-200 rounded-3xl p-8 hover:border-emerald-500/30 transition-all hover:translate-x-1">
                                     <div className="flex gap-4 items-start">
                                         <div className="w-10 h-10 bg-emerald-500/10 rounded-xl flex items-center justify-center shrink-0 border border-emerald-500/20">
                                             <span className="text-emerald-500 font-black text-sm">{i + 1}</span>
                                         </div>
                                         <div className="space-y-3">
-                                            <h3 className="text-lg font-black text-white group-hover:text-emerald-400 transition-colors uppercase tracking-tight">{faq.question}</h3>
+                                            <h3 className="text-lg font-black text-slate-900 group-hover:text-emerald-400 transition-colors uppercase tracking-tight">{faq.question}</h3>
                                             <p className="text-sm text-slate-400 leading-relaxed font-medium italic">{faq.answer}</p>
                                         </div>
                                     </div>
@@ -299,10 +299,10 @@ export default function CompoundInterestHubClient() {
                     </div>
 
                     {/* Citations Grid */}
-                    <div className="border-t border-white/5 pt-20">
+                    <div className="border-t border-slate-200 pt-20">
                         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
                             <div className="space-y-4 text-center md:text-left">
-                                <h3 className="text-sm font-black text-white uppercase tracking-widest">Global Audit References</h3>
+                                <h3 className="text-sm font-black text-slate-900 uppercase tracking-widest">Global Audit References</h3>
                                 <p className="text-[10px] text-slate-500 font-bold max-w-sm uppercase leading-relaxed tracking-wider">
                                     Our calculations utilize benchmarks provided by the following international financial institutions.
                                 </p>
@@ -328,7 +328,7 @@ export default function CompoundInterestHubClient() {
             <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] w-full max-w-xs px-4">
                 <Link
                     href="/compound-interest/calculator"
-                    className="flex items-center justify-between bg-emerald-600 text-white p-2 pl-6 rounded-2xl shadow-2xl shadow-emerald-500/40 hover:bg-emerald-500 transition-all hover:scale-105 active:scale-95 group"
+                    className="flex items-center justify-between bg-emerald-600 text-slate-900 p-2 pl-6 rounded-2xl shadow-2xl shadow-emerald-500/40 hover:bg-emerald-500 transition-all hover:scale-105 active:scale-95 group"
                 >
                     <span className="font-black uppercase tracking-tighter text-sm">Launch Accretion Engine</span>
                     <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center group-hover:bg-white/40 transition-colors">
@@ -339,3 +339,6 @@ export default function CompoundInterestHubClient() {
         </div>
     );
 }
+
+
+
