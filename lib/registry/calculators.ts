@@ -25,30 +25,30 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "1099-tax": {
         "id": "1099-tax",
-        "name": "2026 1099 Tax Calculator | Self-Employment Estimator",
-        "description": "Calculate 1099 taxes, self-employment tax, and quarterly estimates. Based on 2026 IRS guidelines for contractors and freelancers with official tax bracket integration.",
+        "name": "1099 Tax Calculator",
+        "description": "Calculate 1099 taxes, self-employment tax, and quarterly estimates. Based on 2026 IRS guidelines for contractors and freelancers.",
         "category": "tax",
-        "tier": 1,
+        "tier": 2,
         "color": "slate-500",
         "icon": "calculator"
     },
     "18-wheeler": {
         "id": "18-wheeler",
-        "name": "2026 18-Wheeler Accident Settlement Calculator | Official S-Class Auditor",
-        "description": "Calculate semi-truck and 18-wheeler accident settlement values with 2026 precision. Official S-Class legal auditor incorporating FMCSA safety violation data and commercial insurance benchmarks.",
+        "name": "18 Wheeler Accident Calculator",
+        "description": "Calculate 18 wheeler accident settlement value instantly. Free 2026 calculator for semi-truck crashes, commercial vehicle accidents, and trucking company liability.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
         "icon": "gavel"
     },
     "3m-earplug": {
         "id": "3m-earplug",
-        "name": "2026 3M Earplug Settlement Calculator | Payout Negotiator",
-        "description": "Calculate your 2026 3M earplug lawsuit settlement value instantly. Free Combat Arms negotiator with official MDL 2885 litigation data, VA audiology benchmarks, and tiered payout records.",
+        "name": "3M Earplug Settlement Calculator",
+        "description": "Calculate your 2026 3M earplug lawsuit settlement value with S-Class v2.1 precision. Features MDL 2885 EPP tier logic, VA audiology matrixing, and combat exposure multipliers.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
-        "icon": "ear"
+        "icon": "gavel"
     },
     "401k-growth": {
         "id": "401k-growth",
@@ -79,39 +79,39 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "afff": {
         "id": "afff",
-        "name": "2026 AFFF Lawsuit Settlement Calculator | Firefighter Foam Payouts",
-        "description": "Calculate your 2026 AFFF lawsuit settlement value instantly. Free PFAS firefighter foam negotiator with official MDL 2873 (District of South Carolina) litigation data and EPA toxicity benchmarks.",
+        "name": "AFFF Lawsuit Calculator",
+        "description": "Calculate AFFF lawsuit settlements. Aqueous film-forming foam PFAS contamination, cancer claims. Based on MDL 2873 data.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
         "icon": "gavel"
     },
     "age": {
         "id": "age",
-        "name": "2026 Age Calculator | Precision Chronological Audit Engine",
-        "description": "Calculate your exact age in years, months, and days with 2026 precision. Free chronological negotiator with official WHO demographic benchmarks, zodiac mapping, and life milestone tracking.",
-        "category": "general",
-        "tier": 1,
-        "color": "blue-600",
-        "icon": "clock"
+        "name": "Age Calculator",
+        "description": "Precision Age Calculator analyzer for the 2026 market.",
+        "category": "legal",
+        "tier": 2,
+        "color": "rose-500",
+        "icon": "gavel"
     },
     "airbnb-income": {
         "id": "airbnb-income",
-        "name": "2026 Airbnb Income Calculator | Short-Term Rental Negotiator",
+        "name": "Airbnb Income Calculator",
         "description": "Calculate your 2026 Airbnb earnings instantly. Free rental negotiator with official IRS Publication 527 guidelines, Section 280A (14-Day Rule) benchmarks, and occupancy rate projections.",
         "category": "tax",
-        "tier": 1,
+        "tier": 2,
         "color": "slate-500",
-        "icon": "home"
+        "icon": "calculator"
     },
     "alimony": {
         "id": "alimony",
-        "name": "2026 Alimony Calculator | Official Spousal Support Estimator",
-        "description": "Calculate your 2026 spousal support entitlement or obligation. Free 50-state calculator based on official state family law codes, guideline formulas, and IRS tax rules.",
-        "category": "legal",
-        "tier": 1,
-        "color": "rose-500",
-        "icon": "gavel"
+        "name": "Alimony Calculator",
+        "description": "Calculate your alimony payment or entitlement. Free 2026 calculator with state-specific formulas for CA, TX, FL, NY, and all 50 states.",
+        "category": "tax",
+        "tier": 2,
+        "color": "slate-500",
+        "icon": "calculator"
     },
     "amusement-park": {
         "id": "amusement-park",
@@ -212,23 +212,14 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "color": "rose-500",
         "icon": "gavel"
     },
-    "binary": {
-        "id": "binary",
-        "name": "2026 Binary Calculator | Official Bitwise Logic Auditor",
-        "description": "Execute precision bitwise operations and base conversions with 2026 accuracy. Official S-Class auditor for computer architecture, 64-bit logic, and digital system auditing.",
-        "category": "general",
-        "tier": 1,
-        "color": "emerald-500",
-        "icon": "binary"
-    },
     "baby-formula": {
         "id": "baby-formula",
-        "name": "2026 NEC Baby Formula Settlement Calculator | Payout Negotiator",
+        "name": "NEC Baby Formula Settlement Calculator",
         "description": "Calculate your 2026 NEC lawsuit settlement value instantly. Free baby formula negotiator with official MDL 3037 (Similac/Enfamil) litigation data and peer-reviewed pediatric medical benchmarks.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
-        "icon": "baby"
+        "icon": "gavel"
     },
     "bail-bond": {
         "id": "bail-bond",
@@ -284,6 +275,15 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "color": "rose-500",
         "icon": "gavel"
     },
+    "binary": {
+        "id": "binary",
+        "name": "Binary Calculator",
+        "description": "Execute precision bitwise operations and base conversions with institutional accuracy. Support for signed/unsigned integers, Two",
+        "category": "general",
+        "tier": 2,
+        "color": "slate-500",
+        "icon": "calculator"
+    },
     "biomet-hip": {
         "id": "biomet-hip",
         "name": "Biomet Hip Lawsuit Calculator",
@@ -295,12 +295,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "birth-injury": {
         "id": "birth-injury",
-        "name": "2026 Birth Injury Settlement Calculator | Payout Negotiator",
+        "name": "Birth Injury Settlement Calculator",
         "description": "Calculate your 2026 birth injury settlement value instantly. Free medical negotiator with official NPDB malpractice data, HIE benchmarks, and HRSA settlement statistics.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
-        "icon": "baby"
+        "icon": "gavel"
     },
     "black-lung": {
         "id": "black-lung",
@@ -313,20 +313,11 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "bmi": {
         "id": "bmi",
-        "name": "2026 BMI Calculator | Official S-Class Health Auditor",
-        "description": "Calculate your Body Mass Index (BMI) with 2026 precision. Official S-Class health auditor providing accurate assessment based on institutional WHO and CDC healthcare benchmarks.",
+        "name": "BMI Calculator",
+        "description": "Calculate your Body Mass Index (BMI) instantly. Free 2026 calculator with health recommendations based on WHO and CDC guidelines.",
         "category": "health",
-        "tier": 1,
+        "tier": 2,
         "color": "emerald-500",
-        "icon": "activity"
-    },
-    "body-fat": {
-        "id": "body-fat",
-        "name": "2026 Body Fat Calculator | Official S-Class Adiposity Auditor",
-        "description": "Calculate body fat percentage with 2026 precision using US Navy and BMI-based regression models. Official S-Class health auditor for professional adiposity assessment.",
-        "category": "health",
-        "tier": 1,
-        "color": "indigo-500",
         "icon": "activity"
     },
     "boat-insurance": {
@@ -347,6 +338,15 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "color": "rose-500",
         "icon": "gavel"
     },
+    "body-fat": {
+        "id": "body-fat",
+        "name": "Body Fat Calculator",
+        "description": "Calculate your body fat percentage accurately with our professional tool. Track your fitness goals and health progress with standard measurement methods.",
+        "category": "health",
+        "tier": 2,
+        "color": "emerald-500",
+        "icon": "activity"
+    },
     "bone-graft": {
         "id": "bone-graft",
         "name": "Bone Graft Lawsuit Calculator",
@@ -358,12 +358,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "bonus-tax": {
         "id": "bonus-tax",
-        "name": "2026 Bonus Tax Calculator | Supplemental Wage Negotiator",
+        "name": "Bonus Tax Calculator",
         "description": "Calculate your 2026 bonus tax withholding instantly. Free negotiator with official IRS Supplemental Wage flat rates (22% / 37%), aggregate method benchmarks, and Publication 15 data.",
         "category": "tax",
-        "tier": 1,
+        "tier": 2,
         "color": "slate-500",
-        "icon": "gift"
+        "icon": "calculator"
     },
     "breast-implant": {
         "id": "breast-implant",
@@ -385,7 +385,7 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "bus-accident": {
         "id": "bus-accident",
-        "name": "2026 Bus Accident Settlement Calculator | Injury Payouts",
+        "name": "Bus Accident Calculator",
         "description": "Calculate bus accident lawsuit settlements. Public transit, school bus, charter bus injury claims. Based on 2026 NHTSA data.",
         "category": "legal",
         "tier": 2,
@@ -394,30 +394,30 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "business-insurance": {
         "id": "business-insurance",
-        "name": "2026 Business Insurance Calculator | BOP Cost Estimator",
-        "description": "Calculate your 2026 business owner's policy (BOP) cost instantly. Free commercial insurance estimator with official NAIC bundle data, SBA guidelines, and industry-specific risk factors.",
-        "category": "legal",
-        "tier": 1,
+        "name": "Business Insurance Cost Calculator",
+        "description": "Calculate your 2026 business owner",
+        "category": "tax",
+        "tier": 2,
         "color": "slate-500",
-        "icon": "briefcase"
+        "icon": "calculator"
     },
     "calorie": {
         "id": "calorie",
-        "name": "2026 Calorie Calculator | Official S-Class Metabolic Auditor",
-        "description": "Calculate daily caloric requirements with 2026 precision. Official S-Class metabolic auditor based on institutional USDA and CDC nutrition benchmarks.",
+        "name": "Calorie Calculator",
+        "description": "Calculate your daily energy expenditure with precision. Professional-grade TDEE, BMR, and macronutrient analysis based on 2026 standard guidelines.",
         "category": "health",
-        "tier": 1,
+        "tier": 2,
         "color": "emerald-500",
         "icon": "activity"
     },
     "camp-lejeune": {
         "id": "camp-lejeune",
-        "name": "2026 Camp Lejeune Settlement Calculator | Payout Negotiator",
+        "name": "Camp Lejeune Settlement Calculator",
         "description": "Calculate your 2026 Camp Lejeune settlement value instantly. Free toxic water negotiator with official PACT Act (CLJA) guidelines, DOJ settlement benchmarks, and VA health data.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
-        "icon": "droplets"
+        "icon": "gavel"
     },
     "camper-insurance": {
         "id": "camper-insurance",
@@ -430,21 +430,21 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "capital-gains": {
         "id": "capital-gains",
-        "name": "2026 Capital Gains Tax Calculator | Investment Tax Negotiator",
+        "name": "Capital Gains Tax Calculator",
         "description": "Calculate your 2026 capital gains tax instantly. Free investment negotiator with official IRS Section 121 (Real Estate) exclusions, Publication 550 benchmarks, and 2026 tax bracket integration.",
         "category": "tax",
-        "tier": 1,
+        "tier": 2,
         "color": "slate-500",
-        "icon": "trending-up"
+        "icon": "calculator"
     },
     "car-accident": {
         "id": "car-accident",
-        "name": "2026 Car Accident Settlement Calculator",
-        "description": "Calculate your 2026 car accident settlement value instantly. Free calculator with 50-state comparative fault rules, average payout estimates, and official NHTSA/NSC data integration.",
-        "category": "legal",
-        "tier": 1,
-        "color": "rose-500",
-        "icon": "gavel"
+        "name": "Car accident",
+        "description": "Precision Car accident analyzer for the 2026 market.",
+        "category": "tax",
+        "tier": 2,
+        "color": "slate-500",
+        "icon": "calculator"
     },
     "casino-injury": {
         "id": "casino-injury",
@@ -484,21 +484,21 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "child-support": {
         "id": "child-support",
-        "name": "2026 Child Support Calculator | Official State Guidelines",
-        "description": "Calculate child support payments for all 50 US states with 100% accuracy. Free 2026 calculator based on official state guidelines, income shares models, and 50-state custody rules.",
-        "category": "legal",
-        "tier": 1,
-        "color": "rose-500",
-        "icon": "gavel"
+        "name": "Child Support Calculator",
+        "description": "Calculate child support payments for all 50 US states. Free 2026 calculator based on official state guidelines, income shares, and custody arrangements.",
+        "category": "health",
+        "tier": 2,
+        "color": "emerald-500",
+        "icon": "activity"
     },
     "classic-car-insurance": {
         "id": "classic-car-insurance",
-        "name": "2026 Classic Car Insurance Calculator | Official S-Class Auditor",
-        "description": "Calculate classic car insurance premiums with 2026 precision. Official S-Class auditor for antique, vintage, and modern collector vehicles with agreed-value precision.",
+        "name": "Classic Car Insurance Calculator",
+        "description": "Detailed agreed-value insurance estimations specifically for antique, vintage, and modern collector vehicles. Optimized for 2026 insurance statutory requirements.",
         "category": "general",
-        "tier": 1,
-        "color": "blue-600",
-        "icon": "car"
+        "tier": 2,
+        "color": "slate-500",
+        "icon": "calculator"
     },
     "closing-cost": {
         "id": "closing-cost",
@@ -547,21 +547,21 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "commission": {
         "id": "commission",
-        "name": "2026 Commission Calculator | Official S-Class Auditor",
-        "description": "Calculate sales and real estate commissions with 2026 precision. Official S-Class auditor for SaaS tiers, real estate splits, and industry-specific payout models.",
+        "name": "Commission Calculator",
+        "description": "Institutional-grade commission analyzer for SaaS sales, real estate transactions, and affiliate payouts. Integrated 2026 accelerators and state-specific audit benchmarks.",
         "category": "tax",
-        "tier": 1,
-        "color": "emerald-600",
+        "tier": 2,
+        "color": "slate-500",
         "icon": "calculator"
     },
     "compound-interest": {
         "id": "compound-interest",
-        "name": "2026 Compound Interest Calculator | Official S-Class Accretion Auditor",
-        "description": "Calculate exponential wealth growth with 2026 precision. Official S-Class financial auditor using institutional inflation benchmarks and historical yield data.",
-        "category": "finance",
-        "tier": 1,
-        "color": "emerald-500",
-        "icon": "trending-up"
+        "name": "2026 Compound Interest Calculator | Wealth Accretion Engine",
+        "description": "Calculate compound interest growth with 2026 precision. Peer-reviewed audit of wealth accretion, inflation adjustments, and tax-sheltered compounding strategies.",
+        "category": "tax",
+        "tier": 2,
+        "color": "slate-500",
+        "icon": "calculator"
     },
     "concert-injury": {
         "id": "concert-injury",
@@ -583,12 +583,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "construction-accident": {
         "id": "construction-accident",
-        "name": "2026 Construction Accident Settlement Calculator | Injury Payout",
-        "description": "Calculate your 2026 construction injury settlement value instantly. Free OSHA violation negotiator with official Fatal Four data, Bureau of Labor Statistics (BLS) injury rates, and workers' comp integration.",
+        "name": "Construction Accident Settlement Calculator",
+        "description": "Calculate your 2026 construction injury settlement value instantly. Free OSHA violation negotiator with official Fatal Four data, Bureau of Labor Statistics (BLS) injury rates, and workers",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
-        "icon": "hard-hat"
+        "icon": "gavel"
     },
     "contractor-insurance": {
         "id": "contractor-insurance",
@@ -601,12 +601,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "conversion": {
         "id": "conversion",
-        "name": "2026 Unit Conversion Calculator | S-Class Precision Converter",
-        "description": "Convert units instantly with 2026 precision across length, weight, volume, temperature, and speed. Official S-Class converter with standards-aligned factors and real-time output validation.",
+        "name": "Unit Conversion Calculator",
+        "description": "Industrial-grade unit conversion for length, mass, volume, and temperature. Compliant with NIST and ISO 80000 standards.",
         "category": "general",
-        "tier": 1,
-        "color": "emerald-500",
-        "icon": "ruler"
+        "tier": 2,
+        "color": "slate-500",
+        "icon": "calculator"
     },
     "cpap": {
         "id": "cpap",
@@ -655,21 +655,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "crypto-tax": {
         "id": "crypto-tax",
-        "name": "2026 Crypto Tax Calculator | Crypto Payout Negotiator",
+        "name": "Crypto Tax Calculator",
         "description": "Calculate your 2026 cryptocurrency taxes instantly. Free crypto negotiator with official IRS Form 8949 reporting data, wash-sale rule benchmarks, and FIFO/HIFO cost basis integration.",
         "category": "tax",
-        "tier": 1,
+        "tier": 2,
         "color": "slate-500",
-        "icon": "coins"
-    },
-    "date": {
-        "id": "date",
-        "name": "2026 Date Calculator | Calendar Interval Audit Engine",
-        "description": "Calculate exact date differences and add or subtract days, weeks, months, and years with 2026 precision. Official S-Class calendar audit engine for scheduling, planning, and compliance workflows.",
-        "category": "general",
-        "tier": 1,
-        "color": "emerald-500",
-        "icon": "calendar-days"
+        "icon": "calculator"
     },
     "cyber-insurance": {
         "id": "cyber-insurance",
@@ -679,6 +670,15 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "tier": 2,
         "color": "rose-500",
         "icon": "gavel"
+    },
+    "date": {
+        "id": "date",
+        "name": "Date Calculator",
+        "description": "Institutional date arithmetic and duration auditor. Calculate precise time deltas, leap year parity, and business day intervals with ISO 8601 precision.",
+        "category": "general",
+        "tier": 2,
+        "color": "slate-500",
+        "icon": "calculator"
     },
     "daycare-injury": {
         "id": "daycare-injury",
@@ -709,37 +709,37 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "dental-insurance": {
         "id": "dental-insurance",
-        "name": "2026 Dental Insurance Calculator | Official S-Class Auditor",
-        "description": "Calculate individual and family dental premiums with 2026 precision. Official S-Class auditor for PPO/DHMO tiers and institutional procedure cost benchmarks.",
-        "category": "tax",
-        "tier": 1,
-        "color": "sky-600",
-        "icon": "calculator"
+        "name": "Dental Insurance Calculator",
+        "description": "Pro-tier dental insurance analyzer with 2026 procedure cost indices, state-level premium audit, and institutional 100/80/50 coverage logic.",
+        "category": "health",
+        "tier": 2,
+        "color": "emerald-500",
+        "icon": "activity"
     },
     "depo-provera": {
         "id": "depo-provera",
-        "name": "2026 Depo-Provera Settlement Calculator | Brain Tumor Payout",
+        "name": "Depo-Provera Lawsuit Calculator",
         "description": "Calculate your 2026 Depo-Provera lawsuit settlement value instantly. Free meningioma negotiator with official French ANSM study data, Pfizer label warnings, and brain tumor risk statistics.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
-        "icon": "brain"
+        "icon": "gavel"
     },
     "depuy-hip": {
         "id": "depuy-hip",
-        "name": "2026 DePuy Hip Lawsuit Settlement Calculator | Payout Estimator",
-        "description": "Calculate your 2026 DePuy hip lawsuit settlement value instantly. Free ASR and Pinnacle negotiator with official MDL 2197 and MDL 2244 litigation data and FDA metallosis benchmarks.",
+        "name": "DePuy Hip Lawsuit Calculator",
+        "description": "Calculate DePuy hip lawsuit settlements. ASR, Pinnacle metal-on-metal failure, metallosis claims. Based on 2026 litigation data.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
         "icon": "gavel"
     },
     "depuy-knee": {
         "id": "depuy-knee",
-        "name": "2026 DePuy Knee Lawsuit Settlement Calculator | Attune Payouts",
-        "description": "Calculate your 2026 DePuy knee lawsuit settlement value instantly. Free Attune negotiator with official FDA tibial loosening data and medical necessity multipliers.",
+        "name": "DePuy Knee Lawsuit Calculator",
+        "description": "Calculate DePuy knee lawsuit settlements. Attune tibial loosening, early failure, revision surgery claims. Based on 2026 litigation data.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
         "icon": "gavel"
     },
@@ -752,6 +752,15 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "color": "rose-500",
         "icon": "gavel"
     },
+    "dice-roller": {
+        "id": "dice-roller",
+        "name": "Dice Roller",
+        "description": "Roll any number of dice with any number of sides. Supports modifiers, totals, and roll breakdowns.",
+        "category": "general",
+        "tier": 2,
+        "color": "slate-500",
+        "icon": "calculator"
+    },
     "dirt-bike-insurance": {
         "id": "dirt-bike-insurance",
         "name": "Dirt Bike Insurance Calculator",
@@ -763,19 +772,19 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "disability": {
         "id": "disability",
-        "name": "2026 SSDI & Social Security Disability Calculator",
-        "description": "Calculate your 2026 Social Security Disability (SSDI) and SSI benefits. Free calculator with 2.8% COLA increase, back pay estimation, and official SSA income limit integration.",
+        "name": "Disability Benefits Calculator",
+        "description": "Calculate your 2026 Social Security Disability (SSDI) and SSI benefits. Free calculator with Back Pay estimation, updated with official 2.8% COLA increase.",
         "category": "tax",
-        "tier": 1,
+        "tier": 2,
         "color": "slate-500",
         "icon": "calculator"
     },
     "divorce": {
         "id": "divorce",
-        "name": "2026 Divorce Settlement Calculator | Property Division Estimator",
-        "description": "Calculate alimony and marital asset division instantly. Free 2026 divorce negotiator for community property and equitable distribution states with official judicial benchmarks.",
+        "name": "Divorce Settlement Calculator",
+        "description": "Calculate alimony (spousal support) and property division for divorce. Free 2026 calculator based on state laws for all 50 US states.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
         "icon": "gavel"
     },
@@ -790,10 +799,10 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "dog-bite": {
         "id": "dog-bite",
-        "name": "2026 Dog Bite Settlement Calculator | Animal Attack Payouts",
+        "name": "Dog Bite Settlement Calculator",
         "description": "Calculate your 2026 dog bite settlement value instantly. Free 50-state animal attack negotiator with official Insurance Information Institute (III) liability data and CDC injury benchmarks.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
         "icon": "gavel"
     },
@@ -808,12 +817,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "drunk-driving": {
         "id": "drunk-driving",
-        "name": "2026 DUI Calculator | Official S-Class Auditor",
-        "description": "Calculate 2026 DUI penalties, BAC metabolism, and hidden legal costs instantly. Official S-Class auditor for state-level fines and SR-22 insurance forecasting.",
-        "category": "tax",
-        "tier": 1,
-        "color": "rose-600",
-        "icon": "calculator"
+        "name": "DUI Calculator",
+        "description": "Pro-tier DUI analyzer with 2026 blood alcohol concentration (BAC) indices, state-level penalty audit, and SR-22/legal expense forecasting.",
+        "category": "legal",
+        "tier": 2,
+        "color": "rose-500",
+        "icon": "gavel"
     },
     "dti": {
         "id": "dti",
@@ -826,30 +835,21 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "due-date": {
         "id": "due-date",
-        "name": "2026 Due Date Calculator | Pregnancy Progress Auditor",
-        "description": "Calculate your pregnancy due date with medical precision. Multi-method audit including LMP, Conception, and IVF transfer milestones for the 2026 maternity landscape.",
+        "name": "Due Date Auditor 2026",
+        "description": "Calculate your estimated due date (EDD) using medical-grade Naegele",
         "category": "health",
-        "tier": 1,
-        "color": "indigo-500",
-        "icon": "baby"
-    },
-    "salary": {
-        "id": "salary",
-        "name": "2026 Salary Calculator | Precision Compensation Auditor",
-        "description": "Calculate annual, monthly, and hourly earnings with institutional precision. Free 2026 negotiator with official BLS wage benchmarks, tax-adjusted audits, and overtime multipliers.",
-        "category": "finance",
-        "tier": 1,
-        "color": "emerald-600",
-        "icon": "banknote"
+        "tier": 2,
+        "color": "emerald-500",
+        "icon": "activity"
     },
     "DUI": {
         "id": "DUI",
-        "name": "2026 DUI Cost Calculator | Legal Payout & Fine Estimator",
+        "name": "DUI Cost Calculator",
         "description": "Calculate the true cost of a 2026 DUI conviction instantly. Free legal negotiator with official NHTSA crash data, state-specific fine benchmarks, and insurance increase projections.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
-        "icon": "scale"
+        "icon": "gavel"
     },
     "e-bike": {
         "id": "e-bike",
@@ -943,12 +943,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "epli": {
         "id": "epli",
-        "name": "2026 Wrongful Termination Settlement Calculator | Payout Negotiator",
+        "name": "Wrongful Termination Settlement Calculator",
         "description": "Calculate your 2026 wrongful termination settlement value instantly. Free legal negotiator with official EEOC litigation data, average payout benchmarks, and spoliation of evidence multipliers.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
-        "icon": "user-minus"
+        "icon": "gavel"
     },
     "era": {
         "id": "era",
@@ -970,12 +970,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "espp": {
         "id": "espp",
-        "name": "2026 ESPP Calculator | Employee Stock Payout Negotiator",
+        "name": "ESPP Calculator",
         "description": "Calculate your 2026 ESPP gains and taxes instantly. Free stock negotiator with official IRS Publication 525 guidelines, Section 423 benchmarks, and lookback provision analysis.",
         "category": "tax",
-        "tier": 1,
+        "tier": 2,
         "color": "slate-500",
-        "icon": "trending-up"
+        "icon": "calculator"
     },
     "essure": {
         "id": "essure",
@@ -1060,12 +1060,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "fela": {
         "id": "fela",
-        "name": "2026 FELA Railroad Injury Calculator | Settlement Payout",
-        "description": "Calculate your 2026 FELA settlement value instantly. Free railroad injury negotiator with official 45 U.S.C. §51 statutes, FRA safety data, and comparative negligence standards.",
+        "name": "FELA Railroad Injury Settlement Calculator",
+        "description": "Calculate your 2026 FELA settlement value instantly. Free railroad injury negotiator with official 45 U.S.C. §51 statutes, FRA safety data, and lost wage multipliers.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
-        "icon": "train"
+        "icon": "gavel"
     },
     "fentanyl-exposure": {
         "id": "fentanyl-exposure",
@@ -1195,12 +1195,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "general-liability": {
         "id": "general-liability",
-        "name": "2026 General Liability Insurance Calculator | Business Quote",
+        "name": "General Liability Insurance Calculator",
         "description": "Calculate your 2026 small business insurance cost instantly. Free GL quote estimator with official NAIC commercial risk data, ISO class codes, and industry-specific premium benchmarks.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
-        "icon": "shield"
+        "icon": "gavel"
     },
     "gi-bill": {
         "id": "gi-bill",
@@ -1222,12 +1222,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "glp1-vision": {
         "id": "glp1-vision",
-        "name": "2026 GLP-1 Vision Loss Settlement Calculator | Payout Negotiator",
+        "name": "GLP-1 Vision Loss Settlement Calculator",
         "description": "Calculate your 2026 Ozempic/Wegovy vision loss settlement value instantly. Free NAION negotiator with official MDL 3097 litigation data, JAMA research benchmarks, and ophthalmological clinical data.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
-        "icon": "eye"
+        "icon": "gavel"
     },
     "golf-cart": {
         "id": "golf-cart",
@@ -1247,23 +1247,23 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "color": "rose-500",
         "icon": "gavel"
     },
-    "grade": {
-        "id": "grade",
-        "name": "2026 Grade Calculator | Institutional Academic Audit Engine",
-        "description": "Calculate your course grades, weighted averages, and final exam targets with 2026 academic precision. Expert guide for university grading scales, GPA conversion, and performance optimization.",
-        "category": "general",
-        "tier": 1,
-        "color": "emerald-500",
-        "icon": "graduation-cap"
-    },
     "gpa": {
         "id": "gpa",
-        "name": "2026 GPA Calculator | Precision Academic Audit Engine",
-        "description": "Calculate cumulative and semester GPA with 2026 academic precision. Free audit tool for weighted AP/IB honors and unweighted 4.0 scale benchmarks.",
+        "name": "GPA Calculator",
+        "description": "Calculate your weighted and unweighted GPA with 2026 university-grade precision. Expert guide for AP/IB honors, semester tracking, and college admission GPA requirements.",
         "category": "general",
-        "tier": 1,
-        "color": "indigo-600",
-        "icon": "graduation-cap"
+        "tier": 2,
+        "color": "slate-500",
+        "icon": "calculator"
+    },
+    "grade": {
+        "id": "grade",
+        "name": "Grade Calculator",
+        "description": "Calculate your course grades, weighted averages, and final exam targets instantly. Free expert guide for university grading scales and GPA conversion.",
+        "category": "general",
+        "tier": 2,
+        "color": "slate-500",
+        "icon": "calculator"
     },
     "grocery-store-injury": {
         "id": "grocery-store-injury",
@@ -1294,12 +1294,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "hair-relaxer": {
         "id": "hair-relaxer",
-        "name": "2026 Hair Relaxer Settlement Calculator | Uterine Cancer Payout",
+        "name": "Hair Relaxer Lawsuit Calculator",
         "description": "Calculate your 2026 hair relaxer lawsuit settlement value instantly. Free chemical straightener negotiator with official NIH Sister Study data, MDL 3060 litigation benchmarks, and uterine/ovarian cancer statistics.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
-        "icon": "sparkles"
+        "icon": "gavel"
     },
     "health-insurance": {
         "id": "health-insurance",
@@ -1321,12 +1321,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "hernia-mesh": {
         "id": "hernia-mesh",
-        "name": "2026 Bard Hernia Mesh Settlement Calculator | Payout Negotiator",
+        "name": "Bard Hernia Mesh Settlement Calculator",
         "description": "Calculate your 2026 hernia mesh lawsuit settlement value instantly. Free Bard negotiator with official MDL 2846 litigation benchmarks, FDA MAUDE safety data, and revision surgery analysis.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
-        "icon": "activity"
+        "icon": "gavel"
     },
     "hip-implant": {
         "id": "hip-implant",
@@ -1483,12 +1483,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "life-insurance": {
         "id": "life-insurance",
-        "name": "2026 Life Insurance Calculator | Coverage & Premium Estimator",
+        "name": "Life Insurance Calculator",
         "description": "Calculate your 2026 life insurance needs instantly. Free coverage negotiator with official NAIC premium benchmarks, ACLI mortality data, and family obligation analysis.",
-        "category": "finance",
-        "tier": 1,
-        "color": "blue-500",
-        "icon": "landmark"
+        "category": "health",
+        "tier": 2,
+        "color": "emerald-500",
+        "icon": "activity"
     },
     "liheap": {
         "id": "liheap",
@@ -1510,21 +1510,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "loan": {
         "id": "loan",
-        "name": "2026 Loan Amortization Calculator | Precision Debt Audit",
-        "description": "Calculate your 2026 loan payments and amortization schedules instantly. Free debt negotiator with official TILA compliance benchmarks, interest decay analysis, and principal acceleration modeling.",
+        "name": "Loan Calculator",
+        "description": "Precision Loan Calculator analyzer for the 2026 market.",
         "category": "finance",
-        "tier": 1,
+        "tier": 2,
         "color": "blue-500",
         "icon": "landmark"
-    },
-    "pregnancy": {
-        "id": "pregnancy",
-        "name": "2026 Pregnancy Due Date Calculator | S-Class Maternal Audit",
-        "description": "Calculate your estimated due date (EDD) with clinical precision. Track maternal milestones, trimester transitions, and fetal development cycles using 2026 medical standards.",
-        "category": "health",
-        "tier": 1,
-        "color": "rose-500",
-        "icon": "baby"
     },
     "loan-payoff": {
         "id": "loan-payoff",
@@ -1564,10 +1555,10 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "malpractice": {
         "id": "malpractice",
-        "name": "2026 Medical Malpractice Settlement Calculator | Negligence Payouts",
-        "description": "Calculate your 2026 medical malpractice settlement value. Free negotiator-grade estimator for surgical errors, misdiagnosis, and birth injuries with official NPDB & physician board data.",
+        "name": "Medical Malpractice Calculator",
+        "description": "Calculate your medical malpractice settlement value. Free 2026 calculator for surgical errors, misdiagnosis, birth injuries, and medication errors. Average settlements $250K-$500K.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
         "icon": "gavel"
     },
@@ -1618,10 +1609,10 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "mesothelioma": {
         "id": "mesothelioma",
-        "name": "2026 Mesothelioma Settlement Calculator | Payout Negotiator",
+        "name": "Mesothelioma Settlement Calculator",
         "description": "Calculate your 2026 mesothelioma settlement value instantly. Free asbestos negotiator with official Bankruptcy Trust Fund data, VA benefit benchmarks, and litigation payout records.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
         "icon": "gavel"
     },
@@ -1663,12 +1654,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "mortgage": {
         "id": "mortgage",
-        "name": "2026 Mortgage Calculator | Official S-Class Lending Auditor",
-        "description": "Calculate mortgage payments and rates with 2026 precision. Official S-Class lending auditor based on institutional Freddie Mac and FHFA financial benchmarks.",
-        "category": "finance",
-        "tier": 1,
-        "color": "blue-500",
-        "icon": "landmark"
+        "name": "Mortgage Calculator",
+        "description": "Calculate your 2026 mortgage payment instantly. Analyze principal, interest, taxes, insurance, and PMI with Freddie Mac PMMS and FHFA benchmark context.",
+        "category": "tax",
+        "tier": 2,
+        "color": "slate-500",
+        "icon": "calculator"
     },
     "motorcycle-accident": {
         "id": "motorcycle-accident",
@@ -1717,21 +1708,21 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "nursing-home": {
         "id": "nursing-home",
-        "name": "2026 Nursing Home Abuse Calculator | Settlement Value Estimator",
+        "name": "Nursing Home Abuse Calculator",
         "description": "Calculate your 2026 nursing home abuse settlement value instantly. Free elder neglect negotiator with official CMS (Medicare.gov) ratings, CDC elder abuse statistics, and litigation payout records.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
-        "icon": "heart"
+        "icon": "gavel"
     },
     "offshore": {
         "id": "offshore",
-        "name": "2026 Jones Act Settlement Calculator | Offshore Injury Payout",
+        "name": "Jones Act Settlement Calculator",
         "description": "Calculate your 2026 Jones Act settlement value instantly. Free maritime negotiator with official Maintenance & Cure rates, Unseaworthiness benchmarks, and USCG casualty data.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
-        "icon": "anchor"
+        "icon": "gavel"
     },
     "oil-rig": {
         "id": "oil-rig",
@@ -1762,12 +1753,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "ovulation": {
         "id": "ovulation",
-        "name": "2026 Ovulation Calculator | Fertility Window Estimator",
-        "description": "Estimate ovulation date and fertile window using cycle length and last period data with 2026 clinical precision. Official S-Class fertility estimator for planning and cycle tracking.",
+        "name": "Ovulation Calculator",
+        "description": "Medical-grade fertility window auditing. Track ovulation, peak fertile days, and luteal phase stability with ACOG-aligned precision.",
         "category": "health",
-        "tier": 1,
+        "tier": 2,
         "color": "emerald-500",
-        "icon": "baby"
+        "icon": "activity"
     },
     "oxycontin": {
         "id": "oxycontin",
@@ -1780,10 +1771,10 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "ozempic": {
         "id": "ozempic",
-        "name": "2026 Ozempic Settlement Calculator | Gastroparesis Payouts",
-        "description": "Calculate your 2026 Ozempic lawsuit settlement value. Free MDL 3094 estimator for Gastroparesis, stomach paralysis, and NAION vision loss claims with official FDA safety data.",
+        "name": "Ozempic Settlement Calculator",
+        "description": "Calculate your Ozempic lawsuit settlement value. Specialized analysis for Gastroparesis, Intestinal Obstruction, and NAION vision loss claims. Data-driven 2026 audit.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
         "icon": "gavel"
     },
@@ -1798,10 +1789,10 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "paraquat": {
         "id": "paraquat",
-        "name": "2026 Paraquat Lawsuit Settlement Calculator | Parkinson's Payouts",
-        "description": "Calculate your 2026 Paraquat lawsuit settlement value instantly. Free Parkinson's disease negotiator with official MDL 3004 (Southern District of Illinois) litigation data and EPA toxicity benchmarks.",
+        "name": "Paraquat Lawsuit Calculator",
+        "description": "Calculate Paraquat lawsuit settlement value instantly. Free 2026 calculator for Parkinson",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
         "icon": "gavel"
     },
@@ -1843,12 +1834,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "percentage": {
         "id": "percentage",
-        "name": "2026 Percentage Calculator | Precision Math & Growth Engine",
-        "description": "Calculate 2026 percentages instantly. Free math negotiator with official NIST precision benchmarks, percentage increase/decrease logic, and business margin analytics.",
-        "category": "general",
-        "tier": 1,
-        "color": "blue-500",
-        "icon": "percent"
+        "name": "Percentage Calculator",
+        "description": "Calculate percentages instantly with our 2026 math engine. Analyze percentage increase, decrease, reverse percentage, and relative difference using NIST-aligned methods.",
+        "category": "tax",
+        "tier": 2,
+        "color": "slate-500",
+        "icon": "calculator"
     },
     "pet-insurance": {
         "id": "pet-insurance",
@@ -1870,12 +1861,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "philips-ventilator": {
         "id": "philips-ventilator",
-        "name": "2026 Philips CPAP Settlement Calculator | Payout Negotiator",
+        "name": "Philips CPAP Settlement Calculator",
         "description": "Calculate your 2026 Philips CPAP lawsuit settlement value instantly. Free ventilator recall negotiator with official MDL 3014 litigation data, FDA Class I recall benchmarks, and cancer risk analysis.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
-        "icon": "wind"
+        "icon": "gavel"
     },
     "pipeline": {
         "id": "pipeline",
@@ -1939,6 +1930,15 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "tier": 2,
         "color": "rose-500",
         "icon": "gavel"
+    },
+    "pregnancy": {
+        "id": "pregnancy",
+        "name": "Pregnancy Calculator",
+        "description": "Calculate your estimated due date (EDD) and track pregnancy milestones with clinical precision. Support for LMP, Conception, and IVF methods based on 2026 maternal health standards.",
+        "category": "health",
+        "tier": 2,
+        "color": "emerald-500",
+        "icon": "activity"
     },
     "prilosec": {
         "id": "prilosec",
@@ -2122,21 +2122,21 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "roundup": {
         "id": "roundup",
-        "name": "2026 Roundup Settlement Calculator | Lawsuit Payout Estimator",
+        "name": "Roundup Settlement Calculator",
         "description": "Calculate your 2026 Roundup lawsuit settlement value instantly. Free NHL negotiator with official MDL 2741 (Bayer/Monsanto) litigation data and IARC carcinogen benchmarks.",
         "category": "legal",
-        "tier": 1,
-        "color": "emerald-500",
-        "icon": "leaf"
+        "tier": 2,
+        "color": "rose-500",
+        "icon": "gavel"
     },
     "rsu": {
         "id": "rsu",
-        "name": "2026 RSU Tax Calculator | Restricted Stock Negotiator",
+        "name": "RSU Calculator",
         "description": "Calculate your 2026 RSU value and taxes instantly. Free tech negotiator with official IRS Section 83(i) deferral benchmarks, Section 83(b) election benchmarks, and 2026 vesting data.",
         "category": "tax",
-        "tier": 1,
+        "tier": 2,
         "color": "slate-500",
-        "icon": "briefcase"
+        "icon": "calculator"
     },
     "rv-insurance": {
         "id": "rv-insurance",
@@ -2151,6 +2151,15 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "id": "s-corp-tax",
         "name": "S Corp Tax Calculator",
         "description": "Calculate S-Corp tax savings, reasonable salary, and distribution strategy. Based on 2026 IRS guidelines for S Corporation owners.",
+        "category": "tax",
+        "tier": 2,
+        "color": "slate-500",
+        "icon": "calculator"
+    },
+    "salary": {
+        "id": "salary",
+        "name": "Salary Calculator",
+        "description": "Calculate annual, monthly, and hourly earnings with institutional precision. Analysis based on 2,080 standard work hours and 2026 legal benchmarks.",
         "category": "tax",
         "tier": 2,
         "color": "slate-500",
@@ -2185,12 +2194,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "scientific": {
         "id": "scientific",
-        "name": "2026 Scientific Calculator | Official S-Class Logic Auditor",
-        "description": "Execute high-precision scientific computations with 2026 accuracy. Official S-Class logic auditor for trigonometry, calculus, and advanced mathematical auditing.",
+        "name": "Scientific Calculator",
+        "description": "Free scientific calculator for trigonometry, logarithms, powers, and roots with degree/radian support and IEEE 754-aware numeric handling.",
         "category": "general",
-        "tier": 1,
-        "color": "blue-600",
-        "icon": "binary"
+        "tier": 2,
+        "color": "slate-500",
+        "icon": "calculator"
     },
     "section-8": {
         "id": "section-8",
@@ -2257,10 +2266,10 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "slip-and-fall": {
         "id": "slip-and-fall",
-        "name": "2026 Slip and Fall Settlement Calculator | Premises Liability Payouts",
-        "description": "Calculate your 2026 slip and fall settlement value instantly. Free 50-state premises liability negotiator with official ANSI/NFSI safety standards and property owner negligence benchmarks.",
+        "name": "Slip and Fall Settlement Calculator",
+        "description": "Calculate your slip and fall settlement value. Free 2026 calculator for premises liability, trip and fall accidents, and property owner negligence claims.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
         "icon": "gavel"
     },
@@ -2302,12 +2311,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "social-media": {
         "id": "social-media",
-        "name": "2026 Social Media Addiction Calculator | Lawsuit Payout Negotiator",
+        "name": "Social Media Addiction Lawsuit Calculator",
         "description": "Calculate your 2026 social media addiction settlement value instantly. Free lawsuit negotiator with official MDL 3047 (N.D. Cal) litigation data, clinical psychology benchmarks, and youth mental health damages.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
-        "icon": "smartphone"
+        "icon": "gavel"
     },
     "social-security": {
         "id": "social-security",
@@ -2320,12 +2329,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "spinal-cord": {
         "id": "spinal-cord",
-        "name": "2026 Spinal Cord Injury Settlement Calculator | Payout Negotiator",
+        "name": "Spinal Cord Injury Calculator",
         "description": "Calculate your 2026 spinal cord injury settlement value instantly. Free SCI negotiator with official NSCISC statistical data, ASIA impairment scale benchmarks, and lifetime care cost projections.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
-        "icon": "activity"
+        "icon": "gavel"
     },
     "spinal-fusion": {
         "id": "spinal-fusion",
@@ -2356,39 +2365,39 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "square-footage": {
         "id": "square-footage",
-        "name": "2026 Square Footage Calculator | Area Measurement Auditor",
-        "description": "Calculate area for rooms, homes, lots, and custom shapes with 2026 precision. Official S-Class area auditor for flooring, paint, and real-estate measurement workflows.",
+        "name": "Square Footage Calculator",
+        "description": "Industrial-grade geometric area auditing for real estate, construction, and interior design. ANSI/BOMA Z65 compliant precision.",
         "category": "general",
-        "tier": 1,
-        "color": "emerald-500",
-        "icon": "ruler"
+        "tier": 2,
+        "color": "slate-500",
+        "icon": "calculator"
     },
     "sr22": {
         "id": "sr22",
-        "name": "2026 SR-22 Insurance Calculator | High-Risk DUI Rates",
-        "description": "Calculate 2026 SR-22 insurance costs instantly. Free high-risk quote estimator with official state DMV filing fees, NAIC risk classifications, and non-owner policy rates.",
-        "category": "legal",
-        "tier": 1,
-        "color": "rose-500",
-        "icon": "shield-alert"
+        "name": "SR-22 Insurance Cost Calculator",
+        "description": "Calculate your 2026 SR-22 insurance cost instantly. Free DUI/DWI insurance negotiator with official DMV filing fees, state liability requirements, and high-risk rate data.",
+        "category": "general",
+        "tier": 2,
+        "color": "slate-500",
+        "icon": "calculator"
     },
     "ssdi": {
         "id": "ssdi",
-        "name": "2026 SSDI Back Pay Calculator | Retroactive Payment Estimator",
-        "description": "Calculate your 2026 SSDI back pay and retroactive benefits. Free estimator with official SSA attorney fee caps ($7,200) and 2.8% COLA adjustment data.",
+        "name": "SSDI Back Pay Calculator",
+        "description": "Calculate your SSDI back pay amount. Free 2026 calculator for Social Security disability retroactive payments and attorney fees.",
         "category": "general",
-        "tier": 1,
+        "tier": 2,
         "color": "slate-500",
         "icon": "calculator"
     },
     "ssi": {
         "id": "ssi",
-        "name": "2026 SSI Calculator | Benefit & Payment Estimator",
+        "name": "SSI Calculator",
         "description": "Calculate your 2026 Supplemental Security Income (SSI) benefits instantly. Free eligibility negotiator with official SSA 2026 COLA adjustments, federal payment standards, and resource limits.",
-        "category": "finance",
-        "tier": 1,
-        "color": "blue-500",
-        "icon": "landmark"
+        "category": "tax",
+        "tier": 2,
+        "color": "slate-500",
+        "icon": "calculator"
     },
     "stadium-injury": {
         "id": "stadium-injury",
@@ -2473,12 +2482,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "talcum-powder": {
         "id": "talcum-powder",
-        "name": "2026 Talcum Powder Settlement Calculator | Payout Negotiator",
+        "name": "Talcum Powder Settlement Calculator",
         "description": "Calculate your 2026 Talcum Powder lawsuit settlement value instantly. Free baby powder negotiator with official MDL 2738 litigation data, IARC carcinogen benchmarks, and J&J settlement records.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
-        "icon": "droplet"
+        "icon": "gavel"
     },
     "tanf": {
         "id": "tanf",
@@ -2491,30 +2500,30 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "tax": {
         "id": "tax",
-        "name": "2026 Federal Income Tax Calculator | IRS Refund Estimator",
-        "description": "Calculate your 2026 federal income tax instantly. See your tax bracket, standard deduction, and estimate your refund with official IRS data integration.",
+        "name": "Tax Calculator",
+        "description": "Calculate your 2026 federal income tax for free. See your tax bracket, estimate your refund, and understand your tax liability with our easy-to-use calculators.",
         "category": "tax",
-        "tier": 1,
+        "tier": 2,
         "color": "slate-500",
         "icon": "calculator"
     },
     "tbi": {
         "id": "tbi",
-        "name": "2026 Traumatic Brain Injury Settlement Calculator | Payout Negotiator",
+        "name": "TBI Settlement Calculator",
         "description": "Calculate your 2026 TBI settlement value instantly. Free brain injury negotiator with official CDC TBI Center data, Glasgow Coma Scale (GCS) benchmarks, and long-term neuro-psychological care costs.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
-        "icon": "brain"
+        "icon": "gavel"
     },
     "tepezza": {
         "id": "tepezza",
-        "name": "2026 Tepezza Hearing Loss Settlement Calculator | Tinnitus Payout",
+        "name": "Tepezza Hearing Loss Lawsuit Calculator",
         "description": "Calculate your 2026 Tepezza lawsuit settlement value instantly. Free hearing loss negotiator with official MDL 3079 litigation data, Audiogram benchmarks, and permanent tinnitus ratings.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
-        "icon": "ear"
+        "icon": "gavel"
     },
     "testosterone": {
         "id": "testosterone",
@@ -2543,23 +2552,23 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
         "color": "rose-500",
         "icon": "gavel"
     },
-    "tip": {
-        "id": "tip",
-        "name": "Tip Calculator",
-        "description": "Calculate tips and split bills instantly. Free 2026 tip calculator with standard tipping percentages.",
-        "category": "finance",
-        "tier": 2,
-        "color": "blue-500",
-        "icon": "landmark"
-    },
     "time-calculator": {
         "id": "time-calculator",
-        "name": "2026 Time Calculator | Duration and Hours Audit Engine",
-        "description": "Calculate time differences, add or subtract H:M:S values, and convert between time units with 2026 precision.",
+        "name": "Time Calculator",
+        "description": "Calculate time differences, add/subtract time, and convert between hours, minutes, and seconds with 2026 precision.",
         "category": "general",
-        "tier": 1,
-        "color": "blue-500",
-        "icon": "clock"
+        "tier": 2,
+        "color": "slate-500",
+        "icon": "calculator"
+    },
+    "tip": {
+        "id": "tip",
+        "name": "2026 Tip Calculator | Gratuity Gold Precision Engine",
+        "description": "Calculate tips, split bills, and audit tipping etiquette with 2026 precision. Expert guide for global gratuity standards, service economy ethics, and digital prompt management.",
+        "category": "tax",
+        "tier": 2,
+        "color": "slate-500",
+        "icon": "calculator"
     },
     "townhouse-insurance": {
         "id": "townhouse-insurance",
@@ -2626,10 +2635,10 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "truck-accident": {
         "id": "truck-accident",
-        "name": "Truck Accident Settlement Calculator | 2026 Payout Estimator",
-        "description": "Calculate your truck accident settlement value. Free 2026 estimator for semi-truck and 18-wheeler crashes. Based on FMCSA insurance minimums and average case results.",
+        "name": "Truck Accident Settlement Calculator",
+        "description": "Calculate your truck accident settlement value for free. Estimate 18-wheeler, semi-truck, and commercial vehicle accident compensation. Average settlements $500K-$3M.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
         "icon": "gavel"
     },
@@ -2689,12 +2698,12 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "va-disability": {
         "id": "va-disability",
-        "name": "2026 VA Disability Calculator | Official VA Pay Charts & Ratings",
-        "description": "Calculate your 2026 VA disability compensation instantly. Free calculator for veterans disability ratings, combined math, and SMC with official 2026 VA payment charts and COLA adjustments.",
-        "category": "legal",
-        "tier": 1,
-        "color": "rose-500",
-        "icon": "gavel"
+        "name": "VA Disability Calculator",
+        "description": "Calculate your VA disability compensation. Free 2026 calculator for veterans disability ratings and monthly payments.",
+        "category": "general",
+        "tier": 2,
+        "color": "slate-500",
+        "icon": "calculator"
     },
     "valet-accident": {
         "id": "valet-accident",
@@ -2824,19 +2833,19 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "wright-hip": {
         "id": "wright-hip",
-        "name": "2026 Wright Hip Lawsuit Settlement Calculator | Conserve Plus Payouts",
-        "description": "Calculate your 2026 Wright Medical hip lawsuit settlement value instantly. Free Conserve Plus and Dynasty negotiator with official MDL data and revision surgery benchmarks.",
+        "name": "Wright Hip Lawsuit Calculator",
+        "description": "Calculate Wright Medical hip lawsuit settlements. Conserve Plus, Dynasty hip resurfacing failure claims. Based on 2026 litigation data.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
         "icon": "gavel"
     },
     "wrongful-death": {
         "id": "wrongful-death",
-        "name": "2026 Wrongful Death Settlement Calculator | Fatality Payouts",
+        "name": "Wrongful Death Calculator",
         "description": "Calculate your 2026 wrongful death settlement value instantly. Free fatality negotiator with official CDC mortality data, Social Security Actuarial Tables, and survivor damage benchmarks.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
         "icon": "gavel"
     },
@@ -2851,19 +2860,19 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
     },
     "zantac": {
         "id": "zantac",
-        "name": "2026 Zantac Cancer Lawsuit Calculator | Ranitidine Payout Estimator",
+        "name": "Zantac Cancer Lawsuit Calculator",
         "description": "Calculate your 2026 Zantac settlement value instantly. Free ranitidine negotiator with official MDL 2924 litigation data, FDA recall benchmarks (NDMA), and state court payout records.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
         "icon": "gavel"
     },
     "zimmer-hip": {
         "id": "zimmer-hip",
-        "name": "2026 Zimmer Hip Lawsuit Settlement Calculator | Durom Cup Payouts",
-        "description": "Calculate your 2026 Zimmer hip lawsuit settlement value instantly. Free Durom Cup negotiator with official MDL data, metal-on-metal failure rates, and revision settlement data.",
+        "name": "Zimmer Hip Lawsuit Calculator",
+        "description": "Calculate Zimmer hip lawsuit settlements. Durom Cup, metal-on-metal failure, revision surgery claims. Based on 2026 litigation data.",
         "category": "legal",
-        "tier": 1,
+        "tier": 2,
         "color": "rose-500",
         "icon": "gavel"
     }
@@ -2871,7 +2880,7 @@ export const CALCULATOR_REGISTRY: Record<string, CalculatorConfig> = {
 
 export function getCalculatorMeta(id: string) {
     const config = CALCULATOR_REGISTRY[id];
-
+    
     if (!config) {
         return {
             title: `${id.charAt(0).toUpperCase() + id.slice(1).replace(/-/g, ' ')} Calculator | 2026 Audit`,

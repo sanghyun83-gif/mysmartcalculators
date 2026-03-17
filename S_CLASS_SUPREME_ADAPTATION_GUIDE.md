@@ -73,6 +73,14 @@ A calculator page is "thick" only when ALL are true:
 
 If any item is missing, page is not thick yet.
 
+### Universal Thick Pack (Mandatory Blocks)
+- Decision Guide: interpret results and link to the next action or decision.
+- Scenario Pack: minimum 3 scenarios, each with inputs, outputs, and meaning.
+- Assumptions & Limits: minimum 5 items covering ranges, rounding, units, and model constraints.
+- Edge/Stress Test: minimum 3 extreme or boundary cases.
+- Sources & Review: minimum 2 sources or a reasoned "no external source required" note, plus last reviewed date.
+- Transparency Block (Who/How/Why): reviewer identity, computation method, and purpose.
+
 ---
 
 ## 3) Rich Result Reality for Calculator Sites
@@ -183,6 +191,7 @@ A page cannot ship unless all checks pass.
 - No unsupported/deceptive schema usage.
 
 ### Thick depth gate
+- Universal Thick Pack blocks present (Decision Guide, Scenario Pack, Assumptions & Limits, Edge/Stress, Sources & Review, Who/How/Why).
 - Interpretation section included ("what the result means in practice").
 - Scenario set included (3 or more realistic user cases).
 - Assumptions and limits clearly listed.
@@ -239,6 +248,10 @@ Already standardized units:
 Note:
 "Standardized" means architecture baseline is applied.
 It does NOT automatically mean "thick content complete."
+
+### Thick Content Complete (Verified)
+- mortgage
+- dice-roller
 
 ---
 

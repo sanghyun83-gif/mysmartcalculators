@@ -338,6 +338,10 @@ export const ALL_CALCULATORS: CalculatorIndexItem[] = [
         "name": "Dialysis Lawsuit Calculator"
     },
     {
+        "id": "dice-roller",
+        "name": "Dice Roller"
+    },
+    {
         "id": "dirt-bike-insurance",
         "name": "Dirt Bike Insurance Calculator"
     },

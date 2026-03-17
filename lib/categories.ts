@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Category Mapping for Related Calculators
  * Maps each calculator to its category for internal linking
  */
@@ -334,6 +334,7 @@ export const CATEGORY_MAP: Record<string, Category> = {
     'salary': 'finance',
     'time-calculator': 'finance',
     'percentage': 'finance',
+    'dice-roller': 'finance',
 };
 
 export const CATEGORY_NAMES: Record<Category, string> = {
@@ -618,6 +619,7 @@ export const CALCULATOR_NAMES: Record<string, string> = {
     'gpa': 'GPA Calculator',
     'salary': 'Salary Calculator',
     'time-calculator': 'Time Calculator',
+    'dice-roller': 'Dice Roller',
     'wedding-insurance': 'Wedding Insurance',
     'event-insurance': 'Event Insurance',
     'travel-insurance': 'Travel Insurance',
@@ -688,3 +690,4 @@ export function getCategoryInfo(calcId: string): { category: Category; name: str
     if (!category) return null;
     return { category, name: CATEGORY_NAMES[category] };
 }
+
