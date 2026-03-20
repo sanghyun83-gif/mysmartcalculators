@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { LOAN_2026 } from "@/lib/calculators/loan";
 import LoanClient from "./LoanClient";
@@ -5,11 +6,40 @@ import LoanClient from "./LoanClient";
 const id = "loan";
 const meta = getCalculatorMeta(id);
 
-export const metadata = {
+export const metadata: Metadata = {
   title: meta?.title || "Loan Calculator & Amortization",
-  description: meta?.description || "Calculate monthly payment, total interest, and payoff date with an amortized loan model.",
+  description:
+    meta?.description ||
+    "Calculate monthly payment, total interest, and payoff date with an amortized loan model.",
+  keywords: [
+    "loan calculator",
+    "loan payment calculator",
+    "amortization calculator",
+    "personal loan calculator",
+    "loan payoff date",
+  ],
   alternates: {
     canonical: meta?.canonical || "https://mysmartcalculators.com/loan",
+  },
+  openGraph: {
+    title: meta?.title,
+    description: meta?.description,
+    url: meta?.canonical,
+    type: "website",
+    images: [
+      {
+        url: "/og-main.png",
+        width: 1200,
+        height: 630,
+        alt: "Loan calculator monthly payment estimate",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: meta?.title,
+    description: meta?.description,
+    images: ["/og-main.png"],
   },
 };
 
@@ -17,6 +47,14 @@ export default function LoanPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "WebPage",
+        name: meta?.title,
+        description: meta?.description,
+        url: meta?.canonical,
+        inLanguage: "en-US",
+        dateModified: "2026-03-21",
+      },
       {
         "@type": "SoftwareApplication",
         name: "Loan Calculator",
@@ -40,11 +78,11 @@ export default function LoanPage() {
           },
           {
             "@type": "HowToStep",
-            text: "Enter APR and loan term in years.",
+            text: "Enter APR, loan term, and loan start date.",
           },
           {
             "@type": "HowToStep",
-            text: "Click Calculate Loan and review payment, interest, and payoff metrics.",
+            text: "Click Calculate Loan and review payment, interest, amortization, and payoff metrics.",
           },
         ],
       },
@@ -61,7 +99,7 @@ export default function LoanPage() {
             "@type": "ListItem",
             position: 2,
             name: "Finance",
-            item: "https://mysmartcalculators.com/calculators",
+            item: "https://mysmartcalculators.com/finance",
           },
           {
             "@type": "ListItem",

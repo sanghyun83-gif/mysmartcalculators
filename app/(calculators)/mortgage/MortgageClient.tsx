@@ -24,6 +24,122 @@ function getEstimatedPayoffDate(startMonth: number, startYear: number, termYears
   return `${MONTH_NAMES[payoffMonth]} ${payoffYear}`;
 }
 
+type DetailedAmortizationRow = {
+  month: number;
+  periodLabel: string;
+  payment: number;
+  principal: number;
+  interest: number;
+  extraPayment: number;
+  balance: number;
+  cumulativeInterest: number;
+};
+
+type DetailedAmortizationResult = {
+  rows: DetailedAmortizationRow[];
+  monthsToPayoff: number;
+  totalInterest: number;
+  totalPayment: number;
+  payoffLabel: string;
+  baseMonthlyPi: number;
+};
+
+function calculateBaseMonthlyPi(loanAmount: number, annualRate: number, termYears: number) {
+  const r = annualRate / 100 / 12;
+  const n = Math.max(1, termYears * 12);
+  if (r === 0) return loanAmount / n;
+  return (loanAmount * (r * Math.pow(1 + r, n))) / (Math.pow(1 + r, n) - 1);
+}
+
+function buildDetailedAmortization(args: {
+  loanAmount: number;
+  annualRate: number;
+  termYears: number;
+  startMonth: number;
+  startYear: number;
+  monthlyExtra: number;
+  annualExtra: number;
+  oneTimeExtra: number;
+  oneTimeMonth: number;
+  biweeklyMode: boolean;
+}): DetailedAmortizationResult {
+  const {
+    loanAmount,
+    annualRate,
+    termYears,
+    startMonth,
+    startYear,
+    monthlyExtra,
+    annualExtra,
+    oneTimeExtra,
+    oneTimeMonth,
+    biweeklyMode,
+  } = args;
+  const r = annualRate / 100 / 12;
+  const n = Math.max(1, termYears * 12);
+  const baseMonthlyPi = calculateBaseMonthlyPi(loanAmount, annualRate, termYears);
+  const biweeklyEquivalentExtra = biweeklyMode ? baseMonthlyPi / 12 : 0;
+  let balance = loanAmount;
+  let cumulativeInterest = 0;
+  let totalPayment = 0;
+  let month = 0;
+  const rows: DetailedAmortizationRow[] = [];
+
+  while (balance > 0.01 && month < n + 600) {
+    month += 1;
+    const interest = r > 0 ? balance * r : 0;
+    const scheduledPrincipal = Math.max(0, baseMonthlyPi - interest);
+    let extra = monthlyExtra + biweeklyEquivalentExtra;
+    if (annualExtra > 0 && month % 12 === 0) extra += annualExtra;
+    if (oneTimeExtra > 0 && month === oneTimeMonth) extra += oneTimeExtra;
+    const principal = Math.min(balance, scheduledPrincipal + extra);
+    const payment = principal + interest;
+    balance = Math.max(0, balance - principal);
+    cumulativeInterest += interest;
+    totalPayment += payment;
+
+    const labelMonthIndex = (startMonth - 1 + (month - 1)) % 12;
+    const labelYear = startYear + Math.floor((startMonth - 1 + (month - 1)) / 12);
+    rows.push({
+      month,
+      periodLabel: `${MONTH_NAMES[labelMonthIndex]} ${labelYear}`,
+      payment: Math.round(payment),
+      principal: Math.round(principal),
+      interest: Math.round(interest),
+      extraPayment: Math.round(extra),
+      balance: Math.round(balance),
+      cumulativeInterest: Math.round(cumulativeInterest),
+    });
+  }
+
+  const payoffLabel = rows.length > 0 ? rows[rows.length - 1].periodLabel : getEstimatedPayoffDate(startMonth, startYear, termYears);
+  return {
+    rows,
+    monthsToPayoff: rows.length,
+    totalInterest: Math.round(cumulativeInterest),
+    totalPayment: Math.round(totalPayment),
+    payoffLabel,
+    baseMonthlyPi: Math.round(baseMonthlyPi),
+  };
+}
+
+function calculateFeeAwareApr(loanAmount: number, fees: number, monthlyPi: number, months: number) {
+  const netProceeds = loanAmount - fees;
+  if (netProceeds <= 0 || monthlyPi <= 0 || months <= 0) return 0;
+  const approxZeroRatePayment = netProceeds / months;
+  if (monthlyPi <= approxZeroRatePayment) return 0;
+
+  let low = 0;
+  let high = 1;
+  for (let i = 0; i < 80; i += 1) {
+    const mid = (low + high) / 2;
+    const estPayment = (netProceeds * (mid * Math.pow(1 + mid, months))) / (Math.pow(1 + mid, months) - 1);
+    if (estPayment > monthlyPi) high = mid;
+    else low = mid;
+  }
+  return ((low + high) / 2) * 12 * 100;
+}
+
 function getLtvStyles(downPaymentPercent: number) {
   if (downPaymentPercent >= 20) {
     return "text-emerald-800 bg-emerald-50 border-emerald-200";
@@ -79,6 +195,13 @@ export default function MortgageClient() {
   const [startYear, setStartYear] = useState(String(new Date().getFullYear()));
   const [hoaMonthly, setHoaMonthly] = useState("0");
   const [otherMonthlyCosts, setOtherMonthlyCosts] = useState("0");
+  const [extraMonthlyPayment, setExtraMonthlyPayment] = useState("0");
+  const [extraAnnualPayment, setExtraAnnualPayment] = useState("0");
+  const [oneTimeExtraPayment, setOneTimeExtraPayment] = useState("0");
+  const [oneTimeExtraMonth, setOneTimeExtraMonth] = useState("24");
+  const [feeAmount, setFeeAmount] = useState("0");
+  const [showFullSchedule, setShowFullSchedule] = useState(false);
+  const [scheduleMode, setScheduleMode] = useState<"baseline" | "extra" | "biweekly">("extra");
   const [copyState, setCopyState] = useState<"idle" | "copied" | "failed">("idle");
 
   const calculatorFaqs =
@@ -109,9 +232,16 @@ export default function MortgageClient() {
   const hoaMonthlyValue = Math.max(0, Number(hoaMonthly) || 0);
   const otherMonthlyValue = Math.max(0, Number(otherMonthlyCosts) || 0);
   const allInMonthlyPayment = result.totalMonthlyPayment + hoaMonthlyValue + otherMonthlyValue;
+  const parsedStartMonth = Math.min(12, Math.max(1, Number(startMonth) || new Date().getMonth() + 1));
+  const parsedStartYear = Math.max(2000, Number(startYear) || new Date().getFullYear());
+  const monthlyExtraValue = Math.max(0, Number(extraMonthlyPayment) || 0);
+  const annualExtraValue = Math.max(0, Number(extraAnnualPayment) || 0);
+  const oneTimeExtraValue = Math.max(0, Number(oneTimeExtraPayment) || 0);
+  const oneTimeExtraMonthValue = Math.max(1, Number(oneTimeExtraMonth) || 1);
+  const feeAmountValue = Math.max(0, Number(feeAmount) || 0);
   const estimatedPayoffDate = getEstimatedPayoffDate(
-    Number(startMonth) || new Date().getMonth() + 1,
-    Number(startYear) || new Date().getFullYear(),
+    parsedStartMonth,
+    parsedStartYear,
     result.loanTermYears
   );
 
@@ -188,6 +318,110 @@ export default function MortgageClient() {
     ];
   })();
 
+  const baselineDetailed = buildDetailedAmortization({
+    loanAmount: result.loanAmount,
+    annualRate: result.interestRate,
+    termYears: result.loanTermYears,
+    startMonth: parsedStartMonth,
+    startYear: parsedStartYear,
+    monthlyExtra: 0,
+    annualExtra: 0,
+    oneTimeExtra: 0,
+    oneTimeMonth: 1,
+    biweeklyMode: false,
+  });
+
+  const optimizedDetailed = buildDetailedAmortization({
+    loanAmount: result.loanAmount,
+    annualRate: result.interestRate,
+    termYears: result.loanTermYears,
+    startMonth: parsedStartMonth,
+    startYear: parsedStartYear,
+    monthlyExtra: monthlyExtraValue,
+    annualExtra: annualExtraValue,
+    oneTimeExtra: oneTimeExtraValue,
+    oneTimeMonth: oneTimeExtraMonthValue,
+    biweeklyMode: false,
+  });
+
+  const biweeklyDetailed = buildDetailedAmortization({
+    loanAmount: result.loanAmount,
+    annualRate: result.interestRate,
+    termYears: result.loanTermYears,
+    startMonth: parsedStartMonth,
+    startYear: parsedStartYear,
+    monthlyExtra: monthlyExtraValue,
+    annualExtra: annualExtraValue,
+    oneTimeExtra: oneTimeExtraValue,
+    oneTimeMonth: oneTimeExtraMonthValue,
+    biweeklyMode: true,
+  });
+
+  const interestSavedByExtras = baselineDetailed.totalInterest - optimizedDetailed.totalInterest;
+  const monthsSavedByExtras = baselineDetailed.monthsToPayoff - optimizedDetailed.monthsToPayoff;
+  const monthsSavedByBiweekly = baselineDetailed.monthsToPayoff - biweeklyDetailed.monthsToPayoff;
+  const biweeklyInterestSaved = baselineDetailed.totalInterest - biweeklyDetailed.totalInterest;
+  const feeAwareApr = calculateFeeAwareApr(
+    result.loanAmount,
+    feeAmountValue,
+    baselineDetailed.baseMonthlyPi,
+    Math.max(1, result.loanTermYears * 12)
+  );
+  const aprDelta = feeAwareApr - result.interestRate;
+  const scheduleByMode: Record<"baseline" | "extra" | "biweekly", DetailedAmortizationResult> = {
+    baseline: baselineDetailed,
+    extra: optimizedDetailed,
+    biweekly: biweeklyDetailed,
+  };
+  const activeSchedule = scheduleByMode[scheduleMode];
+  const visibleScheduleRows = showFullSchedule ? activeSchedule.rows : activeSchedule.rows.slice(0, 24);
+  const needsScheduleToggle = activeSchedule.rows.length > 24;
+
+  function escapeCsvCell(value: string | number) {
+    const raw = String(value);
+    if (/[",\n]/.test(raw)) {
+      return `"${raw.replace(/"/g, "\"\"")}"`;
+    }
+    return raw;
+  }
+
+  function handleExportAmortizationCsv() {
+    const header = [
+      "Month",
+      "Period",
+      "Payment",
+      "Principal",
+      "Interest",
+      "Extra Payment",
+      "Ending Balance",
+      "Cumulative Interest",
+    ];
+    const lines = activeSchedule.rows.map((row) =>
+      [
+        row.month,
+        row.periodLabel,
+        row.payment,
+        row.principal,
+        row.interest,
+        row.extraPayment,
+        row.balance,
+        row.cumulativeInterest,
+      ]
+        .map(escapeCsvCell)
+        .join(",")
+    );
+    const csv = [header.join(","), ...lines].join("\n");
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = `mortgage-${scheduleMode}-amortization.csv`;
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+    URL.revokeObjectURL(url);
+  }
+
   function handleResetInputs() {
     setAdvancedMode(false);
     setHomePrice(String(MORTGAGE_CONSTANTS.defaults.homePrice));
@@ -200,6 +434,13 @@ export default function MortgageClient() {
     setStartYear(String(new Date().getFullYear()));
     setHoaMonthly("0");
     setOtherMonthlyCosts("0");
+    setExtraMonthlyPayment("0");
+    setExtraAnnualPayment("0");
+    setOneTimeExtraPayment("0");
+    setOneTimeExtraMonth("24");
+    setFeeAmount("0");
+    setShowFullSchedule(false);
+    setScheduleMode("extra");
     setCopyState("idle");
   }
 
@@ -209,8 +450,13 @@ export default function MortgageClient() {
       `All-in monthly payment: ${formatCurrency(allInMonthlyPayment)} /mo`,
       `Loan amount: ${formatCurrency(result.loanAmount)}`,
       `APR: ${result.interestRate.toFixed(2)}%`,
+      `Fee-aware APR: ${feeAwareApr.toFixed(3)}%`,
       `Term: ${result.loanTermYears} years`,
-      `Estimated payoff: ${estimatedPayoffDate}`,
+      `Estimated payoff (baseline): ${estimatedPayoffDate}`,
+      `Optimized payoff (with extras): ${optimizedDetailed.payoffLabel}`,
+      `Biweekly payoff estimate: ${biweeklyDetailed.payoffLabel}`,
+      `Interest saved (extras): ${formatCurrency(Math.max(0, interestSavedByExtras))}`,
+      `Interest saved (biweekly): ${formatCurrency(Math.max(0, biweeklyInterestSaved))}`,
       "Source: https://mysmartcalculators.com/mortgage",
     ].join("\n");
 
@@ -354,28 +600,96 @@ export default function MortgageClient() {
                     {advancedMode ? "Hide Advanced Inputs" : "Show Advanced Inputs"}
                   </button>
                   {advancedMode && (
-                    <div className="space-y-1">
-                      <label className="text-sm font-semibold text-slate-700">HOA and Other Monthly Costs</label>
-                      <div className="flex flex-row items-center gap-2">
-                        <div className="relative w-full">
-                          <input
-                            type="text"
-                            inputMode="decimal"
-                            value={hoaMonthly}
-                            onChange={(e) => setHoaMonthly(e.target.value.replace(/[^0-9.]/g, ""))}
-                            className="w-full h-9 px-2 bg-white border border-slate-300 text-sm text-slate-900 rounded-md shadow-sm"
-                          />
-                          <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400">HOA $/mo</span>
+                    <div className="space-y-3">
+                      <div className="space-y-1">
+                        <label className="text-sm font-semibold text-slate-700">HOA and Other Monthly Costs</label>
+                        <div className="flex flex-row items-center gap-2">
+                          <div className="relative w-full">
+                            <input
+                              type="text"
+                              inputMode="decimal"
+                              value={hoaMonthly}
+                              onChange={(e) => setHoaMonthly(e.target.value.replace(/[^0-9.]/g, ""))}
+                              className="w-full h-9 px-2 bg-white border border-slate-300 text-sm text-slate-900 rounded-md shadow-sm"
+                            />
+                            <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400">HOA $/mo</span>
+                          </div>
+                          <div className="relative w-full">
+                            <input
+                              type="text"
+                              inputMode="decimal"
+                              value={otherMonthlyCosts}
+                              onChange={(e) => setOtherMonthlyCosts(e.target.value.replace(/[^0-9.]/g, ""))}
+                              className="w-full h-9 px-2 bg-white border border-slate-300 text-sm text-slate-900 rounded-md shadow-sm"
+                            />
+                            <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400">Other $/mo</span>
+                          </div>
                         </div>
+                      </div>
+
+                      <div className="space-y-1">
+                        <label className="text-sm font-semibold text-slate-700">Extra Principal (Monthly / Annual)</label>
+                        <div className="flex flex-row items-center gap-2">
+                          <div className="relative w-full">
+                            <input
+                              type="text"
+                              inputMode="decimal"
+                              value={extraMonthlyPayment}
+                              onChange={(e) => setExtraMonthlyPayment(e.target.value.replace(/[^0-9.]/g, ""))}
+                              className="w-full h-9 px-2 bg-white border border-slate-300 text-sm text-slate-900 rounded-md shadow-sm"
+                            />
+                            <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400">$ /mo</span>
+                          </div>
+                          <div className="relative w-full">
+                            <input
+                              type="text"
+                              inputMode="decimal"
+                              value={extraAnnualPayment}
+                              onChange={(e) => setExtraAnnualPayment(e.target.value.replace(/[^0-9.]/g, ""))}
+                              className="w-full h-9 px-2 bg-white border border-slate-300 text-sm text-slate-900 rounded-md shadow-sm"
+                            />
+                            <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400">$ /yr</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="space-y-1">
+                        <label className="text-sm font-semibold text-slate-700">One-Time Extra Principal</label>
+                        <div className="flex flex-row items-center gap-2">
+                          <div className="relative w-full">
+                            <input
+                              type="text"
+                              inputMode="decimal"
+                              value={oneTimeExtraPayment}
+                              onChange={(e) => setOneTimeExtraPayment(e.target.value.replace(/[^0-9.]/g, ""))}
+                              className="w-full h-9 px-2 bg-white border border-slate-300 text-sm text-slate-900 rounded-md shadow-sm"
+                            />
+                            <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400">$ once</span>
+                          </div>
+                          <div className="relative w-full">
+                            <input
+                              type="text"
+                              inputMode="numeric"
+                              value={oneTimeExtraMonth}
+                              onChange={(e) => setOneTimeExtraMonth(e.target.value.replace(/[^0-9]/g, ""))}
+                              className="w-full h-9 px-2 bg-white border border-slate-300 text-sm text-slate-900 rounded-md shadow-sm"
+                            />
+                            <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400">Month #</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="space-y-1">
+                        <label className="text-sm font-semibold text-slate-700">Closing / Origination Fees</label>
                         <div className="relative w-full">
                           <input
                             type="text"
                             inputMode="decimal"
-                            value={otherMonthlyCosts}
-                            onChange={(e) => setOtherMonthlyCosts(e.target.value.replace(/[^0-9.]/g, ""))}
+                            value={feeAmount}
+                            onChange={(e) => setFeeAmount(e.target.value.replace(/[^0-9.]/g, ""))}
                             className="w-full h-9 px-2 bg-white border border-slate-300 text-sm text-slate-900 rounded-md shadow-sm"
                           />
-                          <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400">Other $/mo</span>
+                          <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400">$ total fees</span>
                         </div>
                       </div>
                     </div>
@@ -501,6 +815,160 @@ export default function MortgageClient() {
                   </tbody>
                 </table>
               </div>
+            </div>
+
+            <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+              <h3 className="text-sm font-bold text-slate-800 uppercase tracking-tight mb-3">
+                Debt Optimization Engine (v2)
+              </h3>
+              <div className="grid md:grid-cols-3 gap-2 text-sm">
+                <div className="p-3 rounded-md border border-slate-200 bg-slate-50">
+                  <div className="text-[10px] text-slate-500 uppercase">Baseline</div>
+                  <div className="font-bold text-slate-900">{baselineDetailed.payoffLabel}</div>
+                  <div className="text-xs text-slate-700">
+                    Interest: {formatCurrency(baselineDetailed.totalInterest)}
+                  </div>
+                  <div className="text-xs text-slate-700">
+                    Total paid: {formatCurrency(baselineDetailed.totalPayment)}
+                  </div>
+                </div>
+                <div className="p-3 rounded-md border border-emerald-200 bg-emerald-50">
+                  <div className="text-[10px] text-emerald-700 uppercase">With Extra Payments</div>
+                  <div className="font-bold text-emerald-800">{optimizedDetailed.payoffLabel}</div>
+                  <div className="text-xs text-emerald-700">
+                    Interest saved: {formatCurrency(Math.max(0, interestSavedByExtras))}
+                  </div>
+                  <div className="text-xs text-emerald-700">
+                    Months saved: {Math.max(0, monthsSavedByExtras)}
+                  </div>
+                </div>
+                <div className="p-3 rounded-md border border-blue-200 bg-blue-50">
+                  <div className="text-[10px] text-blue-700 uppercase">Biweekly Equivalent</div>
+                  <div className="font-bold text-blue-900">{biweeklyDetailed.payoffLabel}</div>
+                  <div className="text-xs text-blue-700">
+                    Interest saved: {formatCurrency(Math.max(0, biweeklyInterestSaved))}
+                  </div>
+                  <div className="text-xs text-blue-700">
+                    Months saved: {Math.max(0, monthsSavedByBiweekly)}
+                  </div>
+                </div>
+              </div>
+              <div className="mt-3 grid md:grid-cols-3 gap-2 text-sm">
+                <div className="p-2 rounded-md border border-slate-200 bg-slate-50">
+                  <div className="text-[10px] text-slate-500 uppercase">Nominal APR</div>
+                  <div className="font-bold text-slate-900">{result.interestRate.toFixed(3)}%</div>
+                </div>
+                <div className="p-2 rounded-md border border-slate-200 bg-slate-50">
+                  <div className="text-[10px] text-slate-500 uppercase">Fee-Aware APR</div>
+                  <div className="font-bold text-slate-900">{feeAwareApr.toFixed(3)}%</div>
+                </div>
+                <div
+                  className={`p-2 rounded-md border ${
+                    aprDelta > 0.01
+                      ? "border-amber-200 bg-amber-50 text-amber-800"
+                      : "border-emerald-200 bg-emerald-50 text-emerald-800"
+                  }`}
+                >
+                  <div className="text-[10px] uppercase">APR Delta from Fees</div>
+                  <div className="font-bold">{aprDelta >= 0 ? "+" : ""}{aprDelta.toFixed(3)}%</div>
+                </div>
+              </div>
+              <p className="text-xs text-slate-600 mt-3">
+                Fee-aware APR estimates the effective borrowing cost when lender fees reduce net proceeds.
+              </p>
+            </div>
+
+            <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <h3 className="text-sm font-bold text-slate-800 uppercase tracking-tight">
+                  Full Amortization Schedule (v2)
+                </h3>
+                <div className="flex flex-wrap items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setScheduleMode("baseline")}
+                    className={`h-8 px-2 rounded border text-xs font-semibold ${
+                      scheduleMode === "baseline"
+                        ? "border-slate-800 bg-slate-800 text-white"
+                        : "border-slate-300 bg-white text-slate-700"
+                    }`}
+                  >
+                    Baseline
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setScheduleMode("extra")}
+                    className={`h-8 px-2 rounded border text-xs font-semibold ${
+                      scheduleMode === "extra"
+                        ? "border-emerald-700 bg-emerald-700 text-white"
+                        : "border-slate-300 bg-white text-slate-700"
+                    }`}
+                  >
+                    Extra Plan
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setScheduleMode("biweekly")}
+                    className={`h-8 px-2 rounded border text-xs font-semibold ${
+                      scheduleMode === "biweekly"
+                        ? "border-blue-700 bg-blue-700 text-white"
+                        : "border-slate-300 bg-white text-slate-700"
+                    }`}
+                  >
+                    Biweekly
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleExportAmortizationCsv}
+                    className="h-8 px-2 rounded border border-blue-200 bg-blue-50 text-blue-700 text-xs font-semibold hover:bg-blue-100"
+                  >
+                    Export CSV
+                  </button>
+                </div>
+              </div>
+              <p className="text-xs text-slate-600 mb-3">
+                Current view: {scheduleMode} plan, payoff {activeSchedule.payoffLabel}, total interest{" "}
+                {formatCurrency(activeSchedule.totalInterest)}.
+              </p>
+              <div className="overflow-x-auto">
+                <table className="w-full text-sm border-collapse">
+                  <thead className="bg-slate-100 border-b border-slate-300">
+                    <tr>
+                      <th className="text-left py-1.5 px-2 text-xs text-slate-700">Month</th>
+                      <th className="text-left py-1.5 px-2 text-xs text-slate-700">Period</th>
+                      <th className="text-left py-1.5 px-2 text-xs text-slate-700">Payment</th>
+                      <th className="text-left py-1.5 px-2 text-xs text-slate-700">Principal</th>
+                      <th className="text-left py-1.5 px-2 text-xs text-slate-700">Interest</th>
+                      <th className="text-left py-1.5 px-2 text-xs text-slate-700">Extra</th>
+                      <th className="text-left py-1.5 px-2 text-xs text-slate-700">Balance</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-slate-200">
+                    {visibleScheduleRows.map((row) => (
+                      <tr key={`${scheduleMode}-${row.month}`} className="even:bg-slate-50">
+                        <td className="py-1.5 px-2 text-slate-700">{row.month}</td>
+                        <td className="py-1.5 px-2 text-slate-700">{row.periodLabel}</td>
+                        <td className="py-1.5 px-2 text-slate-700">{formatCurrency(row.payment)}</td>
+                        <td className="py-1.5 px-2 text-slate-700">{formatCurrency(row.principal)}</td>
+                        <td className="py-1.5 px-2 text-slate-700">{formatCurrency(row.interest)}</td>
+                        <td className="py-1.5 px-2 text-slate-700">{formatCurrency(row.extraPayment)}</td>
+                        <td className="py-1.5 px-2 text-slate-700">{formatCurrency(row.balance)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              {needsScheduleToggle && (
+                <div className="pt-3">
+                  <button
+                    type="button"
+                    onClick={() => setShowFullSchedule((prev) => !prev)}
+                    className="h-8 px-3 rounded border border-slate-300 bg-white text-slate-700 text-xs font-semibold hover:bg-slate-50"
+                  >
+                    {showFullSchedule ? "Show First 24 Months" : `Show Full Schedule (${activeSchedule.rows.length} months)`}
+                  </button>
+                </div>
+              )}
             </div>
 
             <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
@@ -741,6 +1209,7 @@ export default function MortgageClient() {
             <ul className="space-y-1 list-disc pl-5">
               <li>2026-03-21: Added formula block, payoff-date estimate, and mortgage-specific metadata parity.</li>
               <li>2026-03-21: Added copy/reset UX controls and expanded assumptions and source links.</li>
+              <li>2026-03-21: Applied debt engine v2 (full schedule, CSV export, extra payment, biweekly, fee-aware APR).</li>
             </ul>
           </div>
         </section>

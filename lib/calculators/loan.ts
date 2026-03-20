@@ -53,7 +53,7 @@ export const LOAN_2026 = {
         },
         {
             question: "What is a fixed-rate vs. variable-rate loan?",
-            answer: "A fixed-rate loan maintains the same interest rate throughout the entire term, providing payment stability. A variable-rate (or floating-rate) loan can fluctuate based on market benchmarks like the SOFR or Prime Rate, which puede result in lower initial rates but carries the risk of future payment increases."
+            answer: "A fixed-rate loan maintains the same interest rate throughout the entire term, providing payment stability. A variable-rate (or floating-rate) loan can fluctuate based on market benchmarks like the SOFR or Prime Rate, which may result in lower initial rates but carries the risk of future payment increases."
         },
         {
             question: "What are common loan terms for consumer lending?",
@@ -116,11 +116,11 @@ export function calculateLoan(
     amount: number,
     rate: number,
     years: number,
-    startMonth: number = new Date().getMonth(),
+    startMonth: number = new Date().getMonth() + 1,
     startYear: number = new Date().getFullYear()
 ): LoanResult {
     const monthlyRate = rate / 100 / 12;
-    const numberOfPayments = years * 12;
+    const numberOfPayments = Math.max(1, Math.round(years * 12));
 
     // Monthly Payment Formula: P [ i(1 + i)^n ] / [ (1 + i)^n – 1 ]
     let monthlyPayment = 0;
@@ -154,7 +154,8 @@ export function calculateLoan(
     }
 
     // Calculate payoff date
-    const payoffDateObj = new Date(startYear, startMonth + numberOfPayments, 1);
+    const normalizedStartMonth = Math.min(Math.max(Math.round(startMonth), 1), 12);
+    const payoffDateObj = new Date(startYear, normalizedStartMonth - 1 + numberOfPayments, 1);
     const payoffDate = payoffDateObj.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 
     return {
