@@ -1,6 +1,7 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Home, ShieldCheck } from "lucide-react";
 import {
   CALCULATORS,
@@ -11,6 +12,17 @@ import {
 } from "@/lib/calculators/mortgage";
 
 type FAQItem = Readonly<{ question: string; answer: string }>;
+const MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] as const;
+
+function getEstimatedPayoffDate(startMonth: number, startYear: number, termYears: number) {
+  const safeMonth = Math.min(Math.max(startMonth, 1), 12);
+  const safeYear = Math.max(startYear, 2000);
+  const totalMonths = termYears * 12;
+  const payoffMonthIndex = safeMonth - 1 + totalMonths - 1;
+  const payoffYear = safeYear + Math.floor(payoffMonthIndex / 12);
+  const payoffMonth = payoffMonthIndex % 12;
+  return `${MONTH_NAMES[payoffMonth]} ${payoffYear}`;
+}
 
 function getLtvStyles(downPaymentPercent: number) {
   if (downPaymentPercent >= 20) {
@@ -63,8 +75,11 @@ export default function MortgageClient() {
   const [loanTermYears, setLoanTermYears] = useState(String(MORTGAGE_CONSTANTS.defaults.loanTermYears));
   const [propertyTaxRate, setPropertyTaxRate] = useState(String(MORTGAGE_CONSTANTS.defaults.propertyTaxRate));
   const [homeInsuranceYear, setHomeInsuranceYear] = useState(String(MORTGAGE_CONSTANTS.defaults.homeInsuranceYear));
+  const [startMonth, setStartMonth] = useState(String(new Date().getMonth() + 1));
+  const [startYear, setStartYear] = useState(String(new Date().getFullYear()));
   const [hoaMonthly, setHoaMonthly] = useState("0");
   const [otherMonthlyCosts, setOtherMonthlyCosts] = useState("0");
+  const [copyState, setCopyState] = useState<"idle" | "copied" | "failed">("idle");
 
   const calculatorFaqs =
     (CALCULATORS.find((c) => c.id === "mortgage/calculator")?.faqs as readonly FAQItem[] | undefined) ?? [];
@@ -94,6 +109,11 @@ export default function MortgageClient() {
   const hoaMonthlyValue = Math.max(0, Number(hoaMonthly) || 0);
   const otherMonthlyValue = Math.max(0, Number(otherMonthlyCosts) || 0);
   const allInMonthlyPayment = result.totalMonthlyPayment + hoaMonthlyValue + otherMonthlyValue;
+  const estimatedPayoffDate = getEstimatedPayoffDate(
+    Number(startMonth) || new Date().getMonth() + 1,
+    Number(startYear) || new Date().getFullYear(),
+    result.loanTermYears
+  );
 
   const sensitivity = (() => {
     const price = Math.max(0, Number(homePrice) || MORTGAGE_CONSTANTS.defaults.homePrice);
@@ -168,6 +188,41 @@ export default function MortgageClient() {
     ];
   })();
 
+  function handleResetInputs() {
+    setAdvancedMode(false);
+    setHomePrice(String(MORTGAGE_CONSTANTS.defaults.homePrice));
+    setDownPaymentPercent(String(MORTGAGE_CONSTANTS.defaults.downPaymentPercent));
+    setInterestRate(String(MORTGAGE_CONSTANTS.defaults.interestRate));
+    setLoanTermYears(String(MORTGAGE_CONSTANTS.defaults.loanTermYears));
+    setPropertyTaxRate(String(MORTGAGE_CONSTANTS.defaults.propertyTaxRate));
+    setHomeInsuranceYear(String(MORTGAGE_CONSTANTS.defaults.homeInsuranceYear));
+    setStartMonth(String(new Date().getMonth() + 1));
+    setStartYear(String(new Date().getFullYear()));
+    setHoaMonthly("0");
+    setOtherMonthlyCosts("0");
+    setCopyState("idle");
+  }
+
+  async function handleCopyResult() {
+    const summary = [
+      `Mortgage monthly payment: ${formatCurrency(result.totalMonthlyPayment)} /mo`,
+      `All-in monthly payment: ${formatCurrency(allInMonthlyPayment)} /mo`,
+      `Loan amount: ${formatCurrency(result.loanAmount)}`,
+      `APR: ${result.interestRate.toFixed(2)}%`,
+      `Term: ${result.loanTermYears} years`,
+      `Estimated payoff: ${estimatedPayoffDate}`,
+      "Source: https://mysmartcalculators.com/mortgage",
+    ].join("\n");
+
+    try {
+      await navigator.clipboard.writeText(summary);
+      setCopyState("copied");
+      setTimeout(() => setCopyState("idle"), 1500);
+    } catch {
+      setCopyState("failed");
+    }
+  }
+
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
       <header className="pt-6 pb-2 px-6 max-w-7xl mx-auto">
@@ -240,6 +295,31 @@ export default function MortgageClient() {
                 </div>
 
                 <div className="space-y-1">
+                  <label className="text-sm font-semibold text-slate-700">Loan Start Date</label>
+                  <div className="flex flex-row items-center gap-2">
+                    <select
+                      value={startMonth}
+                      onChange={(e) => setStartMonth(e.target.value)}
+                      className="w-full h-9 px-2 bg-white border border-slate-300 text-sm text-slate-900 rounded-md shadow-sm"
+                    >
+                      {MONTH_NAMES.map((month, idx) => (
+                        <option key={month} value={idx + 1}>
+                          {month}
+                        </option>
+                      ))}
+                    </select>
+                    <input
+                      type="text"
+                      inputMode="numeric"
+                      value={startYear}
+                      onChange={(e) => setStartYear(e.target.value.replace(/[^0-9]/g, ""))}
+                      className="w-full h-9 px-2 bg-white border border-slate-300 text-sm text-slate-900 rounded-md shadow-sm"
+                      placeholder="2026"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-1">
                   <label className="text-sm font-semibold text-slate-700">Property Tax and Insurance</label>
                   <div className="flex flex-row items-center gap-2">
                     <div className="relative w-full">
@@ -308,6 +388,24 @@ export default function MortgageClient() {
                 >
                   Calculate Mortgage
                 </button>
+                <div className="grid grid-cols-2 gap-2">
+                  <button
+                    type="button"
+                    onClick={handleResetInputs}
+                    className="h-9 rounded-md border border-slate-300 bg-white text-slate-700 text-sm font-semibold hover:bg-slate-50"
+                  >
+                    Reset Inputs
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      void handleCopyResult();
+                    }}
+                    className="h-9 rounded-md border border-blue-200 bg-blue-50 text-blue-700 text-sm font-semibold hover:bg-blue-100"
+                  >
+                    {copyState === "copied" ? "Copied" : copyState === "failed" ? "Copy Failed" : "Copy Result"}
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -339,6 +437,10 @@ export default function MortgageClient() {
                 <div className={`p-2 rounded-md border ${result.hasPMI ? "text-amber-800 bg-amber-50 border-amber-200 font-bold" : "text-emerald-800 bg-emerald-50 border-emerald-200 font-bold"}`}>
                   <div className="text-[10px] uppercase">PMI</div>
                   <div>{formatCurrency(result.monthlyPMI)}</div>
+                </div>
+                <div className="p-2 rounded-md border border-slate-200 bg-slate-50">
+                  <div className="text-[10px] text-slate-500 uppercase">Estimated Payoff</div>
+                  <div className="font-bold text-slate-900">{estimatedPayoffDate}</div>
                 </div>
                 {advancedMode && (
                   <div className="p-2 rounded-md border border-slate-200 bg-slate-50">
@@ -477,6 +579,14 @@ export default function MortgageClient() {
             In most US markets, PMI applies when down payment is below 20%. This calculator uses standard fixed-rate
             amortization and adds tax and insurance as monthly estimates for a practical payment preview.
           </p>
+          <div className="mt-3 rounded-md border border-slate-200 bg-slate-50 p-3 text-sm text-slate-700 space-y-1">
+            <p className="font-semibold text-slate-900">Model Formula Snapshot</p>
+            <p>
+              Monthly P&amp;I = L x [r x (1 + r)^n] / [(1 + r)^n - 1]
+            </p>
+            <p>L = loan amount, r = monthly interest rate, n = number of monthly payments.</p>
+            <p>Total Monthly = P&amp;I + tax + insurance + PMI (when down payment is below 20%).</p>
+          </div>
         </section>
 
         <section id="affordability" className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
@@ -583,6 +693,8 @@ export default function MortgageClient() {
             <li>Model assumes a fixed-rate loan with constant monthly payments.</li>
             <li>Tax, insurance, and PMI are estimated averages, not lender quotes.</li>
             <li>Closing costs, HOA, escrow adjustments, and local fees are not included in the main payment line.</li>
+            <li>Displayed values are rounded to practical dollar-level estimates for readability.</li>
+            <li>PMI cancellation timing depends on lender servicing rules and loan-to-value verification.</li>
             <li>Use lender Loan Estimate (LE) and Closing Disclosure (CD) for final underwriting decisions.</li>
           </ul>
         </section>
@@ -590,9 +702,46 @@ export default function MortgageClient() {
         <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
           <h3 className="text-sm font-bold text-slate-900 mb-2">Sources and Review</h3>
           <div className="text-sm leading-relaxed text-slate-700 space-y-1">
-            <p>Sources: Freddie Mac PMMS, FHFA housing data, CFPB mortgage disclosure guidance.</p>
+            <p>
+              Sources:{" "}
+              <a
+                href="https://www.freddiemac.com/pmms"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-slate-400 underline-offset-2 hover:text-slate-900"
+              >
+                Freddie Mac PMMS
+              </a>
+              ,{" "}
+              <a
+                href="https://www.fhfa.gov/DataTools/Downloads/Pages/House-Price-Index-Datasets.aspx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-slate-400 underline-offset-2 hover:text-slate-900"
+              >
+                FHFA House Price Index datasets
+              </a>
+              ,{" "}
+              <a
+                href="https://www.consumerfinance.gov/owning-a-home/loan-estimate/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-slate-400 underline-offset-2 hover:text-slate-900"
+              >
+                CFPB Loan Estimate guidance
+              </a>
+              .
+            </p>
             <p>Model Basis: 2026 fixed-rate baseline assumptions in project constants.</p>
-            <p>Last reviewed: 2026-03-06 (Asia/Seoul).</p>
+            <p>Reviewer: Sam Park (Calculator QA and Content Operations).</p>
+            <p>Last reviewed: 2026-03-21 (Asia/Seoul).</p>
+          </div>
+          <div className="mt-3 rounded-md border border-slate-200 bg-slate-50 p-3 text-sm text-slate-700">
+            <p className="font-semibold text-slate-900 mb-1">Update Log</p>
+            <ul className="space-y-1 list-disc pl-5">
+              <li>2026-03-21: Added formula block, payoff-date estimate, and mortgage-specific metadata parity.</li>
+              <li>2026-03-21: Added copy/reset UX controls and expanded assumptions and source links.</li>
+            </ul>
           </div>
         </section>
 
@@ -613,6 +762,52 @@ export default function MortgageClient() {
             </li>
           </ul>
         </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Disclaimer</h3>
+          <p className="text-sm leading-relaxed text-slate-700">
+            This calculator is an educational estimate, not a lender offer or underwriting decision. Final loan terms,
+            PMI cancellation, taxes, escrow, and closing costs are determined by your lender and local jurisdiction.
+            Always validate results against your official Loan Estimate (LE) and Closing Disclosure (CD).
+          </p>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Related Mortgage Tools</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/mortgage/affordability">
+              Home Affordability
+            </Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/mortgage/amortization">
+              Amortization Schedule
+            </Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/mortgage/refinance">
+              Refinance Calculator
+            </Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/mortgage/extra-payments">
+              Extra Payments
+            </Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/mortgage/rent-vs-buy">
+              Rent vs Buy
+            </Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/loan">
+              Loan Calculator
+            </Link>
+          </div>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Need a Tailored Estimate?</h3>
+          <p className="text-sm text-slate-700 mb-3">
+            If you want us to prioritize a state-specific mortgage module, send your request and we will include it in the next update.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+          >
+            Contact Team
+          </Link>
+        </section>
       </article>
 
       <section className="bg-slate-50 pb-14 border-y border-slate-200">
@@ -626,5 +821,3 @@ export default function MortgageClient() {
     </main>
   );
 }
-
-

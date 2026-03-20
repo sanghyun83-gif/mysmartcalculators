@@ -1,9 +1,9 @@
 // ============================================
 // MORTGAGE-CALC SITE CONFIGURATION
-// 2025 Mortgage Payment Calculator
+// 2026 Mortgage Payment Calculator
 // ============================================
 
-import { Calculator, Home, DollarSign, TrendingDown, PiggyBank, Scale, Building } from 'lucide-react';
+import { Calculator, Home, DollarSign, TrendingDown, PiggyBank, Scale } from 'lucide-react';
 
 // ============================================
 // SITE METADATA
@@ -313,7 +313,6 @@ export function generateAmortizationSchedule(
 
     let balance = loanAmount;
     let totalInterestPaid = 0;
-    let totalPrincipalPaid = 0;
 
     const yearlyData: AmortizationSummary['yearlyData'] = [];
     let yearPrincipal = 0;
@@ -325,7 +324,6 @@ export function generateAmortizationSchedule(
         balance = Math.max(0, balance - principalPayment);
 
         totalInterestPaid += interestPayment;
-        totalPrincipalPaid += principalPayment;
         yearPrincipal += principalPayment;
         yearInterest += interestPayment;
 
@@ -491,7 +489,7 @@ export function calculateExtraPayments(
     const numPayments = loanTermYears * 12;
 
     // Calculate base monthly payment
-    let monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) /
+    const monthlyPayment = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) /
         (Math.pow(1 + monthlyRate, numPayments) - 1);
 
     // Calculate original total interest
@@ -567,7 +565,6 @@ export function calculateRentVsBuy(
     const fiveYearCostBuy = fiveYearPayments - equityGained + downPayment;
 
     // Determine break-even
-    const monthlyCostDiff = monthlyMortgage - monthlyRent;
     let yearsToBreakEven = 0;
     if (monthlyMortgage > monthlyRent) {
         yearsToBreakEven = Math.round((downPayment / (monthlyRent * 12 * (homeAppreciation / 100))) * 10) / 10;
