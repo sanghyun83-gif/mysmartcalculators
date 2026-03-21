@@ -84,7 +84,7 @@ export function FlagshipLayout({
                 )}
 
                 {/* 1. Global Mini-Bar (AdSense Compliance) */}
-                <div className={`fixed top-0 left-0 right-0 z-[120] ${lightMode ? 'bg-slate-100 text-slate-500' : 'bg-black text-white/40'} h-[30px] border-b ${lightMode ? 'border-slate-200' : 'border-white/5'} overflow-hidden`}>
+                <div className={`fixed top-0 left-0 right-0 z-[120] ${lightMode ? 'bg-white text-slate-500' : 'bg-black text-white/40'} h-[30px] border-b ${lightMode ? 'border-slate-200' : 'border-white/5'} overflow-hidden`}>
                     <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between text-[9px] font-black uppercase tracking-widest text-inherit">
                         <div className="flex items-center gap-4">
                             <Link href="/" className="hover:text-emerald-600 transition-colors flex items-center gap-1">
@@ -165,7 +165,7 @@ export function FlagshipLayout({
                     </main>
 
                     {/* Unified Flagship Footer with Mandatory Jurisdiction */}
-                    <footer className={`pt-20 pb-10 ${lightMode ? 'bg-slate-100 border-slate-200' : 'bg-black border-white/5'} border-t relative z-[100]`}>
+                    <footer className={`pt-20 pb-10 ${lightMode ? 'bg-white border-slate-200' : 'bg-black border-white/5'} border-t relative z-[100]`}>
                         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
                             <div className="space-y-6">
                                 <div className="flex items-center gap-3">
@@ -176,7 +176,7 @@ export function FlagshipLayout({
                                 </div>
                                 <div className="flex -space-x-3">
                                     {[1, 2, 3].map(i => (
-                                        <div key={i} className={`w-8 h-8 rounded-full border-2 ${lightMode ? 'border-white bg-slate-50' : 'border-black bg-slate-800'} flex items-center justify-center text-[8px] font-black uppercase`} style={{ color: `rgb(${accentColorRgb})` }}>DA</div>
+                                        <div key={i} className={`w-8 h-8 rounded-full border-2 ${lightMode ? 'border-slate-200 bg-slate-50' : 'border-black bg-slate-800'} flex items-center justify-center text-[8px] font-black uppercase`} style={{ color: `rgb(${accentColorRgb})` }}>DA</div>
                                     ))}
                                 </div>
                                 <p className={`text-[10px] ${lightMode ? 'text-slate-400' : 'text-slate-500'} font-black uppercase tracking-[0.2em]`}>Verified by Data Analyst Expert Team</p>
