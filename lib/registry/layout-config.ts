@@ -201,6 +201,7 @@ export const LAYOUT_CONFIG: Record<string, LayoutShellType> = {
     "/gpa": 'S_CLASS',
     "/age": 'S_CLASS',
     "/loan": 'S_CLASS',
+    "/refinance": 'S_CLASS',
     "/pregnancy": 'S_CLASS',
     "/grade": 'S_CLASS',
     "/compound-interest": 'S_CLASS',

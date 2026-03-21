@@ -1,6 +1,6 @@
 import { FlagshipLayout } from "@/components/v3/FlagshipLayout";
 
-export default function Layout({
+export default function RefinanceLayout({
     children,
 }: {
     children: React.ReactNode;
@@ -8,14 +8,13 @@ export default function Layout({
     return (
         <FlagshipLayout
             brandName="Refinance Calculator"
-            brandIcon="calculator"
+            brandIcon="landmark"
             hubPath="/refinance"
-            accentColorRgb="16, 185, 129"
-            accentSelectionClass="selection:bg-emerald-500/30"
-            navLinks={[
-                { label: "CALCULATOR", href: "/refinance/calculator" },
-                { label: "GUIDE", href: "/refinance/guide" }
-            ]}
+            accentColorRgb="59, 130, 246"
+            accentSelectionClass="selection:bg-blue-100"
+            navLinks={[]}
+            trustScore="Verified by Freddie Mac PMMS + CFPB 2026"
+            lightMode={true}
         >
             {children}
         </FlagshipLayout>
