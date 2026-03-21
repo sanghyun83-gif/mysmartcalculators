@@ -15,6 +15,8 @@ export default function Layout({
             navLinks={[
                 
             ]}
+            trustScore="Verified by IRS Schedule SE + SSA 2026"
+            lightMode={true}
         >
             {children}
         </FlagshipLayout>
