@@ -1,5 +1,4 @@
 import { FlagshipLayout } from "@/components/v3/FlagshipLayout";
-import { Home } from "lucide-react";
 
 export default function HomeAffordLayout({
     children,
@@ -11,9 +10,11 @@ export default function HomeAffordLayout({
             brandName="Home Affordability"
             brandIcon="home"
             hubPath="/home-afford"
-            accentColorRgb="16, 185, 129"
-            accentSelectionClass="selection:bg-emerald-500/30"
+            accentColorRgb="59, 130, 246"
+            accentSelectionClass="selection:bg-blue-100"
             navLinks={[]}
+            trustScore="Verified by FHFA + CFPB 2026"
+            lightMode={true}
         >
             {children}
         </FlagshipLayout>

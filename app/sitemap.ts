@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next'
 import fs from 'fs'
 import path from 'path'
 import { CATEGORY_MAP, Category } from '@/lib/categories'
+import { STATE_WC_DATA } from '@/lib/calculators/workers-comp'
 
 const BASE_URL = "https://mysmartcalculators.com";
 
@@ -126,5 +127,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         }
     }
 
-    return [...corePages, ...hubPages, ...calculatorPages, ...subpageUrls];
+    // 5. Workers Comp state clusters
+    const workersCompStateUrls: MetadataRoute.Sitemap = Object.keys(STATE_WC_DATA).map((code) => ({
+        url: `${BASE_URL}/workers-comp/${code.toLowerCase()}`,
+        lastModified: resolveCalculatorLastmod('workers-comp', now),
+        changeFrequency: 'weekly',
+        priority: 0.65,
+    }));
+
+    return [...corePages, ...hubPages, ...calculatorPages, ...subpageUrls, ...workersCompStateUrls];
 }

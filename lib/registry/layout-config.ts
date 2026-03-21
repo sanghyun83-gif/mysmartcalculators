@@ -209,7 +209,8 @@ export const LAYOUT_CONFIG: Record<string, LayoutShellType> = {
     "/salary": 'S_CLASS',
     "/body-fat": 'S_CLASS',
     "/time-calculator": 'S_CLASS',
-    "/dice-roller": 'S_CLASS'
+    "/dice-roller": 'S_CLASS',
+    "/workers-comp": 'S_CLASS'
 };
 
 /**
