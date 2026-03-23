@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { getCalculatorMeta } from "@/lib/registry/calculators";
 import TaxClient from "./TaxClient";
 
-const id = "tax";
-const meta = getCalculatorMeta(id);
+const seo = {
+  title: "Tax Calculator 2026 | Federal Income Tax, Effective Rate & Take-Home",
+  description:
+    "Estimate 2026 federal tax, effective rate, and take-home income by filing status. Includes bracket-based logic and practical planning scenarios.",
+  canonical: "https://mysmartcalculators.com/tax",
+};
 
 const faqSchema = [
   {
@@ -24,34 +27,34 @@ const faqSchema = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: meta?.title || "2026 Federal Income Tax Calculator | IRS Refund Auditor",
-  description:
-    meta?.description ||
-    "Calculate your 2026 federal income tax with bracket breakdown, refund planning, lifecycle simulation, and sensitivity analysis.",
+  title: seo.title,
+  description: seo.description,
   keywords: [
     "tax calculator 2026",
     "federal income tax calculator",
-    "tax bracket calculator",
-    "refund estimator",
+    "income tax calculator",
     "effective tax rate calculator",
+    "take home pay tax",
+    "tax bracket calculator",
+    "filing status tax",
+    "tax estimate",
   ],
   alternates: {
-    canonical: meta?.canonical || "https://mysmartcalculators.com/tax",
+    canonical: seo.canonical,
   },
   openGraph: {
-    title: meta?.title || "2026 Federal Income Tax Calculator | IRS Refund Auditor",
+    title: seo.title,
     description:
-      meta?.description ||
-      "Federal tax estimate with bracket audit, filing lifecycle planning, and scenario sensitivity profiles.",
-    url: meta?.canonical || "https://mysmartcalculators.com/tax",
+      "Estimate federal income tax, effective rate, and take-home income with bracket logic.",
+    url: seo.canonical,
     type: "website",
+    images: [{ url: "/og-main.png", width: 1200, height: 630, alt: "Tax Calculator 2026" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: meta?.title || "2026 Federal Income Tax Calculator | IRS Refund Auditor",
-    description:
-      meta?.description ||
-      "Bracket breakdown + refund/owed forecast + overdrive decision support for tax filing.",
+    title: seo.title,
+    description: "Estimate 2026 federal income tax, effective rate, and take-home pay.",
+    images: ["/og-main.png"],
   },
 };
 
@@ -61,9 +64,9 @@ export default function TaxPage() {
     "@graph": [
       {
         "@type": "WebPage",
-        name: metadata.title,
-        description: metadata.description,
-        url: metadata.alternates?.canonical,
+        name: seo.title,
+        description: seo.description,
+        url: seo.canonical,
         inLanguage: "en-US",
         dateModified: "2026-03-21",
       },

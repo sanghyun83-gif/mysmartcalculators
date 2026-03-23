@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
-import { getCalculatorMeta } from "@/lib/registry/calculators";
 import RefinanceClient from "./RefinanceClient";
 
-const id = "refinance";
-const meta = getCalculatorMeta(id);
+const seo = {
+  title: "Refinance Calculator | Break-Even Analysis, Savings & New Payment",
+  description:
+    "Compare current loan vs refinance option with closing costs, monthly savings, break-even month, and long-term interest impact before you switch.",
+  canonical: "https://mysmartcalculators.com/refinance",
+};
+const meta = {
+  title: seo.title,
+  description: seo.description,
+  canonical: seo.canonical,
+};
 
 const REFINANCE_FAQ_SCHEMA = [
   {
@@ -33,38 +41,40 @@ const REFINANCE_FAQ_SCHEMA = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: meta?.title || "Refinance Calculator",
-  description:
-    meta?.description ||
-    "Compare current mortgage vs refinance terms with break-even and total-cost analysis.",
+  title: seo.title,
+  description: seo.description,
   keywords: [
     "refinance calculator",
     "mortgage refinance calculator",
     "refinance break even",
     "refinance savings calculator",
-    "refinance closing cost calculator",
+    "closing costs refinance",
+    "new mortgage payment",
+    "refinance analysis",
+    "loan refinance",
   ],
   alternates: {
-    canonical: meta?.canonical || "https://mysmartcalculators.com/refinance",
+    canonical: seo.canonical,
   },
   openGraph: {
-    title: meta?.title,
-    description: meta?.description,
-    url: meta?.canonical,
+    title: seo.title,
+    description:
+      "Compare refinance options with break-even timing, savings, and long-term cost impact.",
+    url: seo.canonical,
     type: "website",
     images: [
       {
         url: "/og-main.png",
         width: 1200,
         height: 630,
-        alt: "Refinance calculator break-even and savings estimate",
+        alt: "Refinance Calculator",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: meta?.title,
-    description: meta?.description,
+    title: seo.title,
+    description: "Run break-even and savings analysis before refinancing your loan.",
     images: ["/og-main.png"],
   },
 };

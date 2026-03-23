@@ -1,33 +1,47 @@
 import type { Metadata } from "next";
-import { getCalculatorMeta } from "@/lib/registry/calculators";
 import SelfEmploymentClient from "./SelfEmploymentClient";
 
-const id = "self-employment";
-const meta = getCalculatorMeta(id);
+const seo = {
+  title: "Self-Employment Tax Calculator 2026 | SE Tax, Deduction & Quarterly Planning",
+  description:
+    "Calculate 2026 self-employment tax, deductible half, and net impact from 1099 income. Includes scenario-based planning for quarterly estimated taxes.",
+  canonical: "https://mysmartcalculators.com/self-employment",
+};
+const meta = {
+  title: seo.title,
+  description: seo.description,
+  canonical: seo.canonical,
+};
 
 export const metadata: Metadata = {
-  title: meta?.title,
-  description: meta?.description,
+  title: seo.title,
+  description: seo.description,
   keywords: [
     "self-employment tax calculator",
-    "schedule se calculator",
     "1099 tax estimator",
     "freelancer tax calculator",
+    "se tax calculator",
+    "self employed tax deduction",
     "quarterly estimated tax",
+    "contractor tax 2026",
+    "schedule se calculator",
   ],
   alternates: {
-    canonical: meta?.canonical,
+    canonical: seo.canonical,
   },
   openGraph: {
-    title: meta?.title,
-    description: meta?.description,
-    url: meta?.canonical,
+    title: seo.title,
+    description:
+      "Estimate self-employment tax, deductible half, and quarterly planning needs for 1099 income.",
+    url: seo.canonical,
     type: "website",
+    images: [{ url: "/og-main.png", width: 1200, height: 630, alt: "Self-Employment Tax Calculator 2026" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: meta?.title,
-    description: meta?.description,
+    title: seo.title,
+    description: "Calculate SE tax, deduction impact, and quarterly tax planning in one tool.",
+    images: ["/og-main.png"],
   },
 };
 

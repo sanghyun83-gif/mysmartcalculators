@@ -5,18 +5,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Calculator, ChevronRight, Search, Zap } from "lucide-react";
 import { CATEGORY_MAP } from "@/lib/categories";
-
-interface CalculatorItem {
-  id: string;
-  name: string;
-}
+import { getHomeSearchScore, type HomeSearchItem } from "@/lib/search/home-search";
 
 export function HomeSearch({
   initialQuery,
   calculators,
 }: {
   initialQuery: string;
-  calculators: CalculatorItem[];
+  calculators: HomeSearchItem[];
 }) {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState(initialQuery);
@@ -25,15 +21,13 @@ export function HomeSearch({
   const filteredCalculators = useMemo(() => {
     if (!searchQuery) return [];
     return calculators
-      .filter(
-        (calc) =>
-          calc.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          calc.id.toLowerCase().includes(searchQuery.toLowerCase())
-      )
+      .map((calc) => ({ calc, score: getHomeSearchScore(calc, searchQuery) }))
+      .filter((item) => item.score > 0)
+      .sort((a, b) => b.score - a.score || a.calc.name.localeCompare(b.calc.name))
+      .map((item) => item.calc)
       .slice(0, 8);
   }, [searchQuery, calculators]);
 
-  const hasResults = searchQuery.length > 0 && filteredCalculators.length > 0;
   const listboxId = "home-search-results";
 
   return (
@@ -58,8 +52,6 @@ export function HomeSearch({
           autoComplete="off"
           aria-label="Search calculators"
           aria-autocomplete="list"
-          aria-controls={listboxId}
-          aria-expanded={hasResults}
           onChange={(e) => {
             setSearchQuery(e.target.value);
             setActiveIndex(-1);

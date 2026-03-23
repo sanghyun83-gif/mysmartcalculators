@@ -3,6 +3,7 @@ import fs from 'fs'
 import path from 'path'
 import { CATEGORY_MAP, Category } from '@/lib/categories'
 import { STATE_WC_DATA } from '@/lib/calculators/workers-comp'
+import { TAX_SCENARIO_CLUSTERS } from '@/lib/tax/evidence'
 
 const BASE_URL = "https://mysmartcalculators.com";
 
@@ -48,6 +49,35 @@ function resolveCalculatorLastmod(calculatorId: string, now: Date): Date {
 function resolveSubpageLastmod(calculatorId: string, subpage: string, now: Date): Date {
     const subpageFilePath = path.join(process.cwd(), 'app', '(calculators)', calculatorId, subpage, 'page.tsx');
     return getFileMtime(subpageFilePath) ?? now;
+}
+
+function getExistingCalculatorSubpages(): Map<string, Set<string>> {
+    const calculatorsRoot = path.join(process.cwd(), 'app', '(calculators)');
+    const result = new Map<string, Set<string>>();
+
+    try {
+        const calculatorDirs = fs.readdirSync(calculatorsRoot, { withFileTypes: true });
+        for (const calculatorDir of calculatorDirs) {
+            if (!calculatorDir.isDirectory()) continue;
+            const calculatorId = calculatorDir.name;
+            const calculatorPath = path.join(calculatorsRoot, calculatorId);
+
+            try {
+                const entries = fs.readdirSync(calculatorPath, { withFileTypes: true });
+                const subpages = new Set<string>();
+                for (const entry of entries) {
+                    if (entry.isDirectory()) subpages.add(entry.name);
+                }
+                result.set(calculatorId, subpages);
+            } catch {
+                // Skip unreadable calculator directories.
+            }
+        }
+    } catch {
+        // Return empty map if the calculators directory cannot be read.
+    }
+
+    return result;
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -108,15 +138,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // 4. Subpages for High-Value Calculators (NEW - adds 120+ URLs)
     const subpageUrls: MetadataRoute.Sitemap = [];
+    const existingSubpagesByCalculator = getExistingCalculatorSubpages();
     for (const calc of CALCULATORS_WITH_SUBPAGES) {
-        // Validation: Ensure the calculator directory exists
-        const calcPath = path.join(process.cwd(), 'app', '(calculators)', calc);
-        if (!fs.existsSync(calcPath)) continue;
+        const existingSubpages = existingSubpagesByCalculator.get(calc);
+        if (!existingSubpages) continue;
 
         for (const subpage of SUBPAGES) {
-            // Validation: Ensure the subpage directory exists
-            const subpagePath = path.join(calcPath, subpage);
-            if (fs.existsSync(subpagePath)) {
+            if (existingSubpages.has(subpage)) {
                 subpageUrls.push({
                     url: `${BASE_URL}/${calc}/${subpage}`,
                     lastModified: resolveSubpageLastmod(calc, subpage, now),
@@ -135,5 +163,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.65,
     }));
 
-    return [...corePages, ...hubPages, ...calculatorPages, ...subpageUrls, ...workersCompStateUrls];
+    const taxScenarioUrls: MetadataRoute.Sitemap = TAX_SCENARIO_CLUSTERS.map((cluster) => ({
+        url: `${BASE_URL}/tax/${cluster.slug}`,
+        lastModified: resolveCalculatorLastmod('tax', now),
+        changeFrequency: 'weekly',
+        priority: 0.65,
+    }));
+
+    return [...corePages, ...hubPages, ...calculatorPages, ...subpageUrls, ...workersCompStateUrls, ...taxScenarioUrls];
 }

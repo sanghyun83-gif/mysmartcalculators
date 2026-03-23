@@ -1,33 +1,50 @@
-﻿import { getCalculatorMeta } from "@/lib/registry/calculators";
+import type { Metadata } from "next";
 import { BMI_2026 } from "@/lib/calculators/bmi";
 import BMIClient from "./BMIClient";
 
-const id = "bmi";
-const meta = getCalculatorMeta(id);
+const seo = {
+  title: "BMI Calculator (WHO/CDC) | Body Mass Index for Adults & Teens",
+  description:
+    "Calculate BMI instantly using WHO/CDC ranges for adults and teens. Get BMI category, healthy weight range, and practical health guidance.",
+  canonical: "https://mysmartcalculators.com/bmi",
+};
 
-export const metadata = {
-  title: meta?.title || "BMI Calculator | 2026 WHO & CDC Body Mass Index Tool",
-  description: meta?.description || "Calculate BMI with 2026 WHO/CDC standards, lifecycle trend guidance, sensitivity scenarios, and source-backed interpretation.",
+const meta = {
+  title: seo.title,
+  description: seo.description,
+  canonical: seo.canonical,
+};
+
+export const metadata: Metadata = {
+  title: seo.title,
+  description: seo.description,
   keywords: [
     "bmi calculator",
     "body mass index calculator",
-    "who bmi categories",
-    "cdc bmi chart",
-    "healthy weight range calculator",
+    "bmi chart",
+    "healthy weight range",
+    "who bmi",
+    "cdc bmi",
+    "adult bmi",
+    "teen bmi",
   ],
   alternates: {
-    canonical: meta?.canonical || "https://mysmartcalculators.com/bmi",
+    canonical: seo.canonical,
   },
   openGraph: {
-    title: meta?.title || "BMI Calculator | 2026 WHO & CDC Body Mass Index Tool",
-    description: meta?.description || "BMI result, category interpretation, trend lifecycle simulation, and sensitivity analysis in one workflow.",
-    url: meta?.canonical || "https://mysmartcalculators.com/bmi",
+    title: seo.title,
+    description:
+      "Calculate BMI instantly using WHO/CDC ranges for adults and teens. Get BMI category and healthy weight range.",
+    url: seo.canonical,
     type: "website",
+    images: [{ url: "/og-main.png", width: 1200, height: 630, alt: "BMI Calculator" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: meta?.title || "BMI Calculator | 2026 WHO & CDC Body Mass Index Tool",
-    description: meta?.description || "Clinical BMI interpretation with evidence matrix, readiness pack, and scenario planning.",
+    title: seo.title,
+    description:
+      "Calculate BMI instantly with WHO/CDC ranges and get category + healthy weight range.",
+    images: ["/og-main.png"],
   },
 };
 

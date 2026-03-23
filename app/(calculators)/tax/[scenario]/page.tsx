@@ -16,14 +16,28 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const selected = getTaxScenarioBySlug(scenario);
   if (!selected) return { title: "Tax Scenario" };
   const canonical = `https://mysmartcalculators.com/tax/${selected.slug}`;
-  const title = `${selected.title} | 2026 Federal Tax Planning`;
-  const description = `${selected.description} Includes v3 bracket engine, lifecycle workflow, sensitivity testing, readiness checklist, and distribution links.`;
+  const title = `${selected.title} Tax Scenario | 2026 Federal Income Tax Planner`;
+  const description = `${selected.description} Compare bracket outcomes, effective rate, refund/owed impact, and filing workflow using 2026 federal assumptions.`;
   return {
     title,
     description,
+    keywords: [
+      "tax calculator 2026",
+      "federal tax scenario",
+      "tax planning calculator",
+      "effective tax rate",
+      "tax bracket planning",
+      selected.filingStatus.toLowerCase(),
+    ],
     alternates: { canonical },
-    openGraph: { title, description, url: canonical, type: "website" },
-    twitter: { card: "summary_large_image", title, description },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      type: "website",
+      images: [{ url: "/og-main.png", width: 1200, height: 630, alt: `${selected.title} Tax Scenario` }],
+    },
+    twitter: { card: "summary_large_image", title, description, images: ["/og-main.png"] },
   };
 }
 

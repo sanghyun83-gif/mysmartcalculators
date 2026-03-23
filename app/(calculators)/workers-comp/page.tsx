@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
-import { getCalculatorMeta } from "@/lib/registry/calculators";
 import WorkersCompClient from "./WorkersCompClient";
 
-const id = "workers-comp";
-const meta = getCalculatorMeta(id);
+const seo = {
+  title: "Workers Comp Calculator 2026 | TTD Benefits, PPD Estimate & Settlement Range",
+  description:
+    "Estimate workers compensation benefits and settlement range with state-aware assumptions. Review TTD, PPD, timeline, and decision guidance in one place.",
+  canonical: "https://mysmartcalculators.com/workers-comp",
+};
+const meta = {
+  title: seo.title,
+  description: seo.description,
+  canonical: seo.canonical,
+};
 
 const FAQ_SCHEMA = [
   {
@@ -29,40 +37,40 @@ const FAQ_SCHEMA = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: meta?.title || "Workers Comp Calculator",
-  description:
-    meta?.description ||
-    "Calculate weekly workers comp benefits and settlement ranges with state cap scenarios.",
+  title: seo.title,
+  description: seo.description,
   keywords: [
     "workers comp calculator",
     "workers compensation calculator",
     "ttd calculator",
-    "workers comp settlement estimate",
-    "workers comp by state",
-    "workers comp timeline calculator",
-    "workers comp claim filing checklist",
+    "ppd calculator",
+    "workers comp settlement calculator",
+    "work injury compensation",
+    "state workers comp",
+    "2026 workers comp",
   ],
   alternates: {
-    canonical: meta?.canonical || "https://mysmartcalculators.com/workers-comp",
+    canonical: seo.canonical,
   },
   openGraph: {
-    title: meta?.title,
-    description: meta?.description,
-    url: meta?.canonical,
+    title: seo.title,
+    description:
+      "Estimate TTD/PPD benefits and settlement range with state-aware workers comp assumptions.",
+    url: seo.canonical,
     type: "website",
     images: [
       {
         url: "/og-main.png",
         width: 1200,
         height: 630,
-        alt: "Workers comp calculator state cap and settlement estimate",
+        alt: "Workers Comp Calculator 2026",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: meta?.title,
-    description: meta?.description,
+    title: seo.title,
+    description: "Estimate workers comp benefits, timeline, and settlement range quickly.",
     images: ["/og-main.png"],
   },
 };

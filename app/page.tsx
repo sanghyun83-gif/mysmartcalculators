@@ -1,10 +1,79 @@
-﻿import Link from "next/link";
+import type { Metadata } from "next";
+import Link from "next/link";
 import { Cpu, Zap } from "lucide-react";
 import { ALL_CALCULATORS } from "@/lib/all-calculators";
 import { CALCULATOR_REGISTRY } from "@/lib/registry/calculators";
+import { getHomeSearchScore } from "@/lib/search/home-search";
 import { HomeSearch } from "@/components/home/HomeSearch";
 
 const BASE_URL = "https://mysmartcalculators.com";
+const HOME_CANONICAL = `${BASE_URL}/`;
+
+const HOME_METADATA: Metadata = {
+  title: "MySmartCalculators: Free Online Calculators for Finance, Health, Tax & More",
+  description:
+    "Explore free online calculators for finance, health, tax, legal, and insurance decisions. Fast, practical tools with source-backed workflows.",
+  keywords: [
+    "free online calculators",
+    "calculator hub",
+    "finance calculator",
+    "health calculator",
+    "tax calculator",
+    "mortgage calculator",
+    "bmi calculator",
+  ],
+  alternates: {
+    canonical: HOME_CANONICAL,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: "MySmartCalculators: Free Online Calculators for Finance, Health, Tax & More",
+    description:
+      "Free calculator hub for finance, health, tax, legal, and insurance workflows. Search and launch practical tools quickly.",
+    type: "website",
+    url: HOME_CANONICAL,
+    images: [
+      {
+        url: "/og-main.png",
+        width: 1200,
+        height: 630,
+        alt: "MySmartCalculators Calculator Hub",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MySmartCalculators: Free Online Calculators for Finance, Health, Tax & More",
+    description:
+      "Calculator hub for finance, health, tax, legal, and insurance. Search practical tools and run calculations fast.",
+    images: ["/og-main.png"],
+  },
+};
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams?: Promise<{ q?: string }> | { q?: string };
+}): Promise<Metadata> {
+  const params = searchParams ? await searchParams : {};
+  const hasQuery = typeof params?.q === "string" && params.q.trim().length > 0;
+
+  if (!hasQuery) return HOME_METADATA;
+
+  return {
+    ...HOME_METADATA,
+    robots: {
+      index: false,
+      follow: true,
+    },
+    alternates: {
+      canonical: HOME_CANONICAL,
+    },
+  };
+}
 
 function normalizeHomeLabel(id: string, name: string): string {
   const trimmed = name.trim();
@@ -25,12 +94,13 @@ function normalizeHomeLabel(id: string, name: string): string {
   return withoutTagline;
 }
 
-export default function HomePage({
+export default async function HomePage({
   searchParams,
 }: {
-  searchParams?: { q?: string };
+  searchParams?: Promise<{ q?: string }> | { q?: string };
 }) {
-  const initialQuery = typeof searchParams?.q === "string" ? searchParams.q : "";
+  const params = searchParams ? await searchParams : {};
+  const initialQuery = typeof params?.q === "string" ? params.q : "";
   const sortedCalculators = [...ALL_CALCULATORS].sort((a, b) => a.name.localeCompare(b.name));
   const displayCalculators = sortedCalculators.map((calc) => ({
     id: calc.id,
@@ -49,9 +119,11 @@ export default function HomePage({
 
   const query = initialQuery.trim().toLowerCase();
   const searchResults = query
-    ? displayCalculators.filter(
-        (calc) => calc.name.toLowerCase().includes(query) || calc.id.toLowerCase().includes(query)
-      )
+    ? displayCalculators
+        .map((calc) => ({ calc, score: getHomeSearchScore(calc, query) }))
+        .filter((item) => item.score > 0)
+        .sort((a, b) => b.score - a.score || a.calc.name.localeCompare(b.calc.name))
+        .map((item) => item.calc)
     : [];
 
   const jsonLd = {
@@ -72,6 +144,16 @@ export default function HomePage({
         name: "MySmartCalculators",
         url: BASE_URL,
         logo: `${BASE_URL}/og-main.png`,
+      },
+      {
+        "@type": "ItemList",
+        name: "Core Calculator Fast Lane",
+        itemListElement: featuredCalculators.slice(0, 10).map((calc, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: calc.name,
+          url: `${BASE_URL}/${calc.id}`,
+        })),
       },
     ],
   };

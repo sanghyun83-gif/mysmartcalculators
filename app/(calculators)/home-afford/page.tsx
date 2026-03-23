@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
-import { getCalculatorMeta } from "@/lib/registry/calculators";
 import HomeAffordClient from "./HomeAffordClient";
 
-const id = "home-afford";
-const meta = getCalculatorMeta(id);
+const seo = {
+  title: "Home Affordability Calculator | Budget, DTI, Down Payment & Monthly Cost",
+  description:
+    "Find how much home you can afford using income, debt, down payment, and housing cost assumptions. See budget range and monthly payment fit.",
+  canonical: "https://mysmartcalculators.com/home-afford",
+};
+const meta = {
+  title: seo.title,
+  description: seo.description,
+  canonical: seo.canonical,
+};
 
 const FAQ_SCHEMA = [
   {
@@ -22,38 +30,40 @@ const FAQ_SCHEMA = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: meta?.title || "Home Affordability Calculator",
-  description:
-    meta?.description ||
-    "Estimate affordable home price based on income, debt, and mortgage assumptions.",
+  title: seo.title,
+  description: seo.description,
   keywords: [
     "home affordability calculator",
     "how much house can i afford",
-    "affordable home price calculator",
+    "dti calculator",
+    "housing budget calculator",
+    "down payment calculator",
     "mortgage affordability",
-    "dti home affordability",
+    "home buying budget",
+    "monthly housing cost",
   ],
   alternates: {
-    canonical: meta?.canonical || "https://mysmartcalculators.com/home-afford",
+    canonical: seo.canonical,
   },
   openGraph: {
-    title: meta?.title,
-    description: meta?.description,
-    url: meta?.canonical,
+    title: seo.title,
+    description:
+      "Estimate affordable home price range using income, debt, DTI, down payment, and monthly cost.",
+    url: seo.canonical,
     type: "website",
     images: [
       {
         url: "/og-main.png",
         width: 1200,
         height: 630,
-        alt: "Home affordability calculator estimate",
+        alt: "Home Affordability Calculator",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: meta?.title,
-    description: meta?.description,
+    title: seo.title,
+    description: "Find your affordable home budget with DTI and payment-fit analysis.",
     images: ["/og-main.png"],
   },
 };

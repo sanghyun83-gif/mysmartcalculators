@@ -1,44 +1,54 @@
 import type { Metadata } from "next";
-import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { LOAN_2026 } from "@/lib/calculators/loan";
 import LoanClient from "./LoanClient";
 
-const id = "loan";
-const meta = getCalculatorMeta(id);
+const seo = {
+  title: "Loan Calculator | Monthly Payment, Interest Cost & Payoff Timeline",
+  description:
+    "Calculate loan payments, total interest, and payoff timeline in seconds. Test term, rate, and extra payment scenarios for smarter borrowing decisions.",
+  canonical: "https://mysmartcalculators.com/loan",
+};
+const meta = {
+  title: seo.title,
+  description: seo.description,
+  canonical: seo.canonical,
+};
 
 export const metadata: Metadata = {
-  title: meta?.title || "Loan Calculator & Amortization",
-  description:
-    meta?.description ||
-    "Calculate monthly payment, total interest, and payoff date with an amortized loan model.",
+  title: seo.title,
+  description: seo.description,
   keywords: [
     "loan calculator",
-    "loan payment calculator",
-    "amortization calculator",
     "personal loan calculator",
-    "loan payoff date",
+    "monthly payment calculator",
+    "loan interest calculator",
+    "loan payoff calculator",
+    "amortization schedule",
+    "extra payment loan",
+    "borrowing cost",
   ],
   alternates: {
-    canonical: meta?.canonical || "https://mysmartcalculators.com/loan",
+    canonical: seo.canonical,
   },
   openGraph: {
-    title: meta?.title,
-    description: meta?.description,
-    url: meta?.canonical,
+    title: seo.title,
+    description:
+      "Calculate monthly payment, total interest, and payoff timeline with scenario testing.",
+    url: seo.canonical,
     type: "website",
     images: [
       {
         url: "/og-main.png",
         width: 1200,
         height: 630,
-        alt: "Loan calculator monthly payment estimate",
+        alt: "Loan Calculator",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: meta?.title,
-    description: meta?.description,
+    title: seo.title,
+    description: "Estimate loan payment, interest cost, and payoff timeline instantly.",
     images: ["/og-main.png"],
   },
 };

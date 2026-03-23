@@ -1,43 +1,55 @@
 import type { Metadata } from "next";
-import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { CALCULATORS } from "@/lib/calculators/mortgage";
 import MortgageClient from "./MortgageClient";
 
-const id = "mortgage";
-const meta = getCalculatorMeta(id);
+const seo = {
+  title: "Mortgage Calculator | Monthly Payment, Amortization & Extra Payments",
+  description:
+    "Estimate your mortgage payment with taxes, insurance, amortization schedule, and extra payment impact. Compare payoff date and total interest clearly.",
+  canonical: "https://mysmartcalculators.com/mortgage",
+};
+const meta = {
+  title: seo.title,
+  description: seo.description,
+  canonical: seo.canonical,
+};
 const mortgageCalc = CALCULATORS.find((c) => c.id === "mortgage/calculator");
 
 export const metadata: Metadata = {
-  title: meta?.title,
-  description: meta?.description,
+  title: seo.title,
+  description: seo.description,
   keywords: [
     "mortgage calculator",
-    "mortgage payment calculator",
-    "amortization schedule",
-    "pmi calculator",
     "home loan calculator",
+    "monthly mortgage payment",
+    "amortization schedule",
+    "extra payment mortgage",
+    "mortgage interest",
+    "payoff date",
+    "pmi calculator",
   ],
   alternates: {
-    canonical: meta?.canonical,
+    canonical: seo.canonical,
   },
   openGraph: {
-    title: meta?.title,
-    description: meta?.description,
-    url: meta?.canonical,
+    title: seo.title,
+    description:
+      "Estimate payment, payoff date, amortization, and extra-payment impact in one mortgage workflow.",
+    url: seo.canonical,
     type: "website",
     images: [
       {
         url: "/og-main.png",
         width: 1200,
         height: 630,
-        alt: "Mortgage calculator monthly payment estimate",
+        alt: "Mortgage Calculator",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: meta?.title,
-    description: meta?.description,
+    title: seo.title,
+    description: "Estimate payment, payoff date, and total interest with amortization details.",
     images: ["/og-main.png"],
   },
 };

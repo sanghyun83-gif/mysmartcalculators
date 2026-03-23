@@ -38,9 +38,23 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title,
     description,
+    keywords: [
+      "workers comp calculator",
+      `${stateData.state.name.toLowerCase()} workers comp`,
+      "workers compensation benefits",
+      "ttd benefits",
+      "workers comp rates 2026",
+      "work injury claim",
+    ],
     alternates: { canonical },
-    openGraph: { title, description, url: canonical, type: "article" },
-    twitter: { card: "summary_large_image", title, description },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      type: "article",
+      images: [{ url: "/og-main.png", width: 1200, height: 630, alt: `${stateData.state.name} Workers Comp Rates 2026` }],
+    },
+    twitter: { card: "summary_large_image", title, description, images: ["/og-main.png"] },
   };
 }
 
