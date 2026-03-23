@@ -6,11 +6,29 @@ const id = "bmi";
 const meta = getCalculatorMeta(id);
 
 export const metadata = {
-  title: meta?.title,
-  description: meta?.description,
+  title: meta?.title || "BMI Calculator | 2026 WHO & CDC Body Mass Index Tool",
+  description: meta?.description || "Calculate BMI with 2026 WHO/CDC standards, lifecycle trend guidance, sensitivity scenarios, and source-backed interpretation.",
+  keywords: [
+    "bmi calculator",
+    "body mass index calculator",
+    "who bmi categories",
+    "cdc bmi chart",
+    "healthy weight range calculator",
+  ],
   alternates: {
-    canonical: meta?.canonical,
-  }
+    canonical: meta?.canonical || "https://mysmartcalculators.com/bmi",
+  },
+  openGraph: {
+    title: meta?.title || "BMI Calculator | 2026 WHO & CDC Body Mass Index Tool",
+    description: meta?.description || "BMI result, category interpretation, trend lifecycle simulation, and sensitivity analysis in one workflow.",
+    url: meta?.canonical || "https://mysmartcalculators.com/bmi",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: meta?.title || "BMI Calculator | 2026 WHO & CDC Body Mass Index Tool",
+    description: meta?.description || "Clinical BMI interpretation with evidence matrix, readiness pack, and scenario planning.",
+  },
 };
 
 export default function CalcBmiPage() {

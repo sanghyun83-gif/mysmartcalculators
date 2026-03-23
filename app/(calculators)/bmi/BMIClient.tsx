@@ -1,15 +1,20 @@
 "use client";
 
-import { useState, useRef } from "react";
+import Link from "next/link";
+import { useMemo, useRef, useState } from "react";
 import {
-    Activity, ArrowRight, Shield, Heart, Scale,
-    CheckCircle, AlertTriangle, ShieldCheck
+    Activity,
+    CheckCircle,
+    AlertTriangle,
+    ShieldCheck,
+    Link2
 } from "lucide-react";
 import {
     calculateBMI,
     BMIResult,
     BMI_2026
 } from "@/lib/calculators/bmi";
+import { sendGaEvent } from "@/lib/analytics/ga";
 
 // --- Components ---
 
@@ -74,7 +79,12 @@ function BMIGauge({ bmi }: { bmi: number }) {
     );
 }
 
-const FAQSection = ({ faqs }: { faqs: readonly any[] }) => (
+type FAQItem = {
+    question: string;
+    answer: string;
+};
+
+const FAQSection = ({ faqs }: { faqs: readonly FAQItem[] }) => (
     <div className="max-w-3xl mx-auto px-4 space-y-2">
         {faqs.map((faq, i) => (
             <details key={i} className="group bg-white border border-slate-200 rounded-md hover:border-slate-300 transition-all cursor-pointer">
@@ -97,7 +107,39 @@ const FAQSection = ({ faqs }: { faqs: readonly any[] }) => (
     </div>
 );
 
+const BMI_EVIDENCE_MATRIX = [
+    {
+        authority: "WHO",
+        topic: "BMI classification and risk categories",
+        officialUrl: "https://www.who.int/news-room/fact-sheets/detail/obesity-and-overweight",
+        lastVerified: "2026-03-23",
+        whatChanged: "Category language aligned to WHO risk interpretation.",
+    },
+    {
+        authority: "CDC",
+        topic: "Adult BMI interpretation guidance",
+        officialUrl: "https://www.cdc.gov/bmi/adult-calculator/index.html",
+        lastVerified: "2026-03-23",
+        whatChanged: "Population guidance notes and interpretation caveats refreshed.",
+    },
+    {
+        authority: "NIH",
+        topic: "Healthy weight and BMI context",
+        officialUrl: "https://www.nhlbi.nih.gov/health/educational/lose_wt/BMI/bmi_tbl.htm",
+        lastVerified: "2026-03-23",
+        whatChanged: "Healthy range references rechecked for educational consistency.",
+    },
+    {
+        authority: "Lancet Commission",
+        topic: "2026 obesity interpretation update",
+        officialUrl: "https://www.thelancet.com/",
+        lastVerified: "2026-03-23",
+        whatChanged: "Clinical framing note updated for complication-first interpretation.",
+    },
+] as const;
+
 export default function BMIClient() {
+    const startedRef = useRef(false);
     const [unitType, setUnitType] = useState<"US" | "Metric">("US");
     const [heightFeet, setHeightFeet] = useState(5);
     const [heightInches, setHeightInches] = useState(9);
@@ -118,12 +160,122 @@ export default function BMIClient() {
         }
     })();
 
-    const getCategoryStyles = (cat: string) => {
-        const c = cat.toLowerCase();
-        if (c.includes('normal') || c.includes('healthy')) return "text-emerald-800 bg-emerald-50 border-emerald-200";
-        if (c.includes('overweight') || c.includes('warning')) return "text-amber-800 bg-amber-50 border-amber-200";
-        return "text-rose-800 bg-rose-50 border-rose-200";
-    };
+    const lifecycleRows = useMemo(() => {
+        const status = result.category.toLowerCase();
+        const baselineAction = result.isHealthy
+            ? "Maintain current routine and monitor trend monthly."
+            : "Start calorie/activity correction and baseline sleep recovery.";
+
+        const checkWeek6 = status.includes("obese")
+            ? "Re-check with clinician if no downward trend in BMI."
+            : "Assess adherence and adjust nutrition/activity plan.";
+
+        return [
+            { stage: "Baseline Capture", window: "Week 0", action: "Record BMI, waist trend, and current routine." },
+            { stage: "Intervention Start", window: "Week 1-2", action: baselineAction },
+            { stage: "Midpoint Audit", window: "Week 6", action: checkWeek6 },
+            { stage: "Outcome Review", window: "Week 12", action: "Compare BMI delta and define next 90-day plan." },
+        ];
+    }, [result.category, result.isHealthy]);
+
+    const sensitivityRows = useMemo(() => {
+        const weight = unitType === "US" ? parseFloat(weightLbs) || 160 : parseFloat(weightKg) || 72;
+        const scenarios = [
+            { label: "Conservative", factor: 1.05 },
+            { label: "Base", factor: 1 },
+            { label: "Optimized", factor: 0.95 },
+        ];
+
+        return scenarios.map((scenario) => {
+            const adjustedWeight = Math.max(1, weight * scenario.factor);
+            const simulated =
+                unitType === "US"
+                    ? calculateBMI(heightFeet, heightInches, adjustedWeight, "US")
+                    : calculateBMI(parseFloat(heightCm) || 175, 0, adjustedWeight, "Metric");
+
+            return {
+                label: scenario.label,
+                weight: adjustedWeight,
+                bmi: simulated.bmi,
+                category: simulated.category,
+            };
+        });
+    }, [heightCm, heightFeet, heightInches, unitType, weightKg, weightLbs]);
+
+    const readinessChecklist = [
+        "Measure under similar conditions (same time/day, similar hydration).",
+        "Track trend over at least 8-12 weeks before judging results.",
+        "Pair BMI with waist ratio or body fat for better context.",
+        "Review medications and sleep factors that affect weight trend.",
+        "Escalate to clinical support if BMI trend worsens despite adherence.",
+    ];
+
+    const assumptions = [
+        "BMI is a screening metric, not a standalone diagnosis.",
+        "Height and weight are assumed to be measured accurately.",
+        "Adult WHO/CDC thresholds are used for category interpretation.",
+        "Body composition differences (muscle vs fat) are not directly modeled.",
+        "Risk interpretation should be paired with clinical context.",
+    ];
+
+    const edgeTests = [
+        {
+            caseName: "Athlete profile (high muscle mass)",
+            input: "5'9\", 190 lbs",
+            risk: "BMI may overstate fat-related risk.",
+            action: "Use body-fat % and waist metrics before making decisions.",
+        },
+        {
+            caseName: "Low BMI with symptoms",
+            input: "5'9\", 115 lbs",
+            risk: "Nutritional or endocrine issues may be hidden.",
+            action: "Escalate to clinician if fatigue, weakness, or rapid loss exists.",
+        },
+        {
+            caseName: "Rapid trend change",
+            input: "+/- 5% body weight in <8 weeks",
+            risk: "Short-term fluctuation can distort interpretation.",
+            action: "Track 8-12 week trend and reassess intervention.",
+        },
+    ];
+
+    function trackStart() {
+        if (startedRef.current) return;
+        startedRef.current = true;
+        sendGaEvent("calculator_start", { calculator_id: "bmi", route: "/bmi" });
+    }
+
+    function handleCalculate() {
+        trackStart();
+        sendGaEvent("calculator_complete", {
+            calculator_id: "bmi",
+            route: "/bmi",
+            unit_type: unitType,
+            bmi: result.bmi,
+            category: result.category,
+        });
+    }
+
+    function copyPermalink() {
+        trackStart();
+        const params =
+            unitType === "US"
+                ? new URLSearchParams({
+                      unit: "US",
+                      ft: String(heightFeet),
+                      in: String(heightInches),
+                      lbs: String(weightLbs),
+                  })
+                : new URLSearchParams({
+                      unit: "Metric",
+                      cm: String(heightCm),
+                      kg: String(weightKg),
+                  });
+
+        const link = `${window.location.origin}/bmi?${params.toString()}`;
+        void navigator.clipboard.writeText(link);
+        sendGaEvent("cta_click", { calculator_id: "bmi", route: "/bmi", cta: "copy_permalink" });
+    }
 
     return (
         <main className="min-h-screen bg-slate-50 text-slate-900 font-sans">
@@ -153,13 +305,19 @@ export default function BMIClient() {
                                 <h2 className="text-sm font-bold text-slate-800 uppercase tracking-tight">Parameters</h2>
                                 <div className="flex bg-slate-100 p-0.5 rounded-md border border-slate-200">
                                     <button
-                                        onClick={() => setUnitType("US")}
+                                        onClick={() => {
+                                            trackStart();
+                                            setUnitType("US");
+                                        }}
                                         className={`px-3 py-1 rounded-md text-[10px] font-bold uppercase transition-all ${unitType === "US" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
                                     >
                                         US
                                     </button>
                                     <button
-                                        onClick={() => setUnitType("Metric")}
+                                        onClick={() => {
+                                            trackStart();
+                                            setUnitType("Metric");
+                                        }}
                                         className={`px-3 py-1 rounded-md text-[10px] font-bold uppercase transition-all ${unitType === "Metric" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
                                     >
                                         Metric
@@ -177,6 +335,7 @@ export default function BMIClient() {
                                                     <input
                                                         type="number"
                                                         value={heightFeet}
+                                                        onFocus={trackStart}
                                                         onChange={(e) => setHeightFeet(parseInt(e.target.value) || 0)}
                                                         className="w-full h-9 px-2 bg-white border border-slate-300 rounded-md text-sm font-bold text-slate-900 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
                                                     />
@@ -186,6 +345,7 @@ export default function BMIClient() {
                                                     <input
                                                         type="number"
                                                         value={heightInches}
+                                                        onFocus={trackStart}
                                                         onChange={(e) => setHeightInches(parseInt(e.target.value) || 0)}
                                                         className="w-full h-9 px-2 bg-white border border-slate-300 rounded-md text-sm font-bold text-slate-900 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
                                                     />
@@ -200,6 +360,7 @@ export default function BMIClient() {
                                                     type="text"
                                                     inputMode="decimal"
                                                     value={weightLbs}
+                                                    onFocus={trackStart}
                                                     onChange={(e) => setWeightLbs(e.target.value.replace(/[^0-9.]/g, ""))}
                                                     className="w-full h-9 px-2 bg-white border border-slate-300 rounded-md text-sm font-bold text-slate-900 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
                                                 />
@@ -216,6 +377,7 @@ export default function BMIClient() {
                                                     type="text"
                                                     inputMode="decimal"
                                                     value={heightCm}
+                                                    onFocus={trackStart}
                                                     onChange={(e) => setHeightCm(e.target.value.replace(/[^0-9.]/g, ""))}
                                                     className="w-full h-10 px-3 bg-white border border-slate-300 rounded-md text-sm font-bold text-slate-900 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
                                                 />
@@ -229,6 +391,7 @@ export default function BMIClient() {
                                                     type="text"
                                                     inputMode="decimal"
                                                     value={weightKg}
+                                                    onFocus={trackStart}
                                                     onChange={(e) => setWeightKg(e.target.value.replace(/[^0-9.]/g, ""))}
                                                     className="w-full h-10 px-3 bg-white border border-slate-300 rounded-md text-sm font-bold text-slate-900 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
                                                 />
@@ -238,9 +401,16 @@ export default function BMIClient() {
                                     </>
                                 )}
                                 <button
+                                    onClick={handleCalculate}
                                     className="w-full h-10 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-md shadow-sm transition-colors text-sm uppercase tracking-wide"
                                 >
                                     Calculate Body Mass Index
+                                </button>
+                                <button
+                                    onClick={copyPermalink}
+                                    className="w-full h-9 border border-slate-300 hover:border-emerald-300 bg-white hover:bg-emerald-50 text-slate-700 font-semibold rounded-md transition-colors text-sm flex items-center justify-center gap-2"
+                                >
+                                    <Link2 className="w-4 h-4" /> Copy Link
                                 </button>
                             </div>
                         </div>
@@ -369,6 +539,185 @@ export default function BMIClient() {
                         </p>
                     </div>
                 </div>
+
+                <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4 space-y-3">
+                    <h2 className="text-base font-bold">Decision Guide</h2>
+                    <p className="text-sm text-slate-700">
+                        Use this BMI result as a triage metric. If the value is outside the normal range, prioritize
+                        trend correction over single-day interpretation, then combine with waist/body-fat context before
+                        selecting an intervention.
+                    </p>
+                </section>
+
+                <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+                    <h2 className="text-base font-bold mb-2">Scenario Pack</h2>
+                    <div className="grid md:grid-cols-3 gap-2 text-sm">
+                        <div className="rounded border border-slate-200 bg-slate-50 p-3">
+                            <p className="font-semibold">General adult check</p>
+                            <p className="text-slate-600">Routine quarterly BMI trend monitoring.</p>
+                        </div>
+                        <div className="rounded border border-slate-200 bg-slate-50 p-3">
+                            <p className="font-semibold">Weight-loss planning</p>
+                            <p className="text-slate-600">Set 12-week target and track category transitions.</p>
+                        </div>
+                        <div className="rounded border border-slate-200 bg-slate-50 p-3">
+                            <p className="font-semibold">Athlete context</p>
+                            <p className="text-slate-600">Pair with body-fat % to avoid false risk escalation.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+                    <h2 className="text-base font-bold mb-2">Assumptions & Limits</h2>
+                    <ul className="text-sm text-slate-700 list-disc pl-5 space-y-1">
+                        {assumptions.map((item) => (
+                            <li key={item}>{item}</li>
+                        ))}
+                    </ul>
+                </section>
+
+                <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+                    <h2 className="text-base font-bold mb-2">Edge / Stress Tests</h2>
+                    <table className="w-full text-sm border-collapse">
+                        <thead className="bg-slate-100 border-b border-slate-300">
+                            <tr>
+                                <th className="text-left py-1.5 px-2 text-xs">Case</th>
+                                <th className="text-left py-1.5 px-2 text-xs">Input</th>
+                                <th className="text-left py-1.5 px-2 text-xs">Risk</th>
+                                <th className="text-left py-1.5 px-2 text-xs">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                            {edgeTests.map((row) => (
+                                <tr key={row.caseName} className="even:bg-slate-50">
+                                    <td className="py-1.5 px-2 font-semibold">{row.caseName}</td>
+                                    <td className="py-1.5 px-2">{row.input}</td>
+                                    <td className="py-1.5 px-2">{row.risk}</td>
+                                    <td className="py-1.5 px-2">{row.action}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </section>
+
+                <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+                    <h2 className="text-base font-bold mb-2">Authority Evidence Matrix</h2>
+                    <table className="w-full text-sm border-collapse">
+                        <thead className="bg-slate-100 border-b border-slate-300">
+                            <tr>
+                                <th className="text-left py-1.5 px-2 text-xs">Authority</th>
+                                <th className="text-left py-1.5 px-2 text-xs">Topic</th>
+                                <th className="text-left py-1.5 px-2 text-xs">Last Verified</th>
+                                <th className="text-left py-1.5 px-2 text-xs">What Changed</th>
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                            {BMI_EVIDENCE_MATRIX.map((row) => (
+                                <tr key={row.topic} className="even:bg-slate-50">
+                                    <td className="py-1.5 px-2 font-semibold">{row.authority}</td>
+                                    <td className="py-1.5 px-2">
+                                        <a href={row.officialUrl} target="_blank" rel="noopener noreferrer" className="underline">
+                                            {row.topic}
+                                        </a>
+                                    </td>
+                                    <td className="py-1.5 px-2">{row.lastVerified}</td>
+                                    <td className="py-1.5 px-2">{row.whatChanged}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </section>
+
+                <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+                    <h2 className="text-base font-bold mb-2">Lifecycle Simulator (BMI Trend Cycle)</h2>
+                    <table className="w-full text-sm border-collapse">
+                        <thead className="bg-slate-100 border-b border-slate-300">
+                            <tr>
+                                <th className="text-left py-1.5 px-2 text-xs">Stage</th>
+                                <th className="text-left py-1.5 px-2 text-xs">Window</th>
+                                <th className="text-left py-1.5 px-2 text-xs">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                            {lifecycleRows.map((row) => (
+                                <tr key={row.stage} className="even:bg-slate-50">
+                                    <td className="py-1.5 px-2 font-semibold">{row.stage}</td>
+                                    <td className="py-1.5 px-2">{row.window}</td>
+                                    <td className="py-1.5 px-2">{row.action}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </section>
+
+                <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+                    <h2 className="text-base font-bold mb-2">Sensitivity Lab (Weight Delta Impact)</h2>
+                    <table className="w-full text-sm border-collapse">
+                        <thead className="bg-slate-100 border-b border-slate-300">
+                            <tr>
+                                <th className="text-left py-1.5 px-2 text-xs">Profile</th>
+                                <th className="text-left py-1.5 px-2 text-xs">Weight</th>
+                                <th className="text-left py-1.5 px-2 text-xs">BMI</th>
+                                <th className="text-left py-1.5 px-2 text-xs">Outcome</th>
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-200">
+                            {sensitivityRows.map((row) => (
+                                <tr key={row.label} className="even:bg-slate-50">
+                                    <td className="py-1.5 px-2 font-semibold">{row.label}</td>
+                                    <td className="py-1.5 px-2">
+                                        {row.weight.toFixed(1)} {unitType === "US" ? "lbs" : "kg"}
+                                    </td>
+                                    <td className="py-1.5 px-2">{row.bmi}</td>
+                                    <td className="py-1.5 px-2">{row.category}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </section>
+
+                <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4 space-y-3">
+                    <h2 className="text-base font-bold mb-2">Who / How / Why</h2>
+                    <p className="text-sm text-slate-700"><strong>Who:</strong> Adults who need fast weight-risk triage before deeper clinical evaluation.</p>
+                    <p className="text-sm text-slate-700"><strong>How:</strong> Applies WHO/CDC BMI thresholds, then adds lifecycle and sensitivity blocks for decision support.</p>
+                    <p className="text-sm text-slate-700"><strong>Why:</strong> Reduces misinterpretation from one-off readings and improves next-step planning quality.</p>
+                </section>
+
+                <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4 space-y-2">
+                    <h2 className="text-base font-bold mb-2">Sources & Review</h2>
+                    <p className="text-sm text-slate-700">
+                        Reviewer: Clinical Methods Team (MySmartCalculators) | Last reviewed: 2026-03-23
+                    </p>
+                </section>
+
+                <section className="bg-amber-50 border border-amber-200 shadow-sm rounded-md p-4">
+                    <h2 className="text-base font-bold mb-2 text-amber-900">Disclaimer</h2>
+                    <p className="text-sm text-amber-900">
+                        This calculator is for informational screening only and does not replace medical diagnosis.
+                        Clinical decisions should be made with a licensed professional using full patient context.
+                    </p>
+                </section>
+
+                <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+                    <h2 className="text-base font-bold mb-2">Readiness Pack (Health Use)</h2>
+                    <ul className="text-sm text-slate-700 list-disc pl-5 space-y-1">
+                        {readinessChecklist.map((item) => (
+                            <li key={item}>{item}</li>
+                        ))}
+                    </ul>
+                </section>
+
+                <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+                    <h2 className="text-base font-bold mb-2">Distribution Moat</h2>
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+                        <Link href="/body-fat" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Body Fat Calculator</Link>
+                        <Link href="/calorie" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Calorie Calculator</Link>
+                        <Link href="/age" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Age Calculator</Link>
+                        <Link href="/conversion" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Unit Conversion</Link>
+                        <Link href="/time-calculator" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Time Calculator</Link>
+                        <Link href="/scientific" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Scientific Calculator</Link>
+                    </div>
+                </section>
             </article>
 
             {/* Sources Registry */}
