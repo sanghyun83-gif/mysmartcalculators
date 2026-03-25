@@ -1,19 +1,45 @@
-﻿import { getCalculatorMeta } from "@/lib/registry/calculators";
+﻿import type { Metadata } from "next";
 import { CALORIE_2026 } from "@/lib/calculators/calorie";
-import dynamic from "next/dynamic";
+import CalorieClient from "./CalorieClient";
 
-const id = "calorie";
-const meta = getCalculatorMeta(id);
-
-export const metadata = {
-  title: meta?.title,
-  description: meta?.description,
-  alternates: {
-    canonical: meta?.canonical,
-  }
+const seo = {
+  title: "Calorie Calculator 2026 | TDEE, BMR & Macro Planning",
+  description:
+    "Estimate daily calorie targets with Mifflin-St Jeor BMR, activity-based TDEE, and macro blueprints. Compare maintenance, deficit, and surplus plans.",
+  canonical: "https://mysmartcalculators.com/calorie",
 };
 
-import CalorieClient from "./CalorieClient"; // Changed from HubClient
+export const metadata: Metadata = {
+  title: seo.title,
+  description: seo.description,
+  keywords: [
+    "calorie calculator",
+    "tdee calculator",
+    "bmr calculator",
+    "daily calorie needs",
+    "macro calculator",
+    "weight loss calories",
+    "maintenance calories",
+    "mifflin st jeor",
+  ],
+  alternates: {
+    canonical: seo.canonical,
+  },
+  openGraph: {
+    title: seo.title,
+    description:
+      "Calculate BMR, TDEE, and daily calorie targets with scenario and sensitivity planning.",
+    url: seo.canonical,
+    type: "website",
+    images: [{ url: "/og-main.png", width: 1200, height: 630, alt: "Calorie Calculator 2026" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: seo.title,
+    description: "Calorie planning with BMR/TDEE engine, macro guidance, and decision-ready outputs.",
+    images: ["/og-main.png"],
+  },
+};
 
 export default function CalcCaloriePage() {
   const jsonLd = {
@@ -21,74 +47,70 @@ export default function CalcCaloriePage() {
     "@graph": [
       {
         "@type": "SoftwareApplication",
-        "name": meta?.title || "Calorie Calculator",
-        "description": meta?.description || "High-precision metabolic audit engine for TDEE and BMR calculation.",
-        "applicationCategory": "HealthApplication",
-        "operatingSystem": "Any",
-        "offers": {
+        name: seo.title,
+        description: seo.description,
+        applicationCategory: "HealthApplication",
+        operatingSystem: "Any",
+        offers: {
           "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        }
+          price: "0",
+          priceCurrency: "USD",
+        },
       },
       {
         "@type": "HowTo",
-        "name": "How to Calculate Daily Calorie Needs",
-        "description": "Step-by-step guide for calculating TDEE and daily calorie requirements.",
-        "step": [
+        name: "How to calculate daily calorie needs",
+        description: "Use BMR, activity profile, and goal delta to set daily calorie targets.",
+        step: [
           {
             "@type": "HowToStep",
-            "text": "Input your current weight, height, age, and gender into the calculator."
+            text: "Enter age, sex, height, weight, and activity level.",
           },
           {
             "@type": "HowToStep",
-            "text": "Select your activity level to determine your TDEE (Total Daily Energy Expenditure)."
+            text: "Set your goal adjustment (deficit, maintain, or surplus).",
           },
           {
             "@type": "HowToStep",
-            "text": "Identify your primary goal (Maintenance, Deficit, or Surplus)."
+            text: "Review BMR, TDEE, and target calories with macro blueprint options.",
           },
-          {
-            "@type": "HowToStep",
-            "text": "Review the results to view your custom calorie and macro-targets."
-          }
-        ]
+        ],
       },
       {
         "@type": "BreadcrumbList",
-        "itemListElement": [
+        itemListElement: [
           {
             "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://mysmartcalculators.com/"
+            position: 1,
+            name: "Home",
+            item: "https://mysmartcalculators.com/",
           },
           {
             "@type": "ListItem",
-            "position": 2,
-            "name": "Health",
-            "item": "https://mysmartcalculators.com/health"
+            position: 2,
+            name: "Health",
+            item: "https://mysmartcalculators.com/health",
           },
           {
             "@type": "ListItem",
-            "position": 3,
-            "name": "Calorie Calculator",
-            "item": meta?.canonical || "https://mysmartcalculators.com/calorie"
-          }
-        ]
+            position: 3,
+            name: "Calorie Calculator",
+            item: seo.canonical,
+          },
+        ],
       },
       {
         "@type": "FAQPage",
-        "mainEntity": CALORIE_2026.faqs.map((faq: { question: string; answer: string }) => ({
+        mainEntity: CALORIE_2026.faqs.map((faq: { question: string; answer: string }) => ({
           "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": {
+          name: faq.question,
+          acceptedAnswer: {
             "@type": "Answer",
-            "text": faq.answer
-          }
-        }))
-      }
-    ]
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
   };
 
   return (
@@ -102,4 +124,3 @@ export default function CalcCaloriePage() {
     </>
   );
 }
-

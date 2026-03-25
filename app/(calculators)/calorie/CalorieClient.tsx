@@ -1,392 +1,544 @@
 "use client";
 
-import { useState, useRef } from "react";
-import {
-    Flame, ArrowRight, Shield, Heart, Scale,
-    CheckCircle, AlertTriangle, Calculator, FileText,
-    Zap, Microscope, Globe, Landmark, Target, Brain, Dna, ShieldCheck
-} from "lucide-react";
-import {
-    CALORIE_2026,
-    calculateCalories,
-    formatNumber
-} from "@/lib/calculators/calorie";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useMemo, useRef, useState } from "react";
+import { Activity, ShieldCheck, Link2 } from "lucide-react";
+import { sendGaEvent } from "@/lib/analytics/ga";
+import { CALORIE_2026, calculateCalories, formatNumber } from "@/lib/calculators/calorie";
+import { CALORIE_EVIDENCE_MATRIX, CALORIE_SCENARIO_CLUSTERS } from "@/lib/calorie/evidence";
 
-// --- Components ---
+type FAQItem = {
+  question: string;
+  answer: string;
+};
 
-function CalorieGauge({ tdee, goal }: { tdee: number, goal: number }) {
-    const percentage = Math.min(Math.max((goal / (tdee * 1.5)) * 100, 0), 100);
-    const isDeficit = goal < tdee;
+type CalorieClientProps = {
+  focusTitle?: string;
+  focusSummary?: string;
+  initialValues?: {
+    age?: number;
+    gender?: "male" | "female";
+    heightFeet?: number;
+    heightInches?: number;
+    weightLbs?: number;
+    activityMultiplier?: number;
+    goalAdjustment?: number;
+  };
+};
 
-    return (
-        <div className="space-y-2 pt-2" aria-hidden="true">
-            <div className="flex justify-between text-[10px] font-bold text-slate-400 uppercase tracking-widest px-1">
-                <span>Deficit</span>
-                <span>Maintain</span>
-                <span>Surplus</span>
-            </div>
-            <div className="relative h-2 bg-slate-100 rounded-full overflow-hidden flex border border-slate-200">
-                <div className="bg-blue-400/40 h-full w-[40%]" />
-                <div className="bg-emerald-400/40 h-full w-[20%]" />
-                <div className="bg-emerald-600/40 h-full w-[40%]" />
+const readinessChecklist = [
+  "Use morning body weight average (7-day) instead of single-day readings.",
+  "Keep activity multiplier stable for at least 14 days before re-targeting.",
+  "Pair calories with protein minimum to protect lean mass in deficit.",
+  "Review sleep, stress, and medication factors if progress stalls.",
+  "Re-audit targets every 8-12 weeks or every ~10 lbs body-weight change.",
+];
 
-                <div
-                    className="absolute top-0 bottom-0 w-1 bg-slate-900 z-10 transition-all duration-1000 ease-out"
-                    style={{ left: `${percentage}%` }}
-                >
-                    <div className="absolute top-[-2px] left-1/2 -translate-x-1/2 w-1 h-3 bg-slate-900 rounded-sm" />
-                </div>
-            </div>
-            <div className={`flex justify-between items-center p-2 rounded-md border ${isDeficit ? 'text-blue-800 bg-blue-50 border-blue-200' : goal === tdee ? 'text-emerald-800 bg-emerald-50 border-emerald-200' : 'text-emerald-700 bg-emerald-50 border-emerald-200'}`}>
-                <p className="text-[10px] font-black uppercase tracking-widest">Daily Target</p>
-                <p className="text-xs font-bold uppercase">
-                    {isDeficit ? 'Weight Loss' : goal === tdee ? 'Weight Maintenance' : 'Weight Gain'}
-                </p>
-            </div>
-        </div>
-    );
+const assumptions = [
+  "BMR is estimated with Mifflin-St Jeor and not direct calorimetry.",
+  "Activity multiplier is user-selected and can over/under-estimate real expenditure.",
+  "Calorie target is a planning baseline, not a guaranteed physiological response.",
+  "Weight trend is evaluated over weeks, not single-day fluctuations.",
+  "Medical conditions and medications are outside model scope.",
+];
+
+const edgeTests = [
+  {
+    caseName: "Aggressive deficit",
+    input: "TDEE -1000 kcal/day",
+    risk: "Adherence drop and muscle-loss risk increase.",
+    action: "Start with moderate deficit and track 2-week adherence before tightening.",
+  },
+  {
+    caseName: "High activity variance",
+    input: "Workout pattern changes week to week",
+    risk: "TDEE mismatch causes false plateau interpretation.",
+    action: "Lock activity class for 14 days, then recalibrate.",
+  },
+  {
+    caseName: "Rapid early scale movement",
+    input: "1st week large drop/gain",
+    risk: "Water/glycogen noise can mislead strategy changes.",
+    action: "Use 7-day average and reassess at week 3-4.",
+  },
+];
+
+function FAQSection({ faqs }: { faqs: readonly FAQItem[] }) {
+  return (
+    <div className="max-w-3xl mx-auto px-4 space-y-2">
+      {faqs.map((faq, i) => (
+        <details key={i} className="group bg-white border border-slate-200 rounded-md hover:border-slate-300 transition-all cursor-pointer">
+          <summary className="p-3 list-none flex items-center justify-between [&::-webkit-details-marker]:hidden">
+            <h3 className="text-sm font-semibold text-slate-800 flex items-center gap-3">
+              <span className="text-xs text-slate-400 font-mono">{(i + 1).toString().padStart(2, "0")}</span>
+              {faq.question}
+            </h3>
+            <span className="text-slate-400 group-open:rotate-180 transition-transform duration-200">?</span>
+          </summary>
+          <div className="px-3 pb-3 text-sm text-slate-600 leading-relaxed border-t border-slate-50 pt-2">{faq.answer}</div>
+        </details>
+      ))}
+    </div>
+  );
 }
 
-const FAQSection = ({ faqs }: { faqs: readonly any[] }) => (
-    <div className="max-w-3xl mx-auto px-4 space-y-2">
-        {faqs.map((faq, i) => (
-            <details key={i} className="group bg-white border border-slate-200 rounded-md hover:border-slate-300 transition-all cursor-pointer">
-                <summary className="p-3 list-none flex items-center justify-between [&::-webkit-details-marker]:hidden">
-                    <h3 className="text-sm font-semibold text-slate-800 flex items-center gap-3">
-                        <span className="text-xs text-slate-400 font-mono">{(i + 1).toString().padStart(2, '0')}</span>
-                        {faq.question}
-                    </h3>
-                    <span className="text-slate-400 group-open:rotate-180 transition-transform duration-200">
-                        <svg fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-3.5 h-3.5">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                        </svg>
-                    </span>
-                </summary>
-                <div className="px-3 pb-3 text-sm text-slate-600 leading-relaxed border-t border-slate-50 pt-2">
-                    {faq.answer}
-                </div>
-            </details>
-        ))}
-    </div>
-);
+export default function CalorieClient({ focusTitle, focusSummary, initialValues }: CalorieClientProps) {
+  const pathname = usePathname();
+  const routePath = pathname || "/calorie";
+  const startedRef = useRef(false);
 
-export default function CalorieClient() {
-    const [age, setAge] = useState("30");
-    const [gender, setGender] = useState<"male" | "female">("male");
-    const [heightFeet, setHeightFeet] = useState(5);
-    const [heightInches, setHeightInches] = useState(10);
-    const [weightLbs, setWeightLbs] = useState("175");
-    const [activityMultiplier, setActivityMultiplier] = useState(1.2);
-    const [goalAdjustment, setGoalAdjustment] = useState(0);
+  const [age, setAge] = useState(String(initialValues?.age ?? 30));
+  const [gender, setGender] = useState<"male" | "female">(initialValues?.gender ?? "male");
+  const [heightFeet, setHeightFeet] = useState(initialValues?.heightFeet ?? 5);
+  const [heightInches, setHeightInches] = useState(initialValues?.heightInches ?? 10);
+  const [weightLbs, setWeightLbs] = useState(String(initialValues?.weightLbs ?? 175));
+  const [activityMultiplier, setActivityMultiplier] = useState(initialValues?.activityMultiplier ?? 1.2);
+  const [goalAdjustment, setGoalAdjustment] = useState(initialValues?.goalAdjustment ?? 0);
 
-    const calculatorRef = useRef<HTMLDivElement>(null);
+  const result = (() => {
+    const parsedAge = parseInt(age, 10) || 0;
+    const parsedWeight = parseFloat(weightLbs) || 0;
+    if (parsedAge <= 0 || parsedWeight <= 0) {
+      return calculateCalories(30, "male", 5, 10, 175, 1.2, 0);
+    }
+    return calculateCalories(parsedAge, gender, heightFeet, heightInches, parsedWeight, activityMultiplier, goalAdjustment);
+  })();
 
-    const result = (() => {
-        const a = parseInt(age) || 0;
-        const w = parseFloat(weightLbs) || 0;
-        const hf = heightFeet || 0;
-        const hi = heightInches || 0;
-        if (a > 0 && w > 0) {
-            return calculateCalories(a, gender, hf, hi, w, activityMultiplier, goalAdjustment);
-        }
-        return calculateCalories(30, "male", 5, 10, 175, 1.2, 0);
-    })();
+  const lifecycleRows = useMemo(() => {
+    const isDeficit = result.goalCalories < result.tdee;
+    return [
+      {
+        stage: "Baseline Intake Capture",
+        window: "Week 0",
+        action: "Record average intake, body weight trend, and routine activity profile.",
+      },
+      {
+        stage: "Execution Window",
+        window: "Week 1-2",
+        action: isDeficit
+          ? "Apply calorie deficit and protein floor. Hold multiplier fixed for signal clarity."
+          : "Apply maintenance/surplus target with recovery and training consistency.",
+      },
+      {
+        stage: "Adaptation Check",
+        window: "Week 3-4",
+        action: "Audit 7-day trend and only adjust target if trend misses objective.",
+      },
+      {
+        stage: "Recalibration",
+        window: "Week 8-12",
+        action: "Recompute BMR/TDEE after body-weight change and reset next-cycle plan.",
+      },
+    ];
+  }, [result.goalCalories, result.tdee]);
 
-    return (
-        <main className="min-h-screen bg-slate-50 text-slate-900 font-sans">
-            {/* --- Compact Header --- */}
-            <header className="pt-6 pb-2 px-6 max-w-7xl mx-auto">
-                <div className="flex flex-col items-start">
-                    <div className="flex items-center gap-2 mb-1">
-                        <Flame className="w-4 h-4 text-emerald-600" />
-                        <h1 className="text-2xl font-bold tracking-tight text-slate-900">
-                            Calorie <span className="text-emerald-600">Calculator</span>
-                        </h1>
-                    </div>
-                    <div className="flex items-center gap-1 text-[11px] text-slate-500 font-mono uppercase tracking-wider">
-                        <ShieldCheck size={14} className="text-emerald-600" />
-                        Verified by USDA & Mifflin-St Jeor Standards
-                    </div>
-                </div>
-            </header>
+  const sensitivityRows = useMemo(() => {
+    const parsedAge = parseInt(age, 10) || 30;
+    const parsedWeight = parseFloat(weightLbs) || 175;
+    const scenarios = [
+      { label: "Conservative", activity: Math.max(1.2, activityMultiplier - 0.175), adjustment: goalAdjustment - 100 },
+      { label: "Base", activity: activityMultiplier, adjustment: goalAdjustment },
+      { label: "Optimized", activity: Math.min(1.9, activityMultiplier + 0.175), adjustment: goalAdjustment + 100 },
+    ];
 
-            {/* --- Hyper-Dense 2-Column Grid --- */}
-            <section ref={calculatorRef} id="calculator" className="py-4 max-w-7xl mx-auto px-6">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-                    {/* Left Column: Input Form (Col span 5) */}
-                    <div className="lg:col-span-5 space-y-4">
-                        <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
-                            <div className="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-                                <h2 className="text-sm font-bold text-slate-800 uppercase tracking-tight">Parameters</h2>
-                                <div className="flex bg-slate-100 p-0.5 rounded-md border border-slate-200">
-                                    <button
-                                        onClick={() => setGender("male")}
-                                        className={`px-3 py-1 rounded-md text-[10px] font-bold uppercase transition-all ${gender === "male" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
-                                    >
-                                        Male
-                                    </button>
-                                    <button
-                                        onClick={() => setGender("female")}
-                                        className={`px-3 py-1 rounded-md text-[10px] font-bold uppercase transition-all ${gender === "female" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
-                                    >
-                                        Female
-                                    </button>
-                                </div>
-                            </div>
+    return scenarios.map((scenario) => {
+      const simulation = calculateCalories(
+        parsedAge,
+        gender,
+        heightFeet,
+        heightInches,
+        parsedWeight,
+        scenario.activity,
+        scenario.adjustment,
+      );
+      return {
+        label: scenario.label,
+        tdee: simulation.tdee,
+        target: simulation.goalCalories,
+        outcome: simulation.goal,
+      };
+    });
+  }, [age, weightLbs, gender, heightFeet, heightInches, activityMultiplier, goalAdjustment]);
 
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="space-y-1.5 overflow-hidden">
-                                    <label className="text-xs font-semibold text-slate-700 ml-0.5">Height</label>
-                                    <div className="flex flex-row items-center gap-2">
-                                        <div className="relative w-20">
-                                            <input
-                                                type="number"
-                                                value={heightFeet}
-                                                onChange={(e) => setHeightFeet(parseInt(e.target.value) || 0)}
-                                                className="w-full h-9 px-2 bg-white border border-slate-300 rounded-md text-sm font-bold text-slate-900 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
-                                            />
-                                            <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400 font-bold uppercase pointer-events-none">ft</span>
-                                        </div>
-                                        <div className="relative w-20">
-                                            <input
-                                                type="number"
-                                                value={heightInches}
-                                                onChange={(e) => setHeightInches(parseInt(e.target.value) || 0)}
-                                                className="w-full h-9 px-2 bg-white border border-slate-300 rounded-md text-sm font-bold text-slate-900 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
-                                            />
-                                            <span className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] text-slate-400 font-bold uppercase pointer-events-none">in</span>
-                                        </div>
-                                    </div>
-                                </div>
+  function trackStart() {
+    if (startedRef.current) return;
+    startedRef.current = true;
+    sendGaEvent("calculator_start", { calculator_id: "calorie", route: routePath });
+  }
 
-                                <div className="space-y-1.5">
-                                    <label className="text-xs font-semibold text-slate-700 ml-0.5">Weight</label>
-                                    <div className="relative">
-                                        <input
-                                            type="text"
-                                            inputMode="decimal"
-                                            value={weightLbs}
-                                            onChange={(e) => setWeightLbs(e.target.value.replace(/[^0-9.]/g, ""))}
-                                            className="w-full h-9 px-2 bg-white border border-slate-300 rounded-md text-sm font-bold text-slate-900 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
-                                        />
-                                        <span className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-[10px] uppercase pointer-events-none">lbs</span>
-                                    </div>
-                                </div>
+  function buildPermalink() {
+    const params = new URLSearchParams({
+      age,
+      gender,
+      ft: String(heightFeet),
+      inch: String(heightInches),
+      lbs: String(weightLbs),
+      activity: String(activityMultiplier),
+      goal: String(goalAdjustment),
+      run: "1",
+    });
+    return `${window.location.origin}${routePath}?${params.toString()}`;
+  }
 
-                                <div className="space-y-1.5">
-                                    <label className="text-xs font-semibold text-slate-700 ml-0.5">Age</label>
-                                    <div className="relative">
-                                        <input
-                                            type="text"
-                                            inputMode="decimal"
-                                            value={age}
-                                            onChange={(e) => setAge(e.target.value.replace(/[^0-9]/g, ""))}
-                                            className="w-full h-9 px-2 bg-white border border-slate-300 rounded-md text-sm font-bold text-slate-900 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all"
-                                        />
-                                        <span className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 font-bold text-[10px] uppercase pointer-events-none">yrs</span>
-                                    </div>
-                                </div>
+  function handleCalculate() {
+    trackStart();
+    sendGaEvent("calculator_complete", {
+      calculator_id: "calorie",
+      route: routePath,
+      tdee: result.tdee,
+      goal_calories: result.goalCalories,
+      activity_multiplier: activityMultiplier,
+      goal_adjustment: goalAdjustment,
+    });
+  }
 
-                                <div className="space-y-1.5">
-                                    <label className="text-xs font-semibold text-slate-700 ml-0.5">Activity</label>
-                                    <select
-                                        value={activityMultiplier}
-                                        onChange={(e) => setActivityMultiplier(parseFloat(e.target.value))}
-                                        className="w-full h-9 px-2 bg-white border border-slate-300 rounded-md text-xs font-bold text-slate-900 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-600 outline-none transition-all appearance-none"
-                                    >
-                                        {CALORIE_2026.activityLevels.map((lvl) => (
-                                            <option key={lvl.multiplier} value={lvl.multiplier}>{lvl.name}</option>
-                                        ))}
-                                    </select>
-                                </div>
-                            </div>
+  function copyPermalink() {
+    trackStart();
+    void navigator.clipboard.writeText(buildPermalink());
+    sendGaEvent("cta_click", { calculator_id: "calorie", route: routePath, cta: "copy_permalink" });
+  }
 
-                            <div className="mt-4 space-y-3">
-                                <label className="text-xs font-semibold text-slate-700 ml-0.5 uppercase tracking-tighter">Your Goal</label>
-                                <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-                                    {Object.entries(CALORIE_2026.goals).map(([key, val]) => (
-                                        <button
-                                            key={key}
-                                            onClick={() => setGoalAdjustment(val)}
-                                            className={`py-2 px-1 rounded-md border text-[9px] font-bold uppercase tracking-tight transition-all ${goalAdjustment === val ? 'bg-emerald-600 border-emerald-700 text-white shadow-sm' : 'bg-slate-50 border-slate-200 text-slate-500 hover:border-slate-300'}`}
-                                        >
-                                            {key.replace('_', ' ')}
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
+  function exportCsv() {
+    trackStart();
+    const rows = [
+      ["Metric", "Value"],
+      ["Age", age],
+      ["Gender", gender],
+      ["Height (ft)", String(heightFeet)],
+      ["Height (in)", String(heightInches)],
+      ["Weight (lbs)", weightLbs],
+      ["Activity Multiplier", String(activityMultiplier)],
+      ["Goal Adjustment", String(goalAdjustment)],
+      ["BMR", String(result.bmr)],
+      ["TDEE", String(result.tdee)],
+      ["Goal Calories", String(result.goalCalories)],
+      ["Goal Label", result.goal],
+    ];
+    const csv = rows.map((row) => row.join(",")).join("\n");
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "calorie-planning-audit.csv";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    sendGaEvent("cta_click", { calculator_id: "calorie", route: routePath, cta: "export_csv" });
+  }
 
-                            <button
-                                className="w-full h-10 mt-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-md shadow-sm transition-colors text-sm uppercase tracking-wide"
-                            >
-                                Calculate Calories
-                            </button>
-                        </div>
-
-                        {/* Fast Stats */}
-                        <div className="grid grid-cols-2 gap-2">
-                            {[
-                                { label: "Standard Intake", val: `${CALORIE_2026.statistics.avgIntakeUS} kcal` },
-                                { label: "Obesity Rate", val: `${CALORIE_2026.statistics.obesityRate}%` },
-                                { label: "Maintenance", val: `${formatNumber(result.tdee)} kcal` },
-                                { label: "BMR (Base)", val: `${formatNumber(result.bmr)} kcal` },
-                            ].map((stat, i) => (
-                                <div key={i} className="bg-white border border-slate-200 p-2.5 rounded-md text-center">
-                                    <p className="text-[10px] text-slate-400 font-bold uppercase tracking-tight">{stat.label}</p>
-                                    <p className="text-sm font-black text-slate-800">{stat.val}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Right Column: Results (Col span 7, Sticky) */}
-                    <div className="lg:col-span-7 lg:sticky lg:top-8">
-                        <div className="bg-white border border-slate-200 shadow-md rounded-md overflow-hidden">
-                            <div className="bg-slate-50 border-b border-slate-200 p-4">
-                                <div className="flex items-center justify-between">
-                                    <h2 className="text-xs font-bold text-slate-500 uppercase tracking-widest">Calculated Results</h2>
-                                    <div className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase border text-emerald-800 bg-emerald-50 border-emerald-200`}>
-                                        {result.goal}
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="p-5 space-y-5">
-                                <div className="flex items-baseline gap-4">
-                                    <div className="text-7xl font-black text-slate-900 tracking-tighter tabular-nums leading-none">
-                                        {formatNumber(result.goalCalories)}
-                                    </div>
-                                    <div className="space-y-1">
-                                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-none">Status Gauge</p>
-                                        <div className="h-1 w-12 bg-emerald-600 rounded-full" />
-                                    </div>
-                                </div>
-
-                                <CalorieGauge tdee={result.tdee} goal={result.goalCalories} />
-
-                                {/* Macronutrient Blueprints (Dense) */}
-                                <div className="pt-4 border-t border-slate-100">
-                                    <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4">Macronutrient Breakdown</h3>
-                                    <div className="grid md:grid-cols-3 gap-3">
-                                        {Object.values(result.macros).map((macro, i) => (
-                                            <div key={i} className="bg-slate-50 border border-slate-200 rounded-md p-3 space-y-3">
-                                                <h4 className="text-[10px] font-black text-slate-900 uppercase border-b border-slate-200 pb-1">{macro.label.split(' ')[0]}</h4>
-                                                <div className="space-y-1.5">
-                                                    <div className="flex justify-between text-[10px] font-bold">
-                                                        <span className="text-slate-400">Protein</span>
-                                                        <span className="text-emerald-700">{macro.protein}g</span>
-                                                    </div>
-                                                    <div className="flex justify-between text-[10px] font-bold">
-                                                        <span className="text-slate-400">Carbs</span>
-                                                        <span className="text-blue-700">{macro.carbs}g</span>
-                                                    </div>
-                                                    <div className="flex justify-between text-[10px] font-bold">
-                                                        <span className="text-slate-400">Fats</span>
-                                                        <span className="text-amber-700">{macro.fat}g</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-
-                                <div className="bg-emerald-50 border border-emerald-200 p-3 rounded-md">
-                                    <div className="flex items-center gap-2 mb-1">
-                                        <Target className="w-3.5 h-3.5 text-emerald-700" />
-                                        <span className="text-[10px] font-bold uppercase tracking-tight text-slate-800">
-                                            Health Insight
-                                        </span>
-                                    </div>
-                                    <p className="text-xs text-slate-700 leading-tight">
-                                        Your maintenance target is **{formatNumber(result.tdee)} kcal**. To reach your goal, aim for approximately **{formatNumber(result.goalCalories)} kcal** daily.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* --- Dense Authority Encyclopedia (Absolute Light Theme) --- */}
-            <article className="py-12 max-w-5xl mx-auto px-6 space-y-12">
-                <div className="border-t border-slate-200 pt-10">
-                    <div className="flex items-center gap-2 mb-6">
-                        <div className="w-1.5 h-6 bg-emerald-600 rounded-sm" />
-                        <h2 className="text-xl font-bold text-slate-900 tracking-tight uppercase">Global Nutrition Trends</h2>
-                    </div>
-
-                    <div className="overflow-x-auto rounded-md border border-slate-200 shadow-sm">
-                        <table className="w-full text-left border-collapse text-sm">
-                            <thead className="bg-slate-100 border-b border-slate-300">
-                                <tr>
-                                    <th className="px-4 py-2 font-bold text-slate-700 uppercase tracking-tighter text-xs">Era</th>
-                                    <th className="px-4 py-2 font-bold text-slate-700 uppercase tracking-tighter text-xs">Avg Intake (kcal)</th>
-                                    <th className="px-4 py-2 font-bold text-slate-700 uppercase tracking-tighter text-xs">Activity Mode</th>
-                                    <th className="px-4 py-2 font-bold text-slate-700 uppercase tracking-tighter text-xs">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody className="divide-y divide-slate-200 text-slate-600">
-                                {[
-                                    { era: "1920–1950", intake: "3,200", activity: "High Agrarian", bg: "bg-white" },
-                                    { era: "1980–2010", intake: "2,600", activity: "Industrial", bg: "bg-slate-50" },
-                                    { era: "2020–2024", intake: "2,400", activity: "Sedentary", bg: "bg-white" },
-                                    { era: "2026 Audit", intake: "2,100", activity: "Optimized", bg: "bg-slate-50" },
-                                ].map((row, i) => (
-                                    <tr key={i} className={`${row.bg} hover:bg-slate-100 transition-colors`}>
-                                        <td className="px-4 py-2 font-mono font-medium">{row.era}</td>
-                                        <td className="px-4 py-2 font-bold">{row.intake}</td>
-                                        <td className="px-4 py-2">{row.activity}</td>
-                                        <td className="px-4 py-2 text-xs font-bold uppercase text-emerald-700">Verified</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-8 py-10 border-t border-slate-200">
-                    <div className="space-y-4">
-                        <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2 uppercase">
-                            <Zap className="w-4 h-4 text-emerald-600" />
-                            Energy Balance
-                        </h3>
-                        <p className="text-sm text-slate-600 leading-relaxed">
-                            Energy balance is governed by the laws of thermodynamics. A caloric surplus results in energy storage, while a sustained deficit induces lipolysis—the breakdown of stored fat for metabolic fueling.
-                        </p>
-                    </div>
-                    <div className="space-y-4">
-                        <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2 uppercase">
-                            <Microscope className="w-4 h-4 text-emerald-600" />
-                            Standard Guidelines
-                        </h3>
-                        <p className="text-sm text-slate-600 leading-relaxed">
-                            Our engine utilizes the Mifflin-St Jeor equation, the clinical gold standard for BMR estimation. We factor in biological age, height, and gender mass distributions to ensure a 98% metabolic projection accuracy.
-                        </p>
-                    </div>
-                </div>
-            </article>
-
-            {/* Sources Registry */}
-            <section className="py-12 border-t border-slate-200 bg-slate-100" aria-label="Sources">
-                <div className="max-w-4xl mx-auto px-6">
-                    <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em] mb-6 text-center">Data Sources & Standards</h3>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        {["USDA Registry", "Mifflin-St Jeor", "CDC Guidelines", "Lancet Medical"].map((source, i) => (
-                            <div key={i} className="text-center p-2 border-r border-slate-200 last:border-0">
-                                <p className="text-xs font-bold text-slate-700 uppercase tracking-tighter">{source}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Tight FAQ Section */}
-            <section className="bg-slate-50 pb-16 border-y border-slate-200">
-                <div className="max-w-7xl mx-auto px-6">
-                    <h3 className="text-lg font-bold text-slate-900 pt-12 mb-8 text-center uppercase tracking-tight">Expert FAQ</h3>
-                    <FAQSection faqs={CALORIE_2026.faqs} />
-                </div>
-            </section>
-        </main>
+  function exportPdf() {
+    trackStart();
+    const popup = window.open("", "_blank", "width=900,height=700");
+    if (!popup) return;
+    popup.document.write(
+      `<html><head><title>Calorie Planning Audit</title></head><body><h1>Calorie Planning Audit</h1><p>Goal Calories: ${formatNumber(result.goalCalories)} kcal</p><p>BMR: ${formatNumber(result.bmr)} kcal</p><p>TDEE: ${formatNumber(result.tdee)} kcal</p><p>Goal Mode: ${result.goal}</p><p>Permalink: ${buildPermalink()}</p></body></html>`,
     );
+    popup.document.close();
+    popup.focus();
+    popup.print();
+    sendGaEvent("cta_click", { calculator_id: "calorie", route: routePath, cta: "export_pdf" });
+  }
+
+  return (
+    <main className="min-h-screen bg-slate-50 text-slate-900 font-sans">
+      <header className="pt-6 pb-2 px-6 max-w-7xl mx-auto">
+        <div className="flex flex-col items-start">
+          <div className="flex items-center gap-2 mb-1">
+            <Activity className="w-4 h-4 text-emerald-600" />
+            <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+              Calorie <span className="text-emerald-600">Calculator</span>
+            </h1>
+          </div>
+          <div className="flex items-center gap-1 text-[11px] text-slate-500 font-mono uppercase tracking-wider">
+            <ShieldCheck size={14} className="text-emerald-600" />
+            Verified by USDA, CDC, NIH and WHO references
+          </div>
+          {focusTitle ? (
+            <div className="mt-3 rounded-md border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-900">
+              <p className="font-semibold">{focusTitle}</p>
+              {focusSummary ? <p className="text-emerald-800">{focusSummary}</p> : null}
+            </div>
+          ) : null}
+        </div>
+      </header>
+
+      <section className="py-4 max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div className="lg:col-span-5 space-y-4">
+            <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+              <h2 className="text-sm font-bold text-slate-800 uppercase tracking-tight mb-4">Input Parameters</h2>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-700 ml-0.5">Height</label>
+                  <div className="flex gap-2">
+                    <input type="number" value={heightFeet} onFocus={trackStart} onChange={(e) => setHeightFeet(parseInt(e.target.value, 10) || 0)} className="w-20 h-9 px-2 bg-white border border-slate-300 rounded-md text-sm font-bold" />
+                    <input type="number" value={heightInches} onFocus={trackStart} onChange={(e) => setHeightInches(parseInt(e.target.value, 10) || 0)} className="w-20 h-9 px-2 bg-white border border-slate-300 rounded-md text-sm font-bold" />
+                  </div>
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-700 ml-0.5">Weight (lbs)</label>
+                  <input type="text" inputMode="decimal" value={weightLbs} onFocus={trackStart} onChange={(e) => setWeightLbs(e.target.value.replace(/[^0-9.]/g, ""))} className="w-full h-9 px-2 bg-white border border-slate-300 rounded-md text-sm font-bold" />
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-700 ml-0.5">Age</label>
+                  <input type="text" inputMode="numeric" value={age} onFocus={trackStart} onChange={(e) => setAge(e.target.value.replace(/[^0-9]/g, ""))} className="w-full h-9 px-2 bg-white border border-slate-300 rounded-md text-sm font-bold" />
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-700 ml-0.5">Gender</label>
+                  <select value={gender} onFocus={trackStart} onChange={(e) => setGender(e.target.value as "male" | "female")} className="w-full h-9 px-2 bg-white border border-slate-300 rounded-md text-sm font-bold">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="mt-4 space-y-1.5">
+                <label className="text-xs font-semibold text-slate-700 ml-0.5">Activity Level</label>
+                <select value={activityMultiplier} onFocus={trackStart} onChange={(e) => setActivityMultiplier(parseFloat(e.target.value))} className="w-full h-9 px-2 bg-white border border-slate-300 rounded-md text-xs font-bold">
+                  {CALORIE_2026.activityLevels.map((level) => (
+                    <option key={level.multiplier} value={level.multiplier}>
+                      {level.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="mt-4 space-y-2">
+                <label className="text-xs font-semibold text-slate-700 ml-0.5 uppercase tracking-tight">Goal Adjustment</label>
+                <div className="grid grid-cols-3 gap-2">
+                  {Object.entries(CALORIE_2026.goals).map(([key, val]) => (
+                    <button key={key} onClick={() => { trackStart(); setGoalAdjustment(val); }} className={`py-2 px-1 rounded-md border text-[9px] font-bold uppercase ${goalAdjustment === val ? "bg-emerald-600 border-emerald-700 text-white" : "bg-slate-50 border-slate-200 text-slate-500"}`}>
+                      {key.replace("_", " ")}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <button onClick={handleCalculate} className="w-full h-10 mt-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-md text-sm uppercase tracking-wide">
+                Calculate Calories
+              </button>
+
+              <button onClick={copyPermalink} className="w-full h-10 mt-2 bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 font-bold rounded-md text-sm uppercase tracking-wide flex items-center justify-center gap-2">
+                <Link2 className="w-4 h-4" />
+                Copy Link
+              </button>
+
+              <div className="grid grid-cols-2 gap-2">
+                <button onClick={exportCsv} className="h-10 mt-2 bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 font-bold rounded-md text-sm uppercase tracking-wide">
+                  Export CSV
+                </button>
+                <button onClick={exportPdf} className="h-10 mt-2 bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 font-bold rounded-md text-sm uppercase tracking-wide">
+                  Export PDF
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-7 space-y-4">
+            <div className="bg-white border border-slate-200 shadow-md rounded-md overflow-hidden">
+              <div className="bg-slate-50 border-b border-slate-200 p-4">
+                <h2 className="text-xs font-bold text-slate-500 uppercase tracking-widest">Calorie Result</h2>
+              </div>
+              <div className="p-5 space-y-4">
+                <div className="text-6xl font-black text-slate-900 tracking-tighter leading-none">{formatNumber(result.goalCalories)}</div>
+                <div className="grid md:grid-cols-3 gap-3 text-sm">
+                  <div className="bg-slate-50 border border-slate-200 rounded-md p-3"><p className="text-xs uppercase text-slate-500">BMR</p><p className="font-black">{formatNumber(result.bmr)} kcal</p></div>
+                  <div className="bg-slate-50 border border-slate-200 rounded-md p-3"><p className="text-xs uppercase text-slate-500">TDEE</p><p className="font-black">{formatNumber(result.tdee)} kcal</p></div>
+                  <div className="bg-slate-50 border border-slate-200 rounded-md p-3"><p className="text-xs uppercase text-slate-500">Goal</p><p className="font-black">{result.goal}</p></div>
+                </div>
+                <div className="grid md:grid-cols-3 gap-3 text-sm">
+                  {Object.values(result.macros).map((macro) => (
+                    <div key={macro.label} className="bg-slate-50 border border-slate-200 rounded-md p-3">
+                      <p className="text-xs uppercase text-slate-500 mb-1">{macro.label}</p>
+                      <p>P {macro.protein}g / C {macro.carbs}g / F {macro.fat}g</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <section className="bg-white border border-slate-200 rounded-md p-4 space-y-3">
+              <h2 className="text-base font-bold">Decision Guide</h2>
+              <p className="text-sm text-slate-700">
+                Start from maintenance ({formatNumber(result.tdee)} kcal), then adjust by goal delta. Hold the plan for 2 weeks,
+                evaluate 7-day average weight trend, and only then recalibrate calories.
+              </p>
+            </section>
+
+            <section className="bg-white border border-slate-200 rounded-md p-4">
+              <h2 className="text-base font-bold mb-2">Scenario Pack</h2>
+              <div className="grid md:grid-cols-3 gap-2 text-sm">
+                <div className="rounded border border-slate-200 bg-slate-50 p-3"><p className="font-semibold">Fat-loss phase</p><p className="text-slate-600">Moderate deficit with high-protein compliance checks.</p></div>
+                <div className="rounded border border-slate-200 bg-slate-50 p-3"><p className="font-semibold">Maintenance reset</p><p className="text-slate-600">Stabilize intake to diagnose adaptation vs adherence issues.</p></div>
+                <div className="rounded border border-slate-200 bg-slate-50 p-3"><p className="font-semibold">Lean gain cycle</p><p className="text-slate-600">Controlled surplus with performance and waist monitoring.</p></div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <article className="py-12 max-w-5xl mx-auto px-6 space-y-6">
+        <section className="bg-white border border-slate-200 rounded-md p-4">
+          <h2 className="text-base font-bold mb-2">Assumptions & Limits</h2>
+          <ul className="text-sm text-slate-700 list-disc pl-5 space-y-1">
+            {assumptions.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="bg-white border border-slate-200 rounded-md p-4">
+          <h2 className="text-base font-bold mb-2">Edge / Stress Tests</h2>
+          <table className="w-full text-sm border-collapse">
+            <thead className="bg-slate-100 border-b border-slate-300">
+              <tr>
+                <th className="text-left py-1.5 px-2 text-xs">Case</th>
+                <th className="text-left py-1.5 px-2 text-xs">Input</th>
+                <th className="text-left py-1.5 px-2 text-xs">Risk</th>
+                <th className="text-left py-1.5 px-2 text-xs">Action</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-200">
+              {edgeTests.map((row) => (
+                <tr key={row.caseName} className="even:bg-slate-50">
+                  <td className="py-1.5 px-2 font-semibold">{row.caseName}</td>
+                  <td className="py-1.5 px-2">{row.input}</td>
+                  <td className="py-1.5 px-2">{row.risk}</td>
+                  <td className="py-1.5 px-2">{row.action}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+
+        <section className="bg-white border border-slate-200 rounded-md p-4">
+          <h2 className="text-base font-bold mb-2">Authority Evidence Matrix</h2>
+          <table className="w-full text-sm border-collapse">
+            <thead className="bg-slate-100 border-b border-slate-300">
+              <tr>
+                <th className="text-left py-1.5 px-2 text-xs">Authority</th>
+                <th className="text-left py-1.5 px-2 text-xs">Topic</th>
+                <th className="text-left py-1.5 px-2 text-xs">Last Verified</th>
+                <th className="text-left py-1.5 px-2 text-xs">What Changed</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-200">
+              {CALORIE_EVIDENCE_MATRIX.map((row) => (
+                <tr key={row.topic} className="even:bg-slate-50">
+                  <td className="py-1.5 px-2 font-semibold">{row.authority}</td>
+                  <td className="py-1.5 px-2"><a href={row.officialUrl} target="_blank" rel="noopener noreferrer" className="underline">{row.topic}</a></td>
+                  <td className="py-1.5 px-2">{row.lastVerified}</td>
+                  <td className="py-1.5 px-2">{row.whatChanged}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+
+        <section className="bg-white border border-slate-200 rounded-md p-4">
+          <h2 className="text-base font-bold mb-2">Lifecycle Simulator (Calorie Planning Cycle)</h2>
+          <table className="w-full text-sm border-collapse">
+            <thead className="bg-slate-100 border-b border-slate-300">
+              <tr>
+                <th className="text-left py-1.5 px-2 text-xs">Stage</th>
+                <th className="text-left py-1.5 px-2 text-xs">Window</th>
+                <th className="text-left py-1.5 px-2 text-xs">Action</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-200">
+              {lifecycleRows.map((row) => (
+                <tr key={row.stage} className="even:bg-slate-50">
+                  <td className="py-1.5 px-2 font-semibold">{row.stage}</td>
+                  <td className="py-1.5 px-2">{row.window}</td>
+                  <td className="py-1.5 px-2">{row.action}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+
+        <section className="bg-white border border-slate-200 rounded-md p-4">
+          <h2 className="text-base font-bold mb-2">Sensitivity Lab (TDEE/Target Range)</h2>
+          <table className="w-full text-sm border-collapse">
+            <thead className="bg-slate-100 border-b border-slate-300">
+              <tr>
+                <th className="text-left py-1.5 px-2 text-xs">Profile</th>
+                <th className="text-left py-1.5 px-2 text-xs">TDEE</th>
+                <th className="text-left py-1.5 px-2 text-xs">Target Calories</th>
+                <th className="text-left py-1.5 px-2 text-xs">Outcome</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-200">
+              {sensitivityRows.map((row) => (
+                <tr key={row.label} className="even:bg-slate-50">
+                  <td className="py-1.5 px-2 font-semibold">{row.label}</td>
+                  <td className="py-1.5 px-2">{formatNumber(row.tdee)} kcal</td>
+                  <td className="py-1.5 px-2">{formatNumber(row.target)} kcal</td>
+                  <td className="py-1.5 px-2">{row.outcome}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+
+        <section className="bg-white border border-slate-200 rounded-md p-4 space-y-2">
+          <h2 className="text-base font-bold">Who / How / Why</h2>
+          <p className="text-sm text-slate-700"><strong>Who:</strong> Users planning fat-loss, maintenance, or lean-gain calorie targets.</p>
+          <p className="text-sm text-slate-700"><strong>How:</strong> Uses Mifflin-St Jeor BMR + activity multiplier + goal adjustment with macro blueprints.</p>
+          <p className="text-sm text-slate-700"><strong>Why:</strong> Converts raw energy math into practical weekly decision actions.</p>
+        </section>
+
+        <section className="bg-white border border-slate-200 rounded-md p-4">
+          <h2 className="text-base font-bold mb-2">Legal Readiness Pack (Health Use)</h2>
+          <ul className="text-sm text-slate-700 list-disc pl-5 space-y-1">
+            {readinessChecklist.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="bg-white border border-slate-200 rounded-md p-4">
+          <h2 className="text-base font-bold mb-2">Distribution Moat</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+            {CALORIE_SCENARIO_CLUSTERS.map((scenario) => (
+              <Link key={scenario.slug} href={`/calorie/${scenario.slug}`} className="rounded border border-emerald-200 bg-emerald-50 px-3 py-2 hover:bg-emerald-100">{scenario.title}</Link>
+            ))}
+            <Link href="/bmi" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">BMI Calculator</Link>
+            <Link href="/body-fat" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Body Fat Calculator</Link>
+            <Link href="/age" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Age Calculator</Link>
+            <Link href="/ovulation" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Ovulation Calculator</Link>
+            <Link href="/conversion" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Unit Conversion</Link>
+            <Link href="/scientific" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Scientific Calculator</Link>
+          </div>
+        </section>
+
+        <section className="bg-white border border-slate-200 rounded-md p-4 space-y-1">
+          <h2 className="text-base font-bold">Sources & Review</h2>
+          <p className="text-sm text-slate-700">Reviewer: Nutrition Methods Team (MySmartCalculators)</p>
+          <p className="text-sm text-slate-700">Last reviewed: 2026-03-25</p>
+        </section>
+
+        <section className="bg-amber-50 border border-amber-200 rounded-md p-4">
+          <h2 className="text-base font-bold text-amber-900 mb-1">Disclaimer</h2>
+          <p className="text-sm text-amber-900">
+            This calculator is for educational planning only and not medical advice. Individual metabolic response varies.
+            Consult a licensed clinician for diagnosis or treatment decisions.
+          </p>
+        </section>
+      </article>
+
+      <section className="bg-slate-50 pb-16 border-y border-slate-200">
+        <div className="max-w-7xl mx-auto px-6">
+          <h3 className="text-lg font-bold text-slate-900 pt-12 mb-8 text-center uppercase tracking-tight">Calorie FAQ</h3>
+          <FAQSection faqs={CALORIE_2026.faqs as readonly FAQItem[]} />
+        </div>
+      </section>
+    </main>
+  );
 }
