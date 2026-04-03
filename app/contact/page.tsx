@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Mail, MessageSquare } from "lucide-react";
 
-export const metadata = {
+const BASE_URL = "https://mysmartcalculators.com";
+
+export const metadata: Metadata = {
   title: "Contact Us | MySmartCalculators",
   description: "Contact MySmartCalculators for questions, feedback, or support. We're here to help.",
+  alternates: {
+    canonical: `${BASE_URL}/contact`,
+  },
 };
 
 export default function ContactPage() {

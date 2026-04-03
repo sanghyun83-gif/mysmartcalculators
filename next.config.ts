@@ -35,6 +35,17 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.mysmartcalculators.com',
+          },
+        ],
+        destination: 'https://mysmartcalculators.com/:path*',
+        permanent: true,
+      },
+      {
         source: '/401k',
         destination: '/401k-growth',
         permanent: true,
@@ -44,4 +55,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-

@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Scale } from "lucide-react";
 
-export const metadata = {
+const BASE_URL = "https://mysmartcalculators.com";
+
+export const metadata: Metadata = {
   title: "Terms of Use | MySmartCalculators",
   description: "Terms of Use for MySmartCalculators. Please read these terms carefully before using our calculators.",
+  alternates: {
+    canonical: `${BASE_URL}/terms`,
+  },
 };
 
 export default function TermsPage() {

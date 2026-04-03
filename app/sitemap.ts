@@ -36,6 +36,11 @@ function resolveRootPageLastmod(now: Date): Date {
     return getFileMtime(rootPagePath) ?? now;
 }
 
+function resolveStaticPageLastmod(slug: string, now: Date): Date {
+    const staticPagePath = path.join(process.cwd(), 'app', slug, 'page.tsx');
+    return getFileMtime(staticPagePath) ?? now;
+}
+
 function resolveCategoryLastmod(category: Category, now: Date): Date {
     const categoryPagePath = path.join(process.cwd(), 'app', '(calculators)', 'category', '[slug]', 'page.tsx');
     return getFileMtime(categoryPagePath) ?? now;
@@ -80,8 +85,25 @@ function getExistingCalculatorSubpages(): Map<string, Set<string>> {
     return result;
 }
 
+function getExistingCalculatorIds(): Set<string> {
+    const calculatorsRoot = path.join(process.cwd(), 'app', '(calculators)');
+
+    try {
+        const directories = fs.readdirSync(calculatorsRoot, { withFileTypes: true });
+        return new Set(
+            directories
+                .filter((entry) => entry.isDirectory())
+                .map((entry) => entry.name)
+                .filter((name) => name !== 'category' && !name.startsWith('['))
+        );
+    } catch {
+        return new Set();
+    }
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
     const now = new Date();
+    const existingCalculatorIds = getExistingCalculatorIds();
 
     // 1. Core Pages (Priority 1.0)
     const corePages: MetadataRoute.Sitemap = [
@@ -91,7 +113,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'daily',
             priority: 1,
         },
+        {
+            url: `${BASE_URL}/calculators`,
+            lastModified: resolveStaticPageLastmod('calculators', now),
+            changeFrequency: 'daily',
+            priority: 0.95,
+        },
     ];
+
+    // 1.1 Static Trust/Policy Pages (indexed navigational pages)
+    const staticSlugs = ['about', 'privacy', 'terms', 'contact', 'accessibility'];
+    const staticPages: MetadataRoute.Sitemap = staticSlugs.map((slug) => ({
+        url: `${BASE_URL}/${slug}`,
+        lastModified: resolveStaticPageLastmod(slug, now),
+        changeFrequency: 'monthly',
+        priority: 0.6,
+    }));
 
     // 2. S-Class Category Hubs (Priority 0.9)
     const categories: Category[] = ['legal', 'finance', 'insurance', 'medical', 'family', 'health'];
@@ -103,7 +140,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }));
 
     // 3. Dynamic Calculator Pages (ROI Differential Mapping)
-    const calculators = Object.keys(CATEGORY_MAP);
+    const calculators = Object.keys(CATEGORY_MAP).filter((calc) => existingCalculatorIds.has(calc));
 
     // High-ROI Segments
     const tier1 = [
@@ -156,19 +193,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
 
     // 5. Workers Comp state clusters
-    const workersCompStateUrls: MetadataRoute.Sitemap = Object.keys(STATE_WC_DATA).map((code) => ({
-        url: `${BASE_URL}/workers-comp/${code.toLowerCase()}`,
-        lastModified: resolveCalculatorLastmod('workers-comp', now),
-        changeFrequency: 'weekly',
-        priority: 0.65,
-    }));
+    const workersCompStateUrls: MetadataRoute.Sitemap = existingCalculatorIds.has('workers-comp')
+        ? Object.keys(STATE_WC_DATA).map((code) => ({
+            url: `${BASE_URL}/workers-comp/${code.toLowerCase()}`,
+            lastModified: resolveCalculatorLastmod('workers-comp', now),
+            changeFrequency: 'weekly',
+            priority: 0.65,
+        }))
+        : [];
 
-    const taxScenarioUrls: MetadataRoute.Sitemap = TAX_SCENARIO_CLUSTERS.map((cluster) => ({
-        url: `${BASE_URL}/tax/${cluster.slug}`,
-        lastModified: resolveCalculatorLastmod('tax', now),
-        changeFrequency: 'weekly',
-        priority: 0.65,
-    }));
+    const taxScenarioUrls: MetadataRoute.Sitemap = existingCalculatorIds.has('tax')
+        ? TAX_SCENARIO_CLUSTERS.map((cluster) => ({
+            url: `${BASE_URL}/tax/${cluster.slug}`,
+            lastModified: resolveCalculatorLastmod('tax', now),
+            changeFrequency: 'weekly',
+            priority: 0.65,
+        }))
+        : [];
 
-    return [...corePages, ...hubPages, ...calculatorPages, ...subpageUrls, ...workersCompStateUrls, ...taxScenarioUrls];
+    return [...corePages, ...staticPages, ...hubPages, ...calculatorPages, ...subpageUrls, ...workersCompStateUrls, ...taxScenarioUrls];
 }

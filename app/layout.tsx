@@ -40,9 +40,6 @@ export const metadata: Metadata = {
     description: "Free online calculators for legal, finance, insurance, and health across 316+ engines.",
     images: ["/og-main.png"],
   },
-  alternates: {
-    canonical: "https://mysmartcalculators.com",
-  },
 };
 
 const organizationJsonLd = {

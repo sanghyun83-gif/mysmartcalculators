@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Eye } from "lucide-react";
 
-export const metadata = {
+const BASE_URL = "https://mysmartcalculators.com";
+
+export const metadata: Metadata = {
   title: "Accessibility Statement | MySmartCalculators",
   description: "Accessibility commitment for MySmartCalculators. We strive to make our calculators accessible to all users.",
+  alternates: {
+    canonical: `${BASE_URL}/accessibility`,
+  },
 };
 
 export default function AccessibilityPage() {

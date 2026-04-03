@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Shield } from "lucide-react";
 
-export const metadata = {
+const BASE_URL = "https://mysmartcalculators.com";
+
+export const metadata: Metadata = {
   title: "Privacy Policy | MySmartCalculators",
   description: "Privacy Policy for MySmartCalculators. Learn how we collect, use, and protect your information.",
+  alternates: {
+    canonical: `${BASE_URL}/privacy`,
+  },
 };
 
 export default function PrivacyPage() {

@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/audit-search-sync.js",
+    "prebuild": "node scripts/audit-search-sync.js && node scripts/audit-sitemap-integrity.js",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "audit:search": "node scripts/audit-search-sync.js",
+    "audit:sitemap": "node scripts/audit-sitemap-integrity.js",
     "qa:structure": "node scripts/check-structure-gates.js"
   },
   "dependencies": {

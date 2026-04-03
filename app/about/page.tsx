@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Scale, Shield, Users, Cpu } from "lucide-react";
 
-export const metadata = {
+const BASE_URL = "https://mysmartcalculators.com";
+
+export const metadata: Metadata = {
     title: "About Us | MySmartCalculators",
     description: "Learn about MySmartCalculators - free legal, medical, insurance, and financial calculators. Our mission is to provide accurate, accessible tools for everyone.",
+    alternates: {
+        canonical: `${BASE_URL}/about`,
+    },
 };
 
 export default function AboutPage() {
