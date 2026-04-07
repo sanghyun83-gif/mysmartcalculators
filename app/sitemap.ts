@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next'
 import fs from 'fs'
 import path from 'path'
-import { CATEGORY_MAP, Category } from '@/lib/categories'
+import { Category } from '@/lib/categories'
 import { STATE_WC_DATA } from '@/lib/calculators/workers-comp'
 import { TAX_SCENARIO_CLUSTERS } from '@/lib/tax/evidence'
+import { CORE_CALCULATOR_IDS, CORE_CALCULATOR_SET } from '@/lib/strategy/core-calculators'
 
 const BASE_URL = "https://mysmartcalculators.com";
 
@@ -139,44 +140,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.9,
     }));
 
-    // 3. Dynamic Calculator Pages (ROI Differential Mapping)
-    const calculators = Object.keys(CATEGORY_MAP).filter((calc) => existingCalculatorIds.has(calc));
+    // 3. Dynamic Calculator Pages (Core 20 focus only)
+    const calculators = CORE_CALCULATOR_IDS.filter((calc) => existingCalculatorIds.has(calc));
 
-    // High-ROI Segments
-    const tier1 = [
-        'truck-accident', 'bmi', 'scientific', 'mortgage', 'percentage',
-        'gpa', 'age', 'loan', 'pregnancy', 'calorie', 'grade', 'tip',
-        'compound-interest', 'due-date', 'salary', 'body-fat', 'binary',
-        'date', 'conversion', 'square-footage', 'ovulation', 'time-calculator'
-    ]; // Priority 1.0 (Flagship Domain)
-    const tier2 = [
-        'ozempic', 'camp-lejeune', 'roundup'
-    ]; // Priority 0.9 (Big Volume + Medical)
-    const tier3: string[] = []; // Reserved for deprecated/low-value
+    const calculatorPages: MetadataRoute.Sitemap = calculators.map((calc) => ({
+        url: `${BASE_URL}/${calc}`,
+        lastModified: resolveCalculatorLastmod(calc, now),
+        changeFrequency: 'daily',
+        priority: 1.0,
+    }));
 
-    const calculatorPages: MetadataRoute.Sitemap = calculators.map(calc => {
-        let priority = 0.7; // Standard
-        let changeFreq: "monthly" | "weekly" | "daily" = 'monthly';
-
-        if (tier1.includes(calc)) {
-            priority = 1.0;
-            changeFreq = 'daily';
-        }
-        else if (tier2.includes(calc)) priority = 0.9;
-        else if (tier3.includes(calc)) priority = 0.5;
-
-        return {
-            url: `${BASE_URL}/${calc}`,
-            lastModified: resolveCalculatorLastmod(calc, now),
-            changeFrequency: changeFreq,
-            priority: priority,
-        };
-    });
-
-    // 4. Subpages for High-Value Calculators (NEW - adds 120+ URLs)
+    // 4. Subpages for Core calculators only
     const subpageUrls: MetadataRoute.Sitemap = [];
     const existingSubpagesByCalculator = getExistingCalculatorSubpages();
     for (const calc of CALCULATORS_WITH_SUBPAGES) {
+        if (!CORE_CALCULATOR_SET.has(calc)) continue;
+
         const existingSubpages = existingSubpagesByCalculator.get(calc);
         if (!existingSubpages) continue;
 
@@ -185,31 +164,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
                 subpageUrls.push({
                     url: `${BASE_URL}/${calc}/${subpage}`,
                     lastModified: resolveSubpageLastmod(calc, subpage, now),
-                    changeFrequency: 'monthly',
-                    priority: 0.6,
+                    changeFrequency: 'weekly',
+                    priority: 0.75,
                 });
             }
         }
     }
 
-    // 5. Workers Comp state clusters
-    const workersCompStateUrls: MetadataRoute.Sitemap = existingCalculatorIds.has('workers-comp')
-        ? Object.keys(STATE_WC_DATA).map((code) => ({
-            url: `${BASE_URL}/workers-comp/${code.toLowerCase()}`,
-            lastModified: resolveCalculatorLastmod('workers-comp', now),
-            changeFrequency: 'weekly',
-            priority: 0.65,
-        }))
-        : [];
+    // 5. Core expansion URLs (only when parent is in Core list)
+    const workersCompStateUrls: MetadataRoute.Sitemap =
+        CORE_CALCULATOR_SET.has('workers-comp') && existingCalculatorIds.has('workers-comp')
+            ? Object.keys(STATE_WC_DATA).map((code) => ({
+                url: `${BASE_URL}/workers-comp/${code.toLowerCase()}`,
+                lastModified: resolveCalculatorLastmod('workers-comp', now),
+                changeFrequency: 'weekly',
+                priority: 0.8,
+            }))
+            : [];
 
-    const taxScenarioUrls: MetadataRoute.Sitemap = existingCalculatorIds.has('tax')
-        ? TAX_SCENARIO_CLUSTERS.map((cluster) => ({
-            url: `${BASE_URL}/tax/${cluster.slug}`,
-            lastModified: resolveCalculatorLastmod('tax', now),
-            changeFrequency: 'weekly',
-            priority: 0.65,
-        }))
-        : [];
+    const taxScenarioUrls: MetadataRoute.Sitemap =
+        CORE_CALCULATOR_SET.has('tax') && existingCalculatorIds.has('tax')
+            ? TAX_SCENARIO_CLUSTERS.map((cluster) => ({
+                url: `${BASE_URL}/tax/${cluster.slug}`,
+                lastModified: resolveCalculatorLastmod('tax', now),
+                changeFrequency: 'weekly',
+                priority: 0.8,
+            }))
+            : [];
 
     return [...corePages, ...staticPages, ...hubPages, ...calculatorPages, ...subpageUrls, ...workersCompStateUrls, ...taxScenarioUrls];
 }

@@ -29,6 +29,14 @@ export default function PrivacyPage() {
           <section className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7">
             <h2 className="text-xl font-bold text-white mb-3">1. Introduction</h2>
             <p className="text-slate-300">MySmartCalculators (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit our website.</p>
+            <p className="text-slate-300 mt-4">
+              We currently run a <strong className="text-white">Core 20 policy</strong>, which prioritizes twenty high-intent calculators for measurement,
+              indexing, and update governance. Privacy controls are designed to remain consistent across both Core and non-core routes.
+            </p>
+            <p className="text-slate-300 mt-3">
+              As product scope changes under the Core 20 model, analytics and operational telemetry may be re-balanced toward priority pages, while maintaining
+              this policy&apos;s baseline protections and disclosure standards.
+            </p>
           </section>
 
           <section className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7">
@@ -103,7 +111,7 @@ export default function PrivacyPage() {
           <span className="text-slate-600">|</span>
           <Link href="/contact" className="text-amber-400 hover:underline">Contact Us</Link>
           <span className="text-slate-600">|</span>
-          <Link href="/" className="text-amber-400 hover:underline">All Calculators</Link>
+          <Link href="/#core-20" className="text-amber-400 hover:underline">Core 20 Hub</Link>
         </div>
       </main>
     </div>

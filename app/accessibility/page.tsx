@@ -5,8 +5,8 @@ import { Eye } from "lucide-react";
 const BASE_URL = "https://mysmartcalculators.com";
 
 export const metadata: Metadata = {
-  title: "Accessibility Statement | MySmartCalculators",
-  description: "Accessibility commitment for MySmartCalculators. We strive to make our calculators accessible to all users.",
+  title: "Accessibility Statement | MySmartCalculators Core 20",
+  description: "Accessibility commitment under MySmartCalculators Core 20 policy. We prioritize accessible high-intent workflows and continuous barrier reduction.",
   alternates: {
     canonical: `${BASE_URL}/accessibility`,
   },
@@ -29,6 +29,13 @@ export default function AccessibilityPage() {
           <section className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7">
             <h2 className="text-xl font-bold text-white mb-3">Our Commitment</h2>
             <p className="text-slate-300">MySmartCalculators is committed to ensuring digital accessibility for people with disabilities. We are continually improving the user experience for everyone and applying the relevant accessibility standards.</p>
+            <p className="text-slate-300 mt-4">
+              Under our <strong className="text-white">Core 20 policy</strong>, accessibility testing and remediation are prioritized on twenty high-intent calculator workflows.
+              This improves consistency for critical tasks such as mortgage, tax, BMI, calorie, and pregnancy-related calculations.
+            </p>
+            <p className="text-slate-300 mt-3">
+              Non-core routes remain available, but accessibility enhancements may be scheduled after Core 20 updates depending on severity, user impact, and maintenance capacity.
+            </p>
           </section>
 
           <section className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7">
@@ -77,6 +84,9 @@ export default function AccessibilityPage() {
             <p className="text-slate-300">
               Accessibility improvements are managed by the MySmartCalculators team. Reported barriers are triaged by severity and reviewed in scheduled update cycles.
             </p>
+            <p className="text-slate-300 mt-3">
+              Triage order follows our Core 20 governance model: high-impact blockers on Core 20 pages are handled first, then broader non-core improvements are queued.
+            </p>
           </section>
         </div>
 
@@ -87,7 +97,7 @@ export default function AccessibilityPage() {
           <span className="text-slate-600">|</span>
           <Link href="/about" className="text-amber-400 hover:underline">About Us</Link>
           <span className="text-slate-600">|</span>
-          <Link href="/" className="text-amber-400 hover:underline">All Calculators</Link>
+          <Link href="/#core-20" className="text-amber-400 hover:underline">Core 20 Hub</Link>
         </div>
       </main>
     </div>

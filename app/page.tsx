@@ -2,25 +2,26 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Cpu, Zap } from "lucide-react";
 import { ALL_CALCULATORS } from "@/lib/all-calculators";
-import { CALCULATOR_REGISTRY } from "@/lib/registry/calculators";
 import { getHomeSearchScore } from "@/lib/search/home-search";
 import { HomeSearch } from "@/components/home/HomeSearch";
+import { CORE_CALCULATOR_IDS } from "@/lib/strategy/core-calculators";
 
 const BASE_URL = "https://mysmartcalculators.com";
 const HOME_CANONICAL = `${BASE_URL}/`;
 
 const HOME_METADATA: Metadata = {
-  title: "MySmartCalculators: Free Online Calculators for Finance, Health, Tax & More",
+  title: "MySmartCalculators Core 20 | High-Intent Finance & Health Calculators",
   description:
-    "Explore free online calculators for finance, health, tax, legal, and insurance decisions. Fast, practical tools with source-backed workflows.",
+    "Core 20 calculator hub focused on high-intent workflows: mortgage, loan, refinance, tax, BMI, calorie, pregnancy, and more. Fully indexed and actively maintained.",
   keywords: [
-    "free online calculators",
-    "calculator hub",
-    "finance calculator",
-    "health calculator",
-    "tax calculator",
+    "core calculator hub",
     "mortgage calculator",
+    "loan calculator",
+    "refinance calculator",
+    "tax calculator",
     "bmi calculator",
+    "calorie calculator",
+    "pregnancy calculator",
   ],
   alternates: {
     canonical: HOME_CANONICAL,
@@ -30,9 +31,9 @@ const HOME_METADATA: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "MySmartCalculators: Free Online Calculators for Finance, Health, Tax & More",
+    title: "MySmartCalculators Core 20 | High-Intent Finance & Health Calculators",
     description:
-      "Free calculator hub for finance, health, tax, legal, and insurance workflows. Search and launch practical tools quickly.",
+      "Core 20 calculator hub for high-intent finance and health workflows. Focused, maintained, and fully indexed.",
     type: "website",
     url: HOME_CANONICAL,
     images: [
@@ -40,15 +41,15 @@ const HOME_METADATA: Metadata = {
         url: "/og-main.png",
         width: 1200,
         height: 630,
-        alt: "MySmartCalculators Calculator Hub",
+        alt: "MySmartCalculators Core 20 Calculator Hub",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "MySmartCalculators: Free Online Calculators for Finance, Health, Tax & More",
+    title: "MySmartCalculators Core 20 | High-Intent Finance & Health Calculators",
     description:
-      "Calculator hub for finance, health, tax, legal, and insurance. Search practical tools and run calculations fast.",
+      "Core 20 calculator hub for high-intent finance and health workflows.",
     images: ["/og-main.png"],
   },
 };
@@ -106,20 +107,17 @@ export default async function HomePage({
     id: calc.id,
     name: normalizeHomeLabel(calc.id, calc.name),
   }));
-  const totalCalculators = displayCalculators.length;
   const displayNameById = new Map(displayCalculators.map((calc) => [calc.id, calc.name]));
-  const featuredCalculators = Object.values(CALCULATOR_REGISTRY)
-    .filter((calc) => calc.tier === 1 && displayNameById.has(calc.id))
-    .sort((a, b) => a.name.localeCompare(b.name))
-    .slice(0, 20)
-    .map((calc) => ({
-      id: calc.id,
-      name: displayNameById.get(calc.id) || normalizeHomeLabel(calc.id, calc.name),
-    }));
+
+  const coreDisplayCalculators = CORE_CALCULATOR_IDS
+    .filter((id) => displayNameById.has(id))
+    .map((id) => ({ id, name: displayNameById.get(id)! }));
+
+  const featuredCalculators = coreDisplayCalculators;
 
   const query = initialQuery.trim().toLowerCase();
   const searchResults = query
-    ? displayCalculators
+    ? coreDisplayCalculators
         .map((calc) => ({ calc, score: getHomeSearchScore(calc, query) }))
         .filter((item) => item.score > 0)
         .sort((a, b) => b.score - a.score || a.calc.name.localeCompare(b.calc.name))
@@ -147,8 +145,9 @@ export default async function HomePage({
       },
       {
         "@type": "ItemList",
-        name: "Core Calculator Fast Lane",
-        itemListElement: featuredCalculators.slice(0, 10).map((calc, index) => ({
+        name: "Core 20 Calculator Collection",
+        numberOfItems: featuredCalculators.length,
+        itemListElement: featuredCalculators.map((calc, index) => ({
           "@type": "ListItem",
           position: index + 1,
           name: calc.name,
@@ -166,9 +165,9 @@ export default async function HomePage({
       link: "/about#methodology",
     },
     {
-      label: "Active Calculators",
-      value: `${totalCalculators}+`,
-      detail: "Live calculator pages",
+      label: "Core Calculators",
+      value: `${featuredCalculators.length}`,
+      detail: "Fully indexed priority set",
     },
     {
       label: "Coverage",
@@ -205,25 +204,35 @@ export default async function HomePage({
           <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight leading-tight">
             2026 Official <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-200 to-amber-500">
-              Calculator Hub
+              Core 20 Hub
             </span>
           </h1>
 
           <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
-            Practical calculators for legal, finance, insurance, and health decisions.
-            {` ${totalCalculators}+ tools with clear estimates and result-focused workflows for 2026.`}
+            High-intent calculator workflows only.
+            {` ${featuredCalculators.length} core tools are fully indexed, actively maintained, and prioritized for quality outcomes.`}
           </p>
 
-          <HomeSearch initialQuery={initialQuery} calculators={displayCalculators} />
+          <HomeSearch initialQuery={initialQuery} calculators={coreDisplayCalculators} />
+
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs uppercase tracking-widest">
+            <Link href="/#core-20" className="px-3 py-1.5 rounded-full border border-slate-700 text-slate-300 hover:text-amber-400 hover:border-amber-500/40 transition-colors">
+              Jump to Core 20
+            </Link>
+            <Link href="/#search-results" className="px-3 py-1.5 rounded-full border border-slate-700 text-slate-300 hover:text-amber-400 hover:border-amber-500/40 transition-colors">
+              Jump to Core Search
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 py-8">
+      <section id="core-20" className="max-w-7xl mx-auto px-4 py-8 scroll-mt-24">
         <div className="bg-slate-900/40 border border-slate-800 rounded-3xl p-8 backdrop-blur-sm">
           <div className="flex items-center gap-2 text-amber-500 font-bold text-xs uppercase tracking-[0.3em] mb-6">
             <Zap className="w-4 h-4" />
-            <span>Featured Calculators</span>
+            <span>Core 20 Calculators</span>
           </div>
+          <p className="text-xs text-slate-400 mb-5">Priority calculators kept fully indexed and actively optimized.</p>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {featuredCalculators.map((feat) => (
               <Link
@@ -242,9 +251,9 @@ export default async function HomePage({
       </section>
 
       {query && (
-        <section id="search-results" className="max-w-7xl mx-auto px-4 pb-16">
+        <section id="search-results" className="max-w-7xl mx-auto px-4 pb-16 scroll-mt-24">
           <div className="mb-4 text-xs uppercase tracking-widest text-slate-400">
-            Search Results ({searchResults.length})
+            Core Search Results ({searchResults.length})
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {searchResults.map((calc) => (

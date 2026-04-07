@@ -20,6 +20,10 @@ export function GlobalFooter({ siteName = "MySmartCalculators", citation }: Glob
         </div>
 
         <div className="flex flex-wrap justify-center gap-6 mb-8 text-xs font-bold uppercase tracking-widest">
+          <Link href="/#core-20" className="text-slate-300 hover:text-amber-400 transition-all">Core 20</Link>
+          <span className="text-slate-700">|</span>
+          <Link href="/#search-results" className="text-slate-400 hover:text-amber-400 transition-all">Core Search</Link>
+          <span className="text-slate-700">|</span>
           <Link href="/about" className="text-slate-400 hover:text-amber-400 transition-all">About</Link>
           <span className="text-slate-700">|</span>
           <Link href="/terms" className="text-slate-400 hover:text-amber-400 transition-all">Terms</Link>

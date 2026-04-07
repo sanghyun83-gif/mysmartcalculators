@@ -40,6 +40,13 @@ export default function TermsPage() {
               <li>Financial advice or an advisor-client relationship</li>
               <li>Insurance advice or an agent-client relationship</li>
             </ul>
+            <p className="text-slate-300 mt-4">
+              MySmartCalculators currently operates under a <strong className="text-white">Core 20 policy</strong>: twenty high-intent calculators are prioritized
+              for indexing, updates, and quality assurance. Other calculator routes may remain accessible but are not guaranteed to receive the same update cadence.
+            </p>
+            <p className="text-slate-300 mt-3">
+              By using the Service, you acknowledge that product scope, visibility, and maintenance priority can change as part of this Core 20 quality-first operating model.
+            </p>
           </section>
 
           <section className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7">
@@ -121,7 +128,7 @@ export default function TermsPage() {
           <span className="text-slate-600">|</span>
           <Link href="/accessibility" className="text-amber-400 hover:underline">Accessibility</Link>
           <span className="text-slate-600">|</span>
-          <Link href="/" className="text-amber-400 hover:underline">All Calculators</Link>
+          <Link href="/#core-20" className="text-amber-400 hover:underline">Core 20 Hub</Link>
         </div>
       </main>
     </div>

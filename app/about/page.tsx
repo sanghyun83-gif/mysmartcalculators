@@ -5,8 +5,8 @@ import { Scale, Shield, Users, Cpu } from "lucide-react";
 const BASE_URL = "https://mysmartcalculators.com";
 
 export const metadata: Metadata = {
-    title: "About Us | MySmartCalculators",
-    description: "Learn about MySmartCalculators - free legal, medical, insurance, and financial calculators. Our mission is to provide accurate, accessible tools for everyone.",
+    title: "About Core 20 Policy | MySmartCalculators",
+    description: "Learn how MySmartCalculators operates with a Core 20 focus: fully indexed priority calculators, methodology controls, and quality-first update governance.",
     alternates: {
         canonical: `${BASE_URL}/about`,
     },
@@ -21,8 +21,8 @@ export default function AboutPage() {
                         <Cpu className="w-3 h-3" />
                         <span>About & Methodology</span>
                     </div>
-                    <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">About MySmartCalculators</h1>
-                    <p className="text-slate-400 text-lg">Empowering informed decisions with free calculators.</p>
+                    <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">About MySmartCalculators Core 20</h1>
+                    <p className="text-slate-400 text-lg">Quality-first calculator operations with a Core 20 focus.</p>
                 </div>
 
                 <div className="space-y-8">
@@ -32,9 +32,9 @@ export default function AboutPage() {
                             Our Mission
                         </h2>
                         <p className="text-slate-300">
-                            MySmartCalculators provides free, accurate, and easy-to-use calculators for legal settlements, medical claims,
-                            insurance estimates, and financial planning. We believe everyone deserves access to tools that help them
-                            understand their options and make informed decisions.
+                            MySmartCalculators currently follows a <strong className="text-white">Core 20 집중 운영 정책</strong>: we prioritize
+                            twenty high-intent calculators, keep them fully indexed, and allocate maintenance to measurable user outcomes.
+                            This policy improves quality control, clarity of guidance, and update reliability.
                         </p>
                     </section>
 
@@ -44,7 +44,7 @@ export default function AboutPage() {
                             Methodology
                         </h2>
                         <p className="text-slate-300 mb-4">
-                            We maintain calculation logic with versioned formulas and source references. Core assumptions are reviewed
+                            We maintain Core 20 calculation logic with versioned formulas and source references. Assumptions are reviewed
                             against official public documentation (government/statutory sources where applicable), then validated using
                             deterministic test cases before release.
                         </p>
@@ -58,7 +58,7 @@ export default function AboutPage() {
                                 regulatory documents, insurer/public plan documentation, and standardized reference datasets where available.
                             </p>
                             <p>
-                                <strong className="text-white">Validation cycle:</strong> core formulas are reviewed on a scheduled monthly pass,
+                                <strong className="text-white">Validation cycle:</strong> Core 20 formulas are reviewed on a scheduled monthly pass,
                                 with ad-hoc updates when major legal, policy, or rate changes are identified.
                             </p>
                             <p>
@@ -72,13 +72,13 @@ export default function AboutPage() {
                     <section className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7">
                         <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
                             <Cpu className="w-6 h-6 text-amber-400" />
-                            What We Offer
+                            Core 20 Coverage
                         </h2>
                         <ul className="space-y-3 text-slate-300">
-                            <li><strong>Legal Calculators:</strong> Personal injury, workers compensation, wrongful death, and settlement estimators</li>
-                            <li><strong>Medical Calculators:</strong> Medical malpractice, pharmaceutical litigation, and injury claim tools</li>
-                            <li><strong>Insurance Calculators:</strong> Life, health, disability, and liability insurance estimators</li>
-                            <li><strong>Financial Calculators:</strong> Child support, alimony, tax, and estate planning tools</li>
+                            <li><strong>Finance Core:</strong> mortgage, loan, refinance, tax, self-employment, home affordability</li>
+                            <li><strong>Math Utility Core:</strong> percentage, scientific, time, conversion, date, age, tip, compound interest</li>
+                            <li><strong>Health Core:</strong> BMI, calorie, body-fat, pregnancy, ovulation</li>
+                            <li><strong>Claims Core:</strong> workers-comp workflow for scenario-based estimate support</li>
                         </ul>
                     </section>
 
@@ -88,14 +88,17 @@ export default function AboutPage() {
                             Our Team
                         </h2>
                         <p className="text-slate-300">
-                            MySmartCalculators is developed by data analysts and developers using publicly available formulas, government
-                            statistics, and official calculation methodologies.
+                            MySmartCalculators is maintained by data analysts and developers using publicly available formulas, government
+                            statistics, and official methodologies. Current governance prioritizes Core 20 quality, measurement integrity,
+                            and evidence-backed iteration.
                         </p>
                     </section>
 
                     <section id="update-log" className="rounded-2xl border border-slate-800 bg-slate-900/40 p-7 scroll-mt-24">
                         <h2 className="text-2xl font-bold text-white mb-4">Update Log</h2>
                         <ul className="space-y-2 text-slate-300">
+                            <li><strong>2026-04-07:</strong> Core 20 policy adopted: sitemap focus, non-core noindex governance, and quality-first internal linking rollout.</li>
+                            <li><strong>2026-04-07:</strong> Home and About messaging aligned to Core 20 operating model and measurement-first strategy.</li>
                             <li><strong>2026-02-27:</strong> Trust and policy pages refreshed for consistency across About, Terms, Privacy, Contact, and Accessibility.</li>
                             <li><strong>2026-02-27:</strong> Methodology section expanded with source categories, validation cadence, and limitation disclosures.</li>
                             <li><strong>2026-02-26:</strong> Home search accessibility, structured data, and metadata consistency updates.</li>
@@ -121,7 +124,7 @@ export default function AboutPage() {
                     <span className="text-slate-600">|</span>
                     <Link href="/contact" className="text-amber-400 hover:underline">Contact Us</Link>
                     <span className="text-slate-600">|</span>
-                    <Link href="/" className="text-amber-400 hover:underline">All Calculators</Link>
+                    <Link href="/#core-20" className="text-amber-400 hover:underline">Core 20 Hub</Link>
                 </div>
             </main>
         </div>

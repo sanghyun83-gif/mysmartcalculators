@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Calculator, ShieldCheck } from "lucide-react";
@@ -19,6 +19,12 @@ type TimelineStage = {
   month: string;
   action: string;
 };
+
+declare global {
+  interface Window {
+    adsbygoogle?: unknown[];
+  }
+}
 
 type TaxClientProps = {
   focusTitle?: string;
@@ -80,6 +86,7 @@ export default function TaxClient({ focusTitle, focusSummary, initialValues }: T
   const pathname = usePathname();
   const routePath = pathname || "/tax";
   const startedRef = useRef(false);
+  const adRequestedCountRef = useRef(0);
   const [income, setIncome] = useState(String(initialValues?.income ?? 95000));
   const [filingStatus, setFilingStatus] = useState(initialValues?.filingStatus ?? "single");
   const [children, setChildren] = useState(String(initialValues?.children ?? 1));
@@ -125,6 +132,22 @@ export default function TaxClient({ focusTitle, focusSummary, initialValues }: T
       deduction: parsedDeduction,
     });
   }, [showResult, parsedIncome, filingStatus, parsedWithholding, parsedChildren, parsedDeduction]);
+
+  useEffect(() => {
+    if (!showResult) return;
+    if (typeof window === "undefined") return;
+    if (adRequestedCountRef.current >= 2) return;
+
+    try {
+      window.adsbygoogle = window.adsbygoogle || [];
+      while (adRequestedCountRef.current < 2) {
+        window.adsbygoogle.push({});
+        adRequestedCountRef.current += 1;
+      }
+    } catch {
+      // AdSense not ready or blocked.
+    }
+  }, [showResult]);
 
   const readinessChecklist = [
     "W-2, 1099-NEC/INT/DIV and prior-year return",
@@ -295,6 +318,20 @@ export default function TaxClient({ focusTitle, focusSummary, initialValues }: T
               )}
             </div>
 
+            {showResult && (
+              <section className="bg-white border border-slate-200 shadow-sm rounded-md p-3" aria-label="Sponsored">
+                <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">Sponsored</p>
+                <ins
+                  className="adsbygoogle block min-h-[90px] w-full"
+                  style={{ display: "block" }}
+                  data-ad-client="ca-pub-6678501910155801"
+                  data-ad-slot="3103400321"
+                  data-ad-format="auto"
+                  data-full-width-responsive="true"
+                />
+              </section>
+            )}
+
             <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
               <h3 className="text-sm font-bold uppercase tracking-tight mb-3">Claim Lifecycle Simulator (Tax Filing Lifecycle)</h3>
               <table className="w-full text-sm border-collapse">
@@ -368,6 +405,20 @@ export default function TaxClient({ focusTitle, focusSummary, initialValues }: T
             </tbody>
           </table>
         </section>
+
+        {showResult && (
+          <section className="bg-white border border-slate-200 shadow-sm rounded-md p-3" aria-label="Sponsored">
+            <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">Sponsored</p>
+            <ins
+              className="adsbygoogle block min-h-[90px] w-full"
+              style={{ display: "block" }}
+              data-ad-client="ca-pub-6678501910155801"
+              data-ad-slot="3103400321"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            />
+          </section>
+        )}
 
         <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
           <h2 className="text-base font-bold mb-2">Legal Readiness Pack (Tax Filing)</h2>

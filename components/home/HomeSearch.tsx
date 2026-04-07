@@ -46,7 +46,7 @@ export function HomeSearch({
           id="home-search-input"
           type="search"
           name="q"
-          placeholder="Search 316+ calculators (e.g., Truck Accident, 401k)..."
+          placeholder="Search Core 20 calculators (e.g., Mortgage, BMI, Tax)..."
           className="flex-1 bg-transparent border-none focus:ring-0 text-white placeholder:text-slate-600 px-4 py-3 text-lg"
           value={searchQuery}
           autoComplete="off"
@@ -119,7 +119,7 @@ export function HomeSearch({
                 href={`/?q=${encodeURIComponent(searchQuery)}#search-results`}
                 className="flex items-center justify-between p-4 text-xs uppercase tracking-wider text-slate-400 hover:text-amber-400 hover:bg-amber-500/5 transition-colors"
               >
-                <span>View All Results</span>
+                <span>View Core Results</span>
                 <ChevronRight className="w-4 h-4" />
               </Link>
             </div>

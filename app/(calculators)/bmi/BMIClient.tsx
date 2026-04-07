@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
     Activity,
     CheckCircle,
@@ -107,6 +107,12 @@ const FAQSection = ({ faqs }: { faqs: readonly FAQItem[] }) => (
     </div>
 );
 
+declare global {
+    interface Window {
+        adsbygoogle?: unknown[];
+    }
+}
+
 const BMI_EVIDENCE_MATRIX = [
     {
         authority: "WHO",
@@ -140,6 +146,8 @@ const BMI_EVIDENCE_MATRIX = [
 
 export default function BMIClient() {
     const startedRef = useRef(false);
+    const adRequestedRef = useRef(false);
+    const [hasCalculated, setHasCalculated] = useState(false);
     const [unitType, setUnitType] = useState<"US" | "Metric">("US");
     const [heightFeet, setHeightFeet] = useState(5);
     const [heightInches, setHeightInches] = useState(9);
@@ -247,6 +255,7 @@ export default function BMIClient() {
 
     function handleCalculate() {
         trackStart();
+        setHasCalculated(true);
         sendGaEvent("calculator_complete", {
             calculator_id: "bmi",
             route: "/bmi",
@@ -255,6 +264,19 @@ export default function BMIClient() {
             category: result.category,
         });
     }
+
+    useEffect(() => {
+        if (!hasCalculated || adRequestedRef.current) return;
+        if (typeof window === "undefined") return;
+
+        try {
+            window.adsbygoogle = window.adsbygoogle || [];
+            window.adsbygoogle.push({});
+            adRequestedRef.current = true;
+        } catch {
+            // AdSense not ready or blocked by browser extensions.
+        }
+    }, [hasCalculated]);
 
     function copyPermalink() {
         trackStart();
@@ -479,6 +501,20 @@ export default function BMIClient() {
                                 </div>
                             </div>
                         </div>
+
+                        {hasCalculated && (
+                            <section className="mt-3 rounded-md border border-slate-200 bg-white p-3" aria-label="Sponsored">
+                                <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">Sponsored</p>
+                                <ins
+                                    className="adsbygoogle block min-h-[90px] w-full"
+                                    style={{ display: "block" }}
+                                    data-ad-client="ca-pub-6678501910155801"
+                                    data-ad-slot="3103400321"
+                                    data-ad-format="auto"
+                                    data-full-width-responsive="true"
+                                />
+                            </section>
+                        )}
                     </div>
                 </div>
             </section>

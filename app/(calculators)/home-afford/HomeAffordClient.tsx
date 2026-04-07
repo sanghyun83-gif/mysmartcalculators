@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { Home, ShieldCheck } from "lucide-react";
 import { calculateAffordability, formatCurrency, formatPercent, HOUSING_CONSTANTS } from "@/lib/calculators/home-afford";
@@ -28,6 +28,12 @@ type DetailedLoanResult = {
   payoffLabel: string;
   baseMonthlyPayment: number;
 };
+
+declare global {
+  interface Window {
+    adsbygoogle?: unknown[];
+  }
+}
 
 const MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] as const;
 
@@ -189,6 +195,7 @@ function FAQSection({ faqs }: { faqs: FAQItem[] }) {
 export default function HomeAffordClient() {
   const d = HOUSING_CONSTANTS.defaults;
   const startedRef = useRef(false);
+  const adRequestedRef = useRef(false);
 
   const [income, setIncome] = useState(String(d.annualIncome));
   const [debts, setDebts] = useState(String(d.monthlyDebts));
@@ -209,6 +216,7 @@ export default function HomeAffordClient() {
   const [scheduleMode, setScheduleMode] = useState<"baseline" | "extra" | "biweekly">("extra");
   const [showFullSchedule, setShowFullSchedule] = useState(false);
   const [show, setShow] = useState(false);
+  const [hasCalculated, setHasCalculated] = useState(false);
   const [copyState, setCopyState] = useState<"idle" | "copied" | "failed">("idle");
 
   const nIncome = Math.max(0, Number(income) || 0);
@@ -297,12 +305,26 @@ export default function HomeAffordClient() {
   function handleCalculate() {
     trackStart();
     setShow(true);
+    setHasCalculated(true);
     sendGaEvent("calculator_complete", {
       calculator_id: "home-afford",
       route: "/home-afford",
       affordable_home_price: baselineScenario.maxHomePrice,
     });
   }
+
+  useEffect(() => {
+    if (!hasCalculated || adRequestedRef.current) return;
+    if (typeof window === "undefined") return;
+
+    try {
+      window.adsbygoogle = window.adsbygoogle || [];
+      window.adsbygoogle.push({});
+      adRequestedRef.current = true;
+    } catch {
+      // AdSense not ready or blocked.
+    }
+  }, [hasCalculated]);
 
   function resetInputs() {
     setIncome(String(d.annualIncome));
@@ -324,6 +346,8 @@ export default function HomeAffordClient() {
     setShowFullSchedule(false);
     setScheduleMode("extra");
     setShow(false);
+    setHasCalculated(false);
+    adRequestedRef.current = false;
     setCopyState("idle");
   }
 
@@ -423,6 +447,20 @@ export default function HomeAffordClient() {
               </div>
             )}
           </div>
+
+          {hasCalculated && (
+            <section className="rounded-md border border-slate-200 bg-white p-3" aria-label="Sponsored">
+              <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">Sponsored</p>
+              <ins
+                className="adsbygoogle block min-h-[90px] w-full"
+                style={{ display: "block" }}
+                data-ad-client="ca-pub-6678501910155801"
+                data-ad-slot="3103400321"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              />
+            </section>
+          )}
 
           <div className="bg-white border border-slate-200 rounded-md shadow-sm p-4">
             <h3 className="text-sm font-bold uppercase tracking-tight mb-3">Scenario Pack</h3>

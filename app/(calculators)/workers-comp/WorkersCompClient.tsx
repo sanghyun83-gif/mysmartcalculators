@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { Calculator, ShieldCheck } from "lucide-react";
 import {
@@ -51,6 +51,12 @@ type SensitivityRow = {
   netLow: number;
   netHigh: number;
 };
+
+declare global {
+  interface Window {
+    adsbygoogle?: unknown[];
+  }
+}
 
 const DISABILITY_TYPES = [
   { id: "ttd", label: "TTD (Temporary Total Disability)", factor: 1 },
@@ -320,6 +326,7 @@ function readInitialQueryDefaults(bodyPartIds: string[]): QueryDefaults {
 
 export default function WorkersCompClient() {
   const startedRef = useRef(false);
+  const adRequestedRef = useRef(false);
   const bodyParts = getBodyPartsList();
   const states = getStatesList();
   const queryDefaults = readInitialQueryDefaults(bodyParts.map((part) => part.id));
@@ -339,6 +346,7 @@ export default function WorkersCompClient() {
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [showResults, setShowResults] = useState(queryDefaults.showResults);
   const [showAllEvidence, setShowAllEvidence] = useState(false);
+  const [hasCalculated, setHasCalculated] = useState(false);
   const [copyState, setCopyState] = useState<"idle" | "copied" | "failed">("idle");
   const [linkCopyState, setLinkCopyState] = useState<"idle" | "copied" | "failed">("idle");
   const selectedEvidence = getWorkersCompEvidenceByCode(stateCode);
@@ -463,6 +471,7 @@ export default function WorkersCompClient() {
   function handleCalculate() {
     trackStart();
     setShowResults(true);
+    setHasCalculated(true);
     window.history.replaceState(null, "", buildPermalink());
     sendGaEvent("calculator_complete", {
       calculator_id: "workers-comp",
@@ -472,6 +481,19 @@ export default function WorkersCompClient() {
       disability_type: disabilityType,
     });
   }
+
+  useEffect(() => {
+    if (!hasCalculated || adRequestedRef.current) return;
+    if (typeof window === "undefined") return;
+
+    try {
+      window.adsbygoogle = window.adsbygoogle || [];
+      window.adsbygoogle.push({});
+      adRequestedRef.current = true;
+    } catch {
+      // AdSense not ready or blocked.
+    }
+  }, [hasCalculated]);
 
   function resetInputs() {
     setStateCode("CA");
@@ -488,6 +510,8 @@ export default function WorkersCompClient() {
     setFilingLagDays("30");
     setShowAdvanced(false);
     setShowResults(false);
+    setHasCalculated(false);
+    adRequestedRef.current = false;
     setCopyState("idle");
     setLinkCopyState("idle");
     window.history.replaceState(null, "", "/workers-comp");
@@ -608,7 +632,7 @@ export default function WorkersCompClient() {
             </div>
           </div>
           <div className="lg:col-span-7 space-y-4">
-            <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4"><h2 className="text-sm font-bold text-slate-800 uppercase tracking-tight mb-3">Result</h2>{!baseResult || !settlementSummary ? <div className="p-3 rounded-md border text-amber-800 bg-amber-50 border-amber-200 font-bold">Enter values and click Calculate Workers Comp.</div> : <><div className="grid grid-cols-1 md:grid-cols-4 gap-2"><div className="p-3 rounded-md border border-emerald-200 bg-emerald-50"><div className="text-[10px] uppercase text-emerald-700">Weekly Benefit</div><div className="text-2xl font-black text-emerald-900">{formatCurrency(baseResult.weeklyBenefit)}</div></div><div className="p-3 rounded-md border border-slate-200 bg-slate-100"><div className="text-[10px] uppercase text-slate-600">Gross Settlement</div><div className="text-lg font-black text-slate-900">{formatCurrency(settlementSummary.grossLow)} - {formatCurrency(settlementSummary.grossHigh)}</div></div><div className="p-3 rounded-md border border-blue-200 bg-blue-50"><div className="text-[10px] uppercase text-blue-700">Net Settlement</div><div className="text-lg font-black text-blue-900">{formatCurrency(settlementSummary.netLow)} - {formatCurrency(settlementSummary.netHigh)}</div></div><div className="p-3 rounded-md border border-slate-200 bg-white"><div className="text-[10px] uppercase text-slate-600">Discount Impact</div><div className="text-lg font-black text-slate-900">{formatCurrency(settlementSummary.discountImpact)}</div></div></div><div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-3"><button onClick={() => { void copyPermalink(); }} className="h-9 rounded-md border border-slate-300 bg-white text-slate-700 text-xs font-semibold hover:bg-slate-50">{linkCopyState === "copied" ? "Link Copied" : linkCopyState === "failed" ? "Link Failed" : "Copy Permalink"}</button><button onClick={() => { void sharePermalink(); }} className="h-9 rounded-md border border-slate-300 bg-white text-slate-700 text-xs font-semibold hover:bg-slate-50">Share Result</button><button onClick={exportScheduleCsv} className="h-9 rounded-md border border-blue-200 bg-blue-50 text-blue-700 text-xs font-semibold hover:bg-blue-100">Export CSV</button><button onClick={exportPdf} className="h-9 rounded-md border border-blue-200 bg-blue-50 text-blue-700 text-xs font-semibold hover:bg-blue-100">Export PDF</button></div></>}</div>
+            <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4"><h2 className="text-sm font-bold text-slate-800 uppercase tracking-tight mb-3">Result</h2>{!baseResult || !settlementSummary ? <div className="p-3 rounded-md border text-amber-800 bg-amber-50 border-amber-200 font-bold">Enter values and click Calculate Workers Comp.</div> : <><div className="grid grid-cols-1 md:grid-cols-4 gap-2"><div className="p-3 rounded-md border border-emerald-200 bg-emerald-50"><div className="text-[10px] uppercase text-emerald-700">Weekly Benefit</div><div className="text-2xl font-black text-emerald-900">{formatCurrency(baseResult.weeklyBenefit)}</div></div><div className="p-3 rounded-md border border-slate-200 bg-slate-100"><div className="text-[10px] uppercase text-slate-600">Gross Settlement</div><div className="text-lg font-black text-slate-900">{formatCurrency(settlementSummary.grossLow)} - {formatCurrency(settlementSummary.grossHigh)}</div></div><div className="p-3 rounded-md border border-blue-200 bg-blue-50"><div className="text-[10px] uppercase text-blue-700">Net Settlement</div><div className="text-lg font-black text-blue-900">{formatCurrency(settlementSummary.netLow)} - {formatCurrency(settlementSummary.netHigh)}</div></div><div className="p-3 rounded-md border border-slate-200 bg-white"><div className="text-[10px] uppercase text-slate-600">Discount Impact</div><div className="text-lg font-black text-slate-900">{formatCurrency(settlementSummary.discountImpact)}</div></div></div><div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-3"><button onClick={() => { void copyPermalink(); }} className="h-9 rounded-md border border-slate-300 bg-white text-slate-700 text-xs font-semibold hover:bg-slate-50">{linkCopyState === "copied" ? "Link Copied" : linkCopyState === "failed" ? "Link Failed" : "Copy Permalink"}</button><button onClick={() => { void sharePermalink(); }} className="h-9 rounded-md border border-slate-300 bg-white text-slate-700 text-xs font-semibold hover:bg-slate-50">Share Result</button><button onClick={exportScheduleCsv} className="h-9 rounded-md border border-blue-200 bg-blue-50 text-blue-700 text-xs font-semibold hover:bg-blue-100">Export CSV</button><button onClick={exportPdf} className="h-9 rounded-md border border-blue-200 bg-blue-50 text-blue-700 text-xs font-semibold hover:bg-blue-100">Export PDF</button></div></>}</div>{hasCalculated ? <section className="rounded-md border border-slate-200 bg-white p-3" aria-label="Sponsored"><p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">Sponsored</p><ins className="adsbygoogle block min-h-[90px] w-full" style={{ display: "block" }} data-ad-client="ca-pub-6678501910155801" data-ad-slot="3103400321" data-ad-format="auto" data-full-width-responsive="true" /></section> : null}
             <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4"><h3 className="text-sm font-bold text-slate-800 uppercase tracking-tight mb-3">Claim Lifecycle Simulator</h3><div className="overflow-x-auto"><table className="w-full text-sm border-collapse"><thead className="bg-slate-100 border-b border-slate-300"><tr><th className="text-left py-1.5 px-2 text-xs text-slate-700">Stage</th><th className="text-left py-1.5 px-2 text-xs text-slate-700">Date</th><th className="text-left py-1.5 px-2 text-xs text-slate-700">Action</th></tr></thead><tbody className="divide-y divide-slate-200">{timelineRows.map((row) => (<tr key={`${row.stage}-${row.dateIso}`} className="even:bg-slate-50"><td className="py-1.5 px-2 font-semibold text-slate-700">{row.stage}</td><td className="py-1.5 px-2 text-slate-700">{toHumanDate(row.dateIso)}</td><td className="py-1.5 px-2 text-slate-700">{row.action}</td></tr>))}</tbody></table></div></div>
             <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4"><h3 className="text-sm font-bold text-slate-800 uppercase tracking-tight mb-3">Settlement Sensitivity Lab</h3><div className="overflow-x-auto"><table className="w-full text-sm border-collapse"><thead className="bg-slate-100 border-b border-slate-300"><tr><th className="text-left py-1.5 px-2 text-xs text-slate-700">Profile</th><th className="text-left py-1.5 px-2 text-xs text-slate-700">Impairment</th><th className="text-left py-1.5 px-2 text-xs text-slate-700">Fee</th><th className="text-left py-1.5 px-2 text-xs text-slate-700">Medical Reserve</th><th className="text-left py-1.5 px-2 text-xs text-slate-700">Discount</th><th className="text-left py-1.5 px-2 text-xs text-slate-700">Net Range</th></tr></thead><tbody className="divide-y divide-slate-200">{sensitivityRows.map((row) => (<tr key={row.label} className="even:bg-slate-50"><td className="py-1.5 px-2 font-semibold text-slate-700">{row.label}</td><td className="py-1.5 px-2 text-slate-700">{row.impairmentPercent}%</td><td className="py-1.5 px-2 text-slate-700">{row.attorneyFeePercent}%</td><td className="py-1.5 px-2 text-slate-700">{formatCurrency(row.futureMedicalReserve)}</td><td className="py-1.5 px-2 text-slate-700">{row.discountRate}%</td><td className="py-1.5 px-2 text-slate-700">{formatCurrency(row.netLow)} - {formatCurrency(row.netHigh)}</td></tr>))}</tbody></table></div></div>
           </div>

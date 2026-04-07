@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Banknote, ShieldCheck } from "lucide-react";
 import { LOAN_2026, calculateLoan } from "@/lib/calculators/loan";
+import { sendGaEvent } from "@/lib/analytics/ga";
 
 type FAQItem = Readonly<{ question: string; answer: string }>;
 const MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] as const;
@@ -161,6 +163,9 @@ function formatCurrency(value: number): string {
 }
 
 export default function LoanClient() {
+  const pathname = usePathname();
+  const routePath = pathname || "/loan";
+  const startedRef = useRef(false);
   const [advancedMode, setAdvancedMode] = useState(false);
   const [amount, setAmount] = useState("50000");
   const [rate, setRate] = useState("6.5");
@@ -287,6 +292,24 @@ export default function LoanClient() {
     return raw;
   }
 
+  function trackStart() {
+    if (startedRef.current) return;
+    startedRef.current = true;
+    sendGaEvent("calculator_start", { calculator_id: "loan", route: routePath });
+  }
+
+  function runCalculation() {
+    trackStart();
+    setShowResults(true);
+    sendGaEvent("calculator_complete", {
+      calculator_id: "loan",
+      route: routePath,
+      amount: Math.round(parsedAmount),
+      apr: parsedRate,
+      years: parsedYears,
+    });
+  }
+
   function handleExportAmortizationCsv() {
     if (!activeSchedule) return;
     const header = [
@@ -323,6 +346,7 @@ export default function LoanClient() {
     anchor.click();
     document.body.removeChild(anchor);
     URL.revokeObjectURL(url);
+    sendGaEvent("cta_click", { calculator_id: "loan", route: routePath, cta: "export_csv" });
   }
 
   const scenarioRows = (() => {
@@ -398,6 +422,7 @@ export default function LoanClient() {
       await navigator.clipboard.writeText(summary);
       setCopyState("copied");
       setTimeout(() => setCopyState("idle"), 1500);
+      sendGaEvent("cta_click", { calculator_id: "loan", route: routePath, cta: "copy_result" });
     } catch {
       setCopyState("failed");
     }
@@ -577,7 +602,7 @@ export default function LoanClient() {
 
                 <button
                   type="button"
-                  onClick={() => setShowResults(true)}
+                  onClick={runCalculation}
                   className="w-full h-10 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-md text-sm"
                 >
                   Calculate Loan

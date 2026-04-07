@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
     Menu, X, Zap,
-    ChevronRight, ChevronDown, Info,
-    Scale, DollarSign, Shield, Heart, Landmark
+    ChevronRight, Info,
+    Activity, Landmark, Calculator
 } from "lucide-react";
 
 export default function GlobalHeader() {
@@ -43,34 +43,9 @@ export default function GlobalHeader() {
                 </Link>
 
                 <nav className="hidden md:flex items-center gap-8">
-                    <Link href="/category/legal" className="text-sm font-bold text-slate-400 hover:text-white transition-colors tracking-wide">LEGAL</Link>
-                    <Link href="/category/finance" className="text-sm font-bold text-slate-400 hover:text-white transition-colors tracking-wide">FINANCE</Link>
-                    <Link href="/category/insurance" className="text-sm font-bold text-slate-400 hover:text-white transition-colors tracking-wide">INSURANCE</Link>
-                    <Link href="/category/medical" className="text-sm font-bold text-slate-400 hover:text-white transition-colors tracking-wide">MEDICAL</Link>
-
-                    <div className="relative group/more">
-                        <button className="flex items-center gap-1 text-sm font-bold text-slate-400 hover:text-white transition-colors tracking-wide">
-                            <span>MORE</span>
-                            <ChevronDown className="w-3 h-3 group-hover/more:rotate-180 transition-transform" />
-                        </button>
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 hidden group-hover/more:block animate-in fade-in slide-in-from-top-2 duration-200">
-                            <div className="bg-slate-900/95 backdrop-blur-xl border border-slate-800 rounded-2xl p-2 w-48 shadow-2xl">
-                                <Link href="/category/family" className="flex items-center gap-3 p-3 text-xs font-bold text-slate-400 hover:text-amber-400 hover:bg-amber-500/5 rounded-xl transition-all" onClick={() => { }}>
-                                    <Heart className="w-4 h-4 text-rose-500" />
-                                    <span>Family & Support</span>
-                                </Link>
-                                <Link href="/category/health" className="flex items-center gap-3 p-3 text-xs font-bold text-slate-400 hover:text-amber-400 hover:bg-amber-500/5 rounded-xl transition-all" onClick={() => { }}>
-                                    <Landmark className="w-4 h-4 text-blue-500" />
-                                    <span>Public Benefits</span>
-                                </Link>
-                                <div className="h-px bg-slate-800 my-2" />
-                                <Link href="/about" className="flex items-center gap-3 p-3 text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-800 rounded-xl transition-all" onClick={() => { }}>
-                                    <Info className="w-4 h-4" />
-                                    <span>About Our Methodology</span>
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
+                    <Link href="/#core-20" className="text-sm font-bold text-slate-300 hover:text-white transition-colors tracking-wide">CORE 20</Link>
+                    <Link href="/#search-results" className="text-sm font-bold text-slate-400 hover:text-white transition-colors tracking-wide">CORE SEARCH</Link>
+                    <Link href="/about" className="text-sm font-bold text-slate-400 hover:text-white transition-colors tracking-wide">METHODOLOGY</Link>
                 </nav>
 
                 <div className="flex items-center gap-4">
@@ -82,10 +57,10 @@ export default function GlobalHeader() {
                     </button>
 
                     <Link
-                        href="/calculators"
+                        href="/#core-20"
                         className="hidden md:flex items-center gap-2 bg-white hover:bg-slate-200 text-black px-5 py-2.5 rounded-xl font-bold text-sm transition-all"
                     >
-                        <span>Browse Calculators</span>
+                        <span>Browse Core 20</span>
                         <ChevronRight className="w-4 h-4" />
                     </Link>
                 </div>
@@ -97,29 +72,16 @@ export default function GlobalHeader() {
                     onClick={() => setIsMobileMenuOpen(false)}
                 >
                     <div className="flex flex-col p-8 pt-24 gap-4 overflow-y-auto h-full">
-                        <div className="text-[10px] font-bold text-slate-600 uppercase tracking-[0.2em] mb-2">Category Portals</div>
-                        <Link href="/category/legal" className="text-2xl font-bold flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded-2xl" onClick={() => setIsMobileMenuOpen(false)}>
-                            <span>Legal Calculators</span> <Scale className="w-6 h-6 text-amber-500" />
+                        <div className="text-[10px] font-bold text-slate-600 uppercase tracking-[0.2em] mb-2">Core Navigation</div>
+                        <Link href="/#core-20" className="text-2xl font-bold flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded-2xl" onClick={() => setIsMobileMenuOpen(false)}>
+                            <span>Core 20 Calculators</span> <Calculator className="w-6 h-6 text-amber-500" />
+                        </Link>
+                        <Link href="/#search-results" className="text-2xl font-bold flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded-2xl" onClick={() => setIsMobileMenuOpen(false)}>
+                            <span>Core Search</span> <Activity className="w-6 h-6 text-emerald-500" />
                         </Link>
                         <Link href="/category/finance" className="text-2xl font-bold flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded-2xl" onClick={() => setIsMobileMenuOpen(false)}>
-                            <span>Finance</span> <DollarSign className="w-6 h-6 text-emerald-500" />
+                            <span>Finance Focus</span> <Landmark className="w-6 h-6 text-blue-500" />
                         </Link>
-                        <Link href="/category/insurance" className="text-2xl font-bold flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded-2xl" onClick={() => setIsMobileMenuOpen(false)}>
-                            <span>Insurance</span> <Shield className="w-6 h-6 text-blue-500" />
-                        </Link>
-                        <Link href="/category/medical" className="text-2xl font-bold flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded-2xl" onClick={() => setIsMobileMenuOpen(false)}>
-                            <span>Medical</span> <Zap className="w-6 h-6 text-rose-500 fill-current" />
-                        </Link>
-                        <div className="grid grid-cols-2 gap-4 mt-4">
-                            <Link href="/category/family" className="p-4 bg-slate-900 border border-slate-800 rounded-2xl text-center" onClick={() => setIsMobileMenuOpen(false)}>
-                                <Heart className="w-6 h-6 text-rose-500 mx-auto mb-2" />
-                                <span className="text-xs font-bold">Family</span>
-                            </Link>
-                            <Link href="/category/health" className="p-4 bg-slate-900 border border-slate-800 rounded-2xl text-center" onClick={() => setIsMobileMenuOpen(false)}>
-                                <Landmark className="w-6 h-6 text-blue-500 mx-auto mb-2" />
-                                <span className="text-xs font-bold">Health</span>
-                            </Link>
-                        </div>
                         <div className="h-px bg-slate-800 my-6" />
                         <Link href="/about" className="text-lg text-slate-400 font-bold flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)}>
                             <Info className="w-5 h-5" /> <span>About</span>

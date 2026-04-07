@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { sendGaEvent } from "@/lib/analytics/ga";
 
+const EVENT_THROTTLE_MS = 5000;
+
 const NON_CALCULATOR_PATHS = new Set([
   "",
   "about",
@@ -32,8 +34,22 @@ export default function FoundationEventTracker() {
     const currentPath = pathname || "/";
     const calculatorPath = isCalculatorPath(currentPath);
 
+    function isHiddenContext() {
+      return document.visibilityState !== "visible" || !document.hasFocus();
+    }
+
+    function canSendWithThrottle(key: string) {
+      const now = Date.now();
+      const previous = Number(sessionStorage.getItem(key) || "0");
+      if (Number.isFinite(previous) && now - previous < EVENT_THROTTLE_MS) {
+        return false;
+      }
+      sessionStorage.setItem(key, String(now));
+      return true;
+    }
+
     function onFocusIn(event: FocusEvent) {
-      if (!calculatorPath) return;
+      if (!calculatorPath || isHiddenContext()) return;
       const target = event.target as HTMLElement | null;
       if (!target) return;
       const isFormField =
@@ -42,16 +58,22 @@ export default function FoundationEventTracker() {
         target.tagName === "TEXTAREA";
       if (!isFormField) return;
 
-      const key = `ga_start_sent:${currentPath}`;
-      if (sessionStorage.getItem(key)) return;
+      const sentKey = `ga_start_sent:${currentPath}`;
+      if (sessionStorage.getItem(sentKey)) return;
+
+      const throttleKey = `ga_throttle:calculator_start:${currentPath}`;
+      if (!canSendWithThrottle(throttleKey)) return;
 
       sendGaEvent("calculator_start", {
         path: currentPath,
+        route: currentPath,
       });
-      sessionStorage.setItem(key, "1");
+      sessionStorage.setItem(sentKey, "1");
     }
 
     function onClick(event: MouseEvent) {
+      if (isHiddenContext()) return;
+
       const element = event.target as HTMLElement | null;
       if (!element) return;
 
@@ -61,8 +83,12 @@ export default function FoundationEventTracker() {
       if (button && calculatorPath) {
         const label = (button.textContent || "").trim().slice(0, 80);
         if (/calculate|estimate|result/i.test(label)) {
+          const throttleKey = `ga_throttle:calculator_complete:${currentPath}`;
+          if (!canSendWithThrottle(throttleKey)) return;
+
           sendGaEvent("calculator_complete", {
             path: currentPath,
+            route: currentPath,
             label: label || "unknown_button",
           });
         }
@@ -73,8 +99,12 @@ export default function FoundationEventTracker() {
         const label = (link.textContent || "").trim().slice(0, 80);
 
         if (href.includes("/contact")) {
+          const throttleKey = `ga_throttle:contact_click:${currentPath}:${href}`;
+          if (!canSendWithThrottle(throttleKey)) return;
+
           sendGaEvent("contact_click", {
             path: currentPath,
+            route: currentPath,
             href,
             label: label || "contact_link",
           });
@@ -82,8 +112,12 @@ export default function FoundationEventTracker() {
         }
 
         if (/apply|contact|consult|quote|get started|start/i.test(label)) {
+          const throttleKey = `ga_throttle:cta_click:${currentPath}:${href}`;
+          if (!canSendWithThrottle(throttleKey)) return;
+
           sendGaEvent("cta_click", {
             path: currentPath,
+            route: currentPath,
             href,
             label: label || "cta_link",
           });

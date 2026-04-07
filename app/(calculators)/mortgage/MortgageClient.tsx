@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Home, ShieldCheck } from "lucide-react";
 import {
   CALCULATORS,
@@ -10,6 +11,7 @@ import {
   formatCurrency,
   generateAmortizationSchedule,
 } from "@/lib/calculators/mortgage";
+import { sendGaEvent } from "@/lib/analytics/ga";
 
 type FAQItem = Readonly<{ question: string; answer: string }>;
 const MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] as const;
@@ -182,6 +184,9 @@ function FAQSection({ faqs }: { faqs: readonly FAQItem[] }) {
 }
 
 export default function MortgageClient() {
+  const pathname = usePathname();
+  const routePath = pathname || "/mortgage";
+  const startedRef = useRef(false);
   const [advancedMode, setAdvancedMode] = useState(false);
   const [homePrice, setHomePrice] = useState(String(MORTGAGE_CONSTANTS.defaults.homePrice));
   const [downPaymentPercent, setDownPaymentPercent] = useState(
@@ -420,6 +425,23 @@ export default function MortgageClient() {
     anchor.click();
     document.body.removeChild(anchor);
     URL.revokeObjectURL(url);
+    sendGaEvent("cta_click", { calculator_id: "mortgage", route: routePath, cta: "export_csv" });
+  }
+
+  function trackStart() {
+    if (startedRef.current) return;
+    startedRef.current = true;
+    sendGaEvent("calculator_start", { calculator_id: "mortgage", route: routePath });
+  }
+
+  function handleCalculateClick() {
+    trackStart();
+    sendGaEvent("calculator_complete", {
+      calculator_id: "mortgage",
+      route: routePath,
+      home_price: Math.round(Number(homePrice) || 0),
+      apr: Number(interestRate) || 0,
+    });
   }
 
   function handleResetInputs() {
@@ -464,6 +486,7 @@ export default function MortgageClient() {
       await navigator.clipboard.writeText(summary);
       setCopyState("copied");
       setTimeout(() => setCopyState("idle"), 1500);
+      sendGaEvent("cta_click", { calculator_id: "mortgage", route: routePath, cta: "copy_result" });
     } catch {
       setCopyState("failed");
     }
@@ -698,6 +721,7 @@ export default function MortgageClient() {
 
                 <button
                   type="button"
+                  onClick={handleCalculateClick}
                   className="w-full h-10 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-md text-sm"
                 >
                   Calculate Mortgage

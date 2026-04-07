@@ -88,6 +88,13 @@ export default function ContactPage() {
           <p className="text-sm text-slate-300 mb-2">
             This site is operated under the MySmartCalculators service brand.
           </p>
+          <p className="text-sm text-slate-300 mb-2">
+            We currently follow a <strong className="text-white">Core 20 policy</strong>, prioritizing twenty high-intent calculators for quality updates,
+            indexing governance, and measurement reviews.
+          </p>
+          <p className="text-sm text-slate-300 mb-2">
+            For the fastest triage, include calculator route, timestamp, browser/device, and whether the issue occurred on a Core 20 page.
+          </p>
           <p className="text-sm text-slate-300">
             Primary contact channel: <a href="mailto:contact@mysmartcalculators.com" className="text-amber-400 hover:underline">contact@mysmartcalculators.com</a>. Target response window is within 5 business days.
           </p>
@@ -98,7 +105,7 @@ export default function ContactPage() {
           <span className="text-slate-600">|</span>
           <Link href="/privacy" className="text-amber-400 hover:underline">Privacy Policy</Link>
           <span className="text-slate-600">|</span>
-          <Link href="/" className="text-amber-400 hover:underline">All Calculators</Link>
+          <Link href="/#core-20" className="text-amber-400 hover:underline">Core 20 Hub</Link>
         </div>
       </main>
     </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Calculator, ShieldCheck } from "lucide-react";
@@ -20,6 +20,12 @@ type TimelineStage = {
   window: string;
   action: string;
 };
+
+declare global {
+  interface Window {
+    adsbygoogle?: unknown[];
+  }
+}
 
 type SelfEmploymentClientProps = {
   focusTitle?: string;
@@ -127,6 +133,7 @@ export default function SelfEmploymentClient({
   const searchParams = useSearchParams();
   const routePath = pathname || "/self-employment";
   const startedRef = useRef(false);
+  const adRequestedCountRef = useRef(0);
   const queryIncome = cleanNumber(searchParams.get("income") ?? "");
   const queryExpenses = cleanNumber(searchParams.get("expenses") ?? "");
   const queryStatus = searchParams.get("status");
@@ -182,6 +189,22 @@ export default function SelfEmploymentClient({
       deltaFromBase: row.totalSETax - base,
     }));
   }, [showResult, result, parsedIncome, parsedExpenses, filingStatus, parsedQuarterBuffer]);
+
+  useEffect(() => {
+    if (!showResult) return;
+    if (typeof window === "undefined") return;
+    if (adRequestedCountRef.current >= 2) return;
+
+    try {
+      window.adsbygoogle = window.adsbygoogle || [];
+      while (adRequestedCountRef.current < 2) {
+        window.adsbygoogle.push({});
+        adRequestedCountRef.current += 1;
+      }
+    } catch {
+      // AdSense not ready or blocked.
+    }
+  }, [showResult]);
 
   const readinessChecklist = [
     "1099 statements and income ledger by client",
@@ -424,6 +447,20 @@ export default function SelfEmploymentClient({
               )}
             </div>
 
+            {showResult && (
+              <section className="bg-white border border-slate-200 shadow-sm rounded-md p-3" aria-label="Sponsored">
+                <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">Sponsored</p>
+                <ins
+                  className="adsbygoogle block min-h-[90px] w-full"
+                  style={{ display: "block" }}
+                  data-ad-client="ca-pub-6678501910155801"
+                  data-ad-slot="3103400321"
+                  data-ad-format="auto"
+                  data-full-width-responsive="true"
+                />
+              </section>
+            )}
+
             <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
               <h3 className="text-sm font-bold uppercase tracking-tight mb-3">Lifecycle Simulator</h3>
               <table className="w-full text-sm border-collapse">
@@ -505,6 +542,20 @@ export default function SelfEmploymentClient({
             </tbody>
           </table>
         </section>
+
+        {showResult && (
+          <section className="bg-white border border-slate-200 shadow-sm rounded-md p-3" aria-label="Sponsored">
+            <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">Sponsored</p>
+            <ins
+              className="adsbygoogle block min-h-[90px] w-full"
+              style={{ display: "block" }}
+              data-ad-client="ca-pub-6678501910155801"
+              data-ad-slot="3103400321"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            />
+          </section>
+        )}
 
         <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
           <h2 className="text-base font-bold mb-2">Readiness Pack</h2>

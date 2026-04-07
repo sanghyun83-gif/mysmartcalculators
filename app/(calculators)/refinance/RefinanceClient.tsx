@@ -1,11 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { RefreshCw, ShieldCheck } from "lucide-react";
 import { calculateLoan } from "@/lib/calculators/loan";
+import { sendGaEvent } from "@/lib/analytics/ga";
 
 type FAQItem = Readonly<{ question: string; answer: string }>;
+
+declare global {
+  interface Window {
+    adsbygoogle?: unknown[];
+  }
+}
 const MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] as const;
 
 function getEstimatedPayoffDate(startMonth: number, startYear: number, years: number) {
@@ -199,6 +207,10 @@ const REFINANCE_CITATIONS = [
 ] as const;
 
 export default function RefinanceClient() {
+  const pathname = usePathname();
+  const routePath = pathname || "/refinance";
+  const adRequestedCountRef = useRef(0);
+  const startedRef = useRef(false);
   const [advancedMode, setAdvancedMode] = useState(false);
   const [amount, setAmount] = useState("300000");
   const [rate, setRate] = useState("6.25");
@@ -257,6 +269,22 @@ export default function RefinanceClient() {
       : 0;
 
   const amortizationPreview = result ? result.amortization.slice(0, 12) : [];
+
+  useEffect(() => {
+    if (!showResults) return;
+    if (typeof window === "undefined") return;
+    if (adRequestedCountRef.current >= 2) return;
+
+    try {
+      window.adsbygoogle = window.adsbygoogle || [];
+      while (adRequestedCountRef.current < 2) {
+        window.adsbygoogle.push({});
+        adRequestedCountRef.current += 1;
+      }
+    } catch {
+      // AdSense not ready or blocked by browser extensions.
+    }
+  }, [showResults]);
 
   const baselineDetailed =
     result && parsedAmount > 0 && parsedYears > 0
@@ -344,6 +372,24 @@ export default function RefinanceClient() {
     return raw;
   }
 
+  function trackStart() {
+    if (startedRef.current) return;
+    startedRef.current = true;
+    sendGaEvent("calculator_start", { calculator_id: "refinance", route: routePath });
+  }
+
+  function runCalculation() {
+    trackStart();
+    setShowResults(true);
+    sendGaEvent("calculator_complete", {
+      calculator_id: "refinance",
+      route: routePath,
+      amount: Math.round(parsedAmount),
+      apr: parsedRate,
+      years: parsedYears,
+    });
+  }
+
   function handleExportAmortizationCsv() {
     if (!activeSchedule) return;
     const header = [
@@ -380,6 +426,7 @@ export default function RefinanceClient() {
     anchor.click();
     document.body.removeChild(anchor);
     URL.revokeObjectURL(url);
+    sendGaEvent("cta_click", { calculator_id: "refinance", route: routePath, cta: "export_csv" });
   }
 
   const scenarioRows = (() => {
@@ -437,6 +484,7 @@ export default function RefinanceClient() {
     setShowFullSchedule(false);
     setScheduleMode("extra");
     setShowResults(false);
+    adRequestedCountRef.current = 0;
     setCopyState("idle");
   }
 
@@ -462,6 +510,7 @@ export default function RefinanceClient() {
       await navigator.clipboard.writeText(summary);
       setCopyState("copied");
       setTimeout(() => setCopyState("idle"), 1500);
+      sendGaEvent("cta_click", { calculator_id: "refinance", route: routePath, cta: "copy_result" });
     } catch {
       setCopyState("failed");
     }
@@ -674,7 +723,7 @@ export default function RefinanceClient() {
 
                 <button
                   type="button"
-                  onClick={() => setShowResults(true)}
+                  onClick={runCalculation}
                   className="w-full h-10 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-md text-sm"
                 >
                   Calculate Refinance
@@ -733,6 +782,20 @@ export default function RefinanceClient() {
                 </div>
               )}
             </div>
+
+            {showResults && (
+              <section className="bg-white border border-slate-200 shadow-sm rounded-md p-3" aria-label="Sponsored">
+                <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">Sponsored</p>
+                <ins
+                  className="adsbygoogle block min-h-[90px] w-full"
+                  style={{ display: "block" }}
+                  data-ad-client="ca-pub-6678501910155801"
+                  data-ad-slot="3103400321"
+                  data-ad-format="auto"
+                  data-full-width-responsive="true"
+                />
+              </section>
+            )}
 
             <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
               <h3 className="text-sm font-bold text-slate-800 uppercase tracking-tight mb-3">Refinance Snapshot</h3>
@@ -1034,6 +1097,20 @@ export default function RefinanceClient() {
             <li>Check whether term extension lowers monthly payment but increases lifetime cost.</li>
           </ul>
         </section>
+
+        {showResults && (
+          <section className="bg-white border border-slate-200 shadow-sm rounded-md p-3" aria-label="Sponsored">
+            <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">Sponsored</p>
+            <ins
+              className="adsbygoogle block min-h-[90px] w-full"
+              style={{ display: "block" }}
+              data-ad-client="ca-pub-6678501910155801"
+              data-ad-slot="3103400321"
+              data-ad-format="auto"
+              data-full-width-responsive="true"
+            />
+          </section>
+        )}
 
         <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
           <h3 className="text-sm font-bold text-slate-900 mb-2">Edge and Stress Test Cases</h3>
