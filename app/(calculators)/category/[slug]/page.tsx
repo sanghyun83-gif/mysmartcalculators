@@ -20,6 +20,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${categoryLabel} Calculators | MySmartCalculators`,
     description: `Browse ${categoryLabel.toLowerCase()} calculators with search and sorting tools.`,
     alternates: { canonical: `${BASE_URL}/category/${slug}` },
+    robots: {
+      index: false,
+      follow: false,
+    },
   };
 }
 

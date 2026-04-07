@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ALL_CALCULATORS } from "@/lib/all-calculators";
 import { CATEGORY_MAP } from "@/lib/categories";
+import { CORE_CALCULATOR_SET } from "@/lib/strategy/core-calculators";
 
 export type SortMode = "a-z" | "z-a";
 
@@ -36,7 +37,7 @@ export default function CalculatorDirectoryPage({
   const category = (searchParams?.category || forcedCategory || "").trim().toLowerCase();
   const sort = normalizeSort(searchParams?.sort);
 
-  const all = ALL_CALCULATORS.map((item) => ({
+  const all = ALL_CALCULATORS.filter((item) => CORE_CALCULATOR_SET.has(item.id)).map((item) => ({
     id: item.id,
     name: normalizeLabel(item.id, item.name),
     category: CATEGORY_MAP[item.id] || "general",

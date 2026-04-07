@@ -4,8 +4,8 @@ import CalculatorDirectoryPage from "@/components/directory/CalculatorDirectoryP
 const BASE_URL = "https://mysmartcalculators.com";
 
 export const metadata: Metadata = {
-  title: "Calculator Directory | MySmartCalculators",
-  description: "Browse all calculators with search and category filters.",
+  title: "Core Calculator Directory | MySmartCalculators",
+  description: "Browse our core calculators with search and category filters.",
   alternates: { canonical: `${BASE_URL}/calculators` },
 };
 
