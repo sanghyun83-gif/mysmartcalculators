@@ -6,6 +6,29 @@ import { getRelatedCalculators, getCategoryInfo } from "@/lib/categories";
 import { ALL_CALCULATORS } from "@/lib/all-calculators";
 import { CORE_CALCULATOR_IDS, CORE_CALCULATOR_SET } from "@/lib/strategy/core-calculators";
 
+const CORE20_RELATED_MAP: Partial<Record<string, string[]>> = {
+    "mortgage": ["loan", "refinance", "home-afford", "tax", "workers-comp"],
+    "loan": ["mortgage", "refinance", "home-afford", "tax", "compound-interest"],
+    "refinance": ["mortgage", "loan", "home-afford", "tax", "workers-comp"],
+    "tax": ["self-employment", "loan", "mortgage", "refinance", "percentage"],
+    "self-employment": ["tax", "loan", "percentage", "time-calculator", "conversion"],
+    "home-afford": ["mortgage", "loan", "refinance", "tax", "compound-interest"],
+    "compound-interest": ["loan", "mortgage", "tip", "percentage", "conversion"],
+    "tip": ["percentage", "tax", "conversion", "loan", "time-calculator"],
+    "percentage": ["tip", "tax", "conversion", "scientific", "loan"],
+    "scientific": ["percentage", "conversion", "time-calculator", "date", "age"],
+    "time-calculator": ["date", "age", "conversion", "scientific", "percentage"],
+    "conversion": ["scientific", "percentage", "time-calculator", "date", "tip"],
+    "date": ["time-calculator", "age", "conversion", "pregnancy", "ovulation"],
+    "age": ["date", "time-calculator", "bmi", "calorie", "body-fat"],
+    "bmi": ["calorie", "body-fat", "age", "ovulation", "pregnancy"],
+    "calorie": ["bmi", "body-fat", "age", "time-calculator", "conversion"],
+    "body-fat": ["bmi", "calorie", "age", "percentage", "scientific"],
+    "pregnancy": ["ovulation", "date", "age", "bmi", "calorie"],
+    "ovulation": ["pregnancy", "date", "age", "bmi", "time-calculator"],
+    "workers-comp": ["loan", "tax", "refinance", "mortgage", "home-afford"],
+};
+
 interface RelatedCalculatorsProps {
     currentCalc: string;
     count?: number;
@@ -20,12 +43,16 @@ export function RelatedCalculators({ currentCalc, count = 5 }: RelatedCalculator
 
     const byIdName = new Map(ALL_CALCULATORS.map((calc) => [calc.id, calc.name]));
 
+    const mappedCore = (CORE20_RELATED_MAP[currentCalc] ?? [])
+        .filter((id) => CORE_CALCULATOR_SET.has(id))
+        .map((id) => ({ id, name: byIdName.get(id) || id }));
+
     const fallbackCore = CORE_CALCULATOR_IDS
         .filter((id) => id !== currentCalc)
         .map((id) => ({ id, name: byIdName.get(id) || id }));
 
     const dedup = new Map<string, { id: string; name: string }>();
-    [...relatedInCategory, ...fallbackCore].forEach((item) => {
+    [...mappedCore, ...relatedInCategory, ...fallbackCore].forEach((item) => {
         if (!dedup.has(item.id)) dedup.set(item.id, item);
     });
 

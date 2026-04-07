@@ -293,6 +293,16 @@ export default function HomeAffordClient() {
   }));
 
   const schedules = { baseline: baselineDetailed, extra: optimizedDetailed, biweekly: biweeklyDetailed } as const;
+  const recommendedTargetPrice = result ? Math.round(result.maxHomePrice * 0.9) : Math.round(baselineScenario.maxHomePrice * 0.9);
+  const monthlyHousingCap = (nIncome / 12) * 0.28;
+  const monthlyHeadroom = result ? monthlyHousingCap - result.monthlyPayment : 0;
+  const riskBandLabel = result
+    ? result.backEndDTI <= 33
+      ? "Low stress"
+      : result.backEndDTI <= 40
+      ? "Moderate stress"
+      : "High stress"
+    : "Pending";
   const activeSchedule = schedules[scheduleMode];
   const visibleRows = showFullSchedule ? activeSchedule.rows : activeSchedule.rows.slice(0, 24);
 
@@ -461,6 +471,24 @@ export default function HomeAffordClient() {
               />
             </section>
           )}
+
+          <div className="bg-white border border-slate-200 rounded-md shadow-sm p-4">
+            <h3 className="text-sm font-bold uppercase tracking-tight mb-3">Decision Snapshot</h3>
+            <div className="grid md:grid-cols-3 gap-2 text-sm">
+              <div className="p-3 rounded-md border border-slate-200 bg-slate-50">
+                <div className="text-[10px] uppercase text-slate-500">Recommended Target (90% rule)</div>
+                <div className="font-bold text-slate-900">{formatCurrency(recommendedTargetPrice)}</div>
+              </div>
+              <div className={`p-3 rounded-md border ${monthlyHeadroom >= 0 ? "border-emerald-200 bg-emerald-50 text-emerald-900" : "border-rose-200 bg-rose-50 text-rose-900"}`}>
+                <div className="text-[10px] uppercase">Monthly Headroom (28% cap)</div>
+                <div className="font-bold">{monthlyHeadroom >= 0 ? "+" : ""}{formatCurrency(monthlyHeadroom)}</div>
+              </div>
+              <div className="p-3 rounded-md border border-slate-200 bg-slate-50">
+                <div className="text-[10px] uppercase text-slate-500">Risk Band</div>
+                <div className="font-bold text-slate-900">{riskBandLabel}</div>
+              </div>
+            </div>
+          </div>
 
           <div className="bg-white border border-slate-200 rounded-md shadow-sm p-4">
             <h3 className="text-sm font-bold uppercase tracking-tight mb-3">Scenario Pack</h3>
@@ -633,14 +661,14 @@ export default function HomeAffordClient() {
         </section>
 
         <section className="bg-white border border-slate-200 rounded-md shadow-sm p-4">
-          <h3 className="text-sm font-bold mb-2">Related Tools</h3>
+          <h3 className="text-sm font-bold mb-2">Related Core20 Tools</h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
-            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/mortgage">Mortgage</Link>
-            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/down-payment">Down Payment</Link>
-            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/dti">DTI</Link>
-            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/closing-cost">Closing Cost</Link>
-            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/refinance">Refinance</Link>
-            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/loan">Loan</Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/mortgage">Mortgage Calculator</Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/loan">Loan Calculator</Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/refinance">Refinance Calculator</Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/tax">Tax Calculator</Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/compound-interest">Compound Interest</Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/workers-comp">Workers Comp Calculator</Link>
           </div>
         </section>
 

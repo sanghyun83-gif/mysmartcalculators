@@ -1226,26 +1226,14 @@ export default function RefinanceClient() {
         </section>
 
         <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
-          <h3 className="text-sm font-bold text-slate-900 mb-2">Related Refinance Tools</h3>
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Related Core20 Tools</h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
-            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/mortgage">
-              Mortgage Calculator
-            </Link>
-            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/dti">
-              DTI Calculator
-            </Link>
-            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/mortgage/amortization">
-              Mortgage Amortization
-            </Link>
-            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/mortgage/affordability">
-              Home Affordability
-            </Link>
-            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/salary">
-              Salary Calculator
-            </Link>
-            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/tax">
-              Tax Calculator
-            </Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/mortgage">Mortgage Calculator</Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/loan">Loan Calculator</Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/home-afford">Home Affordability</Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/tax">Tax Calculator</Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/workers-comp">Workers Comp Calculator</Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/compound-interest">Compound Interest</Link>
           </div>
         </section>
 

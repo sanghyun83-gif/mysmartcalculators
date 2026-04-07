@@ -1,11 +1,25 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { Ruler, ShieldCheck } from "lucide-react";
 import { CONVERSION_2026, convertUnit, formatPrecision } from "@/lib/calculators/conversion";
 
 type FAQItem = Readonly<{ question: string; answer: string }>;
 type Category = "length" | "mass" | "volume" | "temperature";
+
+type PopularConversion = { category: Category; from: string; to: string; input: number };
+
+const POPULAR_CONVERSIONS: PopularConversion[] = [
+  { category: "length", from: "km", to: "mi", input: 5 },
+  { category: "length", from: "m", to: "ft", input: 100 },
+  { category: "mass", from: "kg", to: "lb", input: 70 },
+  { category: "mass", from: "g", to: "oz", input: 500 },
+  { category: "volume", from: "l", to: "gal", input: 2 },
+  { category: "volume", from: "ml", to: "cup", input: 355 },
+  { category: "temperature", from: "c", to: "f", input: 22 },
+  { category: "temperature", from: "f", to: "c", input: 98.6 },
+];
 
 function FAQSection({ faqs }: { faqs: readonly FAQItem[] }) {
   return (
@@ -200,6 +214,43 @@ export default function ConversionClient() {
         </section>
 
         <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Category Coverage Guide</h3>
+          <div className="grid md:grid-cols-2 gap-2 text-sm">
+            <div className="p-3 rounded border border-slate-200 bg-slate-50"><span className="font-semibold">Length:</span> m, km, cm, mm, in, ft, yd, mi</div>
+            <div className="p-3 rounded border border-slate-200 bg-slate-50"><span className="font-semibold">Mass:</span> mg, g, kg, oz, lb</div>
+            <div className="p-3 rounded border border-slate-200 bg-slate-50"><span className="font-semibold">Volume:</span> ml, l, cup, pt, qt, gal</div>
+            <div className="p-3 rounded border border-slate-200 bg-slate-50"><span className="font-semibold">Temperature:</span> °C, °F, K</div>
+          </div>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Representative Conversion Scenarios</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead className="bg-slate-100 border-b border-slate-300">
+                <tr>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Category</th>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Expression</th>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Result</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200">
+                {POPULAR_CONVERSIONS.map((row, idx) => {
+                  const val = convertUnit(row.input, row.from, row.to, row.category);
+                  return (
+                    <tr key={`${row.category}-${idx}`} className="even:bg-slate-50">
+                      <td className="py-1.5 px-2 text-slate-700">{row.category}</td>
+                      <td className="py-1.5 px-2 text-slate-700">{row.input} {row.from} → {row.to}</td>
+                      <td className="py-1.5 px-2 text-slate-700 font-semibold">{formatPrecision(val)} {row.to}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
           <h3 className="text-sm font-bold text-slate-900 mb-2">Authority References</h3>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
@@ -218,6 +269,18 @@ export default function ConversionClient() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Related Core20 Tools</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+            <Link href="/scientific" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Scientific Calculator</Link>
+            <Link href="/percentage" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Percentage Calculator</Link>
+            <Link href="/time-calculator" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Time Calculator</Link>
+            <Link href="/date" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Date Calculator</Link>
+            <Link href="/tip" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Tip Calculator</Link>
+            <Link href="/age" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Age Calculator</Link>
           </div>
         </section>
       </article>

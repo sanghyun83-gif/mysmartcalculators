@@ -1,10 +1,20 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { CalendarDays, Clock3, ShieldCheck } from "lucide-react";
 import { AGE_2026, calculateAge } from "@/lib/calculators/age";
 
 type FAQItem = Readonly<{ question: string; answer: string }>;
+
+type AgeSystemRow = { system: string; rule: string; useCase: string };
+
+const INTERNATIONAL_AGE_SYSTEMS: AgeSystemRow[] = [
+  { system: "International age", rule: "Age increases on birthday (full years).", useCase: "Most legal/medical/global forms." },
+  { system: "Korean age (historical)", rule: "Age can be treated as birth year based.", useCase: "Legacy records/context comparisons." },
+  { system: "Insurance underwriting", rule: "Nearest birthday or age-last-birthday policy varies.", useCase: "Policy pricing and risk tables." },
+  { system: "School admission", rule: "Cutoff date determines cohort age.", useCase: "Academic year placement." },
+];
 
 function FAQSection({ faqs }: { faqs: readonly FAQItem[] }) {
   return (
@@ -200,6 +210,40 @@ export default function AgeClient() {
         </section>
 
         <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">International Age System Guide</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead className="bg-slate-100 border-b border-slate-300">
+                <tr>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">System</th>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Rule</th>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Use Case</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200">
+                {INTERNATIONAL_AGE_SYSTEMS.map((row) => (
+                  <tr key={row.system} className="even:bg-slate-50">
+                    <td className="py-1.5 px-2 text-slate-700">{row.system}</td>
+                    <td className="py-1.5 px-2 text-slate-700">{row.rule}</td>
+                    <td className="py-1.5 px-2 text-slate-700">{row.useCase}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Assumptions and Limits</h3>
+          <ul className="text-sm text-slate-700 list-disc pl-5 space-y-1">
+            <li>Age is calculated on Gregorian calendar date boundaries.</li>
+            <li>Timezone cutoffs can affect same-day age transitions around midnight.</li>
+            <li>Legal age thresholds may use local statutes beyond calendar age.</li>
+            <li>For underwriting, check carrier rule (nearest birthday vs last birthday).</li>
+          </ul>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
           <h3 className="text-sm font-bold text-slate-900 mb-2">Authority References</h3>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
@@ -218,6 +262,18 @@ export default function AgeClient() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Related Core20 Tools</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+            <Link href="/date" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Date Calculator</Link>
+            <Link href="/time-calculator" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Time Calculator</Link>
+            <Link href="/bmi" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">BMI Calculator</Link>
+            <Link href="/calorie" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Calorie Calculator</Link>
+            <Link href="/body-fat" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Body Fat Calculator</Link>
+            <Link href="/ovulation" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Ovulation Calculator</Link>
           </div>
         </section>
       </article>

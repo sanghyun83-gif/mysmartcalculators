@@ -6,7 +6,7 @@ import { useMemo, useRef, useState } from "react";
 import { Activity, ShieldCheck, Link2 } from "lucide-react";
 import { sendGaEvent } from "@/lib/analytics/ga";
 import { CALORIE_2026, calculateCalories, formatNumber } from "@/lib/calculators/calorie";
-import { CALORIE_EVIDENCE_MATRIX, CALORIE_SCENARIO_CLUSTERS } from "@/lib/calorie/evidence";
+import { CALORIE_EVIDENCE_MATRIX } from "@/lib/calorie/evidence";
 
 type FAQItem = {
   question: string;
@@ -504,17 +504,14 @@ export default function CalorieClient({ focusTitle, focusSummary, initialValues 
         </section>
 
         <section className="bg-white border border-slate-200 rounded-md p-4">
-          <h2 className="text-base font-bold mb-2">Distribution Moat</h2>
+          <h2 className="text-base font-bold mb-2">Related Core20 Tools</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
-            {CALORIE_SCENARIO_CLUSTERS.map((scenario) => (
-              <Link key={scenario.slug} href={`/calorie/${scenario.slug}`} className="rounded border border-emerald-200 bg-emerald-50 px-3 py-2 hover:bg-emerald-100">{scenario.title}</Link>
-            ))}
             <Link href="/bmi" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">BMI Calculator</Link>
             <Link href="/body-fat" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Body Fat Calculator</Link>
             <Link href="/age" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Age Calculator</Link>
-            <Link href="/ovulation" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Ovulation Calculator</Link>
+            <Link href="/time-calculator" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Time Calculator</Link>
             <Link href="/conversion" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Unit Conversion</Link>
-            <Link href="/scientific" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Scientific Calculator</Link>
+            <Link href="/ovulation" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Ovulation Calculator</Link>
           </div>
         </section>
 

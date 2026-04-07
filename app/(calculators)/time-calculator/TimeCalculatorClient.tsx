@@ -1,10 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Clock3, ShieldCheck } from "lucide-react";
 import { TIME_CALCULATOR_2026, TimeCalculatorEngine } from "@/lib/calculators/time-calculator";
 
 type FAQItem = Readonly<{ question: string; answer: string }>;
+
+type TimeScenario = { caseLabel: string; setup: string; decisionNote: string };
+
+const WORK_TIME_SCENARIOS: TimeScenario[] = [
+  { caseLabel: "Shift length", setup: "08:30:00 → 17:45:00", decisionNote: "Validate paid hours before overtime." },
+  { caseLabel: "Break-adjusted block", setup: "09:00:00 → 18:00:00, subtract 01:00:00", decisionNote: "Use net productive hours for payroll." },
+  { caseLabel: "SLA countdown", setup: "Start + 04:00:00", decisionNote: "Track response windows in support ops." },
+  { caseLabel: "Cross-midnight work", setup: "22:15:00 → 06:00:00", decisionNote: "Confirm overnight shift handling policy." },
+  { caseLabel: "Hand-off buffer", setup: "End + 00:15:00", decisionNote: "Reserve transition time between teams." },
+];
 
 function sanitize(input: string): string {
   return input.replace(/[^0-9-]/g, "");
@@ -173,6 +184,30 @@ export default function TimeCalculatorClient() {
         </section>
 
         <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Work/Shift Scenario Pack</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead className="bg-slate-100 border-b border-slate-300">
+                <tr>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Scenario</th>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Setup</th>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Decision Note</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200">
+                {WORK_TIME_SCENARIOS.map((row) => (
+                  <tr key={row.caseLabel} className="even:bg-slate-50">
+                    <td className="py-1.5 px-2 text-slate-700">{row.caseLabel}</td>
+                    <td className="py-1.5 px-2 text-slate-700">{row.setup}</td>
+                    <td className="py-1.5 px-2 text-slate-700">{row.decisionNote}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
           <h3 className="text-sm font-bold text-slate-900 mb-2">Authority References</h3>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
@@ -191,6 +226,18 @@ export default function TimeCalculatorClient() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Related Core20 Tools</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+            <Link href="/date" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Date Calculator</Link>
+            <Link href="/age" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Age Calculator</Link>
+            <Link href="/conversion" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Unit Conversion</Link>
+            <Link href="/scientific" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Scientific Calculator</Link>
+            <Link href="/percentage" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Percentage Calculator</Link>
+            <Link href="/tip" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Tip Calculator</Link>
           </div>
         </section>
       </article>

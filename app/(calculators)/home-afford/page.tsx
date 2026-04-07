@@ -24,6 +24,18 @@ const FAQ_SCHEMA = [
     answer: "It is a planning benchmark for housing ratio and total debt ratio.",
   },
   {
+    question: "Why does APR change affordability so quickly?",
+    answer: "Small APR shifts can materially change monthly payment and maximum purchase power in long-term mortgages.",
+  },
+  {
+    question: "Should I target the maximum affordability number?",
+    answer: "Conservative buyers usually target below the maximum estimate to keep cash-flow headroom for maintenance and rate risk.",
+  },
+  {
+    question: "Does this include taxes, insurance, and HOA?",
+    answer: "Yes, the affordability model uses tax, insurance, and HOA assumptions as monthly ownership cost inputs.",
+  },
+  {
     question: "Is this lender approval?",
     answer: "No. It is planning guidance before lender underwriting.",
   },

@@ -12,7 +12,6 @@ import {
 } from "@/lib/calculators/self-employment";
 import {
   SELF_EMPLOYMENT_EVIDENCE_MATRIX,
-  SELF_EMPLOYMENT_SCENARIO_CLUSTERS,
 } from "@/lib/self-employment/evidence";
 
 type TimelineStage = {
@@ -573,26 +572,14 @@ export default function SelfEmploymentClient({
         </section>
 
         <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
-          <h2 className="text-base font-bold mb-2">Distribution Moat</h2>
+          <h2 className="text-base font-bold mb-2">Related Core20 Tools</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
-            {SELF_EMPLOYMENT_SCENARIO_CLUSTERS.map((cluster) => (
-              <Link
-                key={cluster.slug}
-                href={`/self-employment/${cluster.slug}`}
-                className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50"
-              >
-                {cluster.title}
-              </Link>
-            ))}
-            <Link href="/self-employment/se-tax-calculator" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">
-              SE Tax Calculator Focus
-            </Link>
-            <Link href="/self-employment/deductions-guide" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">
-              Deductions Planning Focus
-            </Link>
-            <Link href="/tax/self-employed" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">
-              Tax Hub: Self-Employed
-            </Link>
+            <Link href="/tax" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Tax Calculator</Link>
+            <Link href="/loan" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Loan Calculator</Link>
+            <Link href="/percentage" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Percentage Calculator</Link>
+            <Link href="/time-calculator" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Time Calculator</Link>
+            <Link href="/conversion" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Unit Conversion</Link>
+            <Link href="/mortgage" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Mortgage Calculator</Link>
           </div>
         </section>
       </article>

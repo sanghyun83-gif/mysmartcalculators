@@ -79,8 +79,8 @@ export default function GlobalHeader() {
                         <Link href="/#search-results" className="text-2xl font-bold flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded-2xl" onClick={() => setIsMobileMenuOpen(false)}>
                             <span>Core Search</span> <Activity className="w-6 h-6 text-emerald-500" />
                         </Link>
-                        <Link href="/category/finance" className="text-2xl font-bold flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded-2xl" onClick={() => setIsMobileMenuOpen(false)}>
-                            <span>Finance Focus</span> <Landmark className="w-6 h-6 text-blue-500" />
+                        <Link href="/mortgage" className="text-2xl font-bold flex items-center justify-between p-4 bg-slate-900 border border-slate-800 rounded-2xl" onClick={() => setIsMobileMenuOpen(false)}>
+                            <span>Mortgage Calculator</span> <Landmark className="w-6 h-6 text-blue-500" />
                         </Link>
                         <div className="h-px bg-slate-800 my-6" />
                         <Link href="/about" className="text-lg text-slate-400 font-bold flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)}>

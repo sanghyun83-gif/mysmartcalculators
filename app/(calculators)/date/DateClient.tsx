@@ -1,10 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { CalendarRange, ShieldCheck } from "lucide-react";
 import { DATE_2026, DateEngine } from "@/lib/calculators/date";
 
 type FAQItem = Readonly<{ question: string; answer: string }>;
+
+type BusinessCase = { caseLabel: string; window: string; watchpoint: string };
+
+const BUSINESS_DAY_CASES: BusinessCase[] = [
+  { caseLabel: "Invoice due date", window: "Issue + 30 days", watchpoint: "Confirm weekend/holiday policy." },
+  { caseLabel: "Payroll lock", window: "Period end + 2 business days", watchpoint: "Check country-specific holidays." },
+  { caseLabel: "Contract notice", window: "T-60 days", watchpoint: "Use local legal calendar assumptions." },
+  { caseLabel: "Appeal deadline", window: "Decision + 14 days", watchpoint: "Cutoff may be calendar days, not business days." },
+  { caseLabel: "Shipping SLA", window: "Order + 5 business days", watchpoint: "Warehouse blackout dates can shift ETA." },
+];
 
 function FAQSection({ faqs }: { faqs: readonly FAQItem[] }) {
   return (
@@ -24,13 +35,6 @@ function FAQSection({ faqs }: { faqs: readonly FAQItem[] }) {
       ))}
     </div>
   );
-}
-
-function toIsoDate(date: Date): string {
-  const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, "0");
-  const d = String(date.getDate()).padStart(2, "0");
-  return `${y}-${m}-${d}`;
 }
 
 function formatDate(date: Date): string {
@@ -219,6 +223,40 @@ export default function DateClient() {
         </section>
 
         <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Business-Day Scenario Cases</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead className="bg-slate-100 border-b border-slate-300">
+                <tr>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Case</th>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Window</th>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Watchpoint</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200">
+                {BUSINESS_DAY_CASES.map((row) => (
+                  <tr key={row.caseLabel} className="even:bg-slate-50">
+                    <td className="py-1.5 px-2 text-slate-700">{row.caseLabel}</td>
+                    <td className="py-1.5 px-2 text-slate-700">{row.window}</td>
+                    <td className="py-1.5 px-2 text-slate-700">{row.watchpoint}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Assumptions and Limits</h3>
+          <ul className="text-sm text-slate-700 list-disc pl-5 space-y-1">
+            <li>Business-day count excludes Saturday/Sunday only by default.</li>
+            <li>Public holidays are not automatically removed unless modeled separately.</li>
+            <li>All calculations use Gregorian calendar with local timezone interpretation.</li>
+            <li>Legal and compliance deadlines should be validated against governing rules.</li>
+          </ul>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
           <h3 className="text-sm font-bold text-slate-900 mb-2">Authority References</h3>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
@@ -237,6 +275,18 @@ export default function DateClient() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Related Core20 Tools</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+            <Link href="/time-calculator" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Time Calculator</Link>
+            <Link href="/age" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Age Calculator</Link>
+            <Link href="/conversion" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Unit Conversion</Link>
+            <Link href="/pregnancy" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Pregnancy Calculator</Link>
+            <Link href="/ovulation" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Ovulation Calculator</Link>
+            <Link href="/scientific" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Scientific Calculator</Link>
           </div>
         </section>
       </article>

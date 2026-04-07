@@ -270,6 +270,8 @@ export default function LoanClient() {
         )
       : 0;
   const aprDelta = feeAwareApr - parsedRate;
+  const paymentPer10k = result && parsedAmount > 0 ? result.monthlyPayment / (parsedAmount / 10000) : 0;
+  const totalInterestRatio = result && parsedAmount > 0 ? (result.totalInterest / parsedAmount) * 100 : 0;
 
   const scheduleByMode = {
     baseline: baselineDetailed,
@@ -657,6 +659,28 @@ export default function LoanClient() {
                   <div className="p-3 rounded-md border text-rose-800 bg-rose-50 border-rose-200 font-bold">
                     <div className="text-[10px] uppercase tracking-wide">Total Payment</div>
                     <div className="text-2xl font-black">{formatCurrency(result.totalPayment)}</div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+              <h3 className="text-sm font-bold text-slate-800 uppercase tracking-tight mb-3">Decision Snapshot</h3>
+              {!result ? (
+                <p className="text-sm text-slate-500">Calculate first to unlock decision guidance.</p>
+              ) : (
+                <div className="grid md:grid-cols-3 gap-2 text-sm">
+                  <div className="p-2 rounded border border-slate-200 bg-slate-50">
+                    <div className="text-[10px] uppercase text-slate-500">Monthly per $10k Borrowed</div>
+                    <div className="font-bold text-slate-900">{formatCurrency(paymentPer10k)}</div>
+                  </div>
+                  <div className={`p-2 rounded border ${totalInterestRatio > 60 ? "border-amber-200 bg-amber-50 text-amber-900" : "border-emerald-200 bg-emerald-50 text-emerald-900"}`}>
+                    <div className="text-[10px] uppercase">Interest Burden vs Principal</div>
+                    <div className="font-bold">{totalInterestRatio.toFixed(1)}%</div>
+                  </div>
+                  <div className="p-2 rounded border border-slate-200 bg-slate-50">
+                    <div className="text-[10px] uppercase text-slate-500">Action Hint</div>
+                    <div className="font-bold text-slate-900">{totalInterestRatio > 60 ? "Test shorter term / extra plan" : "Structure looks efficient"}</div>
                   </div>
                 </div>
               )}
@@ -1077,26 +1101,14 @@ export default function LoanClient() {
         </section>
 
         <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
-          <h3 className="text-sm font-bold text-slate-900 mb-2">Related Loan Tools</h3>
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Related Core20 Tools</h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
-            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/mortgage">
-              Mortgage Calculator
-            </Link>
-            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/dti">
-              DTI Calculator
-            </Link>
-            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/student-loan">
-              Student Loan
-            </Link>
-            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/self-employment">
-              Self-Employment Tax
-            </Link>
-            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/salary">
-              Salary Calculator
-            </Link>
-            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/tax">
-              Tax Calculator
-            </Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/mortgage">Mortgage Calculator</Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/refinance">Refinance Calculator</Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/home-afford">Home Affordability</Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/tax">Tax Calculator</Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/compound-interest">Compound Interest</Link>
+            <Link className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2 hover:bg-slate-100" href="/self-employment">Self Employment Tax</Link>
           </div>
         </section>
 

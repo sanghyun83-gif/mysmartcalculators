@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import {
     Scale, ShieldCheck, Zap, Microscope, Activity, Target
 } from "lucide-react";
@@ -39,7 +40,9 @@ function BodyFatGauge({ percentage }: { percentage: number }) {
     );
 }
 
-const FAQSection = ({ faqs }: { faqs: readonly any[] }) => (
+type FAQItem = { question: string; answer: string };
+
+const FAQSection = ({ faqs }: { faqs: readonly FAQItem[] }) => (
     <div className="max-w-3xl mx-auto px-4 space-y-2">
         {faqs.map((faq, i) => (
             <details key={i} className="group bg-white border border-slate-200 rounded-md hover:border-slate-300 transition-all cursor-pointer">
@@ -280,6 +283,18 @@ export default function BodyFatClient() {
                             </p>
                         </div>
                     </div>
+
+                    <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+                        <h3 className="text-sm font-bold text-slate-900 mb-2">Related Core20 Tools</h3>
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+                            <Link href="/bmi" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">BMI Calculator</Link>
+                            <Link href="/calorie" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Calorie Calculator</Link>
+                            <Link href="/age" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Age Calculator</Link>
+                            <Link href="/percentage" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Percentage Calculator</Link>
+                            <Link href="/scientific" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Scientific Calculator</Link>
+                            <Link href="/time-calculator" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Time Calculator</Link>
+                        </div>
+                    </section>
 
                     <div className="bg-slate-100 rounded-xl p-8 border border-slate-200">
                         <div className="text-center mb-8">

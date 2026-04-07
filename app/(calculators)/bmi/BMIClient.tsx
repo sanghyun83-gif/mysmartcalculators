@@ -744,14 +744,14 @@ export default function BMIClient() {
                 </section>
 
                 <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
-                    <h2 className="text-base font-bold mb-2">Distribution Moat</h2>
+                    <h2 className="text-base font-bold mb-2">Related Core20 Tools</h2>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
-                        <Link href="/body-fat" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Body Fat Calculator</Link>
                         <Link href="/calorie" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Calorie Calculator</Link>
+                        <Link href="/body-fat" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Body Fat Calculator</Link>
                         <Link href="/age" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Age Calculator</Link>
-                        <Link href="/conversion" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Unit Conversion</Link>
+                        <Link href="/ovulation" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Ovulation Calculator</Link>
+                        <Link href="/pregnancy" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Pregnancy Calculator</Link>
                         <Link href="/time-calculator" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Time Calculator</Link>
-                        <Link href="/scientific" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Scientific Calculator</Link>
                     </div>
                 </section>
             </article>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Baby, CalendarDays, ShieldCheck } from "lucide-react";
 import { PREGNANCY_2026, calculatePregnancy } from "@/lib/calculators/pregnancy";
 
@@ -165,7 +166,7 @@ export default function PregnancyClient() {
             <div className="bg-white border border-slate-200 shadow-sm rounded-md p-3">
               <div className="text-xs text-slate-500 uppercase font-bold mb-1">Method Notes</div>
               <p className="text-sm text-slate-700 leading-relaxed">
-                LMP uses Naegele's rule with cycle adjustment. Conception and IVF methods use known fertilization timing. Ultrasound mode back-calculates gestational age from an established due date.
+                LMP uses Naegele&apos;s rule with cycle adjustment. Conception and IVF methods use known fertilization timing. Ultrasound mode back-calculates gestational age from an established due date.
               </p>
             </div>
           </div>
@@ -290,6 +291,18 @@ export default function PregnancyClient() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Related Core20 Tools</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+            <Link href="/ovulation" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Ovulation Calculator</Link>
+            <Link href="/date" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Date Calculator</Link>
+            <Link href="/age" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Age Calculator</Link>
+            <Link href="/bmi" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">BMI Calculator</Link>
+            <Link href="/calorie" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Calorie Calculator</Link>
+            <Link href="/time-calculator" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Time Calculator</Link>
           </div>
         </section>
       </article>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { HandCoins, ShieldCheck } from "lucide-react";
 import { TIP_2026, calculateTip, formatCurrency } from "@/lib/calculators/tip";
 
@@ -34,6 +35,7 @@ export default function TipClient() {
   const [billAmount, setBillAmount] = useState("85.00");
   const [tipPercent, setTipPercent] = useState("20");
   const [splitCount, setSplitCount] = useState("2");
+  const [serviceChargePercent, setServiceChargePercent] = useState("0");
   const [showResults, setShowResults] = useState(false);
 
   const faqs = (TIP_2026.faqs as readonly FAQItem[] | undefined) ?? [];
@@ -41,6 +43,7 @@ export default function TipClient() {
   const parsedBill = Number(billAmount) || 0;
   const parsedTip = Number(tipPercent) || 0;
   const parsedSplit = Math.max(1, Number(splitCount) || 1);
+  const parsedServiceCharge = Math.max(0, Number(serviceChargePercent) || 0);
 
   const result = (() => {
     if (!showResults || parsedBill <= 0 || parsedTip < 0 || parsedSplit <= 0) return null;
@@ -48,6 +51,16 @@ export default function TipClient() {
   })();
 
   const tipRateState = parsedTip >= 20 ? "text-emerald-800" : parsedTip >= 15 ? "text-amber-800" : "text-rose-800";
+  const serviceChargeAmount = (parsedBill * parsedServiceCharge) / 100;
+  const targetTipAt20 = (parsedBill * 20) / 100;
+  const suggestedAdditionalTip = Math.max(0, targetTipAt20 - serviceChargeAmount);
+  const splitScenarioRows = [2, 4, 6].map((people) => {
+    const tipAmount = (parsedBill * parsedTip) / 100;
+    return {
+      people,
+      perPerson: people > 0 ? (parsedBill + tipAmount) / people : 0,
+    };
+  });
 
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
@@ -119,6 +132,20 @@ export default function TipClient() {
                   </div>
                 </div>
 
+                <div className="space-y-1">
+                  <label className="text-sm font-semibold text-slate-700">Service Charge Already Included (optional)</label>
+                  <div className="flex flex-row items-center gap-2">
+                    <input
+                      type="text"
+                      inputMode="decimal"
+                      value={serviceChargePercent}
+                      onChange={(e) => setServiceChargePercent(cleanNumber(e.target.value))}
+                      className="w-full h-9 px-2 bg-white border border-slate-300 text-sm text-slate-900 rounded-md shadow-sm"
+                    />
+                    <span className="text-xs text-slate-500">%</span>
+                  </div>
+                </div>
+
                 <button
                   type="button"
                   onClick={() => setShowResults(true)}
@@ -186,6 +213,36 @@ export default function TipClient() {
             </div>
 
             <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+              <h3 className="text-sm font-bold text-slate-800 uppercase tracking-tight mb-3">Service Charge Decision Snapshot</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-sm">
+                <div className="p-2 rounded border border-slate-200 bg-slate-50">
+                  <div className="text-xs text-slate-500 uppercase">Included Service Charge</div>
+                  <div className="font-bold text-slate-800">{parsedServiceCharge.toFixed(1)}% ({formatCurrency(serviceChargeAmount)})</div>
+                </div>
+                <div className="p-2 rounded border border-slate-200 bg-slate-50">
+                  <div className="text-xs text-slate-500 uppercase">Target at 20%</div>
+                  <div className="font-bold text-slate-800">{formatCurrency(targetTipAt20)}</div>
+                </div>
+                <div className="p-2 rounded border border-slate-200 bg-slate-50">
+                  <div className="text-xs text-slate-500 uppercase">Suggested Additional Tip</div>
+                  <div className="font-bold text-slate-800">{formatCurrency(suggestedAdditionalTip)}</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+              <h3 className="text-sm font-bold text-slate-800 uppercase tracking-tight mb-3">Split-Bill Scenarios</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-sm">
+                {splitScenarioRows.map((row) => (
+                  <div key={row.people} className="p-2 rounded border border-slate-200 bg-slate-50">
+                    <div className="text-xs text-slate-500 uppercase">{row.people} people</div>
+                    <div className="font-bold text-slate-800">{formatCurrency(row.perPerson)} per person</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
               <h3 className="text-sm font-bold text-slate-800 uppercase tracking-tight mb-3">Reference Table</h3>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm border-collapse">
@@ -221,6 +278,16 @@ export default function TipClient() {
         </section>
 
         <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Assumptions and Limits</h3>
+          <ul className="text-sm text-slate-700 list-disc pl-5 space-y-1">
+            <li>Calculator assumes bill total before discretionary extra tip adjustments.</li>
+            <li>Service charge handling varies by venue and local norm.</li>
+            <li>Tax-included vs pre-tax tipping practice can differ by location.</li>
+            <li>Use this as a planning aid, then adjust for service quality and policy.</li>
+          </ul>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
           <h3 className="text-sm font-bold text-slate-900 mb-2">Authority References</h3>
           <div className="overflow-x-auto">
             <table className="w-full text-sm border-collapse">
@@ -239,6 +306,18 @@ export default function TipClient() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Related Core20 Tools</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+            <Link href="/percentage" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Percentage Calculator</Link>
+            <Link href="/tax" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Tax Calculator</Link>
+            <Link href="/conversion" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Unit Conversion</Link>
+            <Link href="/loan" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Loan Calculator</Link>
+            <Link href="/time-calculator" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Time Calculator</Link>
+            <Link href="/compound-interest" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Compound Interest</Link>
           </div>
         </section>
       </article>

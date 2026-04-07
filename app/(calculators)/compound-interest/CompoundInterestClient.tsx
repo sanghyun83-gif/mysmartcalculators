@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ChartNoAxesCombined, ShieldCheck } from "lucide-react";
 import {
   COMPOUND_2026,
@@ -280,6 +281,18 @@ export default function CompoundInterestClient() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Related Core20 Tools</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+            <Link href="/loan" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Loan Calculator</Link>
+            <Link href="/mortgage" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Mortgage Calculator</Link>
+            <Link href="/tip" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Tip Calculator</Link>
+            <Link href="/percentage" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Percentage Calculator</Link>
+            <Link href="/conversion" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Unit Conversion</Link>
+            <Link href="/refinance" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Refinance Calculator</Link>
           </div>
         </section>
       </article>

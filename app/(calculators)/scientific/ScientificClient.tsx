@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Binary, ShieldCheck } from "lucide-react";
 import {
   CALCULATORS,
@@ -15,6 +16,16 @@ import {
 } from "@/lib/calculators/scientific";
 
 type FAQItem = Readonly<{ question: string; answer: string }>;
+
+type RoadmapItem = { feature: string; status: "Live" | "Planned"; note: string };
+
+const SCIENTIFIC_ROADMAP: RoadmapItem[] = [
+  { feature: "Core binary/unary operations", status: "Live", note: "Arithmetic, trig, logs, roots." },
+  { feature: "Angle mode + precision control", status: "Live", note: "Degree/radian and 0~12 decimals." },
+  { feature: "History panel", status: "Planned", note: "Track last N calculations for audit trails." },
+  { feature: "Memory register (M+/MR/MC)", status: "Planned", note: "Persistent session memory workflow." },
+  { feature: "Expression parser", status: "Planned", note: "Single-line formula evaluation roadmap." },
+];
 
 function FAQSection({ faqs }: { faqs: readonly FAQItem[] }) {
   return (
@@ -235,6 +246,52 @@ export default function ScientificClient() {
             This calculator is designed for fast numeric verification in math, finance, and science. For high-stakes engineering
             decisions, validate with independent software and source equations.
           </p>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Feature Roadmap (Trust & Capability)</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead className="bg-slate-100 border-b border-slate-300">
+                <tr>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Feature</th>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Status</th>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Note</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200">
+                {SCIENTIFIC_ROADMAP.map((row) => (
+                  <tr key={row.feature} className="even:bg-slate-50">
+                    <td className="py-1.5 px-2 text-slate-700">{row.feature}</td>
+                    <td className="py-1.5 px-2 text-slate-700 font-semibold">{row.status}</td>
+                    <td className="py-1.5 px-2 text-slate-700">{row.note}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Assumptions and Domain Limits</h3>
+          <ul className="text-sm text-slate-700 list-disc pl-5 space-y-1">
+            <li>Trig function interpretation depends on selected angle mode (deg/rad).</li>
+            <li>log/ln require positive input; division by zero returns undefined.</li>
+            <li>Floating point math follows IEEE-754 behavior and rounding limits.</li>
+            <li>Use independent tools for certified engineering and safety-critical outputs.</li>
+          </ul>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Related Core20 Tools</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+            <Link href="/percentage" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Percentage Calculator</Link>
+            <Link href="/conversion" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Unit Conversion</Link>
+            <Link href="/time-calculator" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Time Calculator</Link>
+            <Link href="/date" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Date Calculator</Link>
+            <Link href="/age" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Age Calculator</Link>
+            <Link href="/tip" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Tip Calculator</Link>
+          </div>
         </section>
       </article>
 

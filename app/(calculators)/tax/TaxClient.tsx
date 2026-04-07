@@ -12,7 +12,7 @@ import {
   calculateTax,
   formatCurrency,
 } from "@/lib/calculators/tax";
-import { TAX_EVIDENCE_MATRIX, TAX_SCENARIO_CLUSTERS } from "@/lib/tax/evidence";
+import { TAX_EVIDENCE_MATRIX } from "@/lib/tax/evidence";
 
 type TimelineStage = {
   stage: string;
@@ -434,16 +434,14 @@ export default function TaxClient({ focusTitle, focusSummary, initialValues }: T
         </section>
 
         <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
-          <h2 className="text-base font-bold mb-2">Distribution Moat</h2>
+          <h2 className="text-base font-bold mb-2">Related Core20 Tools</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
-            {TAX_SCENARIO_CLUSTERS.map((cluster) => (
-              <Link key={cluster.slug} href={`/tax/${cluster.slug}`} className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">
-                {cluster.title}
-              </Link>
-            ))}
-            <Link href="/tax/brackets" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Tax Brackets Hub</Link>
-            <Link href="/tax/refund" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Refund Estimator</Link>
             <Link href="/self-employment" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Self Employment Tax</Link>
+            <Link href="/loan" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Loan Calculator</Link>
+            <Link href="/mortgage" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Mortgage Calculator</Link>
+            <Link href="/refinance" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Refinance Calculator</Link>
+            <Link href="/percentage" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Percentage Calculator</Link>
+            <Link href="/compound-interest" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Compound Interest</Link>
           </div>
         </section>
       </article>

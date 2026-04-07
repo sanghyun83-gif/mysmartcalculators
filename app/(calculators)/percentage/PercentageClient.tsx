@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Percent, ShieldCheck } from "lucide-react";
 import {
   CALCULATORS,
@@ -12,6 +13,35 @@ import {
 
 type Mode = "percentOf" | "whatPercent" | "change" | "difference";
 type FAQItem = Readonly<{ question: string; answer: string }>;
+
+type WorkedExample = {
+  caseLabel: string;
+  expression: string;
+  result: string;
+};
+
+const WORKED_EXAMPLES: WorkedExample[] = [
+  { caseLabel: "Retail discount", expression: "20% of 150", result: "30" },
+  { caseLabel: "Commission", expression: "12% of 8,500", result: "1,020" },
+  { caseLabel: "Reverse percent", expression: "45 is what % of 180", result: "25%" },
+  { caseLabel: "Tax portion", expression: "9.5 is what % of 95", result: "10%" },
+  { caseLabel: "Growth", expression: "100 to 125", result: "+25%" },
+  { caseLabel: "Decline", expression: "250 to 200", result: "-20%" },
+  { caseLabel: "Price increase", expression: "79 to 92", result: "+16.46%" },
+  { caseLabel: "Price drop", expression: "540 to 486", result: "-10%" },
+  { caseLabel: "Budget allocation", expression: "35% of 3,000", result: "1,050" },
+  { caseLabel: "Savings rate", expression: "600 is what % of 4,000", result: "15%" },
+  { caseLabel: "Attendance gain", expression: "120 to 138", result: "+15%" },
+  { caseLabel: "Traffic loss", expression: "90,000 to 72,000", result: "-20%" },
+  { caseLabel: "Variance", expression: "A=95, B=105", result: "10% diff" },
+  { caseLabel: "Margin check", expression: "30 is what % of 240", result: "12.5%" },
+  { caseLabel: "Tip quick calc", expression: "18% of 84", result: "15.12" },
+  { caseLabel: "Medical copay", expression: "30% of 260", result: "78" },
+  { caseLabel: "Revenue uplift", expression: "1.2M to 1.35M", result: "+12.5%" },
+  { caseLabel: "Cost reduction", expression: "420k to 378k", result: "-10%" },
+  { caseLabel: "Plan completion", expression: "82 of 120", result: "68.33%" },
+  { caseLabel: "Delta spread", expression: "A=64, B=80", result: "22.22% diff" },
+];
 
 function FAQSection({ faqs }: { faqs: readonly FAQItem[] }) {
   return (
@@ -37,10 +67,12 @@ export default function PercentageClient() {
   const [mode, setMode] = useState<Mode>("percentOf");
   const [valueA, setValueA] = useState("20");
   const [valueB, setValueB] = useState("150");
+  const [showResults, setShowResults] = useState(false);
 
   const faqs = (CALCULATORS.find((c) => c.id === "percentage/calculator")?.faqs as readonly FAQItem[] | undefined) ?? [];
 
   const result = (() => {
+    if (!showResults) return null;
     const a = Number(valueA) || 0;
     const b = Number(valueB) || 0;
 
@@ -58,10 +90,30 @@ export default function PercentageClient() {
   })();
 
   const resultStyles = (() => {
-    if (mode === "change") return result >= 0 ? "text-emerald-800 bg-emerald-50 border-emerald-200" : "text-rose-800 bg-rose-50 border-rose-200";
+    if (mode === "change") return (result ?? 0) >= 0 ? "text-emerald-800 bg-emerald-50 border-emerald-200" : "text-rose-800 bg-rose-50 border-rose-200";
     if (mode === "difference") return "text-amber-800 bg-amber-50 border-amber-200";
     return "text-emerald-800 bg-emerald-50 border-emerald-200";
   })();
+
+  const modeHint =
+    mode === "percentOf"
+      ? "Use this for quick value extraction (discount, commission, tax)."
+      : mode === "whatPercent"
+      ? "Use this when you know part and whole, and need the percentage share."
+      : mode === "change"
+      ? "Use this for growth/decline from A to B."
+      : "Use this for relative spread between two values.";
+
+  function handleCalculate() {
+    setShowResults(true);
+  }
+
+  function handleReset() {
+    setMode("percentOf");
+    setValueA("20");
+    setValueB("150");
+    setShowResults(false);
+  }
 
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
@@ -116,8 +168,12 @@ export default function PercentageClient() {
                   </div>
                 </div>
 
-                <button type="button" className="w-full h-10 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-md text-sm">
+                <p className="text-xs text-slate-500">{modeHint}</p>
+                <button type="button" onClick={handleCalculate} className="w-full h-10 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-md text-sm">
                   Calculate Percentage
+                </button>
+                <button type="button" onClick={handleReset} className="w-full h-9 border border-slate-300 bg-white text-slate-700 font-semibold rounded-md text-sm">
+                  Reset
                 </button>
               </div>
             </div>
@@ -133,10 +189,16 @@ export default function PercentageClient() {
           <div className="lg:col-span-7 lg:sticky lg:top-8 space-y-4">
             <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
               <h2 className="text-sm font-bold text-slate-800 uppercase tracking-tight mb-3">Calculation Result</h2>
-              <div className={`p-3 rounded-md border ${resultStyles}`}>
-                <div className="text-xs uppercase tracking-wide mb-1 font-bold">{resultLabel}</div>
-                <div className="text-4xl font-black">{Number.isFinite(result) ? result.toFixed(2) : "0.00"}%</div>
-              </div>
+              {!showResults || result === null ? (
+                <div className="p-3 rounded-md border text-amber-800 bg-amber-50 border-amber-200 font-bold">
+                  Enter values and click Calculate Percentage.
+                </div>
+              ) : (
+                <div className={`p-3 rounded-md border ${resultStyles}`}>
+                  <div className="text-xs uppercase tracking-wide mb-1 font-bold">{resultLabel}</div>
+                  <div className="text-4xl font-black">{Number.isFinite(result) ? result.toFixed(2) : "0.00"}%</div>
+                </div>
+              )}
             </div>
 
             <div id="amortization" className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
@@ -221,6 +283,42 @@ export default function PercentageClient() {
             Inputs accept decimals and negative values where mathematically valid. A zero denominator returns zero by design
             to prevent invalid division output.
           </p>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Worked Examples (20)</h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead className="bg-slate-100 border-b border-slate-300">
+                <tr>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Case</th>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Expression</th>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Result</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200">
+                {WORKED_EXAMPLES.map((row) => (
+                  <tr key={`${row.caseLabel}-${row.expression}`} className="even:bg-slate-50">
+                    <td className="py-1.5 px-2 text-slate-700">{row.caseLabel}</td>
+                    <td className="py-1.5 px-2 text-slate-700">{row.expression}</td>
+                    <td className="py-1.5 px-2 text-slate-700 font-semibold">{row.result}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h3 className="text-sm font-bold text-slate-900 mb-2">Related Core20 Tools</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
+            <Link href="/tip" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Tip Calculator</Link>
+            <Link href="/tax" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Tax Calculator</Link>
+            <Link href="/conversion" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Unit Conversion</Link>
+            <Link href="/scientific" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Scientific Calculator</Link>
+            <Link href="/loan" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Loan Calculator</Link>
+            <Link href="/compound-interest" className="rounded border border-slate-200 px-3 py-2 hover:bg-slate-50">Compound Interest</Link>
+          </div>
         </section>
       </article>
 
