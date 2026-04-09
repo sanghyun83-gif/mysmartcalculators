@@ -333,7 +333,7 @@ export default function TaxClient({ focusTitle, focusSummary, initialValues }: T
             )}
 
             <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
-              <h3 className="text-sm font-bold uppercase tracking-tight mb-3">Claim Lifecycle Simulator (Tax Filing Lifecycle)</h3>
+              <h3 className="text-sm font-bold uppercase tracking-tight mb-3">Filing Timeline Simulator (Tax Filing Lifecycle)</h3>
               <table className="w-full text-sm border-collapse">
                 <thead className="bg-slate-100 border-b border-slate-300">
                   <tr><th className="text-left py-1.5 px-2 text-xs">Stage</th><th className="text-left py-1.5 px-2 text-xs">Window</th><th className="text-left py-1.5 px-2 text-xs">Action</th></tr>
@@ -347,7 +347,7 @@ export default function TaxClient({ focusTitle, focusSummary, initialValues }: T
             </div>
 
             <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
-              <h3 className="text-sm font-bold uppercase tracking-tight mb-3">Settlement Sensitivity Lab (Tax Outcome Range)</h3>
+              <h3 className="text-sm font-bold uppercase tracking-tight mb-3">Tax Sensitivity Lab (Tax Outcome Range)</h3>
               <table className="w-full text-sm border-collapse">
                 <thead className="bg-slate-100 border-b border-slate-300">
                   <tr><th className="text-left py-1.5 px-2 text-xs">Profile</th><th className="text-left py-1.5 px-2 text-xs">Final Tax</th><th className="text-left py-1.5 px-2 text-xs">Effective Rate</th><th className="text-left py-1.5 px-2 text-xs">Outcome</th></tr>
@@ -388,7 +388,7 @@ export default function TaxClient({ focusTitle, focusSummary, initialValues }: T
 
       <article className="py-10 max-w-5xl mx-auto px-6 space-y-8">
         <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
-          <h2 className="text-base font-bold mb-2">Authority Evidence Matrix</h2>
+          <h2 className="text-base font-bold mb-2">Official Sources & Review Log</h2>
           <table className="w-full text-sm border-collapse">
             <thead className="bg-slate-100 border-b border-slate-300">
               <tr><th className="text-left py-1.5 px-2 text-xs">Authority</th><th className="text-left py-1.5 px-2 text-xs">Topic</th><th className="text-left py-1.5 px-2 text-xs">Last Verified</th><th className="text-left py-1.5 px-2 text-xs">What Changed</th></tr>
@@ -421,7 +421,7 @@ export default function TaxClient({ focusTitle, focusSummary, initialValues }: T
         )}
 
         <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
-          <h2 className="text-base font-bold mb-2">Legal Readiness Pack (Tax Filing)</h2>
+          <h2 className="text-base font-bold mb-2">Filing Readiness Pack (Tax)</h2>
           <ul className="text-sm text-slate-700 list-disc pl-5 space-y-1">
             {readinessChecklist.map((item) => (<li key={item}>{item}</li>))}
           </ul>

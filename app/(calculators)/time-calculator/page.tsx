@@ -1,6 +1,7 @@
 import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { TIME_CALCULATOR_2026 } from "@/lib/calculators/time-calculator";
 import TimeCalculatorClient from "./TimeCalculatorClient";
+import Script from "next/script";
 
 const id = "time-calculator";
 const meta = getCalculatorMeta(id);
@@ -88,7 +89,7 @@ export default function TimeCalculatorPage() {
 
   return (
     <>
-      <script
+      <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         suppressHydrationWarning
@@ -97,4 +98,3 @@ export default function TimeCalculatorPage() {
     </>
   );
 }
-

@@ -1,6 +1,7 @@
 import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { CONVERSION_2026 } from "@/lib/calculators/conversion";
 import ConversionClient from "./ConversionClient";
+import Script from "next/script";
 
 const id = "conversion";
 const meta = getCalculatorMeta(id);
@@ -87,7 +88,7 @@ export default function ConversionPage() {
 
   return (
     <>
-      <script
+      <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         suppressHydrationWarning

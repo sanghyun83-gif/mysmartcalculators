@@ -1,6 +1,7 @@
 import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { PREGNANCY_2026 } from "@/lib/calculators/pregnancy";
 import PregnancyClient from "./PregnancyClient";
+import Script from "next/script";
 
 const id = "pregnancy";
 const meta = getCalculatorMeta(id);
@@ -89,7 +90,7 @@ export default function PregnancyPage() {
 
   return (
     <>
-      <script
+      <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         suppressHydrationWarning

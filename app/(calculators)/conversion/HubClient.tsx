@@ -226,7 +226,7 @@ export default function HubClient() {
                         </h2>
                         <div className="prose prose-invert prose-blue max-w-none text-slate-400 text-lg leading-relaxed font-bold italic space-y-8">
                             <p>
-                                Metrologythe science of measurementis the silent infrastructure of modern civilization. Without a shared, high-precision framework for quantifying the physical world, global trade would collapse, scientific discovery would stall, and industrial manufacturing would be impossible. In 2026, unit conversion is no longer a matter of simple multiplication; it is a clinical audit of data parity across diverse institutional standards.
+                                Metrology—the science of measurement—is the silent infrastructure of modern civilization. Without a shared, high-precision framework for quantifying the physical world, global trade would collapse, scientific discovery would stall, and industrial manufacturing would be impossible. In 2026, unit conversion is no longer a matter of simple multiplication; it is a precision audit of data parity across diverse institutional standards.
                             </p>
                             <p>
                                 At the core of our **Metrology Auditor** is the International System of Units (SI). Established by the Treaty of the Meter in 1875, the SI system has evolved from physical artifacts (like the prototype 'Le Grand K' kilogram) to a system based entirely on fundamental physical constants. By anchoring our conversion engine to the speed of light, the Planck constant, and the Boltzmann constant, we ensure that your data is mathematically immortal.

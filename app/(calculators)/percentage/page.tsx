@@ -1,6 +1,7 @@
 import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { CALCULATORS } from "@/lib/calculators/percentage";
 import PercentageClient from "./PercentageClient";
+import Script from "next/script";
 
 const id = "percentage";
 const meta = getCalculatorMeta(id);
@@ -92,7 +93,7 @@ export default function PercentagePage() {
 
     return (
         <>
-            <script
+            <Script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 suppressHydrationWarning
@@ -101,4 +102,3 @@ export default function PercentagePage() {
         </>
     );
 }
-

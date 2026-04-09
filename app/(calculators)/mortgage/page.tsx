@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CALCULATORS } from "@/lib/calculators/mortgage";
 import MortgageClient from "./MortgageClient";
+import Script from "next/script";
 
 const seo = {
   title: "Mortgage Calculator | Monthly Payment, Amortization & Extra Payments",
@@ -117,7 +118,7 @@ export default function CalcMortgagePage() {
 
   return (
     <>
-      <script
+      <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         suppressHydrationWarning

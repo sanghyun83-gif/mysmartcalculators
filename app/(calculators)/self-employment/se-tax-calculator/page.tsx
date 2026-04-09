@@ -6,7 +6,7 @@ const meta = getCalculatorMeta(id);
 
 export const metadata = {
   title: `SE Tax Calculator | ${meta?.title || "Self Employment Tax Calculator"}`,
-  description: "Run the v3 self-employment tax engine with evidence matrix, lifecycle simulator, sensitivity lab, and export tools.",
+  description: "Run the v3 self-employment tax engine with official source log, lifecycle simulator, sensitivity lab, and export tools.",
   alternates: {
     canonical: "https://mysmartcalculators.com/self-employment/se-tax-calculator",
   },

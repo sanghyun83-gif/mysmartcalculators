@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next";
 import { CALORIE_2026 } from "@/lib/calculators/calorie";
 import CalorieClient from "./CalorieClient";
+import Script from "next/script";
 
 const seo = {
   title: "Calorie Calculator 2026 | TDEE, BMR & Macro Planning",
@@ -115,7 +116,7 @@ export default function CalcCaloriePage() {
 
   return (
     <>
-      <script
+      <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         suppressHydrationWarning

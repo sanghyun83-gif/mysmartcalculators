@@ -89,6 +89,24 @@ const nextConfig: NextConfig = {
         destination: '/401k-growth',
         permanent: true,
       },
+
+      // Canonical sub-route redirects for hash-mounted calculator sections
+      // (avoid SSR fallback metadata on server-side redirect pages)
+      {
+        source: '/mortgage/calculator',
+        destination: '/mortgage#calculator',
+        permanent: true,
+      },
+      {
+        source: '/mortgage/affordability',
+        destination: '/mortgage#affordability',
+        permanent: true,
+      },
+      {
+        source: '/percentage/calculator',
+        destination: '/percentage#calculator',
+        permanent: true,
+      },
     ];
   },
 };

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { BMI_2026 } from "@/lib/calculators/bmi";
 import BMIClient from "./BMIClient";
 
@@ -125,10 +126,11 @@ export default function CalcBmiPage() {
 
   return (
     <>
-      <script
+      <Script
+        id="bmi-jsonld"
         type="application/ld+json"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        suppressHydrationWarning
       />
       <BMIClient />
     </>

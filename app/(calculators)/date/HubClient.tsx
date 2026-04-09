@@ -238,7 +238,7 @@ export default function HubClient() {
                         <div className="space-y-8 relative z-10">
                             <h3 className="text-2xl font-black text-slate-900 italic uppercase tracking-tighter">1. The Evolution of Temporal Auditing</h3>
                             <p className="text-slate-500 text-base font-bold leading-relaxed italic">
-                                The transition from the Julian to the Gregorian calendar in 1582 required the 'deletion' of 10 entire days to correct for a 0.002% drift in the tropical year. In 2026, we face a similar drift challenge at the digital level: **Leap Seconds** and **Timezone Entropy**. Our auditor accounts for these deltas by utilizing UTC-parity algorithms, ensuring that multi-year durations are calculated with clinical zero-loss accuracy. Binary logic meet sidereal physics.
+                                The transition from the Julian to the Gregorian calendar in 1582 required the 'deletion' of 10 entire days to correct for a 0.002% drift in the tropical year. In 2026, we face a similar drift challenge at the digital level: **Leap Seconds** and **Timezone Entropy**. Our auditor accounts for these deltas by utilizing UTC-parity algorithms, ensuring that multi-year durations are calculated with zero-loss accuracy. Binary logic meets sidereal physics.
                             </p>
                         </div>
                     </div>

@@ -1,5 +1,6 @@
 import ScientificClient from "./ScientificClient";
 import { SCIENTIFIC_ENGINE_2026, SCIENTIFIC_META } from "@/lib/calculators/scientific";
+import Script from "next/script";
 
 export const metadata = {
   title: SCIENTIFIC_META.title,
@@ -87,7 +88,7 @@ export default function ScientificPage() {
 
   return (
     <>
-      <script
+      <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         suppressHydrationWarning

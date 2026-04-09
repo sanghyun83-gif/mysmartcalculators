@@ -637,7 +637,7 @@ export default function BMIClient() {
                 </section>
 
                 <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
-                    <h2 className="text-base font-bold mb-2">Authority Evidence Matrix</h2>
+                    <h2 className="text-base font-bold mb-2">Official Sources & Review Log</h2>
                     <table className="w-full text-sm border-collapse">
                         <thead className="bg-slate-100 border-b border-slate-300">
                             <tr>

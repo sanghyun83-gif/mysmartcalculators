@@ -418,7 +418,7 @@ export default function CalorieClient({ focusTitle, focusSummary, initialValues 
         </section>
 
         <section className="bg-white border border-slate-200 rounded-md p-4">
-          <h2 className="text-base font-bold mb-2">Authority Evidence Matrix</h2>
+          <h2 className="text-base font-bold mb-2">Official Sources & Review Log</h2>
           <table className="w-full text-sm border-collapse">
             <thead className="bg-slate-100 border-b border-slate-300">
               <tr>
@@ -495,7 +495,7 @@ export default function CalorieClient({ focusTitle, focusSummary, initialValues 
         </section>
 
         <section className="bg-white border border-slate-200 rounded-md p-4">
-          <h2 className="text-base font-bold mb-2">Legal Readiness Pack (Health Use)</h2>
+          <h2 className="text-base font-bold mb-2">Health Readiness Pack</h2>
           <ul className="text-sm text-slate-700 list-disc pl-5 space-y-1">
             {readinessChecklist.map((item) => (
               <li key={item}>{item}</li>

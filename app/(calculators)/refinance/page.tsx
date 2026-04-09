@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import RefinanceClient from "./RefinanceClient";
+import Script from "next/script";
 
 const seo = {
   title: "Refinance Calculator | Break-Even Analysis, Savings & New Payment",
@@ -162,7 +163,7 @@ export default function RefinancePage() {
 
   return (
     <>
-      <script
+      <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         suppressHydrationWarning

@@ -1,6 +1,7 @@
 import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { OVULATION_2026 } from "@/lib/calculators/ovulation";
 import OvulationClient from "./OvulationClient";
+import Script from "next/script";
 
 const id = "ovulation";
 const meta = getCalculatorMeta(id);
@@ -87,7 +88,7 @@ export default function OvulationPage() {
 
   return (
     <>
-      <script
+      <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         suppressHydrationWarning

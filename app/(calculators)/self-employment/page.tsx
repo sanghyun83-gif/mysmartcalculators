@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SelfEmploymentClient from "./SelfEmploymentClient";
+import Script from "next/script";
 
 const seo = {
   title: "Self-Employment Tax Calculator 2026 | SE Tax, Deduction & Quarterly Planning",
@@ -118,7 +119,7 @@ export default function CalcSelfemploymentPage() {
 
   return (
     <>
-      <script
+      <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         suppressHydrationWarning

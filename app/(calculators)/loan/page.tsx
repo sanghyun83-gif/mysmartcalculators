@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { LOAN_2026 } from "@/lib/calculators/loan";
 import LoanClient from "./LoanClient";
+import Script from "next/script";
 
 const seo = {
   title: "Loan Calculator | Monthly Payment, Interest Cost & Payoff Timeline",
@@ -135,7 +136,7 @@ export default function LoanPage() {
 
   return (
     <>
-      <script
+      <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         suppressHydrationWarning

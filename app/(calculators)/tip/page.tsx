@@ -1,6 +1,7 @@
 import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { TIP_2026 } from "@/lib/calculators/tip";
 import TipClient from "./TipClient";
+import Script from "next/script";
 
 const id = "tip";
 const meta = getCalculatorMeta(id);
@@ -89,7 +90,7 @@ export default function TipPage() {
 
   return (
     <>
-      <script
+      <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         suppressHydrationWarning

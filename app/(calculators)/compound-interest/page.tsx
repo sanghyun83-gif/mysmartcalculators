@@ -1,6 +1,7 @@
 import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { COMPOUND_2026 } from "@/lib/calculators/compound-interest";
 import CompoundInterestClient from "./CompoundInterestClient";
+import Script from "next/script";
 
 const id = "compound-interest";
 const meta = getCalculatorMeta(id);
@@ -89,7 +90,7 @@ export default function CompoundInterestPage() {
 
   return (
     <>
-      <script
+      <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         suppressHydrationWarning

@@ -1,6 +1,7 @@
 ﻿import { Metadata } from "next";
 import BodyFatClient from "./BodyFatClient";
 import { BODY_FAT_2026 } from "@/lib/calculators/body-fat";
+import Script from "next/script";
 
 export const metadata: Metadata = {
     title: BODY_FAT_2026.metadata.title,
@@ -89,7 +90,7 @@ export default function BodyFatPage() {
 
     return (
         <>
-            <script
+            <Script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
@@ -97,4 +98,3 @@ export default function BodyFatPage() {
         </>
     );
 }
-

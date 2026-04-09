@@ -1,6 +1,7 @@
 import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { DATE_2026 } from "@/lib/calculators/date";
 import DateClient from "./DateClient";
+import Script from "next/script";
 
 const id = "date";
 const meta = getCalculatorMeta(id);
@@ -88,7 +89,7 @@ export default function DatePage() {
 
   return (
     <>
-      <script
+      <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         suppressHydrationWarning

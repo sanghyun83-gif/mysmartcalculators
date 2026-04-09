@@ -1,6 +1,7 @@
 import { getCalculatorMeta } from "@/lib/registry/calculators";
 import { AGE_2026 } from "@/lib/calculators/age";
 import AgeClient from "./AgeClient";
+import Script from "next/script";
 
 const id = "age";
 const meta = getCalculatorMeta(id);
@@ -87,7 +88,7 @@ export default function AgePage() {
 
   return (
     <>
-      <script
+      <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         suppressHydrationWarning

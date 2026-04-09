@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import TaxClient from "./TaxClient";
+import Script from "next/script";
 
 const seo = {
   title: "Tax Calculator 2026 | Federal Income Tax, Effective Rate & Take-Home",
@@ -103,7 +104,7 @@ export default function TaxPage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <Script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <TaxClient />
     </>
   );
