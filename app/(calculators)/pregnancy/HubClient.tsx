@@ -194,10 +194,10 @@ export default function PregnancyHubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { e: "1850-1900", d: "282.4 Days", v: "ì§?14.2 Days", s: "Verified" },
-                                        { e: "1950-1980", d: "280.8 Days", v: "ì§?11.5 Days", s: "Verified" },
-                                        { e: "2000-2024", d: "279.2 Days", v: "ì§?9.8 Days", s: "Audited" },
-                                        { e: "2026 Projection", d: "278.5 Days", v: "ì§?8.5 Days", s: "NIST Standard" }
+                                        { e: "1850-1900", d: "282.4 Days", v: "?14.2 Days", s: "Verified" },
+                                        { e: "1950-1980", d: "280.8 Days", v: "?11.5 Days", s: "Verified" },
+                                        { e: "2000-2024", d: "279.2 Days", v: "?9.8 Days", s: "Audited" },
+                                        { e: "2026 Projection", d: "278.5 Days", v: "?8.5 Days", s: "NIST Standard" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-rose-500/5 transition-colors group">
                                             <td className="px-8 py-6 text-slate-900">{row.e}</td>
@@ -268,9 +268,9 @@ export default function PregnancyHubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { c: "Standard Naegele", l: "LMP + 7 Days - 3 Months + 1 Year", t: "ì§?3.5 Days", g: "Legacy" },
-                                        { c: "Mittendorf-Williams", l: "LMP + 15 Days (Primipara) Logic", t: "ì§?2.1 Days", g: "Institutional" },
-                                        { c: "Ultrasound CRL Sync", l: "Euclidean Pixel Distance Mapping", t: "ì§?1.0 Day", v: "Clinical-Grade" }
+                                        { c: "Standard Naegele", l: "LMP + 7 Days - 3 Months + 1 Year", t: "?3.5 Days", g: "Legacy" },
+                                        { c: "Mittendorf-Williams", l: "LMP + 15 Days (Primipara) Logic", t: "?2.1 Days", g: "Institutional" },
+                                        { c: "Ultrasound CRL Sync", l: "Euclidean Pixel Distance Mapping", t: "?1.0 Day", v: "Clinical-Grade" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-slate-100 transition-colors group">
                                             <td className="px-8 py-6 text-slate-900">{row.c}</td>
@@ -298,7 +298,7 @@ export default function PregnancyHubClient() {
 
                         <div className="space-y-12 text-slate-300 text-xl leading-[1.8] font-medium">
                             <p>
-                                At the sub-cellular level, gestation is an intricate exchange of genetic and immunological signals. The **Placenta**, a transient organ of institutional importance, acts as the primary interface between maternal and fetal biology. In 2026, our understanding of placental efficiency?ë´±egulating the transfer of oxygen and nutrients while filtering potential toxins?ë´§s the cornerstone of precision prenatal monitoring.
+                                At the sub-cellular level, gestation is an intricate exchange of genetic and immunological signals. The **Placenta**, a transient organ of institutional importance, acts as the primary interface between maternal and fetal biology. In 2026, our understanding of placental efficiencyregulating the transfer of oxygen and nutrients while filtering potential toxinsis the cornerstone of precision prenatal monitoring.
                             </p>
 
                             <blockquote className="border-l-4 border-pink-500 bg-pink-500/5 p-8 rounded-2xl italic text-slate-900/90">

@@ -128,9 +128,9 @@ export default function HubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { e: "1900-1950", a: "Gunter's Steel Chain", l: "ì§?6.0 in / Mile", s: "Verified" },
-                                        { e: "1980-2010", a: "Ultrasonic / EDM", l: "ì§?0.25 in / 100ft", s: "Verified" },
-                                        { e: "2020-2024", a: "LiDAR / SLAM Scan", l: "ì§?0.05 in Precision", s: "Verified" },
+                                        { e: "1900-1950", a: "Gunter's Steel Chain", l: "?6.0 in / Mile", s: "Verified" },
+                                        { e: "1980-2010", a: "Ultrasonic / EDM", l: "?0.25 in / 100ft", s: "Verified" },
+                                        { e: "2020-2024", a: "LiDAR / SLAM Scan", l: "?0.05 in Precision", s: "Verified" },
                                         { e: "2026 Cycle", a: "Digital Twin Telemetry", l: "Zero-Latency Parity", s: "Baseline" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-emerald-500/5 transition-colors group">
@@ -202,7 +202,7 @@ export default function HubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { m: "Plan Resolver", l: "Triangulation Logic", t: "10?ë¼˜ë - Floating Parity", g: "Clinical" },
+                                        { m: "Plan Resolver", l: "Triangulation Logic", t: "10^-12 Floating Parity", g: "Clinical" },
                                         { m: "Boundary Auditor", l: "ANSI Z765 Normalizer", t: "Zero-Latency", g: "Certified" },
                                         { m: "Metric/Imperial Relay", l: "NIST SP 811 Sync", t: "Truncation-Proof", g: "S-Class" }
                                     ].map((row, i) => (
@@ -230,7 +230,7 @@ export default function HubClient() {
                         </h2>
                         <div className="prose prose-invert prose-blue max-w-none text-slate-400 text-lg leading-relaxed font-bold italic space-y-8">
                             <p>
-                                In the global real estate architecture of 2026, square footage is more than a measurement?ë´§t is the primary unit of economic value. Whether auditing a residential high-rise in London or a commercial logistics center in Texas, the reconciliation of dimensional data determines taxation, insurance premiums, and market valuation. An area audit is a clinical process of geometric decomposition, ensuring that every square inch of physical surface is accounted for with zero-loss precision.
+                                In the global real estate architecture of 2026, square footage is more than a measurementâ€”it is the primary unit of economic value. Whether auditing a residential high-rise in London or a commercial logistics center in Texas, the reconciliation of dimensional data determines taxation, insurance premiums, and market valuation. An area audit is a clinical process of geometric decomposition, ensuring that every square inch of physical surface is accounted for with zero-loss precision.
                             </p>
                             <p>
                                 At the heart of our **Dimensional Auditor** is the ANSI Z765 standard for residential space and the BOMA Z65 standard for commercial environments. These protocols distinguish between 'Gross' area and 'Rentable' area, eliminating the ambiguity that often plagues property transactions. By utilizing our S-Class engine, you are applying the same rigorous computational standards as professional appraisers and structural engineers.
@@ -243,7 +243,7 @@ export default function HubClient() {
                         <div className="space-y-8 relative z-10">
                             <h3 className="text-2xl font-black text-slate-900 italic uppercase tracking-tighter">1. The Evolution of Area Auditing</h3>
                             <p className="text-slate-500 text-base font-bold leading-relaxed italic">
-                                Historically, property measurement was performed with physical tapes, prone to 'sag' and human parallax error. In 2026, we utilize LiDAR and ultrasonic telemetry to build digital twins of physical space. Our engine bridges this gap by providing a mathematical anchor points for these high-fidelity inputs. By breaking complex floor plans into prime geometric tranches?ë´•ectangles, Triangles, and Circular arcs?ë´®ur auditor prevents the cumulative drift errors that occur in simplified 'estimation' tools. Binary accuracy meets structural reality.
+                                Historically, property measurement was performed with physical tapes, prone to 'sag' and human parallax error. In 2026, we utilize LiDAR and ultrasonic telemetry to build digital twins of physical space. Our engine bridges this gap by providing a mathematical anchor points for these high-fidelity inputs. By breaking complex floor plans into prime geometric tranchesâ€”Rectangles, Triangles, and Circular arcsâ€”our auditor prevents the cumulative drift errors that occur in simplified 'estimation' tools. Binary accuracy meets structural reality.
                             </p>
                         </div>
                     </div>
@@ -268,7 +268,7 @@ export default function HubClient() {
                     <div className="space-y-12">
                         <h3 className="text-2xl font-black text-slate-900 italic uppercase tracking-tighter">3. Geometric Decomposition: Handling Irregular Plans</h3>
                         <p className="text-slate-500 text-base font-bold leading-relaxed italic">
-                            Rarely are modern architectural spaces perfect rectangles. 'L-Shaped' configurations, alcoves, and circular bay windows create computational complexity. Our Dimensional Auditor uses 'S-Class Decomposition'?ë´?logic gate that isolates irregular shapes into their prime components. By auditing these individually and reconciling the sum, we maintain the dimensional integrity required by ISO structural standards. This ensures that a 0.05% error in a single alcove does not cascade into a significant magnitude drift across a 50,000 sq ft industrial audit.
+                            Rarely are modern architectural spaces perfect rectangles. 'L-Shaped' configurations, alcoves, and circular bay windows create computational complexity. Our Dimensional Auditor uses 'S-Class Decomposition'â€”logic gate that isolates irregular shapes into their prime components. By auditing these individually and reconciling the sum, we maintain the dimensional integrity required by ISO structural standards. This ensures that a 0.05% error in a single alcove does not cascade into a significant magnitude drift across a 50,000 sq ft industrial audit.
                         </p>
                     </div>
 

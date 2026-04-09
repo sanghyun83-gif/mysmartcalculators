@@ -206,7 +206,7 @@ export function InjuryAuditEngineComponent() {
                                         <div className="text-6xl font-black tracking-tighter italic mb-4">{formatCurrency(result.netSettlement)}</div>
                                         <div className="flex items-center gap-2 mb-8">
                                             <TrendingUp className="w-4 h-4" />
-                                            <span className="text-[10px] font-black uppercase tracking-widest">Range: {formatCurrency(result.settlementRange.min)} ??{formatCurrency(result.settlementRange.max)}</span>
+                                            <span className="text-[10px] font-black uppercase tracking-widest">Range: {formatCurrency(result.settlementRange.min)} – {formatCurrency(result.settlementRange.max)}</span>
                                         </div>
                                         <div className="space-y-4 pt-8 border-t border-slate-950/20">
                                             <div className="text-[10px] font-black uppercase tracking-widest mb-2 opacity-50">Expert Delta Applied</div>

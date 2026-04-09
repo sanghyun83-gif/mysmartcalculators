@@ -223,7 +223,7 @@ export default function DogBiteSettlementPage() {
                                     <div className="mb-2">
                                         <div className="text-[10px] font-black uppercase tracking-widest text-slate-950/70 mb-1">Expected Recovery Range</div>
                                         <div className="text-4xl font-black text-slate-950 italic tracking-tighter">
-                                            {formatCurrency(result.settlementRange.min)} ??{formatCurrency(result.settlementRange.max)}
+                                            {formatCurrency(result.settlementRange.min)} – {formatCurrency(result.settlementRange.max)}
                                         </div>
                                     </div>
                                 </div>

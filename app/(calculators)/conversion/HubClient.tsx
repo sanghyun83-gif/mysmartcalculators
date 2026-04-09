@@ -161,10 +161,10 @@ export default function HubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { b: "Aviation/Space", d: "10 - �겦 Clinical", h: "Zero-Loss Float", e: "Maximum" },
-                                        { b: "Pharmaceutical", d: "10 - �겤 Accuracy", h: "ISO-80000 Norms", e: "Institutional" },
-                                        { b: "Engineering", d: "10 - �겢 Baseline", h: "Significant Digit", e: "Professional" },
-                                        { b: "DIY/Consumer", d: "10?�?Standard", h: "Visual Utility", e: "Baseline" }
+                                        { b: "Aviation/Space", d: "10 - 겦 Clinical", h: "Zero-Loss Float", e: "Maximum" },
+                                        { b: "Pharmaceutical", d: "10 - 겤 Accuracy", h: "ISO-80000 Norms", e: "Institutional" },
+                                        { b: "Engineering", d: "10 - 겢 Baseline", h: "Significant Digit", e: "Professional" },
+                                        { b: "DIY/Consumer", d: "10^-1 Standard", h: "Visual Utility", e: "Baseline" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-blue-500/5 transition-colors group">
                                             <td className="px-8 py-6 text-slate-900">{row.b}</td>
@@ -198,7 +198,7 @@ export default function HubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { m: "Radix Synchronizer", l: "1/Ratio Logic", t: "10?뼘밟�?Double-Precision", g: "NIST-A" },
+                                        { m: "Radix Synchronizer", l: "1/Ratio Logic", t: "10^-15 Double-Precision", g: "NIST-A" },
                                         { m: "Imperial Relay", l: "25.4mm Pivot", t: "Zero-Latency", g: "Hard-Metric" },
                                         { m: "Floating Engine", l: "IEEE 754 Sync", t: "Truncation-Proof", g: "Institutional" }
                                     ].map((row, i) => (
@@ -226,7 +226,7 @@ export default function HubClient() {
                         </h2>
                         <div className="prose prose-invert prose-blue max-w-none text-slate-400 text-lg leading-relaxed font-bold italic space-y-8">
                             <p>
-                                Metrology?봳he science of measurement?봧s the silent infrastructure of modern civilization. Without a shared, high-precision framework for quantifying the physical world, global trade would collapse, scientific discovery would stall, and industrial manufacturing would be impossible. In 2026, unit conversion is no longer a matter of simple multiplication; it is a clinical audit of data parity across diverse institutional standards.
+                                Metrologythe science of measurementis the silent infrastructure of modern civilization. Without a shared, high-precision framework for quantifying the physical world, global trade would collapse, scientific discovery would stall, and industrial manufacturing would be impossible. In 2026, unit conversion is no longer a matter of simple multiplication; it is a clinical audit of data parity across diverse institutional standards.
                             </p>
                             <p>
                                 At the core of our **Metrology Auditor** is the International System of Units (SI). Established by the Treaty of the Meter in 1875, the SI system has evolved from physical artifacts (like the prototype 'Le Grand K' kilogram) to a system based entirely on fundamental physical constants. By anchoring our conversion engine to the speed of light, the Planck constant, and the Boltzmann constant, we ensure that your data is mathematically immortal.
@@ -239,7 +239,7 @@ export default function HubClient() {
                         <div className="space-y-8 relative z-10">
                             <h3 className="text-2xl font-black text-slate-900 italic uppercase tracking-tighter">1. From Artifacts to Constants: Metrology 2.0</h3>
                             <p className="text-slate-500 text-base font-bold leading-relaxed italic">
-                                Until 2019, the definition of a kilogram relied on a single cylinder of platinum-iridium kept in a vault in S챔vres, France. Today, we utilize the Kibble Balance?�?mechanism that reconciles mechanical and electromagnetic power. Our 2026 engine reflects this shift by incorporating zero-loss conversion factors. Whether you are converting milligrams for pharmaceutical compounding or tons for heavy logistics, our logic paths execute with the administrative precision required by NIST SP 811 protocols.
+                                Until 2019, the definition of a kilogram relied on a single cylinder of platinum-iridium kept in a vault in Sèvres, France. Today, we utilize the Kibble Balance—a mechanism that reconciles mechanical and electromagnetic power. Our 2026 engine reflects this shift by incorporating zero-loss conversion factors. Whether you are converting milligrams for pharmaceutical compounding or tons for heavy logistics, our logic paths execute with the administrative precision required by NIST SP 811 protocols.
                             </p>
                         </div>
                     </div>
@@ -264,7 +264,7 @@ export default function HubClient() {
                     <div className="space-y-12">
                         <h3 className="text-2xl font-black text-slate-900 italic uppercase tracking-tighter">3. Computational Integrity & IEEE 754 Auditing</h3>
                         <p className="text-slate-500 text-base font-bold leading-relaxed italic">
-                            Standard calculators often suffer from 'floating-point entropy'?봲mall errors that accumulate when numbers are converted to binary. Our Metrology Auditor implements specialized rounding logic to ensure that 1 inch + 1 inch mathematically reconciles to 2 inches, and $25.4mm \times 2$ reconciles to 50.8mm without the common $0.000000000000001$ noise. This is the difference between an estimation tool and an institutional audit engine. We utilize 64-bit precision to maintain the significant figure integrity required by ISO 80000-1:2022.
+                            Standard calculators often suffer from 'floating-point entropy'small errors that accumulate when numbers are converted to binary. Our Metrology Auditor implements specialized rounding logic to ensure that 1 inch + 1 inch mathematically reconciles to 2 inches, and $25.4mm \times 2$ reconciles to 50.8mm without the common $0.000000000000001$ noise. This is the difference between an estimation tool and an institutional audit engine. We utilize 64-bit precision to maintain the significant figure integrity required by ISO 80000-1:2022.
                         </p>
                     </div>
 

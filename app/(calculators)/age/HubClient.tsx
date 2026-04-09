@@ -157,7 +157,7 @@ export default function AgeHubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { c: "Leap Year Delta", t: "�?0.00s", l: "Greogrian Adjustment", g: "ISO-2026" },
+                                        { c: "Leap Year Delta", t: "?0.00s", l: "Greogrian Adjustment", g: "ISO-2026" },
                                         { c: "Month Duration", t: "28/30/31 Days", l: "Dynamic Iteration", g: "IEEE-754" },
                                         { c: "Millisecond Sync", t: "10^-6 s", l: "Unix Epoch Mapping", g: "Atomic-S" },
                                         { c: "Timezone Offset", v: "UTC Reference", l: "Geographical Sync", g: "Statutory" }
@@ -188,7 +188,7 @@ export default function AgeHubClient() {
                         </h2>
                         <div className="prose prose-invert prose-blue max-w-none text-slate-400 text-lg leading-relaxed font-bold italic space-y-8">
                             <p>
-                                Age calculation is fundamentally an exercise in <span className="text-slate-900">temporal auditing</span>. While it appears simple?봲ubtracting one date from another?봳he biological, legal, and astronomical variables involved require a high-precision engine. In 2026, the definition of age has expanded beyond the annual birthday to encompass high-resolution metrics such as total weeks lived, hours sustained, and metabolic duration.
+                                Age calculation is fundamentally an exercise in <span className="text-slate-900">temporal auditing</span>. While it appears simple—subtracting one date from another—the biological, legal, and astronomical variables involved require a high-precision engine. In 2026, the definition of age has expanded beyond the annual birthday to encompass high-resolution metrics such as total weeks lived, hours sustained, and metabolic duration.
                             </p>
                             <p>
                                 Our Age Calculator S-Class engine utilizes the <span className="text-blue-500">ISO-8601 standard</span> for date-time representation, ensuring that every leap year, every month-end transition, and every daylight savings shift is accounted for with scientific rigour. This level of precision is critical for legal verification, medical research, and biological age optimization.

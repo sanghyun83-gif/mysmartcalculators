@@ -147,10 +147,10 @@ export default function CompoundInterestHubClient() {
                                 </thead>
                                 <tbody className="divide-y divide-white/5 text-sm font-bold italic text-slate-400">
                                     {[
-                                        { c: "Standard Compound", l: "A = P(1 + r/n)^(nt)", t: "ì§?$0.001", g: "Legacy Audit" },
+                                        { c: "Standard Compound", l: "A = P(1 + r/n)^(nt)", t: "?$0.001", g: "Legacy Audit" },
                                         { c: "Continuous Accretion", l: "A = Pe^(rt)", t: "Zero-Latency", g: "Institutional" },
-                                        { c: "Inflation Adjusted", l: "R = (1+i)/(1+inf) - 1", t: "ì§?$0.01", g: "Real Wealth Spec" },
-                                        { c: "Tax-Drag Sync", l: "èª?Yield - Tax Liability)", t: "Zero-Loss", g: "S-Class Standard" }
+                                        { c: "Inflation Adjusted", l: "R = (1+i)/(1+inf) - 1", t: "?$0.01", g: "Real Wealth Spec" },
+                                        { c: "Tax-Drag Sync", l: "?Yield - Tax Liability)", t: "Zero-Loss", g: "S-Class Standard" }
                                     ].map((row, i) => (
                                         <tr key={i} className="hover:bg-slate-100 transition-colors group">
                                             <td className="px-8 py-6 text-slate-900">{row.c}</td>
@@ -196,7 +196,7 @@ export default function CompoundInterestHubClient() {
                         </h2>
                         <div className="space-y-6 text-slate-400 font-medium leading-relaxed text-lg">
                             <p>
-                                Compound interest is not merely a mathematical formula; it is the fundamental operative principle of wealth creation in the 2026 global economy. Often attributed to Albert Einstein as the "Eighth Wonder of the World," compound interest leverages the time value of money to generate returns not only on initial principal but on the accumulated interest of all prior periods. This creates a self-reinforcing reciprocity loop?ë´?wealth engine that gains technical momentum over time.
+                                Compound interest is not merely a mathematical formula; it is the fundamental operative principle of wealth creation in the 2026 global economy. Often attributed to Albert Einstein as the "Eighth Wonder of the World," compound interest leverages the time value of money to generate returns not only on initial principal but on the accumulated interest of all prior periods. This creates a self-reinforcing reciprocity loopâ€”a wealth engine that gains technical momentum over time.
                             </p>
                             <p>
                                 In an era defined by high-frequency digital finance, the distinction between simple growth and exponential accretion determines institutional viability. While simple interest remains linear and predictable, compound interest operates within non-linear geometric progressions. By the year 2026, the velocity of compounding has been further catalyzed by digital asset platforms, real-time yield harvesting, and tax-advantaged automated reinvestment protocols.
@@ -254,10 +254,10 @@ export default function CompoundInterestHubClient() {
                         </h2>
                         <div className="space-y-6 text-slate-400 font-medium leading-relaxed">
                             <p>
-                                A common failure in financial modeling is the ignorement of "Purchasing Power Parity" (PPP). In 2026, nominal growth is a vanity metric; Real Yield is the sanity metric. Our S-Class engine incorporates 2026 inflation projections?ë´žveraging 2.8% to 3.2%?ë´³o provide a transparent view of how much your future millions will actually buy.
+                                A common failure in financial modeling is the ignorement of "Purchasing Power Parity" (PPP). In 2026, nominal growth is a vanity metric; Real Yield is the sanity metric. Our S-Class engine incorporates 2026 inflation projectionsaveraging 2.8% to 3.2%to provide a transparent view of how much your future millions will actually buy.
                             </p>
                             <p>
-                                When the cost of core commodities (housing, energy, healthcare) increases, the compounded value of your savings must outpace these benchmarks to ensure true prosperity. This is why "High-Yield" savings accounts, which often mirror CPI (Consumer Price Index) increases, are technically wealth preservation tools rather than wealth creation engines. To achieve genuine accretion, your portfolio must audit for "Alpha"?ë´±eturns exceeding the foundational inflation rate.
+                                When the cost of core commodities (housing, energy, healthcare) increases, the compounded value of your savings must outpace these benchmarks to ensure true prosperity. This is why "High-Yield" savings accounts, which often mirror CPI (Consumer Price Index) increases, are technically wealth preservation tools rather than wealth creation engines. To achieve genuine accretion, your portfolio must audit for "Alpha"returns exceeding the foundational inflation rate.
                             </p>
                             <div className="grid md:grid-cols-3 gap-6 my-12 not-prose">
                                 {[

@@ -241,7 +241,7 @@ export default function HubClient() {
                                             </thead>
                                             <tbody className="divide-y divide-white/5 text-xs font-bold italic text-slate-400">
                                                 {[
-                                                    { c: "Hourly Basis", l: "Annual / 2,080h", t: "�?$0.0001", g: "FLSA-2026" },
+                                                    { c: "Hourly Basis", l: "Annual / 2,080h", t: "?$0.0001", g: "FLSA-2026" },
                                                     { c: "Daily Rate", l: "Weekly / 5.0", t: "Zero-Latency", g: "Inst." },
                                                     { c: "Truncation", l: "64-Bit Financial", t: "Zero-Loss", g: "IEEE-S" }
                                                 ].map((row, i) => (
@@ -285,7 +285,7 @@ export default function HubClient() {
                                 3. The FLSA Audit: Exempt vs. Non-Exempt Protocols
                             </h3>
                             <p className="text-slate-400 leading-relaxed">
-                                Under current 2026 Department of Labor guidelines, the classification of your salary dictates your overtime eligibility. An "Exempt" salary means your compensation is fixed regardless of hours worked?봮ften a disadvantage in high-pressure industries. Conversely, "Non-Exempt" status ensures that any hour worked beyond 40 is compensated at 1.5x.
+                                Under current 2026 Department of Labor guidelines, the classification of your salary dictates your overtime eligibility. An "Exempt" salary means your compensation is fixed regardless of hours workedoften a disadvantage in high-pressure industries. Conversely, "Non-Exempt" status ensures that any hour worked beyond 40 is compensated at 1.5x.
                             </p>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
                                 <div className="p-8 rounded-3xl bg-white border border-slate-800">
@@ -333,7 +333,7 @@ export default function HubClient() {
                                     </div>
                                     <div className="p-6 bg-white rounded-2xl border border-slate-800">
                                         <h4 className="text-emerald-400 font-bold mb-2">Insurance Premiums</h4>
-                                        <p className="text-xs m-0 text-slate-500">Employer-paid health premiums can save a family $20,000+ in post-tax spending annually?봢ffectively a $30k gross increase.</p>
+                                        <p className="text-xs m-0 text-slate-500">Employer-paid health premiums can save a family $20,000+ in post-tax spending annually—effectively a $30k gross increase.</p>
                                     </div>
                                 </div>
                                 <p>
@@ -389,7 +389,7 @@ export default function HubClient() {
                                     As we look toward the 2027 cycle, salary structures are undergoing a radical transformation driven by <strong>AI productivity gains</strong> and <strong>global remote parity</strong>. The traditional "geographic adjustment" is dying; companies are moving toward a single "Value Base" irrespective of where the human sits.
                                 </p>
                                 <p>
-                                    The "AI Multiplier" is the newest audit layer. If your use of generative agents increases your output by 300%, your salary audit should reflect this efficiency dividend. We anticipate 2026 will be the first year where "Output-Based Salary"?�?hybrid of fixed pay and frequent performance bonuses?봟ecomes the standard for white-collar professional audits.
+                                    The "AI Multiplier" is the newest audit layer. If your use of generative agents increases your output by 300%, your salary audit should reflect this efficiency dividend. We anticipate 2026 will be the first year where "Output-Based Salary"—a hybrid of fixed pay and frequent performance bonuses—becomes the standard for white-collar professional audits.
                                 </p>
                                 <div className="p-8 bg-white border border-slate-800 rounded-3xl relative">
                                     <div className="absolute -top-4 -right-4 w-12 h-12 bg-emerald-500 rounded-2xl flex items-center justify-center rotate-12 shadow-lg">

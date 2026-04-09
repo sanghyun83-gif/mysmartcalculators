@@ -32,7 +32,7 @@ export default function AboutPage() {
                             Our Mission
                         </h2>
                         <p className="text-slate-300">
-                            MySmartCalculators currently follows a <strong className="text-white">Core 20 집중 운영 정책</strong>: we prioritize
+                            MySmartCalculators currently follows a <strong className="text-white">Core 20 Focused Operations Policy</strong>: we prioritize
                             twenty high-intent calculators, keep them fully indexed, and allocate maintenance to measurable user outcomes.
                             This policy improves quality control, clarity of guidance, and update reliability.
                         </p>
