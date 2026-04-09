@@ -34,6 +34,33 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Legacy workers-comp micro-site migration (301)
+      {
+        source: '/',
+        has: [{ type: 'host', value: 'workers-comp-calc.vercel.app' }],
+        destination: 'https://mysmartcalculators.com/workers-comp',
+        permanent: true,
+      },
+      {
+        source: '/calculator',
+        has: [{ type: 'host', value: 'workers-comp-calc.vercel.app' }],
+        destination: 'https://mysmartcalculators.com/workers-comp/calculator',
+        permanent: true,
+      },
+      {
+        source: '/state-rates',
+        has: [{ type: 'host', value: 'workers-comp-calc.vercel.app' }],
+        destination: 'https://mysmartcalculators.com/workers-comp/state-rates',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'workers-comp-calc.vercel.app' }],
+        destination: 'https://mysmartcalculators.com/workers-comp',
+        permanent: true,
+      },
+
+      // Canonicalize www -> apex
       {
         source: '/:path*',
         has: [
@@ -43,6 +70,18 @@ const nextConfig: NextConfig = {
           },
         ],
         destination: 'https://mysmartcalculators.com/:path*',
+        permanent: true,
+      },
+
+      // Direct legacy path redirects on main domain
+      {
+        source: '/calculator',
+        destination: '/workers-comp/calculator',
+        permanent: true,
+      },
+      {
+        source: '/state-rates',
+        destination: '/workers-comp/state-rates',
         permanent: true,
       },
       {

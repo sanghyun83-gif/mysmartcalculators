@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import WorkersCompClient from "./WorkersCompClient";
 
 const seo = {
@@ -112,7 +113,7 @@ export default function WorkersCompPage() {
         "@type": "BreadcrumbList",
         itemListElement: [
           { "@type": "ListItem", position: 1, name: "Home", item: "https://mysmartcalculators.com/" },
-          { "@type": "ListItem", position: 2, name: "Legal", item: "https://mysmartcalculators.com/legal" },
+          { "@type": "ListItem", position: 2, name: "Workers Comp", item: "https://mysmartcalculators.com/workers-comp" },
           { "@type": "ListItem", position: 3, name: "Workers Comp Calculator", item: meta?.canonical || "https://mysmartcalculators.com/workers-comp" },
         ],
       },
@@ -132,10 +133,11 @@ export default function WorkersCompPage() {
 
   return (
     <>
-      <script
+      <Script
+        id="workers-comp-jsonld"
         type="application/ld+json"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        suppressHydrationWarning
       />
       <WorkersCompClient />
     </>

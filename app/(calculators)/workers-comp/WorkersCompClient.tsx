@@ -271,26 +271,26 @@ type QueryDefaults = {
   showResults: boolean;
 };
 
-function readInitialQueryDefaults(bodyPartIds: string[]): QueryDefaults {
-  const defaults: QueryDefaults = {
-    stateCode: "CA",
-    weeklyWage: "1200",
-    bodyPart: "back",
-    disabilityType: "ttd",
-    projectedWeeks: "52",
-    impairmentPercent: "20",
-    futureMedicalReserve: "15000",
-    attorneyFeePercent: "15",
-    discountRate: "4",
-    injuryDate: "2026-01-15",
-    mmiWeeks: "26",
-    filingLagDays: "30",
-    showResults: false,
-  };
+const DEFAULT_QUERY_DEFAULTS: QueryDefaults = {
+  stateCode: "CA",
+  weeklyWage: "1200",
+  bodyPart: "back",
+  disabilityType: "ttd",
+  projectedWeeks: "52",
+  impairmentPercent: "20",
+  futureMedicalReserve: "15000",
+  attorneyFeePercent: "15",
+  discountRate: "4",
+  injuryDate: "2026-01-15",
+  mmiWeeks: "26",
+  filingLagDays: "30",
+  showResults: false,
+};
 
-  if (typeof window === "undefined") return defaults;
+function readInitialQueryDefaults(search: string, bodyPartIds: string[]): QueryDefaults {
+  const defaults: QueryDefaults = { ...DEFAULT_QUERY_DEFAULTS };
 
-  const params = new URLSearchParams(window.location.search);
+  const params = new URLSearchParams(search);
   const queryState = params.get("s")?.toUpperCase();
   if (queryState && STATE_WC_DATA[queryState]) defaults.stateCode = queryState;
 
@@ -327,28 +327,46 @@ function readInitialQueryDefaults(bodyPartIds: string[]): QueryDefaults {
 export default function WorkersCompClient() {
   const startedRef = useRef(false);
   const adRequestedRef = useRef(false);
-  const bodyParts = getBodyPartsList();
-  const states = getStatesList();
-  const queryDefaults = readInitialQueryDefaults(bodyParts.map((part) => part.id));
+  const bodyParts = useMemo(() => getBodyPartsList(), []);
+  const states = useMemo(() => getStatesList(), []);
 
-  const [stateCode, setStateCode] = useState(queryDefaults.stateCode);
-  const [weeklyWage, setWeeklyWage] = useState(queryDefaults.weeklyWage);
-  const [bodyPart, setBodyPart] = useState(queryDefaults.bodyPart);
-  const [disabilityType, setDisabilityType] = useState<(typeof DISABILITY_TYPES)[number]["id"]>(queryDefaults.disabilityType);
-  const [projectedWeeks, setProjectedWeeks] = useState(queryDefaults.projectedWeeks);
-  const [impairmentPercent, setImpairmentPercent] = useState(queryDefaults.impairmentPercent);
-  const [futureMedicalReserve, setFutureMedicalReserve] = useState(queryDefaults.futureMedicalReserve);
-  const [attorneyFeePercent, setAttorneyFeePercent] = useState(queryDefaults.attorneyFeePercent);
-  const [discountRate, setDiscountRate] = useState(queryDefaults.discountRate);
-  const [injuryDate, setInjuryDate] = useState(queryDefaults.injuryDate);
-  const [mmiWeeks, setMmiWeeks] = useState(queryDefaults.mmiWeeks);
-  const [filingLagDays, setFilingLagDays] = useState(queryDefaults.filingLagDays);
+  const [stateCode, setStateCode] = useState(DEFAULT_QUERY_DEFAULTS.stateCode);
+  const [weeklyWage, setWeeklyWage] = useState(DEFAULT_QUERY_DEFAULTS.weeklyWage);
+  const [bodyPart, setBodyPart] = useState(DEFAULT_QUERY_DEFAULTS.bodyPart);
+  const [disabilityType, setDisabilityType] = useState<(typeof DISABILITY_TYPES)[number]["id"]>(DEFAULT_QUERY_DEFAULTS.disabilityType);
+  const [projectedWeeks, setProjectedWeeks] = useState(DEFAULT_QUERY_DEFAULTS.projectedWeeks);
+  const [impairmentPercent, setImpairmentPercent] = useState(DEFAULT_QUERY_DEFAULTS.impairmentPercent);
+  const [futureMedicalReserve, setFutureMedicalReserve] = useState(DEFAULT_QUERY_DEFAULTS.futureMedicalReserve);
+  const [attorneyFeePercent, setAttorneyFeePercent] = useState(DEFAULT_QUERY_DEFAULTS.attorneyFeePercent);
+  const [discountRate, setDiscountRate] = useState(DEFAULT_QUERY_DEFAULTS.discountRate);
+  const [injuryDate, setInjuryDate] = useState(DEFAULT_QUERY_DEFAULTS.injuryDate);
+  const [mmiWeeks, setMmiWeeks] = useState(DEFAULT_QUERY_DEFAULTS.mmiWeeks);
+  const [filingLagDays, setFilingLagDays] = useState(DEFAULT_QUERY_DEFAULTS.filingLagDays);
   const [showAdvanced, setShowAdvanced] = useState(false);
-  const [showResults, setShowResults] = useState(queryDefaults.showResults);
+  const [showResults, setShowResults] = useState(DEFAULT_QUERY_DEFAULTS.showResults);
   const [showAllEvidence, setShowAllEvidence] = useState(false);
   const [hasCalculated, setHasCalculated] = useState(false);
   const [copyState, setCopyState] = useState<"idle" | "copied" | "failed">("idle");
   const [linkCopyState, setLinkCopyState] = useState<"idle" | "copied" | "failed">("idle");
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const queryDefaults = readInitialQueryDefaults(window.location.search, bodyParts.map((part) => part.id));
+
+    setStateCode(queryDefaults.stateCode);
+    setWeeklyWage(queryDefaults.weeklyWage);
+    setBodyPart(queryDefaults.bodyPart);
+    setDisabilityType(queryDefaults.disabilityType);
+    setProjectedWeeks(queryDefaults.projectedWeeks);
+    setImpairmentPercent(queryDefaults.impairmentPercent);
+    setFutureMedicalReserve(queryDefaults.futureMedicalReserve);
+    setAttorneyFeePercent(queryDefaults.attorneyFeePercent);
+    setDiscountRate(queryDefaults.discountRate);
+    setInjuryDate(queryDefaults.injuryDate);
+    setMmiWeeks(queryDefaults.mmiWeeks);
+    setFilingLagDays(queryDefaults.filingLagDays);
+    setShowResults(queryDefaults.showResults);
+  }, [bodyParts]);
+
   const selectedEvidence = getWorkersCompEvidenceByCode(stateCode);
   const disabilityConfig = DISABILITY_TYPES.find((type) => type.id === disabilityType) ?? DISABILITY_TYPES[0];
 
