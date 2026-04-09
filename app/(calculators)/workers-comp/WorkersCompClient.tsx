@@ -626,6 +626,17 @@ export default function WorkersCompClient() {
         <div className="flex items-center gap-2 mb-1"><Calculator className="w-4 h-4 text-blue-600" /><h1 className="text-2xl font-bold">Workers Comp Calculator</h1></div>
         <div className="flex items-center gap-1 text-[11px] text-slate-500 font-mono mb-4 uppercase tracking-wider"><ShieldCheck size={14} className="text-blue-600" />Verified by state agencies + lifecycle assumptions + evidence matrix</div>
       </header>
+
+      <section className="max-w-7xl mx-auto px-6 pb-2">
+        <div className="rounded-md border border-slate-200 bg-white p-3">
+          <p className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Quick Access</p>
+          <div className="grid sm:grid-cols-2 gap-2 text-sm">
+            <Link href="/workers-comp/calculator" className="rounded-md border border-blue-200 bg-blue-50 px-3 py-2 font-semibold text-blue-700 hover:bg-blue-100">Open Calculator</Link>
+            <Link href="/workers-comp/state-rates" className="rounded-md border border-slate-200 bg-white px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50">View State Rates</Link>
+          </div>
+        </div>
+      </section>
+
       <section className="py-2 max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
           <div className="lg:col-span-5 space-y-4">

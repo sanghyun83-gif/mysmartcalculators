@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, Calculator, DollarSign, Info, AlertCircle } from "lucide-react";
+import { Calculator, ShieldCheck, AlertCircle } from "lucide-react";
 import {
   SITE,
   STATE_WC_DATA,
@@ -19,6 +19,7 @@ export default function CalculatorClient() {
   const [weeklyWage, setWeeklyWage] = useState("");
   const [bodyPart, setBodyPart] = useState("back");
   const [result, setResult] = useState<WorkersCompResult | null>(null);
+  const [linkCopyState, setLinkCopyState] = useState<"idle" | "copied" | "failed">("idle");
 
   const states = getStatesList();
   const bodyParts = getBodyPartsList();
@@ -39,147 +40,145 @@ export default function CalculatorClient() {
     setResult(calculateWorkersComp(state, aww, bodyPart));
   };
 
+  const buildPermalink = () => {
+    const params = new URLSearchParams({
+      s: state,
+      aww: String(parseFormattedNumber(weeklyWage) || 0),
+      body: bodyPart,
+    });
+    return `${window.location.origin}/workers-comp/calculator?${params.toString()}`;
+  };
+
+  const copyPermalink = async () => {
+    try {
+      await navigator.clipboard.writeText(buildPermalink());
+      setLinkCopyState("copied");
+      setTimeout(() => setLinkCopyState("idle"), 1500);
+    } catch {
+      setLinkCopyState("failed");
+    }
+  };
+
   return (
-    <>
-      <header className="bg-slate-900 border-b border-slate-700 sticky top-0 z-10">
-        <div className="max-w-2xl mx-auto px-4 py-4 flex items-center gap-4">
-          <Link href="/workers-comp" className="text-slate-400 hover:text-amber-400 transition-colors" aria-label="Back to Workers Comp hub">
-            <ArrowLeft className="w-6 h-6" />
-          </Link>
-          <div className="flex items-center gap-2">
-            <Calculator className="w-5 h-5 text-amber-400" />
-            <span className="text-lg font-bold text-white">Workers Comp Calculator</span>
-          </div>
-          <span className="ml-auto text-xs text-slate-900 bg-amber-400 px-2 py-1 rounded-full font-bold">{SITE.year}</span>
+    <main className="min-h-screen bg-slate-50 text-slate-900">
+      <header className="pt-6 pb-2 px-6 max-w-7xl mx-auto">
+        <div className="flex items-center gap-2 mb-1">
+          <Calculator className="w-4 h-4 text-blue-600" />
+          <h1 className="text-2xl font-bold">Workers Comp Weekly Benefit Calculator</h1>
+        </div>
+        <div className="flex items-center gap-1 text-[11px] text-slate-500 font-mono mb-4 uppercase tracking-wider">
+          <ShieldCheck size={14} className="text-blue-600" />
+          Calculator route only: AWW × state rate × cap logic ({SITE.year})
         </div>
       </header>
 
-      <main className="max-w-2xl mx-auto px-4 py-8">
-        <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
-          <div className="flex items-center gap-2 mb-2">
-            <span className="px-2 py-1 bg-amber-100 text-amber-700 rounded text-xs font-bold">{SITE.year} State Rates Applied</span>
-          </div>
-          <h1 className="text-xl font-bold text-slate-800 mb-2">Workers Compensation Calculator</h1>
-          <p className="text-sm text-slate-500 mb-6">Calculate your weekly TTD benefits and estimated settlement value.</p>
+      <section className="py-2 max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          <div className="lg:col-span-5 space-y-4">
+            <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+              <h2 className="text-sm font-bold text-slate-800 uppercase tracking-tight mb-3">Calculator Inputs</h2>
+              <div className="space-y-3">
+                <select value={state} onChange={(e) => setState(e.target.value)} className="w-full h-9 px-2 bg-white border border-slate-300 text-sm text-slate-900 rounded-md shadow-sm">
+                  {states.map((s) => (
+                    <option key={s.code} value={s.code}>
+                      {s.name} (Max {formatCurrency(s.maxBenefit)}/wk)
+                    </option>
+                  ))}
+                </select>
+                <p className="text-xs text-slate-500">{selectedState.name}: {Math.round(selectedState.ttdRate * 100)}% replacement rate, {selectedState.waitingPeriod} day waiting period.</p>
 
-          <div className="space-y-5 mb-6">
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">1. Select Your State</label>
-              <select value={state} onChange={(e) => setState(e.target.value)} className="w-full px-4 py-3 bg-white border-2 border-slate-300 rounded-lg text-slate-800 focus:ring-2 focus:ring-amber-500 focus:border-amber-500">
-                {states.map((s) => (
-                  <option key={s.code} value={s.code}>
-                    {s.name} (Max: {formatCurrency(s.maxBenefit)}/wk)
-                  </option>
-                ))}
-              </select>
-              <p className="text-xs text-amber-600 mt-1">✓ {selectedState.name}: Max {formatCurrency(selectedState.maxWeeklyBenefit)}/week ({SITE.year})</p>
-            </div>
-
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">2. Average Weekly Wage (Before Injury)</label>
-              <div className="relative">
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold">$</span>
                 <input
                   type="text"
+                  inputMode="decimal"
                   value={weeklyWage}
                   onChange={handleInputChange(setWeeklyWage)}
-                  placeholder="1,200"
-                  className="w-full pl-8 pr-4 py-4 text-lg bg-white border-2 border-slate-300 rounded-lg text-slate-800 focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
+                  placeholder="Average weekly wage (e.g. 1,200)"
+                  className="w-full h-9 px-2 bg-white border border-slate-300 text-sm text-slate-900 rounded-md shadow-sm"
                 />
+
+                <select value={bodyPart} onChange={(e) => setBodyPart(e.target.value)} className="h-9 px-2 bg-white border border-slate-300 text-sm text-slate-900 rounded-md shadow-sm">
+                  {bodyParts.map((part) => (
+                    <option key={part.id} value={part.id}>{part.name}</option>
+                  ))}
+                </select>
+
+                <button onClick={handleCalculate} className="w-full h-10 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-md text-sm">
+                  Calculate Workers Comp
+                </button>
+                <button onClick={() => { void copyPermalink(); }} className="w-full h-9 rounded-md border border-slate-300 bg-white text-slate-700 text-sm font-semibold hover:bg-slate-50">
+                  {linkCopyState === "copied" ? "Link Copied" : linkCopyState === "failed" ? "Link Failed" : "Copy Permalink"}
+                </button>
               </div>
-              <p className="text-xs text-slate-400 mt-1">Your gross weekly pay before your injury.</p>
             </div>
 
-            <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">3. Injured Body Part</label>
-              <select value={bodyPart} onChange={(e) => setBodyPart(e.target.value)} className="w-full px-4 py-3 bg-white border-2 border-slate-300 rounded-lg text-slate-800 focus:ring-2 focus:ring-amber-500 focus:border-amber-500">
-                {bodyParts.map((part) => (
-                  <option key={part.id} value={part.id}>
-                    {part.name}
-                  </option>
-                ))}
-              </select>
-              <p className="text-xs text-slate-400 mt-1">Body part affects settlement value (schedule of loss).</p>
-            </div>
+            <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+              <h3 className="text-sm font-bold text-slate-900 mb-2">How Calculated (3-Step)</h3>
+              <ol className="text-sm text-slate-700 list-decimal pl-5 space-y-1">
+                <li>Base weekly benefit = Average Weekly Wage × state TTD replacement rate.</li>
+                <li>Apply state minimum/maximum weekly cap for selected jurisdiction.</li>
+                <li>Estimate settlement range from weekly benefit × body-part schedule factors.</li>
+              </ol>
+            </section>
           </div>
 
-          <button onClick={handleCalculate} className="w-full py-4 bg-amber-500 hover:bg-amber-600 text-slate-900 rounded-lg font-bold text-lg transition-colors flex items-center justify-center gap-2 shadow-md">
-            <Calculator className="w-5 h-5" />
-            Calculate Benefits
-          </button>
-        </div>
+          <div className="lg:col-span-7 space-y-4">
+            <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+              <h2 className="text-sm font-bold text-slate-800 uppercase tracking-tight mb-3">Result</h2>
+              {!result ? (
+                <div className="p-3 rounded-md border text-amber-800 bg-amber-50 border-amber-200 font-bold">Enter values and click Calculate Workers Comp.</div>
+              ) : (
+                <>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                    <div className="p-3 rounded-md border border-emerald-200 bg-emerald-50">
+                      <div className="text-[10px] uppercase text-emerald-700">Weekly Benefit</div>
+                      <div className="text-2xl font-black text-emerald-900">{formatCurrency(result.weeklyBenefit)}</div>
+                    </div>
+                    <div className="p-3 rounded-md border border-slate-200 bg-slate-100">
+                      <div className="text-[10px] uppercase text-slate-600">Gross Settlement</div>
+                      <div className="text-lg font-black text-slate-900">{formatCurrency(result.settlementLow)} - {formatCurrency(result.settlementHigh)}</div>
+                    </div>
+                    <div className="p-3 rounded-md border border-blue-200 bg-blue-50">
+                      <div className="text-[10px] uppercase text-blue-700">Body Part</div>
+                      <div className="text-lg font-black text-blue-900">{result.bodyPartName}</div>
+                    </div>
+                  </div>
 
-        {result && (
-          <div className="mt-6 bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-            <div className="bg-gradient-to-r from-slate-800 to-slate-900 text-white p-6">
-              <p className="text-sm text-slate-300 mb-1">Estimated Weekly TTD Benefit</p>
-              <p className="text-4xl font-bold text-amber-400">
-                {formatCurrency(result.weeklyBenefit)}<span className="text-lg text-slate-400">/week</span>
-              </p>
-              {result.stateMaxApplied && (
-                <div className="mt-2 flex items-center gap-1 text-amber-300 text-sm">
-                  <AlertCircle className="w-4 h-4" />
-                  <span>Capped at {result.stateName} {SITE.year} maximum</span>
-                </div>
+                  <div className="mt-3 rounded-md border border-slate-200 overflow-hidden">
+                    <table className="w-full text-sm border-collapse">
+                      <tbody className="divide-y divide-slate-200">
+                        <tr className="even:bg-slate-50"><td className="py-1.5 px-2 text-slate-600">State</td><td className="py-1.5 px-2 font-semibold text-slate-800">{result.stateName}</td></tr>
+                        <tr className="even:bg-slate-50"><td className="py-1.5 px-2 text-slate-600">Average Weekly Wage</td><td className="py-1.5 px-2 font-semibold text-slate-800">{formatCurrency(result.averageWeeklyWage)}</td></tr>
+                        <tr className="even:bg-slate-50"><td className="py-1.5 px-2 text-slate-600">TTD Rate</td><td className="py-1.5 px-2 font-semibold text-slate-800">{Math.round(STATE_WC_DATA[result.state].ttdRate * 100)}%</td></tr>
+                        <tr className="even:bg-slate-50"><td className="py-1.5 px-2 text-slate-600">State Maximum</td><td className="py-1.5 px-2 font-semibold text-slate-800">{formatCurrency(result.stateMax)}/wk</td></tr>
+                        <tr className="even:bg-slate-50"><td className="py-1.5 px-2 text-slate-600">Waiting Period</td><td className="py-1.5 px-2 font-semibold text-slate-800">{result.waitingPeriod} days</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {result.stateMaxApplied ? (
+                    <p className="mt-3 text-xs text-amber-700 flex items-center gap-1"><AlertCircle className="w-3.5 h-3.5" />State cap applied at current maximum weekly benefit.</p>
+                  ) : null}
+                </>
               )}
             </div>
 
-            <div className="bg-green-50 border-b border-green-200 p-6">
-              <div className="flex items-center gap-2 mb-2">
-                <DollarSign className="w-5 h-5 text-green-600" />
-                <span className="font-bold text-green-800">Potential Settlement Value</span>
-              </div>
-              <p className="text-3xl font-bold text-green-600">{formatCurrency(result.settlementLow)} - {formatCurrency(result.settlementHigh)}</p>
-              <p className="text-sm text-green-700 mt-2">Based on {result.bodyPartName} injury ({result.weeksOfBenefits} weeks schedule)</p>
+            <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+              <h3 className="text-sm font-bold text-slate-900 mb-2">Disclaimer</h3>
+              <p className="text-sm text-slate-700">This is an educational estimate, not legal advice. Actual payouts depend on claim facts, medical records, state statute, and insurer decision.</p>
             </div>
-
-            <div className="p-6">
-              <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-4">Calculation Breakdown</h2>
-              <div className="space-y-3 text-sm">
-                <div className="flex justify-between py-2 border-b border-slate-100"><span className="text-slate-600">State</span><span className="font-medium text-slate-800">{result.stateName}</span></div>
-                <div className="flex justify-between py-2 border-b border-slate-100"><span className="text-slate-600">Average Weekly Wage</span><span className="font-medium text-slate-800">{formatCurrency(result.averageWeeklyWage)}</span></div>
-                <div className="flex justify-between py-2 border-b border-slate-100"><span className="text-slate-600">TTD Rate</span><span className="font-medium text-slate-800">{Math.round(STATE_WC_DATA[result.state].ttdRate * 100)}%</span></div>
-                <div className="flex justify-between py-2 border-b border-slate-100"><span className="text-slate-600">State Maximum ({SITE.year})</span><span className="font-medium text-slate-800">{formatCurrency(result.stateMax)}/wk</span></div>
-                <div className="flex justify-between py-2 border-b border-slate-100"><span className="text-slate-600">Injured Body Part</span><span className="font-medium text-slate-800">{result.bodyPartName}</span></div>
-                <div className="flex justify-between py-2 border-b border-slate-100"><span className="text-slate-600">Waiting Period</span><span className="font-medium text-slate-800">{result.waitingPeriod} days</span></div>
-                <div className="flex justify-between pt-4 text-lg border-t border-slate-200"><span className="text-slate-800 font-bold">Weekly Benefit</span><span className="font-bold text-amber-600">{formatCurrency(result.weeklyBenefit)}</span></div>
-                <div className="flex justify-between py-2 text-lg"><span className="text-slate-800 font-bold">Monthly (4 weeks)</span><span className="font-bold text-amber-600">{formatCurrency(result.weeklyBenefit * 4)}</span></div>
-              </div>
-            </div>
-          </div>
-        )}
-
-        <div className="my-8 p-6 bg-white border border-slate-200 rounded-xl text-center shadow-sm"><p className="text-sm text-slate-400">Advertisement</p></div>
-
-        <section className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
-          <h2 className="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2"><Info className="w-5 h-5 text-amber-500" />Workers Comp FAQ</h2>
-          <div className="space-y-4 text-sm">
-            <div>
-              <h3 className="font-semibold text-slate-800 mb-1">Will my workers comp benefits increase in {SITE.year}?</h3>
-              <p className="text-slate-600">Most states update their maximum weekly benefit rates annually on January 1st. The {SITE.year} rates shown here reflect the latest state maximums.</p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-slate-800 mb-1">How is settlement calculated?</h3>
-              <p className="text-slate-600">Settlement value depends on your weekly benefit rate, the body part injured, injury severity, and future impact on earning capacity.</p>
-            </div>
-            <div>
-              <h3 className="font-semibold text-slate-800 mb-1">Can I sue my employer for a work injury?</h3>
-              <p className="text-slate-600">In most states, workers compensation is a no-fault system. You usually cannot sue your employer directly, but third-party claims may be possible.</p>
-            </div>
-          </div>
-        </section>
-
-        <div className="mt-8 text-center">
-          <Link href="/workers-comp/state-rates" className="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-900 text-white px-6 py-3 rounded-lg font-semibold transition-colors">View All 50 State Rates →</Link>
-        </div>
-
-        <div className="mt-8 p-4 bg-amber-50 border border-amber-200 rounded-lg">
-          <div className="flex items-start gap-2">
-            <AlertCircle className="w-5 h-5 text-amber-600 mt-0.5" />
-            <p className="text-xs text-amber-800"><strong>Disclaimer:</strong> Estimate only. Not legal advice. Actual benefits depend on your claim facts, jurisdiction, and insurer determinations.</p>
           </div>
         </div>
-      </main>
-    </>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-6 pb-10">
+        <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+          <h2 className="text-sm font-bold text-slate-900 mb-2">Related Paths</h2>
+          <div className="grid sm:grid-cols-2 gap-2 text-sm">
+            <Link href="/workers-comp" className="rounded-md border border-slate-200 bg-white px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50">Workers Comp Hub</Link>
+            <Link href="/workers-comp/state-rates" className="rounded-md border border-slate-200 bg-white px-3 py-2 font-semibold text-slate-700 hover:bg-slate-50">State Rates Table</Link>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

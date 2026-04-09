@@ -5,9 +5,9 @@ import CalculatorClient from "./CalculatorClient";
 const canonical = "https://mysmartcalculators.com/workers-comp/calculator";
 
 export const metadata: Metadata = {
-  title: "Workers Compensation Calculator (2026) | TTD Weekly Benefit + Settlement Estimate",
+  title: "2026 Workers Comp Calculator | TTD & Settlement Estimator",
   description:
-    "Calculate workers comp weekly TTD benefits and estimate settlement range using 2026 state maximum rates. Includes state cap, waiting period, and injury schedule factors.",
+    "Calculate your workers compensation benefits for 2026. Free calculator with 50 state maximum rates, TTD calculation, and settlement estimator.",
   keywords: [
     "workers comp calculator",
     "workers compensation calculator",
@@ -20,17 +20,17 @@ export const metadata: Metadata = {
     canonical,
   },
   openGraph: {
-    title: "Workers Compensation Calculator (2026) | TTD + Settlement Estimate",
+    title: "2026 Workers Comp Calculator | TTD & Settlement Estimator",
     description:
-      "Estimate weekly workers comp benefits and settlement range with state-specific 2026 limits.",
+      "Calculate your workers compensation benefits for 2026. Free calculator with 50 state maximum rates, TTD calculation, and settlement estimator.",
     url: canonical,
     type: "website",
     images: [{ url: "/og-main.png", width: 1200, height: 630, alt: "Workers Comp Calculator" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Workers Compensation Calculator (2026)",
-    description: "TTD weekly benefit and settlement estimator with state caps.",
+    title: "2026 Workers Comp Calculator | TTD & Settlement Estimator",
+    description: "Calculate your workers compensation benefits for 2026. Free calculator with 50 state maximum rates, TTD calculation, and settlement estimator.",
     images: ["/og-main.png"],
   },
 };
@@ -41,9 +41,9 @@ export default function WorkersCompCalculatorPage() {
     "@graph": [
       {
         "@type": "WebPage",
-        name: "Workers Compensation Calculator (2026)",
+        name: "2026 Workers Comp Calculator | TTD & Settlement Estimator",
         description:
-          "Calculate workers comp weekly benefits and settlement range using 2026 state rate assumptions.",
+          "Calculate your workers compensation benefits for 2026. Free calculator with 50 state maximum rates, TTD calculation, and settlement estimator.",
         url: canonical,
         inLanguage: "en-US",
       },
