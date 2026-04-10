@@ -22,10 +22,6 @@ jobs:
     name: Build and restart app on Mac mini
     runs-on: [self-hosted, macmini, mysmartcalculators, deploy]
     timeout-minutes: 30
-    env:
-      APP_DIR: /Users/dyoomhee/websites/hammy/mysmartcalculators
-      NODE_ENV: production
-      NEXT_TELEMETRY_DISABLED: "1"
 
     steps:
       - name: Checkout
@@ -39,20 +35,23 @@ jobs:
 
       - name: Deploy from fixed app dir
         run: |
-          set -euo pipefail
-          git -C "$APP_DIR" fetch origin main
-          git -C "$APP_DIR" reset --hard "$GITHUB_SHA"
+          set -euxo pipefail
+          APP_DIR=/Users/dyoomhee/websites/hammy/mysmartcalculators
           cd "$APP_DIR"
+          git fetch origin main
+          git reset --hard "$GITHUB_SHA"
+          git clean -fdx
           npm ci
           npm run build
 
       - name: Restart Next.js launch agent
         run: |
+          set -euxo pipefail
           launchctl kickstart -k gui/$(id -u)/com.mysmartcalculators.next
 
       - name: Verify app is responding
         run: |
-          set -euo pipefail
+          set -euxo pipefail
           for i in {1..15}; do
             code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:3100/ || true)
             if [ "$code" = "200" ] || [ "$code" = "301" ] || [ "$code" = "302" ] || [ "$code" = "403" ]; then
@@ -64,3 +63,14 @@ jobs:
           done
           echo "App did not respond in time"
           exit 1
+
+      - name: Diagnostics on failure
+        if: failure()
+        run: |
+          set -euxo pipefail
+          APP_DIR=/Users/dyoomhee/websites/hammy/mysmartcalculators
+          git -C "$APP_DIR" fetch origin main || true
+          git -C "$APP_DIR" rev-parse HEAD || true
+          git -C "$APP_DIR" rev-parse origin/main || true
+          tail -n 120 "$APP_DIR"/logs/out.log || true
+          tail -n 120 "$APP_DIR"/logs/err.log || true
