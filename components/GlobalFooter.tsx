@@ -40,7 +40,7 @@ export function GlobalFooter({ siteName = "MySmartCalculators", citation }: Glob
           </div>
           {citation && <p className="text-[10px] text-slate-500 font-medium">{citation}</p>}
           <p className="text-[10px] text-slate-500 font-medium uppercase tracking-widest">
-            &copy; 2025 MySmartCalculators | All rights reserved
+            &copy; 2027 MySmartCalculators | All rights reserved
           </p>
         </div>
       </div>
