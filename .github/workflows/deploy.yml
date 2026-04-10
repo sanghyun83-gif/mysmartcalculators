@@ -40,7 +40,8 @@ jobs:
           cd "$APP_DIR"
           git fetch origin main
           git reset --hard "$GITHUB_SHA"
-          git clean -fdx
+          git clean -fdx -e node_modules/ -e logs/
+          rm -rf .next
           npm ci
           npm run build
 
