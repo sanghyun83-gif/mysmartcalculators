@@ -162,6 +162,139 @@ function formatCurrency(value: number): string {
   return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(value);
 }
 
+type FrequencyKey =
+  | "annually"
+  | "semiannually"
+  | "quarterly"
+  | "monthly"
+  | "semimonthly"
+  | "biweekly"
+  | "weekly"
+  | "daily"
+  | "continuously";
+
+type PaybackKey = "daily" | "weekly" | "biweekly" | "halfmonth" | "month" | "quarter" | "halfyear" | "year";
+
+const COMPOUNDING_PER_YEAR: Record<Exclude<FrequencyKey, "continuously">, number> = {
+  annually: 1,
+  semiannually: 2,
+  quarterly: 4,
+  monthly: 12,
+  semimonthly: 24,
+  biweekly: 26,
+  weekly: 52,
+  daily: 365,
+};
+
+const PAYBACK_PER_YEAR: Record<PaybackKey, number> = {
+  daily: 365,
+  weekly: 52,
+  biweekly: 26,
+  halfmonth: 24,
+  month: 12,
+  quarter: 4,
+  halfyear: 2,
+  year: 1,
+};
+
+function effectiveAnnualRate(annualRatePct: number, compound: FrequencyKey): number {
+  const nominal = Math.max(0, annualRatePct) / 100;
+  if (compound === "continuously") return Math.exp(nominal) - 1;
+  const m = COMPOUNDING_PER_YEAR[compound];
+  return Math.pow(1 + nominal / m, m) - 1;
+}
+
+function calculateAmortizedParity(args: {
+  amount: number;
+  years: number;
+  months: number;
+  annualRatePct: number;
+  compound: FrequencyKey;
+  payback: PaybackKey;
+}) {
+  const { amount, years, months, annualRatePct, compound, payback } = args;
+  const tYears = Math.max(0, years) + Math.max(0, months) / 12;
+  const periodsPerYear = PAYBACK_PER_YEAR[payback];
+  const n = Math.max(1, Math.round(tYears * periodsPerYear));
+  const ear = effectiveAnnualRate(annualRatePct, compound);
+  const periodRate = Math.pow(1 + ear, 1 / periodsPerYear) - 1;
+
+  const payment = periodRate === 0 ? amount / n : (amount * periodRate * Math.pow(1 + periodRate, n)) / (Math.pow(1 + periodRate, n) - 1);
+  const totalPayment = payment * n;
+  const totalInterest = totalPayment - amount;
+
+  const periodLabel = {
+    daily: "Day",
+    weekly: "Week",
+    biweekly: "2 Weeks",
+    halfmonth: "Half-Month",
+    month: "Month",
+    quarter: "Quarter",
+    halfyear: "6 Months",
+    year: "Year",
+  }[payback];
+
+  const rows: Array<{ period: number; payment: number; principal: number; interest: number; balance: number }> = [];
+  let balance = amount;
+  for (let i = 1; i <= n; i += 1) {
+    const interest = Math.max(0, balance * periodRate);
+    const principal = Math.max(0, Math.min(balance, payment - interest));
+    const currentPayment = principal + interest;
+    balance = Math.max(0, balance - principal);
+    rows.push({
+      period: i,
+      payment: currentPayment,
+      principal,
+      interest,
+      balance,
+    });
+    if (balance <= 0.0000001) break;
+  }
+
+  return {
+    payment,
+    totalPayment,
+    totalInterest,
+    periods: n,
+    periodLabel,
+    rows,
+  };
+}
+
+function calculateDeferredParity(args: {
+  amount: number;
+  years: number;
+  months: number;
+  annualRatePct: number;
+  compound: FrequencyKey;
+}) {
+  const { amount, years, months, annualRatePct, compound } = args;
+  const tYears = Math.max(0, years) + Math.max(0, months) / 12;
+  const ear = effectiveAnnualRate(annualRatePct, compound);
+  const dueAtMaturity = amount * Math.pow(1 + ear, tYears);
+  return {
+    dueAtMaturity,
+    totalInterest: dueAtMaturity - amount,
+  };
+}
+
+function calculateBondParity(args: {
+  dueAmount: number;
+  years: number;
+  months: number;
+  annualRatePct: number;
+  compound: FrequencyKey;
+}) {
+  const { dueAmount, years, months, annualRatePct, compound } = args;
+  const tYears = Math.max(0, years) + Math.max(0, months) / 12;
+  const ear = effectiveAnnualRate(annualRatePct, compound);
+  const presentValue = dueAmount / Math.pow(1 + ear, tYears);
+  return {
+    presentValue,
+    totalInterest: dueAmount - presentValue,
+  };
+}
+
 export default function LoanClient() {
   const pathname = usePathname();
   const routePath = pathname || "/loan";
@@ -182,6 +315,33 @@ export default function LoanClient() {
   const [showResults, setShowResults] = useState(false);
   const [copyState, setCopyState] = useState<"idle" | "copied" | "failed">("idle");
 
+  // parity sandbox (calculator.net-style blocks)
+  const [p1Amount, setP1Amount] = useState("100000");
+  const [p1Years, setP1Years] = useState("10");
+  const [p1Months, setP1Months] = useState("0");
+  const [p1Rate, setP1Rate] = useState("6");
+  const [p1Compound, setP1Compound] = useState<FrequencyKey>("monthly");
+  const [p1Payback, setP1Payback] = useState<PaybackKey>("month");
+  const [showParityAmortTable, setShowParityAmortTable] = useState(false);
+  const [showFullParityAmortTable, setShowFullParityAmortTable] = useState(false);
+  const [parityJumpTarget, setParityJumpTarget] = useState("");
+  const [parityFocusPeriod, setParityFocusPeriod] = useState<number | null>(null);
+
+  const [mainJumpTarget, setMainJumpTarget] = useState("");
+  const [mainFocusMonth, setMainFocusMonth] = useState<number | null>(null);
+
+  const [p2Amount, setP2Amount] = useState("100000");
+  const [p2Years, setP2Years] = useState("10");
+  const [p2Months, setP2Months] = useState("0");
+  const [p2Rate, setP2Rate] = useState("6");
+  const [p2Compound, setP2Compound] = useState<FrequencyKey>("annually");
+
+  const [p3DueAmount, setP3DueAmount] = useState("100000");
+  const [p3Years, setP3Years] = useState("10");
+  const [p3Months, setP3Months] = useState("0");
+  const [p3Rate, setP3Rate] = useState("6");
+  const [p3Compound, setP3Compound] = useState<FrequencyKey>("annually");
+
   const faqs = (LOAN_2026.faqs as readonly FAQItem[] | undefined) ?? [];
 
   const parsedAmount = Number(amount) || 0;
@@ -189,6 +349,53 @@ export default function LoanClient() {
   const parsedYears = Number(years) || 0;
   const parsedStartMonth = Number(startMonth) || new Date().getMonth() + 1;
   const parsedStartYear = Number(startYear) || new Date().getFullYear();
+
+  const parityAmortized = calculateAmortizedParity({
+    amount: Math.max(0, Number(p1Amount) || 0),
+    years: Math.max(0, Number(p1Years) || 0),
+    months: Math.max(0, Number(p1Months) || 0),
+    annualRatePct: Math.max(0, Number(p1Rate) || 0),
+    compound: p1Compound,
+    payback: p1Payback,
+  });
+
+  const parityDeferred = calculateDeferredParity({
+    amount: Math.max(0, Number(p2Amount) || 0),
+    years: Math.max(0, Number(p2Years) || 0),
+    months: Math.max(0, Number(p2Months) || 0),
+    annualRatePct: Math.max(0, Number(p2Rate) || 0),
+    compound: p2Compound,
+  });
+
+  const parityBond = calculateBondParity({
+    dueAmount: Math.max(0, Number(p3DueAmount) || 0),
+    years: Math.max(0, Number(p3Years) || 0),
+    months: Math.max(0, Number(p3Months) || 0),
+    annualRatePct: Math.max(0, Number(p3Rate) || 0),
+    compound: p3Compound,
+  });
+
+  const p1PrincipalPct = parityAmortized.totalPayment > 0
+    ? (Math.max(0, Number(p1Amount) || 0) / parityAmortized.totalPayment) * 100
+    : 0;
+  const p1InterestPct = Math.max(0, 100 - p1PrincipalPct);
+
+  const p2PrincipalPct = parityDeferred.dueAtMaturity > 0
+    ? (Math.max(0, Number(p2Amount) || 0) / parityDeferred.dueAtMaturity) * 100
+    : 0;
+  const p2InterestPct = Math.max(0, 100 - p2PrincipalPct);
+
+  const p3Total = parityBond.presentValue + parityBond.totalInterest;
+  const p3PrincipalPct = p3Total > 0 ? (parityBond.presentValue / p3Total) * 100 : 0;
+  const p3InterestPct = Math.max(0, 100 - p3PrincipalPct);
+
+  const visibleParityRows = showFullParityAmortTable ? parityAmortized.rows : parityAmortized.rows.slice(0, 36);
+  const parityFocusClamped = parityFocusPeriod !== null
+    ? Math.min(Math.max(1, Math.round(parityFocusPeriod)), Math.max(1, parityAmortized.rows.length))
+    : null;
+  const parityRowsForRender = parityFocusClamped !== null
+    ? parityAmortized.rows.slice(Math.max(0, parityFocusClamped - 7), Math.min(parityAmortized.rows.length, parityFocusClamped + 6))
+    : visibleParityRows;
 
   const result = (() => {
     if (!showResults || parsedAmount <= 0 || parsedYears <= 0 || parsedRate < 0) return null;
@@ -284,6 +491,14 @@ export default function LoanClient() {
       ? activeSchedule.rows
       : activeSchedule.rows.slice(0, 24)
     : [];
+  const focusedMonthClamped = activeSchedule && mainFocusMonth !== null
+    ? Math.min(Math.max(1, Math.round(mainFocusMonth)), Math.max(1, activeSchedule.rows.length))
+    : null;
+  const scheduleRowsForRender = activeSchedule
+    ? focusedMonthClamped !== null
+      ? activeSchedule.rows.slice(Math.max(0, focusedMonthClamped - 7), Math.min(activeSchedule.rows.length, focusedMonthClamped + 6))
+      : visibleScheduleRows
+    : [];
   const needsScheduleToggle = Boolean(activeSchedule && activeSchedule.rows.length > 24);
 
   function escapeCsvCell(value: string | number) {
@@ -310,6 +525,33 @@ export default function LoanClient() {
       apr: parsedRate,
       years: parsedYears,
     });
+  }
+
+  function applyParityAmortizedToMain() {
+    setAmount(p1Amount || "0");
+    setRate(p1Rate || "0");
+    const y = Math.max(0, Number(p1Years) || 0);
+    const m = Math.max(0, Number(p1Months) || 0);
+    const mergedYears = (y + m / 12).toFixed(2);
+    setYears(mergedYears);
+    setShowResults(true);
+  }
+
+  function jumpParityToPeriod(period: number) {
+    if (parityAmortized.rows.length === 0) return;
+    const target = Math.min(Math.max(1, Math.round(period)), parityAmortized.rows.length);
+    setShowParityAmortTable(true);
+    setShowFullParityAmortTable(true);
+    setParityFocusPeriod(target);
+    setParityJumpTarget(String(target));
+  }
+
+  function jumpMainToMonth(month: number) {
+    if (!activeSchedule || activeSchedule.rows.length === 0) return;
+    const target = Math.min(Math.max(1, Math.round(month)), activeSchedule.rows.length);
+    setShowFullSchedule(true);
+    setMainFocusMonth(target);
+    setMainJumpTarget(String(target));
   }
 
   function handleExportAmortizationCsv() {
@@ -402,6 +644,32 @@ export default function LoanClient() {
     setScheduleMode("extra");
     setShowResults(false);
     setCopyState("idle");
+
+    setP1Amount("100000");
+    setP1Years("10");
+    setP1Months("0");
+    setP1Rate("6");
+    setP1Compound("monthly");
+    setP1Payback("month");
+    setShowParityAmortTable(false);
+    setShowFullParityAmortTable(false);
+    setParityJumpTarget("");
+    setParityFocusPeriod(null);
+
+    setMainJumpTarget("");
+    setMainFocusMonth(null);
+
+    setP2Amount("100000");
+    setP2Years("10");
+    setP2Months("0");
+    setP2Rate("6");
+    setP2Compound("annually");
+
+    setP3DueAmount("100000");
+    setP3Years("10");
+    setP3Months("0");
+    setP3Rate("6");
+    setP3Compound("annually");
   }
 
   async function handleCopyResult() {
@@ -442,6 +710,299 @@ export default function LoanClient() {
           Verified by CFPB Lending Rules + Federal Reserve Credit Standards
         </div>
       </header>
+
+      <section className="max-w-7xl mx-auto px-6 pb-4">
+        <p className="text-sm text-slate-700 mb-3">
+          Upgraded Loan Suite: Amortized, Deferred, and Bond modes are now part of the final product experience.
+        </p>
+        <ol className="list-decimal pl-6 text-sm text-slate-700 space-y-1">
+          <li><a href="#monthlyfixed" className="underline">Amortized Loan: Fixed periodic payments</a></li>
+          <li><a href="#intheend" className="underline">Deferred Payment Loan: Lump sum at maturity</a></li>
+          <li><a href="#fixedend" className="underline">Bond: Present value from predetermined due amount</a></li>
+        </ol>
+      </section>
+
+      <section className="py-2 max-w-7xl mx-auto px-6 space-y-6">
+        <div id="monthlyfixed" className="bg-white border border-slate-200 rounded-md shadow-sm p-4">
+          <h2 className="text-lg font-bold text-slate-900 mb-2">Amortized Loan: Paying Back a Fixed Amount Periodically</h2>
+          <div className="grid lg:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <label className="block text-sm font-semibold text-slate-700">Loan Amount</label>
+              <input value={p1Amount} onChange={(e) => setP1Amount(e.target.value.replace(/[^0-9.]/g, ""))} className="w-full h-9 px-2 border border-slate-300 rounded-md text-sm" />
+
+              <label className="block text-sm font-semibold text-slate-700">Loan Term</label>
+              <div className="grid grid-cols-2 gap-2">
+                <input value={p1Years} onChange={(e) => setP1Years(e.target.value.replace(/[^0-9]/g, ""))} className="h-9 px-2 border border-slate-300 rounded-md text-sm" placeholder="years" />
+                <input value={p1Months} onChange={(e) => setP1Months(e.target.value.replace(/[^0-9]/g, ""))} className="h-9 px-2 border border-slate-300 rounded-md text-sm" placeholder="months" />
+              </div>
+
+              <label className="block text-sm font-semibold text-slate-700">Interest Rate (%)</label>
+              <input value={p1Rate} onChange={(e) => setP1Rate(e.target.value.replace(/[^0-9.]/g, ""))} className="w-full h-9 px-2 border border-slate-300 rounded-md text-sm" />
+
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700">Compound</label>
+                  <select value={p1Compound} onChange={(e) => setP1Compound(e.target.value as FrequencyKey)} className="w-full h-9 px-2 border border-slate-300 rounded-md text-sm">
+                    <option value="annually">Annually (APY)</option><option value="semiannually">Semi-annually</option><option value="quarterly">Quarterly</option><option value="monthly">Monthly (APR)</option><option value="semimonthly">Semi-monthly</option><option value="biweekly">Biweekly</option><option value="weekly">Weekly</option><option value="daily">Daily</option><option value="continuously">Continuously</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700">Pay Back</label>
+                  <select value={p1Payback} onChange={(e) => setP1Payback(e.target.value as PaybackKey)} className="w-full h-9 px-2 border border-slate-300 rounded-md text-sm">
+                    <option value="daily">Every Day</option><option value="weekly">Every Week</option><option value="biweekly">Every 2 Weeks</option><option value="halfmonth">Every Half Month</option><option value="month">Every Month</option><option value="quarter">Every Quarter</option><option value="halfyear">Every 6 Months</option><option value="year">Every Year</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div className="border border-slate-200 rounded-md p-3 bg-slate-50">
+              <h3 className="font-bold text-slate-900 mb-2">Results</h3>
+              <div className="text-sm text-slate-700 space-y-1 mb-3">
+                <p>Payment Every {parityAmortized.periodLabel}: <b>{formatCurrency(parityAmortized.payment)}</b></p>
+                <p>Total of {parityAmortized.periods} Payments: <b>{formatCurrency(parityAmortized.totalPayment)}</b></p>
+                <p>Total Interest: <b>{formatCurrency(parityAmortized.totalInterest)}</b></p>
+              </div>
+
+              <div className="flex items-center gap-3 mb-3">
+                <div className="relative w-24 h-24 md:w-28 md:h-28">
+                  <div
+                    className="w-full h-full rounded-full border border-slate-200"
+                    style={{
+                      background: `conic-gradient(#2563eb 0% ${p1PrincipalPct.toFixed(2)}%, #22c55e ${p1PrincipalPct.toFixed(2)}% 100%)`,
+                    }}
+                  />
+                  <div className="absolute inset-[22%] rounded-full bg-white border border-slate-200 flex items-center justify-center text-[10px] font-bold text-slate-700">
+                    I {p1InterestPct.toFixed(0)}%
+                  </div>
+                </div>
+                <div className="text-xs text-slate-700 space-y-1">
+                  <p><span className="inline-block w-2 h-2 rounded-full bg-blue-600 mr-1" />Principal {p1PrincipalPct.toFixed(1)}%</p>
+                  <p><span className="inline-block w-2 h-2 rounded-full bg-green-500 mr-1" />Interest {p1InterestPct.toFixed(1)}%</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setShowParityAmortTable((prev) => !prev)}
+                  className="text-xs underline text-blue-700 hover:text-blue-900"
+                >
+                  {showParityAmortTable ? "Hide Amortization Table" : "View Amortization Table"}
+                </button>
+                <span className="text-[10px] px-1.5 py-0.5 rounded border border-slate-300 bg-white text-slate-600">Parity Reference</span>
+              </div>
+
+              {showParityAmortTable && (
+                <div className="mt-3">
+                  <div className="mb-2 p-2 rounded border border-blue-100 bg-blue-50/60 flex flex-wrap items-center gap-2 text-xs">
+                    <span className="font-semibold text-slate-700">Period Jump:</span>
+                    <button type="button" onClick={() => jumpParityToPeriod(PAYBACK_PER_YEAR[p1Payback])} className="px-2 py-1 rounded border border-slate-300 bg-white hover:bg-slate-50">1Y</button>
+                    <button type="button" onClick={() => jumpParityToPeriod(PAYBACK_PER_YEAR[p1Payback] * 5)} className="px-2 py-1 rounded border border-slate-300 bg-white hover:bg-slate-50">5Y</button>
+                    <button type="button" onClick={() => jumpParityToPeriod(PAYBACK_PER_YEAR[p1Payback] * 10)} className="px-2 py-1 rounded border border-slate-300 bg-white hover:bg-slate-50">10Y</button>
+                    <input
+                      value={parityJumpTarget}
+                      onChange={(e) => setParityJumpTarget(e.target.value.replace(/[^0-9]/g, ""))}
+                      placeholder="period #"
+                      className="h-7 w-24 px-2 border border-slate-300 rounded bg-white"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => jumpParityToPeriod(Number(parityJumpTarget) || 1)}
+                      className="px-2 py-1 rounded border border-blue-200 bg-blue-100 text-blue-800 hover:bg-blue-200"
+                    >
+                      Go
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setParityFocusPeriod(null);
+                        setParityJumpTarget("");
+                      }}
+                      className="px-2 py-1 rounded border border-slate-300 bg-white hover:bg-slate-50"
+                    >
+                      Clear
+                    </button>
+                    {parityFocusClamped !== null && <span className="text-slate-600">Focused around period {parityFocusClamped}</span>}
+                  </div>
+
+                  <div className="overflow-x-auto border border-slate-200 rounded-md bg-white">
+                    <table className="w-full text-xs border-collapse">
+                      <thead className="bg-slate-100 border-b border-slate-300">
+                        <tr>
+                          <th className="text-left py-1 px-2">Period</th>
+                          <th className="text-left py-1 px-2">Payment</th>
+                          <th className="text-left py-1 px-2">Principal</th>
+                          <th className="text-left py-1 px-2">Interest</th>
+                          <th className="text-left py-1 px-2">Balance</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-100">
+                        {parityRowsForRender.map((row) => (
+                          <tr
+                            key={`parity-row-${row.period}`}
+                            className={row.period === parityFocusClamped ? "bg-blue-100" : "even:bg-slate-50"}
+                          >
+                            <td className="py-1 px-2">{row.period}</td>
+                            <td className="py-1 px-2">{formatCurrency(row.payment)}</td>
+                            <td className="py-1 px-2">{formatCurrency(row.principal)}</td>
+                            <td className="py-1 px-2">{formatCurrency(row.interest)}</td>
+                            <td className="py-1 px-2">{formatCurrency(row.balance)}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  {parityAmortized.rows.length > 36 && (
+                    <button
+                      type="button"
+                      onClick={() => setShowFullParityAmortTable((prev) => !prev)}
+                      className="mt-2 text-xs px-2 py-1 rounded border border-slate-300 bg-white hover:bg-slate-50"
+                    >
+                      {showFullParityAmortTable ? "Show First 36" : `Show Full (${parityAmortized.rows.length})`}
+                    </button>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        <div id="intheend" className="bg-white border border-slate-200 rounded-md shadow-sm p-4">
+          <h2 className="text-lg font-bold text-slate-900 mb-2">Deferred Payment Loan: Paying Back a Lump Sum Due at Maturity</h2>
+          <div className="grid lg:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <label className="block text-sm font-semibold text-slate-700">Loan Amount</label>
+              <input value={p2Amount} onChange={(e) => setP2Amount(e.target.value.replace(/[^0-9.]/g, ""))} className="w-full h-9 px-2 border border-slate-300 rounded-md text-sm" />
+              <label className="block text-sm font-semibold text-slate-700">Loan Term</label>
+              <div className="grid grid-cols-2 gap-2">
+                <input value={p2Years} onChange={(e) => setP2Years(e.target.value.replace(/[^0-9]/g, ""))} className="h-9 px-2 border border-slate-300 rounded-md text-sm" placeholder="years" />
+                <input value={p2Months} onChange={(e) => setP2Months(e.target.value.replace(/[^0-9]/g, ""))} className="h-9 px-2 border border-slate-300 rounded-md text-sm" placeholder="months" />
+              </div>
+              <label className="block text-sm font-semibold text-slate-700">Interest Rate (%)</label>
+              <input value={p2Rate} onChange={(e) => setP2Rate(e.target.value.replace(/[^0-9.]/g, ""))} className="w-full h-9 px-2 border border-slate-300 rounded-md text-sm" />
+              <label className="block text-sm font-semibold text-slate-700">Compound</label>
+              <select value={p2Compound} onChange={(e) => setP2Compound(e.target.value as FrequencyKey)} className="w-full h-9 px-2 border border-slate-300 rounded-md text-sm">
+                <option value="annually">Annually (APY)</option><option value="semiannually">Semi-annually</option><option value="quarterly">Quarterly</option><option value="monthly">Monthly (APR)</option><option value="semimonthly">Semi-monthly</option><option value="biweekly">Biweekly</option><option value="weekly">Weekly</option><option value="daily">Daily</option><option value="continuously">Continuously</option>
+              </select>
+            </div>
+            <div className="border border-slate-200 rounded-md p-3 bg-slate-50">
+              <h3 className="font-bold text-slate-900 mb-2">Results</h3>
+              <div className="text-sm text-slate-700 space-y-1 mb-3">
+                <p>Amount Due at Loan Maturity: <b>{formatCurrency(parityDeferred.dueAtMaturity)}</b></p>
+                <p>Total Interest: <b>{formatCurrency(parityDeferred.totalInterest)}</b></p>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="relative w-24 h-24 md:w-28 md:h-28">
+                  <div
+                    className="w-full h-full rounded-full border border-slate-200"
+                    style={{
+                      background: `conic-gradient(#2563eb 0% ${p2PrincipalPct.toFixed(2)}%, #22c55e ${p2PrincipalPct.toFixed(2)}% 100%)`,
+                    }}
+                  />
+                  <div className="absolute inset-[22%] rounded-full bg-white border border-slate-200 flex items-center justify-center text-[10px] font-bold text-slate-700">
+                    I {p2InterestPct.toFixed(0)}%
+                  </div>
+                </div>
+                <div className="text-xs text-slate-700 space-y-1">
+                  <p><span className="inline-block w-2 h-2 rounded-full bg-blue-600 mr-1" />Principal {p2PrincipalPct.toFixed(1)}%</p>
+                  <p><span className="inline-block w-2 h-2 rounded-full bg-green-500 mr-1" />Interest {p2InterestPct.toFixed(1)}%</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="fixedend" className="bg-white border border-slate-200 rounded-md shadow-sm p-4">
+          <h2 className="text-lg font-bold text-slate-900 mb-2">Bond: Paying Back a Predetermined Amount Due at Loan Maturity</h2>
+          <div className="grid lg:grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <label className="block text-sm font-semibold text-slate-700">Predetermined Due Amount</label>
+              <input value={p3DueAmount} onChange={(e) => setP3DueAmount(e.target.value.replace(/[^0-9.]/g, ""))} className="w-full h-9 px-2 border border-slate-300 rounded-md text-sm" />
+              <label className="block text-sm font-semibold text-slate-700">Loan Term</label>
+              <div className="grid grid-cols-2 gap-2">
+                <input value={p3Years} onChange={(e) => setP3Years(e.target.value.replace(/[^0-9]/g, ""))} className="h-9 px-2 border border-slate-300 rounded-md text-sm" placeholder="years" />
+                <input value={p3Months} onChange={(e) => setP3Months(e.target.value.replace(/[^0-9]/g, ""))} className="h-9 px-2 border border-slate-300 rounded-md text-sm" placeholder="months" />
+              </div>
+              <label className="block text-sm font-semibold text-slate-700">Interest Rate (%)</label>
+              <input value={p3Rate} onChange={(e) => setP3Rate(e.target.value.replace(/[^0-9.]/g, ""))} className="w-full h-9 px-2 border border-slate-300 rounded-md text-sm" />
+              <label className="block text-sm font-semibold text-slate-700">Compound</label>
+              <select value={p3Compound} onChange={(e) => setP3Compound(e.target.value as FrequencyKey)} className="w-full h-9 px-2 border border-slate-300 rounded-md text-sm">
+                <option value="annually">Annually (APY)</option><option value="semiannually">Semi-annually</option><option value="quarterly">Quarterly</option><option value="monthly">Monthly (APR)</option><option value="semimonthly">Semi-monthly</option><option value="biweekly">Biweekly</option><option value="weekly">Weekly</option><option value="daily">Daily</option><option value="continuously">Continuously</option>
+              </select>
+            </div>
+            <div className="border border-slate-200 rounded-md p-3 bg-slate-50">
+              <h3 className="font-bold text-slate-900 mb-2">Results</h3>
+              <div className="text-sm text-slate-700 space-y-1 mb-3">
+                <p>Amount Received When the Loan Starts: <b>{formatCurrency(parityBond.presentValue)}</b></p>
+                <p>Total Interest: <b>{formatCurrency(parityBond.totalInterest)}</b></p>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="relative w-24 h-24 md:w-28 md:h-28">
+                  <div
+                    className="w-full h-full rounded-full border border-slate-200"
+                    style={{
+                      background: `conic-gradient(#2563eb 0% ${p3PrincipalPct.toFixed(2)}%, #22c55e ${p3PrincipalPct.toFixed(2)}% 100%)`,
+                    }}
+                  />
+                  <div className="absolute inset-[22%] rounded-full bg-white border border-slate-200 flex items-center justify-center text-[10px] font-bold text-slate-700">
+                    I {p3InterestPct.toFixed(0)}%
+                  </div>
+                </div>
+                <div className="text-xs text-slate-700 space-y-1">
+                  <p><span className="inline-block w-2 h-2 rounded-full bg-blue-600 mr-1" />Principal {p3PrincipalPct.toFixed(1)}%</p>
+                  <p><span className="inline-block w-2 h-2 rounded-full bg-green-500 mr-1" />Interest {p3InterestPct.toFixed(1)}%</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-6 pb-2">
+        <div className="bg-white border border-blue-200 rounded-md shadow-sm p-4">
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <h2 className="text-sm font-bold text-slate-900 uppercase tracking-tight">Sandbox Upgrade v2: Cross-Mode Comparison</h2>
+            <button
+              type="button"
+              onClick={applyParityAmortizedToMain}
+              className="h-8 px-3 rounded border border-blue-200 bg-blue-50 text-blue-700 text-xs font-semibold hover:bg-blue-100"
+            >
+              Apply Amortized Inputs to Main Engine
+            </button>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm border-collapse">
+              <thead className="bg-slate-100 border-b border-slate-300">
+                <tr>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Mode</th>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Primary Output</th>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Total Interest</th>
+                  <th className="text-left py-1.5 px-2 text-xs text-slate-700">Quick Insight</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200">
+                <tr className="even:bg-slate-50">
+                  <td className="py-1.5 px-2">Amortized</td>
+                  <td className="py-1.5 px-2">{formatCurrency(parityAmortized.payment)} / {parityAmortized.periodLabel}</td>
+                  <td className="py-1.5 px-2">{formatCurrency(parityAmortized.totalInterest)}</td>
+                  <td className="py-1.5 px-2">Best for stable periodic budgeting</td>
+                </tr>
+                <tr className="even:bg-slate-50">
+                  <td className="py-1.5 px-2">Deferred</td>
+                  <td className="py-1.5 px-2">Maturity due {formatCurrency(parityDeferred.dueAtMaturity)}</td>
+                  <td className="py-1.5 px-2">{formatCurrency(parityDeferred.totalInterest)}</td>
+                  <td className="py-1.5 px-2">Cash burden concentrated at maturity</td>
+                </tr>
+                <tr className="even:bg-slate-50">
+                  <td className="py-1.5 px-2">Bond (PV)</td>
+                  <td className="py-1.5 px-2">Start amount {formatCurrency(parityBond.presentValue)}</td>
+                  <td className="py-1.5 px-2">{formatCurrency(parityBond.totalInterest)}</td>
+                  <td className="py-1.5 px-2">Useful for discount / zero-coupon planning</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
 
       <section id="calculator" className="py-2 max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
@@ -835,7 +1396,10 @@ export default function LoanClient() {
             </div>
 
             <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
-              <h3 className="text-sm font-bold text-slate-800 uppercase tracking-tight mb-3">Amortization Preview (First 12 Months)</h3>
+              <div className="flex items-center justify-between gap-2 mb-3">
+                <h3 className="text-sm font-bold text-slate-800 uppercase tracking-tight">Amortization Preview (First 12 Months)</h3>
+                <a href="#full-schedule-v2" className="text-xs text-blue-700 underline hover:text-blue-900">Jump to Full Schedule</a>
+              </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm border-collapse">
                   <thead className="bg-slate-100 border-b border-slate-300">
@@ -868,7 +1432,7 @@ export default function LoanClient() {
               </div>
             </div>
 
-            <div className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
+            <div id="full-schedule-v2" className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
               <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
                 <h3 className="text-sm font-bold text-slate-800 uppercase tracking-tight">
                   Full Amortization Schedule (v2)
@@ -925,6 +1489,36 @@ export default function LoanClient() {
                     Current view: {scheduleMode} plan, payoff {activeSchedule.payoffLabel}, total interest{" "}
                     {formatCurrency(activeSchedule.totalInterest)}.
                   </p>
+                  <div className="mb-2 p-2 rounded border border-blue-100 bg-blue-50/60 flex flex-wrap items-center gap-2 text-xs">
+                    <span className="font-semibold text-slate-700">Month Jump:</span>
+                    <button type="button" onClick={() => jumpMainToMonth(12)} className="px-2 py-1 rounded border border-slate-300 bg-white hover:bg-slate-50">1Y</button>
+                    <button type="button" onClick={() => jumpMainToMonth(60)} className="px-2 py-1 rounded border border-slate-300 bg-white hover:bg-slate-50">5Y</button>
+                    <button type="button" onClick={() => jumpMainToMonth(120)} className="px-2 py-1 rounded border border-slate-300 bg-white hover:bg-slate-50">10Y</button>
+                    <input
+                      value={mainJumpTarget}
+                      onChange={(e) => setMainJumpTarget(e.target.value.replace(/[^0-9]/g, ""))}
+                      placeholder="month #"
+                      className="h-7 w-24 px-2 border border-slate-300 rounded bg-white"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => jumpMainToMonth(Number(mainJumpTarget) || 1)}
+                      className="px-2 py-1 rounded border border-blue-200 bg-blue-100 text-blue-800 hover:bg-blue-200"
+                    >
+                      Go
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setMainFocusMonth(null);
+                        setMainJumpTarget("");
+                      }}
+                      className="px-2 py-1 rounded border border-slate-300 bg-white hover:bg-slate-50"
+                    >
+                      Clear
+                    </button>
+                    {focusedMonthClamped !== null && <span className="text-slate-600">Focused around month {focusedMonthClamped}</span>}
+                  </div>
                   <div className="overflow-x-auto">
                     <table className="w-full text-sm border-collapse">
                       <thead className="bg-slate-100 border-b border-slate-300">
@@ -939,8 +1533,11 @@ export default function LoanClient() {
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-slate-200">
-                        {visibleScheduleRows.map((row) => (
-                          <tr key={`${scheduleMode}-${row.month}`} className="even:bg-slate-50">
+                        {scheduleRowsForRender.map((row) => (
+                          <tr
+                            key={`${scheduleMode}-${row.month}`}
+                            className={row.month === focusedMonthClamped ? "bg-blue-100" : "even:bg-slate-50"}
+                          >
                             <td className="py-1.5 px-2 text-slate-700">{row.month}</td>
                             <td className="py-1.5 px-2 text-slate-700">{row.periodLabel}</td>
                             <td className="py-1.5 px-2 text-slate-700">{formatCurrency(row.payment)}</td>
@@ -985,6 +1582,18 @@ export default function LoanClient() {
             <li>Stress test with APR +1.0% to avoid over-borrowing under optimistic assumptions.</li>
             <li>If the payoff month is too far out, shorten term or increase principal reduction plan.</li>
           </ul>
+        </section>
+
+        <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4 space-y-3">
+          <h2 className="text-base font-bold text-slate-900">Loan Basics for Borrowers</h2>
+          <h3 className="text-sm font-bold text-slate-900">Interest Rate</h3>
+          <p className="text-sm text-slate-700">Interest rate is the borrowing cost. APR reflects yearly cost and can include fees, while APY reflects yield and compounding impact.</p>
+          <h3 className="text-sm font-bold text-slate-900">Compounding Frequency</h3>
+          <p className="text-sm text-slate-700">More frequent compounding increases effective borrowing cost for the same nominal rate.</p>
+          <h3 className="text-sm font-bold text-slate-900">Loan Term</h3>
+          <p className="text-sm text-slate-700">Longer terms lower periodic payments but usually increase total interest paid.</p>
+          <h3 className="text-sm font-bold text-slate-900">Secured vs Unsecured</h3>
+          <p className="text-sm text-slate-700">Secured loans use collateral and often lower rates. Unsecured loans usually have higher rates and stricter underwriting.</p>
         </section>
 
         <section className="bg-white border border-slate-200 shadow-sm rounded-md p-4">
