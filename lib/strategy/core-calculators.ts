@@ -21,7 +21,13 @@ export const CORE_CALCULATOR_IDS = [
   "workers-comp",
 ] as const;
 
+export type CoreCalculatorId = (typeof CORE_CALCULATOR_IDS)[number];
+
 export const CORE_CALCULATOR_SET = new Set<string>(CORE_CALCULATOR_IDS);
+
+export function isCoreCalculatorId(id: string): id is CoreCalculatorId {
+  return CORE_CALCULATOR_SET.has(id);
+}
 
 export const NON_CALCULATOR_SEGMENTS = new Set<string>([
   "",
@@ -51,7 +57,7 @@ export function isCoreCalculatorPath(pathname: string): boolean {
   const normalized = normalizePath(pathname);
   const firstSegment = getFirstSegment(normalized);
   if (!firstSegment) return false;
-  if (!CORE_CALCULATOR_SET.has(firstSegment)) return false;
+  if (!isCoreCalculatorId(firstSegment)) return false;
   return normalized === `/${firstSegment}` || normalized.startsWith(`/${firstSegment}/`);
 }
 
