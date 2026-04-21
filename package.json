@@ -7,7 +7,7 @@
     "prebuild": "node scripts/audit-search-sync.js && node scripts/audit-sitemap-integrity.js",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "eslint app/page.tsx app/sitemap.ts app/robots.ts middleware.ts components/RelatedCalculators.tsx components/GlobalFooter.tsx components/v3/GlobalHeader.tsx components/analytics/FoundationEventTracker.tsx lib/analytics/ga.ts lib/strategy/core-calculators.ts lib/registry/calculators.ts lib/categories.ts lib/all-calculators.ts lib/registry/layout-config.ts next.config.ts",
     "audit:search": "node scripts/audit-search-sync.js",
     "audit:sitemap": "node scripts/audit-sitemap-integrity.js",
     "qa:structure": "node scripts/check-structure-gates.js"

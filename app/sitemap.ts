@@ -11,18 +11,6 @@ const BASE_URL = "https://mysmartcalculators.com";
 // High-ROI calculator subpages to include
 const SUBPAGES = ['settlements', 'legal-guide', 'regulations', 'calculator'];
 
-// Calculators known to have subpages (high-value ones)
-const CALCULATORS_WITH_SUBPAGES = [
-    'truck-accident', 'car-accident', 'motorcycle-accident', 'slip-and-fall',
-    'workers-comp', 'wrongful-death', 'malpractice', 'dog-bite', 'nursing-home',
-    'mesothelioma', 'asbestos', 'ozempic', 'camp-lejeune', 'roundup', 'hernia-mesh',
-    '401k-growth', 'mortgage', 'tax', 'student-loan', 'social-security', 'ssdi',
-    'auto-insurance', 'life-insurance', 'pet-insurance', 'bmi', 'calorie',
-    'scientific', 'percentage', 'age', 'gpa', 'loan', 'tip', 'compound-interest',
-    'child-support', 'alimony', 'divorce', 'retirement', 'roth-ira', 'fafsa',
-    'body-fat', 'salary', 'due-date', 'grade', 'binary', 'date', 'conversion',
-    'square-footage', 'ovulation'
-];
 
 function getFileMtime(filePath: string): Date | null {
     try {
@@ -153,9 +141,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // 4. Subpages for Core calculators only
     const subpageUrls: MetadataRoute.Sitemap = [];
     const existingSubpagesByCalculator = getExistingCalculatorSubpages();
-    for (const calc of CALCULATORS_WITH_SUBPAGES) {
-        if (!CORE_CALCULATOR_SET.has(calc)) continue;
-
+    for (const calc of calculators) {
         const existingSubpages = existingSubpagesByCalculator.get(calc);
         if (!existingSubpages) continue;
 

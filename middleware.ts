@@ -59,14 +59,19 @@ export function middleware(request: NextRequest) {
     return new NextResponse("Forbidden", { status: 403 });
   }
 
-  const response = NextResponse.next();
-
-  // Gate #2: keep non-core calculator routes serviceable, but remove from index.
+  // Gate #2: non-core calculator routes are intentionally retired.
+  // Return 410 Gone to signal permanent removal.
   if (isLikelyCalculatorPath(pathname) && !isCoreCalculatorPath(pathname)) {
-    response.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+    return new NextResponse("Gone", {
+      status: 410,
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "X-Robots-Tag": "noindex, nofollow, noarchive",
+      },
+    });
   }
 
-  return response;
+  return NextResponse.next();
 }
 
 export const config = {

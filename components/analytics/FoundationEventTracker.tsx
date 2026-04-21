@@ -3,36 +3,24 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { sendGaEvent } from "@/lib/analytics/ga";
+import {
+  getFirstSegment,
+  isCoreCalculatorId,
+  isCoreCalculatorPath,
+} from "@/lib/strategy/core-calculators";
 
 const EVENT_THROTTLE_MS = 5000;
-
-const NON_CALCULATOR_PATHS = new Set([
-  "",
-  "about",
-  "contact",
-  "privacy",
-  "terms",
-  "accessibility",
-  "calculators",
-  "sandbox-seo",
-  "v3-sandbox",
-]);
-
-function getFirstSegment(pathname: string) {
-  return pathname.replace(/^\/+/, "").split("/")[0] ?? "";
-}
-
-function isCalculatorPath(pathname: string) {
-  const segment = getFirstSegment(pathname);
-  return segment.length > 0 && !NON_CALCULATOR_PATHS.has(segment);
-}
 
 export default function FoundationEventTracker() {
   const pathname = usePathname();
 
   useEffect(() => {
     const currentPath = pathname || "/";
-    const calculatorPath = isCalculatorPath(currentPath);
+    const firstSegment = getFirstSegment(currentPath);
+    const coreCalculatorId =
+      isCoreCalculatorPath(currentPath) && isCoreCalculatorId(firstSegment)
+        ? firstSegment
+        : null;
 
     function isHiddenContext() {
       return document.visibilityState !== "visible" || !document.hasFocus();
@@ -49,8 +37,7 @@ export default function FoundationEventTracker() {
     }
 
     function onFocusIn(event: FocusEvent) {
-      if (!calculatorPath || isHiddenContext()) return;
-      const target = event.target as HTMLElement | null;
+      if (!coreCalculatorId || isHiddenContext()) return;      const target = event.target as HTMLElement | null;
       if (!target) return;
       const isFormField =
         target.tagName === "INPUT" ||
@@ -67,6 +54,7 @@ export default function FoundationEventTracker() {
       sendGaEvent("calculator_start", {
         path: currentPath,
         route: currentPath,
+        calculator_id: coreCalculatorId,
       });
       sessionStorage.setItem(sentKey, "1");
     }
@@ -80,7 +68,7 @@ export default function FoundationEventTracker() {
       const button = element.closest("button");
       const link = element.closest("a");
 
-      if (button && calculatorPath) {
+      if (button && coreCalculatorId) {
         const label = (button.textContent || "").trim().slice(0, 80);
         if (/calculate|estimate|result/i.test(label)) {
           const throttleKey = `ga_throttle:calculator_complete:${currentPath}`;
@@ -89,6 +77,7 @@ export default function FoundationEventTracker() {
           sendGaEvent("calculator_complete", {
             path: currentPath,
             route: currentPath,
+            calculator_id: coreCalculatorId,
             label: label || "unknown_button",
           });
         }
@@ -105,6 +94,7 @@ export default function FoundationEventTracker() {
           sendGaEvent("contact_click", {
             path: currentPath,
             route: currentPath,
+            calculator_id: coreCalculatorId ?? undefined,
             href,
             label: label || "contact_link",
           });
@@ -118,6 +108,7 @@ export default function FoundationEventTracker() {
           sendGaEvent("cta_click", {
             path: currentPath,
             route: currentPath,
+            calculator_id: coreCalculatorId ?? undefined,
             href,
             label: label || "cta_link",
           });

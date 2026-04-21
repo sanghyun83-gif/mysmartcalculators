@@ -1,3 +1,5 @@
+import { isCoreCalculatorId } from "@/lib/strategy/core-calculators";
+
 export type GaEventName =
   | "calculator_start"
   | "calculator_complete"
@@ -24,6 +26,25 @@ declare global {
   }
 }
 
+function sanitizeCoreCalculatorParam(params: GaEventParams): GaEventParams {
+  const calculatorId = params.calculator_id;
+  if (typeof calculatorId !== "string") return params;
+
+  if (!isCoreCalculatorId(calculatorId)) {
+    const rest = { ...params };
+    delete rest.calculator_id;
+    return {
+      ...rest,
+      calculator_scope: "non_core_filtered",
+    };
+  }
+
+  return {
+    ...params,
+    calculator_scope: "core20",
+  };
+}
+
 export function sendGaEvent(name: GaEventName, params: GaEventParams = {}) {
   if (typeof window === "undefined" || typeof window.gtag !== "function") {
     return;
@@ -31,7 +52,7 @@ export function sendGaEvent(name: GaEventName, params: GaEventParams = {}) {
 
   const merged: GaEventParams = {
     traffic_quality: detectTrafficQuality(),
-    ...params,
+    ...sanitizeCoreCalculatorParam(params),
   };
 
   window.gtag("event", name, merged);
