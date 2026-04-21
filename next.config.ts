@@ -86,7 +86,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/401k',
-        destination: '/401k-growth',
+        destination: '/compound-interest',
         permanent: true,
       },
 
