@@ -19,7 +19,12 @@ export const metadata: Metadata = {
   title: "MySmartCalculators | 316+ Free Legal, Finance & Insurance Calculators",
   description: "Free online calculators for legal settlements, personal injury claims, mortgage, taxes, insurance, and more. Accurate 2026 calculations across 316+ engines.",
   keywords: ["calculator", "settlement calculator", "injury calculator", "mortgage calculator", "tax calculator", "insurance calculator", "legal calculator"],
-  verification: { google: "qlPMVO_Hb-be3_hFHNT9SBbsHO-b_wCOfWfLmTb4EQc" },
+  verification: {
+    google: [
+      "qlPMVO_Hb-be3_hFHNT9SBbsHO-b_wCOfWfLmTb4EQc",
+      "XSa77Dr4f5SUkZbDympXP0BJGRwURcKiwMylqrf-oUM",
+    ],
+  },
   openGraph: {
     title: "MySmartCalculators | 316+ Free Calculators",
     description: "Free online calculators for legal, finance, insurance, and health across 316+ engines.",
